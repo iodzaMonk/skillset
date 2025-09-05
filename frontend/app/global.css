@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&family=Libertinus+Keyboard&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-asimovian: 'Asimovian', sans-serif;
+}
