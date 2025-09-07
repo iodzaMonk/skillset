@@ -5,6 +5,7 @@ export default function About() {
     <div
       className={`flex min-h-screen w-full items-center justify-center text-3xl leading-relaxed ${sarala.className}`}
     >
+      {/* eslint-disable react/no-unescaped-entities */}
       <div className="w-3/5">
         SkillSet was built on a simple idea: talent should never sit on the
         sidelines. Whether you're a designer in Paris, a developer in Lagos, or
@@ -21,6 +22,7 @@ export default function About() {
         everywhere the freedom to sell their skills, pursue their passions, and
         shape their own future.
       </div>
+      {/* eslint-disable react/no-unescaped-entities */}
     </div>
   );
 }
