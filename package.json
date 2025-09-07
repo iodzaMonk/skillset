@@ -8,11 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier . --write",
-    "format:check": "prettier . --check",
-    "postinstall": "prisma generate && prisma migrate deploy"
-  },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "format:check": "prettier . --check"
   },
   "dependencies": {
     "@prisma/client": "^6.15.0",
