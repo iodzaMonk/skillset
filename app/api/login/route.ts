@@ -8,12 +8,19 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const user =
-      await sql`insert into users (name, email,password,country,birthday) values (${body.name}, ${body.email}, ${body.password}, ${body.country}, ${body.birthday}) returning *;
+      await sql`select * from users where email = ${body.email} and password = ${body.password};
     `;
-    return new Response(JSON.stringify(user), {
-      status: 200,
-      headers: { "x-referer": referer || "" },
-    });
+    if (user.length === 0) {
+      return new Response("Invalid credentials", {
+        status: 401,
+        headers: { "x-referer": referer || "" },
+      });
+    } else {
+      return new Response("Success", {
+        status: 200,
+        headers: { "x-referer": referer || "" },
+      });
+    }
   } catch (error) {
     console.log(error);
     return new Response("Error", {
