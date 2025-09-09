@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import sql from "../../../db";
+import { createSession } from "@/app/lib/session";
 
 export async function POST(req: Request) {
   const headersList = await headers();
@@ -8,15 +9,15 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const user =
-      await sql`select * from users where email = ${body.email} and password = ${body.password};
-    `;
+      await sql`select id from users where email = ${body.email} and password = ${body.password};`;
     if (user.length === 0) {
       return new Response("Invalid credentials", {
         status: 401,
         headers: { "x-referer": referer || "" },
       });
     } else {
-      return new Response("Success", {
+      const log = await createSession(user[0].id);
+      return new Response(JSON.stringify(log), {
         status: 200,
         headers: { "x-referer": referer || "" },
       });
