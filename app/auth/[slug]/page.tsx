@@ -1,18 +1,60 @@
 "use client";
-import { Button } from "flowbite-react";
+import { Button, Datepicker } from "flowbite-react";
 import { TransitionLink } from "@/app/utils/TransitionLink";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import axios from "axios";
+import { useState } from "react";
+import { format } from "date-fns";
+import * as countryList from "country-list";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
-  "focus:outline-none focus:ring-2 focus:ring-[--color-ring] focus:border-transparent transition";
+  "focus:outline-ring focus:ring-2 focus:ring-[--color-ring] focus:border-transparent transition";
 
 const labelBase = "mb-2 block text-sm font-medium text-text";
 const hintText = "text-sm text-text-muted";
 
 export default function Auth() {
   const { slug } = useParams<{ slug: string }>();
+  const [country, setCountry] = useState("");
+  const [birthday, setBirthday] = useState<Date | null>(new Date());
   const login = slug === "login";
+
+  const router = useRouter();
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    let response;
+    if (login) {
+      const payload = {
+        email: form.get("email"),
+        password: form.get("password"),
+      };
+      response = await axios.post("/api/login", payload);
+      router.push("/");
+    } else {
+      const payload = {
+        name: form.get("name"),
+        email: form.get("email"),
+        password: form.get("password"),
+        country: country,
+        birthday: birthday,
+      };
+      response = await axios.post("/api/register", payload);
+    }
+    if (response.status === 200) {
+      router.push("/");
+    }
+  }
 
   return (
     <>
@@ -25,14 +67,14 @@ export default function Auth() {
                   Sign in to your account
                 </h1>
 
-                <form className="space-y-5" action="#">
+                <form className="space-y-5" onSubmit={onSubmit}>
                   <div>
                     <label htmlFor="email" className={labelBase}>
                       Your email
                     </label>
                     <input
                       type="email"
-                      id="email"
+                      name="email"
                       placeholder="name@company.com"
                       className={inputBase}
                       required
@@ -46,7 +88,7 @@ export default function Auth() {
                     </label>
                     <input
                       type="password"
-                      id="password"
+                      name="password"
                       placeholder="••••••••"
                       className={inputBase}
                       required
@@ -97,14 +139,14 @@ export default function Auth() {
         <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-6 px-4 !font-sans">
           <h1 className="text-text text-4xl font-bold">Sign up</h1>
 
-          <form className="mx-auto w-full space-y-6">
+          <form onSubmit={onSubmit} className="mx-auto w-full space-y-6">
             <div>
               <label htmlFor="floating_email" className={labelBase}>
                 Email address
               </label>
               <input
+                name="email"
                 type="email"
-                id="floating_email"
                 className={inputBase}
                 placeholder="you@example.com"
                 required
@@ -112,63 +154,19 @@ export default function Auth() {
               />
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <label htmlFor="floating_first_name" className={labelBase}>
-                  First name
-                </label>
-                <input
-                  type="text"
-                  id="floating_first_name"
-                  className={inputBase}
-                  placeholder="Jane"
-                  required
-                  autoComplete="given-name"
-                />
-              </div>
-              <div>
-                <label htmlFor="floating_last_name" className={labelBase}>
-                  Last name
-                </label>
-                <input
-                  type="text"
-                  id="floating_last_name"
-                  className={inputBase}
-                  placeholder="Doe"
-                  required
-                  autoComplete="family-name"
-                />
-              </div>
+            <div>
+              <label htmlFor="floating_first_name" className={labelBase}>
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                className={inputBase}
+                placeholder="Jane"
+                required
+                autoComplete="given-name"
+              />
             </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <label htmlFor="floating_phone" className={labelBase}>
-                  Phone number
-                </label>
-                <input
-                  type="tel"
-                  id="floating_phone"
-                  className={inputBase}
-                  placeholder="123-456-7890"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                  autoComplete="tel"
-                />
-              </div>
-              <div>
-                <label htmlFor="floating_company" className={labelBase}>
-                  Company (optional)
-                </label>
-                <input
-                  type="text"
-                  id="floating_company"
-                  className={inputBase}
-                  placeholder="Acme Inc."
-                  autoComplete="organization"
-                />
-              </div>
-            </div>
-
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <label htmlFor="floating_password" className={labelBase}>
@@ -176,7 +174,7 @@ export default function Auth() {
                 </label>
                 <input
                   type="password"
-                  id="floating_password"
+                  name="password"
                   className={inputBase}
                   placeholder="••••••••"
                   required
@@ -189,7 +187,6 @@ export default function Auth() {
                 </label>
                 <input
                   type="password"
-                  id="floating_repeat_password"
                   className={inputBase}
                   placeholder="••••••••"
                   required
@@ -197,6 +194,47 @@ export default function Auth() {
                 />
               </div>
             </div>
+            <div id="countries">
+              <label
+                htmlFor="countries"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Select an option
+              </label>
+
+              <Select value={country} onValueChange={setCountry}>
+                <SelectTrigger className="bg-surface w-full">
+                  <SelectValue placeholder="Country" />
+                </SelectTrigger>
+                <SelectContent
+                  position="popper"
+                  side="bottom"
+                  align="start"
+                  sideOffset={6}
+                  className="border-border bg-surface text-text z-[9999] rounded-md border shadow-xl"
+                >
+                  {countryList.getData().map((c, i) => (
+                    <SelectItem
+                      className="data-[highlighted]:!bg-accent/20 data-[highlighted]:!text-text data-[state-checked]:!bg-accent data-[state-checked]:!text-text-onAccent cursor-pointer px-3 py-2 text-sm data-[disabled]:opacity-50"
+                      key={i}
+                      value={c.code}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className={`fi fi-${c.code.toLowerCase()}`} />
+                      </div>
+                      {c.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <Datepicker id="datepicker" onChange={setBirthday} />
+            <input
+              type="hidden"
+              name="birthday"
+              value={birthday ? format(birthday, "dd/MM/yyyy") : ""}
+            />
 
             <div className="flex flex-wrap items-center gap-4">
               <button

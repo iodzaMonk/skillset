@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const user =
-      await sql`insert into users (name, email,password,country,birthday) values (${body.name}, ${body.email}, ${body.password}, ${body.country}, ${body.birthday}) returning *;
+      await sql`insert into users (name, email,password,country,birthday) values (${body.name}, ${body.email}, ${body.password}, ${body.country}, ${body.birthday});
     `;
     await createSession(user[0].id);
     return new Response(JSON.stringify(user), {

@@ -6,6 +6,7 @@
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
+@import "flag-icons/css/flag-icons.min.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -55,8 +56,6 @@
   --color-accent-hover: oklch(78% 0.031 256);
   --color-ring: oklch(84.36% 0.031 256 / 0.45);
   --color-transition: oklch(0% 0 0);
-
-  --color-transition: oklch(0% 0 0);
 }
 
 @layer utilities {
@@ -87,5 +86,13 @@
     -webkit-box-shadow: 0 0 0px 1000px
       color-mix(in oklch, var(--color-surface) 90%, black) inset;
     transition: background-color 9999s ease-in-out 0s;
+  }
+
+  #datepicker {
+    background-color: var(--color-surface);
+  }
+
+  #countries option {
+    background-color: var(--color-primary) !important;
   }
 }
