@@ -49,7 +49,7 @@ export default function Auth() {
         country: country,
         birthday: birthday,
       };
-      response = await axios.post("/api/register", payload);
+      response = await axios.post("/api/user/register", payload);
     }
     if (response.status === 200) {
       router.push("/");

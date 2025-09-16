@@ -14,6 +14,7 @@ export default function Header() {
     { name: "Sign up", link: "/auth/signup" },
     { name: "About us", link: "/about" },
     { name: "Browse", link: "/browse" },
+    { name: "MyProducts", link: "/myproduct" },
   ];
 
   useEffect(() => {

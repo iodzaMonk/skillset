@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import sql from "../../../db";
+import sql from "../../../../db";
 import { createSession } from "@/app/lib/session";
 import { createClient } from "@/app/utils/supabase/server";
 export async function POST(req: Request) {
