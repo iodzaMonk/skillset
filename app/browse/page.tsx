@@ -2,7 +2,7 @@ import { createClient } from "../utils/supabase/server";
 
 export default async function Page() {
   const supabase = await createClient();
-  const { data: products } = await supabase.from("products").select();
+  const { data: products } = await supabase.from("posts").select();
   return (
     <main className="mx-auto max-w-4xl p-6">
       <h1 className="text-text mb-6 text-3xl font-bold">Products</h1>
