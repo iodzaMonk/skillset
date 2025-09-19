@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import bcrypt from "bcryptjs";
 import { createSession } from "@/app/lib/session";
 import { createClient } from "@/app/utils/supabase/server";
-
+import { sendEmail } from "@/app/utils/email";
 export async function POST(req: Request) {
   const headersList = await headers();
   const referer = headersList.get("referer");
