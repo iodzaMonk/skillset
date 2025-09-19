@@ -16,7 +16,7 @@ export default async function Page() {
               className="border-border bg-surface rounded-lg border p-4"
             >
               <div className="flex items-baseline justify-between">
-                <h2 className="text-text text-lg font-semibold">{p.name}</h2>
+                <h2 className="text-text text-lg font-semibold">{p.title}</h2>
                 <span className="text-accent font-semibold">
                   ${p.price.toFixed(2)}
                 </span>
