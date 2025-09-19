@@ -4,6 +4,7 @@ import { ThemeInit } from "../.flowbite-react/init";
 import "./globals.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import AuthProvider from "./context/AuthProvider";
 
 export const metadata: Metadata = {
   title: "SkillSet",
@@ -21,9 +22,11 @@ export default function RootLayout({
       <body className="bg-canvas text-text !font-Faustina flex min-h-dvh flex-col antialiased">
         <ThemeInit />
 
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
