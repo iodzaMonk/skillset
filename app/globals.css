@@ -34,6 +34,9 @@
   --color-accent-hover: oklch(80% 0.031 256);
   --color-ring: oklch(84.36% 0.031 256 / 0.42);
   --color-transition: oklch(100% 0 0);
+
+  /* Buttons */
+  --color-button-create: oklch(82.114% 0.24822 146.292);
 }
 
 .dark {
@@ -56,6 +59,9 @@
   --color-accent-hover: oklch(78% 0.031 256);
   --color-ring: oklch(84.36% 0.031 256 / 0.45);
   --color-transition: oklch(0% 0 0);
+
+  /* Buttons */
+  --color-button-create: oklch(75.368% 0.25199 141.748);
 }
 
 @layer utilities {

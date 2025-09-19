@@ -22,9 +22,10 @@ import {
   useState,
 } from "react";
 import { useAuth } from "../context/AuthContext";
+import { id } from "zod/v4/locales";
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
-  "focus:outline-ring focus:ring-2 focus:ring-[--color-ring] focus:border-transparent transition";
+  "focus:outline-ring focus:ring-2 focus:ring-[--color-ring] focus:border-transparent transition resize-none";
 
 const labelBase = "mb-2 block text-sm font-medium text-text";
 const hintText = "text-sm text-text-muted";
@@ -43,7 +44,18 @@ export default function MyProducts() {
       .get("/api/product/user")
       .then((res) => setProduct(res.data.data))
       .catch((err) => console.error("Failed to fetch products", err));
+    console.log(product);
   }, [user?.id]);
+
+  async function onclick(id: Key) {
+    axios
+      .delete("/api/product", { data: { id: id } })
+      .then((res) => {
+        console.log(res);
+        router.refresh();
+      })
+      .catch((err) => console.error("Failed to delete product", err));
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     console.log("Submitting form...");
@@ -73,10 +85,15 @@ export default function MyProducts() {
     <main className="c mx-auto max-w-4xl p-6">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline" className={labelBase}>
+          <Button
+            variant="outline"
+            className="bg-accent/10 hover:bg-accent/20 mb-4"
+          >
             Add a good/service
           </Button>
         </DialogTrigger>
+        <h1>My Products</h1>
+
         <DialogContent className="bg-surface sm:max-w-[425px]">
           <form onSubmit={onSubmit}>
             <DialogHeader>
@@ -95,7 +112,7 @@ export default function MyProducts() {
                 </Label>
                 <Input
                   id="service_name"
-                  name="title"
+                  name="service_name"
                   placeholder="Title"
                   className={inputBase}
                   required
@@ -131,26 +148,30 @@ export default function MyProducts() {
             </div>
             <div className="mt-6 flex justify-end gap-3">
               <Button
-                className={labelBase}
+                className="hover:bg-text-muted/20 border-1"
                 type="button"
                 variant="outline"
                 onClick={() => setOpen(false)}
               >
                 Cancel
               </Button>
-              <Button type="submit">Save changes</Button>
+              <Button
+                type="submit"
+                className="bg-button-create/60 hover:bg-button-create/70 border-1"
+              >
+                Create
+              </Button>
             </div>
           </form>
         </DialogContent>
       </Dialog>
-      <h1>My Products</h1>
       {product === null ? (
         <p className="text-text-muted">No products yet.</p>
       ) : (
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {product.map(
             (p: {
-              id: Key;
+              id: number | Key;
               title: string;
               price: number;
               description: string;
@@ -170,6 +191,25 @@ export default function MyProducts() {
                     {p.description}
                   </p>
                 )}
+                <button
+                  type="button"
+                  onClick={() => onclick(p.id)}
+                  className="inline-flex items-center rounded-lg border border-red-600 px-5 py-2.5 text-sm font-medium text-red-600 hover:bg-red-600 hover:text-white focus:ring-4 focus:ring-red-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <svg
+                    className="mr-1 -ml-1 h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                  Delete
+                </button>
               </li>
             ),
           )}
