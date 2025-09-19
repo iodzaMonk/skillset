@@ -34,7 +34,7 @@ export default function Header() {
     ? [
         { name: "About us", href: "/about" },
         { name: "Browse", href: "/browse" },
-        { name: "MyProducts", href: "/myproduct" },
+        { name: "My Products", href: "/myproduct" },
         { name: "Settings", href: "/settings" },
         { name: "Logout", action: handleLogout },
       ]
@@ -43,7 +43,6 @@ export default function Header() {
         { name: "Sign up", href: "/auth/signup" },
         { name: "About us", href: "/about" },
         { name: "Browse", href: "/browse" },
-        { name: "MyProducts", href: "/myproduct" },
       ];
 
   useEffect(() => {
