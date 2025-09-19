@@ -18,10 +18,8 @@ export async function getCurrentUser() {
     .single();
 
   if (error || !data) {
-    console.error(error?.message ?? "Unable to fetch current user");
     return null;
   }
 
   return data;
 }
-

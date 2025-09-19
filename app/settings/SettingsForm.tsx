@@ -1,7 +1,7 @@
 "use client";
 
 import { Datepicker } from "flowbite-react";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { format } from "date-fns";
 import countries from "@/lib/countries.json";
 import {
@@ -15,6 +15,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/context/AuthContext";
 import type { User } from "../types/User";
+import Modal from "./modal";
 
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
@@ -36,6 +37,7 @@ export function SettingsForm({ user }: { user: User }) {
   const [error, setError] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const router = useRouter();
   const { refresh, setUser } = useAuth();
@@ -50,7 +52,7 @@ export function SettingsForm({ user }: { user: User }) {
       router.push("/auth/signup");
     } catch (err) {
       const message = axios.isAxiosError(err)
-        ? err.response?.data?.message ?? "Something went wrong"
+        ? (err.response?.data?.message ?? "Something went wrong")
         : "Something went wrong";
       setError(message);
     } finally {
@@ -71,7 +73,7 @@ export function SettingsForm({ user }: { user: User }) {
         id: user.id,
         email: form.get("email"),
         name: form.get("name"),
-        password: form.get("password"),
+        password: form.get("newPassword"),
         country,
         birthday,
       };
@@ -79,7 +81,7 @@ export function SettingsForm({ user }: { user: User }) {
       await refresh();
     } catch (err) {
       const message = axios.isAxiosError(err)
-        ? err.response?.data?.message ?? "Something went wrong"
+        ? (err.response?.data?.message ?? "Something went wrong")
         : "Something went wrong";
       setError(message);
     } finally {
@@ -89,8 +91,10 @@ export function SettingsForm({ user }: { user: User }) {
 
   return (
     <div className="bg-surface border-border mx-auto my-20 min-h-[30vh] w-4/5 rounded border p-20">
-      <h1 className="pt-5 text-center text-5xl">Settings</h1>
+      <h1 className="pt-5 text-center text-7xl">Settings</h1>
       <form className="mx-auto w-full space-y-6" onSubmit={updateUser}>
+        <h1 className="mt-10 text-center text-4xl">Edit User Info</h1>
+        <div className="bg-text my-10 h-0.5 w-full rounded-2xl" />
         <div>
           <label htmlFor="email" className={labelBase}>
             Email address
@@ -144,13 +148,13 @@ export function SettingsForm({ user }: { user: User }) {
         </div>
 
         <div>
-          <label htmlFor="confirmPassword" className={labelBase}>
-            Confirm password
+          <label htmlFor="newPassword" className={labelBase}>
+            New password
           </label>
           <div className="flex items-center gap-5">
             <input
               type={showPassConfirm ? "text" : "password"}
-              name="confirmPassword"
+              name="newPassword"
               className={inputBase}
               placeholder="********"
               autoComplete="new-password"
@@ -200,7 +204,11 @@ export function SettingsForm({ user }: { user: User }) {
           </Select>
         </div>
 
-        <Datepicker id="datepicker" onChange={setBirthday} value={birthday ?? undefined} />
+        <Datepicker
+          id="datepicker"
+          onChange={setBirthday}
+          value={birthday ?? undefined}
+        />
         <input
           type="hidden"
           name="birthday"
@@ -219,7 +227,7 @@ export function SettingsForm({ user }: { user: User }) {
           </button>
           <button
             type="button"
-            onClick={deleteUser}
+            onClick={() => setOpenModal(true)}
             disabled={isDeleting}
             className="inline-flex items-center rounded-lg border border-red-600 px-5 py-2.5 text-sm font-medium text-red-600 hover:bg-red-600 hover:text-white focus:ring-4 focus:ring-red-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
           >
@@ -239,7 +247,19 @@ export function SettingsForm({ user }: { user: User }) {
           </button>
         </div>
       </form>
+      <div className="bg-text my-10 h-0.5 w-full rounded-2xl" />
+
+      <div className="flex gap-20">
+        {Array.from({ length: 2 }).map((v, i) => (
+          <div className="h-[800px] w-1/2 bg-gray-600" key={i}></div>
+        ))}
+      </div>
+      {/* MODAL */}
+      <Modal
+        open={openModal}
+        setOpenModal={setOpenModal}
+        onDelete={deleteUser}
+      />
     </div>
   );
 }
-

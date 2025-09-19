@@ -156,7 +156,7 @@ export default function Auth() {
         </div>
       ) : (
         <div className="flex w-full flex-col items-center !font-sans">
-          <section className="w-full max-w-2xl px-4 md:px-0">
+          <section className="mb-10 w-full max-w-2xl px-4 md:px-0">
             <div className="border-border bg-surface/90 mx-auto w-full rounded-lg border shadow-lg backdrop-blur">
               <div className="space-y-6 p-6 sm:p-8">
                 <h1 className="text-text text-2xl font-bold">
