@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       .insert({
         user_id: body.user_id,
         //userId: body.userId,
-        title: body.name,
+        title: body.title,
         description: body.description,
         price: body.price,
         date: new Date().toISOString().split("T")[0],
