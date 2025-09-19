@@ -22,7 +22,6 @@ import {
   useState,
 } from "react";
 import { useAuth } from "../context/AuthContext";
-import { id } from "zod/v4/locales";
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
   "focus:outline-ring focus:ring-2 focus:ring-[--color-ring] focus:border-transparent transition";
@@ -52,7 +51,6 @@ export default function MyProducts() {
     const form = new FormData(e.currentTarget);
 
     const payload = {
-      id: product.data.length + 1,
       user_id: user?.id,
       title: form.get("service_name"),
       description: form.get("service_description"),
@@ -60,13 +58,11 @@ export default function MyProducts() {
     };
     try {
       const response = await axios.post("/api/product/user", payload);
-      const response = await axios.post("/api/product/user", payload);
       console.log(response);
       if (response.status === 200) {
         setOpen(false);
         router.push("/myproduct");
         console.log("Product added successfully:", response.data);
-        product?.data.push(payload);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -80,7 +76,6 @@ export default function MyProducts() {
             Add a good/service
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-surface border-0 sm:max-w-[425px]">
         <DialogContent className="bg-surface sm:max-w-[425px]">
           <form onSubmit={onSubmit}>
             <DialogHeader>
