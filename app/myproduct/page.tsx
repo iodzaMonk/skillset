@@ -18,6 +18,7 @@ import {
   ReactElement,
   ReactNode,
   ReactPortal,
+  useEffect,
   useState,
 } from "react";
 import { useAuth } from "../context/AuthContext";
@@ -27,12 +28,23 @@ const inputBase =
 
 const labelBase = "mb-2 block text-sm font-medium text-text";
 const hintText = "text-sm text-text-muted";
-const { data: product } = await axios.get("/api/product/" + 1);
 
 export default function MyProducts() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [product, setProduct] = useState<
+    { id: Key; title: string; price: number; description: string }[] | null
+  >(null);
   const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user?.id) return;
+    axios
+      .get("/api/product/user")
+      .then((res) => setProduct(res.data.data))
+      .catch((err) => console.error("Failed to fetch products", err));
+  }, [user?.id]);
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     console.log("Submitting form...");
     e.preventDefault();
@@ -45,7 +57,7 @@ export default function MyProducts() {
       price: form.get("service_price"),
     };
     try {
-      const response = await axios.post("/api/product/" + user?.id, payload);
+      const response = await axios.post("/api/product/user", payload);
       console.log(response);
       if (response.status === 200) {
         setOpen(false);
@@ -63,7 +75,7 @@ export default function MyProducts() {
             Add a good/service
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="bg-surface sm:max-w-[425px]">
           <form onSubmit={onSubmit}>
             <DialogHeader>
               <DialogTitle className={labelBase}>
@@ -134,7 +146,7 @@ export default function MyProducts() {
         <p className="text-text-muted">No products yet.</p>
       ) : (
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {product!.data.map(
+          {product.map(
             (p: {
               id: Key;
               title: string;

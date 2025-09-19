@@ -1,5 +1,5 @@
 import { getCurrentUser } from "@/app/lib/helper";
-import { createClient } from "@/app/utils/supabase/client";
+import { createClient } from "@/app/utils/supabase/server";
 import { headers } from "next/headers";
 export async function POST(req: Request) {
   const headersList = await headers();
@@ -12,7 +12,6 @@ export async function POST(req: Request) {
       .from("posts")
       .insert({
         user_id: body.user_id,
-        //userId: body.userId,
         title: body.name,
         description: body.description,
         price: body.price,
