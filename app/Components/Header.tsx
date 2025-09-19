@@ -2,20 +2,49 @@
 import { DarkThemeToggle } from "flowbite-react";
 import { TransitionLink } from "../utils/TransitionLink";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
+
+type NavItem = {
+  name: string;
+  href?: string;
+  action?: () => Promise<void> | void;
+};
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const { user, logout } = useAuth();
+  const router = useRouter();
+  const [isProcessingLogout, setIsProcessingLogout] = useState(false);
 
-  const navList = [
-    { name: "Login", link: "/auth/login" },
-    { name: "Sign up", link: "/auth/signup" },
-    { name: "About us", link: "/about" },
-    { name: "Browse", link: "/browse" },
-    { name: "MyProducts", link: "/myproduct" },
-  ];
+  const handleLogout = async () => {
+    try {
+      setIsProcessingLogout(true);
+      await logout();
+      router.push("/auth/login");
+    } finally {
+      setIsProcessingLogout(false);
+    }
+  };
+
+  const navList: NavItem[] = user
+    ? [
+        { name: "About us", href: "/about" },
+        { name: "Browse", href: "/browse" },
+        { name: "MyProducts", href: "/myproduct" },
+        { name: "Settings", href: "/settings" },
+        { name: "Logout", action: handleLogout },
+      ]
+    : [
+        { name: "Login", href: "/auth/login" },
+        { name: "Sign up", href: "/auth/signup" },
+        { name: "About us", href: "/about" },
+        { name: "Browse", href: "/browse" },
+        { name: "MyProducts", href: "/myproduct" },
+      ];
 
   useEffect(() => {
     if (open) document.body.classList.add("overflow-hidden");
@@ -36,6 +65,9 @@ export default function Header() {
       document.removeEventListener("pointerdown", onPointerDown);
     };
   }, [open]);
+
+  const itemClasses =
+    "text-text hover:text-accent relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[--color-accent] after:transition-all after:duration-700 hover:after:w-full";
 
   return (
     <>
@@ -112,21 +144,42 @@ export default function Header() {
           ].join(" ")}
         >
           <ul className="group">
-            {navList.map((v, i) => (
+            {navList.map((item, index) => (
               <li
-                key={i}
+                key={item.name}
                 className="p-6 text-5xl transition-all duration-500 group-hover:opacity-40 group-hover:blur-[1px] hover:scale-105 hover:opacity-100 hover:blur-none"
               >
-                <TransitionLink
-                  href={v.link}
-                  onClick={() => setOpen(false)}
-                  className="text-text hover:text-accent relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[--color-accent] after:transition-all after:duration-700 hover:after:w-full"
-                >
-                  <span className="text-text-muted absolute top-2 -left-7 text-sm">
-                    0{i + 1}
-                  </span>
-                  {v.name}
-                </TransitionLink>
+                {item.action ? (
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setOpen(false);
+                      await item.action?.();
+                    }}
+                    disabled={isProcessingLogout && item.name === "Logout"}
+                    className={`${itemClasses} ${
+                      isProcessingLogout && item.name === "Logout"
+                        ? "cursor-not-allowed opacity-60"
+                        : "cursor-pointer"
+                    }`}
+                  >
+                    <span className="text-text-muted absolute top-2 -left-7 text-sm">
+                      0{index + 1}
+                    </span>
+                    {item.name}
+                  </button>
+                ) : (
+                  <TransitionLink
+                    href={item.href!}
+                    onClick={() => setOpen(false)}
+                    className={itemClasses}
+                  >
+                    <span className="text-text-muted absolute top-2 -left-7 text-sm">
+                      0{index + 1}
+                    </span>
+                    {item.name}
+                  </TransitionLink>
+                )}
               </li>
             ))}
           </ul>
