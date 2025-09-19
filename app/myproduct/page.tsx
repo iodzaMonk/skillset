@@ -27,7 +27,7 @@ const inputBase =
 
 const labelBase = "mb-2 block text-sm font-medium text-text";
 const hintText = "text-sm text-text-muted";
-const { data: product } = await await axios.get("/api/product/" + 1);
+const { data: product } = await axios.get("/api/product/" + 1);
 
 export default function MyProducts() {
   const router = useRouter();
