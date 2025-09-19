@@ -56,6 +56,7 @@ export default function MyProducts() {
       description: form.get("service_description"),
       price: parseFloat(form.get("service_price")?.toString() || "0"),
     };
+
     try {
       const response = await axios.post("/api/product/user", payload);
       console.log(response);
@@ -94,7 +95,7 @@ export default function MyProducts() {
                 </Label>
                 <Input
                   id="service_name"
-                  name="service_name"
+                  name="title"
                   placeholder="Title"
                   className={inputBase}
                   required
