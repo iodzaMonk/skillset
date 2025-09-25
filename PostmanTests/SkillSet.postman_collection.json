@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "5a07ede3-cd07-4855-ad82-73bad9e2a819",
+		"name": "SkillSet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42721862"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"// Function to generate a random date between two dates\r",
+							"function generateRandomDate(from, to) {\r",
+							"    return new Date(\r",
+							"        from.getTime() + Math.random() * (to.getTime() - from.getTime())\r",
+							"    );\r",
+							"}\r",
+							"\r",
+							"// Generate a random birthday between 18 and 65 years ago\r",
+							"const today = new Date();\r",
+							"const minAge = 18;\r",
+							"const maxAge = 65;\r",
+							"const startDate = new Date(today.getFullYear() - maxAge, today.getMonth(), today.getDate());\r",
+							"const endDate = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate());\r",
+							"const randomBirthday = generateRandomDate(startDate, endDate);\r",
+							"// Format the random date to YYYY-MM-DD\r",
+							"const formattedBirthday = randomBirthday.toISOString().split('T')[0];\r",
+							"\r",
+							"pm.environment.set('birthday', formattedBirthday); // sets the birthday of a new user\r",
+							"var verifyBirthDay = pm.environment.get(\"birthday\");  // verifies if the birthday is set correctly\r",
+							"\r",
+							"const RandomPassword = pm.variables.replaceIn('{{$randomPassword}}');\r",
+							"pm.environment.set('password', RandomPassword); // sets the password of a new user\r",
+							"var verifyPassword = pm.environment.get(\"password\");  // verifies if the birthday is set correctly\r",
+							"\r",
+							"const RandomEmail = pm.variables.replaceIn('{{$randomEmail}}'); \r",
+							"pm.environment.set('email', RandomEmail); // sets the email of a new user\r",
+							"var verifyEmail = pm.environment.get(\"email\");  // verifies if the birthday is set correctly\r",
+							"\r",
+							"const RandomCountry = pm.variables.replaceIn('{{$randomCountryCode}}');\r",
+							"pm.environment.set('country', RandomCountry); // sets the country of a new user\r",
+							"var verifyCountry = pm.environment.get(\"country\");  // verifies if the country is set correctly\r",
+							"\r",
+							"const RandomUsername = pm.variables.replaceIn('{{$randomUserName}}');\r",
+							"pm.environment.set('username', RandomUsername); // sets the username of a new user\r",
+							"var verifyUsername = pm.environment.get(\"username\");  // verifies if the username is set correctly\r",
+							"\r",
+							"\r",
+							"console.log(\"NEW USER CREATED: USERNAME: \" + verifyUsername + \", EMAIL: \" + verifyEmail + \", PASSWORD: \" + verifyPassword + \", BIRTHDAY: \" + verifyBirthDay + \", COUNTRY: \" + verifyCountry);\r",
+							"\r",
+							"console.log(\"current Username: \"+verifyUsername+\", Generated Username: \"+ RandomUsername);\r",
+							"console.log(\"current country: \"+verifyCountry+\", Generated country: \"+ RandomCountry);\r",
+							"console.log(\"current email: \"+verifyEmail+\", Generated email: \"+ RandomEmail);\r",
+							"console.log(\"current password: \"+verifyPassword+\", Generated password: \"+ RandomPassword);\r",
+							"console.log(\"current BirthDay: \"+verifyBirthDay+\", Generated BirthDay: \"+ formattedBirthday);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var responce =pm.response.json();\r",
+							"const theID = responce.id;\r",
+							"pm.environment.set(\"theId\", theID); // Set the environment variable\r",
+							"console.log(\"Responce : \"+theID)\r",
+							"\r",
+							"var verifyID = pm.environment.get(\"theId\");\r",
+							"var verifyBirthDay = pm.environment.get(\"birthday\");\r",
+							"var verifyPassword = pm.environment.get(\"password\");\r",
+							"var verifyEmail = pm.environment.get(\"email\");\r",
+							"var verifyCountry = pm.environment.get(\"country\");\r",
+							"var verifyUsername = pm.environment.get(\"username\"); \r",
+							"\r",
+							"console.log(\"NEW USER CREATED: id: \"+ verifyID  +\" USERNAME: \" + verifyUsername + \", EMAIL: \" + verifyEmail + \", PASSWORD: \" + verifyPassword + \", BIRTHDAY: \" + verifyBirthDay + \", COUNTRY: \" + verifyCountry);\r",
+							"\r",
+							"\r",
+							"pm.test(\"Succesful register\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"country\": \"{{country}}\",\r\n    \"name\": \"{{username}}\",\r\n    \"birthday\": \"{{birthday}}\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLLocal}}api/user/register",
+					"host": [
+						"{{baseURLLocal}}api"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Succesful login\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const email = pm.environment.get(\"email\");\r",
+							"console.log(email)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLLocal}}api/user/login",
+					"host": [
+						"{{baseURLLocal}}api"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"const currentDate = new Date();\r",
+							"const formattedCsurrentDate = currentDate.toISOString().split('T')[0];\r",
+							"pm.variables.set(\"currentDate\", currentDate )// sets the currente date\r",
+							"\r",
+							"const RandomTitle = pm.variables.replaceIn('{{$randomJobArea}}'); // generates a random title\r",
+							"pm.variables.set(\"title\", RandomTitle) // sets the new title\r",
+							"\r",
+							"const RandomDescription = pm.variables.replaceIn('{{$randomJobDescriptor}}'); // generates a random description\r",
+							"pm.variables.set(\"description\", RandomDescription) // sets the new description\r",
+							"\r",
+							"const RandomPrice = pm.variables.replaceIn('{{$randomInt}}'); // generates a random price\r",
+							"pm.variables.set(\"price\", RandomPrice) // sets the new price\r",
+							"\r",
+							"const username = pm.variables.get(\"username\");\r",
+							"console.log(\"NEW PORUDUCT IS CREATED: USERNAME : \" + username + \", TITLE: \" + RandomTitle + \",  DESCRIPTION: \" + RandomDescription + \", PRICE: \" + RandomPrice);\r",
+							"// const formattedBirthday = randomBirthday.toISOString().split('T')[0];\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"{{title}}\",\r\n    \"user_id\": \"{{theId}}\",\r\n    \"description\": \"{{description}}\",\r\n    \"price\": \"{{price}}\",\r\n    \"date\": \"{{currentDate}}\",\r\n    \"image_location\": \"/image/lol.png\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLLocal}}api/product/user",
+					"host": [
+						"{{baseURLLocal}}api"
+					],
+					"path": [
+						"product",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURLPublic",
+			"value": ""
+		},
+		{
+			"key": "baseURLLocal",
+			"value": "http://localhost:3000/"
+		},
+		{
+			"key": "birthday",
+			"value": ""
+		}
+	]
+}
