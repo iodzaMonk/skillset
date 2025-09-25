@@ -1,0 +1,1 @@
+Import the json file in postman
