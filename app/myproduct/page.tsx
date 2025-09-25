@@ -203,7 +203,7 @@ export default function MyProducts() {
                 className="hover:bg-text-muted/20 border-1"
                 type="button"
                 variant="outline"
-                onClick={() => setOpen(false)}
+                onClick={handleDialogClose}
               >
                 Cancel
               </Button>
@@ -240,12 +240,79 @@ export default function MyProducts() {
                     {p.description}
                   </p>
                 )}
-                <ButtonMain
-                  onClick={() => deleteProduct(p.id)}
-                  variant="delete"
-                >
-                  Delete
-                </ButtonMain>
+                <div className="mt-4 flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => Modify(p)}
+                    className="inline-flex items-center rounded-lg border border-blue-600 px-5 py-2.5 text-sm font-medium text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    <svg
+                      className="mr-1 -ml-1 h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                      ></path>
+                    </svg>
+                    Modify
+                  </button>
+                  <Dialog open={deleteOpen} onOpenChange={setDeleteOpen}>
+                    <DialogTrigger asChild>
+                      <button
+                        type="button"
+                        className="inline-flex items-center rounded-lg border border-red-600 px-5 py-2.5 text-sm font-medium text-red-600 hover:bg-red-600 hover:text-white focus:ring-4 focus:ring-red-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+                      >
+                        <svg
+                          className="mr-1 -ml-1 h-5 w-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
+                        Delete
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="bg-surface sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle className={labelBase}>
+                          Are you sure?
+                        </DialogTitle>
+                        <DialogDescription className={hintText}>
+                          This action cannot be undone. This will permanently
+                          delete your product.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="mt-6 flex justify-end gap-3">
+                        <Button
+                          className="hover:bg-text-muted/20 border-1"
+                          type="button"
+                          variant="outline"
+                          onClick={() => setDeleteOpen(false)}
+                        >
+                          Cancel
+                        </Button>
+                        <Button
+                          type="button"
+                          onClick={() => deleteProduct(p.id)}
+                          className="border-1 bg-red-600/60 hover:bg-red-600/70"
+                        >
+                          Yes, delete product
+                        </Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
               </li>
             ),
           )}
