@@ -24,6 +24,7 @@ import {
 } from "react";
 import { useAuth } from "../context/AuthContext";
 import { id } from "zod/v4/locales";
+import { set } from "zod";
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
   "focus:outline-ring focus:ring-2 focus:ring-[--color-ring] focus:border-transparent transition resize-none";
@@ -32,8 +33,14 @@ const labelBase = "mb-2 block text-sm font-medium text-text";
 const hintText = "text-sm text-text-muted";
 
 export default function MyProducts() {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [editingId, setEditingId] = useState<Key | null>(null);
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
+
   const [product, setProduct] = useState<
     { id: Key; title: string; price: number; description: string }[] | null
   >(null);
@@ -59,36 +66,71 @@ export default function MyProducts() {
         router.refresh();
       })
       .catch((err) => console.error("Failed to delete product", err));
+    setDeleteOpen(false);
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     console.log("Submitting form...");
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
 
     const payload = {
       user_id: user?.id,
-      title: form.get("service_name"),
-      description: form.get("service_description"),
-      price: parseFloat(form.get("service_price")?.toString() || "0"),
+      title: name,
+      description: description,
+      price: parseFloat(price || "0"),
     };
 
     try {
-      const response = await axios.post("/api/product/user", payload);
-      console.log(response);
+      let response;
+      if (editingId) {
+        response = await axios.put("/api/product/user", {
+          ...payload,
+          id: editingId,
+        });
+      } else {
+        response = await axios.post("/api/product/user", payload);
+      }
+
       if (response.status === 200) {
         fetchProducts();
         setOpen(false);
-        router.push("/myproduct");
-        console.log("Product added successfully:", response.data);
+        setName("");
+        setDescription("");
+        setPrice("");
+        setEditingId(null);
+        router.refresh();
       }
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   }
+  function handleDialogClose() {
+    if (open) {
+      setOpen(false);
+      setName("");
+      setDescription("");
+      setPrice("");
+      setEditingId(null);
+    } else {
+      setOpen(true);
+    }
+  }
+  function Modify(p: {
+    id: number | Key;
+    title: string;
+    price: number;
+    description: string;
+  }) {
+    setName(p.title);
+    setDescription(p.description);
+    setPrice(p.price.toString());
+    setEditingId(p.id);
+    setOpen(true);
+  }
   return (
     <main className="c mx-auto max-w-4xl p-6">
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog open={open} onOpenChange={handleDialogClose}>
+        {" "}
         <DialogTrigger asChild>
           <Button
             variant="outline"
@@ -98,7 +140,6 @@ export default function MyProducts() {
           </Button>
         </DialogTrigger>
         <h1>My Products</h1>
-
         <DialogContent className="bg-surface sm:max-w-[425px]">
           <form onSubmit={onSubmit}>
             <DialogHeader>
@@ -120,6 +161,8 @@ export default function MyProducts() {
                   name="service_name"
                   placeholder="Title"
                   className={inputBase}
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
                   required
                 />
               </div>
@@ -132,6 +175,8 @@ export default function MyProducts() {
                   name="service_description"
                   placeholder="Description"
                   className={inputBase}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                   required
                 />
               </div>
@@ -141,12 +186,14 @@ export default function MyProducts() {
                 </Label>
                 <input
                   className={inputBase}
+                  value={price}
                   type="number"
                   step="0.01"
                   min="0"
                   id="service_price"
                   name="service_price"
                   placeholder="Price"
+                  onChange={(e) => setPrice(e.target.value)}
                   required
                 />
               </div>
