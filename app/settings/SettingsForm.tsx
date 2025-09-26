@@ -233,11 +233,6 @@ export function SettingsForm({ user }: { user: User }) {
       </form>
       <div className="bg-text my-10 h-0.5 w-full rounded-2xl" />
 
-      <div className="flex gap-20">
-        {Array.from({ length: 2 }).map((v, i) => (
-          <div className="h-[800px] w-1/2 bg-gray-600" key={i}></div>
-        ))}
-      </div>
       {/* MODAL */}
       <Modal
         open={openModal}
