@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { ButtonMain } from "../Components/Button";
 import {
   Dialog,
   DialogContent,
@@ -38,20 +39,23 @@ export default function MyProducts() {
   >(null);
   const { user } = useAuth();
 
+  const fetchProducts = async () => {
+    try {
+      const res = await axios.get("/api/product/user");
+      setProduct(res.data.data);
+    } catch (err) {
+      console.error("Failed to fetch products", err);
+    }
+  };
   useEffect(() => {
-    if (!user?.id) return;
-    axios
-      .get("/api/product/user")
-      .then((res) => setProduct(res.data.data))
-      .catch((err) => console.error("Failed to fetch products", err));
-    console.log(product);
-  }, [user?.id]);
+    fetchProducts();
+  }, []);
 
-  async function onclick(id: Key) {
+  async function deleteProduct(id: Key) {
     axios
       .delete("/api/product", { data: { id: id } })
       .then((res) => {
-        console.log(res);
+        fetchProducts();
         router.refresh();
       })
       .catch((err) => console.error("Failed to delete product", err));
@@ -73,6 +77,7 @@ export default function MyProducts() {
       const response = await axios.post("/api/product/user", payload);
       console.log(response);
       if (response.status === 200) {
+        fetchProducts();
         setOpen(false);
         router.push("/myproduct");
         console.log("Product added successfully:", response.data);
@@ -155,12 +160,9 @@ export default function MyProducts() {
               >
                 Cancel
               </Button>
-              <Button
-                type="submit"
-                className="bg-button-create/60 hover:bg-button-create/70 border-1"
-              >
+              <ButtonMain type="submit" variant="success">
                 Create
-              </Button>
+              </ButtonMain>
             </div>
           </form>
         </DialogContent>
@@ -191,25 +193,12 @@ export default function MyProducts() {
                     {p.description}
                   </p>
                 )}
-                <button
-                  type="button"
-                  onClick={() => onclick(p.id)}
-                  className="inline-flex items-center rounded-lg border border-red-600 px-5 py-2.5 text-sm font-medium text-red-600 hover:bg-red-600 hover:text-white focus:ring-4 focus:ring-red-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+                <ButtonMain
+                  onClick={() => deleteProduct(p.id)}
+                  variant="delete"
                 >
-                  <svg
-                    className="mr-1 -ml-1 h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
                   Delete
-                </button>
+                </ButtonMain>
               </li>
             ),
           )}
