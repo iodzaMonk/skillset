@@ -32,6 +32,35 @@ export async function POST(req: Request) {
     });
   }
 }
+export async function PUT(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get("referer");
+  const supabase = await createClient();
+  try {
+    const body = await req.json();
+
+    const product = await supabase
+      .from("posts")
+      .update({
+        user_id: body.user_id,
+        title: body.title,
+        description: body.description,
+        price: body.price,
+      })
+      .eq("id", body.id);
+
+    return new Response(JSON.stringify(product), {
+      status: 200,
+      headers: { "x-referer": referer || "" },
+    });
+  } catch (error) {
+    console.log(error);
+    return new Response("Error", {
+      status: 500,
+      headers: { "x-referer": referer || "" },
+    });
+  }
+}
 export async function GET() {
   const headersList = await headers();
   const referer = headersList.get("referer");
