@@ -6,6 +6,7 @@ import { FormEvent, Key, useCallback, useEffect, useState } from "react";
 
 import { useAuth } from "../context/AuthContext";
 import { MyProductsView, type Product } from "./MyProductsView";
+import { PostBody } from "@/types/PostBody";
 
 export default function MyProducts() {
   const router = useRouter();
@@ -55,8 +56,8 @@ export default function MyProducts() {
     async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      const payload = {
-        user_id: user?.id,
+      const payload: Omit<PostBody, "id" | "date"> = {
+        user_id: user?.id ?? "",
         title: name.trim(),
         description: description.trim(),
         price: parseFloat(price || "0"),

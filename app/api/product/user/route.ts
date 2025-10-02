@@ -1,86 +1,142 @@
-import { getCurrentUser } from "@/app/lib/helper";
-import { createClient } from "@/app/utils/supabase/server";
 import { headers } from "next/headers";
+import { Prisma } from "@prisma/client";
+import { getCurrentUser } from "@/app/lib/helper";
+import { prisma } from "@/lib/prisma";
+import { PostBody } from "@/types/PostBody";
+import { z } from "zod";
+
+const createProductSchema = z.object({
+  title: z.string().trim().min(1),
+  description: z.string().trim().min(1),
+  price: z.coerce.number().min(0),
+  date: z.coerce.date().optional(),
+  image_location: z.string().trim().optional().nullable(),
+});
+
 export async function POST(req: Request) {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
+  const referer = headersList.get("referer") ?? "";
+
   try {
-    const body = await req.json();
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json(
+        { message: "Not authenticated" },
+        { status: 401, headers: { "x-referer": referer } },
+      );
+    }
 
-    const product = await supabase
-      .from("posts")
-      .insert({
-        user_id: body.user_id,
-        title: body.title,
-        description: body.description,
-        price: body.price,
-        date: new Date().toISOString().split("T")[0],
-      })
-      .select()
-      .limit(1);
+    const body = createProductSchema.parse(await req.json());
+    const { title, description, price } = body ?? {};
 
-    return new Response(JSON.stringify(product), {
-      status: 200,
-      headers: { "x-referer": referer || "" },
+    const product = await prisma.posts.create({
+      data: {
+        title: title,
+        description: description,
+        price: price,
+        user_id: user.id,
+      },
     });
+
+    return Response.json(
+      { data: product },
+      { status: 201, headers: { "x-referer": referer } },
+    );
   } catch (error) {
-    console.log(error);
-    return new Response("Error", {
-      status: 500,
-      headers: { "x-referer": referer || "" },
-    });
+    if (error instanceof z.ZodError) {
+      return Response.json(
+        { message: error.issues.map((i) => i.message).join(", ") },
+        { status: 400 },
+      );
+    }
+
+    return Response.json(
+      { message: "Internal server error" },
+      { status: 500, headers: { "x-referer": referer } },
+    );
   }
 }
+
 export async function PUT(req: Request) {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
+  const referer = headersList.get("referer") ?? "";
+
   try {
-    const body = await req.json();
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json(
+        { message: "Not authenticated" },
+        { status: 401, headers: { "x-referer": referer } },
+      );
+    }
 
-    const product = await supabase
-      .from("posts")
-      .update({
-        user_id: body.user_id,
-        title: body.title,
-        description: body.description,
-        price: body.price,
-      })
-      .eq("id", body.id);
+    const body = (await req.json()) as PostBody;
+    const { id, title, description, price, date } = body ?? {};
 
-    return new Response(JSON.stringify(product), {
-      status: 200,
-      headers: { "x-referer": referer || "" },
+    const updatedProduct = await prisma.posts.update({
+      where: { id: id },
+      data: {
+        title: title,
+        description: description,
+        price: price,
+        date: date,
+      },
     });
+
+    return Response.json(
+      { data: updatedProduct },
+      { status: 200, headers: { "x-referer": referer } },
+    );
   } catch (error) {
-    console.log(error);
-    return new Response("Error", {
-      status: 500,
-      headers: { "x-referer": referer || "" },
-    });
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2025"
+    ) {
+      return Response.json(
+        { message: "Product not found" },
+        { status: 404, headers: { "x-referer": referer } },
+      );
+    }
+
+    console.error("Update product error", error);
+
+    return Response.json(
+      { message: "Internal server error" },
+      { status: 500, headers: { "x-referer": referer } },
+    );
   }
 }
+
 export async function GET() {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
-  const user = await getCurrentUser();
-  try {
-    const product = await supabase
-      .from("posts")
-      .select("*")
-      .eq("user_id", user?.id); // Fetch products for the current user
+  const referer = headersList.get("referer") ?? "";
 
-    return new Response(JSON.stringify(product), {
-      status: 200,
-      headers: { "x-referer": referer || "" },
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json(
+        { data: [] },
+        { status: 200, headers: { "x-referer": referer } },
+      );
+    }
+
+    const products = await prisma.posts.findMany({
+      where: { user_id: user.id },
+      orderBy: { date: "desc" },
     });
+
+    return Response.json(
+      {
+        data: products,
+      },
+      { status: 200, headers: { "x-referer": referer } },
+    );
   } catch (error) {
-    console.log(error);
-    return new Response("Error", {
-      status: 500,
-      headers: { "x-referer": referer || "" },
-    });
+    console.error("Get products error", error);
+
+    return Response.json(
+      { message: "Internal server error" },
+      { status: 500, headers: { "x-referer": referer } },
+    );
   }
 }
