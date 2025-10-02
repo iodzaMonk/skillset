@@ -1,25 +1,35 @@
 import { cookies } from "next/headers";
 import { decrypt } from "./session";
-import { createClient } from "../utils/supabase/server";
+import { prisma } from "@/lib/prisma";
 
 export async function getCurrentUser() {
-  // get cookies from browser
   const token = (await cookies()).get("session")?.value;
   if (!token) return null;
-  // decrypt hashed session
+
   const payload = await decrypt(token);
   if (!payload?.userId) return null;
 
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("users")
-    .select("id, name, email, country, birthday")
-    .eq("id", payload.userId)
-    .single();
+  try {
+    const user = await prisma.users.findUnique({
+      where: {
+        id:
+          typeof payload.userId === "string"
+            ? payload.userId
+            : String(payload.userId),
+      },
+    });
 
-  if (error || !data) {
+    if (!user) return null;
+
+    return {
+      id: user.id,
+      name: user.name ?? null,
+      email: user.email,
+      country: user.country ?? null,
+      birthday: user.birthday ? user.birthday.toISOString() : null,
+    };
+  } catch (error) {
+    console.error("getCurrentUser error", error);
     return null;
   }
-
-  return data;
 }

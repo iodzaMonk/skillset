@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model commands {
+  id                              String @id @unique @default(cuid())
+  client_id                       String
+  product_id                      String
+  date                            DateTime @db.Date
+  prof_id                         String
+  description                     String
+  users_commands_client_idTousers users    @relation("commands_client_idTousers", fields: [client_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  posts                           posts    @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  users_commands_prof_idTousers   users    @relation("commands_prof_idTousers", fields: [prof_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model posts {
+  id             String     @id(map: "products_pkey") @unique(map: "products_id_key") @default(cuid())
+  user_id        String
+  title          String     @db.VarChar
+  description    String
+  price          Float      @db.Real
+  date           DateTime   @db.Date @default(now())
+  image_location String?    @db.VarChar
+  commands       commands[]
+  users          users      @relation(fields: [user_id], references: [id], onDelete: Cascade, map: "products_user_id_fkey")
+  reviews        reviews[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model reviews {
+  id         String @id(map: "review_pkey") @unique @default(cuid())
+  user_id    String
+  product_id String
+  text       String
+  date       DateTime? @db.Date
+  users      users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "review_user_id_fkey")
+  posts      posts     @relation(fields: [product_id], references: [id], onDelete: Cascade)
+}
+
+model users {
+  id                                 String     @id @default(cuid())
+  name                               String     @db.VarChar
+  email                              String     @unique @db.VarChar
+  password                           String     @db.VarChar
+  country                            String     @db.VarChar
+  birthday                           DateTime?  @db.Date
+  isAdmin                            Boolean?
+  commands_commands_client_idTousers commands[] @relation("commands_client_idTousers")
+  commands_commands_prof_idTousers   commands[] @relation("commands_prof_idTousers")
+  posts                              posts[]
+  reviews                            reviews[]
+}

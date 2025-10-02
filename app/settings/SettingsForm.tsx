@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { Datepicker } from "flowbite-react";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { format } from "date-fns";
 import countries from "@/lib/countries.json";
 import {
@@ -14,7 +14,7 @@ import {
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/context/AuthContext";
-import type { User } from "../types/User";
+import type { User } from "../../types/User";
 import Modal from "./modal";
 import { ButtonMain } from "../Components/Button";
 
