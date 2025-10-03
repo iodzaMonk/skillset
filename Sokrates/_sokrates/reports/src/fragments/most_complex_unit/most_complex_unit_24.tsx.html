@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>export default async function Home()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export default async function Home()</h3>
+<p style="margin-top: 4px">in <i>app/page.tsx [3:15]</i></p>
+<ul>
+    <li><b>12</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+export default async function Home() {
+  const user = await getCurrentUser();
+
+  return (
+    &lt;div className=&quot;flex flex-col items-center justify-center&quot;&gt;
+      {user ? (
+        &lt;h1 className=&quot;font-Faustina mb-8 text-4xl font-bold&quot;&gt;
+          Welcome {user?.name}
+        &lt;/h1&gt;
+      ) : null}
+    &lt;/div&gt;
+  );
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

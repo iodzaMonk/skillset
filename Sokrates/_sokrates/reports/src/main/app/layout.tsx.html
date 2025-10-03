@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>app/layout.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/layout.tsx (<b>28</b> lines of code) (<a href="layout.tsx">raw</a>):</h3>
+<div id="editor">import { ThemeModeScript } from &quot;flowbite-react&quot;;
+import type { Metadata } from &quot;next&quot;;
+import { ThemeInit } from &quot;../.flowbite-react/init&quot;;
+import &quot;./globals.css&quot;;
+import Header from &quot;./Components/Header&quot;;
+import Footer from &quot;./Components/Footer&quot;;
+import AuthProvider from &quot;./context/AuthProvider&quot;;
+
+export const metadata: Metadata = {
+  title: &quot;SkillSet&quot;,
+  description: &quot;Sell your skills for money&quot;,
+};
+
+export default function RootLayout({
+  children,
+}: Readonly&lt;{ children: React.ReactNode }&gt;) {
+  return (
+    &lt;html lang=&quot;en&quot; suppressHydrationWarning className=&quot;h-full&quot;&gt;
+      &lt;head&gt;
+        &lt;ThemeModeScript /&gt;
+      &lt;/head&gt;
+      &lt;body className=&quot;bg-canvas text-text !font-Faustina flex min-h-dvh flex-col antialiased&quot;&gt;
+        &lt;ThemeInit /&gt;
+
+        &lt;AuthProvider&gt;
+          &lt;Header /&gt;
+          &lt;main className=&quot;flex-1&quot;&gt;{children}&lt;/main&gt;
+          &lt;Footer /&gt;
+        &lt;/AuthProvider&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

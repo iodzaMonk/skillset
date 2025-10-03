@@ -1,0 +1,468 @@
+id: 1
+unit: export default function Auth()
+file: app/auth/[slug]/page.tsx
+start line: 26
+end line: 312
+size: 230 LOC
+McCabe index: 5
+number of parameters: 0
+
+id: 2
+unit: export function SettingsForm()
+file: app/settings/SettingsForm.tsx
+start line: 27
+end line: 244
+size: 159 LOC
+McCabe index: 9
+number of parameters: 1
+
+id: 3
+unit: export async function POST()
+file: app/api/user/login/route.ts
+start line: 6
+end line: 76
+size: 61 LOC
+McCabe index: 12
+number of parameters: 1
+
+id: 4
+unit: export async function POST()
+file: app/api/user/register/route.ts
+start line: 6
+end line: 70
+size: 59 LOC
+McCabe index: 13
+number of parameters: 1
+
+id: 5
+unit: export default async function Page()
+file: app/browse/page.tsx
+start line: 3
+end line: 38
+size: 36 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 6
+unit: async function onSubmit()
+file: app/auth/[slug]/page.tsx
+start line: 37
+end line: 73
+size: 34 LOC
+McCabe index: 5
+number of parameters: 1
+
+id: 7
+unit: function SelectContent()
+file: components/ui/select.tsx
+start line: 53
+end line: 86
+size: 34 LOC
+McCabe index: 3
+number of parameters: 4
+
+id: 8
+unit: function DialogContent()
+file: components/ui/dialog.tsx
+start line: 49
+end line: 81
+size: 33 LOC
+McCabe index: 2
+number of parameters: 4
+
+id: 9
+unit: export async function POST()
+file: app/api/product/user/route.ts
+start line: 4
+end line: 34
+size: 29 LOC
+McCabe index: 4
+number of parameters: 1
+
+id: 10
+unit: export async function PUT()
+file: app/api/product/user/route.ts
+start line: 35
+end line: 63
+size: 27 LOC
+McCabe index: 4
+number of parameters: 1
+
+id: 11
+unit: export async function PATCH()
+file: app/api/user/update/route.ts
+start line: 4
+end line: 32
+size: 26 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 12
+unit: async function updateUser()
+file: app/settings/SettingsForm.tsx
+start line: 64
+end line: 91
+size: 26 LOC
+McCabe index: 4
+number of parameters: 1
+
+id: 13
+unit: function SelectTrigger()
+file: components/ui/select.tsx
+start line: 27
+end line: 51
+size: 25 LOC
+McCabe index: 1
+number of parameters: 4
+
+id: 14
+unit: function SelectItem()
+file: components/ui/select.tsx
+start line: 101
+end line: 123
+size: 23 LOC
+McCabe index: 1
+number of parameters: 3
+
+id: 15
+unit: export async function GET()
+file: app/api/product/user/route.ts
+start line: 64
+end line: 86
+size: 22 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 16
+unit: export async function GET()
+file: app/api/product/route.ts
+start line: 5
+end line: 23
+size: 18 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 17
+unit: export async function DELETE()
+file: app/api/product/route.ts
+start line: 24
+end line: 43
+size: 18 LOC
+McCabe index: 4
+number of parameters: 1
+
+id: 18
+unit: export async function DELETE()
+file: app/api/user/delete/route.ts
+start line: 5
+end line: 24
+size: 18 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 19
+unit: export async function GET()
+file: app/api/user/me/route.ts
+start line: 3
+end line: 22
+size: 18 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 20
+unit: export async function updateSession()
+file: app/lib/session.ts
+start line: 38
+end line: 54
+size: 17 LOC
+McCabe index: 3
+number of parameters: 0
+
+id: 21
+unit: async function deleteUser()
+file: app/settings/SettingsForm.tsx
+start line: 46
+end line: 62
+size: 17 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 22
+unit: function SelectScrollUpButton()
+file: components/ui/select.tsx
+start line: 138
+end line: 154
+size: 17 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 23
+unit: export async function getCurrentUser()
+file: app/lib/helper.ts
+start line: 5
+end line: 25
+size: 16 LOC
+McCabe index: 5
+number of parameters: 0
+
+id: 24
+unit: function DialogOverlay()
+file: components/ui/dialog.tsx
+start line: 33
+end line: 47
+size: 15 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 25
+unit: export function ButtonMain()
+file: app/Components/Button.tsx
+start line: 76
+end line: 88
+size: 13 LOC
+McCabe index: 2
+number of parameters: 4
+
+id: 26
+unit: export async function createSession()
+file: app/lib/session.ts
+start line: 25
+end line: 37
+size: 13 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 27
+unit: export default async function Home()
+file: app/page.tsx
+start line: 3
+end line: 15
+size: 12 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 28
+unit: function DialogFooter()
+file: components/ui/dialog.tsx
+start line: 93
+end line: 104
+size: 12 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 29
+unit: function DialogTitle()
+file: components/ui/dialog.tsx
+start line: 106
+end line: 117
+size: 12 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 30
+unit: function SelectLabel()
+file: components/ui/select.tsx
+start line: 88
+end line: 99
+size: 12 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 31
+unit: function SelectSeparator()
+file: components/ui/select.tsx
+start line: 125
+end line: 136
+size: 12 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 32
+unit: setAll()
+file: app/utils/supabase/middleware.ts
+start line: 20
+end line: 30
+size: 11 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 33
+unit: export async function decrypt()
+file: app/lib/session.ts
+start line: 15
+end line: 24
+size: 10 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 34
+unit: export async function POST()
+file: app/api/user/logout/route.ts
+start line: 4
+end line: 12
+size: 9 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 35
+unit: function DialogHeader()
+file: components/ui/dialog.tsx
+start line: 83
+end line: 91
+size: 9 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 36
+unit: setAll()
+file: app/utils/supabase/server.ts
+start line: 12
+end line: 22
+size: 8 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 37
+unit: export async function encrypt()
+file: app/lib/session.ts
+start line: 8
+end line: 14
+size: 7 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 38
+unit: export async function createClient()
+file: app/utils/supabase/server.ts
+start line: 4
+end line: 25
+size: 7 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 39
+unit: function Button()
+file: components/ui/button.tsx
+start line: 38
+end line: 44
+size: 7 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 40
+unit: function Dialog()
+file: components/ui/dialog.tsx
+start line: 9
+end line: 13
+size: 5 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 41
+unit: function DialogTrigger()
+file: components/ui/dialog.tsx
+start line: 15
+end line: 19
+size: 5 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 42
+unit: function DialogPortal()
+file: components/ui/dialog.tsx
+start line: 21
+end line: 25
+size: 5 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 43
+unit: function DialogClose()
+file: components/ui/dialog.tsx
+start line: 27
+end line: 31
+size: 5 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 44
+unit: function Select()
+file: components/ui/select.tsx
+start line: 9
+end line: 13
+size: 5 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 45
+unit: function SelectGroup()
+file: components/ui/select.tsx
+start line: 15
+end line: 19
+size: 5 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 46
+unit: function SelectValue()
+file: components/ui/select.tsx
+start line: 21
+end line: 25
+size: 5 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 47
+unit: export async function deleteSession()
+file: app/lib/session.ts
+start line: 55
+end line: 58
+size: 4 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 48
+unit: price: parseFloat()
+file: app/myproduct/page.tsx
+start line: 62
+end line: 65
+size: 3 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 49
+unit: getAll()
+file: app/utils/supabase/middleware.ts
+start line: 17
+end line: 19
+size: 3 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 50
+unit: getAll()
+file: app/utils/supabase/server.ts
+start line: 9
+end line: 11
+size: 3 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 51
+unit: function sleep()
+file: app/utils/TransitionLink.tsx
+start line: 14
+end line: 16
+size: 3 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 52
+unit: export function cn()
+file: lib/utils.ts
+start line: 4
+end line: 6
+size: 3 LOC
+McCabe index: 1
+number of parameters: 1
+

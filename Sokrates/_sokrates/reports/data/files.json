@@ -1,0 +1,265 @@
+[ {
+  "relativePath" : "app/about/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 11,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/product/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 39,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/product/user/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 81,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/user/delete/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 21,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/user/login/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 66,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/user/logout/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 11,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/user/me/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 19,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/user/register/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 63,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/user/update/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 28,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/auth/[slug]/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 285,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/browse/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 37,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/Components/Button.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 84,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/Components/Footer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 89,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/Components/Header.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 183,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/context/AuthContext.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 58,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/context/AuthProvider.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 20,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/globals.css",
+  "extension" : "css",
+  "linesOfCode" : 76,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/layout.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 28,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/lib/definition.ts",
+  "extension" : "ts",
+  "linesOfCode" : 35,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/lib/helper.ts",
+  "extension" : "ts",
+  "linesOfCode" : 19,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/lib/session.ts",
+  "extension" : "ts",
+  "linesOfCode" : 57,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/myproduct/MyProductsView.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 225,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/myproduct/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 128,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 13,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/settings/modal.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 49,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/settings/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 17,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/settings/SettingsForm.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 224,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/types/User.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/utils/email.ts",
+  "extension" : "ts",
+  "linesOfCode" : 53,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/utils/supabase/client.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/utils/supabase/middleware.ts",
+  "extension" : "ts",
+  "linesOfCode" : 30,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/utils/supabase/server.ts",
+  "extension" : "ts",
+  "linesOfCode" : 20,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/utils/TransitionLink.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 46,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/button.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 50,
+  "components" : [ "primary::components" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/dialog.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 115,
+  "components" : [ "primary::components" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/input.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 14,
+  "components" : [ "primary::components" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/label.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 16,
+  "components" : [ "primary::components" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/select.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 157,
+  "components" : [ "primary::components" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "db.js",
+  "extension" : "js",
+  "linesOfCode" : 4,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "eslint.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 22,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "lib/utils.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
+  "components" : [ "primary::lib" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "next.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "postcss.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 4,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "prettier.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 8,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+} ]

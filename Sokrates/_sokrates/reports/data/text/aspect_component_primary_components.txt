@@ -1,0 +1,6 @@
+Path	Lines of Code
+components/ui/button.tsx	50
+components/ui/dialog.tsx	115
+components/ui/input.tsx	14
+components/ui/label.tsx	16
+components/ui/select.tsx	157

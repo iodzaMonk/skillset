@@ -1,0 +1,1756 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/force-graph"></script>
+</head>
+
+<body>
+<div id="graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "[app/page.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[app/lib/definition.ts]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/.gitignore]",
+    "size" : 1
+  }, {
+    "id" : "[app/Components/Header.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[lib/utils.ts]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/public/window.svg]",
+    "size" : 1
+  }, {
+    "id" : "[app/Components/Button.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[next.config.ts]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/app/auth/[slug]/page.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/app/utils/TransitionLink.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/.vscode/settings.json]",
+    "size" : 1
+  }, {
+    "id" : "[app/layout.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[prettier.config.mjs]",
+    "size" : 1
+  }, {
+    "id" : "[public/pattern-light.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/tsconfig.json]",
+    "size" : 1
+  }, {
+    "id" : "[app/myproduct/page.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[frontend/app/layout.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/public/vercel.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/app/page.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[package-lock.json]",
+    "size" : 2
+  }, {
+    "id" : "[app/utils/TransitionLink.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[app/api/user/update/route.ts]",
+    "size" : 2
+  }, {
+    "id" : "[.flowbite-react/config.json]",
+    "size" : 1
+  }, {
+    "id" : "[app/context/AuthProvider.tsx]",
+    "size" : 2
+  }, {
+    "id" : "iodzamonkmode@gmail.com",
+    "size" : 120
+  }, {
+    "id" : "[db.js]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/.gitignore]",
+    "size" : 1
+  }, {
+    "id" : "[prisma/seed.ts]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/app/favicon.ico]",
+    "size" : 1
+  }, {
+    "id" : "[app/api/product/[slug]/route.ts]",
+    "size" : 1
+  }, {
+    "id" : "[app/api/user/me/route.ts]",
+    "size" : 2
+  }, {
+    "id" : "[public/logoV1.svg]",
+    "size" : 1
+  }, {
+    "id" : "[app/browse/page.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[frontend/skillset/public/flowbite.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/package.json]",
+    "size" : 1
+  }, {
+    "id" : "[app/lib/helper.ts]",
+    "size" : 2
+  }, {
+    "id" : "[app/utils/supabase/client.ts]",
+    "size" : 1
+  }, {
+    "id" : "[app/context/AuthContext.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[prisma/migrations/migration_lock.toml]",
+    "size" : 1
+  }, {
+    "id" : "[public/vercel.svg]",
+    "size" : 1
+  }, {
+    "id" : "[app/types/User.ts]",
+    "size" : 2
+  }, {
+    "id" : "[frontend/public/next.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/package-lock.json]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/postcss.config.mjs]",
+    "size" : 1
+  }, {
+    "id" : "[eslint.config.mjs]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/prisma/migrations/20250907135622_init/migration.sql]",
+    "size" : 1
+  }, {
+    "id" : "[test.ts]",
+    "size" : 2
+  }, {
+    "id" : "[app/lib/session.ts]",
+    "size" : 2
+  }, {
+    "id" : "[app/utils/supabase/server.ts]",
+    "size" : 1
+  }, {
+    "id" : "[app/about/page.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/.flowbite-react/config.json]",
+    "size" : 1
+  }, {
+    "id" : "[app/globals.css]",
+    "size" : 2
+  }, {
+    "id" : "[app/utils/email.ts]",
+    "size" : 2
+  }, {
+    "id" : "[prisma/schema.prisma]",
+    "size" : 1
+  }, {
+    "id" : "[.eslintignore]",
+    "size" : 1
+  }, {
+    "id" : "[tsconfig.json]",
+    "size" : 1
+  }, {
+    "id" : "[.gitignore]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/public/flowbite-react.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/next.config.ts]",
+    "size" : 1
+  }, {
+    "id" : "[public/figma.svg]",
+    "size" : 1
+  }, {
+    "id" : "[.flowbite-react/init.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[PostmanTests/readme.txt]",
+    "size" : 3
+  }, {
+    "id" : "[frontend/skillset/app/Components/Footer.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/prisma/seed.ts]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/public/file.svg]",
+    "size" : 1
+  }, {
+    "id" : "nazim071305@gmail.com",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/public/figma.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/eslint.config.mjs]",
+    "size" : 1
+  }, {
+    "id" : "[app/api/product/user/route.ts]",
+    "size" : 2
+  }, {
+    "id" : "[frontend/skillset/README.md]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/lib/prisma.ts]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/.flowbite-react/.gitignore]",
+    "size" : 1
+  }, {
+    "id" : "[lib/countries.json]",
+    "size" : 2
+  }, {
+    "id" : "[frontend/app/page.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[app/settings/modal.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[frontend/skillset/.flowbite-react/init.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[app/api/user/delete/route.ts]",
+    "size" : 2
+  }, {
+    "id" : "[.flowbite-react/.gitignore]",
+    "size" : 1
+  }, {
+    "id" : "[public/pattern-dark.svg]",
+    "size" : 1
+  }, {
+    "id" : "[app/api/login/route.ts]",
+    "size" : 2
+  }, {
+    "id" : "[components/ui/dialog.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[.vscode/settings.json]",
+    "size" : 1
+  }, {
+    "id" : "[components.json]",
+    "size" : 1
+  }, {
+    "id" : "[public/pattern2.jpg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/app/browse/page.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[public/flowbite.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/README.md]",
+    "size" : 1
+  }, {
+    "id" : "2396208@cmontmorency.qc.ca",
+    "size" : 2
+  }, {
+    "id" : "[app/api/user/login/route.ts]",
+    "size" : 2
+  }, {
+    "id" : "[frontend/skillset/public/logoV1.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/public/vercel.svg]",
+    "size" : 1
+  }, {
+    "id" : "[backend/.gitignore]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/app/global.css]",
+    "size" : 1
+  }, {
+    "id" : "[app/auth/[slug]/page.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[app/api/user/logout/route.ts]",
+    "size" : 1
+  }, {
+    "id" : "[app/myproduct/MyProductsView.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[app/api/product/route.ts]",
+    "size" : 1
+  }, {
+    "id" : "[package.json]",
+    "size" : 2
+  }, {
+    "id" : "[app/settings/page.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[app/api/logout/route.ts]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/app/globals.css]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/prisma/schema.prisma]",
+    "size" : 1
+  }, {
+    "id" : "[PostmanTests/SkillSet.postman_collection.json]",
+    "size" : 3
+  }, {
+    "id" : "[prisma/migrations/20250907135622_init/migration.sql]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/.vscode/extensions.json]",
+    "size" : 1
+  }, {
+    "id" : "[app/api/user/register/route.ts]",
+    "size" : 2
+  }, {
+    "id" : "[app/api/register/route.ts]",
+    "size" : 2
+  }, {
+    "id" : "[components/ui/select.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/app/Components/Header.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[README.md]",
+    "size" : 1
+  }, {
+    "id" : "[postcss.config.mjs]",
+    "size" : 1
+  }, {
+    "id" : "[.vscode/extensions.json]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/app/layout.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/public/globe.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/postcss.config.mjs]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/next.config.ts]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/prettier.config.mjs]",
+    "size" : 1
+  }, {
+    "id" : "[components/ui/input.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[lib/prisma.ts]",
+    "size" : 1
+  }, {
+    "id" : "bramomoh06@gmail.com",
+    "size" : 41
+  }, {
+    "id" : "[frontend/skillset/public/pattern-light.svg]",
+    "size" : 1
+  }, {
+    "id" : "[components/ui/button.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[app/api/auth/route.ts]",
+    "size" : 1
+  }, {
+    "id" : "[app/utils/supabase/middleware.ts]",
+    "size" : 1
+  }, {
+    "id" : "[app/Components/Footer.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[components/ui/label.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[public/flowbite-react.svg]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/package-lock.json]",
+    "size" : 1
+  }, {
+    "id" : "[app/settings/SettingsForm.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[frontend/tsconfig.json]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/package.json]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/prisma/migrations/migration_lock.toml]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/app/posts/page.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[frontend/skillset/public/pattern-dark.svg]",
+    "size" : 1
+  } ],
+  "links" : [ {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[package.json]",
+    "count" : 9
+  }, {
+    "source" : "[package.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 9
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/myproduct/page.tsx]",
+    "count" : 8
+  }, {
+    "source" : "[app/myproduct/page.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 8
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/myproduct/page.tsx]",
+    "count" : 8
+  }, {
+    "source" : "[app/myproduct/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 8
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[package-lock.json]",
+    "count" : 7
+  }, {
+    "source" : "[package-lock.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 7
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[package-lock.json]",
+    "count" : 7
+  }, {
+    "source" : "[package-lock.json]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 7
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[package.json]",
+    "count" : 7
+  }, {
+    "source" : "[package.json]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 7
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/page.tsx]",
+    "count" : 6
+  }, {
+    "source" : "[app/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 6
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 5
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 5
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 5
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 5
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/product/route.ts]",
+    "count" : 5
+  }, {
+    "source" : "[app/api/product/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 5
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/register/route.ts]",
+    "count" : 5
+  }, {
+    "source" : "[app/api/register/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 5
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 4
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 4
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 4
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 4
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/user/login/route.ts]",
+    "count" : 4
+  }, {
+    "source" : "[app/api/user/login/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 4
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/Components/Header.tsx]",
+    "count" : 4
+  }, {
+    "source" : "[app/Components/Header.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 4
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/browse/page.tsx]",
+    "count" : 4
+  }, {
+    "source" : "[app/browse/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 4
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/.gitignore]",
+    "count" : 4
+  }, {
+    "source" : "[frontend/.gitignore]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 4
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/lib/helper.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/lib/helper.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/lib/helper.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/lib/helper.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/page.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[app/page.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/globals.css]",
+    "count" : 3
+  }, {
+    "source" : "[app/globals.css]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/api/user/login/route.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/api/user/login/route.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/Components/Header.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[app/Components/Header.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/user/register/route.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/api/user/register/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/browse/page.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[app/browse/page.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/layout.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[app/layout.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/lib/session.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/lib/session.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/utils/TransitionLink.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[app/utils/TransitionLink.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/login/route.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/api/login/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/utils/supabase/client.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/utils/supabase/client.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/utils/supabase/middleware.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/utils/supabase/middleware.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/utils/supabase/server.ts]",
+    "count" : 3
+  }, {
+    "source" : "[app/utils/supabase/server.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/about/page.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[app/about/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[eslint.config.mjs]",
+    "count" : 3
+  }, {
+    "source" : "[eslint.config.mjs]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[.vscode/settings.json]",
+    "count" : 3
+  }, {
+    "source" : "[.vscode/settings.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/README.md]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/README.md]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/app/favicon.ico]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/app/favicon.ico]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/app/global.css]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/app/global.css]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/app/layout.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/app/layout.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/app/page.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/app/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/app/posts/page.tsx]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/app/posts/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/next.config.ts]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/next.config.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/package-lock.json]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/package-lock.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/package.json]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/package.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/postcss.config.mjs]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/postcss.config.mjs]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/public/file.svg]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/public/file.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/public/globe.svg]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/public/globe.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/public/next.svg]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/public/next.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/public/vercel.svg]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/public/vercel.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/public/window.svg]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/public/window.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/tsconfig.json]",
+    "count" : 3
+  }, {
+    "source" : "[frontend/tsconfig.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 3
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/myproduct/MyProductsView.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/myproduct/MyProductsView.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[PostmanTests/SkillSet.postman_collection.json]",
+    "count" : 2
+  }, {
+    "source" : "[PostmanTests/SkillSet.postman_collection.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[PostmanTests/SkillSet.postman_collection.json]",
+    "count" : 2
+  }, {
+    "source" : "[PostmanTests/SkillSet.postman_collection.json]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "2396208@cmontmorency.qc.ca",
+    "target" : "[PostmanTests/SkillSet.postman_collection.json]",
+    "count" : 2
+  }, {
+    "source" : "[PostmanTests/SkillSet.postman_collection.json]",
+    "target" : "2396208@cmontmorency.qc.ca",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[PostmanTests/readme.txt]",
+    "count" : 2
+  }, {
+    "source" : "[PostmanTests/readme.txt]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[PostmanTests/readme.txt]",
+    "count" : 2
+  }, {
+    "source" : "[PostmanTests/readme.txt]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "2396208@cmontmorency.qc.ca",
+    "target" : "[PostmanTests/readme.txt]",
+    "count" : 2
+  }, {
+    "source" : "[PostmanTests/readme.txt]",
+    "target" : "2396208@cmontmorency.qc.ca",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/Components/Button.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/Components/Button.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/settings/modal.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/settings/modal.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/settings/modal.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/settings/modal.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/globals.css]",
+    "count" : 2
+  }, {
+    "source" : "[app/globals.css]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/utils/email.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/utils/email.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/utils/email.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/utils/email.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[test.ts]",
+    "count" : 2
+  }, {
+    "source" : "[test.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[test.ts]",
+    "count" : 2
+  }, {
+    "source" : "[test.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/product/[slug]/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/product/[slug]/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/api/user/delete/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/user/delete/route.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/user/delete/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/user/delete/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/api/user/me/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/user/me/route.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/user/me/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/user/me/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/api/user/register/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/user/register/route.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/api/user/update/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/user/update/route.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/user/update/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/user/update/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "nazim071305@gmail.com",
+    "target" : "[app/browse/page.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/browse/page.tsx]",
+    "target" : "nazim071305@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/context/AuthContext.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/context/AuthContext.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/context/AuthContext.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/context/AuthContext.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/context/AuthProvider.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/context/AuthProvider.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/context/AuthProvider.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/context/AuthProvider.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/layout.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/layout.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/lib/session.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/lib/session.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/settings/page.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/settings/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/settings/page.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/settings/page.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/types/User.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/types/User.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/types/User.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/types/User.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/utils/TransitionLink.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/utils/TransitionLink.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[lib/countries.json]",
+    "count" : 2
+  }, {
+    "source" : "[lib/countries.json]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[lib/countries.json]",
+    "count" : 2
+  }, {
+    "source" : "[lib/countries.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/user/logout/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/user/logout/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[components/ui/button.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[components/ui/button.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[components/ui/dialog.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[components/ui/dialog.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[components/ui/input.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[components/ui/input.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[components/ui/label.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[components/ui/label.tsx]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/api/login/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/login/route.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/api/register/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/register/route.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[components.json]",
+    "count" : 2
+  }, {
+    "source" : "[components.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[components/ui/select.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[components/ui/select.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[lib/utils.ts]",
+    "count" : 2
+  }, {
+    "source" : "[lib/utils.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[public/pattern2.jpg]",
+    "count" : 2
+  }, {
+    "source" : "[public/pattern2.jpg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/auth/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/auth/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/api/logout/route.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/api/logout/route.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "bramomoh06@gmail.com",
+    "target" : "[app/lib/definition.ts]",
+    "count" : 2
+  }, {
+    "source" : "[app/lib/definition.ts]",
+    "target" : "bramomoh06@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[db.js]",
+    "count" : 2
+  }, {
+    "source" : "[db.js]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[.eslintignore]",
+    "count" : 2
+  }, {
+    "source" : "[.eslintignore]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[.flowbite-react/.gitignore]",
+    "count" : 2
+  }, {
+    "source" : "[.flowbite-react/.gitignore]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[.flowbite-react/config.json]",
+    "count" : 2
+  }, {
+    "source" : "[.flowbite-react/config.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[.flowbite-react/init.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[.flowbite-react/init.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[.gitignore]",
+    "count" : 2
+  }, {
+    "source" : "[.gitignore]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[.vscode/extensions.json]",
+    "count" : 2
+  }, {
+    "source" : "[.vscode/extensions.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[README.md]",
+    "count" : 2
+  }, {
+    "source" : "[README.md]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[app/Components/Footer.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[app/Components/Footer.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[lib/prisma.ts]",
+    "count" : 2
+  }, {
+    "source" : "[lib/prisma.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[next.config.ts]",
+    "count" : 2
+  }, {
+    "source" : "[next.config.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[postcss.config.mjs]",
+    "count" : 2
+  }, {
+    "source" : "[postcss.config.mjs]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[prettier.config.mjs]",
+    "count" : 2
+  }, {
+    "source" : "[prettier.config.mjs]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[prisma/migrations/20250907135622_init/migration.sql]",
+    "count" : 2
+  }, {
+    "source" : "[prisma/migrations/20250907135622_init/migration.sql]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[prisma/migrations/migration_lock.toml]",
+    "count" : 2
+  }, {
+    "source" : "[prisma/migrations/migration_lock.toml]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[prisma/schema.prisma]",
+    "count" : 2
+  }, {
+    "source" : "[prisma/schema.prisma]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[prisma/seed.ts]",
+    "count" : 2
+  }, {
+    "source" : "[prisma/seed.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[public/figma.svg]",
+    "count" : 2
+  }, {
+    "source" : "[public/figma.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[public/flowbite-react.svg]",
+    "count" : 2
+  }, {
+    "source" : "[public/flowbite-react.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[public/flowbite.svg]",
+    "count" : 2
+  }, {
+    "source" : "[public/flowbite.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[public/logoV1.svg]",
+    "count" : 2
+  }, {
+    "source" : "[public/logoV1.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[public/pattern-dark.svg]",
+    "count" : 2
+  }, {
+    "source" : "[public/pattern-dark.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[public/pattern-light.svg]",
+    "count" : 2
+  }, {
+    "source" : "[public/pattern-light.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[public/vercel.svg]",
+    "count" : 2
+  }, {
+    "source" : "[public/vercel.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[tsconfig.json]",
+    "count" : 2
+  }, {
+    "source" : "[tsconfig.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/.flowbite-react/.gitignore]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/.flowbite-react/.gitignore]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/.flowbite-react/config.json]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/.flowbite-react/config.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/.flowbite-react/init.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/.flowbite-react/init.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/.gitignore]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/.gitignore]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/.vscode/extensions.json]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/.vscode/extensions.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/.vscode/settings.json]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/.vscode/settings.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/README.md]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/README.md]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/app/Components/Footer.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/app/Components/Footer.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/app/Components/Header.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/app/Components/Header.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/app/auth/[slug]/page.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/app/auth/[slug]/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/app/browse/page.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/app/browse/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/app/globals.css]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/app/globals.css]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/app/layout.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/app/layout.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/app/page.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/app/page.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/app/utils/TransitionLink.tsx]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/app/utils/TransitionLink.tsx]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/eslint.config.mjs]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/eslint.config.mjs]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/lib/prisma.ts]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/lib/prisma.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/next.config.ts]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/next.config.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/package-lock.json]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/package-lock.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/package.json]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/package.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/postcss.config.mjs]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/postcss.config.mjs]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/prettier.config.mjs]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/prettier.config.mjs]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/prisma/migrations/20250907135622_init/migration.sql]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/prisma/migrations/20250907135622_init/migration.sql]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/prisma/migrations/migration_lock.toml]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/prisma/migrations/migration_lock.toml]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/prisma/schema.prisma]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/prisma/schema.prisma]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/prisma/seed.ts]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/prisma/seed.ts]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/public/figma.svg]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/public/figma.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/public/flowbite-react.svg]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/public/flowbite-react.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/public/flowbite.svg]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/public/flowbite.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/public/logoV1.svg]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/public/logoV1.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/public/pattern-dark.svg]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/public/pattern-dark.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/public/pattern-light.svg]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/public/pattern-light.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/public/vercel.svg]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/public/vercel.svg]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[frontend/skillset/tsconfig.json]",
+    "count" : 2
+  }, {
+    "source" : "[frontend/skillset/tsconfig.json]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "iodzamonkmode@gmail.com",
+    "target" : "[backend/.gitignore]",
+    "count" : 2
+  }, {
+    "source" : "[backend/.gitignore]",
+    "target" : "iodzamonkmode@gmail.com",
+    "count" : 2
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => {
+        return {source: l.target, target: l.source, count: l.count}
+    });
+    const colorOf = (node) => {
+        if (!node.id.startsWith("[")) return "rgba(135, 206, 235, 0.6)";
+        return "rgba(100,100,100,0.6)";
+    }
+
+    const elem = document.getElementById('graph');
+    const Graph = ForceGraph()(elem)
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => colorOf(n))
+        .linkDirectionalParticles(1)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>

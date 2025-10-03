@@ -1,0 +1,6 @@
+Path	Lines of Code
+db.js	4
+eslint.config.mjs	22
+next.config.ts	5
+postcss.config.mjs	4
+prettier.config.mjs	8

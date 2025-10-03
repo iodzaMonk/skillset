@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>app/Components/Footer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/Components/Footer.tsx (<b>89</b> lines of code) (<a href="Footer.tsx">raw</a>):</h3>
+<div id="editor">export default function Footer() {
+  return (
+    &lt;footer className=&quot;border-border bg-surface text-text w-full border-t&quot;&gt;
+      &lt;div className=&quot;mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-12 sm:grid-cols-2 md:grid-cols-4&quot;&gt;
+        &lt;div&gt;
+          &lt;h2 className=&quot;text-lg font-semibold&quot;&gt;SkillSet&lt;/h2&gt;
+          &lt;p className=&quot;text-text-muted mt-3 text-sm&quot;&gt;
+            Here to make finding talent easier
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h3 className=&quot;text-accent text-sm font-semibold tracking-wide uppercase&quot;&gt;
+            Company
+          &lt;/h3&gt;
+          &lt;ul className=&quot;mt-3 space-y-2 text-sm&quot;&gt;
+            {[
+              [&quot;About Us&quot;, &quot;#&quot;],
+              [&quot;Careers&quot;, &quot;#&quot;],
+              [&quot;Press&quot;, &quot;#&quot;],
+            ].map(([label, href]) =&gt; (
+              &lt;li key={label}&gt;
+                &lt;a
+                  href={href}
+                  className=&quot;text-text-muted hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+                &gt;
+                  {label}
+                &lt;/a&gt;
+              &lt;/li&gt;
+            ))}
+          &lt;/ul&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h3 className=&quot;text-accent text-sm font-semibold tracking-wide uppercase&quot;&gt;
+            Resources
+          &lt;/h3&gt;
+          &lt;ul className=&quot;mt-3 space-y-2 text-sm&quot;&gt;
+            {[
+              [&quot;Docs&quot;, &quot;#&quot;],
+              [&quot;Blog&quot;, &quot;#&quot;],
+              [&quot;Support&quot;, &quot;#&quot;],
+            ].map(([label, href]) =&gt; (
+              &lt;li key={label}&gt;
+                &lt;a
+                  href={href}
+                  className=&quot;text-text-muted hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+                &gt;
+                  {label}
+                &lt;/a&gt;
+              &lt;/li&gt;
+            ))}
+          &lt;/ul&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h3 className=&quot;text-accent text-sm font-semibold tracking-wide uppercase&quot;&gt;
+            Follow
+          &lt;/h3&gt;
+          &lt;div className=&quot;mt-3 flex space-x-4 text-sm&quot;&gt;
+            {[&quot;Twitter&quot;, &quot;Instagram&quot;, &quot;LinkedIn&quot;].map((label) =&gt; (
+              &lt;a
+                key={label}
+                href=&quot;#&quot;
+                className=&quot;text-text-muted hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+              &gt;
+                {label}
+              &lt;/a&gt;
+            ))}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div className=&quot;border-border border-t&quot;&gt;
+        &lt;div className=&quot;text-text-muted mx-auto flex max-w-6xl flex-col justify-between px-6 py-6 text-sm sm:flex-row&quot;&gt;
+          &lt;p&gt;&copy; {new Date().getFullYear()} SkillSet. All rights reserved.&lt;/p&gt;
+          &lt;div className=&quot;mt-4 flex space-x-6 sm:mt-0&quot;&gt;
+            &lt;a
+              href=&quot;#&quot;
+              className=&quot;hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+            &gt;
+              Privacy
+            &lt;/a&gt;
+            &lt;a
+              href=&quot;#&quot;
+              className=&quot;hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+            &gt;
+              Terms
+            &lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

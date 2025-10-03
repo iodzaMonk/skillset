@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>app/api/product/user/route.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/api/product/user/route.ts (<b>81</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<div id="editor">import { getCurrentUser } from &quot;@/app/lib/helper&quot;;
+import { createClient } from &quot;@/app/utils/supabase/server&quot;;
+import { headers } from &quot;next/headers&quot;;
+export async function POST(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;);
+  const supabase = await createClient();
+  try {
+    const body = await req.json();
+
+    const product = await supabase
+      .from(&quot;posts&quot;)
+      .insert({
+        user_id: body.user_id,
+        title: body.title,
+        description: body.description,
+        price: body.price,
+        date: new Date().toISOString().split(&quot;T&quot;)[0],
+      })
+      .select()
+      .limit(1);
+
+    return new Response(JSON.stringify(product), {
+      status: 200,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
+  } catch (error) {
+    console.log(error);
+    return new Response(&quot;Error&quot;, {
+      status: 500,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
+  }
+}
+export async function PUT(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;);
+  const supabase = await createClient();
+  try {
+    const body = await req.json();
+
+    const product = await supabase
+      .from(&quot;posts&quot;)
+      .update({
+        user_id: body.user_id,
+        title: body.title,
+        description: body.description,
+        price: body.price,
+      })
+      .eq(&quot;id&quot;, body.id);
+
+    return new Response(JSON.stringify(product), {
+      status: 200,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
+  } catch (error) {
+    console.log(error);
+    return new Response(&quot;Error&quot;, {
+      status: 500,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
+  }
+}
+export async function GET() {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;);
+  const supabase = await createClient();
+  const user = await getCurrentUser();
+  try {
+    const product = await supabase
+      .from(&quot;posts&quot;)
+      .select(&quot;*&quot;)
+      .eq(&quot;user_id&quot;, user?.id); // Fetch products for the current user
+
+    return new Response(JSON.stringify(product), {
+      status: 200,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
+  } catch (error) {
+    console.log(error);
+    return new Response(&quot;Error&quot;, {
+      status: 500,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>
