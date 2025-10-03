@@ -22,7 +22,6 @@ export default function About() {
         everywhere the freedom to sell their skills, pursue their passions, and
         shape their own future.
       </div>
-      {/* eslint-disable react/no-unescaped-entities */}
     </div>
   );
 }

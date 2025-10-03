@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { getCurrentUser } from "../lib/helper";
-import { AuthClientProvider, AuthUser } from "./AuthContext";
+import { AuthClientProvider } from "./AuthContext";
+import { User } from "@/types/User";
 
 export default async function AuthProvider({
   children,
@@ -9,7 +10,7 @@ export default async function AuthProvider({
 }) {
   const currentUser = await getCurrentUser();
 
-  const safeUser: AuthUser | null = currentUser
+  const safeUser: User | null = currentUser
     ? {
         id: currentUser.id,
         name: currentUser.name ?? null,

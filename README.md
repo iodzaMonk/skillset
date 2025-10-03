@@ -26,7 +26,7 @@ docker compose down
 
 ---
 
-## ??? Project Config
+## Project Config
 
 | File                 | Purpose                                            |
 | -------------------- | -------------------------------------------------- |
