@@ -92,9 +92,13 @@ export function SettingsForm({ user }: { user: User }) {
 
   return (
     <div className="bg-surface border-border mx-auto my-20 min-h-[30vh] w-4/5 rounded border p-20">
-      <h1 className="pt-5 text-center text-7xl">Settings</h1>
+      <h1 className="pt-5 text-center text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+        Settings
+      </h1>
       <form className="mx-auto w-full space-y-6" onSubmit={updateUser}>
-        <h1 className="mt-10 text-center text-4xl">Edit User Info</h1>
+        <h1 className="text-1xl mt-10 text-center md:text-4xl">
+          Edit User Info
+        </h1>
         <div className="bg-text my-10 h-0.5 w-full rounded-2xl" />
         <div>
           <label htmlFor="email" className={labelBase}>
@@ -218,9 +222,9 @@ export function SettingsForm({ user }: { user: User }) {
 
         {error ? <p className="text-red-600">{error}</p> : null}
 
-        <div className="flex items-center space-x-4">
+        <div className="flex flex-col items-center gap-5 sm:flex-row">
           <ButtonMain type="submit" disabled={isSaving} variant="update">
-            Update settings
+            Update
           </ButtonMain>
           <ButtonMain
             variant="delete"

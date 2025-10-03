@@ -135,7 +135,7 @@ export default function Header() {
         <nav
           ref={popupRef}
           className={[
-            "absolute top-20 z-40 flex h-fit w-[min(720px,90vw)] justify-center rounded-2xl border p-10 transition-all duration-700",
+            "absolute top-20 z-40 flex w-[min(640px,70vw)] justify-center rounded-2xl border py-2 transition-all duration-700",
             "bg-surface/95 border-border backdrop-blur",
             open
               ? "pointer-events-auto translate-y-0 opacity-100"
@@ -162,7 +162,7 @@ export default function Header() {
                         : "cursor-pointer"
                     }`}
                   >
-                    <span className="text-text-muted absolute top-2 -left-7 text-sm">
+                    <span className="text-text-muted absolute top-2 -left-4 text-sm">
                       0{index + 1}
                     </span>
                     {item.name}
@@ -173,7 +173,7 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                     className={itemClasses}
                   >
-                    <span className="text-text-muted absolute top-2 -left-7 text-sm">
+                    <span className="text-text-muted absolute top-2 -left-4 text-sm">
                       0{index + 1}
                     </span>
                     {item.name}
