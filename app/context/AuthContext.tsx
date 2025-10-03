@@ -1,5 +1,6 @@
 "use client";
 
+import { User } from "@/types/User";
 import axios from "axios";
 import {
   ReactNode,
@@ -10,17 +11,9 @@ import {
   useState,
 } from "react";
 
-export type AuthUser = {
-  id: number;
-  name: string | null;
-  email: string;
-  country: string | null;
-  birthday: string | null;
-};
-
 export type AuthContextValue = {
-  user: AuthUser | null;
-  setUser: (user: AuthUser | null) => void;
+  user: User | null;
+  setUser: (user: User | null) => void;
   refresh: () => Promise<void>;
   logout: () => Promise<void>;
 };
@@ -31,10 +24,10 @@ export function AuthClientProvider({
   initialUser,
   children,
 }: {
-  initialUser: AuthUser | null;
+  initialUser: User | null;
   children: ReactNode;
 }) {
-  const [user, setUser] = useState<AuthUser | null>(initialUser);
+  const [user, setUser] = useState<User | null>(initialUser);
 
   const refresh = useCallback(async () => {
     try {

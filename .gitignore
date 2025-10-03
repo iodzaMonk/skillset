@@ -31,7 +31,8 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env
+.env.local
 
 # vercel
 .vercel
@@ -43,3 +44,7 @@ next-env.d.ts
 /app/generated/prisma
 
 /app/generated/prisma
+
+/lib/generated/prisma
+
+/lib/generated/prisma

@@ -1,15 +1,15 @@
 import { headers } from "next/headers";
-import { createClient } from "@/app/utils/supabase/server";
 import { getCurrentUser } from "@/app/lib/helper";
+import { prisma } from "@/lib/prisma";
+import { PostBody } from "@/types/PostBody";
 
 export async function GET() {
   const headersList = await headers();
   const referer = headersList.get("referer");
-  const supabase = await createClient();
   try {
-    const product = await supabase.from("posts").select("*");
+    const products = await prisma.posts.findMany();
 
-    return new Response(JSON.stringify(product), {
+    return new Response(JSON.stringify(products), {
       status: 200,
       headers: { "x-referer": referer || "" },
     });
@@ -23,18 +23,16 @@ export async function GET() {
 }
 export async function DELETE(req: Request) {
   try {
-    const body = await req.json();
+    const body = (await req.json()) as PostBody;
+    const { id } = body ?? {};
     const user = await getCurrentUser();
     if (!user) {
       return Response.json({ message: "Not authenticated" }, { status: 401 });
     }
 
-    const supabase = await createClient();
-    const { error } = await supabase.from("posts").delete().eq("id", body.id);
-
-    if (error) {
-      return Response.json({ message: error.message }, { status: 400 });
-    }
+    await prisma.posts.delete({
+      where: { id: id },
+    });
     return Response.json({ message: "Product deleted" }, { status: 200 });
   } catch (e) {
     console.error(e);

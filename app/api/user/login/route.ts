@@ -1,49 +1,57 @@
 import { headers } from "next/headers";
 import bcrypt from "bcryptjs";
 import { createSession } from "@/app/lib/session";
-import { createClient } from "@/app/utils/supabase/server";
-import { sendEmail } from "@/app/utils/email";
+import { prisma } from "@/lib/prisma";
+
+type LoginBody = {
+  email?: string;
+  password?: string;
+};
 export async function POST(req: Request) {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
+  const referer = headersList.get("referer") ?? "";
 
   try {
     // get body
-    const body = await req.json();
+    const body = (await req.json()) as LoginBody;
+    const { email, password } = body ?? {};
 
-    // verify that both fields contain data
-    if (!body?.email || !body?.password) {
+    const missingFields = [
+      ["email", email],
+      ["password", password],
+    ]
+      .filter(([, value]) => !value)
+      .map(([field]) => field);
+
+    if (missingFields.length > 0) {
       return Response.json(
-        { message: "Email and password are required" },
+        {
+          message: `Missing required fields: ${missingFields.join(", ")}`,
+        },
         {
           status: 400,
-          headers: { "x-referer": referer || "" },
+          headers: { "x-referer": referer },
         },
       );
     }
-    // verify if the email is already taken
-    const { data: existingUser, error } = await supabase
-      .from("users")
-      .select("*")
-      .eq("email", body.email)
-      .single();
 
-    // throw error
-    if (error || !existingUser) {
+    const existingUser = await prisma.users.findUnique({
+      where: { email: email },
+    });
+
+    if (!existingUser) {
       return Response.json(
         { message: "Invalid credentials" },
-        {
-          status: 401,
-          headers: { "x-referer": referer || "" },
-        },
+        { status: 401, headers: { "x-referer": referer } },
       );
     }
+
     // verify if password corresponds to the hashed one
-    const isPasswordValid = await bcrypt.compare(
-      body.password,
-      existingUser.password,
-    );
+    const isPasswordValid =
+      typeof password === "string" &&
+      typeof existingUser.password === "string" &&
+      (await bcrypt.compare(password, existingUser.password));
+
     // throw error
     if (!isPasswordValid) {
       return Response.json(
@@ -55,7 +63,7 @@ export async function POST(req: Request) {
       );
     }
     // if no errors then create session
-    const session = await createSession(existingUser.id);
+    const session = await createSession(existingUser.id.toString());
     return Response.json(
       { token: session },
       {
