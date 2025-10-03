@@ -1,0 +1,309 @@
+[ {
+  "relativePath" : "app/about/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 11,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/api/product/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 39,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 8,
+  "linesOfCodeInUnits" : 36
+}, {
+  "relativePath" : "app/api/product/user/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 81,
+  "unitsCount" : 3,
+  "unitsMcCabeIndexSum" : 12,
+  "linesOfCodeInUnits" : 78
+}, {
+  "relativePath" : "app/api/user/delete/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 21,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 18
+}, {
+  "relativePath" : "app/api/user/login/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 66,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 12,
+  "linesOfCodeInUnits" : 61
+}, {
+  "relativePath" : "app/api/user/logout/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 11,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 9
+}, {
+  "relativePath" : "app/api/user/me/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 19,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 18
+}, {
+  "relativePath" : "app/api/user/register/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 63,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 13,
+  "linesOfCodeInUnits" : 59
+}, {
+  "relativePath" : "app/api/user/update/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 28,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 26
+}, {
+  "relativePath" : "app/auth/[slug]/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 285,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 10,
+  "linesOfCodeInUnits" : 264
+}, {
+  "relativePath" : "app/browse/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 37,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 36
+}, {
+  "relativePath" : "app/Components/Button.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 84,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 13
+}, {
+  "relativePath" : "app/Components/Footer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 89,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/Components/Header.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 183,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/context/AuthContext.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 58,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/context/AuthProvider.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 20,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/globals.css",
+  "extension" : "css",
+  "linesOfCode" : 76,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/layout.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 28,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/lib/definition.ts",
+  "extension" : "ts",
+  "linesOfCode" : 35,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/lib/helper.ts",
+  "extension" : "ts",
+  "linesOfCode" : 19,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 5,
+  "linesOfCodeInUnits" : 16
+}, {
+  "relativePath" : "app/lib/session.ts",
+  "extension" : "ts",
+  "linesOfCode" : 57,
+  "unitsCount" : 5,
+  "unitsMcCabeIndexSum" : 8,
+  "linesOfCodeInUnits" : 51
+}, {
+  "relativePath" : "app/myproduct/MyProductsView.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 225,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/myproduct/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 128,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 3
+}, {
+  "relativePath" : "app/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 13,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 12
+}, {
+  "relativePath" : "app/settings/modal.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 49,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/settings/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 17,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/settings/SettingsForm.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 224,
+  "unitsCount" : 3,
+  "unitsMcCabeIndexSum" : 17,
+  "linesOfCodeInUnits" : 202
+}, {
+  "relativePath" : "app/types/User.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/utils/email.ts",
+  "extension" : "ts",
+  "linesOfCode" : 53,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/utils/supabase/client.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/utils/supabase/middleware.ts",
+  "extension" : "ts",
+  "linesOfCode" : 30,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 14
+}, {
+  "relativePath" : "app/utils/supabase/server.ts",
+  "extension" : "ts",
+  "linesOfCode" : 20,
+  "unitsCount" : 3,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 18
+}, {
+  "relativePath" : "app/utils/TransitionLink.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 46,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 3
+}, {
+  "relativePath" : "components/ui/button.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 50,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 7
+}, {
+  "relativePath" : "components/ui/dialog.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 115,
+  "unitsCount" : 9,
+  "unitsMcCabeIndexSum" : 10,
+  "linesOfCodeInUnits" : 101
+}, {
+  "relativePath" : "components/ui/input.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 14,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "components/ui/label.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 16,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "components/ui/select.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 157,
+  "unitsCount" : 9,
+  "unitsMcCabeIndexSum" : 11,
+  "linesOfCodeInUnits" : 138
+}, {
+  "relativePath" : "db.js",
+  "extension" : "js",
+  "linesOfCode" : 4,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "eslint.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 22,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "lib/utils.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 3
+}, {
+  "relativePath" : "next.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "postcss.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 4,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "prettier.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 8,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+} ]

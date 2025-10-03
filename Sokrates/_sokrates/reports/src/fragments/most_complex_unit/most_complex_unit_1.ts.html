@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>export async function POST()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export async function POST()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/register/route.ts [6:70]</i></p>
+<ul>
+    <li><b>59</b> lines of code</li>
+    <li><b>13</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+export async function POST(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;);
+  const supabase = await createClient();
+
+  try {
+    const body = await req.json();
+    if (!body?.email || !body?.password) {
+      return Response.json(
+        { message: &quot;Email and password are required&quot; },
+        {
+          status: 400,
+          headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+        },
+      );
+    }
+
+    const hashedPassword = await bcrypt.hash(body.password, 10);
+
+    const { data: createdUser, error } = await supabase
+      .from(&quot;users&quot;)
+      .insert({
+        email: body.email,
+        password: hashedPassword,
+        country: body.country,
+        name: body.name,
+        birthday: body.birthday,
+      })
+      .select()
+      .single();
+
+    if (error || !createdUser) {
+      const statusCode = error?.code === &quot;23505&quot; ? 409 : 400;
+      const message = error?.code === &quot;23505&quot;
+        ? &quot;Email already registered&quot;
+        : error?.message || &quot;Registration failed&quot;;
+
+      return Response.json(
+        { message },
+        {
+          status: statusCode,
+          headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+        },
+      );
+    }
+
+    await createSession(createdUser.id);
+    return Response.json(
+      { id: createdUser.id, email: createdUser.email },
+      {
+        status: 200,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+      },
+    );
+  } catch (error) {
+    console.log(error);
+    return Response.json(
+      { message: &quot;Internal server error&quot; },
+      {
+        status: 500,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+      },
+    );
+  }
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

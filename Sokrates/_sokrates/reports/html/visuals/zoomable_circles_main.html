@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+    .node {
+        cursor: pointer;
+    }
+
+    .node:hover {
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+
+    .node--leaf {
+        fill: white;
+    }
+
+    .label {
+        font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-anchor: middle;
+        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+    }
+
+    .label,
+    .node--root,
+    .node--leaf {
+        pointer-events: none;
+    }
+
+</style>
+<svg width="960" height="960"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+    var svg = d3.select("svg"),
+        margin = 20,
+        diameter = +svg.attr("width"),
+        g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+
+    var color = d3.scaleLinear()
+        .domain([-1, 5])
+        .range(["hsl(152,80%,100%)", "hsl(228,30%,40%)"])
+        .interpolate(d3.interpolateHcl);
+
+    var pack = d3.pack()
+        .size([diameter - margin, diameter - margin])
+        .padding(2);
+
+
+    var root = {
+        "name": "cluster",
+        "children": [ {
+  "name" : "app",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "about",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "page.tsx",
+      "color" : "",
+      "size" : 11,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "api",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "product",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "route.ts",
+        "color" : "",
+        "size" : 39,
+        "children" : [ ]
+      }, {
+        "name" : "user",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts",
+          "color" : "",
+          "size" : 81,
+          "children" : [ ]
+        } ]
+      } ]
+    }, {
+      "name" : "user",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "delete",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts",
+          "color" : "",
+          "size" : 21,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "login",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts",
+          "color" : "",
+          "size" : 66,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "logout",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts",
+          "color" : "",
+          "size" : 11,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "me",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts",
+          "color" : "",
+          "size" : 19,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "register",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts",
+          "color" : "",
+          "size" : 63,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "update",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts",
+          "color" : "",
+          "size" : 28,
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "auth",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "[slug]",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "page.tsx",
+        "color" : "",
+        "size" : 285,
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "browse",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "page.tsx",
+      "color" : "",
+      "size" : 37,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "Components",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "Button.tsx",
+      "color" : "",
+      "size" : 84,
+      "children" : [ ]
+    }, {
+      "name" : "Footer.tsx",
+      "color" : "",
+      "size" : 89,
+      "children" : [ ]
+    }, {
+      "name" : "Header.tsx",
+      "color" : "",
+      "size" : 183,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "context",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "AuthContext.tsx",
+      "color" : "",
+      "size" : 58,
+      "children" : [ ]
+    }, {
+      "name" : "AuthProvider.tsx",
+      "color" : "",
+      "size" : 20,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "globals.css",
+    "color" : "",
+    "size" : 76,
+    "children" : [ ]
+  }, {
+    "name" : "layout.tsx",
+    "color" : "",
+    "size" : 28,
+    "children" : [ ]
+  }, {
+    "name" : "lib",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "definition.ts",
+      "color" : "",
+      "size" : 35,
+      "children" : [ ]
+    }, {
+      "name" : "helper.ts",
+      "color" : "",
+      "size" : 19,
+      "children" : [ ]
+    }, {
+      "name" : "session.ts",
+      "color" : "",
+      "size" : 57,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "myproduct",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "MyProductsView.tsx",
+      "color" : "",
+      "size" : 225,
+      "children" : [ ]
+    }, {
+      "name" : "page.tsx",
+      "color" : "",
+      "size" : 128,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "page.tsx",
+    "color" : "",
+    "size" : 13,
+    "children" : [ ]
+  }, {
+    "name" : "settings",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "modal.tsx",
+      "color" : "",
+      "size" : 49,
+      "children" : [ ]
+    }, {
+      "name" : "page.tsx",
+      "color" : "",
+      "size" : 17,
+      "children" : [ ]
+    }, {
+      "name" : "SettingsForm.tsx",
+      "color" : "",
+      "size" : 224,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "types",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "User.ts",
+      "color" : "",
+      "size" : 7,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "utils",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "email.ts",
+      "color" : "",
+      "size" : 53,
+      "children" : [ ]
+    }, {
+      "name" : "supabase",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "client.ts",
+        "color" : "",
+        "size" : 5,
+        "children" : [ ]
+      }, {
+        "name" : "middleware.ts",
+        "color" : "",
+        "size" : 30,
+        "children" : [ ]
+      }, {
+        "name" : "server.ts",
+        "color" : "",
+        "size" : 20,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "TransitionLink.tsx",
+      "color" : "",
+      "size" : 46,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "components",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "ui",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "button.tsx",
+      "color" : "",
+      "size" : 50,
+      "children" : [ ]
+    }, {
+      "name" : "dialog.tsx",
+      "color" : "",
+      "size" : 115,
+      "children" : [ ]
+    }, {
+      "name" : "input.tsx",
+      "color" : "",
+      "size" : 14,
+      "children" : [ ]
+    }, {
+      "name" : "label.tsx",
+      "color" : "",
+      "size" : 16,
+      "children" : [ ]
+    }, {
+      "name" : "select.tsx",
+      "color" : "",
+      "size" : 157,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "db.js",
+  "color" : "",
+  "size" : 4,
+  "children" : [ ]
+}, {
+  "name" : "eslint.config.mjs",
+  "color" : "",
+  "size" : 22,
+  "children" : [ ]
+}, {
+  "name" : "lib",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "utils.ts",
+    "color" : "",
+    "size" : 5,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "next.config.ts",
+  "color" : "",
+  "size" : 5,
+  "children" : [ ]
+}, {
+  "name" : "postcss.config.mjs",
+  "color" : "",
+  "size" : 4,
+  "children" : [ ]
+}, {
+  "name" : "prettier.config.mjs",
+  "color" : "",
+  "size" : 8,
+  "children" : [ ]
+} ]
+    }
+
+    root = d3.hierarchy(root)
+        .sum(function (d) {
+            return d.size;
+        })
+        .sort(function (a, b) {
+            return b.value - a.value;
+        });
+
+    var focus = root,
+        nodes = pack(root).descendants(),
+        view;
+
+    var circle = g.selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", function (d) {
+            return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root";
+        })
+        .style("fill", function (d) {
+            return d.children ? color(d.depth) : (d.data.color ? d.data.color : null);
+        })
+        .on("click", function (d) {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        });
+
+    var text = g.selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .style("fill-opacity", function (d) {
+            return d.parent === root ? 1 : 0;
+        })
+        .style("display", function (d) {
+            return d.parent === root ? "inline" : "none";
+        })
+        .text(function (d) {
+            return d.data.name.length > 33 ? (d.data.name.substr(0, 14) + "..." + d.data.name.substr(d.data.name.length - 14))  : d.data.name;
+        });
+
+    var node = g.selectAll("circle,text");
+
+    svg
+        .style("background", color(-1))
+        .on("click", function () {
+            zoom(root);
+        });
+
+    zoomTo([root.x, root.y, root.r * 2 + margin]);
+
+    function zoom(d) {
+        var focus0 = focus;
+        focus = d;
+
+        var transition = d3.transition()
+            .duration(d3.event.altKey ? 7500 : 750)
+            .tween("zoom", function (d) {
+                var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+                return function (t) {
+                    zoomTo(i(t));
+                };
+            });
+
+        transition.selectAll("text")
+            .filter(function (d) {
+                return d.parent === focus || this.style.display === "inline";
+            })
+            .style("fill-opacity", function (d) {
+                return d.parent === focus ? 1 : 0;
+            })
+            .on("start", function (d) {
+                if (d.parent === focus) this.style.display = "inline";
+            })
+            .on("end", function (d) {
+                if (d.parent !== focus) this.style.display = "none";
+            });
+    }
+
+    function zoomTo(v) {
+        var k = diameter / v[2];
+        view = v;
+        node.attr("transform", function (d) {
+            return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
+        });
+        circle.attr("r", function (d) {
+            return d.r * k;
+        });
+    }
+
+</script>

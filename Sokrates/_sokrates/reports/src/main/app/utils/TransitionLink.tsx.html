@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>app/utils/TransitionLink.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/utils/TransitionLink.tsx (<b>46</b> lines of code) (<a href="TransitionLink.tsx">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+import Link, { LinkProps } from &quot;next/link&quot;;
+import React, { ReactNode } from &quot;react&quot;;
+import { useRouter } from &quot;next/navigation&quot;;
+
+interface TransitionLinkProps
+  extends LinkProps,
+    React.AnchorHTMLAttributes&lt;HTMLAnchorElement&gt; {
+  children: ReactNode;
+  href: string;
+  className?: string;
+}
+
+function sleep(ms: number) {
+  return new Promise((resolve) =&gt; setTimeout(resolve, ms));
+}
+
+export const TransitionLink = ({
+  children,
+  href,
+  className,
+  onClick,
+  target,
+  ...props
+}: TransitionLinkProps) =&gt; {
+  const router = useRouter();
+
+  const handleTransition = async (
+    e: React.MouseEvent&lt;HTMLAnchorElement, MouseEvent&gt;,
+  ) =&gt; {
+    onClick?.(e);
+
+    if (e.defaultPrevented) return;
+
+    e.preventDefault();
+
+    const body = document.body;
+    body.classList.add(&quot;page-transition&quot;);
+    await sleep(500);
+    router.replace(href);
+    await sleep(500);
+    body.classList.remove(&quot;page-transition&quot;);
+  };
+
+  return (
+    &lt;Link
+      {...props}
+      href={href}
+      onClick={handleTransition}
+      className={className}
+      target={target}
+    &gt;
+      {children}
+    &lt;/Link&gt;
+  );
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

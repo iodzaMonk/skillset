@@ -1,0 +1,601 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+</head>
+
+<body>
+<div id="3d-graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "[app/api/product/user/route.ts]",
+    "size" : 13
+  }, {
+    "id" : "duplicate20",
+    "size" : 2
+  }, {
+    "id" : "[app/context/AuthContext.tsx]",
+    "size" : 1
+  }, {
+    "id" : "duplicate22",
+    "size" : 2
+  }, {
+    "id" : "duplicate21",
+    "size" : 2
+  }, {
+    "id" : "duplicate24",
+    "size" : 2
+  }, {
+    "id" : "[app/types/User.ts]",
+    "size" : 1
+  }, {
+    "id" : "duplicate23",
+    "size" : 2
+  }, {
+    "id" : "duplicate26",
+    "size" : 2
+  }, {
+    "id" : "[app/api/product/route.ts]",
+    "size" : 3
+  }, {
+    "id" : "duplicate25",
+    "size" : 2
+  }, {
+    "id" : "duplicate28",
+    "size" : 2
+  }, {
+    "id" : "duplicate27",
+    "size" : 2
+  }, {
+    "id" : "[app/lib/session.ts]",
+    "size" : 2
+  }, {
+    "id" : "[app/api/user/register/route.ts]",
+    "size" : 3
+  }, {
+    "id" : "[components/ui/select.tsx]",
+    "size" : 2
+  }, {
+    "id" : "duplicate4",
+    "size" : 2
+  }, {
+    "id" : "duplicate3",
+    "size" : 2
+  }, {
+    "id" : "duplicate6",
+    "size" : 2
+  }, {
+    "id" : "duplicate5",
+    "size" : 2
+  }, {
+    "id" : "duplicate8",
+    "size" : 2
+  }, {
+    "id" : "duplicate7",
+    "size" : 2
+  }, {
+    "id" : "duplicate9",
+    "size" : 2
+  }, {
+    "id" : "duplicate11",
+    "size" : 2
+  }, {
+    "id" : "duplicate10",
+    "size" : 2
+  }, {
+    "id" : "duplicate13",
+    "size" : 2
+  }, {
+    "id" : "duplicate12",
+    "size" : 2
+  }, {
+    "id" : "duplicate2",
+    "size" : 2
+  }, {
+    "id" : "duplicate15",
+    "size" : 2
+  }, {
+    "id" : "duplicate1",
+    "size" : 2
+  }, {
+    "id" : "duplicate14",
+    "size" : 2
+  }, {
+    "id" : "[app/Components/Footer.tsx]",
+    "size" : 2
+  }, {
+    "id" : "duplicate17",
+    "size" : 2
+  }, {
+    "id" : "duplicate16",
+    "size" : 2
+  }, {
+    "id" : "duplicate19",
+    "size" : 2
+  }, {
+    "id" : "duplicate18",
+    "size" : 2
+  }, {
+    "id" : "[app/api/user/login/route.ts]",
+    "size" : 5
+  }, {
+    "id" : "[app/settings/SettingsForm.tsx]",
+    "size" : 11
+  }, {
+    "id" : "[app/auth/[slug]/page.tsx]",
+    "size" : 13
+  } ],
+  "links" : [ {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate1",
+    "count" : 1
+  }, {
+    "source" : "duplicate1",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate1",
+    "count" : 1
+  }, {
+    "source" : "duplicate1",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate2",
+    "count" : 1
+  }, {
+    "source" : "duplicate2",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate2",
+    "count" : 1
+  }, {
+    "source" : "duplicate2",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/Components/Footer.tsx]",
+    "target" : "duplicate3",
+    "count" : 1
+  }, {
+    "source" : "duplicate3",
+    "target" : "[app/Components/Footer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/Components/Footer.tsx]",
+    "target" : "duplicate3",
+    "count" : 1
+  }, {
+    "source" : "duplicate3",
+    "target" : "[app/Components/Footer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/user/login/route.ts]",
+    "target" : "duplicate4",
+    "count" : 1
+  }, {
+    "source" : "duplicate4",
+    "target" : "[app/api/user/login/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/user/register/route.ts]",
+    "target" : "duplicate4",
+    "count" : 1
+  }, {
+    "source" : "duplicate4",
+    "target" : "[app/api/user/register/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate5",
+    "count" : 1
+  }, {
+    "source" : "duplicate5",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate5",
+    "count" : 1
+  }, {
+    "source" : "duplicate5",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/user/login/route.ts]",
+    "target" : "duplicate6",
+    "count" : 1
+  }, {
+    "source" : "duplicate6",
+    "target" : "[app/api/user/login/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/user/register/route.ts]",
+    "target" : "duplicate6",
+    "count" : 1
+  }, {
+    "source" : "duplicate6",
+    "target" : "[app/api/user/register/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/route.ts]",
+    "target" : "duplicate7",
+    "count" : 1
+  }, {
+    "source" : "duplicate7",
+    "target" : "[app/api/product/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate7",
+    "count" : 1
+  }, {
+    "source" : "duplicate7",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate8",
+    "count" : 1
+  }, {
+    "source" : "duplicate8",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate8",
+    "count" : 1
+  }, {
+    "source" : "duplicate8",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/route.ts]",
+    "target" : "duplicate9",
+    "count" : 1
+  }, {
+    "source" : "duplicate9",
+    "target" : "[app/api/product/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate9",
+    "count" : 1
+  }, {
+    "source" : "duplicate9",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate10",
+    "count" : 1
+  }, {
+    "source" : "duplicate10",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate10",
+    "count" : 1
+  }, {
+    "source" : "duplicate10",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate11",
+    "count" : 1
+  }, {
+    "source" : "duplicate11",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate11",
+    "count" : 1
+  }, {
+    "source" : "duplicate11",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/route.ts]",
+    "target" : "duplicate12",
+    "count" : 1
+  }, {
+    "source" : "duplicate12",
+    "target" : "[app/api/product/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate12",
+    "count" : 1
+  }, {
+    "source" : "duplicate12",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate13",
+    "count" : 1
+  }, {
+    "source" : "duplicate13",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate13",
+    "count" : 1
+  }, {
+    "source" : "duplicate13",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate14",
+    "count" : 1
+  }, {
+    "source" : "duplicate14",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate14",
+    "count" : 1
+  }, {
+    "source" : "duplicate14",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/lib/session.ts]",
+    "target" : "duplicate15",
+    "count" : 1
+  }, {
+    "source" : "duplicate15",
+    "target" : "[app/lib/session.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/lib/session.ts]",
+    "target" : "duplicate15",
+    "count" : 1
+  }, {
+    "source" : "duplicate15",
+    "target" : "[app/lib/session.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate16",
+    "count" : 1
+  }, {
+    "source" : "duplicate16",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate16",
+    "count" : 1
+  }, {
+    "source" : "duplicate16",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate17",
+    "count" : 1
+  }, {
+    "source" : "duplicate17",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate17",
+    "count" : 1
+  }, {
+    "source" : "duplicate17",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate18",
+    "count" : 1
+  }, {
+    "source" : "duplicate18",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate18",
+    "count" : 1
+  }, {
+    "source" : "duplicate18",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate19",
+    "count" : 1
+  }, {
+    "source" : "duplicate19",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate19",
+    "count" : 1
+  }, {
+    "source" : "duplicate19",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate20",
+    "count" : 1
+  }, {
+    "source" : "duplicate20",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/user/register/route.ts]",
+    "target" : "duplicate20",
+    "count" : 1
+  }, {
+    "source" : "duplicate20",
+    "target" : "[app/api/user/register/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate21",
+    "count" : 1
+  }, {
+    "source" : "duplicate21",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate21",
+    "count" : 1
+  }, {
+    "source" : "duplicate21",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/context/AuthContext.tsx]",
+    "target" : "duplicate22",
+    "count" : 1
+  }, {
+    "source" : "duplicate22",
+    "target" : "[app/context/AuthContext.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/types/User.ts]",
+    "target" : "duplicate22",
+    "count" : 1
+  }, {
+    "source" : "duplicate22",
+    "target" : "[app/types/User.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate23",
+    "count" : 1
+  }, {
+    "source" : "duplicate23",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate23",
+    "count" : 1
+  }, {
+    "source" : "duplicate23",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate24",
+    "count" : 1
+  }, {
+    "source" : "duplicate24",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate24",
+    "count" : 1
+  }, {
+    "source" : "duplicate24",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/product/user/route.ts]",
+    "target" : "duplicate25",
+    "count" : 1
+  }, {
+    "source" : "duplicate25",
+    "target" : "[app/api/product/user/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/user/login/route.ts]",
+    "target" : "duplicate25",
+    "count" : 1
+  }, {
+    "source" : "duplicate25",
+    "target" : "[app/api/user/login/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/auth/[slug]/page.tsx]",
+    "target" : "duplicate26",
+    "count" : 1
+  }, {
+    "source" : "duplicate26",
+    "target" : "[app/auth/[slug]/page.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/settings/SettingsForm.tsx]",
+    "target" : "duplicate26",
+    "count" : 1
+  }, {
+    "source" : "duplicate26",
+    "target" : "[app/settings/SettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/user/login/route.ts]",
+    "target" : "duplicate27",
+    "count" : 1
+  }, {
+    "source" : "duplicate27",
+    "target" : "[app/api/user/login/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[app/api/user/login/route.ts]",
+    "target" : "duplicate27",
+    "count" : 1
+  }, {
+    "source" : "duplicate27",
+    "target" : "[app/api/user/login/route.ts]",
+    "count" : 1
+  }, {
+    "source" : "[components/ui/select.tsx]",
+    "target" : "duplicate28",
+    "count" : 1
+  }, {
+    "source" : "duplicate28",
+    "target" : "[components/ui/select.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[components/ui/select.tsx]",
+    "target" : "duplicate28",
+    "count" : 1
+  }, {
+    "source" : "duplicate28",
+    "target" : "[components/ui/select.tsx]",
+    "count" : 1
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => { return {source: l.target, target: l.source, count: l.count} });
+
+    const Graph = ForceGraph3D()
+    (document.getElementById('3d-graph'))
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => n.id.startsWith("[") ? "skyblue" : "")
+        .linkDirectionalParticles(6)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>

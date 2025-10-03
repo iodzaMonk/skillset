@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>app/utils/email.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/utils/email.ts (<b>53</b> lines of code) (<a href="email.ts">raw</a>):</h3>
+<div id="editor">&quot;use server&quot;;
+import { google } from &quot;googleapis&quot;;
+import nodemailer from &quot;nodemailer&quot;;
+const OAuth2 = google.auth.OAuth2;
+const createTransporter = async () =&gt; {
+  const OAuth2_client = new OAuth2(
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    &quot;https://developers.google.com/oauthplayground&quot;,
+  );
+  OAuth2_client.setCredentials({
+    refresh_token: process.env.REFRESH_TOKEN,
+    access_token: process.env.ACCESS_TOKEN,
+  });
+  const accessToken = await new Promise((resolve, reject) =&gt; {
+    OAuth2_client.getAccessToken((err, token) =&gt; {
+      if (err) {
+        reject(&quot;Failed to create access token :(&quot;);
+      }
+      resolve(token);
+    });
+  });
+  const transporter1 = nodemailer.createTransport({
+    host: &quot;gmail&quot;,
+    port: 465,
+    secure: true,
+    auth: {
+      user: &quot;username&quot;,
+      pass: &quot;pass&quot;,
+    },
+    tls: {
+      // do not fail on invalid certs
+      rejectUnauthorized: false,
+    },
+  });
+
+  const transporter = nodemailer.createTransport({
+    host: &quot;smtp.gmail.com&quot;,
+    port: 465,
+    secure: true,
+    auth: {
+      type: &quot;OAuth2&quot;,
+      user: process.env.EMAIL,
+      accessToken: accessToken as string,
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      refreshToken: process.env.REFRESH_TOKEN,
+    },
+  });
+  return transporter;
+};
+export const sendEmail = async (emailOptions: object) =&gt; {
+  const emailTransporter = await createTransporter();
+  await emailTransporter.sendMail(emailOptions);
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

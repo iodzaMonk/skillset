@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>app/globals.css</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/globals.css (<b>76</b> lines of code) (<a href="globals.css">raw</a>):</h3>
+<div id="editor">/* FONTS */
+@import url(&quot;https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100..900&amp;display=swap&quot;);
+@import url(&quot;https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap&quot;);
+@import url(&quot;https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&amp;display=swap&quot;);
+
+@import &quot;tailwindcss&quot;;
+@plugin &quot;flowbite-react/plugin/tailwindcss&quot;;
+@source &quot;../.flowbite-react/class-list.json&quot;;
+@import &quot;flag-icons/css/flag-icons.min.css&quot;;
+
+@custom-variant dark (&amp;:where(.dark, .dark *));
+
+@theme {
+  --font-Lexend-Mega: &quot;Lexend-Mega&quot;, sans-serif;
+  --font-Faustina: &quot;Faustina&quot;, serif;
+  --font-tinos: &quot;Tinos&quot;, serif;
+
+  --color-primary: oklch(34.55% 0.059 293.9);
+  --color-secondary: oklch(49.29% 0.057 284.1);
+  --color-accent: oklch(84.36% 0.031 256);
+
+  /* surfaces */
+  --color-canvas: oklch(99.29% 0.0025 345.2);
+  --color-surface: oklch(97% 0.006 265);
+  --color-surface-2: oklch(94% 0.01 270);
+  --color-border: oklch(86% 0.012 270);
+
+  /* text */
+  --color-text: oklch(18% 0 0);
+  --color-text-muted: oklch(42% 0.01 270);
+  --color-text-onAccent: oklch(16% 0 0);
+
+  /* interactive */
+  --color-accent-hover: oklch(80% 0.031 256);
+  --color-ring: oklch(84.36% 0.031 256 / 0.42);
+  --color-transition: oklch(100% 0 0);
+
+  /* Buttons */
+  --color-button-create: oklch(82.114% 0.24822 146.292);
+}
+
+.dark {
+  --color-primary: oklch(34.55% 0.059 293.9);
+  --color-secondary: oklch(49.29% 0.057 284.1);
+  --color-accent: oklch(84.36% 0.031 256);
+
+  /* lifted neutrals */
+  --color-canvas: oklch(18% 0.018 240);
+  --color-surface: oklch(24% 0.025 260);
+  --color-surface-2: oklch(32% 0.028 265);
+  --color-border: oklch(48% 0.02 265);
+
+  /* text */
+  --color-text: oklch(98% 0 0);
+  --color-text-muted: oklch(72% 0.012 260);
+  --color-text-onAccent: oklch(16% 0 0);
+
+  /* interactive */
+  --color-accent-hover: oklch(78% 0.031 256);
+  --color-ring: oklch(84.36% 0.031 256 / 0.45);
+  --color-transition: oklch(0% 0 0);
+
+  /* Buttons */
+  --color-button-create: oklch(75.368% 0.25199 141.748);
+}
+
+@layer utilities {
+  .circle-path {
+    stroke-dasharray: 157;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.6s ease;
+  }
+
+  .group:hover .circle-path {
+    stroke-dashoffset: 157;
+  }
+
+  body {
+    transition-property: opacity, background, transform, filter;
+    transition-timing-function: ease-in-out;
+    transition-duration: 500ms;
+  }
+  .page-transition {
+    opacity: 0;
+    background: var(--color-transition);
+    filter: blur(12px);
+    overflow: hidden;
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: var(--color-text);
+    -webkit-box-shadow: 0 0 0px 1000px
+      color-mix(in oklch, var(--color-surface) 90%, black) inset;
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
+  #datepicker {
+    background-color: var(--color-surface);
+  }
+
+  #countries option {
+    background-color: var(--color-primary) !important;
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/css");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,212 @@
+[ {
+  "key" : "primary",
+  "components" : [ {
+    "name" : "app",
+    "filesCount" : 33,
+    "linesOfCode" : 2127,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 16,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 16,
+      "description" : [ ]
+    }, {
+      "name" : "  *.css",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 1497,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 554,
+      "description" : [ ]
+    }, {
+      "name" : "  *.css",
+      "value" : 76,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "components",
+    "filesCount" : 5,
+    "linesOfCode" : 352,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 5,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 352,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "ROOT",
+    "filesCount" : 5,
+    "linesOfCode" : 43,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.mjs",
+      "value" : 3,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.mjs",
+      "value" : 34,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 5,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 4,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "lib",
+    "filesCount" : 1,
+    "linesOfCode" : 5,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 5,
+      "description" : [ ]
+    } ]
+  } ],
+  "componentDependencies" : [ ],
+  "componentDependenciesErrors" : [ ],
+  "logicalDecomposition" : {
+    "name" : "primary",
+    "scope" : "main",
+    "filters" : [ ],
+    "componentsFolderDepth" : 1,
+    "minComponentsCount" : 0,
+    "components" : [ {
+      "name" : "app",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./app/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "components",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./components/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "ROOT",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      }, {
+        "pathPattern" : "./app/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./components/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./lib/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "lib",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./lib/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    } ],
+    "metaComponents" : [ ],
+    "groups" : [ ],
+    "includeRemainingFiles" : true,
+    "dependenciesFinder" : {
+      "useBuiltInDependencyFinders" : true,
+      "rules" : [ ],
+      "metaRules" : [ ]
+    },
+    "renderingOptions" : {
+      "orientation" : "TB",
+      "maxNumberOfDependencies" : 100,
+      "renderComponentsWithoutDependencies" : true,
+      "renderIndirectDependencies" : false,
+      "renderInternalIndirectDependencies" : false,
+      "reverseDirection" : false
+    },
+    "includeExternalComponents" : true,
+    "dependencyLinkThreshold" : 1,
+    "duplicationLinkThreshold" : 50,
+    "temporalLinkThreshold" : 1,
+    "maxSearchDepthLines" : 200
+  },
+  "fileCountPerComponent" : [ {
+    "name" : "app",
+    "value" : 33,
+    "description" : [ ]
+  }, {
+    "name" : "components",
+    "value" : 5,
+    "description" : [ ]
+  }, {
+    "name" : "ROOT",
+    "value" : 5,
+    "description" : [ ]
+  }, {
+    "name" : "lib",
+    "value" : 1,
+    "description" : [ ]
+  } ],
+  "linesOfCodePerComponent" : [ {
+    "name" : "app",
+    "value" : 2127,
+    "description" : [ ]
+  }, {
+    "name" : "components",
+    "value" : 352,
+    "description" : [ ]
+  }, {
+    "name" : "ROOT",
+    "value" : 43,
+    "description" : [ ]
+  }, {
+    "name" : "lib",
+    "value" : 5,
+    "description" : [ ]
+  } ]
+} ]
