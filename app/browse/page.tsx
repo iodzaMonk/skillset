@@ -1,8 +1,28 @@
-import { createClient } from "../utils/supabase/server";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-export default async function Page() {
-  const supabase = await createClient();
-  const { data: products } = await supabase.from("posts").select();
+async function getProducts() {
+  const response = await axios.get("/api/product");
+  return response.data;
+}
+
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description?: string;
+  owner?: {
+    full_name?: string;
+  };
+};
+
+export default function Page() {
+  const [products, setProducts] = useState<Product[] | null>(null);
+
+  useEffect(() => {
+    getProducts().then(setProducts);
+  }, []);
+
   return (
     <main className="mx-auto max-w-4xl p-6">
       <h1 className="text-text mb-6 text-3xl font-bold">Products</h1>
