@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import type { UserBody } from "@/types/UserBody";
-import { getCurrentUser } from "@/app/lib/helper";
+import { getCurrentUser } from "@/app/lib/user";
 
 export async function PATCH(req: Request) {
   const headersList = await headers();

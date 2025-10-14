@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { getCurrentUser } from "../lib/helper";
+import { getCurrentUser } from "../lib/user";
 import { AuthClientProvider } from "./AuthContext";
 import { User } from "@/types/User";
 

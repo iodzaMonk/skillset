@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { getCurrentUser } from "@/app/lib/helper";
+import { getCurrentUser } from "@/app/lib/user";
 import { prisma } from "@/lib/prisma";
 import { PostBody } from "@/types/PostBody";
 
