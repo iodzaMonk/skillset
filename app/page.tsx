@@ -1,4 +1,4 @@
-import { getCurrentUser } from "./lib/helper";
+import { getCurrentUser } from "./lib/user";
 
 export default async function Home() {
   const user = await getCurrentUser();

@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/app/lib/helper";
+import { getCurrentUser } from "@/app/lib/user";
 import { deleteSession } from "@/app/lib/session";
 import { prisma } from "@/lib/prisma";
 

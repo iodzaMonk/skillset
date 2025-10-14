@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/context/AuthContext";
 import type { User } from "../../types/User";
 import Modal from "./modal";
-import { ButtonMain } from "../Components/Button";
+import { Button } from "@/components/ui/button";
 
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
@@ -223,16 +223,16 @@ export function SettingsForm({ user }: { user: User }) {
         {error ? <p className="text-red-600">{error}</p> : null}
 
         <div className="flex flex-col items-center gap-5 sm:flex-row">
-          <ButtonMain type="submit" disabled={isSaving} variant="update">
+          <Button type="submit" disabled={isSaving} variant="update">
             Update
-          </ButtonMain>
-          <ButtonMain
+          </Button>
+          <Button
             variant="delete"
             onClick={() => setOpenModal(true)}
             disabled={isDeleting}
           >
             Delete
-          </ButtonMain>
+          </Button>
         </div>
       </form>
       <div className="bg-text my-10 h-0.5 w-full rounded-2xl" />

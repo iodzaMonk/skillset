@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getCurrentUser } from "../lib/helper";
+import { getCurrentUser } from "../lib/user";
 import { SettingsForm } from "./SettingsForm";
 import type { User } from "../../types/User";
 

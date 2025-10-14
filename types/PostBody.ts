@@ -6,8 +6,9 @@ export type PostBody = {
   title: string;
   description: string;
   price: number;
-  date: Date;
+  date?: Date;
   image_location?: string;
+  image_url?: string | null;
   commands?: commands[];
   reviews?: reviews[];
 };

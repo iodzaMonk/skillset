@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/app/lib/helper";
+import { getCurrentUser } from "@/app/lib/user";
 
 export async function GET() {
   const user = await getCurrentUser();
