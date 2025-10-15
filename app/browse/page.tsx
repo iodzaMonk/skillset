@@ -32,25 +32,29 @@ export default function Page() {
       ) : (
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {products!.map((p) => (
-            <li
-              key={p.id}
-              className="border-border bg-surface rounded-lg border p-4"
-            >
-              <div className="flex items-baseline justify-between">
-                <h2 className="text-text text-lg font-semibold">{p.title}</h2>
-                <span className="text-accent font-semibold">
-                  ${p.price.toFixed(2)}
-                </span>
-              </div>
-              {p.description && (
-                <p className="text-text-muted mt-2 text-sm">{p.description}</p>
-              )}
-              {p.owner?.full_name && (
-                <p className="text-text-muted mt-3 text-xs">
-                  by {p.owner.full_name}
-                </p>
-              )}
-            </li>
+            <a key={p.id} href={`/product/${p.id}`}>
+              <li
+                key={p.id}
+                className="border-border bg-surface rounded-lg border p-4"
+              >
+                <div className="flex items-baseline justify-between">
+                  <h2 className="text-text text-lg font-semibold">{p.title}</h2>
+                  <span className="text-accent font-semibold">
+                    ${p.price.toFixed(2)}
+                  </span>
+                </div>
+                {p.description && (
+                  <p className="text-text-muted mt-2 text-sm">
+                    {p.description}
+                  </p>
+                )}
+                {p.owner?.full_name && (
+                  <p className="text-text-muted mt-3 text-xs">
+                    by {p.owner.full_name}
+                  </p>
+                )}
+              </li>
+            </a>
           ))}
         </ul>
       )}
