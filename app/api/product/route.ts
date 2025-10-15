@@ -21,6 +21,7 @@ export async function GET() {
     });
   }
 }
+
 export async function DELETE(req: Request) {
   try {
     const body = (await req.json()) as PostBody;
