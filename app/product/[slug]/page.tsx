@@ -2,25 +2,50 @@
 
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import { useAuth } from "@/app/context/AuthContext";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import Modal from "./components/Modal";
 
 async function fetchProduct(slug: string) {
   const response = await axios.get(`/api/product/${slug}`);
   return response.data;
 }
 
-type Product = {
+export type Product = {
+  user_id: string;
   title: string;
   description: string;
   price: number;
 };
 
+interface OrderState {
+  description: string;
+  isSubmitting: boolean;
+  error: string | null;
+}
+
 export default function ProductPage() {
   const router = useRouter();
   const { slug } = useParams<{ slug: string }>();
+  const { user } = useAuth();
+
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [orderState, setOrderState] = useState<OrderState>({
+    description: "",
+    isSubmitting: false,
+    error: null,
+  });
 
   useEffect(() => {
     if (!slug) return;
@@ -32,6 +57,48 @@ export default function ProductPage() {
         setError(err.response?.data?.message || "Failed to load product");
       });
   }, [slug]);
+
+  const handleOrder = useCallback(() => {
+    if (!user) {
+      router.push("/auth/login");
+      return;
+    }
+    setIsDialogOpen(true);
+  }, [user, router]);
+
+  const handleSubmitOrder = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setOrderState((prev) => ({ ...prev, isSubmitting: true, error: null }));
+
+    try {
+      if (product) {
+        const response = await axios.post("/api/orders", {
+          prof_id: product.user_id,
+          productId: slug,
+          description: orderState.description,
+          userId: user?.id,
+        });
+
+        setIsDialogOpen(false);
+        setOrderState((prev) => ({ ...prev, description: "" }));
+        router.push(`/orders/${response.data.id}`);
+      }
+    } catch (err) {
+      setOrderState((prev) => ({
+        ...prev,
+        error: axios.isAxiosError(err)
+          ? (err.response?.data?.message ?? "Failed to submit order")
+          : "An unexpected error occurred",
+      }));
+    } finally {
+      setOrderState((prev) => ({ ...prev, isSubmitting: false }));
+    }
+  };
+
+  const handleDescriptionChange = useCallback((value: string) => {
+    setOrderState((prev) => ({ ...prev, description: value }));
+  }, []);
 
   if (error) {
     return (
@@ -46,53 +113,63 @@ export default function ProductPage() {
   return (
     <div className="min-h-[80vh] p-6">
       {product ? (
-        <div className="border-border bg-surface/90 mx-auto max-w-4xl overflow-hidden rounded-lg border shadow-lg">
-          <div className="p-6">
-            <h1 className="text-text mb-6 text-3xl font-bold">
-              {product.title}
-            </h1>
+        <>
+          <div className="border-border bg-surface/90 mx-auto max-w-4xl overflow-hidden rounded-lg border shadow-lg">
+            <div className="p-6">
+              <h1 className="text-text mb-6 text-3xl font-bold">
+                {product.title}
+              </h1>
 
-            <div className="flex flex-col gap-8 md:flex-row">
-              <div className="relative min-h-[300px] w-full md:w-1/2">
-                <Image
-                  src="/storage/temp.jpg"
-                  alt={product.title}
-                  fill
-                  className="border-object-cover"
-                  priority
-                />
-              </div>
-
-              <div className="flex w-full flex-col justify-between md:w-1/2">
-                <div className="space-y-4">
-                  <p className="text-text-muted text-lg leading-relaxed">
-                    {product.description}
-                  </p>
-                  <div className="text-accent text-2xl font-bold">
-                    ${product.price.toFixed(2)}
-                  </div>
+              <div className="flex flex-col gap-8 md:flex-row">
+                <div className="relative min-h-[300px] w-full md:w-1/2">
+                  <Image
+                    src="/storage/temp.jpg"
+                    alt={product.title}
+                    fill
+                    className="border-object-cover"
+                    priority
+                  />
                 </div>
 
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <button
-                    className="bg-primary hover:bg-primary/90 flex-1 rounded-lg px-6 py-3 text-white transition-colors"
-                    onClick={() => {
-                      /* Add order handling */
-                    }}
-                  >
-                    Order Now
-                  </button>
-                  <button
-                    className="border-border hover:bg-surface flex-1 rounded-lg border px-6 py-3 transition-colors"
-                    onClick={() => router.back()}
-                  >
-                    Go Back
-                  </button>
+                <div className="flex w-full flex-col justify-between md:w-1/2">
+                  <div className="space-y-4">
+                    <p className="text-text-muted text-lg leading-relaxed">
+                      {product.description}
+                    </p>
+                    <div className="text-accent text-2xl font-bold">
+                      ${product.price.toFixed(2)}
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                    <button
+                      className="bg-primary hover:bg-primary/90 flex-1 rounded-lg px-6 py-3 text-white transition-colors"
+                      onClick={handleOrder}
+                    >
+                      Order Now
+                    </button>
+                    <button
+                      className="border-border hover:bg-surface flex-1 rounded-lg border px-6 py-3 transition-colors"
+                      onClick={() => router.back()}
+                    >
+                      Go Back
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
+            <Modal
+              isOpen={isDialogOpen}
+              onClose={() => setIsDialogOpen(false)}
+              description={orderState.description}
+              onDescriptionChange={handleDescriptionChange}
+              onSubmit={handleSubmitOrder}
+              isSubmitting={orderState.isSubmitting}
+              error={orderState.error}
+              product={product}
+            />
           </div>
-        </div>
+        </>
       ) : (
         <div className="flex h-[50vh] items-center justify-center">
           <div className="text-text-muted">Loading...</div>
