@@ -28,7 +28,7 @@ export default function ProductsPage() {
     (items: PostBody[]) => deletePosts(items),
     [deletePosts],
   );
-
+  // TODO: Add enum for tags for a product
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const openCreateModal = useCallback(() => {
     handleFile(undefined);
@@ -59,7 +59,7 @@ export default function ProductsPage() {
             resetEditing();
             setIsCreateOpen(false);
           }}
-        />
+        />:
         {editingPost && (
           <Modal
             isEditing
