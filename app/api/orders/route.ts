@@ -1,7 +1,5 @@
 import { headers } from "next/headers";
-import { getCurrentUser } from "@/app/lib/user";
 import { prisma } from "@/lib/prisma";
-import { PostBody } from "@/types/PostBody";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -14,9 +12,9 @@ export async function POST(request: Request) {
 
     const order = await prisma.commands.create({
       data: {
-        user_id: userId,
-        product_id: productId,
+        client_id: userId,
         prof_id: prof_id,
+        product_id: productId,
         description: description,
         date: new Date(),
       },
