@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -10,76 +11,115 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
+import { PostBody } from "@/types/PostBody";
+import { Category } from "@/types/Category";
+import { CategorySelectEnum } from "./components/categories";
 
-async function getProducts() {
-  const response = await axios.get("/api/product");
+async function getProducts(category?: Category | null): Promise<PostBody[]> {
+  const response = await axios.get<PostBody[]>("/api/product", {
+    params: category ? { category } : undefined,
+  });
   return response.data;
 }
 
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  description?: string;
-  owner?: {
-    full_name?: string;
-  };
-};
+const currencyFormatter = new Intl.NumberFormat(undefined, {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 2,
+});
 
 export default function Page() {
-  const [products, setProducts] = useState<Product[] | null>(null);
+  const [products, setProducts] = useState<PostBody[] | null>(null);
+  const [val, setVal] = useState<Category | null>(null);
 
   useEffect(() => {
-    getProducts().then(setProducts);
-  }, []);
+    setProducts(null);
+    void getProducts(val).then(setProducts);
+  }, [val]);
 
   return (
     <main className="mx-auto max-w-4xl p-6">
       <h1 className="text-text mb-6 text-3xl font-bold">Products</h1>
+      <CategorySelectEnum
+        enumObj={Category}
+        value={val}
+        onChange={setVal}
+        allowClear
+      />
       {products === null ? (
+        <p className="text-text-muted">Loading products…</p>
+      ) : products.length === 0 ? (
         <p className="text-text-muted">No products yet.</p>
       ) : (
-        <Carousel
-          className="w-full"
-          opts={{ align: "start", slidesToScroll: 2, containScroll: "trimSnaps", loop: true }}
-          plugins={[Autoplay({ delay: 20000000 })]}
-        >
-          <CarouselContent className="-ml-2">
-            {products!.map((p) => (
-              <CarouselItem
-                key={p.id}
-                className="pl-2 basis-full md:basis-1/2 lg:basis-1/3"
-              >
-                <div className="aspect-video rounded-lg border border-border/15 bg-surface p-4">
-                  <div className="flex items-baseline justify-between">
-                    <h2 className="text-text text-lg font-semibold">{p.title}</h2>
-                    <span className="text-accent font-semibold">
-                      ${p.price.toFixed(2)}
-                    </span>
+        <div>
+          <Carousel
+            className="w-full"
+            opts={{
+              align: "start",
+              slidesToScroll: 2,
+              containScroll: "trimSnaps",
+              loop: true,
+            }}
+            plugins={[Autoplay({ delay: 2000 })]}
+          >
+            <CarouselContent className="-ml-2">
+              {products.map((product) => (
+                <CarouselItem
+                  key={product.id}
+                  className="basis-full pl-2 md:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="border-border/60 bg-surface/90 flex h-full flex-col overflow-hidden rounded-2xl border shadow-sm">
+                    <div className="bg-muted/60 relative h-52 w-full">
+                      {product.image_url ? (
+                        <Image
+                          src={product.image_url}
+                          alt={product.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover"
+                        />
+                      ) : product.image_location ? (
+                        <div className="text-text-muted flex h-full w-full items-center justify-center text-xs font-medium tracking-wide uppercase">
+                          Image stored at {product.image_location}
+                        </div>
+                      ) : (
+                        <div className="text-text-muted flex h-full w-full items-center justify-center text-xs font-medium tracking-wide uppercase">
+                          No image uploaded
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex flex-1 flex-col gap-3 p-4">
+                      <h2 className="text-text line-clamp-2 text-lg font-semibold">
+                        {product.title}
+                      </h2>
+                      {product.description && (
+                        <p className="text-text-muted line-clamp-3 text-sm leading-6">
+                          {product.description}
+                        </p>
+                      )}
+                      {product.category && <p>{product.category}</p>}
+                      <div className="mt-auto flex items-center justify-between">
+                        <span className="text-accent text-xl font-semibold">
+                          {currencyFormatter.format(product.price)}
+                        </span>
+                        <Link
+                          href={`/product/${product.id}`}
+                          className="text-success hover:text-success/80 text-sm font-medium"
+                        >
+                          View details
+                        </Link>
+                      </div>
+                    </div>
                   </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
 
-                  {p.description && (
-                    <p className="text-text-muted mt-2 text-sm line-clamp-3">
-                      {p.description}
-                    </p>
-                  )}
-
-                  {p.owner?.full_name && (
-                    <p className="text-text-muted mt-3 text-xs">by {p.owner.full_name}</p>
-                  )}
-
-                  <Link href={`/product/${p.id}`} className="mt-3 inline-block text-blue-600">
-                    View details
-                  </Link>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>)
-      }
-    </main >
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      )}
+    </main>
   );
 }

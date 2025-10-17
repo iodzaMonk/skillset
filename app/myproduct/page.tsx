@@ -28,7 +28,6 @@ export default function ProductsPage() {
     (items: PostBody[]) => deletePosts(items),
     [deletePosts],
   );
-  // TODO: Add enum for tags for a product
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const openCreateModal = useCallback(() => {
     handleFile(undefined);
@@ -69,6 +68,7 @@ export default function ProductsPage() {
               title: editingPost.title,
               description: editingPost.description,
               price: editingPost.price,
+              image_url: editingPost.image_url ?? null,
             }}
             onFileChange={handleFile}
             filePreview={filePreview}

@@ -24,6 +24,7 @@ export async function createProduct(payload: PostBody): Promise<PostBody> {
       description: payload.description.trim(),
       price: payload.price,
       image_location: payload.image_location,
+      category: payload.category,
     };
 
     const res = await api.post("/api/product/user", body);
@@ -43,6 +44,7 @@ export async function updateProduct(payload: PostBody): Promise<PostBody> {
       description: payload.description.trim(),
       price: payload.price,
       image_location: payload.image_location,
+      category: payload.category,
     };
 
     const res = await api.put("/api/product/user", body);
