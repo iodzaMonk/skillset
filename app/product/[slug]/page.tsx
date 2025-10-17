@@ -69,7 +69,7 @@ export default function ProductPage() {
 
         setIsDialogOpen(false);
         setOrderState((prev) => ({ ...prev, description: "" }));
-        router.push(`/orders/${response.data.id}`);
+        router.push("/browse");
       }
     } catch (err) {
       setOrderState((prev) => ({

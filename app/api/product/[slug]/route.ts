@@ -7,10 +7,11 @@ export async function GET(
   request: Request,
   { params }: { params: { slug: string } },
 ) {
-  console.log("Fetching product with ID:", params.slug);
+  const id = await params;
+  const slug = id.slug;
   try {
     const product = await prisma.posts.findUnique({
-      where: { id: params.slug },
+      where: { id: slug },
     });
 
     if (!product) {
