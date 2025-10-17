@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Category } from "@prisma/client";
 import { faker } from "@faker-js/faker";
 import bcrypt from "bcryptjs";
 
@@ -55,10 +55,8 @@ async function main() {
             price: Number.parseFloat(
               faker.commerce.price({ min: 5, max: 250, dec: 2 }),
             ),
+            category: faker.helpers.arrayElement(Object.values(Category)),
             date: faker.date.recent({ days: 45 }),
-            image_location: faker.helpers.maybe(() => faker.image.url(), {
-              probability: 0.4,
-            }),
           },
         }),
       ),

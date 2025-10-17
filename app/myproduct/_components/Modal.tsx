@@ -1,8 +1,16 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogClose,
@@ -16,6 +24,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+enum Category {
+  "Video editing" = "Video editing",
+  Voiceover = "Voiceover",
+  Design = "Design",
+  Drawing = "Drawing",
+  Fixing = "Fixing",
+  Music = "Music",
+}
+
+const categoryOptions = Object.values(Category);
+
 type modalProps = {
   isEditing: boolean;
   initialValues?: Partial<{
@@ -23,6 +42,7 @@ type modalProps = {
     title: string;
     description: string;
     price: number;
+    image_url: string | null;
   }>;
   onSubmit: (event: FormEvent<HTMLFormElement>) => Promise<boolean>;
   isSubmitting?: boolean;
@@ -138,13 +158,36 @@ export default function Modal({
                 type="file"
                 onChange={(event) => onFileChange?.(event.target.files?.[0])}
               />
-              {filePreview && (
-                <img
+              {filePreview ? (
+                <Image
                   src={filePreview}
                   alt="Selected preview"
-                  className="h-32 w-full rounded-md object-cover"
+                  width={128}
+                  height={128}
+                  className="w-full rounded-md object-cover"
                 />
-              )}
+              ) : initialValues?.image_url ? (
+                <Image
+                  src={initialValues.image_url}
+                  alt={initialValues.title ?? "Current product image"}
+                  width={128}
+                  height={128}
+                  className="w-full rounded-md object-cover"
+                />
+              ) : null}
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="category">Category</Label>
+              <Select name="category">
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a category" />
+                </SelectTrigger>
+                <SelectContent>
+                  {categoryOptions.map((category) => (
+                    <SelectItem key={category} value={category}>{category}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
           <DialogFooter>
