@@ -1,15 +1,42 @@
 import { headers } from "next/headers";
 import { getCurrentUser } from "@/app/lib/user";
+import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
 import { prisma } from "@/lib/prisma";
 import { PostBody } from "@/types/PostBody";
+import { Category } from "@prisma/client";
 
-export async function GET() {
+export async function GET(request: Request) {
   const headersList = await headers();
   const referer = headersList.get("referer");
   try {
-    const products = await prisma.posts.findMany();
+    const url = new URL(request.url);
+    const category = url.searchParams.get("category");
+    const products = await prisma.posts.findMany({
+      where: category ? { category: category as Category } : undefined,
+    });
 
-    return new Response(JSON.stringify(products), {
+    const productsWithImages = await Promise.all(
+      products.map(async (product) => {
+        if (!product.image_location) {
+          return product;
+        }
+
+        try {
+          const imageUrl = await createSignedDownloadUrl(
+            product.image_location,
+          );
+          return {
+            ...product,
+            image_url: imageUrl,
+          };
+        } catch (error) {
+          console.error("Failed to sign image url", error);
+          return product;
+        }
+      }),
+    );
+
+    return new Response(JSON.stringify(productsWithImages), {
       status: 200,
       headers: { "x-referer": referer || "" },
     });
@@ -21,7 +48,6 @@ export async function GET() {
     });
   }
 }
-
 export async function DELETE(req: Request) {
   try {
     const body = (await req.json()) as PostBody;

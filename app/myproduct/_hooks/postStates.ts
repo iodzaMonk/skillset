@@ -59,7 +59,9 @@ export function usePostManager({ userId }: UsePostManagerOptions = {}) {
       const priceInput = (formData.get("price") as string | null) ?? "0";
 
       const price = parseFloat(priceInput);
-      if (!title || !description || Number.isNaN(price)) {
+      const category = (formData.get("category") as string | null)?.trim() ?? "";
+      console.log(category);
+      if (!title || !description || Number.isNaN(price) || !category) {
         console.error("Form data is invalid");
         return false;
       }
@@ -82,6 +84,7 @@ export function usePostManager({ userId }: UsePostManagerOptions = {}) {
         }
 
         // edit post
+        // TODO: add category handle
         if (editingPost) {
           await updateProduct({
             ...editingPost,
@@ -90,16 +93,20 @@ export function usePostManager({ userId }: UsePostManagerOptions = {}) {
             description,
             price,
             image_location: imageLocation ?? editingPost.image_location,
+            category,
+
           });
           setEditingPost(null);
         } else {
           // create post
+          // TODO: add category handle
           await createProduct({
             user_id: userId,
             title,
             description,
             price,
             image_location: imageLocation,
+            category,
           });
         }
         await refreshPosts();

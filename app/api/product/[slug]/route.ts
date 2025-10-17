@@ -1,9 +1,11 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
+import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
+
+
 
 export async function GET(
-  request: Request,
   { params }: { params: { slug: string } },
 ) {
   console.log("Fetching product with ID:", params.slug);
@@ -18,7 +20,30 @@ export async function GET(
         { status: 404 },
       );
     }
-    return NextResponse.json(product);
+    async function getProductWithImage() {
+
+      if (product) {
+        if (!product.image_location) {
+          return product;
+        }
+
+        try {
+          const imageUrl = await createSignedDownloadUrl(product.image_location);
+          return {
+            ...product,
+            image_url: imageUrl,
+          };
+        } catch (error) {
+          console.error("Failed to sign image url", error);
+          return product;
+        }
+
+      }
+    }
+
+    const productWithImage = await getProductWithImage();
+
+    return NextResponse.json(productWithImage);
   } catch (error) {
     console.error("Error fetching product:", error);
 
