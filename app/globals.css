@@ -43,7 +43,7 @@
 .dark {
   --color-primary: oklch(34.55% 0.059 293.9);
   --color-secondary: oklch(49.29% 0.057 284.1);
-  --color-accent: oklch(84.36% 0.031 256);
+  --color-accent: oklch(52% 0.0592 276.35);
 
   /* lifted neutrals */
   --color-canvas: oklch(18% 0.018 240);
@@ -89,6 +89,7 @@
     transition-timing-function: ease-in-out;
     transition-duration: 500ms;
   }
+
   .page-transition {
     opacity: 0;
     background: var(--color-transition);
@@ -98,8 +99,7 @@
 
   input:-webkit-autofill {
     -webkit-text-fill-color: var(--color-text);
-    -webkit-box-shadow: 0 0 0px 1000px
-      color-mix(in oklch, var(--color-surface) 90%, black) inset;
+    -webkit-box-shadow: 0 0 0px 1000px color-mix(in oklch, var(--color-surface) 90%, black) inset;
     transition: background-color 9999s ease-in-out 0s;
   }
 

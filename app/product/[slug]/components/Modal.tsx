@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import type { Product } from "../page";
+import { PostBody } from "@/types/PostBody";
 
 interface ModalProps {
   isOpen: boolean;
@@ -18,7 +18,7 @@ interface ModalProps {
   onSubmit: (e: React.FormEvent) => Promise<void>;
   isSubmitting: boolean;
   error: string | null;
-  product: Product;
+  product: PostBody;
 }
 
 export default function Modal({

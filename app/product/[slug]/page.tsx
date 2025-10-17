@@ -5,27 +5,14 @@ import { useParams, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { useAuth } from "@/app/context/AuthContext";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
 import Modal from "./components/Modal";
+import { PostBody } from "@/types/PostBody";
 
 async function fetchProduct(slug: string) {
   const response = await axios.get(`/api/product/${slug}`);
   return response.data;
 }
 
-export type Product = {
-  user_id: string;
-  title: string;
-  description: string;
-  price: number;
-};
 
 interface OrderState {
   description: string;
@@ -38,7 +25,7 @@ export default function ProductPage() {
   const { slug } = useParams<{ slug: string }>();
   const { user } = useAuth();
 
-  const [product, setProduct] = useState<Product | null>(null);
+  const [product, setProduct] = useState<PostBody | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [orderState, setOrderState] = useState<OrderState>({
@@ -122,13 +109,16 @@ export default function ProductPage() {
 
               <div className="flex flex-col gap-8 md:flex-row">
                 <div className="relative min-h-[300px] w-full md:w-1/2">
-                  <Image
-                    src="/storage/temp.jpg"
-                    alt={product.title}
-                    fill
-                    className="border-object-cover"
-                    priority
-                  />
+                  {product.image_url && (
+                    <Image
+                      src={product.image_url}
+                      alt={product.title}
+                      width={500}
+                      height={500}
+                      className="border-object-cover"
+                      priority
+                    />
+                  )}
                 </div>
 
                 <div className="flex w-full flex-col justify-between md:w-1/2">

@@ -3,14 +3,24 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
+}
+
+enum Category {
+  Editing
+  Voiceover
+  Design
+  Drawing
+  Fixing
+  Music
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model commands {
- id          String   @id @unique @default(cuid())
+<<<<<<< HEAD
+  id          String   @id @unique @default(cuid())
   client_id   String
   product_id  String
   date        DateTime @db.Date
@@ -19,6 +29,7 @@ model commands {
   posts       posts    @relation(fields: [product_id], references: [id], onDelete: Cascade)
   client      users    @relation("ClientCommands", fields: [client_id], references: [id], onDelete: Cascade)
   professional users    @relation("ProfessionalCommands", fields: [prof_id], references: [id], onDelete: Cascade)
+>>>>>>> c72c0f4 ([Add] Categories, browse with categories and add categories on create)
 }
 
 model posts {
@@ -27,8 +38,9 @@ model posts {
   title          String     @db.VarChar
   description    String
   price          Float      @db.Real
-  date           DateTime   @db.Date @default(now())
+  date           DateTime   @default(now()) @db.Date
   image_location String?    @db.VarChar
+  category       Category   @default(Editing)
   commands       commands[]
   users          users      @relation(fields: [user_id], references: [id], onDelete: Cascade, map: "products_user_id_fkey")
   reviews        reviews[]
@@ -36,7 +48,7 @@ model posts {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model reviews {
-  id         String @id(map: "review_pkey") @unique @default(cuid())
+  id         String    @id(map: "review_pkey") @unique @default(cuid())
   user_id    String
   product_id String
   text       String
