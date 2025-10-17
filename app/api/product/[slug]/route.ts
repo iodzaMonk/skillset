@@ -3,9 +3,8 @@ import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
 
-
-
 export async function GET(
+  request: Request,
   { params }: { params: { slug: string } },
 ) {
   const id = await params;
@@ -22,14 +21,15 @@ export async function GET(
       );
     }
     async function getProductWithImage() {
-
       if (product) {
         if (!product.image_location) {
           return product;
         }
 
         try {
-          const imageUrl = await createSignedDownloadUrl(product.image_location);
+          const imageUrl = await createSignedDownloadUrl(
+            product.image_location,
+          );
           return {
             ...product,
             image_url: imageUrl,
@@ -38,7 +38,6 @@ export async function GET(
           console.error("Failed to sign image url", error);
           return product;
         }
-
       }
     }
 
