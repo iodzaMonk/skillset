@@ -17,19 +17,24 @@ enum Category {
   Music
 }
 
+enum Status {
+  ACCEPT
+  REVIEW
+  DECLINE
+}
+
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model commands {
-<<<<<<< HEAD
-  id          String   @id @unique @default(cuid())
+  id          String       @id @unique @default(cuid())
   client_id   String
   product_id  String
-  date        DateTime @db.Date
+  date        DateTime    @db.Date
   prof_id     String
   description String
-  posts       posts    @relation(fields: [product_id], references: [id], onDelete: Cascade)
-  client      users    @relation("ClientCommands", fields: [client_id], references: [id], onDelete: Cascade)
-  professional users    @relation("ProfessionalCommands", fields: [prof_id], references: [id], onDelete: Cascade)
->>>>>>> c72c0f4 ([Add] Categories, browse with categories and add categories on create)
+  status      Status      @default(ACCEPT)
+  posts       posts       @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  client      users       @relation("ClientCommands", fields: [client_id], references: [id], onDelete: Cascade)
+  professional users      @relation("ProfessionalCommands", fields: [prof_id], references: [id], onDelete: Cascade)
 }
 
 model posts {
