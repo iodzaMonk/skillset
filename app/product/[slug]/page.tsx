@@ -60,7 +60,7 @@ export default function ProductPage() {
 
     try {
       if (product) {
-        const response = await axios.post("/api/orders", {
+        await axios.post("/api/orders", {
           prof_id: product.user_id,
           productId: slug,
           description: orderState.description,

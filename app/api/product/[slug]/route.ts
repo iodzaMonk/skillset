@@ -5,10 +5,9 @@ import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } },
+  context: { params: Promise<{ slug: string }> },
 ) {
-  const id = await params;
-  const slug = id.slug;
+  const { slug } = await context.params;
   try {
     const product = await prisma.posts.findUnique({
       where: { id: slug },
