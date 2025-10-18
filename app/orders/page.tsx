@@ -4,12 +4,33 @@ import { OrderList } from "./_components/OrderList";
 import { useOrderManager } from "./_hooks/orderStates";
 
 export default function ProductsPage() {
-  const { orders, isModalOpen, toggleModal, modalRef } = useOrderManager();
+  const {
+    orders,
+    isModalOpen,
+    toggleModal,
+    modalRef,
+    selectedIds,
+    selectedStatus,
+    setSelectedIds,
+    setSelectedStatus,
+    primarOrder,
+  } = useOrderManager();
 
   return (
     <div className="space-y-6">
-      <Modal toggle={isModalOpen} ref={modalRef} />
-      <OrderList orders={orders} toggleModal={toggleModal} />
+      <Modal
+        selectedOrder={primarOrder}
+        toggle={isModalOpen}
+        ref={modalRef}
+        selectedStatus={selectedStatus}
+        setSelectedStatus={setSelectedStatus}
+      />
+      <OrderList
+        orders={orders}
+        toggleModal={toggleModal}
+        selectedIds={selectedIds}
+        setSelectedIds={setSelectedIds}
+      />
     </div>
   );
 }

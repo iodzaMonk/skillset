@@ -1,15 +1,18 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useMemo } from "react";
 import { PencilIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Order } from "@/types/Order";
+import { cn } from "@/lib/utils";
 
 type OrderListProps = {
   orders: Order[];
+  selectedIds: string[];
+  setSelectedIds: Dispatch<SetStateAction<string[]>>;
   toggleModal: (e: React.MouseEvent<Element, MouseEvent>) => void;
 };
 
@@ -19,8 +22,20 @@ const currencyFormatter = new Intl.NumberFormat(undefined, {
   maximumFractionDigits: 2,
 });
 
-export function OrderList({ orders, toggleModal }: OrderListProps) {
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+export function OrderList({
+  orders,
+  selectedIds,
+  setSelectedIds,
+  toggleModal,
+}: OrderListProps) {
+  const badgeVariants: Record<Order["status"], string> = {
+    ACCEPT:
+      "border border-emerald-200 bg-emerald-50 text-emerald-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]",
+    REVIEW:
+      "border border-amber-200 bg-amber-50 text-amber-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]",
+    DECLINE:
+      "border border-rose-200 bg-rose-50 text-rose-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]",
+  };
 
   const selectedOrders = useMemo(
     () => orders.filter((order) => order.id && selectedIds.includes(order.id)),
@@ -31,7 +46,7 @@ export function OrderList({ orders, toggleModal }: OrderListProps) {
     setSelectedIds((current) =>
       current.filter((id) => orders.some((order) => order.id === id)),
     );
-  }, [orders]);
+  }, [orders, setSelectedIds]);
 
   const toggleSelection = (orderId: string | undefined) => {
     if (!orderId) {
@@ -149,8 +164,16 @@ export function OrderList({ orders, toggleModal }: OrderListProps) {
                     <div className="ml-10 flex flex-1 flex-col gap-4">
                       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                         <div className="space-y-2">
-                          <h2 className="text-text text-lg font-semibold sm:text-xl">
+                          <h2 className="text-text flex gap-5 text-lg font-semibold sm:text-xl">
                             {order.post.title}
+                            <span
+                              className={cn(
+                                "inline-flex items-center gap-2 rounded-full px-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] uppercase",
+                                badgeVariants[order.status] ?? "",
+                              )}
+                            >
+                              {order.status.toLowerCase()}
+                            </span>
                           </h2>
                           {order.description && (
                             <p className="text-text-muted flex gap-2 px-2 text-sm leading-6">

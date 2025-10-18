@@ -1,4 +1,5 @@
 import { posts } from "@prisma/client";
+import { Status } from "./Status";
 
 export type Order = {
   id: string;
@@ -7,5 +8,6 @@ export type Order = {
   date: string;
   prof_id: string;
   description: string;
+  status: Status;
   post: posts;
 };

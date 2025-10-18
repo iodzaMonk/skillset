@@ -2,12 +2,15 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { fetchUserOrder } from "@/app/lib/orders";
+import { fetchUserOrder, updateUserStatus } from "@/app/lib/orders";
 import { Order } from "@/types/Order";
+import { Status } from "@/types/Status";
 
 export function useOrderManager() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState<Status | null>(null);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);
   /**
    * Refreshes posts
@@ -22,13 +25,21 @@ export function useOrderManager() {
     }
   }, []);
 
+  const primaryOrderId = selectedIds[0] ?? null;
+  const primarOrder = orders.find((o) => o.id === primaryOrderId) ?? null;
   const openModal = useCallback(() => {
     setIsModalOpen(true);
   }, []);
 
+  const updateStatus = useCallback(() => {
+    updateUserStatus(selectedStatus, selectedIds);
+  }, [selectedStatus, selectedIds]);
+
   const closeModal = useCallback(() => {
+    updateStatus();
+    refreshPosts();
     setIsModalOpen(false);
-  }, []);
+  }, [updateStatus, refreshPosts]);
 
   const toggleModal = useCallback(() => {
     setIsModalOpen((prev) => !prev);
@@ -36,14 +47,18 @@ export function useOrderManager() {
 
   useEffect(() => {
     function handlePointerDown(event: PointerEvent) {
+      if (!isModalOpen) return;
       if (!modalRef.current?.contains(event.target as Node)) {
         closeModal();
       }
     }
     document.addEventListener("pointerdown", handlePointerDown);
-    refreshPosts();
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [refreshPosts, closeModal]);
+  }, [closeModal, isModalOpen]);
+
+  useEffect(() => {
+    refreshPosts();
+  }, [refreshPosts]);
 
   return {
     orders,
@@ -52,5 +67,10 @@ export function useOrderManager() {
     toggleModal,
     isModalOpen,
     modalRef,
+    selectedIds,
+    selectedStatus,
+    setSelectedIds,
+    setSelectedStatus,
+    primarOrder,
   };
 }

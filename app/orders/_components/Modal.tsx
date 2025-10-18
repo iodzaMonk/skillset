@@ -1,14 +1,19 @@
 import { MonitorCheck, ShieldQuestion, XCircle } from "lucide-react";
-import { forwardRef, useState } from "react";
+import { Dispatch, forwardRef, SetStateAction } from "react";
 
 import { cn } from "@/lib/utils";
+import { Status } from "@/types/Status";
+import { Order } from "@/types/Order";
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
-  toggle?: boolean;
+  toggle: boolean;
+  selectedStatus: Status | null;
+  selectedOrder: Order | null;
+  setSelectedStatus: Dispatch<SetStateAction<Status | null>>;
 }
 
 type ModalOption = {
-  id: string;
+  id: Status;
   label: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
@@ -18,7 +23,7 @@ type ModalOption = {
 
 const OPTIONS: ModalOption[] = [
   {
-    id: "accept",
+    id: Status.accept,
     label: "Accept Order",
     description: "Confirm you’ll deliver the work within the agreed timeline.",
     icon: MonitorCheck,
@@ -28,7 +33,7 @@ const OPTIONS: ModalOption[] = [
       "shadow-[0_28px_42px_-24px_color-mix(in_oklch,var(--color-accent)_65%,transparent)]",
   },
   {
-    id: "review",
+    id: Status.review,
     label: "Request Review",
     description:
       "Ask for clarification or additional requirements from the client.",
@@ -39,7 +44,7 @@ const OPTIONS: ModalOption[] = [
       "shadow-[0_28px_42px_-24px_color-mix(in_oklch,var(--color-secondary)_60%,transparent)]",
   },
   {
-    id: "decline",
+    id: Status.decline,
     label: "Decline Order",
     description: "Let the client know you aren’t able to take this project.",
     icon: XCircle,
@@ -51,11 +56,16 @@ const OPTIONS: ModalOption[] = [
 ];
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
-  { toggle = false, className, ...props },
+  {
+    toggle = false,
+    selectedStatus,
+    selectedOrder,
+    setSelectedStatus,
+    className,
+    ...props
+  },
   ref,
 ) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-
   return (
     <div
       className={cn(
@@ -101,14 +111,16 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
 
           <div className="flex flex-col gap-4">
             {OPTIONS.map((option) => {
-              const isSelected = selectedId === option.id;
+              const effectiveStatus = selectedStatus ?? selectedOrder?.status;
+              const isSelected = effectiveStatus === option.id;
+
               const Icon = option.icon;
 
               return (
                 <button
                   key={option.id}
                   type="button"
-                  onClick={() => setSelectedId(option.id)}
+                  onClick={() => setSelectedStatus(option.id)}
                   className={cn(
                     "group relative flex items-start gap-4 rounded-3xl border border-[color-mix(in_oklch,var(--color-border)_75%,transparent)] bg-[color-mix(in_oklch,var(--color-surface-2)_85%,transparent)] px-5 py-6 text-left transition-all duration-200 focus-visible:ring-3 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-4 focus-visible:ring-offset-[color-mix(in_oklch,var(--color-surface)_94%,transparent)] focus-visible:outline-none",
                     isSelected
