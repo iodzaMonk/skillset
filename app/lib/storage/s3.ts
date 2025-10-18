@@ -12,7 +12,8 @@ const REGION =
   process.env.AWS_BUCKET_REGION ??
   process.env.AWS_REGION ??
   process.env.AWS_DEFAULT_REGION;
-const ACCESS_KEY = process.env.AWS_ACCESS_KEY ?? process.env.AWS_ACCESS_KEY_ID;
+const ACCESS_KEY =
+  process.env.AWS_ACCESS_KEY_ID ?? process.env.AWS_ACCESS_KEY_ID_ID;
 const SECRET_KEY =
   process.env.AWS_SECRET_ACCESS_KEY ?? process.env.AWS_SECRET_ACCESS_KEY_ID;
 const BUCKET = process.env.AWS_BUCKET_NAME;
@@ -25,7 +26,7 @@ if (!REGION) {
 
 if (!ACCESS_KEY || !SECRET_KEY) {
   throw new Error(
-    "AWS credentials missing. Set AWS_ACCESS_KEY and AWS_SECRET_ACCESS_KEY.",
+    "AWS credentials missing. Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.",
   );
 }
 
