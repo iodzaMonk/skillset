@@ -1,9 +1,8 @@
 import { getCurrentUser } from "@/app/lib/user";
 import { prisma } from "@/lib/prisma";
-import { Order } from "@/types/Order";
-import { Status } from "@/types/Status";
 import { Prisma } from "@prisma/client";
 import { NextResponse } from "next/server";
+import { Status } from "@/types/Status";
 
 export async function GET() {
   const user = await getCurrentUser();
@@ -37,15 +36,21 @@ export async function PATCH(req: Request) {
       return Response.json({ message: "Not authenticated" }, { status: 401 });
     }
 
-    const body = await req.json();
-    const { ids = [], status } = body ?? {};
+    const { ids = [], status } = (await req.json()) as {
+      ids?: string[];
+      status?: Status;
+    };
 
-    const updatedProduct = await prisma.commands.updateMany({
+    if (!status) {
+      return Response.json({ message: "Status is required" }, { status: 400 });
+    }
+
+    const updatedOrder = await prisma.commands.updateMany({
       where: { client_id: user.id, id: { in: ids } },
-      data: { status } as any,
+      data: { status } as unknown as Prisma.commandsUpdateManyMutationInput,
     });
 
-    return Response.json({ data: updatedProduct }, { status: 200 });
+    return Response.json({ data: updatedOrder }, { status: 200 });
   } catch (error) {
     if (
       error instanceof Prisma.PrismaClientKnownRequestError &&
