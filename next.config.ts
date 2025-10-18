@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 import withFlowbiteReact from "flowbite-react/plugin/nextjs";
+import webpack from "webpack";
+import { config as loadEnv } from "dotenv";
+
+const { parsed: loadedEnv } = loadEnv();
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
@@ -15,6 +20,12 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  webpack(cfg) {
+    if (loadedEnv) {
+      cfg.plugins.push(new webpack.EnvironmentPlugin(loadedEnv));
+    }
+    return cfg;
   },
 };
 
