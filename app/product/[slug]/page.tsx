@@ -13,7 +13,6 @@ async function fetchProduct(slug: string) {
   return response.data;
 }
 
-
 interface OrderState {
   description: string;
   isSubmitting: boolean;
@@ -60,16 +59,25 @@ export default function ProductPage() {
 
     try {
       if (product) {
-        await axios.post("/api/orders", {
+        const order = {
           prof_id: product.user_id,
           productId: slug,
           description: orderState.description,
           userId: user?.id,
-        });
+        };
+        router.push(
+          `/product/${slug}/payment?description=` +
+            encodeURIComponent(order.description) +
+            `&prof_id=` +
+            encodeURIComponent(order.prof_id) +
+            `&productId=` +
+            encodeURIComponent(order.productId) +
+            `&userId=` +
+            encodeURIComponent(order.userId),
+        );
 
         setIsDialogOpen(false);
         setOrderState((prev) => ({ ...prev, description: "" }));
-        router.push("/browse");
       }
     } catch (err) {
       setOrderState((prev) => ({

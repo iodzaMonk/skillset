@@ -7,10 +7,20 @@ import {
   PaymentElement,
 } from "@stripe/react-stripe-js";
 import convertToSubcurrency from "@/app/lib/convertToSubcurrency";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
-const CheckoutPage = ({ amount }: { amount: number }) => {
+interface Order {
+  prof_id: string;
+  client_id: string;
+  product_id: string;
+  description: string;
+}
+
+const CheckoutPage = ({ amount, order }: { amount: number; order?: Order }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const router = useRouter();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,11 +31,14 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: convertToSubcurrency(amount) }),
+      body: JSON.stringify({
+        amount: convertToSubcurrency(amount),
+        orderData: order,
+      }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, [amount]);
+  }, [amount, order]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -43,17 +56,35 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       return;
     }
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://www.localhost:3000/payment-success?amount=${amount}`,
+        return_url: `${window.location.origin}/payment/success`,
       },
+      redirect: "if_required",
     });
 
     if (error) {
       setErrorMessage(error.message);
-    } else {
+      setLoading(false);
+    } else if (paymentIntent?.status === "succeeded") {
+      try {
+        await axios.post("/api/orders", {
+          description: order?.description,
+          prof_id: order?.prof_id,
+          productId: order?.product_id,
+          userId: order?.client_id,
+          paymentIntentId: paymentIntent.id,
+        });
+
+        router.push(`/payment/success?amount=${amount}`);
+      } catch (orderError) {
+        console.error("Failed to create order:", orderError);
+        setErrorMessage(
+          "Payment succeeded but order creation failed. Please contact support.",
+        );
+      }
     }
 
     setLoading(false);
@@ -78,7 +109,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
     <form onSubmit={handleSubmit} className="rounded-md bg-white p-2">
       {clientSecret && <PaymentElement />}
 
-      {errorMessage && <div>{errorMessage}</div>}
+      {errorMessage && <div className="mt-2 text-red-500">{errorMessage}</div>}
 
       <button
         disabled={!stripe || loading}
