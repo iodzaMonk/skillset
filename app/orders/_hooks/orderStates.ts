@@ -19,9 +19,11 @@ export function useOrderManager() {
   const refreshPosts = useCallback(async (): Promise<void> => {
     try {
       const data = await fetchUserOrder();
-      setOrders(data);
+      // Ensure data is always an array
+      setOrders(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Unable to load orders", error);
+      setOrders([]); // Set empty array on error
     }
   }, []);
 
