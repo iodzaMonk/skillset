@@ -1,18 +1,19 @@
 "use client";
-import axios from "axios";
+
 import { useEffect, useState } from "react";
+import axios from "axios";
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
-import { PostBody } from "@/types/PostBody";
-import { Category } from "@/types/Category";
-import { CategorySelectEnum } from "./components/categories";
 
-async function getProducts(category?: Category | null): Promise<PostBody[]> {
-  const response = await axios.get<PostBody[]>("/api/product", {
-    params: category ? { category } : undefined,
-  });
-  return response.data;
-}
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { PostBody } from "@/types/PostBody";
 
 const currencyFormatter = new Intl.NumberFormat(undefined, {
   style: "currency",
@@ -20,35 +21,45 @@ const currencyFormatter = new Intl.NumberFormat(undefined, {
   maximumFractionDigits: 2,
 });
 
-export default function Page() {
+async function getProducts(): Promise<PostBody[]> {
+  const response = await axios.get<PostBody[]>("/api/product");
+  return response.data;
+}
+
+export function ProductCarousel() {
   const [products, setProducts] = useState<PostBody[] | null>(null);
-  const [val, setVal] = useState<Category | null>(null);
 
   useEffect(() => {
     setProducts(null);
-    void getProducts(val).then(setProducts);
-  }, [val]);
+    void getProducts().then(setProducts);
+  }, []);
+
+  if (products === null) {
+    return <p className="text-text-muted">Loading products…</p>;
+  }
+
+  if (products.length === 0) {
+    return <p className="text-text-muted">No products yet.</p>;
+  }
 
   return (
-    <main className="mx-auto max-w-4xl p-6">
-      <h1 className="text-text mb-6 text-3xl font-bold">Products</h1>
-      <CategorySelectEnum
-        enumObj={Category}
-        value={val}
-        onChange={setVal}
-        allowClear
-      />
-      {products === null ? (
-        <p className="text-text-muted">Loading products…</p>
-      ) : products.length === 0 ? (
-        <p className="text-text-muted">No products yet.</p>
-      ) : (
-        <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="border-border/60 bg-surface/90 flex h-full flex-col overflow-hidden rounded-2xl border shadow-sm"
-            >
+    <Carousel
+      className="w-full"
+      opts={{
+        align: "start",
+        slidesToScroll: 2,
+        containScroll: "trimSnaps",
+        loop: true,
+      }}
+      plugins={[Autoplay({ delay: 10000 })]}
+    >
+      <CarouselContent className="-ml-2">
+        {products.map((product) => (
+          <CarouselItem
+            key={product.id}
+            className="basis-full pl-2 md:basis-1/2 lg:basis-1/3"
+          >
+            <div className="border-border/60 bg-surface/90 flex h-full flex-col overflow-hidden rounded-2xl border shadow-sm">
               <div className="bg-muted/60 relative h-52 w-full">
                 {product.image_url ? (
                   <Image
@@ -91,9 +102,14 @@ export default function Page() {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      )}
-    </main>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   );
 }
+
+export default ProductCarousel;
