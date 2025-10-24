@@ -60,7 +60,7 @@ const CheckoutPage = ({ amount, order }: { amount: number; order?: Order }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `${window.location.origin}/payment/success`,
+        return_url: `${window.location.origin}`,
       },
       redirect: "if_required",
     });
@@ -78,7 +78,7 @@ const CheckoutPage = ({ amount, order }: { amount: number; order?: Order }) => {
           paymentIntentId: paymentIntent.id,
         });
 
-        router.push(`/payment/success?amount=${amount}`);
+        router.push(`payment/success?amount=${amount}`);
       } catch (orderError) {
         console.error("Failed to create order:", orderError);
         setErrorMessage(
