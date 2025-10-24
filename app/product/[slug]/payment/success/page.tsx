@@ -1,4 +1,5 @@
 "use client";
+<<<<<<< HEAD
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -6,6 +7,18 @@ export default function PaymentSuccess() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const amount = searchParams?.get("amount") ?? "0.00";
+=======
+
+import { useRouter } from "next/navigation";
+import * as React from "react";
+interface PageProps {
+  searchParams: { amount: string };
+}
+
+export default function PaymentSuccess({ searchParams }: PageProps) {
+  const router = useRouter();
+  const { amount } = React.use(searchParams);
+>>>>>>> f5a3585 ([UPD]: userid from session instead of url)
   return (
     <main className="m-10 mx-auto max-w-6xl rounded-md border bg-linear-to-tr from-blue-500 to-purple-500 p-10 text-center text-white">
       <div className="mb-10">

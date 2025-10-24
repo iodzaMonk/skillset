@@ -71,9 +71,7 @@ export default function ProductPage() {
             `&prof_id=` +
             encodeURIComponent(order.prof_id) +
             `&productId=` +
-            encodeURIComponent(order.productId) +
-            `&userId=` +
-            encodeURIComponent(order.userId),
+            encodeURIComponent(order.productId),
         );
 
         setIsDialogOpen(false);
