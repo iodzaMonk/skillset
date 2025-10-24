@@ -6,58 +6,95 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import axios from "axios";
+import { useAuth } from "@/app/context/AuthContext";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
 );
 
+interface Product {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  user_id: string;
+  image_url?: string;
+}
+
+interface Order {
+  prof_id: string;
+  product_id: string;
+  description: string;
+  client_id: string;
+}
+
 export default function PaymentPage() {
   const { slug } = useParams<{ slug: string }>();
   const searchParams = useSearchParams();
+  const { user } = useAuth();
 
-  const [order, setOrder] = useState({
+  const [order, setOrder] = useState<Order>({
     prof_id: "",
     product_id: slug ?? "",
     description: "",
     client_id: "",
   });
 
-  const [product, setProduct] = useState(null);
-  const [amount, setAmount] = useState(1);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [amount, setAmount] = useState<number>(0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Fetch product data
-  const fetchProduct = async (slug: string) => {
+  const fetchProduct = async (productSlug: string) => {
     try {
-      const response = await axios.get(`/api/product/${slug}`);
-      setProduct(response.data);
-      setAmount(response.data.price);
-      return response.data;
+      const response = await axios.get(`/api/product/${productSlug}`);
+      const productData = response.data;
+      setProduct(productData);
+      setAmount(productData.price || 0);
+      return productData;
     } catch (error) {
       console.error("Error fetching product:", error);
+      setError("Failed to load product information");
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
+    // Get order details from URL parameters
     const description = searchParams?.get("description") ?? "";
     const prof_id = searchParams?.get("prof_id") ?? "";
-    const product_id = searchParams?.get("productId") ?? slug ?? "";
-    const client_id = searchParams?.get("userId") ?? "";
+    const productId = searchParams?.get("productId") ?? slug ?? "";
+    const userId = searchParams?.get("userId") ?? user?.id ?? "";
 
+    // Set order state with all required fields
     setOrder({
       prof_id,
-      product_id,
+      product_id: productId,
       description,
-      client_id,
+      client_id: userId,
     });
 
-    // Actually call fetchProduct
+    // Fetch product data if we have a slug
     if (slug) {
       fetchProduct(slug);
     }
-  }, [searchParams, slug]);
+  }, [searchParams, slug, user?.id]);
+
+  // Show error state
+  if (error) {
+    return (
+      <main className="border-border bg-surface/90 m-5 mx-auto max-w-4xl overflow-hidden rounded-lg p-10 shadow-lg">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="text-red-600">
+            <h1 className="mb-4 text-2xl font-bold">Error</h1>
+            <p>{error}</p>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="border-border bg-surface/90 m-5 mx-auto max-w-4xl overflow-hidden rounded-lg p-10 shadow-lg">
@@ -82,13 +119,20 @@ export default function PaymentPage() {
               <div>
                 <p className="text-sm text-gray-600">Service Request</p>
                 <p className="font-medium text-gray-900">
-                  {product?.title ||
-                    order.description ||
-                    "Professional Service"}
+                  {loading
+                    ? "Loading..."
+                    : product?.title ||
+                      order.description ||
+                      "Professional Service"}
                 </p>
                 {product?.description && (
                   <p className="mt-1 text-sm text-gray-500">
                     {product.description}
+                  </p>
+                )}
+                {order.description && (
+                  <p className="mt-2 text-sm text-gray-600">
+                    <strong>Order Details:</strong> {order.description}
                   </p>
                 )}
               </div>
@@ -112,12 +156,21 @@ export default function PaymentPage() {
           </div>
         </div>
 
+        {/* Payment Form */}
         <div className="overflow-hidden rounded-xl bg-white shadow-lg">
           <div className="p-6">
             <h3 className="mb-4 text-lg font-semibold text-gray-900">
               Payment Details
             </h3>
-            {!loading && (
+
+            {loading ? (
+              <div className="flex items-center justify-center py-8">
+                <div className="flex items-center space-x-2">
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-indigo-600 border-t-transparent"></div>
+                  <p className="text-gray-600">Loading payment details...</p>
+                </div>
+              </div>
+            ) : amount > 0 ? (
               <Elements
                 stripe={stripePromise}
                 options={{
@@ -128,10 +181,11 @@ export default function PaymentPage() {
               >
                 <CheckoutPage amount={amount} order={order} />
               </Elements>
-            )}
-            {loading && (
+            ) : (
               <div className="py-8 text-center">
-                <p>Loading payment details...</p>
+                <p className="text-red-600">
+                  Invalid amount. Please try again.
+                </p>
               </div>
             )}
           </div>

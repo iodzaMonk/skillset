@@ -73,8 +73,8 @@ const CheckoutPage = ({ amount, order }: { amount: number; order?: Order }) => {
         await axios.post("/api/orders", {
           description: order?.description,
           prof_id: order?.prof_id,
-          productId: order?.product_id,
-          userId: order?.client_id,
+          productId: order?.product_id, // This maps to product_id in the API
+          userId: order?.client_id, // This maps to client_id in the API
           paymentIntentId: paymentIntent.id,
         });
 
