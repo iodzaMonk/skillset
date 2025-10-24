@@ -10,7 +10,7 @@ export async function GET() {
 
   try {
     const orders = await prisma.commands.findMany({
-      where: { client_id: id },
+      where: { prof_id: id },
       include: { posts: true },
     });
 
@@ -18,7 +18,6 @@ export async function GET() {
       ...order,
       post: posts,
     }));
-
     return NextResponse.json({ data: ordersWithPost }, { status: 200 });
   } catch (error) {
     console.error("Error fetching orders:", error);
