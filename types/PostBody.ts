@@ -1,5 +1,12 @@
 import { commands, reviews } from "@prisma/client";
 
+export type ReviewWithAuthor = reviews & {
+  users?: {
+    id: string;
+    name: string | null;
+  };
+};
+
 export type PostBody = {
   id?: string;
   prof_id?: string;
@@ -12,5 +19,5 @@ export type PostBody = {
   image_location?: string;
   image_url?: string | null;
   commands?: commands[];
-  reviews?: reviews[];
+  reviews?: ReviewWithAuthor[];
 };

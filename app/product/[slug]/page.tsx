@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { useAuth } from "@/app/context/AuthContext";
 import Modal from "./components/Modal";
+import Comments from "./components/Comments";
 import { PostBody } from "@/types/PostBody";
 
 async function fetchProduct(slug: string) {
@@ -65,14 +66,18 @@ export default function ProductPage() {
           description: orderState.description,
           userId: user?.id,
         };
-        router.push(
-          `/product/${slug}/payment?description=` +
-            encodeURIComponent(order.description) +
-            `&prof_id=` +
-            encodeURIComponent(order.prof_id) +
-            `&productId=` +
-            encodeURIComponent(order.productId),
-        );
+
+        if (order.userId)
+          router.push(
+            `/product/${slug}/payment?description=` +
+              encodeURIComponent(order.description) +
+              `&prof_id=` +
+              encodeURIComponent(order.prof_id) +
+              `&productId=` +
+              encodeURIComponent(order.productId) +
+              `&userId=` +
+              encodeURIComponent(order.userId),
+          );
 
         setIsDialogOpen(false);
         setOrderState((prev) => ({ ...prev, description: "" }));
@@ -171,6 +176,7 @@ export default function ProductPage() {
           <div className="text-text-muted">Loading...</div>
         </div>
       )}
+      {slug ? <Comments productId={slug} /> : null}
     </div>
   );
 }
