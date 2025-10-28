@@ -27,6 +27,7 @@ export async function getCurrentUser() {
       email: user.email,
       country: user.country ?? null,
       birthday: user.birthday ? user.birthday.toISOString() : null,
+      vendor_id: user.vendor_id ?? null,
     };
   } catch (error) {
     console.error("getCurrentUser error", error);

@@ -17,6 +17,7 @@ export default async function AuthProvider({
         email: currentUser.email,
         country: currentUser.country ?? null,
         birthday: currentUser.birthday ?? null,
+        vendor_id: currentUser.vendor_id ?? null,
       }
     : null;
 

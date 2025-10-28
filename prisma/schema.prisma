@@ -71,6 +71,7 @@ model users {
   country                            String     @db.VarChar
   birthday                           DateTime?  @db.Date
   isAdmin                            Boolean?
+  vendor_id                          String?    @db.VarChar
   clientCommands    commands[] @relation("ClientCommands")
   profCommands     commands[] @relation("ProfessionalCommands")
   posts                              posts[]

@@ -17,6 +17,7 @@ import { useAuth } from "@/app/context/AuthContext";
 import type { User } from "../../types/User";
 import Modal from "./modal";
 import { Button } from "@/components/ui/button";
+import ConnectStripeButton from "./StripeConnectButton";
 
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
@@ -243,6 +244,10 @@ export function SettingsForm({ user }: { user: User }) {
         setOpenModal={setOpenModal}
         onDelete={deleteUser}
       />
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold">Payment Settings</h3>
+        <ConnectStripeButton />
+      </div>
     </div>
   );
 }
