@@ -18,6 +18,7 @@ export default async function SettingsPage() {
     birthday: user.birthday
       ? new Date(user.birthday).toISOString().split("T")[0]
       : null,
+    vendor_id: user.vendor_id,
   };
 
   return <SettingsForm user={safeUser} />;
