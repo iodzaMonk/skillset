@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type SuccessPageProps = {
   searchParams: Promise<{
     amount?: string;
@@ -9,6 +11,7 @@ export default async function PaymentSuccess({
 }: SuccessPageProps) {
   const params = await searchParams;
   const amount = params?.amount ?? "0.00";
+
   return (
     <main className="m-10 mx-auto max-w-6xl rounded-md border bg-linear-to-tr from-blue-500 to-purple-500 p-10 text-center text-white">
       <div className="mb-10">
@@ -19,12 +22,12 @@ export default async function PaymentSuccess({
           ${amount}
         </div>
 
-        <button
-          onClick={() => router.push("/browse")}
-          className="mt-8 rounded-lg bg-white px-6 py-3 text-lg font-semibold text-purple-600 transition-all duration-200 hover:bg-gray-100 hover:shadow-lg"
+        <Link
+          href="/browse"
+          className="mt-8 inline-block rounded-lg bg-white px-6 py-3 text-lg font-semibold text-purple-600 transition-all duration-200 hover:bg-gray-100 hover:shadow-lg"
         >
           Browse More Services
-        </button>
+        </Link>
       </div>
     </main>
   );

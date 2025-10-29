@@ -7,10 +7,6 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import axios from "axios";
 import { useAuth } from "@/app/context/AuthContext";
-
-import type { PostBody } from "@/types/PostBody";
-import { useAuth } from "@/app/context/AuthContext";
-
 import type { PostBody } from "@/types/PostBody";
 
 const stripePromise = loadStripe(
