@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PostBody } from "@/types/PostBody";
+import { useAuth } from "@/app/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 type PostListProps = {
   posts: PostBody[];
@@ -29,6 +31,8 @@ export function PostList({
   onRequestCreate,
 }: PostListProps) {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const { user } = useAuth();
+  const router = useRouter();
 
   const selectedPosts = useMemo(
     () => posts.filter((post) => post.id && selectedIds.includes(post.id)),
@@ -53,7 +57,6 @@ export function PostList({
       return [...current, postId];
     });
   };
-
   const clearSelection = () => setSelectedIds([]);
 
   const selectAll = () => {
@@ -86,6 +89,25 @@ export function PostList({
       clearSelection();
     }
   };
+  if (!user?.vendor_id && posts.length === 0) {
+    return (
+      <section className="border-border bg-surface/60 mx-auto mt-10 flex w-full flex-col items-center gap-4 rounded-xl border p-10 text-center md:w-4/5 lg:w-3/4">
+        <p className="text-text-muted text-sm">
+          Create a vendor account before creating products
+        </p>
+        {onRequestCreate && (
+          <Button
+            type="button"
+            variant="success"
+            size="sm"
+            onClick={() => router.push("/settings")}
+          >
+            Create a vendor account
+          </Button>
+        )}
+      </section>
+    );
+  }
 
   if (posts.length === 0) {
     return (
