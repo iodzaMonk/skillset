@@ -5,6 +5,8 @@ import Link from "next/link";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 
 import { useAuth } from "@/app/context/AuthContext";
+import { Pencil, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type CommentAuthor = {
   id: string;
@@ -36,6 +38,13 @@ export default function Comments({ productId }: CommentsProps) {
   const [message, setMessage] = useState("");
   const [loadError, setLoadError] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
+  const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
+  const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
+  const [editingValue, setEditingValue] = useState("");
+  const [isSavingEdit, setIsSavingEdit] = useState(false);
+  const [editError, setEditError] = useState<string | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
+  const [openDelete, setOpenDelete] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -86,6 +95,7 @@ export default function Comments({ productId }: CommentsProps) {
     try {
       setIsSubmitting(true);
       setFormError(null);
+      setActionError(null);
       const response = await axios.post<Comment>(
         `/api/product/${productId}/reviews`,
         {
@@ -106,6 +116,95 @@ export default function Comments({ productId }: CommentsProps) {
     }
   };
 
+  const toggleMenu = (commentId: string) => {
+    setActiveMenuId((prev) => (prev === commentId ? null : commentId));
+  };
+
+  const startEditing = (comment: Comment) => {
+    setEditingCommentId(comment.id);
+    setEditingValue(comment.text);
+    setEditError(null);
+    setActionError(null);
+    setActiveMenuId(null);
+  };
+
+  const handleCancelEdit = () => {
+    if (isSavingEdit) return;
+    setEditingCommentId(null);
+    setEditingValue("");
+    setEditError(null);
+    setActionError(null);
+  };
+
+  const handleEdit = async (commentId: string) => {
+    const trimmed = editingValue.trim();
+
+    if (!trimmed) {
+      setEditError("Comment cannot be empty.");
+      return;
+    }
+
+    try {
+      setIsSavingEdit(true);
+      setEditError(null);
+      setActionError(null);
+
+      const response = await axios.patch<Comment>(
+        `/api/product/${productId}/reviews`,
+        {
+          id: commentId,
+          text: trimmed,
+        },
+      );
+
+      setComments((prev) =>
+        prev.map((existing) =>
+          existing.id === commentId ? response.data : existing,
+        ),
+      );
+      setEditingCommentId(null);
+      setEditingValue("");
+      setActionError(null);
+    } catch (err) {
+      const message =
+        axios.isAxiosError(err) && err.response?.data?.message
+          ? err.response.data.message
+          : "Unable to update comment.";
+      setEditError(message);
+      setActionError(message);
+    } finally {
+      setIsSavingEdit(false);
+    }
+  };
+
+  const handleDelete = async (commentId: string) => {
+    try {
+      setActionError(null);
+      setEditError(null);
+      setActiveMenuId(null);
+      setOpenDelete(false);
+
+      await axios.delete(`/api/product/${productId}/reviews`, {
+        data: { id: commentId },
+      });
+
+      setComments((prev) =>
+        prev.filter((existing) => existing.id !== commentId),
+      );
+
+      if (editingCommentId === commentId) {
+        setEditingCommentId(null);
+        setEditingValue("");
+      }
+    } catch (err) {
+      const message =
+        axios.isAxiosError(err) && err.response?.data?.message
+          ? err.response.data.message
+          : "Unable to delete comment.";
+      setActionError(message);
+    }
+  };
+
   return (
     <section className="border-border bg-surface/80 mx-auto mt-10 w-full max-w-4xl rounded-lg border p-6 shadow-sm">
       <header className="mb-6">
@@ -114,6 +213,12 @@ export default function Comments({ productId }: CommentsProps) {
           Join the conversation or see what others are saying.
         </p>
       </header>
+
+      {actionError ? (
+        <p className="text-error mb-4 text-sm" role="alert">
+          {actionError}
+        </p>
+      ) : null}
 
       {isLoading ? (
         <p className="text-text-muted">Loading comments…</p>
@@ -129,19 +234,139 @@ export default function Comments({ productId }: CommentsProps) {
                 ? dateFormatter.format(new Date(comment.date))
                 : null;
             const authorName = comment.users?.name ?? "Anonymous";
+            const isOwner = user?.id === comment.user_id;
+            const isMenuOpen = activeMenuId === comment.id;
+            const isEditing = editingCommentId === comment.id;
 
             return (
               <li
                 key={comment.id}
                 className="border-border/60 flex flex-col gap-2 rounded-md border p-4"
               >
-                <div className="text-text-muted flex flex-wrap items-center justify-between gap-2 text-sm">
-                  <span className="text-text font-medium">{authorName}</span>
-                  {date ? <time className="text-xs">{date}</time> : null}
+                <div className="flex flex-col gap-3">
+                  <div className="text-text-muted flex items-start justify-between gap-2 text-sm">
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-5">
+                        <span className="text-text font-medium">
+                          {authorName}
+                        </span>
+                        {date ? <time className="text-xs">{date}</time> : null}
+                      </div>
+                      {isEditing ? (
+                        <>
+                          <input
+                            value={editingValue}
+                            onChange={(event) => {
+                              setEditingValue(event.target.value);
+                              if (editError) setEditError(null);
+                            }}
+                            className="w-full p-3 text-sm transition outline-none"
+                            aria-label="Edit comment"
+                            disabled={isSavingEdit}
+                          />
+                          <div className="h-px w-full bg-white/90" />
+                          {editError ? (
+                            <p className="text-error text-xs" role="alert">
+                              {editError}
+                            </p>
+                          ) : null}
+                        </>
+                      ) : (
+                        <p className="text-text text-sm leading-6 whitespace-pre-wrap">
+                          {comment.text}
+                        </p>
+                      )}
+                    </div>
+                    {isOwner ? (
+                      <div className="relative ml-2 shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => toggleMenu(comment.id)}
+                          className="text-text hover:text-text/80 rounded-full p-1 transition"
+                          aria-label="Open comment actions"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            focusable="false"
+                            aria-hidden="true"
+                            className="pointer-events-none"
+                            fill="currentColor"
+                          >
+                            <path d="M12 4a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Z" />
+                          </svg>
+                        </button>
+
+                        {isMenuOpen && (
+                          <div className="bg-surface-2 absolute top-7 right-0 z-10 flex min-w-[140px] flex-col rounded-xl p-1 shadow-lg">
+                            <button
+                              type="button"
+                              className="hover:bg-accent flex w-full items-center gap-2 rounded-xl p-2 text-left text-sm transition"
+                              onClick={() => startEditing(comment)}
+                            >
+                              <Pencil size={16} />
+                              Edit
+                            </button>
+                            <button
+                              type="button"
+                              className="hover:bg-accent flex w-full items-center gap-2 rounded-xl p-2 text-left text-sm transition"
+                              onClick={() => setOpenDelete(true)}
+                            >
+                              <Trash2 size={16} />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    ) : null}
+                  </div>
+                  {openDelete && (
+                    <div className="bg-surface-2 fixed inset-0 mx-auto my-auto h-fit w-fit rounded-2xl p-5">
+                      <p className="text-2xl leading-12">Delete comment</p>
+                      <p className="text-text-muted leading-12">
+                        Delete your comment permanently?
+                      </p>
+                      <div className="flex justify-end gap-5">
+                        <Button
+                          variant="cancel"
+                          onClick={() => setOpenDelete(false)}
+                        >
+                          Cancel
+                        </Button>
+                        <Button
+                          variant="delete"
+                          onClick={() => handleDelete(comment.id)}
+                        >
+                          Delete
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+                  {isEditing ? (
+                    <div className="flex flex-wrap items-center gap-2">
+                      <button
+                        type="button"
+                        className="border-border text-text-muted hover:text-text inline-flex items-center rounded-md border px-3 py-1 text-xs font-medium transition disabled:opacity-60"
+                        onClick={handleCancelEdit}
+                        disabled={isSavingEdit}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="button"
+                        className="bg-primary hover:bg-primary/90 inline-flex items-center rounded-md px-3 py-1 text-xs font-medium text-white transition disabled:opacity-60"
+                        onClick={() => handleEdit(comment.id)}
+                        disabled={
+                          isSavingEdit || editingValue.trim().length === 0
+                        }
+                      >
+                        {isSavingEdit ? "Saving…" : "Update"}
+                      </button>
+                    </div>
+                  ) : null}
                 </div>
-                <p className="text-text text-sm leading-6 whitespace-pre-wrap">
-                  {comment.text}
-                </p>
               </li>
             );
           })}
