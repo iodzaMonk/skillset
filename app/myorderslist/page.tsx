@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Order } from "@/types/Order";
 
-export default function OrdersPage() {
+export default function CartPage() {
   const {
     orders,
     isModalOpen,
@@ -26,7 +26,7 @@ export default function OrdersPage() {
     const fetchOrders = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get("/api/orders/user");
+        const response = await axios.get("/api/cart/user");
         console.log("Full API response:", response.data);
 
         // The API returns { data: orders }, so we need to access .data

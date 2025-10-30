@@ -35,6 +35,7 @@ export default function Header() {
         { name: "About us", href: "/about" },
         { name: "Browse", href: "/browse" },
         { name: "My Products", href: "/myproduct" },
+        { name: "My Cart", href: "/myorderslist" },
         { name: "My orders", href: "/orders" },
         { name: "Settings", href: "/settings" },
         { name: "Logout", action: handleLogout },
