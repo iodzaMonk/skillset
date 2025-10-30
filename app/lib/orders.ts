@@ -17,6 +17,16 @@ export async function fetchUserOrder(): Promise<Order[]> {
   }
 }
 
+export async function fetchUserOrders(): Promise<Order[]> {
+  try {
+    const res = await api.get(`/api/cart/user`);
+    return res.data?.data ?? [];
+  } catch (error) {
+    console.error("Failed to fetch orders", error);
+    throw error;
+  }
+}
+
 export async function updateUserStatus(status: Status | null, ids: string[]) {
   try {
     if (!status) return;
