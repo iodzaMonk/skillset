@@ -1,15 +1,11 @@
-type SuccessPageProps = {
-  searchParams: Promise<{
-    amount?: string;
-  }>;
-};
+"use client";
+import React from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default async function PaymentSuccess({
-  searchParams,
-}: SuccessPageProps) {
-  const params = await searchParams;
-  const amount = params?.amount ?? "0.00";
-
+export default function PaymentSuccess() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const amount = searchParams?.get("amount") ?? "0.00";
   return (
     <main className="m-10 mx-auto max-w-6xl rounded-md border bg-linear-to-tr from-blue-500 to-purple-500 p-10 text-center text-white">
       <div className="mb-10">
