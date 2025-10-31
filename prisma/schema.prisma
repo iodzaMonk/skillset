@@ -43,6 +43,8 @@ model posts {
   user_id        String
   title          String     @db.VarChar
   description    String
+  rating         Float?
+  ratingCount    Int        @default(0)
   price          Float      @db.Real
   date           DateTime   @default(now()) @db.Date
   image_location String?    @db.VarChar
@@ -55,12 +57,18 @@ model posts {
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model reviews {
   id         String    @id(map: "review_pkey") @unique @default(cuid())
+  parent_id  String?   @db.VarChar
   user_id    String
   product_id String
   text       String
+  rating     Int?      @db.SmallInt
   date       DateTime? @db.Date
   users      users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "review_user_id_fkey")
   posts      posts     @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  parent     reviews?  @relation("ReviewReplies", fields: [parent_id], references: [id])
+  replies    reviews[] @relation("ReviewReplies")
+
+  @@index([product_id, parent_id])
 }
 
 model users {
