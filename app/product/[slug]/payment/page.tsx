@@ -8,6 +8,7 @@ import { useParams, useSearchParams } from "next/navigation";
 import axios from "axios";
 import { useAuth } from "@/app/context/AuthContext";
 import type { PostBody } from "@/types/PostBody";
+import { useAuth } from "@/app/context/AuthContext";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
