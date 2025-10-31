@@ -1,110 +1,63 @@
 "use client";
 
-import axios from "axios";
 import Link from "next/link";
-import { FormEvent, useEffect, useMemo, useState } from "react";
 
 import { useAuth } from "@/app/context/AuthContext";
 
-type CommentAuthor = {
-  id: string;
-  name: string | null;
-};
-
-type Comment = {
-  id: string;
-  text: string;
-  date: string | null;
-  user_id: string;
-  users?: CommentAuthor | null;
-};
+import { CommentItem } from "./Comment";
+import { MAX_REPLY_DEPTH, useComments } from "./useComments";
+import { cn } from "@/lib/utils";
 
 interface CommentsProps {
   productId: string;
 }
 
-const dateFormatter = new Intl.DateTimeFormat(undefined, {
-  dateStyle: "medium",
-  timeStyle: "short",
-});
-
 export default function Comments({ productId }: CommentsProps) {
   const { user } = useAuth();
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
-  const [loadError, setLoadError] = useState<string | null>(null);
-  const [formError, setFormError] = useState<string | null>(null);
 
-  useEffect(() => {
-    let cancelled = false;
-    setIsLoading(true);
-    setLoadError(null);
-
-    axios
-      .get<Comment[]>(`/api/product/${productId}/reviews`)
-      .then((response) => {
-        if (!cancelled) {
-          setComments(response.data ?? []);
-        }
-      })
-      .catch((err) => {
-        if (!cancelled) {
-          const fallback =
-            err.response?.data?.message ?? "Unable to load comments";
-          setLoadError(fallback);
-        }
-      })
-      .finally(() => {
-        if (!cancelled) {
-          setIsLoading(false);
-        }
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [productId]);
-
-  const hasComments = useMemo(() => comments.length > 0, [comments]);
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const trimmed = message.trim();
-
-    if (!user) {
-      setFormError("You need to be signed in to leave a comment.");
-      return;
-    }
-
-    if (!trimmed) {
-      setFormError("Comment cannot be empty.");
-      return;
-    }
-
-    try {
-      setIsSubmitting(true);
-      setFormError(null);
-      const response = await axios.post<Comment>(
-        `/api/product/${productId}/reviews`,
-        {
-          text: trimmed,
-        },
-      );
-
-      setComments((prev) => [response.data, ...prev]);
-      setMessage("");
-    } catch (err) {
-      const message =
-        axios.isAxiosError(err) && err.response?.data?.message
-          ? err.response.data.message
-          : "Unable to submit comment.";
-      setFormError(message);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const {
+    comments,
+    hasComments,
+    isLoading,
+    loadError,
+    actionError,
+    formError,
+    message,
+    isSubmitting,
+    activeMenuId,
+    editingCommentId,
+    editingValue,
+    editError,
+    isSavingEdit,
+    replyingToId,
+    replyMessage,
+    replyError,
+    isSubmittingReply,
+    expandedThreads,
+    rating,
+    hoverRating,
+    editingRating,
+    editingHoverRating,
+    onMessageChange,
+    handleSubmit,
+    toggleMenu,
+    startEditing,
+    handleCancelEdit,
+    handleEditingValueChange,
+    handleEdit,
+    handleDelete,
+    beginReply,
+    handleCancelReply,
+    handleReplyValueChange,
+    handleSubmitReply,
+    toggleThreadVisibility,
+    handleRatingSelect,
+    handleRatingHover,
+    handleRatingLeave,
+    handleEditingRatingSelect,
+    handleEditingRatingHover,
+    handleEditingRatingLeave,
+  } = useComments({ productId, user });
 
   return (
     <section className="border-border bg-surface/80 mx-auto mt-10 w-full max-w-4xl rounded-lg border p-6 shadow-sm">
@@ -115,6 +68,12 @@ export default function Comments({ productId }: CommentsProps) {
         </p>
       </header>
 
+      {actionError ? (
+        <p className="text-error mb-4 text-sm" role="alert">
+          {actionError}
+        </p>
+      ) : null}
+
       {isLoading ? (
         <p className="text-text-muted">Loading comments…</p>
       ) : loadError ? (
@@ -123,28 +82,41 @@ export default function Comments({ productId }: CommentsProps) {
         </p>
       ) : hasComments ? (
         <ul className="mb-6 space-y-4">
-          {comments.map((comment) => {
-            const date =
-              comment.date && !Number.isNaN(Date.parse(comment.date))
-                ? dateFormatter.format(new Date(comment.date))
-                : null;
-            const authorName = comment.users?.name ?? "Anonymous";
-
-            return (
-              <li
-                key={comment.id}
-                className="border-border/60 flex flex-col gap-2 rounded-md border p-4"
-              >
-                <div className="text-text-muted flex flex-wrap items-center justify-between gap-2 text-sm">
-                  <span className="text-text font-medium">{authorName}</span>
-                  {date ? <time className="text-xs">{date}</time> : null}
-                </div>
-                <p className="text-text text-sm leading-6 whitespace-pre-wrap">
-                  {comment.text}
-                </p>
-              </li>
-            );
-          })}
+          {comments.map((comment) => (
+            <CommentItem
+              key={comment.id}
+              comment={comment}
+              depth={0}
+              maxDepth={MAX_REPLY_DEPTH}
+              userId={user?.id}
+              activeMenuId={activeMenuId}
+              editingCommentId={editingCommentId}
+              editingValue={editingValue}
+              editError={editError}
+              replyMessage={replyMessage}
+              replyError={replyError}
+              replyingToId={replyingToId}
+              isSavingEdit={isSavingEdit}
+              isSubmittingReply={isSubmittingReply}
+              expandedThreads={expandedThreads}
+              editingRating={editingRating}
+              editingHoverRating={editingHoverRating}
+              onToggleMenu={toggleMenu}
+              onStartEditing={startEditing}
+              onCancelEdit={handleCancelEdit}
+              onEditingValueChange={handleEditingValueChange}
+              onSaveEdit={handleEdit}
+              onDelete={handleDelete}
+              onBeginReply={beginReply}
+              onCancelReply={handleCancelReply}
+              onReplyChange={handleReplyValueChange}
+              onSubmitReply={handleSubmitReply}
+              onToggleReplies={toggleThreadVisibility}
+              onEditingRatingSelect={handleEditingRatingSelect}
+              onEditingRatingHover={handleEditingRatingHover}
+              onEditingRatingLeave={handleEditingRatingLeave}
+            />
+          ))}
         </ul>
       ) : (
         <p className="text-text-muted mb-6 text-sm">
@@ -155,15 +127,35 @@ export default function Comments({ productId }: CommentsProps) {
       {user ? (
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <label className="flex flex-col gap-2 text-sm">
-            <span className="text-text font-medium">
-              Leave a comment as {user.name ?? "you"}
-            </span>
+            <div className="flex gap-5">
+              <span className="text-text font-medium">
+                Leave a comment as {user.name ?? "you"}
+              </span>
+            </div>
+            <div className="flex gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <svg
+                  key={i}
+                  onClick={() => handleRatingSelect(i)}
+                  onMouseEnter={() => handleRatingHover(i)}
+                  onMouseLeave={handleRatingLeave}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  className={cn(
+                    "size-4 cursor-pointer bg-transparent text-yellow-400 hover:fill-current",
+                    i < (hoverRating || rating) ? "fill-current" : "fill-none",
+                  )}
+                >
+                  <path d="M12 2.25l2.902 6.084 6.718.977-4.81 4.69 1.136 6.632L12 16.75l-5.946 3.883 1.136-6.632-4.81-4.69 6.718-.977L12 2.25z" />
+                </svg>
+              ))}
+            </div>
+
             <textarea
               value={message}
-              onChange={(event) => {
-                setMessage(event.target.value);
-                if (formError) setFormError(null);
-              }}
+              onChange={(event) => onMessageChange(event.target.value)}
               className="border-border focus:border-primary focus:ring-primary/30 min-h-[120px] rounded-md border bg-transparent p-3 text-sm transition outline-none focus:ring"
               placeholder="Share your experience or ask a question…"
               disabled={isSubmitting}
@@ -178,7 +170,7 @@ export default function Comments({ productId }: CommentsProps) {
             <button
               type="submit"
               className="bg-primary hover:bg-primary/90 inline-flex items-center rounded-md px-4 py-2 text-sm font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-60"
-              disabled={isSubmitting}
+              disabled={isSubmitting || rating === 0}
             >
               {isSubmitting ? "Posting…" : "Post Comment"}
             </button>

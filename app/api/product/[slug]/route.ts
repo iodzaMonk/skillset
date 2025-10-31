@@ -14,12 +14,27 @@ export async function GET(
     const product = await prisma.posts.findUnique({
       where: { id: slug },
       include: {
+        users: {
+          select: {
+            id: true,
+            name: true,
+            country: true,
+            email: true,
+          },
+        },
         reviews: {
           include: {
             users: {
               select: {
                 id: true,
                 name: true,
+              },
+            },
+            replies: {
+              select: {
+                id: true,
+                date: true,
+                text: true,
               },
             },
           },

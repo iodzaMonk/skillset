@@ -6,7 +6,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import axios from "axios";
-import { useAuth } from "@/app/context/AuthContext";
+
+import type { PostBody } from "@/types/PostBody";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
@@ -40,8 +41,8 @@ export default function PaymentPage() {
     client_id: "",
   });
 
-  const [product, setProduct] = useState<Product | null>(null);
-  const [amount, setAmount] = useState<number>(0);
+  const [product, setProduct] = useState<PostBody | null>(null);
+  const [amount, setAmount] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
