@@ -66,6 +66,32 @@ export async function createSignedUploadUrl(originalName?: string) {
   return { url: signedURL, key };
 }
 
+type UploadObjectParams = {
+  buffer: Buffer | Uint8Array | string;
+  originalName?: string;
+  contentType?: string;
+};
+
+export async function uploadObject({
+  buffer,
+  originalName,
+  contentType,
+}: UploadObjectParams) {
+  const safeName = sanitizeFileName(originalName ?? "upload.bin");
+  const key = `images/${randomUUID()}-${safeName}`;
+
+  const putObjectCommand = new PutObjectCommand({
+    Bucket: BUCKET,
+    Key: key,
+    Body: buffer,
+    ContentType: contentType,
+  });
+
+  await s3.send(putObjectCommand);
+
+  return { key };
+}
+
 export async function createSignedDownloadUrl(key: string) {
   const getObjectCommand = new GetObjectCommand({
     Bucket: BUCKET,
