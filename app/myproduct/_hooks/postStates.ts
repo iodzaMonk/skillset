@@ -9,7 +9,24 @@ import {
   updateProduct,
 } from "@/app/lib/products";
 import { PostBody } from "@/types/PostBody";
-import { deleteFile, requestUploadUrl } from "../actions";
+import { deleteFile } from "../actions";
+
+async function uploadImage(file: File) {
+  const body = new FormData();
+  body.append("file", file);
+
+  const response = await fetch("/api/uploads", {
+    method: "POST",
+    body,
+  });
+
+  if (!response.ok) {
+    throw new Error("Image upload failed");
+  }
+
+  const { key } = (await response.json()) as { key: string };
+  return key;
+}
 
 type UsePostManagerOptions = {
   userId?: string;
@@ -71,16 +88,7 @@ export function usePostManager({ userId }: UsePostManagerOptions = {}) {
         let imageLocation: string | undefined;
 
         if (file) {
-          const { url, key } = await requestUploadUrl(file.name);
-
-          await fetch(url, {
-            method: "PUT",
-            body: file,
-            headers: {
-              "Content-Type": file.type || "application/octet-stream",
-            },
-          });
-          imageLocation = key;
+          imageLocation = await uploadImage(file);
         }
 
         // edit post
