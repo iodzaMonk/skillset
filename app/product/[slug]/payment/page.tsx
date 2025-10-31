@@ -11,22 +11,12 @@ import { useAuth } from "@/app/context/AuthContext";
 import type { PostBody } from "@/types/PostBody";
 import { useAuth } from "@/app/context/AuthContext";
 
+import type { PostBody } from "@/types/PostBody";
+
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
 );
 
-<<<<<<< HEAD
-=======
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  user_id: string;
-  image_url?: string;
-}
-
->>>>>>> f5a3585 ([UPD]: userid from session instead of url)
 interface Order {
   prof_id: string;
   product_id: string;
@@ -46,13 +36,8 @@ export default function PaymentPage() {
     client_id: "",
   });
 
-<<<<<<< HEAD
   const [product, setProduct] = useState<PostBody | null>(null);
   const [amount, setAmount] = useState(1);
-=======
-  const [product, setProduct] = useState<Product | null>(null);
-  const [amount, setAmount] = useState<number>(0);
->>>>>>> f5a3585 ([UPD]: userid from session instead of url)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

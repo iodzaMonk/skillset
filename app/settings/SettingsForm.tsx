@@ -192,11 +192,11 @@ export function SettingsForm({ user }: { user: User }) {
               side="bottom"
               align="start"
               sideOffset={6}
-              className="border-border bg-surface text-text z-[9999] rounded-md border shadow-xl"
+              className="border-border bg-surface text-text z-9999 rounded-md border shadow-xl"
             >
               {countries.map((c) => (
                 <SelectItem
-                  className="data-[highlighted]:!bg-accent/20 data-[highlighted]:!text-text data-[state-checked]:!bg-accent data-[state-checked]:!text-text-onAccent cursor-pointer px-3 py-2 text-sm data-[disabled]:opacity-50"
+                  className="data-highlighted:bg-accent/20! data-highlighted:text-text! data-state-checked:bg-accent! data-state-checked:text-text-onAccent! cursor-pointer px-3 py-2 text-sm data-disabled:opacity-50"
                   key={c.code}
                   value={c.code}
                 >
