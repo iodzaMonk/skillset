@@ -22,6 +22,13 @@ export async function GET(
                 name: true,
               },
             },
+            replies: {
+              select: {
+                id: true,
+                date: true,
+                text: true,
+              },
+            },
           },
           orderBy: {
             date: "desc",

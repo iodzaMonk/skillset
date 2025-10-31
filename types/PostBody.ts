@@ -13,6 +13,8 @@ export type PostBody = {
   user_id: string;
   title: string;
   description: string;
+  rating?: number | null;
+  ratingCount?: number;
   price: number;
   category: string;
   date?: Date;
