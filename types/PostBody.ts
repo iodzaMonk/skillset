@@ -15,6 +15,12 @@ export type PostBody = {
   description: string;
   rating?: number | null;
   ratingCount?: number;
+  users?: {
+    id: string;
+    name: string;
+    country: string;
+    email: string;
+  } | null;
   price: number;
   category: string;
   date?: Date;

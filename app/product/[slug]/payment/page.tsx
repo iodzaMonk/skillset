@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import axios from "axios";
 
+import type { PostBody } from "@/types/PostBody";
+
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
 );
@@ -22,7 +24,7 @@ export default function PaymentPage() {
     client_id: "",
   });
 
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState<PostBody | null>(null);
   const [amount, setAmount] = useState(1);
   const [loading, setLoading] = useState(true);
 

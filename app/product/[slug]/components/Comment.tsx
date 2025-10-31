@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Pencil, Trash2 } from "lucide-react";
 
-import type { Comment, CommentItemProps } from "@/types/Comment";
+import type { CommentItemProps } from "@/types/Comment";
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: "medium",
@@ -276,6 +276,11 @@ function CommentItemBase({
               isSavingEdit={isSavingEdit}
               isSubmittingReply={isSubmittingReply}
               expandedThreads={expandedThreads}
+              editingRating={editingRating}
+              editingHoverRating={editingHoverRating}
+              onEditingRatingSelect={onEditingRatingSelect}
+              onEditingRatingHover={onEditingRatingHover}
+              onEditingRatingLeave={onEditingRatingLeave}
               onToggleMenu={onToggleMenu}
               onStartEditing={onStartEditing}
               onCancelEdit={onCancelEdit}

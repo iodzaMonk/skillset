@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { useAuth } from "@/app/context/AuthContext";
@@ -114,7 +115,7 @@ export default function ProductPage() {
         <>
           <div className="border-border bg-surface/90 mx-auto max-w-4xl overflow-hidden rounded-lg border shadow-lg">
             <div className="p-6">
-              <div className="mb-5 flex items-center gap-5">
+              <div className="mb-5 flex flex-wrap items-center gap-5">
                 <h1 className="text-text text-3xl font-bold">
                   {product.title}
                 </h1>
@@ -144,6 +145,24 @@ export default function ProductPage() {
                     <span className="text-text-muted text-sm">No ratings yet</span>
                   )}
                 </div>
+                {product.users ? (
+                  <div className="text-text-muted flex flex-col text-xs sm:text-sm">
+                    <span>
+                      by{" "}
+                      <Link
+                        href={`/professional/${product.users.id}`}
+                        className="text-primary font-medium hover:underline"
+                      >
+                        {product.users.name}
+                      </Link>
+                    </span>
+                    {product.users.country ? (
+                      <span className="text-text-muted/80">
+                        Based in {product.users.country}
+                      </span>
+                    ) : null}
+                  </div>
+                ) : null}
               </div>
 
               <div className="flex flex-col gap-8 md:flex-row">
