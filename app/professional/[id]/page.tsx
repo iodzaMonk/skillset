@@ -33,7 +33,7 @@ export default function ProfessionalProfilePage() {
         console.error("Failed to load professional profile", err);
         setError(
           axios.isAxiosError(err)
-            ? err.response?.data?.message ?? "Failed to load profile"
+            ? (err.response?.data?.message ?? "Failed to load profile")
             : "Failed to load profile",
         );
       })
@@ -80,7 +80,9 @@ export default function ProfessionalProfilePage() {
           <div className="flex gap-6 text-sm">
             <div>
               <p className="text-text font-semibold">Products</p>
-              <p className="text-text-muted text-sm">{profile.stats.totalProducts}</p>
+              <p className="text-text-muted text-sm">
+                {profile.stats.totalProducts}
+              </p>
             </div>
             <div>
               <p className="text-text font-semibold">Average Rating</p>
@@ -106,7 +108,7 @@ export default function ProfessionalProfilePage() {
         </div>
 
         {profile.posts.length === 0 ? (
-          <div className="border-border bg-surface/60 rounded-lg border p-6 text-center text-sm text-text-muted">
+          <div className="border-border bg-surface/60 text-text-muted rounded-lg border p-6 text-center text-sm">
             This professional has not published any services yet.
           </div>
         ) : (
@@ -127,17 +129,17 @@ export default function ProfessionalProfilePage() {
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-4">
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-text text-lg font-semibold line-clamp-2">
+                    <h3 className="text-text line-clamp-2 text-lg font-semibold">
                       {post.title}
                     </h3>
                     <span className="text-accent text-sm font-semibold">
                       ${post.price.toFixed(2)}
                     </span>
                   </div>
-                  <p className="text-text-muted text-sm line-clamp-3">
+                  <p className="text-text-muted line-clamp-3 text-sm">
                     {post.description}
                   </p>
-                  <div className="mt-auto flex items-center justify-between text-xs text-text-muted">
+                  <div className="text-text-muted mt-auto flex items-center justify-between text-xs">
                     <span>
                       {new Date(post.date).toLocaleDateString(undefined, {
                         year: "numeric",

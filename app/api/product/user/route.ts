@@ -135,7 +135,9 @@ export async function GET() {
         }
 
         try {
-          const imageUrl = await createSignedDownloadUrl(product.image_location);
+          const imageUrl = await createSignedDownloadUrl(
+            product.image_location,
+          );
           return {
             ...product,
             image_url: imageUrl,

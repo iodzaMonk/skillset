@@ -1,16 +1,7 @@
 "use client";
 
-import {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useMemo,
-  useCallback,
-} from "react";
-import { PencilIcon } from "lucide-react";
+import { Dispatch, SetStateAction, useEffect, useMemo } from "react";
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Order } from "@/types/Order";
 import { cn } from "@/lib/utils";
@@ -55,7 +46,6 @@ export function OrderList({
   orders,
   selectedIds,
   setSelectedIds,
-  toggleModal,
   isLoading = false,
 }: OrderListProps) {
   const badgeVariants: Record<string, string> = {
@@ -70,19 +60,16 @@ export function OrderList({
       "border border-gray-200 bg-gray-50 text-gray-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]",
   };
 
-  // Ensure orders is always an array
-  const safeOrders = Array.isArray(orders) ? orders : [];
+  // Ensure orders is always an array (memoized to keep a stable reference)
+  const safeOrders = useMemo(
+    () => (Array.isArray(orders) ? orders : []),
+    [orders],
+  );
 
   // Memoize the valid order IDs to prevent unnecessary re-renders
   const validOrderIds = useMemo(
     () => safeOrders.map((order) => order.id).filter(Boolean) as string[],
     [safeOrders],
-  );
-
-  const selectedOrders = useMemo(
-    () =>
-      safeOrders.filter((order) => order.id && selectedIds.includes(order.id)),
-    [safeOrders, selectedIds],
   );
 
   // Clean up selectedIds when orders change - use useCallback to prevent infinite loops
@@ -100,41 +87,6 @@ export function OrderList({
     });
   }, [validOrderIds, setSelectedIds]);
 
-  const toggleSelection = useCallback(
-    (orderId: string | undefined) => {
-      if (!orderId) {
-        return;
-      }
-
-      setSelectedIds((current) => {
-        if (current.includes(orderId)) {
-          return current.filter((id) => id !== orderId);
-        }
-        return [...current, orderId];
-      });
-    },
-    [setSelectedIds],
-  );
-
-  const clearSelection = useCallback(
-    () => setSelectedIds([]),
-    [setSelectedIds],
-  );
-
-  const selectAll = useCallback(() => {
-    setSelectedIds(validOrderIds);
-  }, [validOrderIds, setSelectedIds]);
-
-  const totalSelected = selectedOrders.length;
-  const totalPosts = safeOrders.length;
-
-  const masterCheckboxState =
-    totalSelected === 0
-      ? false
-      : totalSelected === totalPosts
-        ? true
-        : "indeterminate";
-
   // Show loading state
   if (isLoading) {
     return (
@@ -146,7 +98,7 @@ export function OrderList({
           </div>
         </div>
 
-        <ScrollArea className="border-border/40 bg-surface/70 mb-10 h-[28rem] rounded-xl border pr-1 sm:h-[34rem]">
+        <ScrollArea className="border-border/40 bg-surface/70 mb-10 h-112 rounded-xl border pr-1 sm:h-136">
           <ul className="space-y-4 p-3 sm:p-4">
             {Array.from({ length: 3 }).map((_, index) => (
               <OrderSkeleton key={index} />
