@@ -243,7 +243,10 @@ export async function PATCH(
     const body = await request.json();
     const id = typeof body?.id === "string" ? body.id : "";
     const text = typeof body?.text === "string" ? body.text.trim() : "";
-    const hasRatingUpdate = Object.prototype.hasOwnProperty.call(body, "rating");
+    const hasRatingUpdate = Object.prototype.hasOwnProperty.call(
+      body,
+      "rating",
+    );
     const parsedRating = hasRatingUpdate ? parseRating(body.rating) : null;
 
     if (!id) {

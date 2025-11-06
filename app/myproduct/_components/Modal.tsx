@@ -184,7 +184,9 @@ export default function Modal({
                 </SelectTrigger>
                 <SelectContent>
                   {categoryOptions.map((category) => (
-                    <SelectItem key={category} value={category}>{category}</SelectItem>
+                    <SelectItem key={category} value={category}>
+                      {category}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>

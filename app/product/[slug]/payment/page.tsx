@@ -14,15 +14,6 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
 );
 
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  user_id: string;
-  image_url?: string;
-}
-
 interface Order {
   prof_id: string;
   product_id: string;

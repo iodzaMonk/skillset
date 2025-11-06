@@ -1,7 +1,6 @@
 import { PrismaClient, Category } from "@prisma/client";
 import { faker } from "@faker-js/faker";
 import bcrypt from "bcryptjs";
-import axios from "axios";
 
 const prisma = new PrismaClient();
 
@@ -63,50 +62,6 @@ async function main() {
       ),
     ),
   );
-
-  const user1 = await prisma.users.upsert({
-    where: { email: "user1@gmail.com" },
-    update: {},
-    create: {
-      name: "User One",
-      email: "user1@gmail.com",
-      password: await bcrypt.hash("password1", 10),
-      country: "US",
-      birthday: new Date("1990-01-01"),
-    },
-  });
-  const user2 = await prisma.users.upsert({
-    where: { email: "user2@gmail.com" },
-    update: {},
-    create: {
-      name: "User Two",
-      email: "user2@gmail.com",
-      password: await bcrypt.hash("password2", 10),
-      country: "US",
-      birthday: new Date("2990-02-02"),
-    },
-  });
-
-  const post1 = await prisma.posts.create({
-    data: {
-      user_id: user1.id,
-      title: "Sample Post 1",
-      description: "This is a sample post created for testing purposes.",
-      price: 49.99,
-      category: Category.Editing,
-      date: new Date(),
-    },
-  });
-
-  const command1 = await prisma.commands.create({
-    data: {
-      client_id: user2.id,
-      product_id: post1.id,
-      date: new Date(),
-      prof_id: user1.id,
-      description: "I would like to order this service.",
-    },
-  });
 
   console.log(`Seeded ${users.length} users, ${posts.length} posts`);
 }

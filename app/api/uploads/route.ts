@@ -26,9 +26,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ key }, { status: 201 });
   } catch (error) {
     console.error("Failed to upload file to S3", error);
-    return NextResponse.json(
-      { error: "File upload failed" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "File upload failed" }, { status: 500 });
   }
 }

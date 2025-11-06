@@ -4,5 +4,5 @@ export enum Category {
   "Design" = "Design",
   "Drawing" = "Drawing",
   "Fixing" = "Fixing",
-  "Music" = "Music"
+  "Music" = "Music",
 }

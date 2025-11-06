@@ -125,7 +125,11 @@ export default function ProductPage() {
                     className={`me-1 h-4 w-4 ${product.ratingCount && product.ratingCount > 0 ? "text-yellow-300" : "text-text-muted"}`}
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill={product.ratingCount && product.ratingCount > 0 ? "currentColor" : "none"}
+                    fill={
+                      product.ratingCount && product.ratingCount > 0
+                        ? "currentColor"
+                        : "none"
+                    }
                     stroke="currentColor"
                     viewBox="0 0 22 20"
                   >
@@ -138,11 +142,14 @@ export default function ProductPage() {
                       </p>
                       <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400"></span>
                       <span className="text-sm font-medium text-gray-900 dark:text-white">
-                        {product.ratingCount} review{product.ratingCount === 1 ? "" : "s"}
+                        {product.ratingCount} review
+                        {product.ratingCount === 1 ? "" : "s"}
                       </span>
                     </>
                   ) : (
-                    <span className="text-text-muted text-sm">No ratings yet</span>
+                    <span className="text-text-muted text-sm">
+                      No ratings yet
+                    </span>
                   )}
                 </div>
                 {product.users ? (

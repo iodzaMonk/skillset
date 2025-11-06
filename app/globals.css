@@ -99,7 +99,8 @@
 
   input:-webkit-autofill {
     -webkit-text-fill-color: var(--color-text);
-    -webkit-box-shadow: 0 0 0px 1000px color-mix(in oklch, var(--color-surface) 90%, black) inset;
+    -webkit-box-shadow: 0 0 0px 1000px
+      color-mix(in oklch, var(--color-surface) 90%, black) inset;
     transition: background-color 9999s ease-in-out 0s;
   }
 

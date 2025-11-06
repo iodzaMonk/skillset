@@ -225,7 +225,7 @@ export const useComments = ({ productId, user }: UseCommentsArgs) => {
     setReplyMessage("");
     setReplyError(null);
     setEditingParentId(comment.parent_id ?? null);
-    const initialRating = comment.parent_id ? 0 : comment.rating ?? 0;
+    const initialRating = comment.parent_id ? 0 : (comment.rating ?? 0);
     setEditingRating(initialRating);
     setEditingHoverRating(initialRating);
   };
