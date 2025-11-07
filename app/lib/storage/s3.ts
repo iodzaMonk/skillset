@@ -18,29 +18,24 @@ const SECRET_KEY =
   process.env.AWS_SECRET_ACCESS_KEY ?? process.env.AWS_SECRET_ACCESS_KEY_ID;
 const BUCKET = process.env.AWS_BUCKET_NAME;
 
-if (!REGION) {
-  throw new Error(
-    "AWS region missing. Set AWS_BUCKET_REGION (or AWS_REGION / AWS_DEFAULT_REGION).",
-  );
-}
+const hasS3Config = Boolean(REGION && ACCESS_KEY && SECRET_KEY && BUCKET);
 
-if (!ACCESS_KEY || !SECRET_KEY) {
-  throw new Error(
-    "AWS credentials missing. Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.",
-  );
-}
+const s3 = hasS3Config
+  ? new S3Client({
+      region: REGION!,
+      credentials: {
+        accessKeyId: ACCESS_KEY!,
+        secretAccessKey: SECRET_KEY!,
+      },
+    })
+  : null;
 
-if (!BUCKET) {
-  throw new Error("AWS bucket name missing. Set AWS_BUCKET_NAME.");
-}
+type InMemoryObject = {
+  body: Buffer | Uint8Array | string;
+  contentType?: string;
+};
 
-const s3 = new S3Client({
-  region: REGION,
-  credentials: {
-    accessKeyId: ACCESS_KEY,
-    secretAccessKey: SECRET_KEY,
-  },
-});
+const inMemoryBucket = new Map<string, InMemoryObject>();
 
 function sanitizeFileName(name: string) {
   return name
@@ -54,6 +49,10 @@ export async function createSignedUploadUrl(originalName?: string) {
   const safeName = sanitizeFileName(originalName ?? "upload.bin");
   const key = `images/${randomUUID()}-${safeName}`;
 
+  if (!s3) {
+    return { url: `memory://${key}`, key };
+  }
+
   const putObjectCommand = new PutObjectCommand({
     Bucket: BUCKET,
     Key: key,
@@ -66,7 +65,7 @@ export async function createSignedUploadUrl(originalName?: string) {
   return { url: signedURL, key };
 }
 
-type UploadObjectParams = {
+export type UploadObjectParams = {
   buffer: Buffer | Uint8Array | string;
   originalName?: string;
   contentType?: string;
@@ -79,6 +78,11 @@ export async function uploadObject({
 }: UploadObjectParams) {
   const safeName = sanitizeFileName(originalName ?? "upload.bin");
   const key = `images/${randomUUID()}-${safeName}`;
+
+  if (!s3 || !BUCKET) {
+    inMemoryBucket.set(key, { body: buffer, contentType });
+    return { key };
+  }
 
   const putObjectCommand = new PutObjectCommand({
     Bucket: BUCKET,
@@ -93,6 +97,13 @@ export async function uploadObject({
 }
 
 export async function createSignedDownloadUrl(key: string) {
+  if (!s3 || !BUCKET) {
+    if (!inMemoryBucket.has(key)) {
+      throw new Error(`Object ${key} not found in in-memory bucket`);
+    }
+    return `memory://${key}`;
+  }
+
   const getObjectCommand = new GetObjectCommand({
     Bucket: BUCKET,
     Key: key,
@@ -104,6 +115,11 @@ export async function createSignedDownloadUrl(key: string) {
 }
 
 export async function deleteObject(key: string) {
+  if (!s3 || !BUCKET) {
+    inMemoryBucket.delete(key);
+    return;
+  }
+
   const deleteCommand = new DeleteObjectCommand({
     Bucket: BUCKET,
     Key: key,
