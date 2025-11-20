@@ -20,3 +20,5 @@ export default defineConfig({
     seed: `tsx prisma/seed.ts`,
   },
 });
+
+// cucumber is really useful
