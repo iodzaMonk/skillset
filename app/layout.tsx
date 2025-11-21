@@ -22,7 +22,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className="bg-canvas text-text !font-Faustina flex min-h-dvh flex-col antialiased"
+        className="bg-canvas text-text font-Faustina! flex min-h-dvh flex-col antialiased"
       >
         <ThemeInit />
 
