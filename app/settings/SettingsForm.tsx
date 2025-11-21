@@ -17,6 +17,7 @@ import { useAuth } from "@/app/context/AuthContext";
 import type { User } from "../../types/User";
 import Modal from "./modal";
 import { Button } from "@/components/ui/button";
+import ConnectStripeButton from "./StripeConnectButton";
 
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
@@ -191,11 +192,11 @@ export function SettingsForm({ user }: { user: User }) {
               side="bottom"
               align="start"
               sideOffset={6}
-              className="border-border bg-surface text-text z-[9999] rounded-md border shadow-xl"
+              className="border-border bg-surface text-text z-9999 rounded-md border shadow-xl"
             >
               {countries.map((c) => (
                 <SelectItem
-                  className="data-[highlighted]:!bg-accent/20 data-[highlighted]:!text-text data-[state-checked]:!bg-accent data-[state-checked]:!text-text-onAccent cursor-pointer px-3 py-2 text-sm data-[disabled]:opacity-50"
+                  className="data-highlighted:bg-accent/20! data-highlighted:text-text! data-state-checked:bg-accent! data-state-checked:text-text-onAccent! cursor-pointer px-3 py-2 text-sm data-disabled:opacity-50"
                   key={c.code}
                   value={c.code}
                 >
@@ -243,6 +244,10 @@ export function SettingsForm({ user }: { user: User }) {
         setOpenModal={setOpenModal}
         onDelete={deleteUser}
       />
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold">Payment Settings</h3>
+        <ConnectStripeButton />
+      </div>
     </div>
   );
 }

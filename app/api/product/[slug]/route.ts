@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
 
+const NO_IMAGE_PLACEHOLDER = "/no-image.svg";
+
 export async function GET(
   request: Request,
   context: { params: Promise<{ slug: string }> },
@@ -11,6 +13,36 @@ export async function GET(
   try {
     const product = await prisma.posts.findUnique({
       where: { id: slug },
+      include: {
+        users: {
+          select: {
+            id: true,
+            name: true,
+            country: true,
+            email: true,
+          },
+        },
+        reviews: {
+          include: {
+            users: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+            replies: {
+              select: {
+                id: true,
+                date: true,
+                text: true,
+              },
+            },
+          },
+          orderBy: {
+            date: "desc",
+          },
+        },
+      },
     });
 
     if (!product) {
@@ -19,30 +51,27 @@ export async function GET(
         { status: 404 },
       );
     }
-    async function getProductWithImage() {
-      if (product) {
-        if (!product.image_location) {
-          return product;
-        }
 
-        try {
-          const imageUrl = await createSignedDownloadUrl(
-            product.image_location,
-          );
-          return {
-            ...product,
-            image_url: imageUrl,
-          };
-        } catch (error) {
-          console.error("Failed to sign image url", error);
-          return product;
-        }
-      }
+    if (!product.image_location) {
+      return NextResponse.json({
+        ...product,
+        image_url: NO_IMAGE_PLACEHOLDER,
+      });
     }
 
-    const productWithImage = await getProductWithImage();
-
-    return NextResponse.json(productWithImage);
+    try {
+      const imageUrl = await createSignedDownloadUrl(product.image_location);
+      return NextResponse.json({
+        ...product,
+        image_url: imageUrl,
+      });
+    } catch (error) {
+      console.error("Failed to sign image url", error);
+      return NextResponse.json({
+        ...product,
+        image_url: NO_IMAGE_PLACEHOLDER,
+      });
+    }
   } catch (error) {
     console.error("Error fetching product:", error);
 

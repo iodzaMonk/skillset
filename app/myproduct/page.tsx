@@ -58,7 +58,8 @@ export default function ProductsPage() {
             resetEditing();
             setIsCreateOpen(false);
           }}
-        />:
+        />
+        :
         {editingPost && (
           <Modal
             isEditing

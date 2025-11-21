@@ -8,7 +8,6 @@ import { Order } from "@/types/Order";
 
 export default function CartPage() {
   const {
-    orders,
     isModalOpen,
     toggleModal,
     modalRef,
