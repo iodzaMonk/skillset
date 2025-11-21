@@ -35,6 +35,8 @@ export default function Header() {
         { name: "About us", href: "/about" },
         { name: "Browse", href: "/browse" },
         { name: "My Products", href: "/myproduct" },
+        { name: "My Cart", href: "/myorderslist" },
+        { name: "My orders", href: "/orders" },
         { name: "Settings", href: "/settings" },
         { name: "Logout", action: handleLogout },
       ]
@@ -86,6 +88,7 @@ export default function Header() {
             {/* Hamburger uses currentColor so we can theme it */}
             <button
               ref={triggerRef}
+              data-testid="menu-toggle"
               className="group text-text hover:text-accent relative z-50 flex size-10 flex-col items-center justify-center rounded-full focus:ring-2 focus:ring-[--color-ring] focus:outline-none"
               onClick={() => setOpen((v) => !v)}
             >
@@ -135,7 +138,7 @@ export default function Header() {
         <nav
           ref={popupRef}
           className={[
-            "absolute top-20 z-40 flex h-fit w-[min(720px,90vw)] justify-center rounded-2xl border p-10 transition-all duration-700",
+            "absolute top-20 z-40 flex w-[min(640px,70vw)] justify-center rounded-2xl border py-2 transition-all duration-700",
             "bg-surface/95 border-border backdrop-blur",
             open
               ? "pointer-events-auto translate-y-0 opacity-100"
@@ -162,7 +165,7 @@ export default function Header() {
                         : "cursor-pointer"
                     }`}
                   >
-                    <span className="text-text-muted absolute top-2 -left-7 text-sm">
+                    <span className="text-text-muted absolute top-2 -left-4 text-sm">
                       0{index + 1}
                     </span>
                     {item.name}
@@ -173,7 +176,7 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                     className={itemClasses}
                   >
-                    <span className="text-text-muted absolute top-2 -left-7 text-sm">
+                    <span className="text-text-muted absolute top-2 -left-4 text-sm">
                       0{index + 1}
                     </span>
                     {item.name}

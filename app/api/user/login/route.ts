@@ -1,61 +1,24 @@
 import { headers } from "next/headers";
-import bcrypt from "bcryptjs";
 import { createSession } from "@/app/lib/session";
-import { createClient } from "@/app/utils/supabase/server";
-import { sendEmail } from "@/app/utils/email";
+import { loginUser, type LoginBody } from "@/app/lib/auth/login";
+
 export async function POST(req: Request) {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
+  const referer = headersList.get("referer") ?? "";
 
   try {
     // get body
-    const body = await req.json();
+    const body = (await req.json()) as LoginBody;
+    const result = await loginUser(body);
 
-    // verify that both fields contain data
-    if (!body?.email || !body?.password) {
-      return Response.json(
-        { message: "Email and password are required" },
-        {
-          status: 400,
-          headers: { "x-referer": referer || "" },
-        },
-      );
+    if (result.status !== 200) {
+      return Response.json(result.body, {
+        status: result.status,
+        headers: { "x-referer": referer },
+      });
     }
-    // verify if the email is already taken
-    const { data: existingUser, error } = await supabase
-      .from("users")
-      .select("*")
-      .eq("email", body.email)
-      .single();
 
-    // throw error
-    if (error || !existingUser) {
-      return Response.json(
-        { message: "Invalid credentials" },
-        {
-          status: 401,
-          headers: { "x-referer": referer || "" },
-        },
-      );
-    }
-    // verify if password corresponds to the hashed one
-    const isPasswordValid = await bcrypt.compare(
-      body.password,
-      existingUser.password,
-    );
-    // throw error
-    if (!isPasswordValid) {
-      return Response.json(
-        { message: "Invalid credentials" },
-        {
-          status: 401,
-          headers: { "x-referer": referer || "" },
-        },
-      );
-    }
-    // if no errors then create session
-    const session = await createSession(existingUser.id);
+    const session = await createSession(result.body.userId);
     return Response.json(
       { token: session },
       {

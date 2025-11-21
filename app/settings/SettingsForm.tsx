@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { Datepicker } from "flowbite-react";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { format } from "date-fns";
 import countries from "@/lib/countries.json";
 import {
@@ -14,9 +14,10 @@ import {
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/context/AuthContext";
-import type { User } from "../types/User";
+import type { User } from "../../types/User";
 import Modal from "./modal";
-import { ButtonMain } from "../Components/Button";
+import { Button } from "@/components/ui/button";
+import ConnectStripeButton from "./StripeConnectButton";
 
 const inputBase =
   "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
@@ -92,9 +93,16 @@ export function SettingsForm({ user }: { user: User }) {
 
   return (
     <div className="bg-surface border-border mx-auto my-20 min-h-[30vh] w-4/5 rounded border p-20">
-      <h1 className="pt-5 text-center text-7xl">Settings</h1>
+      <h1
+        className="pt-5 text-center text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+        data-testid="settings-title"
+      >
+        Settings
+      </h1>
       <form className="mx-auto w-full space-y-6" onSubmit={updateUser}>
-        <h1 className="mt-10 text-center text-4xl">Edit User Info</h1>
+        <h1 className="text-1xl mt-10 text-center md:text-4xl">
+          Edit User Info
+        </h1>
         <div className="bg-text my-10 h-0.5 w-full rounded-2xl" />
         <div>
           <label htmlFor="email" className={labelBase}>
@@ -187,11 +195,11 @@ export function SettingsForm({ user }: { user: User }) {
               side="bottom"
               align="start"
               sideOffset={6}
-              className="border-border bg-surface text-text z-[9999] rounded-md border shadow-xl"
+              className="border-border bg-surface text-text z-9999 rounded-md border shadow-xl"
             >
               {countries.map((c) => (
                 <SelectItem
-                  className="data-[highlighted]:!bg-accent/20 data-[highlighted]:!text-text data-[state-checked]:!bg-accent data-[state-checked]:!text-text-onAccent cursor-pointer px-3 py-2 text-sm data-[disabled]:opacity-50"
+                  className="data-highlighted:bg-accent/20! data-highlighted:text-text! data-state-checked:bg-accent! data-state-checked:text-text-onAccent! cursor-pointer px-3 py-2 text-sm data-disabled:opacity-50"
                   key={c.code}
                   value={c.code}
                 >
@@ -218,17 +226,17 @@ export function SettingsForm({ user }: { user: User }) {
 
         {error ? <p className="text-red-600">{error}</p> : null}
 
-        <div className="flex items-center space-x-4">
-          <ButtonMain type="submit" disabled={isSaving} variant="update">
-            Update settings
-          </ButtonMain>
-          <ButtonMain
+        <div className="flex flex-col items-center gap-5 sm:flex-row">
+          <Button type="submit" disabled={isSaving} variant="update">
+            Update
+          </Button>
+          <Button
             variant="delete"
             onClick={() => setOpenModal(true)}
             disabled={isDeleting}
           >
             Delete
-          </ButtonMain>
+          </Button>
         </div>
       </form>
       <div className="bg-text my-10 h-0.5 w-full rounded-2xl" />
@@ -239,6 +247,10 @@ export function SettingsForm({ user }: { user: User }) {
         setOpenModal={setOpenModal}
         onDelete={deleteUser}
       />
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold">Payment Settings</h3>
+        <ConnectStripeButton />
+      </div>
     </div>
   );
 }

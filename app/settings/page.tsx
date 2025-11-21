@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
-import { getCurrentUser } from "../lib/helper";
+import { getCurrentUser } from "../lib/user";
 import { SettingsForm } from "./SettingsForm";
-import type { User } from "../types/User";
+import type { User } from "../../types/User";
 
 export default async function SettingsPage() {
   const user = await getCurrentUser();
@@ -15,7 +15,10 @@ export default async function SettingsPage() {
     id: user.id,
     email: user.email,
     country: user.country,
-    birthday: user.birthday,
+    birthday: user.birthday
+      ? new Date(user.birthday).toISOString().split("T")[0]
+      : null,
+    vendor_id: user.vendor_id,
   };
 
   return <SettingsForm user={safeUser} />;

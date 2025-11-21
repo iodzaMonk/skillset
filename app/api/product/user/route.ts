@@ -1,86 +1,140 @@
-import { getCurrentUser } from "@/app/lib/helper";
-import { createClient } from "@/app/utils/supabase/server";
 import { headers } from "next/headers";
+import { getCurrentUser } from "@/app/lib/user";
+import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
+import { prisma } from "@/lib/prisma";
+import { PostBody } from "@/types/PostBody";
+import {
+  createProductRecord,
+  updateProductRecord,
+  listProductsForUser,
+  ProductNotFoundError,
+} from "@/app/lib/productCrud";
+import { ZodError } from "zod";
+
 export async function POST(req: Request) {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
+  const referer = headersList.get("referer") ?? "";
+
   try {
-    const body = await req.json();
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json(
+        { message: "Not authenticated" },
+        { status: 401, headers: { "x-referer": referer } },
+      );
+    }
 
-    const product = await supabase
-      .from("posts")
-      .insert({
-        user_id: body.user_id,
-        title: body.title,
-        description: body.description,
-        price: body.price,
-        date: new Date().toISOString().split("T")[0],
-      })
-      .select()
-      .limit(1);
+    const product = await createProductRecord(user.id, await req.json());
 
-    return new Response(JSON.stringify(product), {
-      status: 200,
-      headers: { "x-referer": referer || "" },
-    });
+    return Response.json(
+      { data: product },
+      { status: 201, headers: { "x-referer": referer } },
+    );
   } catch (error) {
-    console.log(error);
-    return new Response("Error", {
-      status: 500,
-      headers: { "x-referer": referer || "" },
-    });
+    if (error instanceof ZodError) {
+      return Response.json(
+        { message: error.issues.map((i) => i.message).join(", ") },
+        { status: 400 },
+      );
+    }
+
+    return Response.json(
+      { message: "Internal server error" },
+      { status: 500, headers: { "x-referer": referer } },
+    );
   }
 }
+
 export async function PUT(req: Request) {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
+  const referer = headersList.get("referer") ?? "";
+
   try {
-    const body = await req.json();
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json(
+        { message: "Not authenticated" },
+        { status: 401, headers: { "x-referer": referer } },
+      );
+    }
 
-    const product = await supabase
-      .from("posts")
-      .update({
-        user_id: body.user_id,
-        title: body.title,
-        description: body.description,
-        price: body.price,
-      })
-      .eq("id", body.id);
+    const updatedProduct = await updateProductRecord(user.id, await req.json());
 
-    return new Response(JSON.stringify(product), {
-      status: 200,
-      headers: { "x-referer": referer || "" },
-    });
+    return Response.json(
+      { data: updatedProduct },
+      { status: 200, headers: { "x-referer": referer } },
+    );
   } catch (error) {
-    console.log(error);
-    return new Response("Error", {
-      status: 500,
-      headers: { "x-referer": referer || "" },
-    });
+    if (error instanceof ProductNotFoundError) {
+      return Response.json(
+        { message: "Product not found" },
+        { status: 404, headers: { "x-referer": referer } },
+      );
+    }
+    if (error instanceof ZodError) {
+      return Response.json(
+        { message: error.issues.map((i) => i.message).join(", ") },
+        { status: 400, headers: { "x-referer": referer } },
+      );
+    }
+
+    console.error("Update product error", error);
+
+    return Response.json(
+      { message: "Internal server error" },
+      { status: 500, headers: { "x-referer": referer } },
+    );
   }
 }
+
 export async function GET() {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
-  const user = await getCurrentUser();
-  try {
-    const product = await supabase
-      .from("posts")
-      .select("*")
-      .eq("user_id", user?.id); // Fetch products for the current user
+  const referer = headersList.get("referer") ?? "";
 
-    return new Response(JSON.stringify(product), {
-      status: 200,
-      headers: { "x-referer": referer || "" },
-    });
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json(
+        { data: [] },
+        { status: 200, headers: { "x-referer": referer } },
+      );
+    }
+
+    const products = await listProductsForUser(user.id);
+
+    const productsWithImages = await Promise.all(
+      products.map(async (product) => {
+        if (!product.image_location) {
+          return product;
+        }
+
+        try {
+          const imageUrl = await createSignedDownloadUrl(
+            product.image_location,
+          );
+          return {
+            ...product,
+            image_url: imageUrl,
+          };
+        } catch (error) {
+          console.error("Failed to sign image url", error);
+          return product;
+        }
+      }),
+    );
+
+    return Response.json(
+      {
+        data: productsWithImages,
+      },
+      { status: 200, headers: { "x-referer": referer } },
+    );
   } catch (error) {
-    console.log(error);
-    return new Response("Error", {
-      status: 500,
-      headers: { "x-referer": referer || "" },
-    });
+    console.error("Get products error", error);
+
+    return Response.json(
+      { message: "Internal server error" },
+      { status: 500, headers: { "x-referer": referer } },
+    );
   }
 }

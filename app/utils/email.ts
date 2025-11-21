@@ -20,19 +20,19 @@ const createTransporter = async () => {
       resolve(token);
     });
   });
-  const transporter1 = nodemailer.createTransport({
-    host: "gmail",
-    port: 465,
-    secure: true,
-    auth: {
-      user: "username",
-      pass: "pass",
-    },
-    tls: {
-      // do not fail on invalid certs
-      rejectUnauthorized: false,
-    },
-  });
+  // const transporter1 = nodemailer.createTransport({
+  //   host: "gmail",
+  //   port: 465,
+  //   secure: true,
+  //   auth: {
+  //     user: "username",
+  //     pass: "pass",
+  //   },
+  //   tls: {
+  //     // do not fail on invalid certs
+  //     rejectUnauthorized: false,
+  //   },
+  // });
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
