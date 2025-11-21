@@ -88,6 +88,7 @@ export default function Header() {
             {/* Hamburger uses currentColor so we can theme it */}
             <button
               ref={triggerRef}
+              data-testid="menu-toggle"
               className="group text-text hover:text-accent relative z-50 flex size-10 flex-col items-center justify-center rounded-full focus:ring-2 focus:ring-[--color-ring] focus:outline-none"
               onClick={() => setOpen((v) => !v)}
             >
