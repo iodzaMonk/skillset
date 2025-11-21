@@ -93,7 +93,10 @@ export function SettingsForm({ user }: { user: User }) {
 
   return (
     <div className="bg-surface border-border mx-auto my-20 min-h-[30vh] w-4/5 rounded border p-20">
-      <h1 className="pt-5 text-center text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+      <h1
+        className="pt-5 text-center text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+        data-testid="settings-title"
+      >
         Settings
       </h1>
       <form className="mx-auto w-full space-y-6" onSubmit={updateUser}>
