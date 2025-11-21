@@ -1,18 +1,15 @@
 import { headers } from "next/headers";
-import { Prisma } from "@prisma/client";
 import { getCurrentUser } from "@/app/lib/user";
 import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
 import { prisma } from "@/lib/prisma";
 import { PostBody } from "@/types/PostBody";
-import { z } from "zod";
-
-const createProductSchema = z.object({
-  title: z.string().trim().min(1),
-  description: z.string().trim().min(1),
-  price: z.coerce.number().min(0),
-  date: z.coerce.date().optional(),
-  image_location: z.string().trim().optional().nullable(),
-});
+import {
+  createProductRecord,
+  updateProductRecord,
+  listProductsForUser,
+  ProductNotFoundError,
+} from "@/app/lib/productCrud";
+import { ZodError } from "zod";
 
 export async function POST(req: Request) {
   const headersList = await headers();
@@ -27,25 +24,14 @@ export async function POST(req: Request) {
       );
     }
 
-    const body = createProductSchema.parse(await req.json());
-    const { title, description, price, image_location } = body ?? {};
-
-    const product = await prisma.posts.create({
-      data: {
-        title: title,
-        description: description,
-        price: price,
-        user_id: user.id,
-        image_location: image_location ?? null,
-      },
-    });
+    const product = await createProductRecord(user.id, await req.json());
 
     return Response.json(
       { data: product },
       { status: 201, headers: { "x-referer": referer } },
     );
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof ZodError) {
       return Response.json(
         { message: error.issues.map((i) => i.message).join(", ") },
         { status: 400 },
@@ -72,32 +58,23 @@ export async function PUT(req: Request) {
       );
     }
 
-    const body = (await req.json()) as PostBody;
-    const { id, title, description, price, date, image_location } = body ?? {};
-
-    const updatedProduct = await prisma.posts.update({
-      where: { id: id },
-      data: {
-        title: title,
-        description: description,
-        price: price,
-        date: date,
-        image_location: image_location ?? undefined,
-      },
-    });
+    const updatedProduct = await updateProductRecord(user.id, await req.json());
 
     return Response.json(
       { data: updatedProduct },
       { status: 200, headers: { "x-referer": referer } },
     );
   } catch (error) {
-    if (
-      error instanceof Prisma.PrismaClientKnownRequestError &&
-      error.code === "P2025"
-    ) {
+    if (error instanceof ProductNotFoundError) {
       return Response.json(
         { message: "Product not found" },
         { status: 404, headers: { "x-referer": referer } },
+      );
+    }
+    if (error instanceof ZodError) {
+      return Response.json(
+        { message: error.issues.map((i) => i.message).join(", ") },
+        { status: 400, headers: { "x-referer": referer } },
       );
     }
 
@@ -123,10 +100,7 @@ export async function GET() {
       );
     }
 
-    const products = await prisma.posts.findMany({
-      where: { user_id: user.id },
-      orderBy: { date: "desc" },
-    });
+    const products = await listProductsForUser(user.id);
 
     const productsWithImages = await Promise.all(
       products.map(async (product) => {

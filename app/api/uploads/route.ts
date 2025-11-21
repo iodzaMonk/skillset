@@ -1,7 +1,5 @@
 import { Buffer } from "buffer";
-import { NextResponse } from "next/server";
-
-import { uploadObject } from "@/app/lib/storage/s3";
+import { performUpload } from "../../lib/storage/uploadAdapter.ts";
 
 export async function POST(request: Request) {
   try {
@@ -9,7 +7,7 @@ export async function POST(request: Request) {
     const file = formData.get("file");
 
     if (!(file instanceof File)) {
-      return NextResponse.json(
+      return Response.json(
         { error: "Missing file upload payload" },
         { status: 400 },
       );
@@ -17,15 +15,15 @@ export async function POST(request: Request) {
 
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
-    const { key } = await uploadObject({
+    const { key } = await performUpload({
       buffer,
       originalName: file.name,
       contentType: file.type || undefined,
     });
 
-    return NextResponse.json({ key }, { status: 201 });
+    return Response.json({ key }, { status: 201 });
   } catch (error) {
     console.error("Failed to upload file to S3", error);
-    return NextResponse.json({ error: "File upload failed" }, { status: 500 });
+    return Response.json({ error: "File upload failed" }, { status: 500 });
   }
 }
