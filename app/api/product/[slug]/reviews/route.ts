@@ -3,7 +3,11 @@ import { NextResponse } from "next/server";
 import { getCurrentUser } from "@/app/lib/user";
 import { prisma } from "@/lib/prisma";
 
-const MAX_REPLY_DEPTH = 3;
+import {
+  reviewThreadInclude,
+  validateParentForProduct,
+} from "./review-helpers";
+
 const MAX_RATING = 5;
 
 const parseRating = (value: unknown): number | null => {
@@ -46,36 +50,7 @@ export async function GET(
     const reviews = await prisma.reviews.findMany({
       where: { product_id: slug, parent_id: null },
       orderBy: { date: "desc" },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              orderBy: { date: "asc" },
-              include: {
-                users: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: reviewThreadInclude,
     });
 
     return NextResponse.json(reviews);
@@ -131,38 +106,16 @@ export async function POST(
       parent_id: string | null;
     } | null = null;
     if (parentId) {
-      parent = await prisma.reviews.findUnique({
-        where: { id: parentId },
-        select: { id: true, product_id: true, parent_id: true },
-      });
+      const parentValidation = await validateParentForProduct(slug, parentId);
 
-      if (!parent || parent.product_id !== slug) {
+      if ("status" in parentValidation) {
         return NextResponse.json(
-          { message: "Parent comment not found" },
-          { status: 404 },
+          { message: parentValidation.message },
+          { status: parentValidation.status },
         );
       }
 
-      let depth = 1;
-      let ancestorId = parent.parent_id;
-
-      while (ancestorId) {
-        const ancestor = await prisma.reviews.findUnique({
-          where: { id: ancestorId },
-          select: { parent_id: true },
-        });
-
-        depth += 1;
-
-        if (depth >= MAX_REPLY_DEPTH) {
-          return NextResponse.json(
-            { message: "Maximum reply depth reached" },
-            { status: 400 },
-          );
-        }
-
-        ancestorId = ancestor?.parent_id ?? null;
-      }
+      parent = parentValidation;
 
       if (parsedRating !== null) {
         return NextResponse.json(
@@ -181,36 +134,7 @@ export async function POST(
         date: new Date(),
         parent_id: parent?.id ?? null,
       },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              orderBy: { date: "asc" },
-              include: {
-                users: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: reviewThreadInclude,
     });
 
     await recomputeProductRating(slug);
@@ -305,36 +229,7 @@ export async function PATCH(
         date: new Date(),
         ...(hasRatingUpdate ? { rating: parsedRating } : {}),
       },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              orderBy: { date: "asc" },
-              include: {
-                users: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      include: reviewThreadInclude,
     });
 
     await recomputeProductRating(slug);

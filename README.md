@@ -77,4 +77,24 @@ docker compose down -v
 This wipes the Postgres data volume (`skillset-db-data`) so you start fresh next time.
 
 ---
-run
+
+## Sokrates Code Analysis
+
+Prerequisites: Java 17+ (Graphviz optional for dependency visuals).
+
+From the project root:
+
+```bash
+# Refresh git history used by Sokrates
+java -jar Sokrates/sokrates-LATEST.jar extractGitHistory -analysisRoot .
+
+# Generate reports (HTML ends up in Sokrates/_sokrates/reports/html/index.html)
+java -jar Sokrates/sokrates-LATEST.jar generateReports \
+  -confFile Sokrates/_sokrates/config.json \
+  -outputFolder Sokrates/_sokrates/reports
+```
+
+Notes:
+
+- If Graphviz `dot` is installed and on PATH, dependency graphs render; otherwise they are skipped.
+- Generated data and explorers live under `Sokrates/_sokrates/reports/`.

@@ -3,7 +3,10 @@ import { NextResponse } from "next/server";
 import { getCurrentUser } from "@/app/lib/user";
 import { prisma } from "@/lib/prisma";
 
-const MAX_REPLY_DEPTH = 3;
+import {
+  reviewThreadInclude,
+  validateParentForProduct,
+} from "../review-helpers";
 
 export async function GET(
   request: Request,
@@ -21,61 +24,18 @@ export async function GET(
   }
 
   try {
-    const parent = await prisma.reviews.findUnique({
-      where: { id: parentId },
-      select: { id: true, product_id: true, parent_id: true },
-    });
-
-    if (!parent || parent.product_id !== slug) {
+    const parent = await validateParentForProduct(slug, parentId);
+    if ("status" in parent) {
       return NextResponse.json(
-        { message: "Parent comment not found" },
-        { status: 404 },
+        { message: parent.message },
+        { status: parent.status },
       );
-    }
-
-    let depth = 1;
-    let ancestorId = parent.parent_id;
-
-    while (ancestorId) {
-      const ancestor = await prisma.reviews.findUnique({
-        where: { id: ancestorId },
-        select: { parent_id: true },
-      });
-
-      depth += 1;
-
-      if (depth >= MAX_REPLY_DEPTH) {
-        return NextResponse.json(
-          { message: "Maximum reply depth reached" },
-          { status: 400 },
-        );
-      }
-
-      ancestorId = ancestor?.parent_id ?? null;
     }
 
     const replies = await prisma.reviews.findMany({
       where: { product_id: slug, parent_id: parentId },
       orderBy: { date: "asc" },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-          },
-        },
-      },
+      include: reviewThreadInclude,
     });
 
     return NextResponse.json(replies);
@@ -122,37 +82,12 @@ export async function POST(
       );
     }
 
-    const parent = await prisma.reviews.findUnique({
-      where: { id: parentId },
-      select: { id: true, product_id: true, parent_id: true },
-    });
-
-    if (!parent || parent.product_id !== slug) {
+    const parent = await validateParentForProduct(slug, parentId);
+    if ("status" in parent) {
       return NextResponse.json(
-        { message: "Parent comment not found" },
-        { status: 404 },
+        { message: parent.message },
+        { status: parent.status },
       );
-    }
-
-    let depth = 1;
-    let ancestorId = parent.parent_id;
-
-    while (ancestorId) {
-      const ancestor = await prisma.reviews.findUnique({
-        where: { id: ancestorId },
-        select: { parent_id: true },
-      });
-
-      depth += 1;
-
-      if (depth >= MAX_REPLY_DEPTH) {
-        return NextResponse.json(
-          { message: "Maximum reply depth reached" },
-          { status: 400 },
-        );
-      }
-
-      ancestorId = ancestor?.parent_id ?? null;
     }
 
     const reply = await prisma.reviews.create({
@@ -163,25 +98,7 @@ export async function POST(
         parent_id: parent.id,
         date: new Date(),
       },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-          },
-        },
-      },
+      include: reviewThreadInclude,
     });
 
     return NextResponse.json(reply, { status: 201 });
