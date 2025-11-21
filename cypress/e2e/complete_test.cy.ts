@@ -33,14 +33,6 @@ describe("Complete User Flow", () => {
     cy.viewport(1280, 720);
   });
 
-  describe("Home Page", () => {
-    it("should display home page content", () => {
-      cy.visit("localhost:3000");
-      cy.contains("Discover Products");
-      cy.contains("Featured Products");
-    });
-  });
-
   describe("Logout", () => {
     it("should log out the user", () => {
       cy.visit("localhost:3000");
@@ -62,7 +54,13 @@ describe("Complete User Flow", () => {
       cy.contains("Logout").click({ force: true });
     });
   });
-
+  describe("Home Page", () => {
+    it("should display home page content", () => {
+      cy.visit("localhost:3000");
+      cy.contains("Discover Products");
+      cy.contains("Featured Products");
+    });
+  });
   describe("Login", () => {
     it("should log in an existing user", () => {
       cy.visit("localhost:3000");
