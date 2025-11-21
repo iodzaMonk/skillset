@@ -16,10 +16,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning className="h-full">
-      <head>
-        <ThemeModeScript />
+      <head suppressHydrationWarning>
+        {/* Temporarily comment out ThemeModeScript */}
+        {/* <ThemeModeScript /> */}
       </head>
-      <body className="bg-canvas text-text !font-Faustina flex min-h-dvh flex-col antialiased">
+      <body
+        suppressHydrationWarning
+        className="bg-canvas text-text !font-Faustina flex min-h-dvh flex-col antialiased"
+      >
         <ThemeInit />
 
         <AuthProvider>
