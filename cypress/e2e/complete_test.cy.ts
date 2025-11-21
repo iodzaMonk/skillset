@@ -82,36 +82,6 @@ describe("Complete User Flow", () => {
     });
   });
 
-  describe("Settings Page", () => {
-    beforeEach(() => {
-      cy.visit("localhost:3000");
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("Login").should("be.visible");
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-    });
-
-    it("should navigate to settings page", () => {
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("Settings").should("be.visible");
-      cy.contains("Settings").click({ force: true });
-
-      cy.url().should("include", "/settings", { timeout: 10000 });
-      cy.wait(1000);
-      cy.get('h1, [data-testid="settings-title"]')
-        .contains("Settings", { matchCase: false })
-        .should("be.visible", { timeout: 10000 });
-      cy.get('input[name="name"]').clear().type("Updated User");
-      cy.contains("button", "Update").click();
-
-      cy.reload();
-      cy.get('input[name="name"]').should("have.value", "Updated User");
-    });
-  });
-
   describe("Browse Products", () => {
     beforeEach(() => {
       cy.visit("localhost:3000");
@@ -142,5 +112,166 @@ describe("Complete User Flow", () => {
       cy.contains("Order Now").click({ force: true });
       cy.contains("Cancel").click({ force: true });
     });
+  });
+
+  describe("Stripe Payment Flow", () => {
+    beforeEach(() => {
+      cy.visit("localhost:3000");
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Login").should("be.visible");
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+
+      cy.intercept("POST", "/api/user/create-stripe-account", {
+        statusCode: 200,
+        body: {
+          url: "https://connect.stripe.com/setup/mock",
+          accountId: "acct_mock_123456",
+        },
+      }).as("createStripeAccount");
+
+      cy.intercept("GET", "https://connect.stripe.com/**", (req) => {
+        req.reply({
+          statusCode: 200,
+          body: "Mocked Stripe page",
+        });
+      }).as("stripeRedirect");
+
+      cy.intercept("POST", "/api/orders/create-payment", {
+        statusCode: 200,
+        body: {
+          clientSecret: "pi_mock_secret_123",
+          professionalName: "Mock Professional",
+        },
+      }).as("createPaymentIntent");
+
+      cy.intercept("GET", "**/stripe.com/**", {
+        statusCode: 200,
+        body: {},
+      }).as("stripeAssets");
+    });
+
+    it("should connect a Stripe account", () => {
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Settings").click({ force: true });
+      cy.url().should("include", "/settings", { timeout: 10000 });
+
+      cy.contains("button", "Connect to Stripe").click();
+
+      cy.wait("@createStripeAccount").then((interception) => {
+        expect(interception.request.body).to.have.property("email");
+        expect(interception.request.body.email).to.equal(email);
+
+        expect(interception.response.body).to.have.property("url");
+        expect(interception.response.body.accountId).to.equal(
+          "acct_mock_123456",
+        );
+      });
+
+      cy.url().should("not.include", "stripe.com");
+      cy.contains("Account connected", { timeout: 5000 }).should("be.visible");
+    });
+
+    it("should create a payment intent for an order", () => {
+      cy.visit("localhost:3000/browse");
+      cy.get('a[href*="/product/"]').first().click();
+      cy.url().should("include", "/product/");
+      cy.contains("Order Now").click({ force: true });
+
+      cy.get('textarea[name="description"]').type("Please edit my video");
+      cy.contains("button", "Proceed to Payment").click();
+
+      cy.url().should("include", "/payment", { timeout: 10000 });
+
+      cy.wait("@createPaymentIntent").then((interception) => {
+        expect(interception.request.body).to.have.property("amount");
+        expect(interception.request.body).to.have.property("orderData");
+        expect(interception.request.body.orderData).to.have.property("prof_id");
+        expect(interception.request.body.orderData).to.have.property(
+          "product_id",
+        );
+
+        expect(interception.response.body.clientSecret).to.equal(
+          "pi_mock_secret_123",
+        );
+        expect(interception.response.body.professionalName).to.equal(
+          "Mock Professional",
+        );
+      });
+
+      cy.get("form").within(() => {
+        cy.get('button[type="submit"]').should("contain", "Pay $");
+      });
+    });
+
+    it("should handle payment submission with mocked Stripe", () => {
+      cy.visit("localhost:3000/browse");
+      cy.get('a[href*="/product/"]').first().click();
+      cy.contains("Order Now").click({ force: true });
+      cy.get('textarea[name="description"]').type("Test order");
+      cy.contains("button", "Proceed to Payment").click();
+
+      cy.wait("@createPaymentIntent");
+
+      cy.window().then((win) => {
+        if (win.Stripe) {
+          cy.stub(win.Stripe.prototype, "confirmPayment").resolves({
+            paymentIntent: {
+              id: "pi_mock_123",
+              status: "succeeded",
+            },
+          });
+        }
+      });
+
+      cy.intercept("POST", "/api/orders/payment-complete", {
+        statusCode: 201,
+        body: {
+          orderId: "order_mock_123",
+          message: "Order created successfully",
+        },
+      }).as("completeOrder");
+
+      cy.get('button[type="submit"]').contains("Pay $").click();
+
+      cy.wait("@completeOrder").then((interception) => {
+        expect(interception.request.body).to.have.property("paymentIntentId");
+        expect(interception.response.body.orderId).to.equal("order_mock_123");
+      });
+
+      cy.url().should("include", "/payment/success", { timeout: 10000 });
+    });
+  });
+});
+describe("Settings Page", () => {
+  beforeEach(() => {
+    cy.visit("localhost:3000");
+    cy.get('[data-testid="menu-toggle"]').click();
+    cy.contains("Login").should("be.visible");
+    cy.contains("Login").click({ force: true });
+    cy.get('input[name="email"]').type(email);
+    cy.get('input[name="password"]').type(password);
+    cy.contains("button", "Sign in").click();
+    cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+  });
+
+  it("should navigate to settings page", () => {
+    cy.get('[data-testid="menu-toggle"]').click();
+    cy.contains("Settings").should("be.visible");
+    cy.contains("Settings").click({ force: true });
+
+    cy.url().should("include", "/settings", { timeout: 10000 });
+    cy.wait(1000);
+    cy.get('h1, [data-testid="settings-title"]')
+      .contains("Settings", { matchCase: false })
+      .should("be.visible", { timeout: 10000 });
+    cy.get('input[name="name"]').clear().type("Updated User");
+    cy.contains("button", "Update").click();
+
+    cy.reload();
+    cy.get('input[name="name"]').should("have.value", "Updated User");
   });
 });
