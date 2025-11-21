@@ -1,2 +1,0 @@
-Path	Lines of Code
-lib/utils.ts	5

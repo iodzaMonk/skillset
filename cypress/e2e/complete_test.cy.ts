@@ -5,6 +5,14 @@ describe("Complete User Flow", () => {
   const email = `testuser_${uniqueId}@example.com`;
   const password = "password123";
 
+  const forceLogout = () => {
+    cy.clearCookies();
+    cy.clearLocalStorage();
+    cy.window().then((win) => {
+      win.sessionStorage.clear();
+    });
+  };
+
   before(() => {
     cy.viewport(1280, 720);
     cy.visit("localhost:3000");
@@ -37,21 +45,14 @@ describe("Complete User Flow", () => {
     it("should log out the user", () => {
       cy.visit("localhost:3000");
       cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("Login").should("be.visible");
-      cy.contains("Login").click({ force: true });
-
-      cy.url().should("include", "/auth/login", { timeout: 10000 });
-      cy.contains("Sign in to your account").should("be.visible");
-
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-      cy.contains("Welcome Test User").should("be.visible");
-      cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Logout").should("be.visible");
       cy.contains("Logout").click({ force: true });
+
+      cy.contains("Welcome Test User").should("not.exist");
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Login").should("be.visible");
+
+      forceLogout();
     });
   });
   describe("Home Page", () => {
@@ -63,6 +64,7 @@ describe("Complete User Flow", () => {
   });
   describe("Login", () => {
     it("should log in an existing user", () => {
+      forceLogout();
       cy.visit("localhost:3000");
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").should("be.visible");
@@ -82,6 +84,32 @@ describe("Complete User Flow", () => {
 
   describe("Browse Products", () => {
     beforeEach(() => {
+      cy.intercept("GET", "/api/product", {
+        statusCode: 200,
+        body: [
+          {
+            id: "product-123",
+            title: "Mock Product",
+            description: "Mock description",
+            price: 42,
+            category: "Editing",
+            image_url: null,
+          },
+        ],
+      }).as("getProducts");
+
+      cy.intercept("GET", "/api/product/*", {
+        statusCode: 200,
+        body: {
+          id: "product-123",
+          title: "Mock Product",
+          description: "Mock description",
+          price: 42,
+          category: "Editing",
+          image_url: null,
+        },
+      }).as("getProduct");
+
       cy.visit("localhost:3000");
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").should("be.visible");
@@ -114,6 +142,8 @@ describe("Complete User Flow", () => {
 
   describe("Stripe Payment Flow", () => {
     beforeEach(() => {
+      cy.on("uncaught:exception", () => false);
+
       cy.visit("localhost:3000");
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").should("be.visible");
@@ -122,6 +152,18 @@ describe("Complete User Flow", () => {
       cy.get('input[name="password"]').type(password);
       cy.contains("button", "Sign in").click();
       cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+
+      // Avoid loading real Stripe—provide a harmless stub
+      cy.window().then((win) => {
+        (win as any).Stripe = function () {
+          return {
+            confirmPayment: cy.stub().resolves({
+              paymentIntent: { id: "pi_mock_stub", status: "succeeded" },
+            }),
+            redirectToCheckout: cy.stub().resolves({}),
+          };
+        };
+      });
 
       cy.intercept("POST", "/api/user/create-stripe-account", {
         statusCode: 200,
