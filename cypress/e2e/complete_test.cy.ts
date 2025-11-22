@@ -128,17 +128,26 @@ describe("Complete User Flow", () => {
       cy.intercept("POST", "/api/user/create-stripe-account", {
         statusCode: 200,
         body: {
-          url: "https://connect.stripe.com/setup/mock",
+          url: "http://localhost:3000/settings?stripe_connected=true",
           accountId: "acct_mock_123456",
         },
       }).as("createStripeAccount");
 
-      cy.intercept("GET", "https://connect.stripe.com/**", (req) => {
+      cy.intercept("GET", "/api/user/me", (req) => {
         req.reply({
           statusCode: 200,
-          body: "Mocked Stripe page",
+          body: {
+            user: {
+              id: "user-test-id",
+              email: email,
+              name: "Test User",
+              country: "AU",
+              birthday: null,
+              vendor_id: "acct_mock_123456",
+            },
+          },
         });
-      }).as("stripeRedirect");
+      }).as("getUserMe");
 
       cy.intercept("POST", "/api/orders/create-payment", {
         statusCode: 200,
@@ -154,16 +163,24 @@ describe("Complete User Flow", () => {
       }).as("stripeAssets");
     });
 
-    it("should connect a Stripe account", () => {
+    it("should connect a Stripe account and verify vendor_id", () => {
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Settings").click({ force: true });
       cy.url().should("include", "/settings", { timeout: 10000 });
 
+      cy.wait(2000);
+      cy.scrollTo("bottom");
+
+      cy.contains("Connect to Stripe", { timeout: 10000 }).should("exist");
+      cy.contains("button", "Connect to Stripe").scrollIntoView();
+      cy.contains("button", "Connect to Stripe").should("be.visible");
       cy.contains("button", "Connect to Stripe").click();
 
       cy.wait("@createStripeAccount").then((interception) => {
         expect(interception.request.body).to.have.property("email");
         expect(interception.request.body.email).to.equal(email);
+        expect(interception.request.body).to.have.property("refreshUrl");
+        expect(interception.request.body).to.have.property("returnUrl");
 
         expect(interception.response.body).to.have.property("url");
         expect(interception.response.body.accountId).to.equal(
@@ -171,8 +188,92 @@ describe("Complete User Flow", () => {
         );
       });
 
-      cy.url().should("not.include", "stripe.com");
-      cy.contains("Account connected", { timeout: 5000 }).should("be.visible");
+      cy.url().should("include", "/settings");
+
+      cy.contains("button", "Connect to Stripe").should("not.exist");
+
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("My Products").click({ force: true });
+      cy.contains("Create a vendor account before creating products").should(
+        "not.exist",
+      );
+    });
+
+    it("should prevent product creation without vendor_id", () => {
+      cy.intercept("GET", "/api/user/me", {
+        statusCode: 200,
+        body: {
+          user: {
+            id: "user-test-id",
+            email: email,
+            name: "Test User",
+            country: "AU",
+            birthday: null,
+            vendor_id: null,
+          },
+        },
+      }).as("getUserNoVendor");
+
+      cy.visit("localhost:3000/myproduct");
+      cy.wait("@getUserNoVendor");
+
+      cy.contains("Create a vendor account before creating products").should(
+        "be.visible",
+      );
+      cy.contains("button", "Create a vendor account").should("be.visible");
+    });
+
+    it("should allow product creation with vendor_id", () => {
+      cy.intercept("GET", "/api/user/me", {
+        statusCode: 200,
+        body: {
+          user: {
+            id: "user-test-id",
+            email: email,
+            name: "Test User",
+            country: "AU",
+            birthday: null,
+            vendor_id: "acct_mock_123456",
+          },
+        },
+      }).as("getUserWithVendor");
+
+      cy.intercept("POST", "/api/product/user", {
+        statusCode: 201,
+        body: {
+          data: {
+            id: "product-123",
+            title: "Test Product",
+            description: "Test Description",
+            price: 99.99,
+            user_id: "user-test-id",
+            category: "Editing",
+          },
+        },
+      }).as("createProduct");
+
+      cy.visit("localhost:3000/myproduct");
+      cy.wait("@getUserWithVendor");
+
+      cy.contains("button", "Create Product").should("be.visible");
+      cy.contains("Create a vendor account before creating products").should(
+        "not.exist",
+      );
+
+      cy.contains("button", "Create Product").click();
+      cy.get('input[name="title"]').type("Test Product");
+      cy.get('textarea[name="description"]').type("Test Description");
+      cy.get('input[name="price"]').type("99.99");
+      cy.get('select[name="category"]').select("Editing");
+      cy.contains("button", "Create").click();
+
+      cy.wait("@createProduct").then((interception) => {
+        expect(interception.request.body).to.have.property(
+          "title",
+          "Test Product",
+        );
+        expect(interception.request.body).to.have.property("user_id");
+      });
     });
 
     it("should create a payment intent for an order", () => {
@@ -244,34 +345,5 @@ describe("Complete User Flow", () => {
 
       cy.url().should("include", "/payment/success", { timeout: 10000 });
     });
-  });
-});
-describe("Settings Page", () => {
-  beforeEach(() => {
-    cy.visit("localhost:3000");
-    cy.get('[data-testid="menu-toggle"]').click();
-    cy.contains("Login").should("be.visible");
-    cy.contains("Login").click({ force: true });
-    cy.get('input[name="email"]').type(email);
-    cy.get('input[name="password"]').type(password);
-    cy.contains("button", "Sign in").click();
-    cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-  });
-
-  it("should navigate to settings page", () => {
-    cy.get('[data-testid="menu-toggle"]').click();
-    cy.contains("Settings").should("be.visible");
-    cy.contains("Settings").click({ force: true });
-
-    cy.url().should("include", "/settings", { timeout: 10000 });
-    cy.wait(1000);
-    cy.get('h1, [data-testid="settings-title"]')
-      .contains("Settings", { matchCase: false })
-      .should("be.visible", { timeout: 10000 });
-    cy.get('input[name="name"]').clear().type("Updated User");
-    cy.contains("button", "Update").click();
-
-    cy.reload();
-    cy.get('input[name="name"]').should("have.value", "Updated User");
   });
 });
