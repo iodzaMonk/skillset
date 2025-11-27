@@ -120,6 +120,7 @@ export function PostList({
             type="button"
             variant="success"
             size="sm"
+            data-testid="create-product-button"
             onClick={onRequestCreate}
           >
             Create product

@@ -41,6 +41,7 @@ export default function ConnectStripeButton() {
       {!user?.vendor_id ? (
         <div className="space-y-2">
           <Button
+            data-testid="connect-stripe-button"
             onClick={handleConnect}
             disabled={loading || !user}
             variant="default"

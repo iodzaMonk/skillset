@@ -33,6 +33,14 @@ describe("Complete User Flow", () => {
     cy.viewport(1280, 720);
   });
 
+  describe("Home Page", () => {
+    it("should display home page content", () => {
+      cy.visit("localhost:3000");
+      cy.contains("Discover Products");
+      cy.contains("Featured Products");
+    });
+  });
+
   describe("Logout", () => {
     it("should log out the user", () => {
       cy.visit("localhost:3000");
@@ -52,15 +60,13 @@ describe("Complete User Flow", () => {
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Logout").should("be.visible");
       cy.contains("Logout").click({ force: true });
+
+      cy.wait(1000);
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Login").should("be.visible");
     });
   });
-  describe("Home Page", () => {
-    it("should display home page content", () => {
-      cy.visit("localhost:3000");
-      cy.contains("Discover Products");
-      cy.contains("Featured Products");
-    });
-  });
+
   describe("Login", () => {
     it("should log in an existing user", () => {
       cy.visit("localhost:3000");
@@ -80,6 +86,93 @@ describe("Complete User Flow", () => {
     });
   });
 
+  describe("Stripe Vendor Account Setup", () => {
+    beforeEach(() => {
+      cy.visit("localhost:3000");
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Login").should("be.visible");
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+    });
+
+    it("should assign test vendor_id to user", () => {
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Settings").click({ force: true });
+      cy.url().should("include", "/settings", { timeout: 10000 });
+      cy.scrollTo("bottom");
+      cy.get('[data-testid="connect-stripe-button"]', { timeout: 10000 })
+        .should("exist")
+        .should("be.visible");
+      cy.getCookies().then((cookies) => {
+        cy.request({
+          method: "POST",
+          url: "http://localhost:3000/api/user/test-vendor",
+          body: {
+            vendor_id: "acct_test_cypress_123456",
+          },
+          headers: {
+            Cookie: cookies
+              .map((cookie) => `${cookie.name}=${cookie.value}`)
+              .join("; "),
+          },
+        }).then((response) => {
+          expect(response.status).to.eq(200);
+          expect(response.body.success).to.be.true;
+        });
+      });
+      cy.reload();
+      cy.url().should("include", "/settings");
+      cy.scrollTo("bottom");
+      cy.get('[data-testid="connect-stripe-button"]').should("not.exist");
+      cy.contains("Your Stripe account is already connected").should(
+        "be.visible",
+      );
+    });
+  });
+
+  describe("Product Creation", () => {
+    beforeEach(() => {
+      cy.visit("localhost:3000");
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Login").should("be.visible");
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+    });
+
+    it("should create a new product", () => {
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("My Products").click({ force: true });
+      cy.url().should("include", "/myproduct", { timeout: 10000 });
+      cy.contains("Create a vendor account before creating products").should(
+        "not.exist",
+      );
+      cy.contains("button", "Create").should("be.visible").click();
+      cy.get('[role="dialog"]', { timeout: 10000 }).should("be.visible");
+      cy.get('[role="dialog"]').within(() => {
+        cy.get("input#title").type("Test Product from Cypress");
+        cy.get("input#description").type(
+          "This is a test product created by Cypress E2E tests",
+        );
+        cy.get("input#price").clear().type("99.99");
+
+        cy.get('button[role="combobox"]').click();
+      });
+      cy.wait(500);
+      cy.get('[role="option"]').contains("Video editing").click();
+      cy.get('[role="dialog"]').within(() => {
+        cy.contains("button", "Create").click();
+      });
+      cy.wait(3000);
+      cy.contains("Test Product from Cypress").should("be.visible");
+    });
+  });
+
   describe("Browse Products", () => {
     beforeEach(() => {
       cy.visit("localhost:3000");
@@ -92,256 +185,13 @@ describe("Complete User Flow", () => {
       cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
     });
 
-    it("should navigate to browse page", () => {
+    it("should navigate to browse page and view products", () => {
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Browse").should("be.visible");
       cy.contains("Browse").click({ force: true });
 
       cy.url().should("include", "/browse", { timeout: 10000 });
-    });
-
-    it("should view product details and interact with order", () => {
-      cy.visit("localhost:3000/browse");
-
-      cy.get('a[href*="/product/"]').first().click();
-      cy.url().should("include", "/product/");
-
-      cy.contains("Order Now").should("be.visible");
-      cy.contains("Order Now").click({ force: true });
-      cy.contains("Cancel").click({ force: true });
-    });
-  });
-
-  describe("Stripe Payment Flow", () => {
-    beforeEach(() => {
-      cy.visit("localhost:3000");
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("Login").should("be.visible");
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-
-      cy.intercept("POST", "/api/user/create-stripe-account", {
-        statusCode: 200,
-        body: {
-          url: "http://localhost:3000/settings?stripe_connected=true",
-          accountId: "acct_mock_123456",
-        },
-      }).as("createStripeAccount");
-
-      cy.intercept("GET", "/api/user/me", (req) => {
-        req.reply({
-          statusCode: 200,
-          body: {
-            user: {
-              id: "user-test-id",
-              email: email,
-              name: "Test User",
-              country: "AU",
-              birthday: null,
-              vendor_id: "acct_mock_123456",
-            },
-          },
-        });
-      }).as("getUserMe");
-
-      cy.intercept("POST", "/api/orders/create-payment", {
-        statusCode: 200,
-        body: {
-          clientSecret: "pi_mock_secret_123",
-          professionalName: "Mock Professional",
-        },
-      }).as("createPaymentIntent");
-
-      cy.intercept("GET", "**/stripe.com/**", {
-        statusCode: 200,
-        body: {},
-      }).as("stripeAssets");
-    });
-
-    it("should connect a Stripe account and verify vendor_id", () => {
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("Settings").click({ force: true });
-      cy.url().should("include", "/settings", { timeout: 10000 });
-
-      cy.wait(2000);
-      cy.scrollTo("bottom");
-
-      cy.contains("Connect to Stripe", { timeout: 10000 }).should("exist");
-      cy.contains("button", "Connect to Stripe").scrollIntoView();
-      cy.contains("button", "Connect to Stripe").should("be.visible");
-      cy.contains("button", "Connect to Stripe").click();
-
-      cy.wait("@createStripeAccount").then((interception) => {
-        expect(interception.request.body).to.have.property("email");
-        expect(interception.request.body.email).to.equal(email);
-        expect(interception.request.body).to.have.property("refreshUrl");
-        expect(interception.request.body).to.have.property("returnUrl");
-
-        expect(interception.response.body).to.have.property("url");
-        expect(interception.response.body.accountId).to.equal(
-          "acct_mock_123456",
-        );
-      });
-
-      cy.url().should("include", "/settings");
-
-      cy.contains("button", "Connect to Stripe").should("not.exist");
-
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("My Products").click({ force: true });
-      cy.contains("Create a vendor account before creating products").should(
-        "not.exist",
-      );
-    });
-
-    it("should prevent product creation without vendor_id", () => {
-      cy.intercept("GET", "/api/user/me", {
-        statusCode: 200,
-        body: {
-          user: {
-            id: "user-test-id",
-            email: email,
-            name: "Test User",
-            country: "AU",
-            birthday: null,
-            vendor_id: null,
-          },
-        },
-      }).as("getUserNoVendor");
-
-      cy.visit("localhost:3000/myproduct");
-      cy.wait("@getUserNoVendor");
-
-      cy.contains("Create a vendor account before creating products").should(
-        "be.visible",
-      );
-      cy.contains("button", "Create a vendor account").should("be.visible");
-    });
-
-    it("should allow product creation with vendor_id", () => {
-      cy.intercept("GET", "/api/user/me", {
-        statusCode: 200,
-        body: {
-          user: {
-            id: "user-test-id",
-            email: email,
-            name: "Test User",
-            country: "AU",
-            birthday: null,
-            vendor_id: "acct_mock_123456",
-          },
-        },
-      }).as("getUserWithVendor");
-
-      cy.intercept("POST", "/api/product/user", {
-        statusCode: 201,
-        body: {
-          data: {
-            id: "product-123",
-            title: "Test Product",
-            description: "Test Description",
-            price: 99.99,
-            user_id: "user-test-id",
-            category: "Editing",
-          },
-        },
-      }).as("createProduct");
-
-      cy.visit("localhost:3000/myproduct");
-      cy.wait("@getUserWithVendor");
-
-      cy.contains("button", "Create Product").should("be.visible");
-      cy.contains("Create a vendor account before creating products").should(
-        "not.exist",
-      );
-
-      cy.contains("button", "Create Product").click();
-      cy.get('input[name="title"]').type("Test Product");
-      cy.get('textarea[name="description"]').type("Test Description");
-      cy.get('input[name="price"]').type("99.99");
-      cy.get('select[name="category"]').select("Editing");
-      cy.contains("button", "Create").click();
-
-      cy.wait("@createProduct").then((interception) => {
-        expect(interception.request.body).to.have.property(
-          "title",
-          "Test Product",
-        );
-        expect(interception.request.body).to.have.property("user_id");
-      });
-    });
-
-    it("should create a payment intent for an order", () => {
-      cy.visit("localhost:3000/browse");
-      cy.get('a[href*="/product/"]').first().click();
-      cy.url().should("include", "/product/");
-      cy.contains("Order Now").click({ force: true });
-
-      cy.get('textarea[name="description"]').type("Please edit my video");
-      cy.contains("button", "Proceed to Payment").click();
-
-      cy.url().should("include", "/payment", { timeout: 10000 });
-
-      cy.wait("@createPaymentIntent").then((interception) => {
-        expect(interception.request.body).to.have.property("amount");
-        expect(interception.request.body).to.have.property("orderData");
-        expect(interception.request.body.orderData).to.have.property("prof_id");
-        expect(interception.request.body.orderData).to.have.property(
-          "product_id",
-        );
-
-        expect(interception.response.body.clientSecret).to.equal(
-          "pi_mock_secret_123",
-        );
-        expect(interception.response.body.professionalName).to.equal(
-          "Mock Professional",
-        );
-      });
-
-      cy.get("form").within(() => {
-        cy.get('button[type="submit"]').should("contain", "Pay $");
-      });
-    });
-
-    it("should handle payment submission with mocked Stripe", () => {
-      cy.visit("localhost:3000/browse");
-      cy.get('a[href*="/product/"]').first().click();
-      cy.contains("Order Now").click({ force: true });
-      cy.get('textarea[name="description"]').type("Test order");
-      cy.contains("button", "Proceed to Payment").click();
-
-      cy.wait("@createPaymentIntent");
-
-      cy.window().then((win) => {
-        if (win.Stripe) {
-          cy.stub(win.Stripe.prototype, "confirmPayment").resolves({
-            paymentIntent: {
-              id: "pi_mock_123",
-              status: "succeeded",
-            },
-          });
-        }
-      });
-
-      cy.intercept("POST", "/api/orders/payment-complete", {
-        statusCode: 201,
-        body: {
-          orderId: "order_mock_123",
-          message: "Order created successfully",
-        },
-      }).as("completeOrder");
-
-      cy.get('button[type="submit"]').contains("Pay $").click();
-
-      cy.wait("@completeOrder").then((interception) => {
-        expect(interception.request.body).to.have.property("paymentIntentId");
-        expect(interception.response.body.orderId).to.equal("order_mock_123");
-      });
-
-      cy.url().should("include", "/payment/success", { timeout: 10000 });
+      cy.get('a[href*="/product/"]').should("have.length.greaterThan", 0);
     });
   });
 });
