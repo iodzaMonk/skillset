@@ -1,4 +1,4 @@
-app/auth/[slug]/page.tsx [159:167]:
+app/auth/[slug]/page.tsx [160:168]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                   <div>
                     <label htmlFor="email" className={labelBase}>

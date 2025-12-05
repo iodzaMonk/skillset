@@ -1,10 +1,11 @@
 Path	Lines of Code
 app/Components/Footer.tsx	92
 app/Components/Header.tsx	186
+app/_components/BirthdayPicker.tsx	24
 app/_components/CountrySelect.tsx	40
 app/_components/ProductCard.tsx	68
 app/_components/ProductCarousel.tsx	56
-app/_components/SelectableListHeader.tsx	31
+app/_components/SelectableListHeader.tsx	39
 app/about/page.tsx	11
 app/api/cart/route.ts	7
 app/api/cart/user/route.ts	24
@@ -28,7 +29,7 @@ app/api/user/logout/route.ts	10
 app/api/user/me/route.ts	8
 app/api/user/register/route.ts	86
 app/api/user/update/route.ts	77
-app/auth/[slug]/page.tsx	244
+app/auth/[slug]/page.tsx	239
 app/browse/components/categories.tsx	45
 app/browse/page.tsx	41
 app/context/AuthContext.tsx	52
@@ -51,11 +52,11 @@ app/myorderslist/_components/OrderList.tsx	2
 app/myorderslist/_hooks/orderStates.ts	63
 app/myorderslist/page.tsx	55
 app/myproduct/_components/Modal.tsx	202
-app/myproduct/_components/PostList.tsx	252
+app/myproduct/_components/PostList.tsx	247
 app/myproduct/actions.ts	8
 app/myproduct/page.tsx	96
 app/orders/_components/Modal.tsx	158
-app/orders/_components/OrderList.tsx	249
+app/orders/_components/OrderList.tsx	244
 app/orders/_hooks/orderStates.ts	120
 app/orders/page.tsx	34
 app/page.tsx	22
@@ -68,7 +69,7 @@ app/product/[slug]/payment/module/CheckoutPage.tsx	104
 app/product/[slug]/payment/page.tsx	159
 app/product/[slug]/payment/success/page.tsx	18
 app/professional/[id]/page.tsx	140
-app/settings/SettingsForm.tsx	199
+app/settings/SettingsForm.tsx	193
 app/settings/StripeConnectButton.tsx	56
 app/settings/modal.tsx	49
 app/settings/page.tsx	20

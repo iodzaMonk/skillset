@@ -5,112 +5,112 @@ in 2 files:
  - app/product/[slug]/components/useComments.ts (499:520)
 
 duplicated block id: 2
-size: 20 cleaned lines of code
-in 2 files:
- - app/myproduct/_components/PostList.tsx (129:151)
- - app/orders/_components/OrderList.tsx (171:193)
-
-duplicated block id: 3
 size: 18 cleaned lines of code
 in 2 files:
  - app/product/[slug]/components/Comments.tsx (42:59)
  - app/product/[slug]/components/useComments.ts (522:539)
 
-duplicated block id: 4
+duplicated block id: 3
 size: 18 cleaned lines of code
 in 2 files:
  - app/api/product/[slug]/route.ts (13:30)
  - features/support/productService.ts (172:189)
 
-duplicated block id: 5
+duplicated block id: 4
 size: 17 cleaned lines of code
 in 2 files:
  - app/api/product/route.ts (18:37)
  - app/api/product/user/route.ts (105:124)
 
-duplicated block id: 6
+duplicated block id: 5
 size: 16 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (213:231)
- - app/settings/SettingsForm.tsx (171:189)
+ - app/myproduct/_components/PostList.tsx (129:146)
+ - app/orders/_components/OrderList.tsx (171:188)
 
-duplicated block id: 7
+duplicated block id: 6
 size: 15 cleaned lines of code
 in 2 files:
  - app/api/product/[slug]/reviews/review-helpers.ts (6:20)
  - app/api/product/[slug]/reviews/review-helpers.ts (15:29)
 
-duplicated block id: 8
+duplicated block id: 7
 size: 14 cleaned lines of code
 in 2 files:
  - features/support/productCrudFixture.ts (73:88)
  - features/support/productCrudFixture.ts (112:127)
 
-duplicated block id: 9
+duplicated block id: 8
 size: 13 cleaned lines of code
 in 2 files:
  - app/api/cart/user/route.ts (12:25)
  - app/api/orders/user/route.ts (14:27)
 
-duplicated block id: 10
+duplicated block id: 9
 size: 13 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (168:181)
+ - app/auth/[slug]/page.tsx (169:182)
  - app/settings/SettingsForm.tsx (110:123)
 
-duplicated block id: 11
+duplicated block id: 10
 size: 13 cleaned lines of code
 in 2 files:
  - app/myorderslist/_hooks/orderStates.ts (57:71)
  - app/orders/_hooks/orderStates.ts (122:136)
 
-duplicated block id: 12
+duplicated block id: 11
 size: 12 cleaned lines of code
 in 2 files:
  - app/product/[slug]/components/Comment.tsx (269:280)
  - app/product/[slug]/components/Comments.tsx (92:103)
 
-duplicated block id: 13
+duplicated block id: 12
 size: 11 cleaned lines of code
 in 2 files:
  - features/support/browseService.ts (48:59)
  - features/support/productService.ts (69:80)
 
-duplicated block id: 14
+duplicated block id: 13
 size: 11 cleaned lines of code
 in 2 files:
  - cypress/e2e/complete_test.cy.ts (178:188)
  - cypress/e2e/complete_test.cy.ts (268:278)
 
-duplicated block id: 15
+duplicated block id: 14
 size: 11 cleaned lines of code
 in 2 files:
- - app/myproduct/_components/PostList.tsx (169:179)
- - app/orders/_components/OrderList.tsx (198:208)
+ - app/myproduct/_components/PostList.tsx (164:174)
+ - app/orders/_components/OrderList.tsx (193:203)
 
-duplicated block id: 16
+duplicated block id: 15
 size: 10 cleaned lines of code
 in 2 files:
  - app/myorderslist/page.tsx (47:56)
  - app/orders/page.tsx (20:29)
 
-duplicated block id: 17
+duplicated block id: 16
 size: 10 cleaned lines of code
 in 2 files:
  - app/api/product/[slug]/reviews/replies/route.ts (46:59)
  - app/api/product/[slug]/reviews/route.ts (61:74)
 
-duplicated block id: 18
+duplicated block id: 17
 size: 10 cleaned lines of code
 in 2 files:
  - app/api/orders/create-payment/route.tsx (10:21)
  - app/api/user/create-stripe-account/route.ts (9:19)
 
-duplicated block id: 19
+duplicated block id: 18
 size: 10 cleaned lines of code
 in 2 files:
  - app/api/product/[slug]/route.ts (31:40)
  - features/support/productService.ts (192:201)
+
+duplicated block id: 19
+size: 10 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (214:225)
+ - app/settings/SettingsForm.tsx (171:182)
 
 duplicated block id: 20
 size: 9 cleaned lines of code
@@ -163,7 +163,7 @@ in 2 files:
 duplicated block id: 28
 size: 9 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (159:167)
+ - app/auth/[slug]/page.tsx (160:168)
  - app/settings/SettingsForm.tsx (100:108)
 
 duplicated block id: 29
@@ -373,8 +373,8 @@ in 2 files:
 duplicated block id: 63
 size: 7 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (93:99)
- - app/auth/[slug]/page.tsx (188:194)
+ - app/auth/[slug]/page.tsx (94:100)
+ - app/auth/[slug]/page.tsx (189:195)
 
 duplicated block id: 64
 size: 7 cleaned lines of code
@@ -475,8 +475,8 @@ in 2 files:
 duplicated block id: 80
 size: 7 cleaned lines of code
 in 2 files:
- - app/myproduct/_components/PostList.tsx (258:265)
- - app/orders/_components/OrderList.tsx (268:275)
+ - app/myproduct/_components/PostList.tsx (253:260)
+ - app/orders/_components/OrderList.tsx (263:270)
 
 duplicated block id: 81
 size: 7 cleaned lines of code
@@ -493,14 +493,14 @@ in 2 files:
 duplicated block id: 83
 size: 7 cleaned lines of code
 in 2 files:
- - app/api/product/[slug]/reviews/replies/route.ts (52:59)
- - app/api/product/[slug]/reviews/route.ts (153:160)
+ - features/step_definitions/product.steps.ts (3:9)
+ - features/step_definitions/upload.steps.ts (4:10)
 
 duplicated block id: 84
 size: 7 cleaned lines of code
 in 2 files:
- - features/step_definitions/product.steps.ts (3:9)
- - features/step_definitions/upload.steps.ts (4:10)
+ - app/api/product/[slug]/reviews/replies/route.ts (52:59)
+ - app/api/product/[slug]/reviews/route.ts (153:160)
 
 duplicated block id: 85
 size: 7 cleaned lines of code
@@ -529,14 +529,14 @@ in 2 files:
 duplicated block id: 89
 size: 6 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (143:148)
- - app/auth/[slug]/page.tsx (262:267)
+ - app/myproduct/page.tsx (45:50)
+ - app/myproduct/page.tsx (74:79)
 
 duplicated block id: 90
 size: 6 cleaned lines of code
 in 2 files:
- - app/myproduct/page.tsx (45:50)
- - app/myproduct/page.tsx (74:79)
+ - app/auth/[slug]/page.tsx (144:149)
+ - app/auth/[slug]/page.tsx (256:261)
 
 duplicated block id: 91
 size: 6 cleaned lines of code
@@ -547,8 +547,8 @@ in 2 files:
 duplicated block id: 92
 size: 6 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (195:200)
- - app/auth/[slug]/page.tsx (208:213)
+ - app/auth/[slug]/page.tsx (196:201)
+ - app/auth/[slug]/page.tsx (209:214)
 
 duplicated block id: 93
 size: 6 cleaned lines of code
@@ -637,14 +637,14 @@ in 2 files:
 duplicated block id: 107
 size: 6 cleaned lines of code
 in 2 files:
- - app/myproduct/_components/PostList.tsx (205:210)
- - app/orders/_components/OrderList.tsx (228:233)
+ - app/api/product/[slug]/reviews/replies/route.ts (27:32)
+ - app/api/product/[slug]/reviews/replies/route.ts (85:90)
 
 duplicated block id: 108
 size: 6 cleaned lines of code
 in 2 files:
- - app/api/product/[slug]/reviews/replies/route.ts (27:32)
- - app/api/product/[slug]/reviews/replies/route.ts (85:90)
+ - app/myproduct/_components/PostList.tsx (200:205)
+ - app/orders/_components/OrderList.tsx (223:228)
 
 duplicated block id: 109
 size: 6 cleaned lines of code
@@ -667,7 +667,7 @@ in 2 files:
 duplicated block id: 112
 size: 6 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (57:62)
+ - app/auth/[slug]/page.tsx (58:63)
  - app/settings/SettingsForm.tsx (48:53)
 
 duplicated block id: 113
@@ -745,7 +745,7 @@ in 2 files:
 duplicated block id: 125
 size: 6 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (57:62)
+ - app/auth/[slug]/page.tsx (58:63)
  - app/settings/SettingsForm.tsx (77:82)
 
 duplicated block id: 126

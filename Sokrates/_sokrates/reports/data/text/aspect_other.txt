@@ -8,7 +8,7 @@ _sokrates_landscape/data/contributors.json	125
 _sokrates_landscape/data/contributors.txt	5
 _sokrates_landscape/data/executionTimes.json	191
 _sokrates_landscape/data/executionTimes.txt	38
-_sokrates_landscape/data/files.json	1286
+_sokrates_landscape/data/files.json	1296
 _sokrates_landscape/data/ignoredRepositories.txt	1
 _sokrates_landscape/data/landscapeAnalysisResults.json	108
 _sokrates_landscape/data/most_connected_people_180_days.txt	5

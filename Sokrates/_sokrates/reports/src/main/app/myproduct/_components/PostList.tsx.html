@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">app/myproduct/_components/PostList.tsx (<b>252</b> lines of code) (<a href="PostList.tsx">raw</a>):</h3>
+<h3 style="margin-bottom: 0">app/myproduct/_components/PostList.tsx (<b>247</b> lines of code) (<a href="PostList.tsx">raw</a>):</h3>
 <div id="editor">&quot;use client&quot;;
 
 import Image from &quot;next/image&quot;;
@@ -150,13 +150,8 @@ export function PostList({
       &lt;SelectableListHeader
         totalSelected={totalSelected}
         masterChecked={masterCheckboxState}
-        onMasterCheckedChange={(checked) =&gt; {
-          if (checked === true) {
-            selectAll();
-          } else if (checked === false) {
-            clearSelection();
-          }
-        }}
+        onSelectAll={selectAll}
+        onClearSelection={clearSelection}
       &gt;
         {totalSelected &gt; 0 &amp;&amp; (
           &lt;&gt;

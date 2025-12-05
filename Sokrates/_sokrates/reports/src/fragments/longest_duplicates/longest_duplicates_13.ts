@@ -1,34 +1,32 @@
-features/support/browseService.ts [48:59]:
+cypress/e2e/complete_test.cy.ts [178:188]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
-
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
-        },
+          statusCode: 200,
+          body: {
+            user: {
+              id: "user-test-id",
+              email: email,
+              name: "Test User",
+              country: "AU",
+              birthday: null,
+              vendor_id: "acct_mock_123456",
+            },
+          },
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [69:80]:
+cypress/e2e/complete_test.cy.ts [268:278]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
-
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
+        statusCode: 200,
+        body: {
+          user: {
+            id: "user-test-id",
+            email: email,
+            name: "Test User",
+            country: "AU",
+            birthday: null,
+            vendor_id: "acct_mock_123456",
+          },
         },
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

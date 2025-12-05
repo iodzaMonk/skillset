@@ -6,10 +6,10 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">export function SettingsForm()</h3>
-<p style="margin-top: 4px">in <i>app/settings/SettingsForm.tsx [21:218]</i></p>
+<p style="margin-top: 4px">in <i>app/settings/SettingsForm.tsx [21:211]</i></p>
 <ul>
-    <li><b>140</b> lines of code</li>
-    <li><b>9</b> McCabe index (conditional complexity)</li>
+    <li><b>134</b> lines of code</li>
+    <li><b>7</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
@@ -170,18 +170,11 @@ export function SettingsForm({ user }: { user: User }) {
           &lt;CountrySelect value={country} onValueChange={setCountry} /&gt;
         &lt;/div&gt;
 
-        &lt;Datepicker
-          id=&quot;datepicker&quot;
-          onChange={setBirthday}
-          value={birthday ?? undefined}
+        &lt;BirthdayPicker
+          birthday={birthday}
+          setBirthday={setBirthday}
+          error={error}
         /&gt;
-        &lt;input
-          type=&quot;hidden&quot;
-          name=&quot;birthday&quot;
-          value={birthday ? format(birthday, &quot;yyyy-MM-dd&quot;) : &quot;&quot;}
-        /&gt;
-
-        {error ? &lt;p className=&quot;text-red-600&quot;&gt;{error}&lt;/p&gt; : null}
 
         &lt;div className=&quot;flex flex-col items-center gap-5 sm:flex-row&quot;&gt;
           &lt;Button type=&quot;submit&quot; disabled={isSaving} variant=&quot;update&quot;&gt;

@@ -2,12 +2,17 @@
   "repository" : "Skillset",
   "path" : "app/Components/Footer.tsx",
   "scope" : "aspect_main.txt",
-  "linesOfCode" : 89
+  "linesOfCode" : 92
 }, {
   "repository" : "Skillset",
   "path" : "app/Components/Header.tsx",
   "scope" : "aspect_main.txt",
   "linesOfCode" : 186
+}, {
+  "repository" : "Skillset",
+  "path" : "app/_components/CountrySelect.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 40
 }, {
   "repository" : "Skillset",
   "path" : "app/_components/ProductCard.tsx",
@@ -18,6 +23,11 @@
   "path" : "app/_components/ProductCarousel.tsx",
   "scope" : "aspect_main.txt",
   "linesOfCode" : 56
+}, {
+  "repository" : "Skillset",
+  "path" : "app/_components/SelectableListHeader.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 31
 }, {
   "repository" : "Skillset",
   "path" : "app/about/page.tsx",
@@ -137,7 +147,7 @@
   "repository" : "Skillset",
   "path" : "app/auth/[slug]/page.tsx",
   "scope" : "aspect_main.txt",
-  "linesOfCode" : 285
+  "linesOfCode" : 244
 }, {
   "repository" : "Skillset",
   "path" : "app/browse/components/categories.tsx",
@@ -252,7 +262,7 @@
   "repository" : "Skillset",
   "path" : "app/myproduct/_components/PostList.tsx",
   "scope" : "aspect_main.txt",
-  "linesOfCode" : 257
+  "linesOfCode" : 252
 }, {
   "repository" : "Skillset",
   "path" : "app/myproduct/_hooks/postStates.ts",
@@ -277,7 +287,7 @@
   "repository" : "Skillset",
   "path" : "app/orders/_components/OrderList.tsx",
   "scope" : "aspect_main.txt",
-  "linesOfCode" : 269
+  "linesOfCode" : 249
 }, {
   "repository" : "Skillset",
   "path" : "app/orders/_hooks/orderStates.ts",
@@ -342,7 +352,7 @@
   "repository" : "Skillset",
   "path" : "app/settings/SettingsForm.tsx",
   "scope" : "aspect_main.txt",
-  "linesOfCode" : 234
+  "linesOfCode" : 199
 }, {
   "repository" : "Skillset",
   "path" : "app/settings/StripeConnectButton.tsx",
@@ -927,7 +937,7 @@
   "repository" : "Skillset",
   "path" : "_sokrates_landscape/data/files.json",
   "scope" : "aspect_other.txt",
-  "linesOfCode" : 1296
+  "linesOfCode" : 1286
 }, {
   "repository" : "Skillset",
   "path" : "_sokrates_landscape/data/ignoredRepositories.txt",
@@ -1097,7 +1107,7 @@
   "repository" : "Skillset",
   "path" : "_sokrates_landscape/visuals/extension_dependencies_30d.dot.txt",
   "scope" : "aspect_other.txt",
-  "linesOfCode" : 45
+  "linesOfCode" : 39
 }, {
   "repository" : "Skillset",
   "path" : "_sokrates_landscape/visuals/extension_dependencies_30d.svg",

@@ -6,14 +6,16 @@ import { ReactNode } from "react";
 interface SelectableListHeaderProps {
   totalSelected: number;
   masterChecked: boolean | "indeterminate";
-  onMasterCheckedChange: (checked: boolean | "indeterminate") => void;
+  onSelectAll: () => void;
+  onClearSelection: () => void;
   children?: ReactNode;
 }
 
 export function SelectableListHeader({
   totalSelected,
   masterChecked,
-  onMasterCheckedChange,
+  onSelectAll,
+  onClearSelection,
   children,
 }: SelectableListHeaderProps) {
   return (
@@ -22,7 +24,13 @@ export function SelectableListHeader({
         <Checkbox
           id="select-all"
           checked={masterChecked}
-          onCheckedChange={onMasterCheckedChange}
+          onCheckedChange={(checked) => {
+            if (checked === true) {
+              onSelectAll();
+            } else if (checked === false) {
+              onClearSelection();
+            }
+          }}
         />
         <label htmlFor="select-all" className="text-text text-sm font-medium">
           {totalSelected > 0

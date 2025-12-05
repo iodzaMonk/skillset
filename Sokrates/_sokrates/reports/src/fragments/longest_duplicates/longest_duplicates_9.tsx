@@ -1,4 +1,4 @@
-app/auth/[slug]/page.tsx [168:181]:
+app/auth/[slug]/page.tsx [169:182]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                       required
                       autoComplete="email"

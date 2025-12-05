@@ -2,12 +2,12 @@
   "key" : "primary",
   "components" : [ {
     "name" : "app",
-    "filesCount" : 76,
-    "linesOfCode" : 6401,
+    "filesCount" : 77,
+    "linesOfCode" : 6412,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 37,
+      "value" : 38,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
@@ -20,7 +20,7 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 3637,
+      "value" : 3648,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
@@ -320,46 +320,9 @@
     "temporalLinkThreshold" : 1,
     "maxSearchDepthLines" : 200
   },
-  "linesOfCodePerComponent" : [ {
-    "name" : "app",
-    "value" : 6401,
-    "description" : [ ]
-  }, {
-    "name" : "components",
-    "value" : 5097,
-    "description" : [ ]
-  }, {
-    "name" : "cypress",
-    "value" : 331,
-    "description" : [ ]
-  }, {
-    "name" : "ROOT",
-    "value" : 133,
-    "description" : [ ]
-  }, {
-    "name" : "features",
-    "value" : 1227,
-    "description" : [ ]
-  }, {
-    "name" : "hooks",
-    "value" : 17,
-    "description" : [ ]
-  }, {
-    "name" : "lib",
-    "value" : 13,
-    "description" : [ ]
-  }, {
-    "name" : "prisma",
-    "value" : 65,
-    "description" : [ ]
-  }, {
-    "name" : "types",
-    "value" : 395,
-    "description" : [ ]
-  } ],
   "fileCountPerComponent" : [ {
     "name" : "app",
-    "value" : 76,
+    "value" : 77,
     "description" : [ ]
   }, {
     "name" : "components",
@@ -392,6 +355,43 @@
   }, {
     "name" : "types",
     "value" : 9,
+    "description" : [ ]
+  } ],
+  "linesOfCodePerComponent" : [ {
+    "name" : "app",
+    "value" : 6412,
+    "description" : [ ]
+  }, {
+    "name" : "components",
+    "value" : 5097,
+    "description" : [ ]
+  }, {
+    "name" : "cypress",
+    "value" : 331,
+    "description" : [ ]
+  }, {
+    "name" : "ROOT",
+    "value" : 133,
+    "description" : [ ]
+  }, {
+    "name" : "features",
+    "value" : 1227,
+    "description" : [ ]
+  }, {
+    "name" : "hooks",
+    "value" : 17,
+    "description" : [ ]
+  }, {
+    "name" : "lib",
+    "value" : 13,
+    "description" : [ ]
+  }, {
+    "name" : "prisma",
+    "value" : 65,
+    "description" : [ ]
+  }, {
+    "name" : "types",
+    "value" : 395,
     "description" : [ ]
   } ]
 } ]

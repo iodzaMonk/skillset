@@ -1,6 +1,6 @@
 {
   "title" : "Duplication",
-  "timestamp" : "2025-12-05 14:36:50",
+  "timestamp" : "2025-12-05 14:40:49",
   "duplicates" : [ {
     "blockSize" : 22,
     "duplicatedFileBlocks" : [ {
@@ -29,35 +29,6 @@
       "endLine" : 520,
       "cleanedStartLine" : 391,
       "cleanedEndLine" : 412
-    } ]
-  }, {
-    "blockSize" : 20,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "app/myproduct/_components/PostList.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 252,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 232,
-      "startLine" : 129,
-      "endLine" : 151,
-      "cleanedStartLine" : 98,
-      "cleanedEndLine" : 117
-    }, {
-      "file" : {
-        "relativePath" : "app/orders/_components/OrderList.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 249,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 234,
-      "startLine" : 171,
-      "endLine" : 193,
-      "cleanedStartLine" : 139,
-      "cleanedEndLine" : 158
     } ]
   }, {
     "blockSize" : 18,
@@ -150,30 +121,30 @@
     "blockSize" : 16,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "app/auth/[slug]/page.tsx",
+        "relativePath" : "app/myproduct/_components/PostList.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 247,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 228,
+      "startLine" : 129,
+      "endLine" : 146,
+      "cleanedStartLine" : 98,
+      "cleanedEndLine" : 113
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_components/OrderList.tsx",
         "extension" : "tsx",
         "linesOfCode" : 244,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 213,
-      "endLine" : 231,
-      "cleanedStartLine" : 183,
-      "cleanedEndLine" : 198
-    }, {
-      "file" : {
-        "relativePath" : "app/settings/SettingsForm.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 199,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 230,
       "startLine" : 171,
-      "endLine" : 189,
-      "cleanedStartLine" : 142,
-      "cleanedEndLine" : 157
+      "endLine" : 188,
+      "cleanedStartLine" : 139,
+      "cleanedEndLine" : 154
     } ]
   }, {
     "blockSize" : 15,
@@ -268,24 +239,24 @@
       "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 244,
+        "linesOfCode" : 239,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 168,
-      "endLine" : 181,
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 169,
+      "endLine" : 182,
       "cleanedStartLine" : 140,
       "cleanedEndLine" : 152
     }, {
       "file" : {
         "relativePath" : "app/settings/SettingsForm.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 199,
+        "linesOfCode" : 193,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 177,
       "startLine" : 110,
       "endLine" : 123,
       "cleanedStartLine" : 84,
@@ -413,28 +384,28 @@
       "file" : {
         "relativePath" : "app/myproduct/_components/PostList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 252,
+        "linesOfCode" : 247,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 232,
-      "startLine" : 169,
-      "endLine" : 179,
-      "cleanedStartLine" : 135,
-      "cleanedEndLine" : 145
+      "sourceFileCleanedLinesOfCode" : 228,
+      "startLine" : 164,
+      "endLine" : 174,
+      "cleanedStartLine" : 131,
+      "cleanedEndLine" : 141
     }, {
       "file" : {
         "relativePath" : "app/orders/_components/OrderList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 249,
+        "linesOfCode" : 244,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 234,
-      "startLine" : 198,
-      "endLine" : 208,
-      "cleanedStartLine" : 163,
-      "cleanedEndLine" : 173
+      "sourceFileCleanedLinesOfCode" : 230,
+      "startLine" : 193,
+      "endLine" : 203,
+      "cleanedStartLine" : 159,
+      "cleanedEndLine" : 169
     } ]
   }, {
     "blockSize" : 10,
@@ -551,6 +522,35 @@
       "endLine" : 201,
       "cleanedStartLine" : 146,
       "cleanedEndLine" : 155
+    } ]
+  }, {
+    "blockSize" : 10,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/auth/[slug]/page.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 239,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 214,
+      "endLine" : 225,
+      "cleanedStartLine" : 183,
+      "cleanedEndLine" : 192
+    }, {
+      "file" : {
+        "relativePath" : "app/settings/SettingsForm.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 193,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 177,
+      "startLine" : 171,
+      "endLine" : 182,
+      "cleanedStartLine" : 142,
+      "cleanedEndLine" : 151
     } ]
   }, {
     "blockSize" : 9,
@@ -790,24 +790,24 @@
       "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 244,
+        "linesOfCode" : 239,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 159,
-      "endLine" : 167,
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 160,
+      "endLine" : 168,
       "cleanedStartLine" : 131,
       "cleanedEndLine" : 139
     }, {
       "file" : {
         "relativePath" : "app/settings/SettingsForm.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 199,
+        "linesOfCode" : 193,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 177,
       "startLine" : 100,
       "endLine" : 108,
       "cleanedStartLine" : 74,
@@ -1805,26 +1805,26 @@
       "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 244,
+        "linesOfCode" : 239,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 93,
-      "endLine" : 99,
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 94,
+      "endLine" : 100,
       "cleanedStartLine" : 71,
       "cleanedEndLine" : 77
     }, {
       "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 244,
+        "linesOfCode" : 239,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 188,
-      "endLine" : 194,
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 189,
+      "endLine" : 195,
       "cleanedStartLine" : 158,
       "cleanedEndLine" : 164
     } ]
@@ -1950,11 +1950,11 @@
       "file" : {
         "relativePath" : "app/settings/SettingsForm.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 199,
+        "linesOfCode" : 193,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 177,
       "startLine" : 138,
       "endLine" : 144,
       "cleanedStartLine" : 110,
@@ -1963,11 +1963,11 @@
       "file" : {
         "relativePath" : "app/settings/SettingsForm.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 199,
+        "linesOfCode" : 193,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 177,
       "startLine" : 160,
       "endLine" : 166,
       "cleanedStartLine" : 131,
@@ -2298,28 +2298,28 @@
       "file" : {
         "relativePath" : "app/myproduct/_components/PostList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 252,
+        "linesOfCode" : 247,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 232,
-      "startLine" : 258,
-      "endLine" : 265,
-      "cleanedStartLine" : 218,
-      "cleanedEndLine" : 224
+      "sourceFileCleanedLinesOfCode" : 228,
+      "startLine" : 253,
+      "endLine" : 260,
+      "cleanedStartLine" : 214,
+      "cleanedEndLine" : 220
     }, {
       "file" : {
         "relativePath" : "app/orders/_components/OrderList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 249,
+        "linesOfCode" : 244,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 234,
-      "startLine" : 268,
-      "endLine" : 275,
-      "cleanedStartLine" : 227,
-      "cleanedEndLine" : 233
+      "sourceFileCleanedLinesOfCode" : 230,
+      "startLine" : 263,
+      "endLine" : 270,
+      "cleanedStartLine" : 223,
+      "cleanedEndLine" : 229
     } ]
   }, {
     "blockSize" : 7,
@@ -2383,35 +2383,6 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/replies/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 97,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 83,
-      "startLine" : 52,
-      "endLine" : 59,
-      "cleanedStartLine" : 36,
-      "cleanedEndLine" : 42
-    }, {
-      "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 259,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 228,
-      "startLine" : 153,
-      "endLine" : 160,
-      "cleanedStartLine" : 114,
-      "cleanedEndLine" : 120
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "features/step_definitions/product.steps.ts",
         "extension" : "ts",
         "linesOfCode" : 170,
@@ -2436,6 +2407,35 @@
       "endLine" : 10,
       "cleanedStartLine" : 1,
       "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/replies/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 97,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 83,
+      "startLine" : 52,
+      "endLine" : 59,
+      "cleanedStartLine" : 36,
+      "cleanedEndLine" : 42
+    }, {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 259,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 228,
+      "startLine" : 153,
+      "endLine" : 160,
+      "cleanedStartLine" : 114,
+      "cleanedEndLine" : 120
     } ]
   }, {
     "blockSize" : 7,
@@ -2557,35 +2557,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "app/auth/[slug]/page.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 244,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 143,
-      "endLine" : 148,
-      "cleanedStartLine" : 116,
-      "cleanedEndLine" : 121
-    }, {
-      "file" : {
-        "relativePath" : "app/auth/[slug]/page.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 244,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 262,
-      "endLine" : 267,
-      "cleanedStartLine" : 226,
-      "cleanedEndLine" : 231
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "app/myproduct/page.tsx",
         "extension" : "tsx",
         "linesOfCode" : 96,
@@ -2610,6 +2581,35 @@
       "endLine" : 79,
       "cleanedStartLine" : 62,
       "cleanedEndLine" : 67
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/auth/[slug]/page.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 239,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 144,
+      "endLine" : 149,
+      "cleanedStartLine" : 116,
+      "cleanedEndLine" : 121
+    }, {
+      "file" : {
+        "relativePath" : "app/auth/[slug]/page.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 239,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 256,
+      "endLine" : 261,
+      "cleanedStartLine" : 220,
+      "cleanedEndLine" : 225
     } ]
   }, {
     "blockSize" : 6,
@@ -2646,26 +2646,26 @@
       "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 244,
+        "linesOfCode" : 239,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 195,
-      "endLine" : 200,
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 196,
+      "endLine" : 201,
       "cleanedStartLine" : 165,
       "cleanedEndLine" : 170
     }, {
       "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 244,
+        "linesOfCode" : 239,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 208,
-      "endLine" : 213,
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 209,
+      "endLine" : 214,
       "cleanedStartLine" : 178,
       "cleanedEndLine" : 183
     } ]
@@ -2733,11 +2733,11 @@
       "file" : {
         "relativePath" : "app/myproduct/_components/PostList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 252,
+        "linesOfCode" : 247,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 232,
+      "sourceFileCleanedLinesOfCode" : 228,
       "startLine" : 98,
       "endLine" : 103,
       "cleanedStartLine" : 69,
@@ -2746,11 +2746,11 @@
       "file" : {
         "relativePath" : "app/myproduct/_components/PostList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 252,
+        "linesOfCode" : 247,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 232,
+      "sourceFileCleanedLinesOfCode" : 228,
       "startLine" : 118,
       "endLine" : 123,
       "cleanedStartLine" : 87,
@@ -3023,11 +3023,11 @@
       "file" : {
         "relativePath" : "app/settings/SettingsForm.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 199,
+        "linesOfCode" : 193,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 177,
       "startLine" : 48,
       "endLine" : 53,
       "cleanedStartLine" : 30,
@@ -3036,11 +3036,11 @@
       "file" : {
         "relativePath" : "app/settings/SettingsForm.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 199,
+        "linesOfCode" : 193,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 177,
       "startLine" : 77,
       "endLine" : 82,
       "cleanedStartLine" : 54,
@@ -3079,35 +3079,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "app/myproduct/_components/PostList.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 252,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 232,
-      "startLine" : 205,
-      "endLine" : 210,
-      "cleanedStartLine" : 167,
-      "cleanedEndLine" : 172
-    }, {
-      "file" : {
-        "relativePath" : "app/orders/_components/OrderList.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 249,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 234,
-      "startLine" : 228,
-      "endLine" : 233,
-      "cleanedStartLine" : 187,
-      "cleanedEndLine" : 192
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "app/api/product/[slug]/reviews/replies/route.ts",
         "extension" : "ts",
         "linesOfCode" : 97,
@@ -3132,6 +3103,35 @@
       "endLine" : 90,
       "cleanedStartLine" : 61,
       "cleanedEndLine" : 66
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/myproduct/_components/PostList.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 247,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 228,
+      "startLine" : 200,
+      "endLine" : 205,
+      "cleanedStartLine" : 163,
+      "cleanedEndLine" : 168
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_components/OrderList.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 244,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 230,
+      "startLine" : 223,
+      "endLine" : 228,
+      "cleanedStartLine" : 183,
+      "cleanedEndLine" : 188
     } ]
   }, {
     "blockSize" : 6,
@@ -3226,24 +3226,24 @@
       "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 244,
+        "linesOfCode" : 239,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 57,
-      "endLine" : 62,
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 58,
+      "endLine" : 63,
       "cleanedStartLine" : 40,
       "cleanedEndLine" : 45
     }, {
       "file" : {
         "relativePath" : "app/settings/SettingsForm.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 199,
+        "linesOfCode" : 193,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 177,
       "startLine" : 48,
       "endLine" : 53,
       "cleanedStartLine" : 30,
@@ -3342,11 +3342,11 @@
       "file" : {
         "relativePath" : "app/myproduct/_components/PostList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 252,
+        "linesOfCode" : 247,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 232,
+      "sourceFileCleanedLinesOfCode" : 228,
       "startLine" : 20,
       "endLine" : 26,
       "cleanedStartLine" : 7,
@@ -3355,11 +3355,11 @@
       "file" : {
         "relativePath" : "app/orders/_components/OrderList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 249,
+        "linesOfCode" : 244,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 234,
+      "sourceFileCleanedLinesOfCode" : 230,
       "startLine" : 25,
       "endLine" : 31,
       "cleanedStartLine" : 14,
@@ -3603,24 +3603,24 @@
       "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 244,
+        "linesOfCode" : 239,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 233,
-      "startLine" : 57,
-      "endLine" : 62,
+      "sourceFileCleanedLinesOfCode" : 227,
+      "startLine" : 58,
+      "endLine" : 63,
       "cleanedStartLine" : 40,
       "cleanedEndLine" : 45
     }, {
       "file" : {
         "relativePath" : "app/settings/SettingsForm.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 199,
+        "linesOfCode" : 193,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 183,
+      "sourceFileCleanedLinesOfCode" : 177,
       "startLine" : 77,
       "endLine" : 82,
       "cleanedStartLine" : 54,
@@ -3632,11 +3632,11 @@
       "file" : {
         "relativePath" : "app/myproduct/_components/PostList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 252,
+        "linesOfCode" : 247,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 232,
+      "sourceFileCleanedLinesOfCode" : 228,
       "startLine" : 70,
       "endLine" : 75,
       "cleanedStartLine" : 46,
@@ -3645,11 +3645,11 @@
       "file" : {
         "relativePath" : "app/orders/_components/OrderList.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 249,
+        "linesOfCode" : 244,
         "components" : [ "primary::app" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 234,
+      "sourceFileCleanedLinesOfCode" : 230,
       "startLine" : 135,
       "endLine" : 140,
       "cleanedStartLine" : 107,

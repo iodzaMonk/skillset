@@ -1,47 +1,51 @@
-app/api/product/[slug]/route.ts [13:30]:
+app/api/product/route.ts [18:37]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  try {
-    const product = await prisma.posts.findUnique({
-      where: { id: slug },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-            country: true,
-            email: true,
-          },
-        },
-        reviews: {
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
+    const productsWithImages = await Promise.all(
+      products.map(async (product) => {
+        if (!product.image_location) {
+          return product;
+        }
+
+        try {
+          const imageUrl = await createSignedDownloadUrl(
+            product.image_location,
+          );
+          return {
+            ...product,
+            image_url: imageUrl,
+          };
+        } catch (error) {
+          console.error("Failed to sign image url", error);
+          return product;
+        }
+      }),
+    );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [172:189]:
+app/api/product/user/route.ts [105:124]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    try {
-      const product = await prisma.posts.findUnique({
-        where: { id: slug },
-        include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-              country: true,
-              email: true,
-            },
-          },
-          reviews: {
-            include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
+    const productsWithImages = await Promise.all(
+      products.map(async (product) => {
+        if (!product.image_location) {
+          return product;
+        }
+
+        try {
+          const imageUrl = await createSignedDownloadUrl(
+            product.image_location,
+          );
+          return {
+            ...product,
+            image_url: imageUrl,
+          };
+        } catch (error) {
+          console.error("Failed to sign image url", error);
+          return product;
+        }
+      }),
+    );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

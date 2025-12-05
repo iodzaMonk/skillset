@@ -1,41 +1,43 @@
-app/api/product/[slug]/reviews/review-helpers.ts [6:20]:
+features/support/productCrudFixture.ts [73:88]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  users: {
-    select: {
-      id: true,
-      name: true,
-    },
-  },
-  replies: {
-    orderBy: { date: "asc" },
-    include: {
-      users: {
-        select: {
-          id: true,
-          name: true,
-        },
-      },
+    if (!this.userId) {
+      this.response = {
+        status: 401,
+        body: { message: "Not authenticated" },
+      };
+      return;
+    }
+    const productId = this.productTitles.get(title);
+    if (!productId) {
+      this.response = {
+        status: 404,
+        body: { message: "Product not found" },
+      };
+      return;
+    }
+    try {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/product/[slug]/reviews/review-helpers.ts [15:29]:
+features/support/productCrudFixture.ts [112:127]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      users: {
-        select: {
-          id: true,
-          name: true,
-        },
-      },
-      replies: {
-        orderBy: { date: "asc" },
-        include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
+    if (!this.userId) {
+      this.response = {
+        status: 401,
+        body: { message: "Not authenticated" },
+      };
+      return;
+    }
+    const productId = this.productTitles.get(title);
+    if (!productId) {
+      this.response = {
+        status: 404,
+        body: { message: "Product not found" },
+      };
+      return;
+    }
+    try {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

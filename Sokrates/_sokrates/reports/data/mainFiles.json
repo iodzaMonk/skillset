@@ -162,7 +162,7 @@
 }, {
   "relativePath" : "app/auth/[slug]/page.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 244,
+  "linesOfCode" : 239,
   "unitsCount" : 1,
   "unitsMcCabeIndexSum" : 5,
   "linesOfCodeInUnits" : 34
@@ -351,10 +351,10 @@
 }, {
   "relativePath" : "app/myproduct/_components/PostList.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 252,
+  "linesOfCode" : 247,
   "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 28,
-  "linesOfCodeInUnits" : 230
+  "unitsMcCabeIndexSum" : 26,
+  "linesOfCodeInUnits" : 225
 }, {
   "relativePath" : "app/myproduct/_hooks/postStates.ts",
   "extension" : "ts",
@@ -379,7 +379,7 @@
 }, {
   "relativePath" : "app/orders/_components/OrderList.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 249,
+  "linesOfCode" : 244,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -477,10 +477,10 @@
 }, {
   "relativePath" : "app/settings/SettingsForm.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 199,
+  "linesOfCode" : 193,
   "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 17,
-  "linesOfCodeInUnits" : 183
+  "unitsMcCabeIndexSum" : 15,
+  "linesOfCodeInUnits" : 177
 }, {
   "relativePath" : "app/settings/StripeConnectButton.tsx",
   "extension" : "tsx",
@@ -502,6 +502,13 @@
   "unitsCount" : 1,
   "unitsMcCabeIndexSum" : 1,
   "linesOfCodeInUnits" : 3
+}, {
+  "relativePath" : "app/_components/BirthdayPicker.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 24,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 3,
+  "linesOfCodeInUnits" : 17
 }, {
   "relativePath" : "app/_components/CountrySelect.tsx",
   "extension" : "tsx",
@@ -526,7 +533,7 @@
 }, {
   "relativePath" : "app/_components/SelectableListHeader.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 31,
+  "linesOfCode" : 39,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

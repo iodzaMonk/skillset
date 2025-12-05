@@ -139,7 +139,7 @@
 }, {
   "relativePath" : "app/auth/[slug]/page.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 244,
+  "linesOfCode" : 239,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -301,7 +301,7 @@
 }, {
   "relativePath" : "app/myproduct/_components/PostList.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 252,
+  "linesOfCode" : 247,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -325,7 +325,7 @@
 }, {
   "relativePath" : "app/orders/_components/OrderList.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 249,
+  "linesOfCode" : 244,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -409,7 +409,7 @@
 }, {
   "relativePath" : "app/settings/SettingsForm.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 199,
+  "linesOfCode" : 193,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -428,6 +428,12 @@
   "relativePath" : "app/utils/TransitionLink.tsx",
   "extension" : "tsx",
   "linesOfCode" : 46,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/BirthdayPicker.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 24,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -451,7 +457,7 @@
 }, {
   "relativePath" : "app/_components/SelectableListHeader.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 31,
+  "linesOfCode" : 39,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {

@@ -1,78 +1,55 @@
 <html>
 <head>
-    <title>export async function POST()</title>
+    <title>export async function PATCH()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function POST()</h3>
-<p style="margin-top: 4px">in <i>app/api/user/register/route.ts [8:97]</i></p>
+<h3 style="margin-bottom: 0">export async function PATCH()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/update/route.ts [8:87]</i></p>
 <ul>
-    <li><b>80</b> lines of code</li>
+    <li><b>71</b> lines of code</li>
     <li><b>8</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function POST(req: Request) {
+export async function PATCH(req: Request) {
   const headersList = await headers();
   const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
 
   try {
     const body = (await req.json()) as UserBody;
-    const { email, password, country, name, birthday } = body ?? {};
+    const { id, email, password, country, name, birthday } = body ?? {};
 
-    const missingFields = [
-      [&quot;email&quot;, email],
-      [&quot;password&quot;, password],
-      [&quot;country&quot;, country],
-      [&quot;name&quot;, name],
-    ]
-      .filter(([, value]) =&gt; !value)
-      .map(([field]) =&gt; field);
-
-    if (missingFields.length &gt; 0) {
+    const authenticatedUser = await getCurrentUser();
+    if (authenticatedUser?.id != id) {
       return Response.json(
-        {
-          message: `Missing required fields: ${missingFields.join(&quot;, &quot;)}`,
-        },
-        {
-          status: 400,
-          headers: { &quot;x-referer&quot;: referer },
-        },
+        { message: &quot;Unauthorized: You can only update your own record.&quot; },
+        { status: 400 },
       );
     }
 
-    const birthdayDate = birthday ? new Date(birthday) : null;
-    if (birthday &amp;&amp; Number.isNaN(birthdayDate?.getTime())) {
-      return Response.json(
-        { message: &quot;Invalid birthday format&quot; },
-        {
-          status: 400,
-          headers: { &quot;x-referer&quot;: referer },
-        },
-      );
-    }
+    const updateData: UserBody = {
+      email: email,
+      country: country,
+      name: name,
+      birthday: birthday,
+    };
 
     const hashedPassword = await bcrypt.hash(password as string, 10);
+    if (hashedPassword) {
+      updateData.password = hashedPassword;
+    }
 
-    const user = await prisma.users.create({
-      data: {
-        email: email as string,
-        password: hashedPassword,
-        country: country as string,
-        name: name as string,
-        birthday: birthdayDate,
-      },
-      select: {
-        id: true,
-        email: true,
-      },
+    const updatedUser = await prisma.users.update({
+      where: { id: id },
+      data: updateData,
     });
 
-    await createSession(user.id.toString());
-
     return Response.json(
-      { id: user.id.toString(), email: user.email },
+      {
+        data: updatedUser,
+      },
       {
         status: 200,
         headers: { &quot;x-referer&quot;: referer },
@@ -81,10 +58,23 @@ export async function POST(req: Request) {
   } catch (error) {
     if (
       error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
+      error.code === &quot;P2025&quot;
+    ) {
+      return Response.json(
+        { message: &quot;User not found&quot; },
+        {
+          status: 404,
+          headers: { &quot;x-referer&quot;: referer },
+        },
+      );
+    }
+
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
       error.code === &quot;P2002&quot;
     ) {
       return Response.json(
-        { message: &quot;Email already registered&quot; },
+        { message: &quot;Email already in use&quot; },
         {
           status: 409,
           headers: { &quot;x-referer&quot;: referer },
@@ -92,7 +82,7 @@ export async function POST(req: Request) {
       );
     }
 
-    console.error(&quot;Registration error&quot;, error);
+    console.error(&quot;Update user error&quot;, error);
 
     return Response.json(
       { message: &quot;Internal server error&quot; },

@@ -1,73 +1,113 @@
 <html>
 <head>
-    <title>export default function ConnectStripeButton()</title>
+    <title>function SidebarProvider()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export default function ConnectStripeButton()</h3>
-<p style="margin-top: 4px">in <i>app/settings/StripeConnectButton.tsx [6:62]</i></p>
+<h3 style="margin-bottom: 0">function SidebarProvider()</h3>
+<p style="margin-top: 4px">in <i>components/ui/sidebar.tsx [56:152]</i></p>
 <ul>
-    <li><b>52</b> lines of code</li>
+    <li><b>82</b> lines of code</li>
     <li><b>8</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-export default function ConnectStripeButton() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState&lt;string | null&gt;(null);
-  const { user } = useAuth();
+function SidebarProvider({
+  defaultOpen = true,
+  open: openProp,
+  onOpenChange: setOpenProp,
+  className,
+  style,
+  children,
+  ...props
+}: React.ComponentProps&lt;&quot;div&quot;&gt; &amp; {
+  defaultOpen?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) =&gt; void;
+}) {
+  const isMobile = useIsMobile();
+  const [openMobile, setOpenMobile] = React.useState(false);
 
-  const handleConnect = async () =&gt; {
-    if (!user?.email) {
-      setError(&quot;Please log in to connect your Stripe account&quot;);
-      return;
-    }
+  // This is the internal state of the sidebar.
+  // We use openProp and setOpenProp for control from outside the component.
+  const [_open, _setOpen] = React.useState(defaultOpen);
+  const open = openProp ?? _open;
+  const setOpen = React.useCallback(
+    (value: boolean | ((value: boolean) =&gt; boolean)) =&gt; {
+      const openState = typeof value === &quot;function&quot; ? value(open) : value;
+      if (setOpenProp) {
+        setOpenProp(openState);
+      } else {
+        _setOpen(openState);
+      }
 
-    setLoading(true);
-    setError(null);
+      // This sets the cookie to keep the sidebar state.
+      document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
+    },
+    [setOpenProp, open],
+  );
 
-    try {
-      const response = await axios.post(&quot;/api/user/create-stripe-account&quot;, {
-        email: user.email,
-        refreshUrl: `${window.location.origin}`,
-        returnUrl: `${window.location.origin}`,
-      });
+  // Helper to toggle the sidebar.
+  const toggleSidebar = React.useCallback(() =&gt; {
+    return isMobile ? setOpenMobile((open) =&gt; !open) : setOpen((open) =&gt; !open);
+  }, [isMobile, setOpen, setOpenMobile]);
 
-      window.location.href = response.data.url;
-    } catch (error) {
-      console.error(&quot;Error connecting to Stripe:&quot;, error);
-      const message = axios.isAxiosError(error)
-        ? (error.response?.data?.message ?? &quot;Failed to connect to Stripe&quot;)
-        : &quot;An unexpected error occurred&quot;;
-      setError(message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Adds a keyboard shortcut to toggle the sidebar.
+  React.useEffect(() =&gt; {
+    const handleKeyDown = (event: KeyboardEvent) =&gt; {
+      if (
+        event.key === SIDEBAR_KEYBOARD_SHORTCUT &amp;&amp;
+        (event.metaKey || event.ctrlKey)
+      ) {
+        event.preventDefault();
+        toggleSidebar();
+      }
+    };
+
+    window.addEventListener(&quot;keydown&quot;, handleKeyDown);
+    return () =&gt; window.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+  }, [toggleSidebar]);
+
+  // We add a state so that we can do data-state=&quot;expanded&quot; or &quot;collapsed&quot;.
+  // This makes it easier to style the sidebar with Tailwind classes.
+  const state = open ? &quot;expanded&quot; : &quot;collapsed&quot;;
+
+  const contextValue = React.useMemo&lt;SidebarContextProps&gt;(
+    () =&gt; ({
+      state,
+      open,
+      setOpen,
+      isMobile,
+      openMobile,
+      setOpenMobile,
+      toggleSidebar,
+    }),
+    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar],
+  );
 
   return (
-    &lt;div&gt;
-      {!user?.vendor_id ? (
-        &lt;div className=&quot;space-y-2&quot;&gt;
-          &lt;Button
-            onClick={handleConnect}
-            disabled={loading || !user}
-            variant=&quot;default&quot;
-            className=&quot;w-full&quot;
-          &gt;
-            {loading ? &quot;Connecting...&quot; : &quot;Connect to Stripe&quot;}
-          &lt;/Button&gt;
-          {error &amp;&amp; &lt;p className=&quot;text-destructive text-sm&quot;&gt;{error}&lt;/p&gt;}
+    &lt;SidebarContext.Provider value={contextValue}&gt;
+      &lt;TooltipProvider delayDuration={0}&gt;
+        &lt;div
+          data-slot=&quot;sidebar-wrapper&quot;
+          style={
+            {
+              &quot;--sidebar-width&quot;: SIDEBAR_WIDTH,
+              &quot;--sidebar-width-icon&quot;: SIDEBAR_WIDTH_ICON,
+              ...style,
+            } as React.CSSProperties
+          }
+          className={cn(
+            &quot;group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full&quot;,
+            className,
+          )}
+          {...props}
+        &gt;
+          {children}
         &lt;/div&gt;
-      ) : (
-        &lt;div className=&quot;space-y-2&quot;&gt;
-          &lt;p className=&quot;text-muted-foreground text-sm&quot;&gt;
-            Your Stripe account is already connected.
-          &lt;/p&gt;
-        &lt;/div&gt;
-      )}
-    &lt;/div&gt;
+      &lt;/TooltipProvider&gt;
+    &lt;/SidebarContext.Provider&gt;
   );
 }
 

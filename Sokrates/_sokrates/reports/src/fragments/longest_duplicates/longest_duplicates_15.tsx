@@ -1,33 +1,31 @@
-app/myproduct/_components/PostList.tsx [169:179]:
+app/myorderslist/page.tsx [47:56]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              onClick={clearSelection}
-            >
-              Clear
-            </Button>
-          </>
-        )}
+  return (
+    <div className="space-y-6">
+      <Modal
+        selectedOrder={primarOrder}
+        toggle={isModalOpen}
+        ref={modalRef}
+        selectedStatus={selectedStatus}
+        setSelectedStatus={setSelectedStatus}
+      />
+      <OrderList
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/orders/_components/OrderList.tsx [198:208]:
+app/orders/page.tsx [20:29]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              onClick={clearSelection}
-            >
-              Clear
-            </Button>
-          </>
-        )}
+  return (
+    <div className="space-y-6">
+      <Modal
+        selectedOrder={primarOrder}
+        toggle={isModalOpen}
+        ref={modalRef}
+        selectedStatus={selectedStatus}
+        setSelectedStatus={setSelectedStatus}
+      />
+      <OrderList
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -1,43 +1,39 @@
-features/support/productCrudFixture.ts [73:88]:
+app/api/cart/user/route.ts [12:25]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    if (!this.userId) {
-      this.response = {
-        status: 401,
-        body: { message: "Not authenticated" },
-      };
-      return;
-    }
-    const productId = this.productTitles.get(title);
-    if (!productId) {
-      this.response = {
-        status: 404,
-        body: { message: "Product not found" },
-      };
-      return;
-    }
-    try {
+      include: { posts: true },
+    });
+
+    const ordersWithPost = orders.map(({ posts, ...order }) => ({
+      ...order,
+      post: posts,
+    }));
+    return NextResponse.json({ data: ordersWithPost }, { status: 200 });
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return NextResponse.json(
+      { message: "Failed to fetch orders" },
+      { status: 500 },
+    );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productCrudFixture.ts [112:127]:
+app/api/orders/user/route.ts [14:27]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    if (!this.userId) {
-      this.response = {
-        status: 401,
-        body: { message: "Not authenticated" },
-      };
-      return;
-    }
-    const productId = this.productTitles.get(title);
-    if (!productId) {
-      this.response = {
-        status: 404,
-        body: { message: "Product not found" },
-      };
-      return;
-    }
-    try {
+      include: { posts: true },
+    });
+
+    const ordersWithPost = orders.map(({ posts, ...order }) => ({
+      ...order,
+      post: posts,
+    }));
+    return NextResponse.json({ data: ordersWithPost }, { status: 200 });
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return NextResponse.json(
+      { message: "Failed to fetch orders" },
+      { status: 500 },
+    );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
