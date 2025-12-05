@@ -1,0 +1,1286 @@
+[ {
+  "repository" : "Skillset",
+  "path" : "app/Components/Footer.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 89
+}, {
+  "repository" : "Skillset",
+  "path" : "app/Components/Header.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 186
+}, {
+  "repository" : "Skillset",
+  "path" : "app/_components/ProductCard.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 68
+}, {
+  "repository" : "Skillset",
+  "path" : "app/_components/ProductCarousel.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 56
+}, {
+  "repository" : "Skillset",
+  "path" : "app/about/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 11
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/cart/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 7
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/cart/user/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 24
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/orders/create-payment/route.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 80
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/orders/orderHandlers.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 77
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/orders/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 7
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/orders/user/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 55
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/product/[slug]/reviews/replies/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 97
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/product/[slug]/reviews/review-helpers.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 65
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/product/[slug]/reviews/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 259
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/product/[slug]/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 83
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/product/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 63
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/product/user/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 122
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/professional/[id]/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 94
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/uploads/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 25
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/user/connect-stripe-account/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 21
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/user/create-stripe-account/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 58
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/user/delete/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 19
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/user/login/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 34
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/user/logout/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 10
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/user/me/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/user/register/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 86
+}, {
+  "repository" : "Skillset",
+  "path" : "app/api/user/update/route.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 77
+}, {
+  "repository" : "Skillset",
+  "path" : "app/auth/[slug]/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 285
+}, {
+  "repository" : "Skillset",
+  "path" : "app/browse/components/categories.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 45
+}, {
+  "repository" : "Skillset",
+  "path" : "app/browse/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 41
+}, {
+  "repository" : "Skillset",
+  "path" : "app/context/AuthContext.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 52
+}, {
+  "repository" : "Skillset",
+  "path" : "app/context/AuthProvider.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 22
+}, {
+  "repository" : "Skillset",
+  "path" : "app/globals.css",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 105
+}, {
+  "repository" : "Skillset",
+  "path" : "app/layout.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 34
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/auth/login.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 61
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/convertToSubcurrency.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 4
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/definition.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 35
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/orders.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 32
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/productCrud.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 83
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/products.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 59
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/session.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 38
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/session/tokens.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 31
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/storage/s3.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 105
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/storage/uploadAdapter.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 15
+}, {
+  "repository" : "Skillset",
+  "path" : "app/lib/user.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 31
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myorderslist/_components/Modal.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 2
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myorderslist/_components/OrderList.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 2
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myorderslist/_hooks/orderStates.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 63
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myorderslist/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 55
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myproduct/_components/Modal.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 202
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myproduct/_components/PostList.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 257
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myproduct/_hooks/postStates.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 174
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myproduct/actions.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "app/myproduct/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 96
+}, {
+  "repository" : "Skillset",
+  "path" : "app/orders/_components/Modal.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 158
+}, {
+  "repository" : "Skillset",
+  "path" : "app/orders/_components/OrderList.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 269
+}, {
+  "repository" : "Skillset",
+  "path" : "app/orders/_hooks/orderStates.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 120
+}, {
+  "repository" : "Skillset",
+  "path" : "app/orders/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 34
+}, {
+  "repository" : "Skillset",
+  "path" : "app/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 22
+}, {
+  "repository" : "Skillset",
+  "path" : "app/product/[slug]/components/Comment.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 293
+}, {
+  "repository" : "Skillset",
+  "path" : "app/product/[slug]/components/Comments.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 186
+}, {
+  "repository" : "Skillset",
+  "path" : "app/product/[slug]/components/Modal.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 77
+}, {
+  "repository" : "Skillset",
+  "path" : "app/product/[slug]/components/useComments.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 468
+}, {
+  "repository" : "Skillset",
+  "path" : "app/product/[slug]/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 216
+}, {
+  "repository" : "Skillset",
+  "path" : "app/product/[slug]/payment/module/CheckoutPage.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 104
+}, {
+  "repository" : "Skillset",
+  "path" : "app/product/[slug]/payment/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 159
+}, {
+  "repository" : "Skillset",
+  "path" : "app/product/[slug]/payment/success/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 18
+}, {
+  "repository" : "Skillset",
+  "path" : "app/professional/[id]/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 140
+}, {
+  "repository" : "Skillset",
+  "path" : "app/settings/SettingsForm.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 234
+}, {
+  "repository" : "Skillset",
+  "path" : "app/settings/StripeConnectButton.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 56
+}, {
+  "repository" : "Skillset",
+  "path" : "app/settings/modal.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 49
+}, {
+  "repository" : "Skillset",
+  "path" : "app/settings/page.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 20
+}, {
+  "repository" : "Skillset",
+  "path" : "app/utils/TransitionLink.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 46
+}, {
+  "repository" : "Skillset",
+  "path" : "app/utils/email.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 41
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/accordion.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 56
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/alert-dialog.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 126
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/alert.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 56
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/aspect-ratio.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 6
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/avatar.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 43
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/badge.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 37
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/breadcrumb.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 99
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/button-group.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 67
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/button.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 58
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/calendar.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 203
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/card.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 70
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/carousel.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 204
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/chart.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 303
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/checkbox.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 25
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/collapsible.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 24
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/command.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 172
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/context-menu.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 214
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/dialog.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 125
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/drawer.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 107
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/dropdown-menu.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 219
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/empty.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 95
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/field.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 225
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/form.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 144
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/hover-card.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 38
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/input-group.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 138
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/input-otp.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 66
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/input.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 13
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/item.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 179
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/kbd.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 25
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/label.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 16
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/menubar.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 257
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/pagination.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 106
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/popover.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 39
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/progress.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 27
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/radio-group.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 40
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/resizable.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 47
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/scroll-area.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 53
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/select.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 157
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/separator.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 20
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/sheet.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 113
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/sidebar.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 635
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/skeleton.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 7
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/slider.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 58
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/sonner.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 36
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/spinner.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 9
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/switch.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 27
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/table.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 91
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/tabs.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 59
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/textarea.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 11
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/toggle-group.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 63
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/toggle.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 38
+}, {
+  "repository" : "Skillset",
+  "path" : "components/ui/tooltip.tsx",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 51
+}, {
+  "repository" : "Skillset",
+  "path" : "cypress.config.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 7
+}, {
+  "repository" : "Skillset",
+  "path" : "cypress/e2e/complete_test.cy.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 329
+}, {
+  "repository" : "Skillset",
+  "path" : "cypress/support/commands.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "cypress/support/e2e.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "db.js",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 4
+}, {
+  "repository" : "Skillset",
+  "path" : "eslint.config.mjs",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 25
+}, {
+  "repository" : "Skillset",
+  "path" : "features/step_definitions/auth.steps.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 53
+}, {
+  "repository" : "Skillset",
+  "path" : "features/step_definitions/browse.steps.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 71
+}, {
+  "repository" : "Skillset",
+  "path" : "features/step_definitions/product.steps.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 170
+}, {
+  "repository" : "Skillset",
+  "path" : "features/step_definitions/productCrud.steps.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 122
+}, {
+  "repository" : "Skillset",
+  "path" : "features/step_definitions/upload.steps.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 116
+}, {
+  "repository" : "Skillset",
+  "path" : "features/support/authService.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 54
+}, {
+  "repository" : "Skillset",
+  "path" : "features/support/browseService.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 117
+}, {
+  "repository" : "Skillset",
+  "path" : "features/support/productCrudFixture.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 187
+}, {
+  "repository" : "Skillset",
+  "path" : "features/support/productService.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 282
+}, {
+  "repository" : "Skillset",
+  "path" : "features/support/uploadFixture.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 55
+}, {
+  "repository" : "Skillset",
+  "path" : "hooks/use-mobile.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 17
+}, {
+  "repository" : "Skillset",
+  "path" : "jest.config.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 13
+}, {
+  "repository" : "Skillset",
+  "path" : "lib/prisma.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "lib/utils.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "next.config.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 29
+}, {
+  "repository" : "Skillset",
+  "path" : "postcss.config.mjs",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 4
+}, {
+  "repository" : "Skillset",
+  "path" : "prettier.config.mjs",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "prisma.config.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 18
+}, {
+  "repository" : "Skillset",
+  "path" : "prisma/seed.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 65
+}, {
+  "repository" : "Skillset",
+  "path" : "types/Category.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "types/Comment.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 46
+}, {
+  "repository" : "Skillset",
+  "path" : "types/Country.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 257
+}, {
+  "repository" : "Skillset",
+  "path" : "types/Order.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 12
+}, {
+  "repository" : "Skillset",
+  "path" : "types/PostBody.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 29
+}, {
+  "repository" : "Skillset",
+  "path" : "types/Professional.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 22
+}, {
+  "repository" : "Skillset",
+  "path" : "types/Status.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "types/User.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "types/UserBody.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "vitest.config.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 17
+}, {
+  "repository" : "Skillset",
+  "path" : "vitest.setup.ts",
+  "scope" : "aspect_main.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/app.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 155
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/cart.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 111
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/orders.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 164
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/professional.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 179
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/uploads.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 74
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/user-connect-stripe-account.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 66
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/user-create-stripe-account.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 126
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/user-delete.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 62
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/user-login.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 103
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/user-logout.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 31
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/user-me.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 33
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/user-register.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 137
+}, {
+  "repository" : "Skillset",
+  "path" : "tests/user-update.test.ts",
+  "scope" : "aspect_test.txt",
+  "linesOfCode" : 121
+}, {
+  "repository" : "Skillset",
+  "path" : "lib/generated/prisma/default.js",
+  "scope" : "aspect_generated.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "README.md",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 68
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/config-people.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 3
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/config-tags.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 256
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/config-teams.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 3
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/config.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 46
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/contributors.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 125
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/contributors.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/executionTimes.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 191
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/executionTimes.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 38
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/files.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1296
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/ignoredRepositories.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/landscapeAnalysisResults.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 108
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/most_connected_people_180_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/most_connected_people_30_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 4
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/most_connected_people_90_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/most_repositories_people_180_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/most_repositories_people_30_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 4
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/most_repositories_people_90_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repositories.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 32
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repositories.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 2
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_dependencies_via_people_180_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_dependencies_via_people_30_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_dependencies_via_people_90_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_shared_repositories_180_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 7
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_shared_repositories_30_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 4
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_shared_repositories_90_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 7
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_shared_repositories_including_repositories_30_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 4
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_with_most_people_180_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 2
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_with_most_people_30_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 2
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/repository_with_most_people_90_days.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 2
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/tag_build_and_dependencies_management_tools___jest_repositories.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 2
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/tag_build_and_dependencies_management_tools___npm_repositories.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 2
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/teams.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 125
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/data/teams.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/info.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 8
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/custom_tags_graph.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/custom_tags_graph_1.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/custom_tags_graph_1_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/custom_tags_graph_2.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/custom_tags_graph_2_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/custom_tags_graph_3.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/custom_tags_graph_3_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/custom_tags_graph_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_dependencies_30d.dot.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 45
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_dependencies_30d.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_1.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_1_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_2.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_2_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_3.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_3_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_4.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_4_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/extension_tags_graph_direct.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/people_dependencies_180_6.dot.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 30
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/people_dependencies_180_6.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/people_dependencies_30_1.dot.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 27
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/people_dependencies_30_1.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/people_dependencies_90_4.dot.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 30
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/people_dependencies_90_4.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/people_dependencies_including_repositories_30_2.dot.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 27
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/people_dependencies_including_repositories_30_2.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/repository_dependencies_180_7.dot.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 25
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/repository_dependencies_180_7.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/repository_dependencies_30_3.dot.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 25
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/repository_dependencies_30_3.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/repository_dependencies_90_5.dot.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 25
+}, {
+  "repository" : "Skillset",
+  "path" : "_sokrates_landscape/visuals/repository_dependencies_90_5.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "components.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 22
+}, {
+  "repository" : "Skillset",
+  "path" : "cypress/fixtures/example.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 5
+}, {
+  "repository" : "Skillset",
+  "path" : "features/step_definitions/cucumber.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 7
+}, {
+  "repository" : "Skillset",
+  "path" : "help.txt",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 17
+}, {
+  "repository" : "Skillset",
+  "path" : "lib/countries.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 254
+}, {
+  "repository" : "Skillset",
+  "path" : "package.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 128
+}, {
+  "repository" : "Skillset",
+  "path" : "public/figma.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 14
+}, {
+  "repository" : "Skillset",
+  "path" : "public/flowbite-react.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 49
+}, {
+  "repository" : "Skillset",
+  "path" : "public/flowbite.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 49
+}, {
+  "repository" : "Skillset",
+  "path" : "public/no-image.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 15
+}, {
+  "repository" : "Skillset",
+  "path" : "public/vercel.svg",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 1
+}, {
+  "repository" : "Skillset",
+  "path" : "tsconfig.json",
+  "scope" : "aspect_other.txt",
+  "linesOfCode" : 28
+} ]

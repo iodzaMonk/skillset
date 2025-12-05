@@ -1,0 +1,80 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#00688b"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+
+
+
+    "[app/myorderslist/_components/OrderList.tsx]" -- "[app/api/product/[slug]/reviews/route.ts]" [label=" 5 ", penwidth="5", color="#00688bA5"];
+    "[app/api/uploads/route.ts]" -- "[app/api/product/user/route.ts]" [label=" 5 ", penwidth="5", color="#00688bA5"];
+    "[app/api/product/[slug]/reviews/replies/route.ts]" -- "[app/api/orders/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/myorderslist/_components/OrderList.tsx]" -- "[app/browse/page.tsx]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/lib/storage/s3.ts]" -- "[app/api/product/user/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/api/product/[slug]/reviews/route.ts]" -- "[app/api/orders/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/myorderslist/_components/OrderList.tsx]" -- "[app/_components/ProductCarousel.tsx]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/browse/page.tsx]" -- "[app/_components/ProductCarousel.tsx]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/browse/page.tsx]" -- "[app/api/product/[slug]/reviews/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/myorderslist/_components/OrderList.tsx]" -- "[app/api/orders/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/lib/storage/s3.ts]" -- "[app/api/uploads/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/browse/page.tsx]" -- "[app/api/product/[slug]/reviews/replies/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/api/product/[slug]/reviews/route.ts]" -- "[app/_components/ProductCarousel.tsx]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/api/product/[slug]/reviews/route.ts]" -- "[app/api/product/[slug]/reviews/replies/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/api/orders/route.ts]" -- "[app/_components/ProductCarousel.tsx]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/api/product/[slug]/reviews/replies/route.ts]" -- "[app/_components/ProductCarousel.tsx]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/browse/page.tsx]" -- "[app/api/orders/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[app/myorderslist/_components/OrderList.tsx]" -- "[app/api/product/[slug]/reviews/replies/route.ts]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[components/ui/toggle.tsx]" -- "[components/ui/calendar.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[jest.config.ts]" -- "[components/ui/alert-dialog.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/field.tsx]" -- "[components/ui/accordion.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/separator.tsx]" -- "[components/ui/label.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/textarea.tsx]" -- "[components/ui/context-menu.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/command.tsx]" -- "[app/api/product/user/route.ts]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/resizable.tsx]" -- "[app/myorderslist/page.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/scroll-area.tsx]" -- "[components/ui/popover.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/command.tsx]" -- "[components/ui/alert.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[features/support/productService.ts]" -- "[features/step_definitions/productCrud.steps.ts]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/label.tsx]" -- "[components/ui/card.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/toggle.tsx]" -- "[app/api/product/user/route.ts]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/collapsible.tsx]" -- "[components/ui/badge.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/toggle.tsx]" -- "[app/api/uploads/route.ts]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[app/lib/storage/uploadAdapter.ts]" -- "[app/lib/session/tokens.ts]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[jest.config.ts]" -- "[components/ui/kbd.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/separator.tsx]" -- "[components/ui/calendar.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/menubar.tsx]" -- "[components/ui/checkbox.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/separator.tsx]" -- "[components/ui/input-otp.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/sheet.tsx]" -- "[app/globals.css]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/avatar.tsx]" -- "[app/orders/_components/OrderList.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/radio-group.tsx]" -- "[components/ui/breadcrumb.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[lib/prisma.ts]" -- "[components/ui/toggle.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/item.tsx]" -- "[app/api/cart/user/route.ts]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/hover-card.tsx]" -- "[components/ui/breadcrumb.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/radio-group.tsx]" -- "[components/ui/card.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/card.tsx]" -- "[components/ui/avatar.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[jest.config.ts]" -- "[components/ui/field.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/table.tsx]" -- "[components/ui/alert-dialog.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/slider.tsx]" -- "[components/ui/sidebar.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[components/ui/sidebar.tsx]" -- "[components/ui/alert-dialog.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "[types/Category.ts]" -- "[components/ui/empty.tsx]" [label=" 3 ", penwidth="3", color="#00688b82"];
+
+}

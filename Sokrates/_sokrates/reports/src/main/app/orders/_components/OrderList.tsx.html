@@ -1,0 +1,314 @@
+<html>
+<head>
+    <title>app/orders/_components/OrderList.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/orders/_components/OrderList.tsx (<b>249</b> lines of code) (<a href="OrderList.tsx">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useCallback,
+} from &quot;react&quot;;
+import { PencilIcon } from &quot;lucide-react&quot;;
+
+import { SelectableListHeader } from &quot;@/app/_components/SelectableListHeader&quot;;
+import { Button } from &quot;@/components/ui/button&quot;;
+import { Checkbox } from &quot;@/components/ui/checkbox&quot;;
+import { ScrollArea } from &quot;@/components/ui/scroll-area&quot;;
+import { Order } from &quot;@/types/Order&quot;;
+import { cn } from &quot;@/lib/utils&quot;;
+
+type OrderListProps = {
+  orders: Order[];
+  selectedIds: string[];
+  setSelectedIds: Dispatch&lt;SetStateAction&lt;string[]&gt;&gt;;
+  toggleModal: (e: React.MouseEvent&lt;Element, MouseEvent&gt;) =&gt; void;
+  isLoading?: boolean;
+};
+
+const currencyFormatter = new Intl.NumberFormat(undefined, {
+  style: &quot;currency&quot;,
+  currency: &quot;USD&quot;,
+  maximumFractionDigits: 2,
+});
+
+// Loading skeleton component
+const OrderSkeleton = () =&gt; (
+  &lt;li className=&quot;border-border/70 bg-surface/95 relative overflow-hidden rounded-2xl border shadow-sm&quot;&gt;
+    &lt;div className=&quot;flex w-full flex-col gap-4 p-4 sm:flex-row sm:items-start sm:gap-6 sm:p-6&quot;&gt;
+      &lt;div className=&quot;flex w-full justify-between&quot;&gt;
+        &lt;div className=&quot;ml-10 flex flex-1 flex-col gap-4&quot;&gt;
+          &lt;div className=&quot;flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between&quot;&gt;
+            &lt;div className=&quot;space-y-2&quot;&gt;
+              &lt;div className=&quot;flex items-center gap-5&quot;&gt;
+                &lt;div className=&quot;bg-border h-6 w-48 animate-pulse rounded&quot;&gt;&lt;/div&gt;
+                &lt;div className=&quot;bg-border h-6 w-16 animate-pulse rounded-full&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div className=&quot;bg-border h-4 w-64 animate-pulse rounded&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;bg-border h-8 w-20 animate-pulse rounded&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+);
+
+export function OrderList({
+  orders,
+  selectedIds,
+  setSelectedIds,
+  toggleModal,
+  isLoading = false,
+}: OrderListProps) {
+  const badgeVariants: Record&lt;string, string&gt; = {
+    ACCEPT:
+      &quot;border border-emerald-200 bg-emerald-50 text-emerald-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]&quot;,
+    REVIEW:
+      &quot;border border-amber-200 bg-amber-50 text-amber-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]&quot;,
+    DECLINE:
+      &quot;border border-rose-200 bg-rose-50 text-rose-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]&quot;,
+    // Add default status
+    PENDING:
+      &quot;border border-gray-200 bg-gray-50 text-gray-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]&quot;,
+  };
+
+  // Ensure orders is always an array, memoized to avoid changing reference across renders
+  const safeOrders = useMemo(
+    () =&gt; (Array.isArray(orders) ? orders : []),
+    [orders],
+  );
+
+  // Memoize the valid order IDs to prevent unnecessary re-renders
+  const validOrderIds = useMemo(
+    () =&gt; safeOrders.map((order) =&gt; order.id).filter(Boolean) as string[],
+    [safeOrders],
+  );
+
+  const selectedOrders = useMemo(
+    () =&gt;
+      safeOrders.filter((order) =&gt; order.id &amp;&amp; selectedIds.includes(order.id)),
+    [safeOrders, selectedIds],
+  );
+
+  // Clean up selectedIds when orders change - use useCallback to prevent infinite loops
+  useEffect(() =&gt; {
+    setSelectedIds((current) =&gt; {
+      const validIds = current.filter((id) =&gt; validOrderIds.includes(id));
+      // Only update if the arrays are actually different
+      if (
+        validIds.length !== current.length ||
+        validIds.some((id, index) =&gt; id !== current[index])
+      ) {
+        return validIds;
+      }
+      return current;
+    });
+  }, [validOrderIds, setSelectedIds]);
+
+  const toggleSelection = useCallback(
+    (orderId: string | undefined) =&gt; {
+      if (!orderId) {
+        return;
+      }
+
+      setSelectedIds((current) =&gt; {
+        if (current.includes(orderId)) {
+          return current.filter((id) =&gt; id !== orderId);
+        }
+        return [...current, orderId];
+      });
+    },
+    [setSelectedIds],
+  );
+
+  const clearSelection = useCallback(
+    () =&gt; setSelectedIds([]),
+    [setSelectedIds],
+  );
+
+  const selectAll = useCallback(() =&gt; {
+    setSelectedIds(validOrderIds);
+  }, [validOrderIds, setSelectedIds]);
+
+  const totalSelected = selectedOrders.length;
+  const totalPosts = safeOrders.length;
+
+  const masterCheckboxState =
+    totalSelected === 0
+      ? false
+      : totalSelected === totalPosts
+        ? true
+        : &quot;indeterminate&quot;;
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      &lt;section className=&quot;mx-auto mt-8 w-full max-w-4xl px-2 sm:px-0&quot;&gt;
+        &lt;div className=&quot;border-border bg-surface/80 mb-4 flex flex-col gap-4 rounded-xl border px-4 py-3 shadow-sm sm:flex-row sm:items-center sm:justify-between&quot;&gt;
+          &lt;div className=&quot;flex items-center gap-3&quot;&gt;
+            &lt;div className=&quot;bg-border h-4 w-4 animate-pulse rounded&quot;&gt;&lt;/div&gt;
+            &lt;div className=&quot;bg-border h-4 w-48 animate-pulse rounded&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;ScrollArea className=&quot;border-border/40 bg-surface/70 mb-10 h-112 rounded-xl border pr-1 sm:h-136&quot;&gt;
+          &lt;ul className=&quot;space-y-4 p-3 sm:p-4&quot;&gt;
+            {Array.from({ length: 3 }).map((_, index) =&gt; (
+              &lt;OrderSkeleton key={index} /&gt;
+            ))}
+          &lt;/ul&gt;
+        &lt;/ScrollArea&gt;
+      &lt;/section&gt;
+    );
+  }
+
+  // Show empty state
+  if (safeOrders.length === 0) {
+    return (
+      &lt;section className=&quot;border-border bg-surface/60 mx-auto mt-10 flex w-full flex-col items-center gap-4 rounded-xl border p-10 text-center md:w-4/5 lg:w-3/4&quot;&gt;
+        &lt;p className=&quot;text-text-muted text-sm&quot;&gt;
+          Once you accept an order it will appear here.
+        &lt;/p&gt;
+      &lt;/section&gt;
+    );
+  }
+
+  return (
+    &lt;section className=&quot;mx-auto mt-8 w-full max-w-4xl px-2 sm:px-0&quot;&gt;
+      &lt;SelectableListHeader
+        totalSelected={totalSelected}
+        masterChecked={masterCheckboxState}
+        onMasterCheckedChange={(checked) =&gt; {
+          if (checked === true) {
+            selectAll();
+          } else if (checked === false) {
+            clearSelection();
+          }
+        }}
+      &gt;
+        {totalSelected &gt; 0 &amp;&amp; (
+          &lt;&gt;
+            &lt;Button
+              type=&quot;button&quot;
+              variant=&quot;update&quot;
+              size=&quot;sm&quot;
+              onClick={(e) =&gt; toggleModal(e)}
+            &gt;
+              &lt;PencilIcon className=&quot;size-4&quot; /&gt;
+              Update Status
+            &lt;/Button&gt;
+            &lt;Button
+              type=&quot;button&quot;
+              variant=&quot;ghost&quot;
+              size=&quot;sm&quot;
+              onClick={clearSelection}
+            &gt;
+              Clear
+            &lt;/Button&gt;
+          &lt;/&gt;
+        )}
+      &lt;/SelectableListHeader&gt;
+
+      &lt;ScrollArea className=&quot;border-border/40 bg-surface/70 mb-10 h-[28rem] rounded-xl border pr-1 sm:h-[34rem]&quot;&gt;
+        &lt;ul className=&quot;space-y-4 p-3 sm:p-4&quot;&gt;
+          {safeOrders.map((order) =&gt; {
+            if (!order.id) {
+              return null;
+            }
+
+            const orderId = order.id;
+            const isSelected = selectedIds.includes(orderId);
+
+            // Safely handle the status - provide a default if undefined
+            const orderStatus = order.status || &quot;PENDING&quot;;
+            const statusDisplay = orderStatus.toLowerCase();
+
+            return (
+              &lt;li
+                key={orderId}
+                className={`border-border/70 bg-surface/95 relative overflow-hidden rounded-2xl border transition-all hover:shadow-lg ${
+                  isSelected ? &quot;ring-accent shadow-xl ring-2&quot; : &quot;shadow-sm&quot;
+                }`}
+              &gt;
+                &lt;Checkbox
+                  checked={isSelected}
+                  onCheckedChange={() =&gt; toggleSelection(orderId)}
+                  aria-label={`Select ${order.description || &quot;order&quot;}`}
+                  className=&quot;border-border bg-surface absolute top-4 left-4 z-10 size-5 rounded-full border-2&quot;
+                /&gt;
+                &lt;button
+                  type=&quot;button&quot;
+                  onClick={() =&gt; toggleSelection(orderId)}
+                  className=&quot;flex w-full flex-col gap-4 p-4 text-left sm:flex-row sm:items-start sm:gap-6 sm:p-6&quot;
+                &gt;
+                  &lt;div className=&quot;flex w-full justify-between&quot;&gt;
+                    &lt;div className=&quot;ml-10 flex flex-1 flex-col gap-4&quot;&gt;
+                      &lt;div className=&quot;flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between&quot;&gt;
+                        &lt;div className=&quot;space-y-2&quot;&gt;
+                          &lt;h2 className=&quot;text-text flex gap-5 text-lg font-semibold sm:text-xl&quot;&gt;
+                            {order.post?.title || &quot;Service Request&quot;}
+                            &lt;span
+                              className={cn(
+                                &quot;inline-flex items-center gap-2 rounded-full px-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] uppercase&quot;,
+                                badgeVariants[orderStatus] ||
+                                  badgeVariants.PENDING,
+                              )}
+                            &gt;
+                              {statusDisplay}
+                            &lt;/span&gt;
+                          &lt;/h2&gt;
+                          {order.description &amp;&amp; (
+                            &lt;p className=&quot;text-text-muted flex gap-2 px-2 text-sm leading-6&quot;&gt;
+                              &lt;label className=&quot;font-bold&quot;&gt;
+                                Order details:
+                              &lt;/label&gt;
+                              {order.description}
+                            &lt;/p&gt;
+                          )}
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+
+                      {isSelected &amp;&amp; (
+                        &lt;span className=&quot;text-accent bg-accent/10 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-medium&quot;&gt;
+                          Selected
+                        &lt;/span&gt;
+                      )}
+                    &lt;/div&gt;
+                    &lt;span className=&quot;text-2xl font-black&quot;&gt;
+                      {currencyFormatter.format(order.post?.price || 0)}
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/button&gt;
+              &lt;/li&gt;
+            );
+          })}
+        &lt;/ul&gt;
+      &lt;/ScrollArea&gt;
+    &lt;/section&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,138 @@
+<html>
+<head>
+    <title>app/api/product/[slug]/reviews/replies/route.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/api/product/[slug]/reviews/replies/route.ts (<b>97</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<div id="editor">import { NextResponse } from &quot;next/server&quot;;
+
+import { getCurrentUser } from &quot;@/app/lib/user&quot;;
+import { prisma } from &quot;@/lib/prisma&quot;;
+
+import {
+  reviewThreadInclude,
+  validateParentForProduct,
+} from &quot;../review-helpers&quot;;
+
+export async function GET(
+  request: Request,
+  context: { params: Promise&lt;{ slug: string }&gt; },
+) {
+  const { slug } = await context.params;
+  const url = new URL(request.url);
+  const parentId = url.searchParams.get(&quot;parentId&quot;);
+
+  if (!parentId) {
+    return NextResponse.json(
+      { message: &quot;parentId query parameter is required&quot; },
+      { status: 400 },
+    );
+  }
+
+  try {
+    const parent = await validateParentForProduct(slug, parentId);
+    if (&quot;status&quot; in parent) {
+      return NextResponse.json(
+        { message: parent.message },
+        { status: parent.status },
+      );
+    }
+
+    const replies = await prisma.reviews.findMany({
+      where: { product_id: slug, parent_id: parentId },
+      orderBy: { date: &quot;asc&quot; },
+      include: reviewThreadInclude,
+    });
+
+    return NextResponse.json(replies);
+  } catch (error) {
+    console.error(&quot;Failed to fetch replies&quot;, error);
+    return NextResponse.json(
+      { message: &quot;Unable to load replies&quot; },
+      { status: 500 },
+    );
+  }
+}
+
+export async function POST(
+  request: Request,
+  context: { params: Promise&lt;{ slug: string }&gt; },
+) {
+  const { slug } = await context.params;
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return NextResponse.json(
+      { message: &quot;You need to be signed in to reply&quot; },
+      { status: 401 },
+    );
+  }
+
+  try {
+    const body = await request.json();
+    const text = typeof body?.text === &quot;string&quot; ? body.text.trim() : &quot;&quot;;
+    const parentId =
+      typeof body?.parentId === &quot;string&quot; ? body.parentId.trim() : &quot;&quot;;
+
+    if (!text) {
+      return NextResponse.json(
+        { message: &quot;Reply cannot be empty&quot; },
+        { status: 400 },
+      );
+    }
+
+    if (!parentId) {
+      return NextResponse.json(
+        { message: &quot;parentId is required&quot; },
+        { status: 400 },
+      );
+    }
+
+    const parent = await validateParentForProduct(slug, parentId);
+    if (&quot;status&quot; in parent) {
+      return NextResponse.json(
+        { message: parent.message },
+        { status: parent.status },
+      );
+    }
+
+    const reply = await prisma.reviews.create({
+      data: {
+        text,
+        product_id: slug,
+        user_id: user.id,
+        parent_id: parent.id,
+        date: new Date(),
+      },
+      include: reviewThreadInclude,
+    });
+
+    return NextResponse.json(reply, { status: 201 });
+  } catch (error) {
+    console.error(&quot;Failed to create reply&quot;, error);
+    return NextResponse.json(
+      { message: &quot;Unable to submit reply&quot; },
+      { status: 500 },
+    );
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

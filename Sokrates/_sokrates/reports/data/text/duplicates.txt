@@ -1,0 +1,786 @@
+duplicated block id: 1
+size: 22 cleaned lines of code
+in 2 files:
+ - app/product/[slug]/components/Comments.tsx (19:40)
+ - app/product/[slug]/components/useComments.ts (499:520)
+
+duplicated block id: 2
+size: 20 cleaned lines of code
+in 2 files:
+ - app/myproduct/_components/PostList.tsx (129:151)
+ - app/orders/_components/OrderList.tsx (171:193)
+
+duplicated block id: 3
+size: 18 cleaned lines of code
+in 2 files:
+ - app/product/[slug]/components/Comments.tsx (42:59)
+ - app/product/[slug]/components/useComments.ts (522:539)
+
+duplicated block id: 4
+size: 18 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/route.ts (13:30)
+ - features/support/productService.ts (172:189)
+
+duplicated block id: 5
+size: 17 cleaned lines of code
+in 2 files:
+ - app/api/product/route.ts (18:37)
+ - app/api/product/user/route.ts (105:124)
+
+duplicated block id: 6
+size: 16 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (213:231)
+ - app/settings/SettingsForm.tsx (171:189)
+
+duplicated block id: 7
+size: 15 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/review-helpers.ts (6:20)
+ - app/api/product/[slug]/reviews/review-helpers.ts (15:29)
+
+duplicated block id: 8
+size: 14 cleaned lines of code
+in 2 files:
+ - features/support/productCrudFixture.ts (73:88)
+ - features/support/productCrudFixture.ts (112:127)
+
+duplicated block id: 9
+size: 13 cleaned lines of code
+in 2 files:
+ - app/api/cart/user/route.ts (12:25)
+ - app/api/orders/user/route.ts (14:27)
+
+duplicated block id: 10
+size: 13 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (168:181)
+ - app/settings/SettingsForm.tsx (110:123)
+
+duplicated block id: 11
+size: 13 cleaned lines of code
+in 2 files:
+ - app/myorderslist/_hooks/orderStates.ts (57:71)
+ - app/orders/_hooks/orderStates.ts (122:136)
+
+duplicated block id: 12
+size: 12 cleaned lines of code
+in 2 files:
+ - app/product/[slug]/components/Comment.tsx (269:280)
+ - app/product/[slug]/components/Comments.tsx (92:103)
+
+duplicated block id: 13
+size: 11 cleaned lines of code
+in 2 files:
+ - features/support/browseService.ts (48:59)
+ - features/support/productService.ts (69:80)
+
+duplicated block id: 14
+size: 11 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (178:188)
+ - cypress/e2e/complete_test.cy.ts (268:278)
+
+duplicated block id: 15
+size: 11 cleaned lines of code
+in 2 files:
+ - app/myproduct/_components/PostList.tsx (169:179)
+ - app/orders/_components/OrderList.tsx (198:208)
+
+duplicated block id: 16
+size: 10 cleaned lines of code
+in 2 files:
+ - app/myorderslist/page.tsx (47:56)
+ - app/orders/page.tsx (20:29)
+
+duplicated block id: 17
+size: 10 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/replies/route.ts (46:59)
+ - app/api/product/[slug]/reviews/route.ts (61:74)
+
+duplicated block id: 18
+size: 10 cleaned lines of code
+in 2 files:
+ - app/api/orders/create-payment/route.tsx (10:21)
+ - app/api/user/create-stripe-account/route.ts (9:19)
+
+duplicated block id: 19
+size: 10 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/route.ts (31:40)
+ - features/support/productService.ts (192:201)
+
+duplicated block id: 20
+size: 9 cleaned lines of code
+in 2 files:
+ - features/support/productService.ts (175:183)
+ - features/support/productService.ts (185:193)
+
+duplicated block id: 21
+size: 9 cleaned lines of code
+in 2 files:
+ - components/ui/dropdown-menu.tsx (74:82)
+ - components/ui/menubar.tsx (103:111)
+
+duplicated block id: 22
+size: 9 cleaned lines of code
+in 2 files:
+ - app/api/product/user/route.ts (15:24)
+ - app/api/product/user/route.ts (49:58)
+
+duplicated block id: 23
+size: 9 cleaned lines of code
+in 2 files:
+ - components/ui/context-menu.tsx (126:134)
+ - components/ui/dropdown-menu.tsx (74:82)
+
+duplicated block id: 24
+size: 9 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (243:251)
+ - cypress/e2e/complete_test.cy.ts (267:275)
+
+duplicated block id: 25
+size: 9 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/route.ts (16:24)
+ - features/support/productService.ts (185:193)
+
+duplicated block id: 26
+size: 9 cleaned lines of code
+in 2 files:
+ - app/lib/session.ts (9:17)
+ - app/lib/session.ts (26:34)
+
+duplicated block id: 27
+size: 9 cleaned lines of code
+in 2 files:
+ - features/support/browseService.ts (22:34)
+ - features/support/productService.ts (17:29)
+
+duplicated block id: 28
+size: 9 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (159:167)
+ - app/settings/SettingsForm.tsx (100:108)
+
+duplicated block id: 29
+size: 9 cleaned lines of code
+in 2 files:
+ - components/ui/context-menu.tsx (126:134)
+ - components/ui/menubar.tsx (103:111)
+
+duplicated block id: 30
+size: 8 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (178:185)
+ - cypress/e2e/complete_test.cy.ts (244:251)
+
+duplicated block id: 31
+size: 8 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (113:120)
+ - cypress/e2e/complete_test.cy.ts (147:154)
+
+duplicated block id: 32
+size: 8 cleaned lines of code
+in 2 files:
+ - components/ui/item.tsx (45:52)
+ - components/ui/toggle.tsx (22:29)
+
+duplicated block id: 33
+size: 8 cleaned lines of code
+in 2 files:
+ - components/ui/button.tsx (37:44)
+ - components/ui/sidebar.tsx (489:496)
+
+duplicated block id: 34
+size: 8 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/review-helpers.ts (14:21)
+ - app/api/product/[slug]/route.ts (26:33)
+
+duplicated block id: 35
+size: 8 cleaned lines of code
+in 2 files:
+ - components/ui/item.tsx (45:52)
+ - components/ui/sidebar.tsx (489:496)
+
+duplicated block id: 36
+size: 8 cleaned lines of code
+in 2 files:
+ - components/ui/context-menu.tsx (146:153)
+ - components/ui/dropdown-menu.tsx (94:101)
+
+duplicated block id: 37
+size: 8 cleaned lines of code
+in 2 files:
+ - components/ui/button.tsx (37:44)
+ - components/ui/toggle.tsx (22:29)
+
+duplicated block id: 38
+size: 8 cleaned lines of code
+in 2 files:
+ - app/myorderslist/page.tsx (11:18)
+ - app/orders/page.tsx (9:16)
+
+duplicated block id: 39
+size: 8 cleaned lines of code
+in 2 files:
+ - components/ui/sidebar.tsx (489:496)
+ - components/ui/toggle.tsx (22:29)
+
+duplicated block id: 40
+size: 8 cleaned lines of code
+in 2 files:
+ - components/ui/button.tsx (37:44)
+ - components/ui/item.tsx (45:52)
+
+duplicated block id: 41
+size: 8 cleaned lines of code
+in 2 files:
+ - components/ui/dropdown-menu.tsx (156:163)
+ - components/ui/menubar.tsx (174:181)
+
+duplicated block id: 42
+size: 7 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (91:97)
+ - cypress/e2e/complete_test.cy.ts (104:110)
+
+duplicated block id: 43
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/dialog.tsx (38:44)
+ - components/ui/drawer.tsx (39:45)
+
+duplicated block id: 44
+size: 7 cleaned lines of code
+in 2 files:
+ - app/api/user/register/route.ts (69:75)
+ - app/api/user/update/route.ts (46:52)
+
+duplicated block id: 45
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/alert.tsx (14:20)
+ - components/ui/item.tsx (83:89)
+
+duplicated block id: 46
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/product.steps.ts (3:9)
+ - features/step_definitions/productCrud.steps.ts (3:9)
+
+duplicated block id: 47
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/alert.tsx (14:20)
+ - components/ui/empty.tsx (38:44)
+
+duplicated block id: 48
+size: 7 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/route.ts (67:74)
+ - app/api/product/[slug]/reviews/route.ts (248:255)
+
+duplicated block id: 49
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/browse.steps.ts (3:9)
+ - features/step_definitions/productCrud.steps.ts (3:9)
+
+duplicated block id: 50
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/badge.tsx (20:26)
+ - components/ui/item.tsx (83:89)
+
+duplicated block id: 51
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/productCrud.steps.ts (98:105)
+ - features/step_definitions/upload.steps.ts (72:79)
+
+duplicated block id: 52
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/auth.steps.ts (3:9)
+ - features/step_definitions/browse.steps.ts (3:9)
+
+duplicated block id: 53
+size: 7 cleaned lines of code
+in 2 files:
+ - app/_components/CountrySelect.tsx (1:9)
+ - app/myproduct/_components/Modal.tsx (1:13)
+
+duplicated block id: 54
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/productCrud.steps.ts (3:9)
+ - features/step_definitions/upload.steps.ts (4:10)
+
+duplicated block id: 55
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/dropdown-menu.tsx (186:192)
+ - components/ui/menubar.tsx (204:210)
+
+duplicated block id: 56
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/dialog.tsx (38:44)
+ - components/ui/sheet.tsx (38:44)
+
+duplicated block id: 57
+size: 7 cleaned lines of code
+in 2 files:
+ - app/product/[slug]/components/Modal.tsx (1:9)
+ - components/ui/command.tsx (1:14)
+
+duplicated block id: 58
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/auth.steps.ts (3:9)
+ - features/step_definitions/upload.steps.ts (4:10)
+
+duplicated block id: 59
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/alert-dialog.tsx (38:44)
+ - components/ui/drawer.tsx (39:45)
+
+duplicated block id: 60
+size: 7 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/replies/route.ts (52:59)
+ - app/api/product/[slug]/reviews/route.ts (248:255)
+
+duplicated block id: 61
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/alert-dialog.tsx (38:44)
+ - components/ui/sheet.tsx (38:44)
+
+duplicated block id: 62
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/item.tsx (160:166)
+ - components/ui/item.tsx (173:179)
+
+duplicated block id: 63
+size: 7 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (93:99)
+ - app/auth/[slug]/page.tsx (188:194)
+
+duplicated block id: 64
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/browse.steps.ts (3:9)
+ - features/step_definitions/product.steps.ts (3:9)
+
+duplicated block id: 65
+size: 7 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/route.ts (153:160)
+ - app/api/product/[slug]/reviews/route.ts (248:255)
+
+duplicated block id: 66
+size: 7 cleaned lines of code
+in 2 files:
+ - app/lib/products.ts (22:28)
+ - app/lib/products.ts (42:48)
+
+duplicated block id: 67
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/auth.steps.ts (3:9)
+ - features/step_definitions/productCrud.steps.ts (3:9)
+
+duplicated block id: 68
+size: 7 cleaned lines of code
+in 2 files:
+ - app/settings/SettingsForm.tsx (138:144)
+ - app/settings/SettingsForm.tsx (160:166)
+
+duplicated block id: 69
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/alert.tsx (14:20)
+ - components/ui/badge.tsx (20:26)
+
+duplicated block id: 70
+size: 7 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/route.ts (67:74)
+ - app/api/product/[slug]/reviews/route.ts (153:160)
+
+duplicated block id: 71
+size: 7 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/review-helpers.ts (6:12)
+ - app/api/product/[slug]/route.ts (27:33)
+
+duplicated block id: 72
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/empty.tsx (38:44)
+ - components/ui/item.tsx (83:89)
+
+duplicated block id: 73
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/command.tsx (165:171)
+ - components/ui/menubar.tsx (204:210)
+
+duplicated block id: 74
+size: 7 cleaned lines of code
+in 2 files:
+ - app/myproduct/_hooks/postStates.ts (207:213)
+ - app/myproduct/page.tsx (14:20)
+
+duplicated block id: 75
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/auth.steps.ts (3:9)
+ - features/step_definitions/product.steps.ts (3:9)
+
+duplicated block id: 76
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/context-menu.tsx (171:177)
+ - components/ui/dropdown-menu.tsx (130:136)
+
+duplicated block id: 77
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/alert-dialog.tsx (38:44)
+ - components/ui/dialog.tsx (38:44)
+
+duplicated block id: 78
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/badge.tsx (20:26)
+ - components/ui/empty.tsx (38:44)
+
+duplicated block id: 79
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/drawer.tsx (39:45)
+ - components/ui/sheet.tsx (38:44)
+
+duplicated block id: 80
+size: 7 cleaned lines of code
+in 2 files:
+ - app/myproduct/_components/PostList.tsx (258:265)
+ - app/orders/_components/OrderList.tsx (268:275)
+
+duplicated block id: 81
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/command.tsx (165:171)
+ - components/ui/dropdown-menu.tsx (186:192)
+
+duplicated block id: 82
+size: 7 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/review-helpers.ts (23:29)
+ - app/api/product/[slug]/route.ts (26:32)
+
+duplicated block id: 83
+size: 7 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/replies/route.ts (52:59)
+ - app/api/product/[slug]/reviews/route.ts (153:160)
+
+duplicated block id: 84
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/product.steps.ts (3:9)
+ - features/step_definitions/upload.steps.ts (4:10)
+
+duplicated block id: 85
+size: 7 cleaned lines of code
+in 2 files:
+ - components/ui/alert-dialog.tsx (86:92)
+ - components/ui/dialog.tsx (91:97)
+
+duplicated block id: 86
+size: 7 cleaned lines of code
+in 2 files:
+ - features/step_definitions/browse.steps.ts (3:9)
+ - features/step_definitions/upload.steps.ts (4:10)
+
+duplicated block id: 87
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/context-menu.tsx (148:153)
+ - components/ui/menubar.tsx (125:130)
+
+duplicated block id: 88
+size: 6 cleaned lines of code
+in 2 files:
+ - features/support/productCrudFixture.ts (55:60)
+ - features/support/productCrudFixture.ts (73:78)
+
+duplicated block id: 89
+size: 6 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (143:148)
+ - app/auth/[slug]/page.tsx (262:267)
+
+duplicated block id: 90
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myproduct/page.tsx (45:50)
+ - app/myproduct/page.tsx (74:79)
+
+duplicated block id: 91
+size: 6 cleaned lines of code
+in 2 files:
+ - app/api/user/register/route.ts (89:95)
+ - app/api/user/update/route.ts (79:85)
+
+duplicated block id: 92
+size: 6 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (195:200)
+ - app/auth/[slug]/page.tsx (208:213)
+
+duplicated block id: 93
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myproduct/page.tsx (53:58)
+ - app/myproduct/page.tsx (82:87)
+
+duplicated block id: 94
+size: 6 cleaned lines of code
+in 2 files:
+ - features/support/productCrudFixture.ts (55:60)
+ - features/support/productCrudFixture.ts (112:117)
+
+duplicated block id: 95
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myproduct/_components/PostList.tsx (98:103)
+ - app/myproduct/_components/PostList.tsx (118:123)
+
+duplicated block id: 96
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/command.tsx (167:174)
+ - components/ui/item.tsx (175:182)
+
+duplicated block id: 97
+size: 6 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/route.ts (43:49)
+ - app/api/product/[slug]/route.ts (8:13)
+
+duplicated block id: 98
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/field.tsx (148:153)
+ - components/ui/item.tsx (138:143)
+
+duplicated block id: 99
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myproduct/_components/Modal.tsx (15:20)
+ - components/ui/dialog.tsx (127:132)
+
+duplicated block id: 100
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/command.tsx (167:174)
+ - components/ui/empty.tsx (90:97)
+
+duplicated block id: 101
+size: 6 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/route.ts (193:199)
+ - app/api/product/[slug]/reviews/route.ts (275:281)
+
+duplicated block id: 102
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myorderslist/_hooks/orderStates.ts (1:13)
+ - app/orders/_hooks/orderStates.ts (1:13)
+
+duplicated block id: 103
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myorderslist/_hooks/orderStates.ts (72:77)
+ - app/orders/_hooks/orderStates.ts (138:143)
+
+duplicated block id: 104
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/sidebar.tsx (432:437)
+ - components/ui/sidebar.tsx (647:652)
+
+duplicated block id: 105
+size: 6 cleaned lines of code
+in 2 files:
+ - app/settings/SettingsForm.tsx (48:53)
+ - app/settings/SettingsForm.tsx (77:82)
+
+duplicated block id: 106
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/dropdown-menu.tsx (96:101)
+ - components/ui/menubar.tsx (125:130)
+
+duplicated block id: 107
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myproduct/_components/PostList.tsx (205:210)
+ - app/orders/_components/OrderList.tsx (228:233)
+
+duplicated block id: 108
+size: 6 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/replies/route.ts (27:32)
+ - app/api/product/[slug]/reviews/replies/route.ts (85:90)
+
+duplicated block id: 109
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myorderslist/page.tsx (58:63)
+ - app/orders/page.tsx (31:36)
+
+duplicated block id: 110
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/carousel.tsx (148:153)
+ - components/ui/command.tsx (77:82)
+
+duplicated block id: 111
+size: 6 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/route.ts (81:88)
+ - app/api/professional/[id]/route.ts (96:103)
+
+duplicated block id: 112
+size: 6 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (57:62)
+ - app/settings/SettingsForm.tsx (48:53)
+
+duplicated block id: 113
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/sidebar.tsx (594:599)
+ - components/ui/sidebar.tsx (647:652)
+
+duplicated block id: 114
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/empty.tsx (90:97)
+ - components/ui/menubar.tsx (252:259)
+
+duplicated block id: 115
+size: 6 cleaned lines of code
+in 2 files:
+ - app/product/[slug]/components/Comment.tsx (85:90)
+ - app/product/[slug]/components/Comment.tsx (106:111)
+
+duplicated block id: 116
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myproduct/_components/PostList.tsx (20:26)
+ - app/orders/_components/OrderList.tsx (25:31)
+
+duplicated block id: 117
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/command.tsx (167:174)
+ - components/ui/menubar.tsx (252:259)
+
+duplicated block id: 118
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myorderslist/_hooks/orderStates.ts (71:76)
+ - app/myorderslist/page.tsx (13:18)
+
+duplicated block id: 119
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/item.tsx (175:182)
+ - components/ui/menubar.tsx (252:259)
+
+duplicated block id: 120
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/empty.tsx (90:97)
+ - components/ui/item.tsx (175:182)
+
+duplicated block id: 121
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/sidebar.tsx (143:148)
+ - components/ui/sidebar.tsx (174:179)
+
+duplicated block id: 122
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myorderslist/_hooks/orderStates.ts (71:76)
+ - app/orders/page.tsx (11:16)
+
+duplicated block id: 123
+size: 6 cleaned lines of code
+in 2 files:
+ - app/api/product/user/route.ts (49:55)
+ - app/api/product/user/route.ts (91:97)
+
+duplicated block id: 124
+size: 6 cleaned lines of code
+in 2 files:
+ - features/step_definitions/product.steps.ts (121:126)
+ - features/step_definitions/product.steps.ts (140:145)
+
+duplicated block id: 125
+size: 6 cleaned lines of code
+in 2 files:
+ - app/auth/[slug]/page.tsx (57:62)
+ - app/settings/SettingsForm.tsx (77:82)
+
+duplicated block id: 126
+size: 6 cleaned lines of code
+in 2 files:
+ - app/myproduct/_components/PostList.tsx (70:75)
+ - app/orders/_components/OrderList.tsx (135:140)
+
+duplicated block id: 127
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/sidebar.tsx (432:437)
+ - components/ui/sidebar.tsx (594:599)
+
+duplicated block id: 128
+size: 6 cleaned lines of code
+in 2 files:
+ - app/api/product/user/route.ts (15:21)
+ - app/api/product/user/route.ts (91:97)
+
+duplicated block id: 129
+size: 6 cleaned lines of code
+in 2 files:
+ - app/api/product/[slug]/reviews/review-helpers.ts (6:11)
+ - app/api/product/[slug]/reviews/review-helpers.ts (24:29)
+
+duplicated block id: 130
+size: 6 cleaned lines of code
+in 2 files:
+ - components/ui/select.tsx (145:150)
+ - components/ui/select.tsx (163:168)
+
+duplicated block id: 131
+size: 6 cleaned lines of code
+in 2 files:
+ - app/product/[slug]/components/useComments.ts (344:349)
+ - app/product/[slug]/components/useComments.ts (442:447)
+

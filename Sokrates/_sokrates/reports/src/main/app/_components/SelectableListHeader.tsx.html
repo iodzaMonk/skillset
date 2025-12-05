@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>app/_components/SelectableListHeader.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/_components/SelectableListHeader.tsx (<b>31</b> lines of code) (<a href="SelectableListHeader.tsx">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+
+import { Checkbox } from &quot;@/components/ui/checkbox&quot;;
+import { ReactNode } from &quot;react&quot;;
+
+interface SelectableListHeaderProps {
+  totalSelected: number;
+  masterChecked: boolean | &quot;indeterminate&quot;;
+  onMasterCheckedChange: (checked: boolean | &quot;indeterminate&quot;) =&gt; void;
+  children?: ReactNode;
+}
+
+export function SelectableListHeader({
+  totalSelected,
+  masterChecked,
+  onMasterCheckedChange,
+  children,
+}: SelectableListHeaderProps) {
+  return (
+    &lt;div className=&quot;border-border bg-surface/80 mb-4 flex flex-col gap-4 rounded-xl border px-4 py-3 shadow-sm sm:flex-row sm:items-center sm:justify-between&quot;&gt;
+      &lt;div className=&quot;flex items-center gap-3&quot;&gt;
+        &lt;Checkbox
+          id=&quot;select-all&quot;
+          checked={masterChecked}
+          onCheckedChange={onMasterCheckedChange}
+        /&gt;
+        &lt;label htmlFor=&quot;select-all&quot; className=&quot;text-text text-sm font-medium&quot;&gt;
+          {totalSelected &gt; 0
+            ? `${totalSelected} selected`
+            : &quot;Select items to manage them&quot;}
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;div className=&quot;flex flex-wrap gap-2 sm:justify-end&quot;&gt;{children}&lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

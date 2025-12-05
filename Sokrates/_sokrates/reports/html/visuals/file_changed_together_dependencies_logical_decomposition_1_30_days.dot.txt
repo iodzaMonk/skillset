@@ -1,0 +1,73 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#00688b"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+
+
+
+    "app" -- "app" [label=" 8 ", penwidth="8", color="#a0a0a0DB"];
+    "cypress" -- "app" [label=" 6 ", penwidth="6", color="#00688bB7"];
+    "ROOT" -- "app" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "components" -- "components" [label=" 3 ", penwidth="3", color="#a0a0a082"];
+    "ROOT" -- "components" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "components" -- "app" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "features" -- "features" [label=" 3 ", penwidth="3", color="#a0a0a082"];
+    "lib" -- "components" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "types" -- "components" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "hooks" -- "components" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "prisma" -- "hooks" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "prisma" -- "components" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "prisma" -- "app" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "features" -- "app" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "lib" -- "lib" [label=" 3 ", penwidth="3", color="#a0a0a082"];
+    "hooks" -- "app" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "types" -- "lib" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "lib" -- "app" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "types" -- "app" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "lib" -- "hooks" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "prisma" -- "ROOT" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "lib" -- "ROOT" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "ROOT" -- "hooks" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "prisma" -- "lib" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "types" -- "hooks" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "types" -- "prisma" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "types" -- "ROOT" [label=" 3 ", penwidth="3", color="#00688b82"];
+    "types" -- "types" [label=" 2 ", penwidth="2", color="#a0a0a070"];
+    "cypress" -- "cypress" [label=" 2 ", penwidth="2", color="#a0a0a070"];
+    "cypress" -- "ROOT" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "ROOT" -- "ROOT" [label=" 2 ", penwidth="2", color="#a0a0a070"];
+    "features" -- "ROOT" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "components" -- "cypress" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "types" -- "features" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "features" -- "components" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "hooks" -- "cypress" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "lib" -- "features" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "features" -- "cypress" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "lib" -- "cypress" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "types" -- "cypress" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "prisma" -- "features" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "prisma" -- "cypress" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "hooks" -- "features" [label=" 1 ", penwidth="1", color="#00688b5E"];
+
+}

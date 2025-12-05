@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>types/Comment.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">types/Comment.ts (<b>46</b> lines of code) (<a href="Comment.ts">raw</a>):</h3>
+<div id="editor">export type CommentAuthor = {
+  id: string;
+  name: string | null;
+};
+
+export type Comment = {
+  id: string;
+  text: string;
+  date: string | null;
+  user_id: string;
+  parent_id?: string | null;
+  rating?: number | null;
+  users?: CommentAuthor | null;
+  replies?: Comment[];
+};
+
+export type CommentItemProps = {
+  comment: Comment;
+  depth: number;
+  maxDepth: number;
+  userId?: string;
+  activeMenuId: string | null;
+  editingCommentId: string | null;
+  editingValue: string;
+  editError: string | null;
+  replyMessage: string;
+  replyError: string | null;
+  replyingToId: string | null;
+  isSavingEdit: boolean;
+  isSubmittingReply: boolean;
+  expandedThreads: Set&lt;string&gt;;
+  editingRating: number;
+  editingHoverRating: number;
+  onToggleMenu: (commentId: string) =&gt; void;
+  onStartEditing: (comment: Comment) =&gt; void;
+  onCancelEdit: () =&gt; void;
+  onEditingValueChange: (value: string) =&gt; void;
+  onSaveEdit: (commentId: string) =&gt; void;
+  onDelete: (commentId: string) =&gt; void;
+  onBeginReply: (commentId: string, depth: number) =&gt; void;
+  onCancelReply: () =&gt; void;
+  onReplyChange: (value: string) =&gt; void;
+  onSubmitReply: (commentId: string) =&gt; void;
+  onToggleReplies: (commentId: string) =&gt; void;
+  onEditingRatingSelect: (index: number) =&gt; void;
+  onEditingRatingHover: (index: number) =&gt; void;
+  onEditingRatingLeave: () =&gt; void;
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

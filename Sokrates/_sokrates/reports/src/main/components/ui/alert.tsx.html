@@ -1,0 +1,92 @@
+<html>
+<head>
+    <title>components/ui/alert.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">components/ui/alert.tsx (<b>56</b> lines of code) (<a href="alert.tsx">raw</a>):</h3>
+<div id="editor">import * as React from &quot;react&quot;;
+import { cva, type VariantProps } from &quot;class-variance-authority&quot;;
+
+import { cn } from &quot;@/lib/utils&quot;;
+
+const alertVariants = cva(
+  &quot;relative w-full rounded-lg border px-4 py-3 text-sm grid has-[&gt;svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[&gt;svg]:gap-x-3 gap-y-0.5 items-start [&amp;&gt;svg]:size-4 [&amp;&gt;svg]:translate-y-0.5 [&amp;&gt;svg]:text-current&quot;,
+  {
+    variants: {
+      variant: {
+        default: &quot;bg-card text-card-foreground&quot;,
+        destructive:
+          &quot;text-destructive bg-card [&amp;&gt;svg]:text-current *:data-[slot=alert-description]:text-destructive/90&quot;,
+      },
+    },
+    defaultVariants: {
+      variant: &quot;default&quot;,
+    },
+  },
+);
+
+function Alert({
+  className,
+  variant,
+  ...props
+}: React.ComponentProps&lt;&quot;div&quot;&gt; &amp; VariantProps&lt;typeof alertVariants&gt;) {
+  return (
+    &lt;div
+      data-slot=&quot;alert&quot;
+      role=&quot;alert&quot;
+      className={cn(alertVariants({ variant }), className)}
+      {...props}
+    /&gt;
+  );
+}
+
+function AlertTitle({ className, ...props }: React.ComponentProps&lt;&quot;div&quot;&gt;) {
+  return (
+    &lt;div
+      data-slot=&quot;alert-title&quot;
+      className={cn(
+        &quot;col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function AlertDescription({
+  className,
+  ...props
+}: React.ComponentProps&lt;&quot;div&quot;&gt;) {
+  return (
+    &lt;div
+      data-slot=&quot;alert-description&quot;
+      className={cn(
+        &quot;text-muted-foreground col-start-2 grid justify-items-start gap-1 text-sm [&amp;_p]:leading-relaxed&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+export { Alert, AlertTitle, AlertDescription };
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

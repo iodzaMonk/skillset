@@ -1,0 +1,256 @@
+[ {
+  "name" : "CI/CD tools",
+  "description" : "",
+  "color" : "#7CB9E8",
+  "repositoryTags" : [ {
+    "tag" : "jenkins",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)Jenkinsfile", "(|.*/)Jenkinsfile[.][a-z0-9_]+" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/jenkins.png"
+  }, {
+    "tag" : "travis",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)[.]travis[.]ya?ml" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/travis.png"
+  }, {
+    "tag" : "github actions",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)[.]github[/]workflows[/].*" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/github-actions.png"
+  }, {
+    "tag" : "circleci",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)[.]circleci.*" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/circleci.png"
+  }, {
+    "tag" : "gitlab",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)[.]gitlab.*" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/gitlab.png"
+  } ]
+}, {
+  "name" : "build and dependencies management tools",
+  "description" : "",
+  "color" : "#B9D9EB",
+  "repositoryTags" : [ {
+    "tag" : "maven",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)pom[.]xml" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/maven.png"
+  }, {
+    "tag" : "pnpm",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)pnpm.*[.](ya?ml|json)" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/pnpm.png"
+  }, {
+    "tag" : "npm",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)package[.]json" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/npm.png"
+  }, {
+    "tag" : "yarn",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)[.]yarnrc", "(|.*/)yarn[.]lock" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/yarn.png"
+  }, {
+    "tag" : "jest",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)jest[.].*" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/jest.png"
+  }, {
+    "tag" : "babel",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)[.]babel[.]config[.]json" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/babel.png"
+  }, {
+    "tag" : "gradle",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)build[.]gradle" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/gradle.png"
+  }, {
+    "tag" : "sbt",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)build[.]sbt" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/sbt.png"
+  }, {
+    "tag" : "bazel",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)BUILD[.]bazel" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/bazel.png"
+  }, {
+    "tag" : "pip",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)pip[.]conf", "(|.*/)Pipfile" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/python.png"
+  }, {
+    "tag" : "nuget",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)[.]nuget/.*", "(|.*/)[.]nuget[.]config" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/nuget.png"
+  }, {
+    "tag" : "aws codebuild",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)buildspec[.]yml" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/aws/AWS-CodeBuild.png"
+  }, {
+    "tag" : "renovate",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)renovate[.]json5?" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/renovate.png"
+  }, {
+    "tag" : "dependabot",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)dependabot[.]ya?ml" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/dependabot.png"
+  }, {
+    "tag" : "gemfile",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)Gemfile" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/lang/ruby.png"
+  }, {
+    "tag" : "podfile",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)Podfile" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/cocoa-pods.png"
+  }, {
+    "tag" : "make",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)Makefile" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/gnu.png"
+  } ]
+}, {
+  "name" : "tech",
+  "description" : "",
+  "color" : "#A3C1AD",
+  "repositoryTags" : [ {
+    "tag" : "docker",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)Dockerfile" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/docker.png"
+  }, {
+    "tag" : "helm",
+    "patterns" : [ ],
+    "excludePatterns" : [ ],
+    "mainExtensions" : [ ],
+    "anyExtensions" : [ ],
+    "excludeExtensions" : [ ],
+    "pathPatterns" : [ "(|.*/)helmfile[.]ya?ml", "(|.*/)[.]helmignore" ],
+    "excludePathPatterns" : [ ],
+    "imageLink" : "https://zeljkoobrenovic.github.io/sokrates-media/general/helm.png"
+  } ]
+} ]

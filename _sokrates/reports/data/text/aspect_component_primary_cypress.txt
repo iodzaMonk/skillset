@@ -1,3 +1,0 @@
-Path	Lines of Code
-cypress/support/commands.ts	1
-cypress/support/e2e.ts	1

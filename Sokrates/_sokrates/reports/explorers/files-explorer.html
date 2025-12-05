@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Files Explorer</title>
+    <style>
+        body {
+            font-family: Vollkorn, Ubuntu, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
+        }
+
+        .group {
+            display: inline-block;
+            border: 1px solid lightgrey;
+            border-radius: 6px;
+            margin: 8px 18px 8px 8px;
+            padding: 5px;
+            background-color: #f8f8f8;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .icon {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-top: 26px;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        ::placeholder {
+            color: lightgrey;
+            opacity: 1;
+        }
+
+        :-ms-input-placeholder {
+            color: lightgrey;
+        }
+
+        ::-ms-input-placeholder {
+            color: lightgrey;
+        }
+
+        td {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" target="_blank" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" target="_blank" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+<body style="margin: 12px">
+
+<div style="margin: 0; color: grey">
+    <div>
+        <div style="padding: 0px; margin-bottom: 26px; white-space: nowrap">
+            Scope: &nbsp;
+            <label><input type="checkbox" id="main" checked onchange="update()"><span
+                    id="label_main">main</span></label>&nbsp;&nbsp;
+            <label><input type="checkbox" id="test" checked onchange="update()"><span
+                    id="label_test">test</span></label>&nbsp;&nbsp;
+            <label><input type="checkbox" id="generated" checked onchange="update()"><span id="label_generated">generated</span></label>&nbsp;&nbsp;
+            <label><input type="checkbox" id="build" checked onchange="update()"><span
+                    id="label_build">build</span></label>&nbsp;&nbsp;
+            <label><input type="checkbox" id="other" checked onchange="update()"><span
+                    id="label_other">other</span></label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="scope-summary" style="background-color: #f8f8f8"></span>
+        </div>
+        <input id="filter" type="text" placeholder="search..."
+               style="font-size: 16px; height: 32px; width: 320px; margin-bottom: 10px"
+               onkeyup="update()">
+        <div id="search-summary" style="display: inline-block"></div>
+    </div>
+</div>
+
+<div id="content"></div>
+
+<script>
+    let importedFiles = [{"repository":"","path":"app/about/page.tsx","scope":"main","linesOfCode":11},{"repository":"","path":"app/api/cart/route.ts","scope":"main","linesOfCode":7},{"repository":"","path":"app/api/cart/user/route.ts","scope":"main","linesOfCode":24},{"repository":"","path":"app/api/orders/create-payment/route.tsx","scope":"main","linesOfCode":80},{"repository":"","path":"app/api/orders/orderHandlers.ts","scope":"main","linesOfCode":77},{"repository":"","path":"app/api/orders/route.ts","scope":"main","linesOfCode":7},{"repository":"","path":"app/api/orders/user/route.ts","scope":"main","linesOfCode":55},{"repository":"","path":"app/api/product/route.ts","scope":"main","linesOfCode":63},{"repository":"","path":"app/api/product/user/route.ts","scope":"main","linesOfCode":122},{"repository":"","path":"app/api/product/[slug]/reviews/replies/route.ts","scope":"main","linesOfCode":97},{"repository":"","path":"app/api/product/[slug]/reviews/review-helpers.ts","scope":"main","linesOfCode":65},{"repository":"","path":"app/api/product/[slug]/reviews/route.ts","scope":"main","linesOfCode":259},{"repository":"","path":"app/api/product/[slug]/route.ts","scope":"main","linesOfCode":83},{"repository":"","path":"app/api/professional/[id]/route.ts","scope":"main","linesOfCode":94},{"repository":"","path":"app/api/uploads/route.ts","scope":"main","linesOfCode":25},{"repository":"","path":"app/api/user/connect-stripe-account/route.ts","scope":"main","linesOfCode":21},{"repository":"","path":"app/api/user/create-stripe-account/route.ts","scope":"main","linesOfCode":58},{"repository":"","path":"app/api/user/delete/route.ts","scope":"main","linesOfCode":19},{"repository":"","path":"app/api/user/login/route.ts","scope":"main","linesOfCode":34},{"repository":"","path":"app/api/user/logout/route.ts","scope":"main","linesOfCode":10},{"repository":"","path":"app/api/user/me/route.ts","scope":"main","linesOfCode":8},{"repository":"","path":"app/api/user/register/route.ts","scope":"main","linesOfCode":86},{"repository":"","path":"app/api/user/update/route.ts","scope":"main","linesOfCode":77},{"repository":"","path":"app/auth/[slug]/page.tsx","scope":"main","linesOfCode":244},{"repository":"","path":"app/browse/components/categories.tsx","scope":"main","linesOfCode":45},{"repository":"","path":"app/browse/page.tsx","scope":"main","linesOfCode":41},{"repository":"","path":"app/Components/Footer.tsx","scope":"main","linesOfCode":92},{"repository":"","path":"app/Components/Header.tsx","scope":"main","linesOfCode":186},{"repository":"","path":"app/context/AuthContext.tsx","scope":"main","linesOfCode":52},{"repository":"","path":"app/context/AuthProvider.tsx","scope":"main","linesOfCode":22},{"repository":"","path":"app/globals.css","scope":"main","linesOfCode":105},{"repository":"","path":"app/layout.tsx","scope":"main","linesOfCode":34},{"repository":"","path":"app/lib/auth/login.ts","scope":"main","linesOfCode":61},{"repository":"","path":"app/lib/convertToSubcurrency.ts","scope":"main","linesOfCode":4},{"repository":"","path":"app/lib/definition.ts","scope":"main","linesOfCode":35},{"repository":"","path":"app/lib/orders.ts","scope":"main","linesOfCode":32},{"repository":"","path":"app/lib/productCrud.ts","scope":"main","linesOfCode":83},{"repository":"","path":"app/lib/products.ts","scope":"main","linesOfCode":59},{"repository":"","path":"app/lib/session/tokens.ts","scope":"main","linesOfCode":31},{"repository":"","path":"app/lib/session.ts","scope":"main","linesOfCode":38},{"repository":"","path":"app/lib/storage/s3.ts","scope":"main","linesOfCode":105},{"repository":"","path":"app/lib/storage/uploadAdapter.ts","scope":"main","linesOfCode":15},{"repository":"","path":"app/lib/user.ts","scope":"main","linesOfCode":31},{"repository":"","path":"app/myorderslist/page.tsx","scope":"main","linesOfCode":55},{"repository":"","path":"app/myorderslist/_components/Modal.tsx","scope":"main","linesOfCode":2},{"repository":"","path":"app/myorderslist/_components/OrderList.tsx","scope":"main","linesOfCode":2},{"repository":"","path":"app/myorderslist/_hooks/orderStates.ts","scope":"main","linesOfCode":63},{"repository":"","path":"app/myproduct/actions.ts","scope":"main","linesOfCode":8},{"repository":"","path":"app/myproduct/page.tsx","scope":"main","linesOfCode":96},{"repository":"","path":"app/myproduct/_components/Modal.tsx","scope":"main","linesOfCode":202},{"repository":"","path":"app/myproduct/_components/PostList.tsx","scope":"main","linesOfCode":252},{"repository":"","path":"app/myproduct/_hooks/postStates.ts","scope":"main","linesOfCode":174},{"repository":"","path":"app/orders/page.tsx","scope":"main","linesOfCode":34},{"repository":"","path":"app/orders/_components/Modal.tsx","scope":"main","linesOfCode":158},{"repository":"","path":"app/orders/_components/OrderList.tsx","scope":"main","linesOfCode":249},{"repository":"","path":"app/orders/_hooks/orderStates.ts","scope":"main","linesOfCode":120},{"repository":"","path":"app/page.tsx","scope":"main","linesOfCode":22},{"repository":"","path":"app/product/[slug]/components/Comment.tsx","scope":"main","linesOfCode":293},{"repository":"","path":"app/product/[slug]/components/Comments.tsx","scope":"main","linesOfCode":186},{"repository":"","path":"app/product/[slug]/components/Modal.tsx","scope":"main","linesOfCode":77},{"repository":"","path":"app/product/[slug]/components/useComments.ts","scope":"main","linesOfCode":468},{"repository":"","path":"app/product/[slug]/page.tsx","scope":"main","linesOfCode":216},{"repository":"","path":"app/product/[slug]/payment/module/CheckoutPage.tsx","scope":"main","linesOfCode":104},{"repository":"","path":"app/product/[slug]/payment/page.tsx","scope":"main","linesOfCode":159},{"repository":"","path":"app/product/[slug]/payment/success/page.tsx","scope":"main","linesOfCode":18},{"repository":"","path":"app/professional/[id]/page.tsx","scope":"main","linesOfCode":140},{"repository":"","path":"app/settings/modal.tsx","scope":"main","linesOfCode":49},{"repository":"","path":"app/settings/page.tsx","scope":"main","linesOfCode":20},{"repository":"","path":"app/settings/SettingsForm.tsx","scope":"main","linesOfCode":199},{"repository":"","path":"app/settings/StripeConnectButton.tsx","scope":"main","linesOfCode":56},{"repository":"","path":"app/utils/email.ts","scope":"main","linesOfCode":41},{"repository":"","path":"app/utils/TransitionLink.tsx","scope":"main","linesOfCode":46},{"repository":"","path":"app/_components/CountrySelect.tsx","scope":"main","linesOfCode":40},{"repository":"","path":"app/_components/ProductCard.tsx","scope":"main","linesOfCode":68},{"repository":"","path":"app/_components/ProductCarousel.tsx","scope":"main","linesOfCode":56},{"repository":"","path":"app/_components/SelectableListHeader.tsx","scope":"main","linesOfCode":31},{"repository":"","path":"components/ui/accordion.tsx","scope":"main","linesOfCode":56},{"repository":"","path":"components/ui/alert-dialog.tsx","scope":"main","linesOfCode":126},{"repository":"","path":"components/ui/alert.tsx","scope":"main","linesOfCode":56},{"repository":"","path":"components/ui/aspect-ratio.tsx","scope":"main","linesOfCode":6},{"repository":"","path":"components/ui/avatar.tsx","scope":"main","linesOfCode":43},{"repository":"","path":"components/ui/badge.tsx","scope":"main","linesOfCode":37},{"repository":"","path":"components/ui/breadcrumb.tsx","scope":"main","linesOfCode":99},{"repository":"","path":"components/ui/button-group.tsx","scope":"main","linesOfCode":67},{"repository":"","path":"components/ui/button.tsx","scope":"main","linesOfCode":58},{"repository":"","path":"components/ui/calendar.tsx","scope":"main","linesOfCode":203},{"repository":"","path":"components/ui/card.tsx","scope":"main","linesOfCode":70},{"repository":"","path":"components/ui/carousel.tsx","scope":"main","linesOfCode":204},{"repository":"","path":"components/ui/chart.tsx","scope":"main","linesOfCode":303},{"repository":"","path":"components/ui/checkbox.tsx","scope":"main","linesOfCode":25},{"repository":"","path":"components/ui/collapsible.tsx","scope":"main","linesOfCode":24},{"repository":"","path":"components/ui/command.tsx","scope":"main","linesOfCode":172},{"repository":"","path":"components/ui/context-menu.tsx","scope":"main","linesOfCode":214},{"repository":"","path":"components/ui/dialog.tsx","scope":"main","linesOfCode":125},{"repository":"","path":"components/ui/drawer.tsx","scope":"main","linesOfCode":107},{"repository":"","path":"components/ui/dropdown-menu.tsx","scope":"main","linesOfCode":219},{"repository":"","path":"components/ui/empty.tsx","scope":"main","linesOfCode":95},{"repository":"","path":"components/ui/field.tsx","scope":"main","linesOfCode":225},{"repository":"","path":"components/ui/form.tsx","scope":"main","linesOfCode":144},{"repository":"","path":"components/ui/hover-card.tsx","scope":"main","linesOfCode":38},{"repository":"","path":"components/ui/input-group.tsx","scope":"main","linesOfCode":138},{"repository":"","path":"components/ui/input-otp.tsx","scope":"main","linesOfCode":66},{"repository":"","path":"components/ui/input.tsx","scope":"main","linesOfCode":13},{"repository":"","path":"components/ui/item.tsx","scope":"main","linesOfCode":179},{"repository":"","path":"components/ui/kbd.tsx","scope":"main","linesOfCode":25},{"repository":"","path":"components/ui/label.tsx","scope":"main","linesOfCode":16},{"repository":"","path":"components/ui/menubar.tsx","scope":"main","linesOfCode":257},{"repository":"","path":"components/ui/pagination.tsx","scope":"main","linesOfCode":106},{"repository":"","path":"components/ui/popover.tsx","scope":"main","linesOfCode":39},{"repository":"","path":"components/ui/progress.tsx","scope":"main","linesOfCode":27},{"repository":"","path":"components/ui/radio-group.tsx","scope":"main","linesOfCode":40},{"repository":"","path":"components/ui/resizable.tsx","scope":"main","linesOfCode":47},{"repository":"","path":"components/ui/scroll-area.tsx","scope":"main","linesOfCode":53},{"repository":"","path":"components/ui/select.tsx","scope":"main","linesOfCode":157},{"repository":"","path":"components/ui/separator.tsx","scope":"main","linesOfCode":20},{"repository":"","path":"components/ui/sheet.tsx","scope":"main","linesOfCode":113},{"repository":"","path":"components/ui/sidebar.tsx","scope":"main","linesOfCode":635},{"repository":"","path":"components/ui/skeleton.tsx","scope":"main","linesOfCode":7},{"repository":"","path":"components/ui/slider.tsx","scope":"main","linesOfCode":58},{"repository":"","path":"components/ui/sonner.tsx","scope":"main","linesOfCode":36},{"repository":"","path":"components/ui/spinner.tsx","scope":"main","linesOfCode":9},{"repository":"","path":"components/ui/switch.tsx","scope":"main","linesOfCode":27},{"repository":"","path":"components/ui/table.tsx","scope":"main","linesOfCode":91},{"repository":"","path":"components/ui/tabs.tsx","scope":"main","linesOfCode":59},{"repository":"","path":"components/ui/textarea.tsx","scope":"main","linesOfCode":11},{"repository":"","path":"components/ui/toggle-group.tsx","scope":"main","linesOfCode":63},{"repository":"","path":"components/ui/toggle.tsx","scope":"main","linesOfCode":38},{"repository":"","path":"components/ui/tooltip.tsx","scope":"main","linesOfCode":51},{"repository":"","path":"cypress/e2e/complete_test.cy.ts","scope":"main","linesOfCode":329},{"repository":"","path":"cypress/support/commands.ts","scope":"main","linesOfCode":1},{"repository":"","path":"cypress/support/e2e.ts","scope":"main","linesOfCode":1},{"repository":"","path":"cypress.config.ts","scope":"main","linesOfCode":7},{"repository":"","path":"db.js","scope":"main","linesOfCode":4},{"repository":"","path":"eslint.config.mjs","scope":"main","linesOfCode":25},{"repository":"","path":"features/step_definitions/auth.steps.ts","scope":"main","linesOfCode":53},{"repository":"","path":"features/step_definitions/browse.steps.ts","scope":"main","linesOfCode":71},{"repository":"","path":"features/step_definitions/product.steps.ts","scope":"main","linesOfCode":170},{"repository":"","path":"features/step_definitions/productCrud.steps.ts","scope":"main","linesOfCode":122},{"repository":"","path":"features/step_definitions/upload.steps.ts","scope":"main","linesOfCode":116},{"repository":"","path":"features/support/authService.ts","scope":"main","linesOfCode":54},{"repository":"","path":"features/support/browseService.ts","scope":"main","linesOfCode":117},{"repository":"","path":"features/support/productCrudFixture.ts","scope":"main","linesOfCode":187},{"repository":"","path":"features/support/productService.ts","scope":"main","linesOfCode":282},{"repository":"","path":"features/support/uploadFixture.ts","scope":"main","linesOfCode":55},{"repository":"","path":"hooks/use-mobile.ts","scope":"main","linesOfCode":17},{"repository":"","path":"jest.config.ts","scope":"main","linesOfCode":13},{"repository":"","path":"lib/prisma.ts","scope":"main","linesOfCode":8},{"repository":"","path":"lib/utils.ts","scope":"main","linesOfCode":5},{"repository":"","path":"next.config.ts","scope":"main","linesOfCode":29},{"repository":"","path":"postcss.config.mjs","scope":"main","linesOfCode":4},{"repository":"","path":"prettier.config.mjs","scope":"main","linesOfCode":8},{"repository":"","path":"prisma/seed.ts","scope":"main","linesOfCode":65},{"repository":"","path":"prisma.config.ts","scope":"main","linesOfCode":18},{"repository":"","path":"types/Category.ts","scope":"main","linesOfCode":8},{"repository":"","path":"types/Comment.ts","scope":"main","linesOfCode":46},{"repository":"","path":"types/Country.ts","scope":"main","linesOfCode":257},{"repository":"","path":"types/Order.ts","scope":"main","linesOfCode":12},{"repository":"","path":"types/PostBody.ts","scope":"main","linesOfCode":29},{"repository":"","path":"types/Professional.ts","scope":"main","linesOfCode":22},{"repository":"","path":"types/Status.ts","scope":"main","linesOfCode":5},{"repository":"","path":"types/User.ts","scope":"main","linesOfCode":8},{"repository":"","path":"types/UserBody.ts","scope":"main","linesOfCode":8},{"repository":"","path":"vitest.config.ts","scope":"main","linesOfCode":17},{"repository":"","path":"vitest.setup.ts","scope":"main","linesOfCode":8},{"repository":"","path":"tests/app.test.ts","scope":"test","linesOfCode":155},{"repository":"","path":"tests/cart.test.ts","scope":"test","linesOfCode":111},{"repository":"","path":"tests/orders.test.ts","scope":"test","linesOfCode":164},{"repository":"","path":"tests/professional.test.ts","scope":"test","linesOfCode":179},{"repository":"","path":"tests/uploads.test.ts","scope":"test","linesOfCode":74},{"repository":"","path":"tests/user-connect-stripe-account.test.ts","scope":"test","linesOfCode":66},{"repository":"","path":"tests/user-create-stripe-account.test.ts","scope":"test","linesOfCode":126},{"repository":"","path":"tests/user-delete.test.ts","scope":"test","linesOfCode":62},{"repository":"","path":"tests/user-login.test.ts","scope":"test","linesOfCode":103},{"repository":"","path":"tests/user-logout.test.ts","scope":"test","linesOfCode":31},{"repository":"","path":"tests/user-me.test.ts","scope":"test","linesOfCode":33},{"repository":"","path":"tests/user-register.test.ts","scope":"test","linesOfCode":137},{"repository":"","path":"tests/user-update.test.ts","scope":"test","linesOfCode":121},{"repository":"","path":"lib/generated/prisma/default.js","scope":"generated","linesOfCode":1},{"repository":"","path":"components.json","scope":"other","linesOfCode":22},{"repository":"","path":"cypress/fixtures/example.json","scope":"other","linesOfCode":5},{"repository":"","path":"features/step_definitions/cucumber.json","scope":"other","linesOfCode":7},{"repository":"","path":"help.txt","scope":"other","linesOfCode":17},{"repository":"","path":"lib/countries.json","scope":"other","linesOfCode":254},{"repository":"","path":"package.json","scope":"other","linesOfCode":128},{"repository":"","path":"public/figma.svg","scope":"other","linesOfCode":14},{"repository":"","path":"public/flowbite-react.svg","scope":"other","linesOfCode":49},{"repository":"","path":"public/flowbite.svg","scope":"other","linesOfCode":49},{"repository":"","path":"public/no-image.svg","scope":"other","linesOfCode":15},{"repository":"","path":"public/vercel.svg","scope":"other","linesOfCode":1},{"repository":"","path":"README.md","scope":"other","linesOfCode":68},{"repository":"","path":"tsconfig.json","scope":"other","linesOfCode":28},{"repository":"","path":"_sokrates_landscape/config-people.json","scope":"other","linesOfCode":3},{"repository":"","path":"_sokrates_landscape/config-tags.json","scope":"other","linesOfCode":256},{"repository":"","path":"_sokrates_landscape/config-teams.json","scope":"other","linesOfCode":3},{"repository":"","path":"_sokrates_landscape/config.json","scope":"other","linesOfCode":46},{"repository":"","path":"_sokrates_landscape/data/contributors.json","scope":"other","linesOfCode":125},{"repository":"","path":"_sokrates_landscape/data/contributors.txt","scope":"other","linesOfCode":5},{"repository":"","path":"_sokrates_landscape/data/executionTimes.json","scope":"other","linesOfCode":191},{"repository":"","path":"_sokrates_landscape/data/executionTimes.txt","scope":"other","linesOfCode":38},{"repository":"","path":"_sokrates_landscape/data/files.json","scope":"other","linesOfCode":1286},{"repository":"","path":"_sokrates_landscape/data/ignoredRepositories.txt","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/data/landscapeAnalysisResults.json","scope":"other","linesOfCode":108},{"repository":"","path":"_sokrates_landscape/data/most_connected_people_180_days.txt","scope":"other","linesOfCode":5},{"repository":"","path":"_sokrates_landscape/data/most_connected_people_30_days.txt","scope":"other","linesOfCode":4},{"repository":"","path":"_sokrates_landscape/data/most_connected_people_90_days.txt","scope":"other","linesOfCode":5},{"repository":"","path":"_sokrates_landscape/data/most_repositories_people_180_days.txt","scope":"other","linesOfCode":5},{"repository":"","path":"_sokrates_landscape/data/most_repositories_people_30_days.txt","scope":"other","linesOfCode":4},{"repository":"","path":"_sokrates_landscape/data/most_repositories_people_90_days.txt","scope":"other","linesOfCode":5},{"repository":"","path":"_sokrates_landscape/data/repositories.json","scope":"other","linesOfCode":32},{"repository":"","path":"_sokrates_landscape/data/repositories.txt","scope":"other","linesOfCode":2},{"repository":"","path":"_sokrates_landscape/data/repository_dependencies_via_people_180_days.txt","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/data/repository_dependencies_via_people_30_days.txt","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/data/repository_dependencies_via_people_90_days.txt","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/data/repository_shared_repositories_180_days.txt","scope":"other","linesOfCode":7},{"repository":"","path":"_sokrates_landscape/data/repository_shared_repositories_30_days.txt","scope":"other","linesOfCode":4},{"repository":"","path":"_sokrates_landscape/data/repository_shared_repositories_90_days.txt","scope":"other","linesOfCode":7},{"repository":"","path":"_sokrates_landscape/data/repository_shared_repositories_including_repositories_30_days.txt","scope":"other","linesOfCode":4},{"repository":"","path":"_sokrates_landscape/data/repository_with_most_people_180_days.txt","scope":"other","linesOfCode":2},{"repository":"","path":"_sokrates_landscape/data/repository_with_most_people_30_days.txt","scope":"other","linesOfCode":2},{"repository":"","path":"_sokrates_landscape/data/repository_with_most_people_90_days.txt","scope":"other","linesOfCode":2},{"repository":"","path":"_sokrates_landscape/data/tag_build_and_dependencies_management_tools___jest_repositories.txt","scope":"other","linesOfCode":2},{"repository":"","path":"_sokrates_landscape/data/tag_build_and_dependencies_management_tools___npm_repositories.txt","scope":"other","linesOfCode":2},{"repository":"","path":"_sokrates_landscape/data/teams.json","scope":"other","linesOfCode":125},{"repository":"","path":"_sokrates_landscape/data/teams.txt","scope":"other","linesOfCode":5},{"repository":"","path":"_sokrates_landscape/info.json","scope":"other","linesOfCode":8},{"repository":"","path":"_sokrates_landscape/visuals/custom_tags_graph.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/custom_tags_graph_1.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/custom_tags_graph_1_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/custom_tags_graph_2.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/custom_tags_graph_2_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/custom_tags_graph_3.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/custom_tags_graph_3_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/custom_tags_graph_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_dependencies_30d.dot.txt","scope":"other","linesOfCode":39},{"repository":"","path":"_sokrates_landscape/visuals/extension_dependencies_30d.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_1.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_1_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_2.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_2_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_3.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_3_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_4.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_4_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/extension_tags_graph_direct.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/people_dependencies_180_6.dot.txt","scope":"other","linesOfCode":30},{"repository":"","path":"_sokrates_landscape/visuals/people_dependencies_180_6.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/people_dependencies_30_1.dot.txt","scope":"other","linesOfCode":27},{"repository":"","path":"_sokrates_landscape/visuals/people_dependencies_30_1.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/people_dependencies_90_4.dot.txt","scope":"other","linesOfCode":30},{"repository":"","path":"_sokrates_landscape/visuals/people_dependencies_90_4.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/people_dependencies_including_repositories_30_2.dot.txt","scope":"other","linesOfCode":27},{"repository":"","path":"_sokrates_landscape/visuals/people_dependencies_including_repositories_30_2.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/repository_dependencies_180_7.dot.txt","scope":"other","linesOfCode":25},{"repository":"","path":"_sokrates_landscape/visuals/repository_dependencies_180_7.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/repository_dependencies_30_3.dot.txt","scope":"other","linesOfCode":25},{"repository":"","path":"_sokrates_landscape/visuals/repository_dependencies_30_3.svg","scope":"other","linesOfCode":1},{"repository":"","path":"_sokrates_landscape/visuals/repository_dependencies_90_5.dot.txt","scope":"other","linesOfCode":25},{"repository":"","path":"_sokrates_landscape/visuals/repository_dependencies_90_5.svg","scope":"other","linesOfCode":1}];
+
+    importedFiles.forEach(file => {
+        let key = file.scope.replace('.txt', '').replace('aspect_', '').trim().toLowerCase();
+        if (key == 'build_and_deployment') {
+            key = 'build';
+        }
+        if (!document.getElementById(key)) {
+            key = 'other';
+        }
+        file.scope = key;
+    });
+
+
+    const importedFileMap = {};
+
+    let files = [];
+
+    importedFiles.forEach(file => {
+        const key = file.repository + '/' + file.path;
+        if (!importedFileMap[key]) {
+            importedFileMap[key] = true;
+            files.push(file);
+        }
+    });
+
+    function getScopes(files) {
+        const scopeMap = {};
+        const scopes = [];
+        files.forEach(file => {
+            const key = file.scope;
+            if (!scopeMap[key]) {
+                scopeMap[key] = {scope: key, filesCount: 0};
+                scopes.push(scopeMap[key]);
+            }
+
+            scopeMap[key].filesCount += 1;
+        });
+
+        scopes.sort((a, b) => b.filesCount - a.filesCount);
+        return scopes;
+    }
+
+
+    files = files.sort((a, b) => b.linesOfCode - a.linesOfCode);
+
+    function getReposCount(files) {
+        const allReposMap = {};
+        let reposCount = 0;
+
+        files.forEach(file => {
+            if (file.repository && !allReposMap[file.repository]) {
+                allReposMap[file.repository] = true;
+                reposCount++;
+            }
+        });
+
+        return reposCount;
+    }
+
+    function getLoc(files) {
+        return files.map(item => item.linesOfCode).reduce((a, b) => a + b, 0);
+    }
+
+    let lastSort = 'loc';
+
+    function update(sortBy) {
+        if (!sortBy) sortBy = lastSort || 'loc';
+        lastSort = sortBy;
+        files = files.sort((a, b) => {
+            if (sortBy === 'name') {
+                return (a.repository + '/' + a.path).localeCompare(b.repository + '/' + b.path);
+            } else {
+                return b.linesOfCode - a.linesOfCode;
+            }
+        });
+        const filter = document.getElementById('filter').value.toLowerCase().trim();
+        let html = '';
+
+        const scopedData = files
+            .filter(item => document.getElementById(item.scope).checked);
+
+        let scopedCount = scopedData.length;
+        let scopedLoc = scopedData.map(item => item.linesOfCode).reduce((a, b) => a + b, 0);
+        const scopedReposCount = getReposCount(scopedData)
+
+        const scopedRepoInfo = scopedReposCount ? ', ' + scopedReposCount + ' repositories' : '';
+        let totalReposCount = getReposCount(files);
+        const totalRepoInfo = totalReposCount ? ', ' + totalReposCount + ' repositories' : '';
+        document.getElementById('scope-summary').innerHTML = '[' + scopedCount.toLocaleString('en-US') + ' ' + (scopedCount === 1 ? 'file' : 'files') + '; ' + scopedLoc.toLocaleString('en-US') + ' LOC' + scopedRepoInfo + '] of ' + '[' + files.length.toLocaleString('en-US') + ' ' + (files.length === 1 ? 'file' : 'files') + '; ' + getLoc(files).toLocaleString('en-US') + ' LOC' + totalRepoInfo + ']';
+
+        const filteredData = scopedData
+            .filter(item => item.path && (!filter || (item.repository + ' ' + item.path).toLowerCase().includes(filter)));
+
+        let maxLoc = 1;
+        filteredData.forEach(item => maxLoc = Math.max(maxLoc, item.linesOfCode));
+
+        let filteredCount = filteredData.length;
+        let filteredLoc = filteredData.map(item => item.linesOfCode).reduce((a, b) => a + b, 0);
+        const filteredReposCount = getReposCount(filteredData)
+
+        const repoInfo = filteredReposCount ? ', ' + filteredReposCount + ' repositories' : '';
+
+        document.getElementById('search-summary').innerHTML = ' = ' + filteredCount.toLocaleString('en-US') + ' ' + (filteredCount === 1 ? 'file' : 'files') + ' (' + filteredLoc.toLocaleString('en-US') + ' LOC' + repoInfo + ')';
+
+        if (scopedLoc > filteredLoc) {
+            html += '<div style="width: 400px; margin: 0; padding: 0; white-space: nowrap">';
+            const w1count = Math.round(100 * filteredCount / scopedCount);
+            const w2count = 100 - w1count;
+            html += '<div style="margin: 0; display: inline-block; width: ' + w1count + '%; background-color: #303030; height: 12px"></div>';
+            html += '<div style="margin: 0; display: inline-block; width: ' + w2count + '%; background-color: #c0c0c0; height: 12px"></div>';
+            html += '<div style="margin: 0; display: inline-block; font-size: 80%; width: 100px; color: grey; vertical-align: top">&nbsp;' + (filteredLoc == 0 || w1count > 0 ? w1count : '<1') + '% of scoped files</div>';
+            html += '</div>';
+            if (filteredReposCount) {
+                html += '<div style="width: 400px; margin: 0; padding: 0; white-space: nowrap">';
+                const w1repo = Math.round(100 * filteredReposCount / scopedReposCount);
+                const w2repo = 100 - w1repo;
+                html += '<div style="margin: 0; display: inline-block; width: ' + w1repo + '%; background-color: #303030; height: 12px"></div>';
+                html += '<div style="margin: 0; display: inline-block; width: ' + w2repo + '%; background-color: #c0c0c0; height: 12px"></div>';
+                html += '<div style="margin: 0; display: inline-block; font-size: 80%; width: 100px; color: grey; vertical-align: top">&nbsp;' + (filteredLoc == 0 || w1repo > 0 ? w1repo : '<1') + '% of scoped repositories</div>';
+                html += '</div>';
+            }
+            html += '<div style="width: 400px; margin: 0; padding: 0; white-space: nowrap">';
+            const w1loc = Math.round(100 * filteredLoc / scopedLoc);
+            const w2loc = 100 - w1loc;
+            html += '<div style="margin: 0; display: inline-block; width: ' + w1loc + '%; background-color: skyblue; height: 12px"></div>';
+            html += '<div style="margin: 0; display: inline-block; width: ' + w2loc + '%; background-color: #c0c0c0; height: 12px"></div>';
+            html += '<div style="margin: 0; display: inline-block; font-size: 80%; width: 100px; color: grey; vertical-align: top">&nbsp;' + (filteredLoc == 0 || w1loc > 0 ? w1loc : '<1') + '% of scoped LOC</div>';
+            html += '</div>';
+            html += '<div style="width: 400px; margin: 0; padding: 0; white-space: nowrap">';
+
+        }
+
+        html += '<table style="width: 100%">';
+
+        html += '<tr style="color: #777777; background-color: #f8f8f8">';
+        if (filteredReposCount) {
+            html += '<td style="text-align: left">repo</td>';
+        }
+        html += '<td style="text-align: left"><a href="#" onclick="update(\'name\');">file</a></td>';
+        html += '<td style="text-align: left"><a href="#" onclick="update(\'loc\');">&nbsp;LOC</a></td>';
+        html += '<td style="text-align: center">scope</td>';
+        html += '</tr>';
+
+        let displayCounter = 0;
+
+        filteredData.forEach(item => {
+            if (displayCounter > 1000) {
+                return;
+            }
+            displayCounter++;
+            html += '<tr>';
+            if (filteredReposCount) {
+                html += '<td>';
+                html += item.repository;
+                html += '</td>';
+            }
+            html += '<td>';
+            const paths = item.path.split('/');
+            const fileName = paths[paths.length - 1];
+            const folder = paths.slice(0, paths.length - 1).join('/');
+            html += '<span style="color: #afafaf">' + (folder + folder ? folder + '/' : '') + '</span>';
+            html += '<span style="color: black; font-weight: bold">' + fileName + '</span>';
+            html += '</td>';
+
+            let scope = item.scope;
+            html += '<td style="text-align: left; padding-right: 5px; padding-left: 5px">';
+            html += '<div style=" border-radius: 4px; padding 2px;">';
+            const w = maxLoc > 0 ? Math.round(50 * item.linesOfCode / maxLoc + 1) : 0;
+            if (scope === 'main') {
+                html += '<div style="vertical-align: top; display: inline-block; height: 16px; background-color: blue; width: ' + w + 'px"></div>';
+            } else {
+                html += '<div style="vertical-align: top; display: inline-block; height: 16px; background-color: lightgrey; width: ' + w + 'px"></div>';
+            }
+            html += '<div style="margin-left: 2px; vertical-align: top; display: inline-block; font-size: 80%">' + item.linesOfCode.toLocaleString("en-US") + '</div>';
+            html += '</div>';
+            html += '</td>';
+            html += '<td style="text-align: center; padding-right: 5px; padding-left: 5px;">';
+            if (scope === 'main') {
+                html += '<div style="border: 1px solid #d0d0d0; border-radius: 4px; padding 2px; color: blue">';
+            } else {
+                html += '<div style="border: 1px solid #d0d0d0; background-color: #f4f4f4; border-radius: 4px; padding 2px;">';
+            }
+            html += scope;
+            html += '</div>';
+            html += '</td>';
+            html += '<td style="text-align: left; padding-right: 5px; padding-left: 5px;">';
+            html += '</td>';
+            html += '</tr>';
+        });
+
+        html += '</table>';
+
+        document.getElementById('content').innerHTML = html;
+    }
+
+    update();
+</script>
+</body>
+</html>

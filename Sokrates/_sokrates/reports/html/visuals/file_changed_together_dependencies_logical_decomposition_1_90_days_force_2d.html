@@ -1,0 +1,413 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/force-graph"></script>
+</head>
+
+<body>
+<div id="graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "app",
+    "size" : 10
+  }, {
+    "id" : "features",
+    "size" : 10
+  }, {
+    "id" : "types",
+    "size" : 10
+  }, {
+    "id" : "components",
+    "size" : 10
+  }, {
+    "id" : "ROOT",
+    "size" : 10
+  }, {
+    "id" : "lib",
+    "size" : 10
+  }, {
+    "id" : "prisma",
+    "size" : 8
+  }, {
+    "id" : "hooks",
+    "size" : 8
+  }, {
+    "id" : "cypress",
+    "size" : 10
+  } ],
+  "links" : [ {
+    "source" : "app",
+    "target" : "app",
+    "count" : 60
+  }, {
+    "source" : "app",
+    "target" : "app",
+    "count" : 60
+  }, {
+    "source" : "types",
+    "target" : "app",
+    "count" : 16
+  }, {
+    "source" : "app",
+    "target" : "types",
+    "count" : 16
+  }, {
+    "source" : "components",
+    "target" : "app",
+    "count" : 11
+  }, {
+    "source" : "app",
+    "target" : "components",
+    "count" : 11
+  }, {
+    "source" : "types",
+    "target" : "types",
+    "count" : 9
+  }, {
+    "source" : "types",
+    "target" : "types",
+    "count" : 9
+  }, {
+    "source" : "ROOT",
+    "target" : "app",
+    "count" : 9
+  }, {
+    "source" : "app",
+    "target" : "ROOT",
+    "count" : 9
+  }, {
+    "source" : "prisma",
+    "target" : "app",
+    "count" : 8
+  }, {
+    "source" : "app",
+    "target" : "prisma",
+    "count" : 8
+  }, {
+    "source" : "types",
+    "target" : "components",
+    "count" : 8
+  }, {
+    "source" : "components",
+    "target" : "types",
+    "count" : 8
+  }, {
+    "source" : "lib",
+    "target" : "app",
+    "count" : 6
+  }, {
+    "source" : "app",
+    "target" : "lib",
+    "count" : 6
+  }, {
+    "source" : "cypress",
+    "target" : "app",
+    "count" : 6
+  }, {
+    "source" : "app",
+    "target" : "cypress",
+    "count" : 6
+  }, {
+    "source" : "types",
+    "target" : "prisma",
+    "count" : 5
+  }, {
+    "source" : "prisma",
+    "target" : "types",
+    "count" : 5
+  }, {
+    "source" : "components",
+    "target" : "components",
+    "count" : 5
+  }, {
+    "source" : "components",
+    "target" : "components",
+    "count" : 5
+  }, {
+    "source" : "prisma",
+    "target" : "components",
+    "count" : 5
+  }, {
+    "source" : "components",
+    "target" : "prisma",
+    "count" : 5
+  }, {
+    "source" : "ROOT",
+    "target" : "components",
+    "count" : 5
+  }, {
+    "source" : "components",
+    "target" : "ROOT",
+    "count" : 5
+  }, {
+    "source" : "prisma",
+    "target" : "ROOT",
+    "count" : 5
+  }, {
+    "source" : "ROOT",
+    "target" : "prisma",
+    "count" : 5
+  }, {
+    "source" : "hooks",
+    "target" : "app",
+    "count" : 4
+  }, {
+    "source" : "app",
+    "target" : "hooks",
+    "count" : 4
+  }, {
+    "source" : "hooks",
+    "target" : "components",
+    "count" : 4
+  }, {
+    "source" : "components",
+    "target" : "hooks",
+    "count" : 4
+  }, {
+    "source" : "prisma",
+    "target" : "lib",
+    "count" : 4
+  }, {
+    "source" : "lib",
+    "target" : "prisma",
+    "count" : 4
+  }, {
+    "source" : "lib",
+    "target" : "components",
+    "count" : 4
+  }, {
+    "source" : "components",
+    "target" : "lib",
+    "count" : 4
+  }, {
+    "source" : "types",
+    "target" : "hooks",
+    "count" : 4
+  }, {
+    "source" : "hooks",
+    "target" : "types",
+    "count" : 4
+  }, {
+    "source" : "types",
+    "target" : "lib",
+    "count" : 4
+  }, {
+    "source" : "lib",
+    "target" : "types",
+    "count" : 4
+  }, {
+    "source" : "types",
+    "target" : "ROOT",
+    "count" : 4
+  }, {
+    "source" : "ROOT",
+    "target" : "types",
+    "count" : 4
+  }, {
+    "source" : "lib",
+    "target" : "ROOT",
+    "count" : 4
+  }, {
+    "source" : "ROOT",
+    "target" : "lib",
+    "count" : 4
+  }, {
+    "source" : "ROOT",
+    "target" : "hooks",
+    "count" : 4
+  }, {
+    "source" : "hooks",
+    "target" : "ROOT",
+    "count" : 4
+  }, {
+    "source" : "features",
+    "target" : "app",
+    "count" : 3
+  }, {
+    "source" : "app",
+    "target" : "features",
+    "count" : 3
+  }, {
+    "source" : "features",
+    "target" : "features",
+    "count" : 3
+  }, {
+    "source" : "features",
+    "target" : "features",
+    "count" : 3
+  }, {
+    "source" : "lib",
+    "target" : "hooks",
+    "count" : 3
+  }, {
+    "source" : "hooks",
+    "target" : "lib",
+    "count" : 3
+  }, {
+    "source" : "lib",
+    "target" : "lib",
+    "count" : 3
+  }, {
+    "source" : "lib",
+    "target" : "lib",
+    "count" : 3
+  }, {
+    "source" : "prisma",
+    "target" : "hooks",
+    "count" : 3
+  }, {
+    "source" : "hooks",
+    "target" : "prisma",
+    "count" : 3
+  }, {
+    "source" : "ROOT",
+    "target" : "ROOT",
+    "count" : 3
+  }, {
+    "source" : "ROOT",
+    "target" : "ROOT",
+    "count" : 3
+  }, {
+    "source" : "cypress",
+    "target" : "ROOT",
+    "count" : 2
+  }, {
+    "source" : "ROOT",
+    "target" : "cypress",
+    "count" : 2
+  }, {
+    "source" : "cypress",
+    "target" : "cypress",
+    "count" : 2
+  }, {
+    "source" : "cypress",
+    "target" : "cypress",
+    "count" : 2
+  }, {
+    "source" : "features",
+    "target" : "components",
+    "count" : 1
+  }, {
+    "source" : "components",
+    "target" : "features",
+    "count" : 1
+  }, {
+    "source" : "components",
+    "target" : "cypress",
+    "count" : 1
+  }, {
+    "source" : "cypress",
+    "target" : "components",
+    "count" : 1
+  }, {
+    "source" : "types",
+    "target" : "cypress",
+    "count" : 1
+  }, {
+    "source" : "cypress",
+    "target" : "types",
+    "count" : 1
+  }, {
+    "source" : "features",
+    "target" : "ROOT",
+    "count" : 1
+  }, {
+    "source" : "ROOT",
+    "target" : "features",
+    "count" : 1
+  }, {
+    "source" : "types",
+    "target" : "features",
+    "count" : 1
+  }, {
+    "source" : "features",
+    "target" : "types",
+    "count" : 1
+  }, {
+    "source" : "features",
+    "target" : "cypress",
+    "count" : 1
+  }, {
+    "source" : "cypress",
+    "target" : "features",
+    "count" : 1
+  }, {
+    "source" : "hooks",
+    "target" : "features",
+    "count" : 1
+  }, {
+    "source" : "features",
+    "target" : "hooks",
+    "count" : 1
+  }, {
+    "source" : "lib",
+    "target" : "features",
+    "count" : 1
+  }, {
+    "source" : "features",
+    "target" : "lib",
+    "count" : 1
+  }, {
+    "source" : "lib",
+    "target" : "cypress",
+    "count" : 1
+  }, {
+    "source" : "cypress",
+    "target" : "lib",
+    "count" : 1
+  }, {
+    "source" : "prisma",
+    "target" : "features",
+    "count" : 1
+  }, {
+    "source" : "features",
+    "target" : "prisma",
+    "count" : 1
+  }, {
+    "source" : "prisma",
+    "target" : "cypress",
+    "count" : 1
+  }, {
+    "source" : "cypress",
+    "target" : "prisma",
+    "count" : 1
+  }, {
+    "source" : "hooks",
+    "target" : "cypress",
+    "count" : 1
+  }, {
+    "source" : "cypress",
+    "target" : "hooks",
+    "count" : 1
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => {
+        return {source: l.target, target: l.source, count: l.count}
+    });
+    const colorOf = (node) => {
+        if (!node.id.startsWith("[")) return "rgba(135, 206, 235, 0.6)";
+        return "rgba(100,100,100,0.6)";
+    }
+
+    const elem = document.getElementById('graph');
+    const Graph = ForceGraph()(elem)
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => colorOf(n))
+        .linkDirectionalParticles(1)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>

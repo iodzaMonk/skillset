@@ -1,0 +1,150 @@
+<html>
+<head>
+    <title>app/product/[slug]/payment/module/CheckoutPage.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/product/[slug]/payment/module/CheckoutPage.tsx (<b>104</b> lines of code) (<a href="CheckoutPage.tsx">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+
+import React, { useEffect, useState } from &quot;react&quot;;
+import {
+  useStripe,
+  useElements,
+  PaymentElement,
+} from &quot;@stripe/react-stripe-js&quot;;
+import convertToSubcurrency from &quot;@/app/lib/convertToSubcurrency&quot;;
+import axios from &quot;axios&quot;;
+import { useRouter } from &quot;next/navigation&quot;;
+
+interface Order {
+  prof_id: string;
+  client_id: string;
+  product_id: string;
+  description: string;
+}
+
+const CheckoutPage = ({ amount, order }: { amount: number; order?: Order }) =&gt; {
+  const stripe = useStripe();
+  const elements = useElements();
+  const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState&lt;string&gt;();
+  const [clientSecret, setClientSecret] = useState(&quot;&quot;);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() =&gt; {
+    fetch(&quot;/api/orders/create-payment&quot;, {
+      method: &quot;POST&quot;,
+      headers: {
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+      },
+      body: JSON.stringify({
+        amount: convertToSubcurrency(amount),
+        orderData: order,
+      }),
+    })
+      .then((res) =&gt; res.json())
+      .then((data) =&gt; setClientSecret(data.clientSecret));
+  }, [amount, order]);
+
+  const handleSubmit = async (event: React.FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    event.preventDefault();
+    setLoading(true);
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    const { error: submitError } = await elements.submit();
+
+    if (submitError) {
+      setErrorMessage(submitError.message);
+      setLoading(false);
+      return;
+    }
+
+    const { error, paymentIntent } = await stripe.confirmPayment({
+      elements,
+      clientSecret,
+      confirmParams: {
+        return_url: `${window.location.origin}`,
+      },
+      redirect: &quot;if_required&quot;,
+    });
+
+    if (error) {
+      setErrorMessage(error.message);
+      setLoading(false);
+    } else if (paymentIntent?.status === &quot;succeeded&quot;) {
+      try {
+        await axios.post(&quot;/api/orders&quot;, {
+          description: order?.description,
+          prof_id: order?.prof_id,
+          productId: order?.product_id, // This maps to product_id in the API
+          userId: order?.client_id, // This maps to client_id in the API
+          paymentIntentId: paymentIntent.id,
+        });
+
+        router.push(`payment/success?amount=${amount}`);
+      } catch (orderError) {
+        console.error(&quot;Failed to create order:&quot;, orderError);
+        setErrorMessage(
+          &quot;Payment succeeded but order creation failed. Please contact support.&quot;,
+        );
+      }
+    }
+
+    setLoading(false);
+  };
+
+  if (!clientSecret || !stripe || !elements) {
+    return (
+      &lt;div className=&quot;flex items-center justify-center&quot;&gt;
+        &lt;div
+          className=&quot;text-surface inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white&quot;
+          role=&quot;status&quot;
+        &gt;
+          &lt;span className=&quot;!absolute !-m-px !h-px !w-px !overflow-hidden !border-0 !p-0 !whitespace-nowrap ![clip:rect(0,0,0,0)]&quot;&gt;
+            Loading...
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  return (
+    &lt;form onSubmit={handleSubmit} className=&quot;rounded-md bg-white p-2&quot;&gt;
+      {clientSecret &amp;&amp; &lt;PaymentElement /&gt;}
+
+      {errorMessage &amp;&amp; &lt;div className=&quot;mt-2 text-red-500&quot;&gt;{errorMessage}&lt;/div&gt;}
+
+      &lt;button
+        disabled={!stripe || loading}
+        className=&quot;mt-2 w-full rounded-md bg-black p-5 font-bold text-white disabled:animate-pulse disabled:opacity-50&quot;
+      &gt;
+        {!loading ? `Pay $${amount}` : &quot;Processing...&quot;}
+      &lt;/button&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default CheckoutPage;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

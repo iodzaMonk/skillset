@@ -1,0 +1,92 @@
+[ {
+  "relativePath" : "tests/app.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 155,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/cart.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 111,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/orders.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 164,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/professional.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 179,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/uploads.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 74,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-connect-stripe-account.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 66,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-create-stripe-account.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 126,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-delete.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 62,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-login.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 103,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-logout.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 31,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-me.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 33,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-register.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 137,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-update.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 121,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+} ]
