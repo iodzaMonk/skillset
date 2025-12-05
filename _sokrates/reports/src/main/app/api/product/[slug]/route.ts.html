@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>app/api/product/[slug]/route.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/api/product/[slug]/route.ts (<b>83</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<div id="editor">import { prisma } from &quot;@/lib/prisma&quot;;
+import { NextResponse } from &quot;next/server&quot;;
+import { Prisma } from &quot;@prisma/client&quot;;
+import { createSignedDownloadUrl } from &quot;@/app/lib/storage/s3&quot;;
+
+const NO_IMAGE_PLACEHOLDER = &quot;/no-image.svg&quot;;
+
+export async function GET(
+  request: Request,
+  context: { params: Promise&lt;{ slug: string }&gt; },
+) {
+  const { slug } = await context.params;
+  try {
+    const product = await prisma.posts.findUnique({
+      where: { id: slug },
+      include: {
+        users: {
+          select: {
+            id: true,
+            name: true,
+            country: true,
+            email: true,
+          },
+        },
+        reviews: {
+          include: {
+            users: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+            replies: {
+              select: {
+                id: true,
+                date: true,
+                text: true,
+              },
+            },
+          },
+          orderBy: {
+            date: &quot;desc&quot;,
+          },
+        },
+      },
+    });
+
+    if (!product) {
+      return NextResponse.json(
+        { message: &quot;Product not found&quot; },
+        { status: 404 },
+      );
+    }
+
+    if (!product.image_location) {
+      return NextResponse.json({
+        ...product,
+        image_url: NO_IMAGE_PLACEHOLDER,
+      });
+    }
+
+    try {
+      const imageUrl = await createSignedDownloadUrl(product.image_location);
+      return NextResponse.json({
+        ...product,
+        image_url: imageUrl,
+      });
+    } catch (error) {
+      console.error(&quot;Failed to sign image url&quot;, error);
+      return NextResponse.json({
+        ...product,
+        image_url: NO_IMAGE_PLACEHOLDER,
+      });
+    }
+  } catch (error) {
+    console.error(&quot;Error fetching product:&quot;, error);
+
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      return NextResponse.json(
+        { message: &quot;Invalid product ID&quot; },
+        { status: 400 },
+      );
+    }
+
+    return NextResponse.json(
+      { message: &quot;Internal Server Error&quot; },
+      { status: 500 },
+    );
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

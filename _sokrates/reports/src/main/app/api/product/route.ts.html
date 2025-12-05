@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>app/api/product/route.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/api/product/route.ts (<b>63</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<div id="editor">import { headers } from &quot;next/headers&quot;;
+import { getCurrentUser } from &quot;@/app/lib/user&quot;;
+import { createSignedDownloadUrl } from &quot;@/app/lib/storage/s3&quot;;
+import { prisma } from &quot;@/lib/prisma&quot;;
+import { PostBody } from &quot;@/types/PostBody&quot;;
+import { Category } from &quot;@prisma/client&quot;;
+
+export async function GET(request: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;);
+  try {
+    const url = new URL(request.url);
+    const category = url.searchParams.get(&quot;category&quot;);
+    const products = await prisma.posts.findMany({
+      where: category ? { category: category as Category } : undefined,
+    });
+
+    const productsWithImages = await Promise.all(
+      products.map(async (product) =&gt; {
+        if (!product.image_location) {
+          return product;
+        }
+
+        try {
+          const imageUrl = await createSignedDownloadUrl(
+            product.image_location,
+          );
+          return {
+            ...product,
+            image_url: imageUrl,
+          };
+        } catch (error) {
+          console.error(&quot;Failed to sign image url&quot;, error);
+          return product;
+        }
+      }),
+    );
+
+    return new Response(JSON.stringify(productsWithImages), {
+      status: 200,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
+  } catch (error) {
+    console.log(error);
+    return new Response(&quot;Error&quot;, {
+      status: 500,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
+  }
+}
+export async function DELETE(req: Request) {
+  try {
+    const body = (await req.json()) as PostBody;
+    const { id } = body ?? {};
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json({ message: &quot;Not authenticated&quot; }, { status: 401 });
+    }
+
+    await prisma.posts.delete({
+      where: { id: id },
+    });
+    return Response.json({ message: &quot;Product deleted&quot; }, { status: 200 });
+  } catch (e) {
+    console.error(e);
+    return Response.json({ message: &quot;Internal server error&quot; }, { status: 500 });
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

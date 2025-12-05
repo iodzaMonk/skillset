@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>prisma/migrations/20251030221317_change_rating_on_reviews_and_the_type_on_posts_rating/migration.sql</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">prisma/migrations/20251030221317_change_rating_on_reviews_and_the_type_on_posts_rating/migration.sql (<b>2</b> lines of code) (<a href="migration.sql">raw</a>):</h3>
+<div id="editor">/*
+  Warnings:
+
+  - You are about to alter the column `rating` on the `posts` table. The data in that column could be lost. The data in that column will be cast from `DoublePrecision` to `SmallInt`.
+
+*/
+-- AlterTable
+ALTER TABLE &quot;posts&quot; ALTER COLUMN &quot;rating&quot; SET DATA TYPE SMALLINT;
+
+-- AlterTable
+ALTER TABLE &quot;reviews&quot; ADD COLUMN     &quot;rating&quot; SMALLINT;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/sql");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

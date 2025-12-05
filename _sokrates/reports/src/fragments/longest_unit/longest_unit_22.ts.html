@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>export async function POST()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export async function POST()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/create-stripe-account/route.ts [9:66]</i></p>
+<ul>
+    <li><b>52</b> lines of code</li>
+    <li><b>4</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+export async function POST(request: NextRequest) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
+
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return NextResponse.json(
+        { message: &quot;Not authenticated&quot; },
+        { status: 401, headers: { &quot;x-referer&quot;: referer } },
+      );
+    }
+
+    const body = await request.json();
+    const { email, refreshUrl, returnUrl } = body;
+
+    const account = await stripe.accounts.create({
+      type: &quot;express&quot;,
+      country: &quot;CA&quot;,
+      email: email,
+      business_profile: {
+        url: &quot;https://skillset-orcin.vercel.app&quot;,
+      },
+      capabilities: {
+        card_payments: { requested: true },
+        transfers: { requested: true },
+      },
+    });
+
+    const accountLink = await stripe.accountLinks.create({
+      account: account.id,
+      refresh_url: refreshUrl,
+      return_url: returnUrl,
+      type: &quot;account_onboarding&quot;,
+    });
+
+    await prisma.users.update({
+      where: { id: user.id },
+      data: { vendor_id: account.id },
+    });
+
+    return NextResponse.json(
+      { url: accountLink.url, accountId: account.id },
+      { status: 200, headers: { &quot;x-referer&quot;: referer } },
+    );
+  } catch (error) {
+    console.error(&quot;Stripe connect error:&quot;, error);
+    return NextResponse.json(
+      {
+        error:
+          error instanceof Error
+            ? error.message
+            : &quot;Failed to create Stripe connection&quot;,
+      },
+      { status: 500, headers: { &quot;x-referer&quot;: referer } },
+    );
+  }
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

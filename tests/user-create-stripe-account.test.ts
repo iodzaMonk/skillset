@@ -19,7 +19,7 @@ jest.mock("@/lib/prisma", () => ({
 
 const mockAccountsCreate = jest.fn();
 const mockAccountLinksCreate = jest.fn();
-const StripeConstructor = jest.fn().mockImplementation(() => ({
+const mockStripeConstructor = jest.fn().mockImplementation(() => ({
   accounts: {
     create: mockAccountsCreate,
   },
@@ -30,7 +30,7 @@ const StripeConstructor = jest.fn().mockImplementation(() => ({
 
 jest.mock("stripe", () => ({
   __esModule: true,
-  default: StripeConstructor,
+  default: mockStripeConstructor,
 }));
 
 describe("app/api/user/create-stripe-account/route", () => {

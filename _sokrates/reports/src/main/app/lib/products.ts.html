@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>app/lib/products.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/lib/products.ts (<b>59</b> lines of code) (<a href="products.ts">raw</a>):</h3>
+<div id="editor">import axios from &quot;axios&quot;;
+
+import type { PostBody } from &quot;@/types/PostBody&quot;;
+
+const api = axios.create({
+  withCredentials: true,
+});
+
+export async function fetchUserProducts(): Promise&lt;PostBody[]&gt; {
+  try {
+    const res = await api.get(&quot;/api/product/user&quot;);
+    return res.data?.data ?? [];
+  } catch (error) {
+    console.error(&quot;Failed to fetch products&quot;, error);
+    throw error;
+  }
+}
+
+export async function createProduct(payload: PostBody): Promise&lt;PostBody&gt; {
+  try {
+    const body = {
+      user_id: payload.user_id,
+      title: payload.title.trim(),
+      description: payload.description.trim(),
+      price: payload.price,
+      image_location: payload.image_location,
+      category: payload.category,
+    };
+
+    const res = await api.post(&quot;/api/product/user&quot;, body);
+    return res.data?.data as PostBody;
+  } catch (error) {
+    console.error(&quot;Failed to create a product&quot;, error);
+    throw error;
+  }
+}
+
+export async function updateProduct(payload: PostBody): Promise&lt;PostBody&gt; {
+  try {
+    const body = {
+      id: payload.id,
+      user_id: payload.user_id,
+      title: payload.title.trim(),
+      description: payload.description.trim(),
+      price: payload.price,
+      image_location: payload.image_location,
+      category: payload.category,
+    };
+
+    const res = await api.put(&quot;/api/product/user&quot;, body);
+    return res.data?.data as PostBody;
+  } catch (error) {
+    console.error(&quot;Failed to update a product&quot;, error);
+    throw error;
+  }
+}
+
+export async function deleteProduct(id: string): Promise&lt;void&gt; {
+  try {
+    await api.delete(&quot;/api/product&quot;, {
+      data: { id },
+    });
+  } catch (error) {
+    console.error(&quot;Failed to delete product&quot;, error);
+    throw error;
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

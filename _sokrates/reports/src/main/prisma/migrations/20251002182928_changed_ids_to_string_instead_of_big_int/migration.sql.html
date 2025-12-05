@@ -1,0 +1,104 @@
+<html>
+<head>
+    <title>prisma/migrations/20251002182928_changed_ids_to_string_instead_of_big_int/migration.sql</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">prisma/migrations/20251002182928_changed_ids_to_string_instead_of_big_int/migration.sql (<b>38</b> lines of code) (<a href="migration.sql">raw</a>):</h3>
+<div id="editor">/*
+  Warnings:
+
+  - The primary key for the `commands` table will be changed. If it partially fails, the table could be left without primary key constraint.
+  - The primary key for the `posts` table will be changed. If it partially fails, the table could be left without primary key constraint.
+  - The primary key for the `reviews` table will be changed. If it partially fails, the table could be left without primary key constraint.
+  - The primary key for the `users` table will be changed. If it partially fails, the table could be left without primary key constraint.
+
+*/
+-- DropForeignKey
+ALTER TABLE &quot;public&quot;.&quot;commands&quot; DROP CONSTRAINT &quot;commands_client_id_fkey&quot;;
+
+-- DropForeignKey
+ALTER TABLE &quot;public&quot;.&quot;commands&quot; DROP CONSTRAINT &quot;commands_product_id_fkey&quot;;
+
+-- DropForeignKey
+ALTER TABLE &quot;public&quot;.&quot;commands&quot; DROP CONSTRAINT &quot;commands_prof_id_fkey&quot;;
+
+-- DropForeignKey
+ALTER TABLE &quot;public&quot;.&quot;posts&quot; DROP CONSTRAINT &quot;products_user_id_fkey&quot;;
+
+-- DropForeignKey
+ALTER TABLE &quot;public&quot;.&quot;reviews&quot; DROP CONSTRAINT &quot;review_user_id_fkey&quot;;
+
+-- DropForeignKey
+ALTER TABLE &quot;public&quot;.&quot;reviews&quot; DROP CONSTRAINT &quot;reviews_product_id_fkey&quot;;
+
+-- AlterTable
+ALTER TABLE &quot;commands&quot; DROP CONSTRAINT &quot;commands_pkey&quot;,
+ALTER COLUMN &quot;id&quot; DROP DEFAULT,
+ALTER COLUMN &quot;id&quot; SET DATA TYPE TEXT,
+ALTER COLUMN &quot;client_id&quot; SET DATA TYPE TEXT,
+ALTER COLUMN &quot;product_id&quot; SET DATA TYPE TEXT,
+ALTER COLUMN &quot;prof_id&quot; SET DATA TYPE TEXT,
+ADD CONSTRAINT &quot;commands_pkey&quot; PRIMARY KEY (&quot;id&quot;);
+DROP SEQUENCE &quot;commands_id_seq&quot;;
+
+-- AlterTable
+ALTER TABLE &quot;posts&quot; DROP CONSTRAINT &quot;products_pkey&quot;,
+ALTER COLUMN &quot;id&quot; DROP DEFAULT,
+ALTER COLUMN &quot;id&quot; SET DATA TYPE TEXT,
+ALTER COLUMN &quot;user_id&quot; SET DATA TYPE TEXT,
+ADD CONSTRAINT &quot;products_pkey&quot; PRIMARY KEY (&quot;id&quot;);
+DROP SEQUENCE &quot;posts_id_seq&quot;;
+
+-- AlterTable
+ALTER TABLE &quot;reviews&quot; DROP CONSTRAINT &quot;review_pkey&quot;,
+ALTER COLUMN &quot;id&quot; DROP DEFAULT,
+ALTER COLUMN &quot;id&quot; SET DATA TYPE TEXT,
+ALTER COLUMN &quot;user_id&quot; SET DATA TYPE TEXT,
+ALTER COLUMN &quot;product_id&quot; SET DATA TYPE TEXT,
+ADD CONSTRAINT &quot;review_pkey&quot; PRIMARY KEY (&quot;id&quot;);
+DROP SEQUENCE &quot;reviews_id_seq&quot;;
+
+-- AlterTable
+ALTER TABLE &quot;users&quot; DROP CONSTRAINT &quot;users_pkey&quot;,
+ALTER COLUMN &quot;id&quot; DROP DEFAULT,
+ALTER COLUMN &quot;id&quot; SET DATA TYPE TEXT,
+ADD CONSTRAINT &quot;users_pkey&quot; PRIMARY KEY (&quot;id&quot;);
+DROP SEQUENCE &quot;users_id_seq&quot;;
+
+-- AddForeignKey
+ALTER TABLE &quot;commands&quot; ADD CONSTRAINT &quot;commands_client_id_fkey&quot; FOREIGN KEY (&quot;client_id&quot;) REFERENCES &quot;users&quot;(&quot;id&quot;) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
+ALTER TABLE &quot;commands&quot; ADD CONSTRAINT &quot;commands_product_id_fkey&quot; FOREIGN KEY (&quot;product_id&quot;) REFERENCES &quot;posts&quot;(&quot;id&quot;) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE &quot;commands&quot; ADD CONSTRAINT &quot;commands_prof_id_fkey&quot; FOREIGN KEY (&quot;prof_id&quot;) REFERENCES &quot;users&quot;(&quot;id&quot;) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
+ALTER TABLE &quot;posts&quot; ADD CONSTRAINT &quot;products_user_id_fkey&quot; FOREIGN KEY (&quot;user_id&quot;) REFERENCES &quot;users&quot;(&quot;id&quot;) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE &quot;reviews&quot; ADD CONSTRAINT &quot;review_user_id_fkey&quot; FOREIGN KEY (&quot;user_id&quot;) REFERENCES &quot;users&quot;(&quot;id&quot;) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
+ALTER TABLE &quot;reviews&quot; ADD CONSTRAINT &quot;reviews_product_id_fkey&quot; FOREIGN KEY (&quot;product_id&quot;) REFERENCES &quot;posts&quot;(&quot;id&quot;) ON DELETE CASCADE ON UPDATE CASCADE;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/sql");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

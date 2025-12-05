@@ -1,0 +1,30 @@
+
+Usage: java -jar sokrates.jar <command> <options>
+
+Help: java -jar sokrates.jar <command> -help
+
+Commands: init, generateReports, updateLandscape, updateConfig, extractGitHistory, createConventionsFile, exportStandardConventions, extractGitSubHistory
+
+* init: Creates a new Sokrates analysis configuration file based on standard and optional custom conventions
+   - options: [-srcRoot <arg>] [-confFile <arg>] [-conventionsFile <arg>] [-name <arg>] [-description <arg>] [-logoLink <arg>] [-addLink <arg>] [-timeout <arg>] [-help]
+
+* generateReports: Generates Sokrates reports based on the analysis configuration
+   - options: [-confFile <arg>] [-outputFolder <arg>] [-internalGraphviz] [-timeout <arg>] [-date <arg>] [-help]
+
+* updateLandscape: Updates or creates a Sokrates landscape report, aggregating results of multiple analyses
+   - options: [-analysisRoot <arg>] [-confFile <arg>] [-recursive] [-setName <arg>] [-setDescription <arg>] [-setLogoLink <arg>] [-addLink <arg>] [-timeout <arg>] [-date <arg>] [-help]
+
+* updateConfig: Updates an analysis configuration file and completes missing fields
+   - options: [-confFile <arg>] [-skipComplexAnalyses] [-setCacheFiles <arg>] [-setName <arg>] [-setDescription <arg>] [-setLogoLink <arg>] [-addLink <arg>] [-timeout <arg>] [-help]
+
+* extractGitHistory: Extract a git history in a format used by Sokrates and saves it in the git-history.txt file
+   - options: [-analysisRoot <arg>] [-help]
+
+* createConventionsFile: Create a new analysis conventions file and saves it in <current-folder>/analysis_conventions.json 
+
+* exportStandardConventions: Export standard Sokrates analysis convention to <current-folder>/standard_analysis_conventions.json.
+
+* extractGitSubHistory: A utility function to split a git history file (git-history.txt) into smaller ones based on a commit file path prefix, removing the prefix from file path in split files
+   - options: [-prefix <arg>] [-analysisRoot <arg>] [-help]
+
+

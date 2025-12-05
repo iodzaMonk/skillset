@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+    .node {
+        cursor: pointer;
+    }
+
+    .node:hover {
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+
+    .node--leaf {
+        fill: white;
+    }
+
+    .label {
+        font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-anchor: middle;
+        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+    }
+
+    .label,
+    .node--root,
+    .node--leaf {
+        pointer-events: none;
+    }
+
+</style>
+<svg width="960" height="960"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+    var svg = d3.select("svg"),
+        margin = 20,
+        diameter = +svg.attr("width"),
+        g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+
+    var color = d3.scaleLinear()
+        .domain([-1, 5])
+        .range(["hsl(152,80%,100%)", "hsl(228,30%,40%)"])
+        .interpolate(d3.interpolateHcl);
+
+    var pack = d3.pack()
+        .size([diameter - margin, diameter - margin])
+        .padding(2);
+
+
+    var root = {
+        "name": "cluster",
+        "children": [ {
+  "name" : "app",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "about",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "page.tsx (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "api",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "cart",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "route.ts (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      }, {
+        "name" : "user",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        } ]
+      } ]
+    }, {
+      "name" : "orders",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "create-payment",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.tsx (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "route.ts (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      }, {
+        "name" : "user",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (1)",
+          "color" : "grey",
+          "size" : 1,
+          "children" : [ ]
+        } ]
+      } ]
+    }, {
+      "name" : "product",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "route.ts (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      }, {
+        "name" : "user",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "[slug]",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "reviews",
+          "color" : "",
+          "size" : 0,
+          "children" : [ {
+            "name" : "replies",
+            "color" : "",
+            "size" : 0,
+            "children" : [ {
+              "name" : "route.ts (2)",
+              "color" : "",
+              "size" : 2,
+              "children" : [ ]
+            } ]
+          }, {
+            "name" : "route.ts (2)",
+            "color" : "",
+            "size" : 2,
+            "children" : [ ]
+          } ]
+        }, {
+          "name" : "route.ts (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        } ]
+      } ]
+    }, {
+      "name" : "professional",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "[id]",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        } ]
+      } ]
+    }, {
+      "name" : "uploads",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "route.ts (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "user",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "connect-stripe-account",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "create-stripe-account",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "delete",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (1)",
+          "color" : "grey",
+          "size" : 1,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "login",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (1)",
+          "color" : "grey",
+          "size" : 1,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "logout",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (1)",
+          "color" : "grey",
+          "size" : 1,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "me",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (1)",
+          "color" : "grey",
+          "size" : 1,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "register",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (1)",
+          "color" : "grey",
+          "size" : 1,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "update",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "route.ts (1)",
+          "color" : "grey",
+          "size" : 1,
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "browse",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "components",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "categories.tsx (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "page.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "Components",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "Header.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "context",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "AuthContext.tsx (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "AuthProvider.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "globals.css (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "layout.tsx (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "lib",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "auth",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "login.ts (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "convertToSubcurrency.ts (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "orders.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "productCrud.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "products.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "session",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "tokens.ts (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "session.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "storage",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "s3.ts (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      }, {
+        "name" : "uploadAdapter.ts (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "user.ts (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "myorderslist",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "page.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "_components",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "Modal.tsx (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      }, {
+        "name" : "OrderList.tsx (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "_hooks",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "orderStates.ts (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "myproduct",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "actions.ts (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "page.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "_components",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "Modal.tsx (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      }, {
+        "name" : "PostList.tsx (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "_hooks",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "postStates.ts (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "orders",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "page.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "_components",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "Modal.tsx (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      }, {
+        "name" : "OrderList.tsx (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "_hooks",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "orderStates.ts (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "page.tsx (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "product",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "[slug]",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "components",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "Comment.tsx (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        }, {
+          "name" : "Comments.tsx (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        }, {
+          "name" : "Modal.tsx (1)",
+          "color" : "grey",
+          "size" : 1,
+          "children" : [ ]
+        }, {
+          "name" : "useComments.ts (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        } ]
+      }, {
+        "name" : "page.tsx (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      }, {
+        "name" : "payment",
+        "color" : "",
+        "size" : 0,
+        "children" : [ {
+          "name" : "module",
+          "color" : "",
+          "size" : 0,
+          "children" : [ {
+            "name" : "CheckoutPage.tsx (2)",
+            "color" : "",
+            "size" : 2,
+            "children" : [ ]
+          } ]
+        }, {
+          "name" : "page.tsx (2)",
+          "color" : "",
+          "size" : 2,
+          "children" : [ ]
+        }, {
+          "name" : "success",
+          "color" : "",
+          "size" : 0,
+          "children" : [ {
+            "name" : "page.tsx (2)",
+            "color" : "",
+            "size" : 2,
+            "children" : [ ]
+          } ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "professional",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "[id]",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "page.tsx (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "settings",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "page.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "SettingsForm.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "StripeConnectButton.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "utils",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "email.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "_components",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "ProductCarousel.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "components",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "ui",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "accordion.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "alert-dialog.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "alert.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "aspect-ratio.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "avatar.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "badge.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "breadcrumb.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "button-group.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "button.tsx (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "calendar.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "card.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "carousel.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "chart.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "checkbox.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "collapsible.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "command.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "context-menu.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "dialog.tsx (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "drawer.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "dropdown-menu.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "empty.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "field.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "form.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "hover-card.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "input-group.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "input-otp.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "input.tsx (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "item.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "kbd.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "label.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "menubar.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "pagination.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "popover.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "progress.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "radio-group.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "resizable.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "scroll-area.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "select.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "separator.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "sheet.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "sidebar.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "skeleton.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "slider.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "sonner.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "spinner.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "switch.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "table.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "tabs.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "textarea.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "toggle-group.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "toggle.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "tooltip.tsx (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "cypress",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "support",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "commands.ts (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "e2e.ts (2)",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "cypress.config.ts (2)",
+  "color" : "",
+  "size" : 2,
+  "children" : [ ]
+}, {
+  "name" : "eslint.config.mjs (1)",
+  "color" : "grey",
+  "size" : 1,
+  "children" : [ ]
+}, {
+  "name" : "features",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "step_definitions",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "auth.steps.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "browse.steps.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "product.steps.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "productCrud.steps.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "upload.steps.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "support",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "authService.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "browseService.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "productCrudFixture.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "productService.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    }, {
+      "name" : "uploadFixture.ts (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "hooks",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "use-mobile.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "lib",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "prisma.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "utils.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "next.config.ts (1)",
+  "color" : "grey",
+  "size" : 1,
+  "children" : [ ]
+}, {
+  "name" : "prisma",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "migrations",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "20251002155517_init",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251002182928_changed_ids_to_string_instead_of_big_int",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251002184927_added_default_date_value_to_posts",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251016163611_added_category_column_in_posts",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251016165121_added_category",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251016170846_category_is_now_with_a_small_letter",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251017214247_category_order",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251018141155_enum_status_for_commands",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (1)",
+        "color" : "grey",
+        "size" : 1,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251030155920_add_vendor_id",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251030170423_add_review_replies",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251030220108_add_rating",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251030221317_change_rating_on_reviews_and_the_type_on_posts_rating",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "20251030223914_add_product_rating_metrics",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "migration.sql (2)",
+        "color" : "",
+        "size" : 2,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "migration_lock.toml (1)",
+      "color" : "grey",
+      "size" : 1,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "schema.prisma (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "seed.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "prisma.config.ts (1)",
+  "color" : "grey",
+  "size" : 1,
+  "children" : [ ]
+}, {
+  "name" : "types",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "Category.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "Comment.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "Country.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "Order.ts (1)",
+    "color" : "grey",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "PostBody.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "Professional.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "Status.ts (1)",
+    "color" : "grey",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "User.ts (2)",
+    "color" : "",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "UserBody.ts (1)",
+    "color" : "grey",
+    "size" : 1,
+    "children" : [ ]
+  } ]
+} ]
+    }
+
+    root = d3.hierarchy(root)
+        .sum(function (d) {
+            return d.size;
+        })
+        .sort(function (a, b) {
+            return b.value - a.value;
+        });
+
+    var focus = root,
+        nodes = pack(root).descendants(),
+        view;
+
+    var circle = g.selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", function (d) {
+            return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root";
+        })
+        .style("fill", function (d) {
+            return d.children ? color(d.depth) : (d.data.color ? d.data.color : null);
+        })
+        .on("click", function (d) {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        });
+
+    var text = g.selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .style("fill-opacity", function (d) {
+            return d.parent === root ? 1 : 0;
+        })
+        .style("display", function (d) {
+            return d.parent === root ? "inline" : "none";
+        })
+        .text(function (d) {
+            return d.data.name.length > 33 ? (d.data.name.substr(0, 14) + "..." + d.data.name.substr(d.data.name.length - 14))  : d.data.name;
+        });
+
+    var node = g.selectAll("circle,text");
+
+    svg
+        .style("background", color(-1))
+        .on("click", function () {
+            zoom(root);
+        });
+
+    zoomTo([root.x, root.y, root.r * 2 + margin]);
+
+    function zoom(d) {
+        var focus0 = focus;
+        focus = d;
+
+        var transition = d3.transition()
+            .duration(d3.event.altKey ? 7500 : 750)
+            .tween("zoom", function (d) {
+                var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+                return function (t) {
+                    zoomTo(i(t));
+                };
+            });
+
+        transition.selectAll("text")
+            .filter(function (d) {
+                return d.parent === focus || this.style.display === "inline";
+            })
+            .style("fill-opacity", function (d) {
+                return d.parent === focus ? 1 : 0;
+            })
+            .on("start", function (d) {
+                if (d.parent === focus) this.style.display = "inline";
+            })
+            .on("end", function (d) {
+                if (d.parent !== focus) this.style.display = "none";
+            });
+    }
+
+    function zoomTo(v) {
+        var k = diameter / v[2];
+        view = v;
+        node.attr("transform", function (d) {
+            return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
+        });
+        circle.attr("r", function (d) {
+            return d.r * k;
+        });
+    }
+
+</script>

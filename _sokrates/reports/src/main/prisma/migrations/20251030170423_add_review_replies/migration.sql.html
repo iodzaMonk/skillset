@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>prisma/migrations/20251030170423_add_review_replies/migration.sql</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">prisma/migrations/20251030170423_add_review_replies/migration.sql (<b>9</b> lines of code) (<a href="migration.sql">raw</a>):</h3>
+<div id="editor">-- Add parent_id for nested replies
+ALTER TABLE &quot;reviews&quot;
+ADD COLUMN &quot;parent_id&quot; VARCHAR;
+
+-- Create self-referencing foreign key to enforce hierarchy
+ALTER TABLE &quot;reviews&quot;
+ADD CONSTRAINT &quot;reviews_parent_id_fkey&quot;
+FOREIGN KEY (&quot;parent_id&quot;) REFERENCES &quot;reviews&quot;(&quot;id&quot;)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
+-- Helpful index for product reply lookups
+CREATE INDEX &quot;reviews_product_id_parent_id_idx&quot;
+ON &quot;reviews&quot;(&quot;product_id&quot;, &quot;parent_id&quot;);
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/sql");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

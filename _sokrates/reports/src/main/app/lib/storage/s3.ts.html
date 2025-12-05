@@ -1,0 +1,155 @@
+<html>
+<head>
+    <title>app/lib/storage/s3.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/lib/storage/s3.ts (<b>105</b> lines of code) (<a href="s3.ts">raw</a>):</h3>
+<div id="editor">import { randomUUID } from &quot;crypto&quot;;
+
+import {
+  S3Client,
+  PutObjectCommand,
+  GetObjectCommand,
+  DeleteObjectCommand,
+} from &quot;@aws-sdk/client-s3&quot;;
+import { getSignedUrl } from &quot;@aws-sdk/s3-request-presigner&quot;;
+
+const REGION =
+  process.env.AWS_BUCKET_REGION ??
+  process.env.AWS_REGION ??
+  process.env.AWS_DEFAULT_REGION;
+const ACCESS_KEY =
+  process.env.AWS_ACCESS_KEY_ID ?? process.env.AWS_ACCESS_KEY_ID_ID;
+const SECRET_KEY =
+  process.env.AWS_SECRET_ACCESS_KEY ?? process.env.AWS_SECRET_ACCESS_KEY_ID;
+const BUCKET = process.env.AWS_BUCKET_NAME;
+
+const hasS3Config = Boolean(REGION &amp;&amp; ACCESS_KEY &amp;&amp; SECRET_KEY &amp;&amp; BUCKET);
+
+const s3 = hasS3Config
+  ? new S3Client({
+      region: REGION!,
+      credentials: {
+        accessKeyId: ACCESS_KEY!,
+        secretAccessKey: SECRET_KEY!,
+      },
+    })
+  : null;
+
+type InMemoryObject = {
+  body: Buffer | Uint8Array | string;
+  contentType?: string;
+};
+
+const inMemoryBucket = new Map&lt;string, InMemoryObject&gt;();
+
+function sanitizeFileName(name: string) {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9._-]/g, &quot;-&quot;)
+    .replace(/-+/g, &quot;-&quot;);
+}
+
+export async function createSignedUploadUrl(originalName?: string) {
+  const safeName = sanitizeFileName(originalName ?? &quot;upload.bin&quot;);
+  const key = `images/${randomUUID()}-${safeName}`;
+
+  if (!s3) {
+    return { url: `memory://${key}`, key };
+  }
+
+  const putObjectCommand = new PutObjectCommand({
+    Bucket: BUCKET,
+    Key: key,
+  });
+
+  const signedURL = await getSignedUrl(s3, putObjectCommand, {
+    expiresIn: 60,
+  });
+
+  return { url: signedURL, key };
+}
+
+export type UploadObjectParams = {
+  buffer: Buffer | Uint8Array | string;
+  originalName?: string;
+  contentType?: string;
+};
+
+export async function uploadObject({
+  buffer,
+  originalName,
+  contentType,
+}: UploadObjectParams) {
+  const safeName = sanitizeFileName(originalName ?? &quot;upload.bin&quot;);
+  const key = `images/${randomUUID()}-${safeName}`;
+
+  if (!s3 || !BUCKET) {
+    inMemoryBucket.set(key, { body: buffer, contentType });
+    return { key };
+  }
+
+  const putObjectCommand = new PutObjectCommand({
+    Bucket: BUCKET,
+    Key: key,
+    Body: buffer,
+    ContentType: contentType,
+  });
+
+  await s3.send(putObjectCommand);
+
+  return { key };
+}
+
+export async function createSignedDownloadUrl(key: string) {
+  if (!s3 || !BUCKET) {
+    if (!inMemoryBucket.has(key)) {
+      throw new Error(`Object ${key} not found in in-memory bucket`);
+    }
+    return `memory://${key}`;
+  }
+
+  const getObjectCommand = new GetObjectCommand({
+    Bucket: BUCKET,
+    Key: key,
+  });
+
+  return getSignedUrl(s3, getObjectCommand, {
+    expiresIn: 60,
+  });
+}
+
+export async function deleteObject(key: string) {
+  if (!s3 || !BUCKET) {
+    inMemoryBucket.delete(key);
+    return;
+  }
+
+  const deleteCommand = new DeleteObjectCommand({
+    Bucket: BUCKET,
+    Key: key,
+  });
+
+  await s3.send(deleteCommand);
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

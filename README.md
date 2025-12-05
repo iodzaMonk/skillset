@@ -77,3 +77,4 @@ docker compose down -v
 This wipes the Postgres data volume (`skillset-db-data`) so you start fresh next time.
 
 ---
+run

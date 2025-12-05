@@ -1,0 +1,312 @@
+23 duplicated lines in:
+  - app/api/professional/[id]/route.ts (15:37, 27%)
+  - coverage/api/professional/[id]/route.ts.html (290:312, 6%)
+
+23 duplicated lines in:
+  - app/api/professional/[id]/route.ts (15:37, 27%)
+  - coverage/lcov-report/api/professional/[id]/route.ts.html (290:312, 6%)
+
+20 duplicated lines in:
+  - app/api/orders/route.ts (8:27, 36%)
+  - coverage/api/orders/route.ts.html (203:222, 8%)
+
+20 duplicated lines in:
+  - app/api/orders/route.ts (8:27, 36%)
+  - coverage/lcov-report/api/orders/route.ts.html (203:222, 8%)
+
+13 duplicated lines in:
+  - app/api/user/register/route.ts (50:62, 18%)
+  - coverage/api/user/register/route.ts.html (309:321, 3%)
+
+13 duplicated lines in:
+  - app/api/user/register/route.ts (50:62, 18%)
+  - coverage/lcov-report/api/user/register/route.ts.html (309:321, 3%)
+
+12 duplicated lines in:
+  - app/api/cart/route.ts (40:51, 30%)
+  - coverage/api/orders/route.ts.html (247:258, 4%)
+
+12 duplicated lines in:
+  - app/api/professional/[id]/route.ts (55:66, 14%)
+  - coverage/lcov-report/api/professional/[id]/route.ts.html (330:341, 3%)
+
+12 duplicated lines in:
+  - app/api/user/create-stripe-account/route.ts (25:36, 24%)
+  - coverage/api/user/create-stripe-account/route.ts.html (222:233, 4%)
+
+12 duplicated lines in:
+  - app/api/orders/route.ts (52:63, 21%)
+  - coverage/api/cart/route.ts.html (211:222, 5%)
+
+12 duplicated lines in:
+  - app/api/cart/route.ts (40:51, 30%)
+  - coverage/lcov-report/api/cart/route.ts.html (211:222, 5%)
+
+12 duplicated lines in:
+  - app/api/user/create-stripe-account/route.ts (25:36, 24%)
+  - coverage/lcov-report/api/user/create-stripe-account/route.ts.html (222:233, 4%)
+
+12 duplicated lines in:
+  - app/api/orders/route.ts (52:63, 21%)
+  - coverage/lcov-report/api/orders/route.ts.html (247:258, 4%)
+
+12 duplicated lines in:
+  - app/api/professional/[id]/route.ts (55:66, 14%)
+  - coverage/api/professional/[id]/route.ts.html (330:341, 3%)
+
+12 duplicated lines in:
+  - app/api/cart/route.ts (40:51, 30%)
+  - coverage/api/cart/route.ts.html (211:222, 5%)
+
+12 duplicated lines in:
+  - app/api/orders/route.ts (52:63, 21%)
+  - coverage/lcov-report/api/cart/route.ts.html (211:222, 5%)
+
+12 duplicated lines in:
+  - app/api/cart/route.ts (40:51, 30%)
+  - coverage/lcov-report/api/orders/route.ts.html (247:258, 4%)
+
+12 duplicated lines in:
+  - app/api/orders/route.ts (52:63, 21%)
+  - coverage/api/orders/route.ts.html (247:258, 4%)
+
+11 duplicated lines in:
+  - app/api/cart/route.ts (21:32, 27%)
+  - coverage/lcov-report/api/orders/route.ts.html (229:239, 4%)
+
+11 duplicated lines in:
+  - app/api/orders/route.ts (34:44, 20%)
+  - coverage/api/orders/route.ts.html (229:239, 4%)
+
+11 duplicated lines in:
+  - app/api/orders/route.ts (34:44, 20%)
+  - coverage/lcov-report/api/orders/route.ts.html (229:239, 4%)
+
+11 duplicated lines in:
+  - app/api/cart/route.ts (21:32, 27%)
+  - coverage/api/orders/route.ts.html (229:239, 4%)
+
+10 duplicated lines in:
+  - app/api/orders/route.ts (35:44, 18%)
+  - coverage/api/cart/route.ts.html (194:203, 4%)
+
+10 duplicated lines in:
+  - app/api/cart/route.ts (23:32, 25%)
+  - coverage/api/cart/route.ts.html (194:203, 4%)
+
+10 duplicated lines in:
+  - app/api/orders/route.ts (35:44, 18%)
+  - coverage/lcov-report/api/cart/route.ts.html (194:203, 4%)
+
+10 duplicated lines in:
+  - app/api/cart/route.ts (23:32, 25%)
+  - coverage/lcov-report/api/cart/route.ts.html (194:203, 4%)
+
+9 duplicated lines in:
+  - app/api/cart/route.ts (13:21, 22%)
+  - coverage/lcov-report/api/cart/route.ts.html (184:192, 4%)
+
+9 duplicated lines in:
+  - app/api/cart/route.ts (13:21, 22%)
+  - coverage/api/cart/route.ts.html (184:192, 4%)
+
+9 duplicated lines in:
+  - app/api/orders/route.ts (19:27, 16%)
+  - coverage/lcov-report/api/cart/route.ts.html (184:192, 4%)
+
+9 duplicated lines in:
+  - app/api/cart/route.ts (13:21, 22%)
+  - coverage/lcov-report/api/orders/route.ts.html (214:222, 3%)
+
+9 duplicated lines in:
+  - app/api/product/user/route.ts (111:119, 9%)
+  - coverage/api/product/route.ts.html (225:233, 3%)
+
+9 duplicated lines in:
+  - app/api/product/route.ts (24:32, 18%)
+  - coverage/api/product/route.ts.html (225:233, 3%)
+
+9 duplicated lines in:
+  - app/api/cart/route.ts (13:21, 22%)
+  - coverage/api/orders/route.ts.html (214:222, 3%)
+
+9 duplicated lines in:
+  - app/api/orders/route.ts (19:27, 16%)
+  - coverage/api/cart/route.ts.html (184:192, 4%)
+
+8 duplicated lines in:
+  - app/api/product/route.ts (24:31, 16%)
+  - coverage/lcov-report/api/product/route.ts.html (225:232, 3%)
+
+8 duplicated lines in:
+  - app/api/product/user/route.ts (111:118, 8%)
+  - coverage/lcov-report/api/product/route.ts.html (225:232, 3%)
+
+7 duplicated lines in:
+  - app/api/product/route.ts (8:14, 14%)
+  - coverage/api/product/route.ts.html (209:215, 2%)
+
+7 duplicated lines in:
+  - app/api/user/logout/route.ts (3:9, 100%)
+  - coverage/api/user/logout/route.ts.html (90:96, 7%)
+
+7 duplicated lines in:
+  - app/api/user/create-stripe-account/route.ts (13:19, 14%)
+  - coverage/lcov-report/api/user/create-stripe-account/route.ts.html (210:216, 2%)
+
+7 duplicated lines in:
+  - app/api/user/logout/route.ts (3:9, 100%)
+  - coverage/lcov-report/api/user/logout/route.ts.html (90:96, 7%)
+
+7 duplicated lines in:
+  - app/api/professional/[id]/route.ts (78:84, 8%)
+  - coverage/api/professional/[id]/route.ts.html (353:359, 1%)
+
+7 duplicated lines in:
+  - app/api/professional/[id]/route.ts (78:84, 8%)
+  - coverage/lcov-report/api/professional/[id]/route.ts.html (353:359, 1%)
+
+7 duplicated lines in:
+  - app/api/orders/create-payment/route.tsx (14:21, 10%)
+  - coverage/lcov-report/api/user/create-stripe-account/route.ts.html (210:216, 2%)
+
+7 duplicated lines in:
+  - app/api/orders/create-payment/route.tsx (14:21, 10%)
+  - coverage/api/user/create-stripe-account/route.ts.html (210:216, 2%)
+
+7 duplicated lines in:
+  - app/api/product/route.ts (8:14, 14%)
+  - coverage/lcov-report/api/product/route.ts.html (209:215, 2%)
+
+7 duplicated lines in:
+  - app/api/user/create-stripe-account/route.ts (50:56, 14%)
+  - coverage/lcov-report/api/user/create-stripe-account/route.ts.html (247:253, 2%)
+
+7 duplicated lines in:
+  - app/api/user/create-stripe-account/route.ts (13:19, 14%)
+  - coverage/api/user/create-stripe-account/route.ts.html (210:216, 2%)
+
+7 duplicated lines in:
+  - app/api/user/create-stripe-account/route.ts (50:56, 14%)
+  - coverage/api/user/create-stripe-account/route.ts.html (247:253, 2%)
+
+6 duplicated lines in:
+  - app/api/user/update/route.ts (16:21, 10%)
+  - coverage/lcov-report/api/user/update/route.ts.html (255:260, 1%)
+
+6 duplicated lines in:
+  - app/api/user/register/route.ts (69:74, 8%)
+  - coverage/api/user/update/route.ts.html (285:290, 1%)
+
+6 duplicated lines in:
+  - app/api/user/register/route.ts (69:74, 8%)
+  - coverage/lcov-report/api/user/register/route.ts.html (328:333, 1%)
+
+6 duplicated lines in:
+  - app/lib/auth/login.ts (16:21, 10%)
+  - coverage/lcov-report/lib/auth/login.ts.html (227:232, 2%)
+
+6 duplicated lines in:
+  - app/lib/auth/login.ts (67:72, 10%)
+  - coverage/lib/auth/login.ts.html (278:283, 2%)
+
+6 duplicated lines in:
+  - app/api/user/register/route.ts (16:21, 8%)
+  - coverage/lcov-report/api/user/register/route.ts.html (275:280, 1%)
+
+6 duplicated lines in:
+  - app/lib/auth/login.ts (36:41, 10%)
+  - coverage/lib/auth/login.ts.html (247:252, 2%)
+
+6 duplicated lines in:
+  - app/lib/auth/login.ts (36:41, 10%)
+  - coverage/lcov-report/lib/auth/login.ts.html (247:252, 2%)
+
+6 duplicated lines in:
+  - app/api/professional/[id]/route.ts (71:76, 7%)
+  - coverage/api/professional/[id]/route.ts.html (346:351, 1%)
+
+6 duplicated lines in:
+  - app/api/user/create-stripe-account/route.ts (38:43, 12%)
+  - coverage/lcov-report/api/user/create-stripe-account/route.ts.html (235:240, 2%)
+
+6 duplicated lines in:
+  - app/api/user/register/route.ts (16:21, 8%)
+  - coverage/api/user/register/route.ts.html (275:280, 1%)
+
+6 duplicated lines in:
+  - app/api/user/create-stripe-account/route.ts (38:43, 12%)
+  - coverage/api/user/create-stripe-account/route.ts.html (235:240, 2%)
+
+6 duplicated lines in:
+  - app/lib/auth/login.ts (9:14, 10%)
+  - coverage/lcov-report/lib/auth/login.ts.html (220:225, 2%)
+
+6 duplicated lines in:
+  - app/api/user/connect-stripe-account/route.ts (11:16, 35%)
+  - coverage/lcov-report/api/user/connect-stripe-account/route.ts.html (126:131, 4%)
+
+6 duplicated lines in:
+  - app/api/user/connect-stripe-account/route.ts (11:16, 35%)
+  - coverage/api/user/connect-stripe-account/route.ts.html (126:131, 4%)
+
+6 duplicated lines in:
+  - app/api/user/update/route.ts (46:51, 10%)
+  - coverage/lcov-report/api/user/update/route.ts.html (285:290, 1%)
+
+6 duplicated lines in:
+  - app/api/user/login/route.ts (27:32, 23%)
+  - coverage/lcov-report/api/user/login/route.ts.html (170:175, 3%)
+
+6 duplicated lines in:
+  - app/api/professional/[id]/route.ts (71:76, 7%)
+  - coverage/lcov-report/api/professional/[id]/route.ts.html (346:351, 1%)
+
+6 duplicated lines in:
+  - app/api/user/update/route.ts (24:29, 10%)
+  - coverage/api/user/update/route.ts.html (263:268, 1%)
+
+6 duplicated lines in:
+  - app/api/user/update/route.ts (24:29, 10%)
+  - coverage/lcov-report/api/user/update/route.ts.html (263:268, 1%)
+
+6 duplicated lines in:
+  - app/lib/auth/login.ts (16:21, 10%)
+  - coverage/lib/auth/login.ts.html (227:232, 2%)
+
+6 duplicated lines in:
+  - app/api/user/update/route.ts (46:51, 10%)
+  - coverage/api/user/update/route.ts.html (285:290, 1%)
+
+6 duplicated lines in:
+  - app/api/user/register/route.ts (69:74, 8%)
+  - coverage/api/user/register/route.ts.html (328:333, 1%)
+
+6 duplicated lines in:
+  - app/lib/auth/login.ts (9:14, 10%)
+  - coverage/lib/auth/login.ts.html (220:225, 2%)
+
+6 duplicated lines in:
+  - app/api/user/register/route.ts (69:74, 8%)
+  - coverage/lcov-report/api/user/update/route.ts.html (285:290, 1%)
+
+6 duplicated lines in:
+  - app/lib/auth/login.ts (67:72, 10%)
+  - coverage/lcov-report/lib/auth/login.ts.html (278:283, 2%)
+
+6 duplicated lines in:
+  - app/api/user/login/route.ts (27:32, 23%)
+  - coverage/api/user/login/route.ts.html (170:175, 3%)
+
+6 duplicated lines in:
+  - app/api/user/update/route.ts (46:51, 10%)
+  - coverage/lcov-report/api/user/register/route.ts.html (328:333, 1%)
+
+6 duplicated lines in:
+  - app/api/user/update/route.ts (16:21, 10%)
+  - coverage/api/user/update/route.ts.html (255:260, 1%)
+
+6 duplicated lines in:
+  - app/api/user/update/route.ts (46:51, 10%)
+  - coverage/api/user/register/route.ts.html (328:333, 1%)
+

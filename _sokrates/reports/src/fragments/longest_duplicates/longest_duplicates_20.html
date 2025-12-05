@@ -1,0 +1,180 @@
+coverage/api/professional/[id]/route.ts.html [276:359]:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
+&nbsp;
+import { prisma } from "@/lib/prisma";
+import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
+&nbsp;
+const NO_IMAGE_PLACEHOLDER = "/no-image.svg";
+&nbsp;
+export async function GET(
+  request: Request,
+  context: { params: Promise&lt;{ id: string }&gt; },
+) {
+  const { id } = await context.params;
+&nbsp;
+  try {
+    const professional = await prisma.users.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        country: true,
+        posts: {
+          select: {
+            id: true,
+            title: true,
+            description: true,
+            price: true,
+            rating: true,
+            ratingCount: true,
+            date: true,
+            image_location: true,
+          },
+          orderBy: { date: "desc" },
+        },
+      },
+    });
+&nbsp;
+    if (!professional) {
+      return NextResponse.json(
+        { message: "Professional not found" },
+        { status: 404 },
+      );
+    }
+&nbsp;
+    const postsWithImages = await Promise.all(
+      professional.posts.map(async (post) =&gt; {
+        if (!post.image_location) {
+          return {
+            ...post,
+            image_url: NO_IMAGE_PLACEHOLDER,
+          };
+        }
+&nbsp;
+        try {
+          const url = await createSignedDownloadUrl(post.image_location);
+          return {
+            ...post,
+            image_url: url,
+          };
+        } catch (error) {
+          console.error("Failed to sign product image url", error);
+          return {
+            ...post,
+            image_url: NO_IMAGE_PLACEHOLDER,
+          };
+        }
+      }),
+    );
+&nbsp;
+    const totalProducts = postsWithImages.length;
+    const aggregatedRating = await prisma.posts.aggregate({
+      where: { user_id: id, rating: { not: null } },
+      _avg: { rating: true },
+      _sum: { ratingCount: true },
+    });
+&nbsp;
+    return NextResponse.json({
+      id: professional.id,
+      name: professional.name,
+      email: professional.email,
+      country: professional.country,
+      stats: {
+        totalProducts,
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+coverage/lcov-report/api/professional/[id]/route.ts.html [276:359]:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
+&nbsp;
+import { prisma } from "@/lib/prisma";
+import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
+&nbsp;
+const NO_IMAGE_PLACEHOLDER = "/no-image.svg";
+&nbsp;
+export async function GET(
+  request: Request,
+  context: { params: Promise&lt;{ id: string }&gt; },
+) {
+  const { id } = await context.params;
+&nbsp;
+  try {
+    const professional = await prisma.users.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        country: true,
+        posts: {
+          select: {
+            id: true,
+            title: true,
+            description: true,
+            price: true,
+            rating: true,
+            ratingCount: true,
+            date: true,
+            image_location: true,
+          },
+          orderBy: { date: "desc" },
+        },
+      },
+    });
+&nbsp;
+    if (!professional) {
+      return NextResponse.json(
+        { message: "Professional not found" },
+        { status: 404 },
+      );
+    }
+&nbsp;
+    const postsWithImages = await Promise.all(
+      professional.posts.map(async (post) =&gt; {
+        if (!post.image_location) {
+          return {
+            ...post,
+            image_url: NO_IMAGE_PLACEHOLDER,
+          };
+        }
+&nbsp;
+        try {
+          const url = await createSignedDownloadUrl(post.image_location);
+          return {
+            ...post,
+            image_url: url,
+          };
+        } catch (error) {
+          console.error("Failed to sign product image url", error);
+          return {
+            ...post,
+            image_url: NO_IMAGE_PLACEHOLDER,
+          };
+        }
+      }),
+    );
+&nbsp;
+    const totalProducts = postsWithImages.length;
+    const aggregatedRating = await prisma.posts.aggregate({
+      where: { user_id: id, rating: { not: null } },
+      _avg: { rating: true },
+      _sum: { ratingCount: true },
+    });
+&nbsp;
+    return NextResponse.json({
+      id: professional.id,
+      name: professional.name,
+      email: professional.email,
+      country: professional.country,
+      stats: {
+        totalProducts,
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+

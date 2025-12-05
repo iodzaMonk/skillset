@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>app/lib/definition.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/lib/definition.ts (<b>35</b> lines of code) (<a href="definition.ts">raw</a>):</h3>
+<div id="editor">import { z } from &quot;zod&quot;;
+
+export const SignupFormSchema = z.object({
+  name: z
+    .string()
+    .min(2, { message: &quot;Name must be at least 2 characters long.&quot; })
+    .trim(),
+  email: z.string().email({ message: &quot;Please enter a valid email.&quot; }).trim(),
+  password: z
+    .string()
+    .min(8, { message: &quot;Be at least 8 characters long&quot; })
+    .regex(/[a-zA-Z]/, { message: &quot;Contain at least one letter.&quot; })
+    .regex(/[0-9]/, { message: &quot;Contain at least one number.&quot; })
+    .regex(/[^a-zA-Z0-9]/, {
+      message: &quot;Contain at least one special character.&quot;,
+    })
+    .trim(),
+});
+export const SignInFormSchema = z.object({
+  email: z.string().email({ message: &quot;Please enter a valid email.&quot; }).trim(),
+  password: z
+    .string()
+    .min(8, { message: &quot;Be at least 8 characters long&quot; })
+    .trim(),
+});
+export type SessionPayload =
+  | {
+      userId: string;
+      expiresAt: string;
+      errors?: {
+        email?: string[];
+        password?: string[];
+      };
+      message?: string;
+    }
+  | undefined;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

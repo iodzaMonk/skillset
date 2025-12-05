@@ -1,0 +1,89 @@
+duplicated block id: 1
+size: 26 cleaned lines of code
+in 2 files:
+ - coverage/lcov-report/sorter.js (165:196)
+ - coverage/sorter.js (165:196)
+
+duplicated block id: 2
+size: 20 cleaned lines of code
+in 2 files:
+ - coverage/lcov-report/sorter.js (27:56)
+ - coverage/sorter.js (27:56)
+
+duplicated block id: 3
+size: 20 cleaned lines of code
+in 2 files:
+ - coverage/lcov-report/sorter.js (67:89)
+ - coverage/sorter.js (67:89)
+
+duplicated block id: 4
+size: 16 cleaned lines of code
+in 2 files:
+ - coverage/lcov-report/sorter.js (92:109)
+ - coverage/sorter.js (92:109)
+
+duplicated block id: 5
+size: 24 cleaned lines of code
+in 2 files:
+ - coverage/lcov-report/sorter.js (120:149)
+ - coverage/sorter.js (120:149)
+
+duplicated block id: 6
+size: 15 cleaned lines of code
+in 2 files:
+ - app/api/cart/route.ts (36:53)
+ - app/api/orders/route.ts (48:65)
+
+duplicated block id: 7
+size: 13 cleaned lines of code
+in 3 files:
+ - components/ui/command.tsx (158:172)
+ - components/ui/dropdown-menu.tsx (179:193)
+ - components/ui/menubar.tsx (197:211)
+
+duplicated block id: 8
+size: 10 cleaned lines of code
+in 7 files:
+ - components/ui/alert.tsx (37:48)
+ - components/ui/card.tsx (5:16)
+ - components/ui/dialog.tsx (87:98)
+ - components/ui/drawer.tsx (75:86)
+ - components/ui/empty.tsx (5:16)
+ - components/ui/field.tsx (44:55)
+ - components/ui/item.tsx (106:117)
+
+duplicated block id: 9
+size: 8 cleaned lines of code
+in 2 files:
+ - coverage/block-navigation.js (52:63)
+ - coverage/lcov-report/block-navigation.js (52:63)
+
+duplicated block id: 10
+size: 8 cleaned lines of code
+in 2 files:
+ - features/support/browseService.ts (18:27)
+ - features/support/productService.ts (13:22)
+
+duplicated block id: 11
+size: 7 cleaned lines of code
+in 7 files:
+ - components/ui/card.tsx (31:39)
+ - components/ui/dialog.tsx (77:85)
+ - components/ui/drawer.tsx (88:96)
+ - components/ui/empty.tsx (61:69)
+ - components/ui/input-otp.tsx (29:37)
+ - components/ui/item.tsx (146:154)
+ - components/ui/sheet.tsx (84:92)
+
+duplicated block id: 12
+size: 7 cleaned lines of code
+in 2 files:
+ - coverage/block-navigation.js (31:39)
+ - coverage/lcov-report/block-navigation.js (31:39)
+
+duplicated block id: 13
+size: 7 cleaned lines of code
+in 2 files:
+ - coverage/block-navigation.js (41:50)
+ - coverage/lcov-report/block-navigation.js (41:50)
+

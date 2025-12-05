@@ -1,0 +1,3 @@
+Path	Lines of Code
+lib/prisma.ts	8
+lib/utils.ts	5

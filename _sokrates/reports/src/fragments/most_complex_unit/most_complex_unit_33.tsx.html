@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>function SidebarMenuButton()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">function SidebarMenuButton()</h3>
+<p style="margin-top: 4px">in <i>components/ui/sidebar.tsx [498:546]</i></p>
+<ul>
+    <li><b>45</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+function SidebarMenuButton({
+  asChild = false,
+  isActive = false,
+  variant = &quot;default&quot;,
+  size = &quot;default&quot;,
+  tooltip,
+  className,
+  ...props
+}: React.ComponentProps&lt;&quot;button&quot;&gt; &amp; {
+  asChild?: boolean;
+  isActive?: boolean;
+  tooltip?: string | React.ComponentProps&lt;typeof TooltipContent&gt;;
+} &amp; VariantProps&lt;typeof sidebarMenuButtonVariants&gt;) {
+  const Comp = asChild ? Slot : &quot;button&quot;;
+  const { isMobile, state } = useSidebar();
+
+  const button = (
+    &lt;Comp
+      data-slot=&quot;sidebar-menu-button&quot;
+      data-sidebar=&quot;menu-button&quot;
+      data-size={size}
+      data-active={isActive}
+      className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
+      {...props}
+    /&gt;
+  );
+
+  if (!tooltip) {
+    return button;
+  }
+
+  if (typeof tooltip === &quot;string&quot;) {
+    tooltip = {
+      children: tooltip,
+    };
+  }
+
+  return (
+    &lt;Tooltip&gt;
+      &lt;TooltipTrigger asChild&gt;{button}&lt;/TooltipTrigger&gt;
+      &lt;TooltipContent
+        side=&quot;right&quot;
+        align=&quot;center&quot;
+        hidden={state !== &quot;collapsed&quot; || isMobile}
+        {...tooltip}
+      /&gt;
+    &lt;/Tooltip&gt;
+  );
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

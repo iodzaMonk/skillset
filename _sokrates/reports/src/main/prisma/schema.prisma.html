@@ -1,0 +1,113 @@
+<html>
+<head>
+    <title>prisma/schema.prisma</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">prisma/schema.prisma (<b>79</b> lines of code) (<a href="schema.prisma">raw</a>):</h3>
+<div id="editor">generator client {
+  provider = &quot;prisma-client-js&quot;
+}
+
+datasource db {
+  provider  = &quot;postgresql&quot;
+  url       = env(&quot;DATABASE_URL&quot;)
+  directUrl = env(&quot;DIRECT_URL&quot;)
+}
+
+enum Category {
+  Editing
+  Voiceover
+  Design
+  Drawing
+  Fixing
+  Music
+}
+
+enum Status {
+  ACCEPT
+  REVIEW
+  DECLINE
+  PENDING
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model commands {
+ id          String       @id @unique @default(cuid())
+  client_id   String
+  product_id  String
+  date        DateTime    @db.Date
+  prof_id     String
+  description String
+  status      Status      @default(ACCEPT)
+  posts       posts       @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  client      users       @relation(&quot;ClientCommands&quot;, fields: [client_id], references: [id], onDelete: Cascade)
+  professional users      @relation(&quot;ProfessionalCommands&quot;, fields: [prof_id], references: [id], onDelete: Cascade)
+}
+
+model posts {
+  id             String     @id(map: &quot;products_pkey&quot;) @unique(map: &quot;products_id_key&quot;) @default(cuid())
+  user_id        String
+  title          String     @db.VarChar
+  description    String
+  rating         Float?
+  ratingCount    Int        @default(0)
+  price          Float      @db.Real
+  date           DateTime   @default(now()) @db.Date
+  image_location String?    @db.VarChar
+  category       Category   @default(Editing)
+  commands       commands[]
+  users          users      @relation(fields: [user_id], references: [id], onDelete: Cascade, map: &quot;products_user_id_fkey&quot;)
+  reviews        reviews[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model reviews {
+  id         String    @id(map: &quot;review_pkey&quot;) @unique @default(cuid())
+  parent_id  String?   @db.VarChar
+  user_id    String
+  product_id String
+  text       String
+  rating     Int?      @db.SmallInt
+  date       DateTime? @db.Date
+  users      users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: &quot;review_user_id_fkey&quot;)
+  posts      posts     @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  parent     reviews?  @relation(&quot;ReviewReplies&quot;, fields: [parent_id], references: [id])
+  replies    reviews[] @relation(&quot;ReviewReplies&quot;)
+
+  @@index([product_id, parent_id])
+}
+
+model users {
+  id                                 String     @id @default(cuid())
+  name                               String     @db.VarChar
+  email                              String     @unique @db.VarChar
+  password                           String     @db.VarChar
+  country                            String     @db.VarChar
+  birthday                           DateTime?  @db.Date
+  isAdmin                            Boolean?
+  vendor_id                          String?    @db.VarChar
+  clientCommands    commands[] @relation(&quot;ClientCommands&quot;)
+  profCommands     commands[] @relation(&quot;ProfessionalCommands&quot;)
+  posts                              posts[]
+  reviews                            reviews[]
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/prisma");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

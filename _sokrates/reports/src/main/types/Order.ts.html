@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>types/Order.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">types/Order.ts (<b>12</b> lines of code) (<a href="Order.ts">raw</a>):</h3>
+<div id="editor">import { posts } from &quot;@prisma/client&quot;;
+import { Status } from &quot;./Status&quot;;
+
+export type Order = {
+  id: string;
+  client_id: string;
+  product_id: string;
+  date: string;
+  prof_id: string;
+  description: string;
+  status: Status;
+  post: posts;
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

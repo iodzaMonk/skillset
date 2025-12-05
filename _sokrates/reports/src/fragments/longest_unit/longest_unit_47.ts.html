@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>export async function POST()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export async function POST()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/login/route.ts [5:39]</i></p>
+<ul>
+    <li><b>31</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+export async function POST(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
+
+  try {
+    // get body
+    const body = (await req.json()) as LoginBody;
+    const result = await loginUser(body);
+
+    if (result.status !== 200) {
+      return Response.json(result.body, {
+        status: result.status,
+        headers: { &quot;x-referer&quot;: referer },
+      });
+    }
+
+    const session = await createSession(result.body.userId);
+    return Response.json(
+      { token: session },
+      {
+        status: 200,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+      },
+    );
+  } catch (error) {
+    console.log(error);
+    return Response.json(
+      { message: &quot;Internal server error&quot; },
+      {
+        status: 500,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+      },
+    );
+  }
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

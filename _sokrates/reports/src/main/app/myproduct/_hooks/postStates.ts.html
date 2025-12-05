@@ -1,0 +1,244 @@
+<html>
+<head>
+    <title>app/myproduct/_hooks/postStates.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/myproduct/_hooks/postStates.ts (<b>174</b> lines of code) (<a href="postStates.ts">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+
+import { FormEvent, useCallback, useEffect, useState } from &quot;react&quot;;
+
+import {
+  createProduct,
+  deleteProduct,
+  fetchUserProducts,
+  updateProduct,
+} from &quot;@/app/lib/products&quot;;
+import { PostBody } from &quot;@/types/PostBody&quot;;
+import { deleteFile } from &quot;../actions&quot;;
+
+async function uploadImage(file: File) {
+  const body = new FormData();
+  body.append(&quot;file&quot;, file);
+
+  const response = await fetch(&quot;/api/uploads&quot;, {
+    method: &quot;POST&quot;,
+    body,
+  });
+
+  if (!response.ok) {
+    throw new Error(&quot;Image upload failed&quot;);
+  }
+
+  const { key } = (await response.json()) as { key: string };
+  return key;
+}
+
+type UsePostManagerOptions = {
+  userId?: string;
+};
+
+export function usePostManager({ userId }: UsePostManagerOptions = {}) {
+  const [posts, setPosts] = useState&lt;PostBody[]&gt;([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [editingPost, setEditingPost] = useState&lt;PostBody | null&gt;(null);
+  const [file, setFile] = useState&lt;File | undefined&gt;();
+  const [filePreview, setFilePreview] = useState&lt;string | undefined&gt;();
+  /**
+   * Refreshes posts
+   * @async
+   */
+  const refreshPosts = useCallback(async (): Promise&lt;void&gt; =&gt; {
+    try {
+      const data = await fetchUserProducts();
+      setPosts(data);
+    } catch (error) {
+      console.error(&quot;Unable to load products&quot;, error);
+    }
+  }, []);
+
+  useEffect(() =&gt; {
+    refreshPosts();
+  }, [refreshPosts]);
+
+  /**
+   * Handles submits of all kinds, uses `useCallBack()` to cache in the method in other components.
+   *
+   * Used for creating and updating posts
+   * @async
+   */
+  const handleSubmit = useCallback(
+    async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+      event.preventDefault();
+      if (!userId) {
+        console.error(&quot;User must be authenticated to create a product&quot;);
+        return false;
+      }
+      // payload
+      const formData = new FormData(event.currentTarget);
+      const title = (formData.get(&quot;title&quot;) as string | null)?.trim() ?? &quot;&quot;;
+      const description =
+        (formData.get(&quot;description&quot;) as string | null)?.trim() ?? &quot;&quot;;
+      const priceInput = (formData.get(&quot;price&quot;) as string | null) ?? &quot;0&quot;;
+
+      const price = parseFloat(priceInput);
+      const category =
+        (formData.get(&quot;category&quot;) as string | null)?.trim() ?? &quot;&quot;;
+      console.log(category);
+      if (!title || !description || Number.isNaN(price) || !category) {
+        console.error(&quot;Form data is invalid&quot;);
+        return false;
+      }
+
+      setIsSubmitting(true);
+      try {
+        let imageLocation: string | undefined;
+
+        if (file) {
+          imageLocation = await uploadImage(file);
+        }
+
+        // edit post
+        // TODO: add category handle
+        if (editingPost) {
+          await updateProduct({
+            ...editingPost,
+            user_id: userId,
+            title,
+            description,
+            price,
+            image_location: imageLocation ?? editingPost.image_location,
+            category,
+          });
+          setEditingPost(null);
+        } else {
+          // create post
+          // TODO: add category handle
+          await createProduct({
+            user_id: userId,
+            title,
+            description,
+            price,
+            image_location: imageLocation,
+            category,
+          });
+        }
+        await refreshPosts();
+
+        if (filePreview) {
+          URL.revokeObjectURL(filePreview);
+        }
+
+        setFile(undefined);
+        setFilePreview(undefined);
+        return true;
+      } catch (error) {
+        console.error(&quot;Failed to create product&quot;, error);
+        return false;
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [editingPost, file, filePreview, refreshPosts, userId],
+  );
+
+  /**
+   * Deletes selected post
+   * @param items
+   */
+  const deletePosts = useCallback(
+    async (items: PostBody[]) =&gt; {
+      const deletions = await Promise.all(
+        items.map(async (post) =&gt; {
+          if (!post.id) {
+            return false;
+          }
+
+          try {
+            await deleteProduct(post.id);
+            if (post.image_location) {
+              await deleteFile(post.image_location);
+            }
+            return true;
+          } catch (error) {
+            console.error(&quot;Failed to delete product&quot;, error);
+            return false;
+          }
+        }),
+      );
+
+      const didDeleteAny = deletions.some(Boolean);
+
+      if (didDeleteAny) {
+        await refreshPosts();
+      }
+
+      return didDeleteAny;
+    },
+    [refreshPosts],
+  );
+
+  const startEditing = useCallback(
+    (item: PostBody) =&gt; {
+      if (filePreview) {
+        URL.revokeObjectURL(filePreview);
+      }
+      setFile(undefined);
+      setFilePreview(undefined);
+      setEditingPost(item);
+    },
+    [filePreview],
+  );
+
+  const resetEditing = useCallback(() =&gt; {
+    if (filePreview) {
+      URL.revokeObjectURL(filePreview);
+    }
+    setFile(undefined);
+    setFilePreview(undefined);
+    setEditingPost(null);
+  }, [filePreview]);
+
+  const handleFile = useCallback((nextFile: File | undefined) =&gt; {
+    setFile(nextFile);
+    setFilePreview((currentPreview) =&gt; {
+      if (currentPreview) {
+        URL.revokeObjectURL(currentPreview);
+      }
+      return nextFile ? URL.createObjectURL(nextFile) : undefined;
+    });
+  }, []);
+
+  return {
+    posts,
+    handleSubmit,
+    isSubmitting,
+    deletePosts,
+    editingPost,
+    startEditing,
+    resetEditing,
+    file,
+    filePreview,
+    handleFile,
+  };
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

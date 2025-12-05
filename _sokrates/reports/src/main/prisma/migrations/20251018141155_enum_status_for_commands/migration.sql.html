@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>prisma/migrations/20251018141155_enum_status_for_commands/migration.sql</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">prisma/migrations/20251018141155_enum_status_for_commands/migration.sql (<b>2</b> lines of code) (<a href="migration.sql">raw</a>):</h3>
+<div id="editor">-- CreateEnum
+CREATE TYPE &quot;Status&quot; AS ENUM ('ACCEPT', 'REVIEW', 'DECLINE');
+
+-- AlterTable
+ALTER TABLE &quot;commands&quot; ADD COLUMN     &quot;status&quot; &quot;Status&quot; NOT NULL DEFAULT 'ACCEPT';
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/sql");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

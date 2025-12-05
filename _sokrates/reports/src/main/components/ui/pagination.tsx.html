@@ -1,0 +1,153 @@
+<html>
+<head>
+    <title>components/ui/pagination.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">components/ui/pagination.tsx (<b>106</b> lines of code) (<a href="pagination.tsx">raw</a>):</h3>
+<div id="editor">import * as React from &quot;react&quot;;
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  MoreHorizontalIcon,
+} from &quot;lucide-react&quot;;
+
+import { cn } from &quot;@/lib/utils&quot;;
+import { Button, buttonVariants } from &quot;@/components/ui/button&quot;;
+
+function Pagination({ className, ...props }: React.ComponentProps&lt;&quot;nav&quot;&gt;) {
+  return (
+    &lt;nav
+      role=&quot;navigation&quot;
+      aria-label=&quot;pagination&quot;
+      data-slot=&quot;pagination&quot;
+      className={cn(&quot;mx-auto flex w-full justify-center&quot;, className)}
+      {...props}
+    /&gt;
+  );
+}
+
+function PaginationContent({
+  className,
+  ...props
+}: React.ComponentProps&lt;&quot;ul&quot;&gt;) {
+  return (
+    &lt;ul
+      data-slot=&quot;pagination-content&quot;
+      className={cn(&quot;flex flex-row items-center gap-1&quot;, className)}
+      {...props}
+    /&gt;
+  );
+}
+
+function PaginationItem({ ...props }: React.ComponentProps&lt;&quot;li&quot;&gt;) {
+  return &lt;li data-slot=&quot;pagination-item&quot; {...props} /&gt;;
+}
+
+type PaginationLinkProps = {
+  isActive?: boolean;
+} &amp; Pick&lt;React.ComponentProps&lt;typeof Button&gt;, &quot;size&quot;&gt; &amp;
+  React.ComponentProps&lt;&quot;a&quot;&gt;;
+
+function PaginationLink({
+  className,
+  isActive,
+  size = &quot;icon&quot;,
+  ...props
+}: PaginationLinkProps) {
+  return (
+    &lt;a
+      aria-current={isActive ? &quot;page&quot; : undefined}
+      data-slot=&quot;pagination-link&quot;
+      data-active={isActive}
+      className={cn(
+        buttonVariants({
+          variant: isActive ? &quot;outline&quot; : &quot;ghost&quot;,
+          size,
+        }),
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function PaginationPrevious({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof PaginationLink&gt;) {
+  return (
+    &lt;PaginationLink
+      aria-label=&quot;Go to previous page&quot;
+      size=&quot;default&quot;
+      className={cn(&quot;gap-1 px-2.5 sm:pl-2.5&quot;, className)}
+      {...props}
+    &gt;
+      &lt;ChevronLeftIcon /&gt;
+      &lt;span className=&quot;hidden sm:block&quot;&gt;Previous&lt;/span&gt;
+    &lt;/PaginationLink&gt;
+  );
+}
+
+function PaginationNext({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof PaginationLink&gt;) {
+  return (
+    &lt;PaginationLink
+      aria-label=&quot;Go to next page&quot;
+      size=&quot;default&quot;
+      className={cn(&quot;gap-1 px-2.5 sm:pr-2.5&quot;, className)}
+      {...props}
+    &gt;
+      &lt;span className=&quot;hidden sm:block&quot;&gt;Next&lt;/span&gt;
+      &lt;ChevronRightIcon /&gt;
+    &lt;/PaginationLink&gt;
+  );
+}
+
+function PaginationEllipsis({
+  className,
+  ...props
+}: React.ComponentProps&lt;&quot;span&quot;&gt;) {
+  return (
+    &lt;span
+      aria-hidden
+      data-slot=&quot;pagination-ellipsis&quot;
+      className={cn(&quot;flex size-9 items-center justify-center&quot;, className)}
+      {...props}
+    &gt;
+      &lt;MoreHorizontalIcon className=&quot;size-4&quot; /&gt;
+      &lt;span className=&quot;sr-only&quot;&gt;More pages&lt;/span&gt;
+    &lt;/span&gt;
+  );
+}
+
+export {
+  Pagination,
+  PaginationContent,
+  PaginationLink,
+  PaginationItem,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationEllipsis,
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

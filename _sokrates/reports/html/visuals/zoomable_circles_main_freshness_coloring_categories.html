@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+    .node {
+        cursor: pointer;
+    }
+
+    .node:hover {
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+
+    .node--leaf {
+        fill: white;
+    }
+
+    .label {
+        font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-anchor: middle;
+        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+    }
+
+    .label,
+    .node--root,
+    .node--leaf {
+        pointer-events: none;
+    }
+
+</style>
+<svg width="960" height="960"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+    var svg = d3.select("svg"),
+        margin = 20,
+        diameter = +svg.attr("width"),
+        g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+
+    var color = d3.scaleLinear()
+        .domain([-1, 5])
+        .range(["hsl(152,80%,100%)", "hsl(228,30%,40%)"])
+        .interpolate(d3.interpolateHcl);
+
+    var pack = d3.pack()
+        .size([diameter - margin, diameter - margin])
+        .padding(2);
+
+
+    var root = {
+        "name": "cluster",
+        "children": [ {
+  "name" : "1-30 (233)",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "app/about/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 11,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/cart/route.ts",
+    "color" : "#bae4b3",
+    "size" : 47,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/cart/user/route.ts",
+    "color" : "#bae4b3",
+    "size" : 24,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/orders/create-payment/route.tsx",
+    "color" : "#bae4b3",
+    "size" : 80,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/orders/route.ts",
+    "color" : "#bae4b3",
+    "size" : 63,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/orders/user/route.ts",
+    "color" : "#bae4b3",
+    "size" : 55,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/product/route.ts",
+    "color" : "#bae4b3",
+    "size" : 63,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/product/user/route.ts",
+    "color" : "#bae4b3",
+    "size" : 122,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/product/[slug]/reviews/replies/route.ts",
+    "color" : "#bae4b3",
+    "size" : 168,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/product/[slug]/reviews/route.ts",
+    "color" : "#bae4b3",
+    "size" : 361,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/product/[slug]/route.ts",
+    "color" : "#bae4b3",
+    "size" : 83,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/professional/[id]/route.ts",
+    "color" : "#bae4b3",
+    "size" : 94,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/uploads/route.ts",
+    "color" : "#bae4b3",
+    "size" : 25,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/user/connect-stripe-account/route.ts",
+    "color" : "#bae4b3",
+    "size" : 21,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/user/create-stripe-account/route.ts",
+    "color" : "#bae4b3",
+    "size" : 58,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/user/delete/route.ts",
+    "color" : "#bae4b3",
+    "size" : 19,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/user/login/route.ts",
+    "color" : "#bae4b3",
+    "size" : 34,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/user/logout/route.ts",
+    "color" : "#bae4b3",
+    "size" : 10,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/user/me/route.ts",
+    "color" : "#bae4b3",
+    "size" : 8,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/user/register/route.ts",
+    "color" : "#bae4b3",
+    "size" : 86,
+    "children" : [ ]
+  }, {
+    "name" : "app/api/user/update/route.ts",
+    "color" : "#bae4b3",
+    "size" : 77,
+    "children" : [ ]
+  }, {
+    "name" : "app/browse/components/categories.tsx",
+    "color" : "#bae4b3",
+    "size" : 45,
+    "children" : [ ]
+  }, {
+    "name" : "app/browse/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 94,
+    "children" : [ ]
+  }, {
+    "name" : "app/Components/Header.tsx",
+    "color" : "#bae4b3",
+    "size" : 186,
+    "children" : [ ]
+  }, {
+    "name" : "app/context/AuthContext.tsx",
+    "color" : "#bae4b3",
+    "size" : 52,
+    "children" : [ ]
+  }, {
+    "name" : "app/context/AuthProvider.tsx",
+    "color" : "#bae4b3",
+    "size" : 22,
+    "children" : [ ]
+  }, {
+    "name" : "app/globals.css",
+    "color" : "#bae4b3",
+    "size" : 105,
+    "children" : [ ]
+  }, {
+    "name" : "app/layout.tsx",
+    "color" : "#bae4b3",
+    "size" : 34,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/auth/login.ts",
+    "color" : "#bae4b3",
+    "size" : 61,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/convertToSubcurrency.ts",
+    "color" : "#bae4b3",
+    "size" : 4,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/orders.ts",
+    "color" : "#bae4b3",
+    "size" : 32,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/productCrud.ts",
+    "color" : "#bae4b3",
+    "size" : 83,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/products.ts",
+    "color" : "#bae4b3",
+    "size" : 59,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/session/tokens.ts",
+    "color" : "#bae4b3",
+    "size" : 31,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/session.ts",
+    "color" : "#bae4b3",
+    "size" : 38,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/storage/s3.ts",
+    "color" : "#bae4b3",
+    "size" : 105,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/storage/uploadAdapter.ts",
+    "color" : "#bae4b3",
+    "size" : 15,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/user.ts",
+    "color" : "#bae4b3",
+    "size" : 31,
+    "children" : [ ]
+  }, {
+    "name" : "app/myorderslist/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 55,
+    "children" : [ ]
+  }, {
+    "name" : "app/myorderslist/_components/Modal.tsx",
+    "color" : "#bae4b3",
+    "size" : 158,
+    "children" : [ ]
+  }, {
+    "name" : "app/myorderslist/_components/OrderList.tsx",
+    "color" : "#bae4b3",
+    "size" : 221,
+    "children" : [ ]
+  }, {
+    "name" : "app/myorderslist/_hooks/orderStates.ts",
+    "color" : "#bae4b3",
+    "size" : 63,
+    "children" : [ ]
+  }, {
+    "name" : "app/myproduct/actions.ts",
+    "color" : "#bae4b3",
+    "size" : 8,
+    "children" : [ ]
+  }, {
+    "name" : "app/myproduct/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 96,
+    "children" : [ ]
+  }, {
+    "name" : "app/myproduct/_components/Modal.tsx",
+    "color" : "#bae4b3",
+    "size" : 202,
+    "children" : [ ]
+  }, {
+    "name" : "app/myproduct/_components/PostList.tsx",
+    "color" : "#bae4b3",
+    "size" : 257,
+    "children" : [ ]
+  }, {
+    "name" : "app/myproduct/_hooks/postStates.ts",
+    "color" : "#bae4b3",
+    "size" : 174,
+    "children" : [ ]
+  }, {
+    "name" : "app/orders/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 34,
+    "children" : [ ]
+  }, {
+    "name" : "app/orders/_components/Modal.tsx",
+    "color" : "#bae4b3",
+    "size" : 158,
+    "children" : [ ]
+  }, {
+    "name" : "app/orders/_components/OrderList.tsx",
+    "color" : "#bae4b3",
+    "size" : 269,
+    "children" : [ ]
+  }, {
+    "name" : "app/orders/_hooks/orderStates.ts",
+    "color" : "#bae4b3",
+    "size" : 120,
+    "children" : [ ]
+  }, {
+    "name" : "app/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 22,
+    "children" : [ ]
+  }, {
+    "name" : "app/product/[slug]/components/Comment.tsx",
+    "color" : "#bae4b3",
+    "size" : 293,
+    "children" : [ ]
+  }, {
+    "name" : "app/product/[slug]/components/Comments.tsx",
+    "color" : "#bae4b3",
+    "size" : 186,
+    "children" : [ ]
+  }, {
+    "name" : "app/product/[slug]/components/Modal.tsx",
+    "color" : "#bae4b3",
+    "size" : 77,
+    "children" : [ ]
+  }, {
+    "name" : "app/product/[slug]/components/useComments.ts",
+    "color" : "#bae4b3",
+    "size" : 468,
+    "children" : [ ]
+  }, {
+    "name" : "app/product/[slug]/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 216,
+    "children" : [ ]
+  }, {
+    "name" : "app/product/[slug]/payment/module/CheckoutPage.tsx",
+    "color" : "#bae4b3",
+    "size" : 104,
+    "children" : [ ]
+  }, {
+    "name" : "app/product/[slug]/payment/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 159,
+    "children" : [ ]
+  }, {
+    "name" : "app/product/[slug]/payment/success/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 18,
+    "children" : [ ]
+  }, {
+    "name" : "app/professional/[id]/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 140,
+    "children" : [ ]
+  }, {
+    "name" : "app/settings/page.tsx",
+    "color" : "#bae4b3",
+    "size" : 20,
+    "children" : [ ]
+  }, {
+    "name" : "app/settings/SettingsForm.tsx",
+    "color" : "#bae4b3",
+    "size" : 234,
+    "children" : [ ]
+  }, {
+    "name" : "app/settings/StripeConnectButton.tsx",
+    "color" : "#bae4b3",
+    "size" : 56,
+    "children" : [ ]
+  }, {
+    "name" : "app/utils/email.ts",
+    "color" : "#bae4b3",
+    "size" : 41,
+    "children" : [ ]
+  }, {
+    "name" : "app/_components/ProductCarousel.tsx",
+    "color" : "#bae4b3",
+    "size" : 101,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/accordion.tsx",
+    "color" : "#bae4b3",
+    "size" : 56,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/alert-dialog.tsx",
+    "color" : "#bae4b3",
+    "size" : 126,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/alert.tsx",
+    "color" : "#bae4b3",
+    "size" : 56,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/aspect-ratio.tsx",
+    "color" : "#bae4b3",
+    "size" : 6,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/avatar.tsx",
+    "color" : "#bae4b3",
+    "size" : 43,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/badge.tsx",
+    "color" : "#bae4b3",
+    "size" : 37,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/breadcrumb.tsx",
+    "color" : "#bae4b3",
+    "size" : 99,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/button-group.tsx",
+    "color" : "#bae4b3",
+    "size" : 67,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/button.tsx",
+    "color" : "#bae4b3",
+    "size" : 58,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/calendar.tsx",
+    "color" : "#bae4b3",
+    "size" : 203,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/card.tsx",
+    "color" : "#bae4b3",
+    "size" : 70,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/carousel.tsx",
+    "color" : "#bae4b3",
+    "size" : 204,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/chart.tsx",
+    "color" : "#bae4b3",
+    "size" : 303,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/checkbox.tsx",
+    "color" : "#bae4b3",
+    "size" : 25,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/collapsible.tsx",
+    "color" : "#bae4b3",
+    "size" : 24,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/command.tsx",
+    "color" : "#bae4b3",
+    "size" : 172,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/context-menu.tsx",
+    "color" : "#bae4b3",
+    "size" : 214,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/dialog.tsx",
+    "color" : "#bae4b3",
+    "size" : 125,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/drawer.tsx",
+    "color" : "#bae4b3",
+    "size" : 107,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/dropdown-menu.tsx",
+    "color" : "#bae4b3",
+    "size" : 219,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/empty.tsx",
+    "color" : "#bae4b3",
+    "size" : 95,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/field.tsx",
+    "color" : "#bae4b3",
+    "size" : 225,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/form.tsx",
+    "color" : "#bae4b3",
+    "size" : 144,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/hover-card.tsx",
+    "color" : "#bae4b3",
+    "size" : 38,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/input-group.tsx",
+    "color" : "#bae4b3",
+    "size" : 138,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/input-otp.tsx",
+    "color" : "#bae4b3",
+    "size" : 66,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/input.tsx",
+    "color" : "#bae4b3",
+    "size" : 13,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/item.tsx",
+    "color" : "#bae4b3",
+    "size" : 179,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/kbd.tsx",
+    "color" : "#bae4b3",
+    "size" : 25,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/label.tsx",
+    "color" : "#bae4b3",
+    "size" : 16,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/menubar.tsx",
+    "color" : "#bae4b3",
+    "size" : 257,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/pagination.tsx",
+    "color" : "#bae4b3",
+    "size" : 106,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/popover.tsx",
+    "color" : "#bae4b3",
+    "size" : 39,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/progress.tsx",
+    "color" : "#bae4b3",
+    "size" : 27,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/radio-group.tsx",
+    "color" : "#bae4b3",
+    "size" : 40,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/resizable.tsx",
+    "color" : "#bae4b3",
+    "size" : 47,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/scroll-area.tsx",
+    "color" : "#bae4b3",
+    "size" : 53,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/select.tsx",
+    "color" : "#bae4b3",
+    "size" : 157,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/separator.tsx",
+    "color" : "#bae4b3",
+    "size" : 20,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/sheet.tsx",
+    "color" : "#bae4b3",
+    "size" : 113,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/sidebar.tsx",
+    "color" : "#bae4b3",
+    "size" : 635,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/skeleton.tsx",
+    "color" : "#bae4b3",
+    "size" : 7,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/slider.tsx",
+    "color" : "#bae4b3",
+    "size" : 58,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/sonner.tsx",
+    "color" : "#bae4b3",
+    "size" : 36,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/spinner.tsx",
+    "color" : "#bae4b3",
+    "size" : 9,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/switch.tsx",
+    "color" : "#bae4b3",
+    "size" : 27,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/table.tsx",
+    "color" : "#bae4b3",
+    "size" : 91,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/tabs.tsx",
+    "color" : "#bae4b3",
+    "size" : 59,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/textarea.tsx",
+    "color" : "#bae4b3",
+    "size" : 11,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/toggle-group.tsx",
+    "color" : "#bae4b3",
+    "size" : 63,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/toggle.tsx",
+    "color" : "#bae4b3",
+    "size" : 38,
+    "children" : [ ]
+  }, {
+    "name" : "components/ui/tooltip.tsx",
+    "color" : "#bae4b3",
+    "size" : 51,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/cart/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/cart/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 230,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/orders/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/orders/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 266,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/product/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/product/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 275,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/professional/[id]/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/professional/[id]/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 386,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/uploads/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/uploads/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 158,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/connect-stripe-account/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/connect-stripe-account/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 146,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/create-stripe-account/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/create-stripe-account/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 269,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/delete/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/delete/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 137,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/login/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/login/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 188,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/logout/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/logout/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 104,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/me/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/me/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 104,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/register/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/register/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 362,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/update/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/api/user/update/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 332,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/base.css",
+    "color" : "#bae4b3",
+    "size" : 203,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/block-navigation.js",
+    "color" : "#bae4b3",
+    "size" : 66,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/clover.xml",
+    "color" : "#bae4b3",
+    "size" : 868,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/index.html",
+    "color" : "#bae4b3",
+    "size" : 298,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/cart/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/cart/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 230,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/orders/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/orders/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 266,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/product/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/product/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 275,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/professional/[id]/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/professional/[id]/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 386,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/uploads/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/uploads/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 158,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/connect-stripe-account/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/connect-stripe-account/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 146,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/create-stripe-account/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/create-stripe-account/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 269,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/delete/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/delete/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 137,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/login/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/login/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 188,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/logout/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/logout/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 104,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/me/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/me/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 104,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/register/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/register/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 362,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/update/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/api/user/update/route.ts.html",
+    "color" : "#bae4b3",
+    "size" : 332,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/base.css",
+    "color" : "#bae4b3",
+    "size" : 203,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/block-navigation.js",
+    "color" : "#bae4b3",
+    "size" : 66,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/index.html",
+    "color" : "#bae4b3",
+    "size" : 298,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/lib/auth/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/lib/auth/login.ts.html",
+    "color" : "#bae4b3",
+    "size" : 290,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/lib/storage/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/lib/storage/uploadAdapter.ts.html",
+    "color" : "#bae4b3",
+    "size" : 134,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/prettify.css",
+    "color" : "#bae4b3",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lcov-report/sorter.js",
+    "color" : "#bae4b3",
+    "size" : 171,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lib/auth/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lib/auth/login.ts.html",
+    "color" : "#bae4b3",
+    "size" : 290,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lib/storage/index.html",
+    "color" : "#bae4b3",
+    "size" : 102,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/lib/storage/uploadAdapter.ts.html",
+    "color" : "#bae4b3",
+    "size" : 134,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/prettify.css",
+    "color" : "#bae4b3",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "coverage/sorter.js",
+    "color" : "#bae4b3",
+    "size" : 171,
+    "children" : [ ]
+  }, {
+    "name" : "cypress/support/commands.ts",
+    "color" : "#bae4b3",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "cypress/support/e2e.ts",
+    "color" : "#bae4b3",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "cypress.config.ts",
+    "color" : "#bae4b3",
+    "size" : 7,
+    "children" : [ ]
+  }, {
+    "name" : "eslint.config.mjs",
+    "color" : "#bae4b3",
+    "size" : 25,
+    "children" : [ ]
+  }, {
+    "name" : "features/step_definitions/auth.steps.ts",
+    "color" : "#bae4b3",
+    "size" : 53,
+    "children" : [ ]
+  }, {
+    "name" : "features/step_definitions/browse.steps.ts",
+    "color" : "#bae4b3",
+    "size" : 71,
+    "children" : [ ]
+  }, {
+    "name" : "features/step_definitions/product.steps.ts",
+    "color" : "#bae4b3",
+    "size" : 170,
+    "children" : [ ]
+  }, {
+    "name" : "features/step_definitions/productCrud.steps.ts",
+    "color" : "#bae4b3",
+    "size" : 122,
+    "children" : [ ]
+  }, {
+    "name" : "features/step_definitions/upload.steps.ts",
+    "color" : "#bae4b3",
+    "size" : 116,
+    "children" : [ ]
+  }, {
+    "name" : "features/support/authService.ts",
+    "color" : "#bae4b3",
+    "size" : 54,
+    "children" : [ ]
+  }, {
+    "name" : "features/support/browseService.ts",
+    "color" : "#bae4b3",
+    "size" : 117,
+    "children" : [ ]
+  }, {
+    "name" : "features/support/productCrudFixture.ts",
+    "color" : "#bae4b3",
+    "size" : 187,
+    "children" : [ ]
+  }, {
+    "name" : "features/support/productService.ts",
+    "color" : "#bae4b3",
+    "size" : 282,
+    "children" : [ ]
+  }, {
+    "name" : "features/support/uploadFixture.ts",
+    "color" : "#bae4b3",
+    "size" : 55,
+    "children" : [ ]
+  }, {
+    "name" : "hooks/use-mobile.ts",
+    "color" : "#bae4b3",
+    "size" : 17,
+    "children" : [ ]
+  }, {
+    "name" : "lib/prisma.ts",
+    "color" : "#bae4b3",
+    "size" : 8,
+    "children" : [ ]
+  }, {
+    "name" : "lib/utils.ts",
+    "color" : "#bae4b3",
+    "size" : 5,
+    "children" : [ ]
+  }, {
+    "name" : "next.config.ts",
+    "color" : "#bae4b3",
+    "size" : 29,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251002155517_init/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 47,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251002182928_changed_ids_to_string_instead_of_big_int/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 38,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251002184927_added_default_date_value_to_posts/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251016163611_added_category_column_in_posts/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251016165121_added_category/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 3,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251016170846_category_is_now_with_a_small_letter/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251017214247_category_order/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 4,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251018141155_enum_status_for_commands/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251030155920_add_vendor_id/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251030170423_add_review_replies/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 9,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251030220108_add_rating/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 1,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251030221317_change_rating_on_reviews_and_the_type_on_posts_rating/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/20251030223914_add_product_rating_metrics/migration.sql",
+    "color" : "#bae4b3",
+    "size" : 2,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/migrations/migration_lock.toml",
+    "color" : "#bae4b3",
+    "size" : 3,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/schema.prisma",
+    "color" : "#bae4b3",
+    "size" : 79,
+    "children" : [ ]
+  }, {
+    "name" : "prisma/seed.ts",
+    "color" : "#bae4b3",
+    "size" : 65,
+    "children" : [ ]
+  }, {
+    "name" : "prisma.config.ts",
+    "color" : "#bae4b3",
+    "size" : 18,
+    "children" : [ ]
+  }, {
+    "name" : "types/Category.ts",
+    "color" : "#bae4b3",
+    "size" : 8,
+    "children" : [ ]
+  }, {
+    "name" : "types/Comment.ts",
+    "color" : "#bae4b3",
+    "size" : 46,
+    "children" : [ ]
+  }, {
+    "name" : "types/Country.ts",
+    "color" : "#bae4b3",
+    "size" : 257,
+    "children" : [ ]
+  }, {
+    "name" : "types/Order.ts",
+    "color" : "#bae4b3",
+    "size" : 12,
+    "children" : [ ]
+  }, {
+    "name" : "types/PostBody.ts",
+    "color" : "#bae4b3",
+    "size" : 29,
+    "children" : [ ]
+  }, {
+    "name" : "types/Professional.ts",
+    "color" : "#bae4b3",
+    "size" : 22,
+    "children" : [ ]
+  }, {
+    "name" : "types/Status.ts",
+    "color" : "#bae4b3",
+    "size" : 5,
+    "children" : [ ]
+  }, {
+    "name" : "types/User.ts",
+    "color" : "#bae4b3",
+    "size" : 8,
+    "children" : [ ]
+  }, {
+    "name" : "types/UserBody.ts",
+    "color" : "#bae4b3",
+    "size" : 8,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "31-90 (8)",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "app/auth/[slug]/page.tsx",
+    "color" : "#74c476",
+    "size" : 285,
+    "children" : [ ]
+  }, {
+    "name" : "app/Components/Footer.tsx",
+    "color" : "#74c476",
+    "size" : 89,
+    "children" : [ ]
+  }, {
+    "name" : "app/lib/definition.ts",
+    "color" : "#74c476",
+    "size" : 35,
+    "children" : [ ]
+  }, {
+    "name" : "app/settings/modal.tsx",
+    "color" : "#74c476",
+    "size" : 49,
+    "children" : [ ]
+  }, {
+    "name" : "app/utils/TransitionLink.tsx",
+    "color" : "#74c476",
+    "size" : 46,
+    "children" : [ ]
+  }, {
+    "name" : "db.js",
+    "color" : "#74c476",
+    "size" : 4,
+    "children" : [ ]
+  }, {
+    "name" : "postcss.config.mjs",
+    "color" : "#74c476",
+    "size" : 4,
+    "children" : [ ]
+  }, {
+    "name" : "prettier.config.mjs",
+    "color" : "#74c476",
+    "size" : 8,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "91-180 (0)",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "181-365 (0)",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "366+ (0)",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+} ]
+    }
+
+    root = d3.hierarchy(root)
+        .sum(function (d) {
+            return d.size;
+        })
+        .sort(function (a, b) {
+            return b.value - a.value;
+        });
+
+    var focus = root,
+        nodes = pack(root).descendants(),
+        view;
+
+    var circle = g.selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", function (d) {
+            return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root";
+        })
+        .style("fill", function (d) {
+            return d.children ? color(d.depth) : (d.data.color ? d.data.color : null);
+        })
+        .on("click", function (d) {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        });
+
+    var text = g.selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .style("fill-opacity", function (d) {
+            return d.parent === root ? 1 : 0;
+        })
+        .style("display", function (d) {
+            return d.parent === root ? "inline" : "none";
+        })
+        .text(function (d) {
+            return d.data.name.length > 33 ? (d.data.name.substr(0, 14) + "..." + d.data.name.substr(d.data.name.length - 14))  : d.data.name;
+        });
+
+    var node = g.selectAll("circle,text");
+
+    svg
+        .style("background", color(-1))
+        .on("click", function () {
+            zoom(root);
+        });
+
+    zoomTo([root.x, root.y, root.r * 2 + margin]);
+
+    function zoom(d) {
+        var focus0 = focus;
+        focus = d;
+
+        var transition = d3.transition()
+            .duration(d3.event.altKey ? 7500 : 750)
+            .tween("zoom", function (d) {
+                var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+                return function (t) {
+                    zoomTo(i(t));
+                };
+            });
+
+        transition.selectAll("text")
+            .filter(function (d) {
+                return d.parent === focus || this.style.display === "inline";
+            })
+            .style("fill-opacity", function (d) {
+                return d.parent === focus ? 1 : 0;
+            })
+            .on("start", function (d) {
+                if (d.parent === focus) this.style.display = "inline";
+            })
+            .on("end", function (d) {
+                if (d.parent !== focus) this.style.display = "none";
+            });
+    }
+
+    function zoomTo(v) {
+        var k = diameter / v[2];
+        view = v;
+        node.attr("transform", function (d) {
+            return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
+        });
+        circle.attr("r", function (d) {
+            return d.r * k;
+        });
+    }
+
+</script>
