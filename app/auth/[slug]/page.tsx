@@ -1,5 +1,6 @@
 "use client";
-import { Button, Datepicker } from "flowbite-react";
+import { Button } from "flowbite-react";
+import { BirthdayPicker } from "@/app/_components/BirthdayPicker";
 import { TransitionLink } from "@/app/utils/TransitionLink";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
@@ -217,18 +218,11 @@ export default function Auth() {
                     <CountrySelect value={country} onValueChange={setCountry} />
                   </div>
 
-                  <Datepicker
-                    id="datepicker"
-                    onChange={setBirthday}
-                    value={birthday ?? undefined}
+                  <BirthdayPicker
+                    birthday={birthday}
+                    setBirthday={setBirthday}
+                    error={error}
                   />
-                  <input
-                    type="hidden"
-                    name="birthday"
-                    value={birthday ? format(birthday, "yyyy-MM-dd") : ""}
-                  />
-
-                  {error ? <p className="text-red-600">{error}</p> : null}
 
                   <div className="flex flex-wrap items-center gap-4">
                     <button

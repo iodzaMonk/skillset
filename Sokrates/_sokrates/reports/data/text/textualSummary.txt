@@ -93,5 +93,5 @@ Analysing duplication...
   - per extension:
      - "tsx": 770 duplicated lines vs. 7999 total lines
      - "ts": 621 duplicated lines vs. 4244 total lines
-Total analysis time: 12.71s
+Total analysis time: 19.12s
 

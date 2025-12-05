@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { Datepicker } from "flowbite-react";
+import { BirthdayPicker } from "@/app/_components/BirthdayPicker";
 import { useMemo, useState } from "react";
 import { format } from "date-fns";
 import { CountrySelect } from "@/app/_components/CountrySelect";
@@ -175,18 +175,11 @@ export function SettingsForm({ user }: { user: User }) {
           <CountrySelect value={country} onValueChange={setCountry} />
         </div>
 
-        <Datepicker
-          id="datepicker"
-          onChange={setBirthday}
-          value={birthday ?? undefined}
+        <BirthdayPicker
+          birthday={birthday}
+          setBirthday={setBirthday}
+          error={error}
         />
-        <input
-          type="hidden"
-          name="birthday"
-          value={birthday ? format(birthday, "yyyy-MM-dd") : ""}
-        />
-
-        {error ? <p className="text-red-600">{error}</p> : null}
 
         <div className="flex flex-col items-center gap-5 sm:flex-row">
           <Button type="submit" disabled={isSaving} variant="update">

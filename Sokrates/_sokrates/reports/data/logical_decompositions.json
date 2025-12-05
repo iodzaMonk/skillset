@@ -320,43 +320,6 @@
     "temporalLinkThreshold" : 1,
     "maxSearchDepthLines" : 200
   },
-  "fileCountPerComponent" : [ {
-    "name" : "app",
-    "value" : 76,
-    "description" : [ ]
-  }, {
-    "name" : "components",
-    "value" : 52,
-    "description" : [ ]
-  }, {
-    "name" : "cypress",
-    "value" : 3,
-    "description" : [ ]
-  }, {
-    "name" : "ROOT",
-    "value" : 10,
-    "description" : [ ]
-  }, {
-    "name" : "features",
-    "value" : 10,
-    "description" : [ ]
-  }, {
-    "name" : "hooks",
-    "value" : 1,
-    "description" : [ ]
-  }, {
-    "name" : "lib",
-    "value" : 2,
-    "description" : [ ]
-  }, {
-    "name" : "prisma",
-    "value" : 1,
-    "description" : [ ]
-  }, {
-    "name" : "types",
-    "value" : 9,
-    "description" : [ ]
-  } ],
   "linesOfCodePerComponent" : [ {
     "name" : "app",
     "value" : 6401,
@@ -392,6 +355,43 @@
   }, {
     "name" : "types",
     "value" : 395,
+    "description" : [ ]
+  } ],
+  "fileCountPerComponent" : [ {
+    "name" : "app",
+    "value" : 76,
+    "description" : [ ]
+  }, {
+    "name" : "components",
+    "value" : 52,
+    "description" : [ ]
+  }, {
+    "name" : "cypress",
+    "value" : 3,
+    "description" : [ ]
+  }, {
+    "name" : "ROOT",
+    "value" : 10,
+    "description" : [ ]
+  }, {
+    "name" : "features",
+    "value" : 10,
+    "description" : [ ]
+  }, {
+    "name" : "hooks",
+    "value" : 1,
+    "description" : [ ]
+  }, {
+    "name" : "lib",
+    "value" : 2,
+    "description" : [ ]
+  }, {
+    "name" : "prisma",
+    "value" : 1,
+    "description" : [ ]
+  }, {
+    "name" : "types",
+    "value" : 9,
     "description" : [ ]
   } ]
 } ]

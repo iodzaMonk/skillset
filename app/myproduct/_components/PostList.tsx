@@ -135,13 +135,8 @@ export function PostList({
       <SelectableListHeader
         totalSelected={totalSelected}
         masterChecked={masterCheckboxState}
-        onMasterCheckedChange={(checked) => {
-          if (checked === true) {
-            selectAll();
-          } else if (checked === false) {
-            clearSelection();
-          }
-        }}
+        onSelectAll={selectAll}
+        onClearSelection={clearSelection}
       >
         {totalSelected > 0 && (
           <>
