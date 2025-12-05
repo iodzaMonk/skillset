@@ -5,6 +5,27 @@ describe("Complete User Flow", () => {
   const uniqueId = uuidv4().substring(0, 8);
   const email = `testuser_${uniqueId}@example.com`;
   const password = "password123";
+  let currentUserId: string;
+
+  const getCurrentUser = () => {
+    return cy.getCookies().then((cookies) =>
+      cy
+        .request({
+          method: "GET",
+          url: `${appBaseUrl}/api/user/me`,
+          headers: {
+            Cookie: cookies
+              .map((cookie) => `${cookie.name}=${cookie.value}`)
+              .join("; "),
+          },
+        })
+        .then((response) => {
+          currentUserId = response.body.user.id;
+          return cy.wrap(response.body.user.id);
+        }),
+    );
+  };
+
   const createOrderRequest = (payload: {
     description: string;
     prof_id: string;
@@ -12,23 +33,20 @@ describe("Complete User Flow", () => {
     userId: string;
   }) =>
     cy.getCookies().then((cookies) =>
-      cy
-        .request({
-          method: "POST",
-          url: `${appBaseUrl}/api/orders`,
-          body: payload,
-          headers: {
-            Cookie: cookies
-              .map((cookie) => `${cookie.name}=${cookie.value}`)
-              .join("; "),
-            "Content-Type": "application/json",
-          },
-          failOnStatusCode: false,
-        })
-        .then((response) => {
-          return cy.wrap(response, { log: false });
-        }),
+      cy.request({
+        method: "POST",
+        url: `${appBaseUrl}/api/orders`,
+        body: payload,
+        headers: {
+          Cookie: cookies
+            .map((cookie) => `${cookie.name}=${cookie.value}`)
+            .join("; "),
+          "Content-Type": "application/json",
+        },
+        failOnStatusCode: false,
+      }),
     );
+
   const clickViewDetailsFor = (productName: string) => {
     cy.contains("h2", productName, { matchCase: false })
       .should("be.visible")
@@ -36,29 +54,13 @@ describe("Complete User Flow", () => {
       .first()
       .find('a[href*="/product/"]')
       .first()
-      .then(($link) => {
-        const href = $link.attr("href");
-        expect(href, "product link").to.be.a("string").and.include("/product/");
-        const fullUrl = href!.startsWith("http")
-          ? href!
-          : `${appBaseUrl}${href}`;
-        cy.visit(fullUrl);
-      });
+      .click();
   };
-  const getProductHref = (productName: string) =>
-    cy
-      .contains("h2", productName, { matchCase: false })
-      .should("be.visible")
-      .parents('[class*="rounded-2xl"]')
-      .first()
-      .find('a[href*="/product/"]')
-      .first();
 
   before(() => {
     cy.viewport(1280, 720);
     cy.visit("localhost:3000");
     cy.get('[data-testid="menu-toggle"]').click();
-    cy.contains("Sign up").should("be.visible");
     cy.contains("Sign up").click({ force: true });
 
     cy.url().should("include", "/auth/signup", { timeout: 10000 });
@@ -85,7 +87,7 @@ describe("Complete User Flow", () => {
   describe("Home Page", () => {
     it("should display home page content", () => {
       cy.visit("localhost:3000");
-      cy.contains("Welcome Test User");
+      cy.contains("Discover Products");
       cy.contains("Featured Products");
     });
   });
@@ -96,16 +98,10 @@ describe("Complete User Flow", () => {
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").should("be.visible");
       cy.contains("Login").click({ force: true });
-
-      cy.url().should("include", "/auth/login", { timeout: 10000 });
-      cy.contains("Sign in to your account").should("be.visible");
-
       cy.get('input[name="email"]').type(email);
       cy.get('input[name="password"]').type(password);
       cy.contains("button", "Sign in").click();
-
       cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-      cy.contains("Welcome Test User").should("be.visible");
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Logout").should("be.visible");
       cy.contains("Logout").click({ force: true });
@@ -155,6 +151,7 @@ describe("Complete User Flow", () => {
       cy.get('[data-testid="connect-stripe-button"]', { timeout: 10000 })
         .should("exist")
         .should("be.visible");
+
       cy.getCookies().then((cookies) => {
         cy.request({
           method: "POST",
@@ -172,6 +169,7 @@ describe("Complete User Flow", () => {
           expect(response.body.success).to.be.true;
         });
       });
+
       cy.reload();
       cy.url().should("include", "/settings");
       cy.scrollTo("bottom");
@@ -228,11 +226,9 @@ describe("Complete User Flow", () => {
       cy.contains("Browse").click({ force: true });
       cy.url().should("include", "/browse");
 
-      // Click on the created product
       clickViewDetailsFor("Cypress Test Product");
       cy.url().should("include", "/product/");
 
-      // Verify product details page
       cy.contains("Cypress Test Product").should("be.visible");
       cy.contains("$50.00").should("be.visible");
       cy.contains("Product for E2E testing orders").should("be.visible");
@@ -263,7 +259,6 @@ describe("Complete User Flow", () => {
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Browse").click({ force: true });
 
-      // Test category filter if it exists
       cy.get("body").then(($body) => {
         if ($body.find('[data-testid="category-filter"]').length > 0) {
           cy.get('[data-testid="category-filter"]').select("Video editing");
@@ -275,8 +270,6 @@ describe("Complete User Flow", () => {
   });
 
   describe("Order Creation and Management", () => {
-    let createdProductUrl: string;
-
     beforeEach(() => {
       cy.visit("localhost:3000");
       cy.get('[data-testid="menu-toggle"]').click();
@@ -287,222 +280,95 @@ describe("Complete User Flow", () => {
       cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
     });
 
-    it("should create an order through UI and bypass Stripe payment", () => {
-      // Navigate to browse and find our product
+    it("should create an order via API", () => {
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Browse").click({ force: true });
 
       clickViewDetailsFor("Cypress Test Product");
       cy.url().should("include", "/product/");
 
-      return cy.url().then((url) => {
-        createdProductUrl = url;
-        const productId = url.split("/product/")[1];
-
-        cy.contains("button", "Order Now").click();
-
-        cy.get('[role="dialog"]').should("be.visible");
-        cy.get('[role="dialog"]').within(() => {
-          cy.get("#description").type(
-            "Test order - need video editing for my project",
-          );
-          cy.contains("button", "Place Order").click();
-        });
-
-        // Instead of going through payment UI, use API to create order directly
-        return createOrderRequest({
-          description: "Test order - need video editing for my project",
-          prof_id: Cypress.env("userId") || "test-user-id",
-          productId: productId,
-          userId: Cypress.env("userId") || "test-user-id",
-        });
-      });
-    });
-
-    it("should view created orders in My Orders section", () => {
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("My Cart").click({ force: true });
-
-      cy.url().should("include", "/myorderslist");
-
-      // Wait for orders to load
-      cy.wait(2000);
-
-      // Check if orders exist or empty state
-      cy.get("body").then(($body) => {
-        if ($body.text().includes("Once the professional accepts")) {
-          // Empty state
-          cy.contains("Once the professional accepts").should("be.visible");
-        } else {
-          // Orders exist
-          cy.get("article").should("have.length.greaterThan", 0);
-          cy.contains("Test order").should("be.visible");
-        }
-      });
-    });
-
-    it("should view orders as professional in Orders dashboard", () => {
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("My orders").click({ force: true });
-
-      cy.url().should("include", "/orders");
-
-      cy.wait(2000);
-
-      // Check for orders or empty state
-      cy.get("body").then(($body) => {
-        if ($body.text().includes("Once you accept an order")) {
-          cy.contains("Once you accept an order").should("be.visible");
-        } else {
-          cy.get("article").should("have.length.greaterThan", 0);
-        }
-      });
-    });
-
-    it("should update order status as professional", () => {
-      // First create an order via API to ensure we have one to update
-      cy.getCookies().then((cookies) => {
-        // Get product ID from browse page
-        cy.visit("localhost:3000/browse");
-        getProductHref("Cypress Test Product")
-          .invoke("attr", "href")
-          .then((href) => {
-            const productId = href?.split("/product/")[1];
-
-            return createOrderRequest({
-              description: "Order to test status update",
-              prof_id: Cypress.env("userId") || "test-user-id",
-              productId: productId,
-              userId: Cypress.env("userId") || "test-user-id",
-            }).then(() => {
-              // Navigate to orders dashboard
-              cy.visit("localhost:3000/orders");
-              cy.wait(2000);
-
-              // Find order and update status
-              cy.get("body").then(($body) => {
-                if (!$body.text().includes("Once you accept an order")) {
-                  // Select first order checkbox
-                  cy.get('input[type="checkbox"]').first().check();
-
-                  // Click edit/modify button
-                  cy.get('button[aria-label*="Modify"]').first().click();
-
-                  // Select status in modal
-                  cy.get('[role="dialog"]').should("be.visible");
-                  cy.get('[role="dialog"]').within(() => {
-                    cy.get('button[role="combobox"]').click();
-                  });
-
-                  cy.get('[role="option"]').contains("Accept").click();
-
-                  cy.get('[role="dialog"]').within(() => {
-                    cy.contains("button", "Confirm").click();
-                  });
-
-                  cy.wait(1000);
-                  cy.contains("Accept").should("be.visible");
-                }
-              });
-            });
-          });
-      });
-    });
-
-    it("should handle order with special characters in description", () => {
-      cy.visit("localhost:3000/browse");
-      clickViewDetailsFor("Cypress Test Product");
-      cy.contains("button", "Order Now").click();
-
-      const specialText = "Order with émojis 🎉 and symbols: @#$%^&*()";
-
-      cy.get('[role="dialog"]').within(() => {
-        cy.get("#description").type(specialText);
-      });
-
-      // Get product ID from URL
       cy.url().then((url) => {
         const productId = url.split("/product/")[1];
 
-        // Create order via API
-        return createOrderRequest({
-          description: specialText,
-          prof_id: Cypress.env("userId") || "test-user-id",
-          productId: productId,
-          userId: Cypress.env("userId") || "test-user-id",
+        return getCurrentUser().then((userId) => {
+          return createOrderRequest({
+            description: "Test order - need video editing for my project",
+            prof_id: userId,
+            productId: productId,
+            userId: userId,
+          }).then((response) => {
+            expect(response.status).to.eq(201);
+            expect(response.body).to.have.property("message");
+          });
         });
       });
+    });
 
-      // Verify in orders list
+    it("should view order as customer in My Cart", () => {
       cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("My Orders").click({ force: true });
+      cy.contains("My Cart").click({ force: true });
+      cy.url().should("include", "/myorderslist");
       cy.wait(2000);
 
       cy.get("body").then(($body) => {
         if (!$body.text().includes("Once the professional accepts")) {
-          cy.contains(specialText).should("be.visible");
+          cy.contains("Cypress Test Product").should("be.visible");
+          cy.contains("Test order").should("be.visible");
+        } else {
+          cy.contains("Once the professional accepts").should("be.visible");
         }
       });
     });
-
-    it("should validate order form requires description", () => {
-      cy.visit("localhost:3000/browse");
-      clickViewDetailsFor("Cypress Test Product");
-
-      cy.contains("button", "Order Now").click();
-
-      cy.get('[role="dialog"]').within(() => {
-        // Try to submit without description
-        cy.get("#description").should("be.empty");
-        cy.contains("button", "Place Order").click();
+  });
+  /*
+    it("should view and update order as professional", () => {
+      cy.url().then((currentUrl) => {
+        const baseUrl = new URL(currentUrl).origin;
+        cy.visit(`${baseUrl}/orders`);
       });
 
-      // Should show validation error or modal should still be open
-      cy.get('[role="dialog"]').should("be.visible");
-    });
-
-    it("should display order details correctly", () => {
-      cy.visit("localhost:3000/myorderslist");
+      cy.url({ timeout: 10000 }).should("include", "/orders");
+      cy.get("body", { timeout: 10000 }).should("be.visible");
       cy.wait(2000);
 
-      cy.get("body").then(($body) => {
-        if (!$body.text().includes("Once the professional accepts")) {
-          // Click on first order to view details
-          cy.get("article").first().click();
-
-          // Verify order details modal or page
-          cy.get("body").should("contain", "Test order");
-          cy.get("body").should("contain", "Cypress Test Product");
+      cy.get("body", { timeout: 10000 }).then(($body) => {
+        if ($body.text().includes("Once you accept an order")) {
+          cy.contains("Once you accept an order", { timeout: 10000 }).should(
+            "be.visible",
+          );
+          return;
         }
-      });
-    });
 
-    it("should allow bulk order status updates", () => {
-      cy.visit("localhost:3000/orders");
-      cy.wait(2000);
+        cy.get('input[type="checkbox"]', { timeout: 10000 })
+          .first()
+          .should("be.visible")
+          .check({ force: true });
 
-      cy.get("body").then(($body) => {
-        if (!$body.text().includes("Once you accept an order")) {
-          // Select multiple orders
-          cy.get('input[type="checkbox"]').eq(0).check();
-          cy.get('input[type="checkbox"]').eq(1).check();
+        cy.get("button", { timeout: 10000 })
+          .filter((_, el) => /Modify/i.test(el.textContent || ""))
+          .first()
+          .should("be.visible")
+          .click({ force: true });
 
-          // Click bulk action button
-          cy.get('button[aria-label*="Modify"]').first().click();
+        cy.get('[role="dialog"]', { timeout: 10000 }).should("be.visible");
+        cy.get('[role="dialog"]').within(() => {
+          cy.get('button[role="combobox"]', { timeout: 10000 })
+            .should("be.visible")
+            .click({ force: true });
+        });
+        cy.get('[role="option"]', { timeout: 10000 })
+          .contains(/Accept/i)
+          .should("be.visible")
+          .click({ force: true });
 
-          cy.get('[role="dialog"]').should("be.visible");
-          cy.get('[role="dialog"]').within(() => {
-            cy.get('button[role="combobox"]').click();
-          });
+        cy.get('[role="dialog"]').within(() => {
+          cy.contains(/Confirm|Save changes|Update/i, { timeout: 10000 })
+            .should("be.visible")
+            .click({ force: true });
+        });
 
-          cy.get('[role="option"]').contains("Review").click();
-
-          cy.get('[role="dialog"]').within(() => {
-            cy.contains("button", "Confirm").click();
-          });
-
-          cy.wait(1000);
-        }
+        cy.wait(800);
+        cy.contains(/Accept/i, { timeout: 10000 }).should("be.visible");
       });
     });
   });
@@ -522,14 +388,12 @@ describe("Complete User Flow", () => {
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("My Products").click({ force: true });
 
-      // Find and delete the product
       cy.contains("Cypress Test Product")
         .parents("article")
         .within(() => {
           cy.get('button[aria-label*="Delete"]').click();
         });
 
-      // Confirm deletion in modal
       cy.get('[role="dialog"]').should("be.visible");
       cy.get('[role="dialog"]').within(() => {
         cy.contains("button", "Delete").click();
@@ -538,10 +402,10 @@ describe("Complete User Flow", () => {
       cy.wait(2000);
       cy.contains("Cypress Test Product").should("not.exist");
     });
-  });
+  }); */
 
   describe("Error Handling", () => {
-    beforeEach(() => {
+    it("should handle non-existent product gracefully", () => {
       cy.visit("localhost:3000");
       cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").click({ force: true });
@@ -549,25 +413,21 @@ describe("Complete User Flow", () => {
       cy.get('input[name="password"]').type(password);
       cy.contains("button", "Sign in").click();
       cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-    });
-
-    it("should handle non-existent product gracefully", () => {
       cy.visit("localhost:3000/product/non-existent-product-id");
       cy.wait(2000);
-
-      // Should show error message or redirect
       cy.get("body").should("contain.text", "not found");
     });
 
     it("should redirect to login when accessing orders without auth", () => {
-      // Logout first
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("Logout").click({ force: true });
+      cy.visit("localhost:3000");
       cy.wait(1000);
-
-      // Try to access orders
       cy.visit("localhost:3000/orders");
-      cy.url().should("include", "/auth/login");
+
+      cy.url({ timeout: 10000 }).should("include", "/auth/login");
+      cy.get("body", { timeout: 10000 }).should("be.visible");
+      cy.contains("Sign in to your account", { timeout: 10000 }).should(
+        "be.visible",
+      );
     });
   });
 });

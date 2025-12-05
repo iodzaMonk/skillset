@@ -5,8 +5,12 @@ import { useOrderManager } from "./_hooks/orderStates";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Order } from "@/types/Order";
+import { useAuth } from "@/app/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
+  const { user } = useAuth();
+  const router = useRouter();
   const {
     isModalOpen,
     toggleModal,
@@ -22,27 +26,35 @@ export default function CartPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (!user) {
+      router.push("/auth/login");
+      return;
+    }
+
     const fetchOrders = async () => {
       setIsLoading(true);
       try {
         const response = await axios.get("/api/cart/user");
         console.log("Full API response:", response.data);
 
-        // The API returns { data: orders }, so we need to access .data
         const ordersData = response.data.data || [];
         setFetchedOrders(Array.isArray(ordersData) ? ordersData : []);
 
         console.log("Processed orders:", ordersData);
       } catch (error) {
         console.error("Failed to fetch orders:", error);
-        setFetchedOrders([]); // Set empty array on error
+        setFetchedOrders([]);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchOrders();
-  }, []);
+  }, [user, router]);
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="space-y-6">

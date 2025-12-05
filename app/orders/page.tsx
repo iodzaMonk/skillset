@@ -2,8 +2,13 @@
 import { Modal } from "./_components/Modal";
 import { OrderList } from "./_components/OrderList";
 import { useOrderManager } from "./_hooks/orderStates";
+import { useAuth } from "@/app/context/AuthContext";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function OrdersPage() {
+  const { user } = useAuth();
+  const router = useRouter();
   const {
     orders,
     isModalOpen,
@@ -16,6 +21,16 @@ export default function OrdersPage() {
     primarOrder,
     isLoading,
   } = useOrderManager();
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/auth/login");
+    }
+  }, [user, router]);
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="space-y-6">
