@@ -1,29 +1,27 @@
-app/api/product/[slug]/route.ts [16:24]:
+app/api/product/[slug]/reviews/replies/route.ts [43:50]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-            country: true,
-            email: true,
-          },
-        },
+export async function POST(
+  request: Request,
+  context: { params: Promise<{ slug: string }> },
+) {
+  const { slug } = await context.params;
+  const user = await getCurrentUser();
+
+  if (!user) {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [185:193]:
+app/api/product/[slug]/reviews/route.ts [37:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-              country: true,
-              email: true,
-            },
-          },
+export async function POST(
+  request: Request,
+  context: { params: Promise<{ slug: string }> },
+) {
+  const { slug } = await context.params;
+  const user = await getCurrentUser();
+
+  if (!user) {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

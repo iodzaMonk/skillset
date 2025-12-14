@@ -1,57 +1,40 @@
 <html>
 <head>
-    <title>export async function PUT()</title>
+    <title>export async function GET()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function PUT()</h3>
-<p style="margin-top: 4px">in <i>app/api/product/user/route.ts [48:88]</i></p>
+<h3 style="margin-bottom: 0">export async function GET()</h3>
+<p style="margin-top: 4px">in <i>app/api/product/route.ts [8:31]</i></p>
 <ul>
-    <li><b>36</b> lines of code</li>
+    <li><b>22</b> lines of code</li>
     <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function PUT(req: Request) {
+export async function GET(request: Request) {
   const headersList = await headers();
-  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
-
+  const referer = headersList.get(&quot;referer&quot;);
   try {
-    const user = await getCurrentUser();
-    if (!user) {
-      return Response.json(
-        { message: &quot;Not authenticated&quot; },
-        { status: 401, headers: { &quot;x-referer&quot;: referer } },
-      );
-    }
+    const url = new URL(request.url);
+    const category = url.searchParams.get(&quot;category&quot;);
+    const products = await prisma.posts.findMany({
+      where: category ? { category: category as Category } : undefined,
+    });
 
-    const updatedProduct = await updateProductRecord(user.id, await req.json());
+    const productsWithImages = await signProductsWithImages(products);
 
-    return Response.json(
-      { data: updatedProduct },
-      { status: 200, headers: { &quot;x-referer&quot;: referer } },
-    );
+    return new Response(JSON.stringify(productsWithImages), {
+      status: 200,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
   } catch (error) {
-    if (error instanceof ProductNotFoundError) {
-      return Response.json(
-        { message: &quot;Product not found&quot; },
-        { status: 404, headers: { &quot;x-referer&quot;: referer } },
-      );
-    }
-    if (error instanceof ZodError) {
-      return Response.json(
-        { message: error.issues.map((i) =&gt; i.message).join(&quot;, &quot;) },
-        { status: 400, headers: { &quot;x-referer&quot;: referer } },
-      );
-    }
-
-    console.error(&quot;Update product error&quot;, error);
-
-    return Response.json(
-      { message: &quot;Internal server error&quot; },
-      { status: 500, headers: { &quot;x-referer&quot;: referer } },
-    );
+    console.log(error);
+    return new Response(&quot;Error&quot;, {
+      status: 500,
+      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+    });
   }
 }
 

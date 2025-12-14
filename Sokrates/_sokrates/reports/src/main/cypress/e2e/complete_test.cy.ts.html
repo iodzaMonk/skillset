@@ -12,8 +12,29 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">cypress/e2e/complete_test.cy.ts (<b>329</b> lines of code) (<a href="complete_test.cy.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">cypress/e2e/complete_test.cy.ts (<b>311</b> lines of code) (<a href="complete_test.cy.ts">raw</a>):</h3>
 <div id="editor">import { v4 as uuidv4 } from &quot;uuid&quot;;
+
+const mockUserMe = (
+  email: string,
+  overrides: { vendor_id?: string | null } = {},
+) =&gt; {
+  cy.intercept(&quot;GET&quot;, &quot;/api/user/me&quot;, (req) =&gt; {
+    req.reply({
+      statusCode: 200,
+      body: {
+        user: {
+          id: &quot;user-test-id&quot;,
+          email: email,
+          name: &quot;Test User&quot;,
+          country: &quot;AU&quot;,
+          birthday: null,
+          vendor_id: overrides.vendor_id ?? &quot;acct_mock_123456&quot;,
+        },
+      },
+    });
+  }).as(overrides.vendor_id === null ? &quot;getUserNoVendor&quot; : &quot;getUserWithVendor&quot;);
+};
 
 describe(&quot;Complete User Flow&quot;, () =&gt; {
   const uniqueId = uuidv4().substring(0, 8);
@@ -188,21 +209,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
         },
       }).as(&quot;createStripeAccount&quot;);
 
-      cy.intercept(&quot;GET&quot;, &quot;/api/user/me&quot;, (req) =&gt; {
-        req.reply({
-          statusCode: 200,
-          body: {
-            user: {
-              id: &quot;user-test-id&quot;,
-              email: email,
-              name: &quot;Test User&quot;,
-              country: &quot;AU&quot;,
-              birthday: null,
-              vendor_id: &quot;acct_mock_123456&quot;,
-            },
-          },
-        });
-      }).as(&quot;getUserMe&quot;);
+      mockUserMe(email, { vendor_id: &quot;acct_mock_123456&quot; });
 
       cy.intercept(&quot;POST&quot;, &quot;/api/orders/create-payment&quot;, {
         statusCode: 200,
@@ -236,9 +243,8 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
         expect(interception.request.body.email).to.equal(email);
         expect(interception.request.body).to.have.property(&quot;refreshUrl&quot;);
         expect(interception.request.body).to.have.property(&quot;returnUrl&quot;);
-
-        expect(interception.response.body).to.have.property(&quot;url&quot;);
-        expect(interception.response.body.accountId).to.equal(
+        expect(interception.response?.body).to.have.property(&quot;url&quot;);
+        expect(interception.response?.body.accountId).to.equal(
           &quot;acct_mock_123456&quot;,
         );
       });
@@ -255,19 +261,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should prevent product creation without vendor_id&quot;, () =&gt; {
-      cy.intercept(&quot;GET&quot;, &quot;/api/user/me&quot;, {
-        statusCode: 200,
-        body: {
-          user: {
-            id: &quot;user-test-id&quot;,
-            email: email,
-            name: &quot;Test User&quot;,
-            country: &quot;AU&quot;,
-            birthday: null,
-            vendor_id: null,
-          },
-        },
-      }).as(&quot;getUserNoVendor&quot;);
+      mockUserMe(email, { vendor_id: null });
 
       cy.visit(&quot;localhost:3000/myproduct&quot;);
       cy.wait(&quot;@getUserNoVendor&quot;);
@@ -279,19 +273,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should allow product creation with vendor_id&quot;, () =&gt; {
-      cy.intercept(&quot;GET&quot;, &quot;/api/user/me&quot;, {
-        statusCode: 200,
-        body: {
-          user: {
-            id: &quot;user-test-id&quot;,
-            email: email,
-            name: &quot;Test User&quot;,
-            country: &quot;AU&quot;,
-            birthday: null,
-            vendor_id: &quot;acct_mock_123456&quot;,
-          },
-        },
-      }).as(&quot;getUserWithVendor&quot;);
+      mockUserMe(email, { vendor_id: &quot;acct_mock_123456&quot; });
 
       cy.intercept(&quot;POST&quot;, &quot;/api/product/user&quot;, {
         statusCode: 201,
@@ -350,10 +332,10 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
           &quot;product_id&quot;,
         );
 
-        expect(interception.response.body.clientSecret).to.equal(
+        expect(interception.response?.body.clientSecret).to.equal(
           &quot;pi_mock_secret_123&quot;,
         );
-        expect(interception.response.body.professionalName).to.equal(
+        expect(interception.response?.body.professionalName).to.equal(
           &quot;Mock Professional&quot;,
         );
       });
@@ -395,7 +377,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
 
       cy.wait(&quot;@completeOrder&quot;).then((interception) =&gt; {
         expect(interception.request.body).to.have.property(&quot;paymentIntentId&quot;);
-        expect(interception.response.body.orderId).to.equal(&quot;order_mock_123&quot;);
+        expect(interception.response?.body.orderId).to.equal(&quot;order_mock_123&quot;);
       });
 
       cy.url().should(&quot;include&quot;, &quot;/payment/success&quot;, { timeout: 10000 });

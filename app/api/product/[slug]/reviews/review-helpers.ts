@@ -1,32 +1,60 @@
 import { prisma } from "@/lib/prisma";
+import { NextResponse } from "next/server";
 
 export const MAX_REPLY_DEPTH = 3;
+const MAX_RATING = 5;
+
+export function errorResponse(message: string, status: number) {
+  return NextResponse.json({ message }, { status });
+}
+
+export const parseRating = (value: unknown): number | null => {
+  if (value === null || value === undefined || value === "") return null;
+  if (typeof value !== "number") return NaN;
+  if (!Number.isFinite(value)) return NaN;
+  return Math.round(value);
+};
+
+export const ratingIsValid = (rating: number | null) =>
+  rating !== null && rating >= 1 && rating <= MAX_RATING;
+
+export async function recomputeProductRating(productId: string) {
+  const aggregate = await prisma.reviews.aggregate({
+    where: {
+      product_id: productId,
+      parent_id: null,
+      rating: { not: null },
+    },
+    _avg: { rating: true },
+    _count: { rating: true },
+  });
+
+  await prisma.posts.update({
+    where: { id: productId },
+    data: {
+      rating: aggregate._count.rating ? aggregate._avg.rating : null,
+      ratingCount: aggregate._count.rating ?? 0,
+    },
+  });
+}
+
+export const userSelect = {
+  select: {
+    id: true,
+    name: true,
+  },
+} as const;
 
 export const reviewThreadInclude = {
-  users: {
-    select: {
-      id: true,
-      name: true,
-    },
-  },
+  users: userSelect,
   replies: {
     orderBy: { date: "asc" },
     include: {
-      users: {
-        select: {
-          id: true,
-          name: true,
-        },
-      },
+      users: userSelect,
       replies: {
         orderBy: { date: "asc" },
         include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
+          users: userSelect,
         },
       },
     },

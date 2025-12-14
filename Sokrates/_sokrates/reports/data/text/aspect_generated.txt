@@ -1,2 +1,1 @@
 Path	Lines of Code
-lib/generated/prisma/default.js	1

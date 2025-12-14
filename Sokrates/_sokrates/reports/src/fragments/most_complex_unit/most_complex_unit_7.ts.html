@@ -6,25 +6,31 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">export function useOrderManager()</h3>
-<p style="margin-top: 4px">in <i>app/orders/_hooks/orderStates.ts [9:144]</i></p>
+<p style="margin-top: 4px">in <i>app/hooks/useOrderManager.ts [10:154]</i></p>
 <ul>
-    <li><b>109</b> lines of code</li>
+    <li><b>115</b> lines of code</li>
     <li><b>16</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export function useOrderManager() {
+export function useOrderManager(
+  fetcher: () =&gt; Promise&lt;Order[]&gt; = fetchUserOrder,
+) {
   const [orders, setOrders] = useState&lt;Order[]&gt;([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState&lt;Status | null&gt;(null);
-  const [selectedIds, setSelectedIds] = useState&lt;string[]&gt;([]);
   const [isLoading, setIsLoading] = useState(false);
   const modalRef = useRef&lt;HTMLDivElement&gt;(null);
+
+  const orderIds = orders.map((o) =&gt; o.id).filter(Boolean) as string[];
+  const selection = useSelection(orderIds);
+  const { selectedIds, setSelectedIds } = selection;
+
   /**
-   * Refreshes posts
+   * Refreshes orders
    * @async
    */
-  const refreshPosts = useCallback(
+  const refreshOrders = useCallback(
     async (options?: { silent?: boolean }): Promise&lt;void&gt; =&gt; {
       const showLoader = !options?.silent;
 
@@ -33,7 +39,7 @@ export function useOrderManager() {
       }
 
       try {
-        const data = await fetchUserOrder();
+        const data = await fetcher();
         // Ensure data is always an array
         setOrders(Array.isArray(data) ? data : []);
       } catch (error) {
@@ -47,11 +53,12 @@ export function useOrderManager() {
         }
       }
     },
-    [],
+    [fetcher],
   );
 
   const primaryOrderId = selectedIds[0] ?? null;
-  const primarOrder = orders.find((o) =&gt; o.id === primaryOrderId) ?? null;
+  const primaryOrder = orders.find((o) =&gt; o.id === primaryOrderId) ?? null;
+
   const openModal = useCallback(() =&gt; {
     setIsModalOpen(true);
   }, []);
@@ -73,15 +80,15 @@ export function useOrderManager() {
 
     try {
       await updateUserStatus(selectedStatus, selectedIds);
-      void refreshPosts({ silent: true });
+      void refreshOrders({ silent: true });
       return true;
     } catch (error) {
       console.error(&quot;failed to update status&quot;, error);
       setOrders(previousOrders);
-      await refreshPosts({ silent: true });
+      await refreshOrders({ silent: true });
       return false;
     }
-  }, [selectedIds, selectedStatus, refreshPosts]);
+  }, [selectedIds, selectedStatus, refreshOrders]);
 
   const closeModal = useCallback(async () =&gt; {
     if (!isModalOpen) {
@@ -131,8 +138,8 @@ export function useOrderManager() {
   }, [closeModal, isModalOpen]);
 
   useEffect(() =&gt; {
-    refreshPosts();
-  }, [refreshPosts]);
+    refreshOrders();
+  }, [refreshOrders]);
 
   return {
     orders,
@@ -146,7 +153,9 @@ export function useOrderManager() {
     selectedStatus,
     setSelectedIds,
     setSelectedStatus,
-    primarOrder,
+    primaryOrder,
+    selection,
+    refreshOrders,
   };
 }
 

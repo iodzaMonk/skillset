@@ -1,19 +1,17 @@
 "use client";
 import { Button } from "flowbite-react";
-import { BirthdayPicker } from "@/app/_components/BirthdayPicker";
+import { FormItem } from "@/app/_components/FormItem";
+
 import { TransitionLink } from "@/app/utils/TransitionLink";
+import { getErrorMessage } from "@/app/utils/api-helpers";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
-import { format } from "date-fns";
 import { useAuth } from "@/app/context/AuthContext";
 import { CountrySelect } from "@/app/_components/CountrySelect";
 
-const inputBase =
-  "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
-  "focus:outline-ring focus:ring-2 focus:ring-[--color-ring] focus:border-transparent transition";
-
-const labelBase = "mb-2 block text-sm font-medium text-text";
+import { BirthdayPicker } from "@/app/_components/BirthdayPicker";
+import { Checkbox } from "@/components/ui/checkbox";
 const hintText = "text-sm text-text-muted";
 
 export default function Auth() {
@@ -56,9 +54,7 @@ export default function Auth() {
       await refresh();
       router.push("/");
     } catch (err) {
-      const message = axios.isAxiosError(err)
-        ? (err.response?.data?.message ?? "Something went wrong")
-        : "Something went wrong";
+      const message = getErrorMessage(err);
       setError(message);
     } finally {
       setIsSubmitting(false);
@@ -77,41 +73,29 @@ export default function Auth() {
                 </h1>
 
                 <form className="space-y-5" onSubmit={onSubmit}>
-                  <div>
-                    <label htmlFor="email" className={labelBase}>
-                      Your email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="name@company.com"
-                      className={inputBase}
-                      required
-                      autoComplete="email"
-                    />
-                  </div>
+                  <FormItem
+                    label="Email address"
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="name@company.com"
+                    required
+                    autoComplete="email"
+                  />
 
-                  <div>
-                    <label htmlFor="password" className={labelBase}>
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="********"
-                      className={inputBase}
-                      required
-                      autoComplete="current-password"
-                    />
-                  </div>
+                  <FormItem
+                    label="Password"
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="********"
+                    required
+                    autoComplete="current-password"
+                  />
 
                   <div className="flex items-center justify-between">
                     <label className="text-text flex items-center gap-2 text-sm">
-                      <input
-                        id="remember"
-                        type="checkbox"
-                        className="border-border bg-surface/60 text-secondary h-4 w-4 rounded focus:ring-2 focus:ring-[--color-ring] focus:outline-none"
-                      />
+                      <Checkbox id="remember" />
                       <span className="text-text-muted">Remember me</span>
                     </label>
 
@@ -123,13 +107,13 @@ export default function Auth() {
                     </a>
                   </div>
 
-                  <button
+                  <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-accent text-text-onAccent hover:bg-accent-hover focus:ring-ring w-full cursor-pointer rounded-md px-5 py-2.5 text-center text-sm font-semibold transition focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+                    className="w-full"
                   >
                     Sign in
-                  </button>
+                  </Button>
 
                   {error ? <p className="text-red-600">{error}</p> : null}
 
@@ -157,61 +141,45 @@ export default function Auth() {
                 </h1>
 
                 <form className="space-y-6" onSubmit={onSubmit}>
-                  <div>
-                    <label htmlFor="email" className={labelBase}>
-                      Email address
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      className={inputBase}
-                      placeholder="you@example.com"
-                      required
-                      autoComplete="email"
-                    />
-                  </div>
+                  <FormItem
+                    label="Email address"
+                    id="email-signup"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    required
+                    autoComplete="email"
+                  />
 
-                  <div>
-                    <label htmlFor="name" className={labelBase}>
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      className={inputBase}
-                      placeholder="Jane"
-                      required
-                      autoComplete="given-name"
-                    />
-                  </div>
+                  <FormItem
+                    label="Name"
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Jane"
+                    required
+                    autoComplete="given-name"
+                  />
 
                   <div className="grid gap-6 md:grid-cols-2">
-                    <div>
-                      <label htmlFor="password" className={labelBase}>
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        name="password"
-                        className={inputBase}
-                        placeholder="********"
-                        required
-                        autoComplete="new-password"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="confirmPassword" className={labelBase}>
-                        Confirm password
-                      </label>
-                      <input
-                        type="password"
-                        name="confirmPassword"
-                        className={inputBase}
-                        placeholder="********"
-                        required
-                        autoComplete="new-password"
-                      />
-                    </div>
+                    <FormItem
+                      label="Password"
+                      id="password-signup"
+                      type="password"
+                      name="password"
+                      placeholder="********"
+                      required
+                      autoComplete="new-password"
+                    />
+                    <FormItem
+                      label="Confirm password"
+                      id="confirmPassword"
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="********"
+                      required
+                      autoComplete="new-password"
+                    />
                   </div>
 
                   <div id="countries">
@@ -225,13 +193,9 @@ export default function Auth() {
                   />
 
                   <div className="flex flex-wrap items-center gap-4">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="bg-accent text-text-onAccent hover:bg-accent-hover focus:ring-ring cursor-pointer rounded-md px-5 py-2.5 text-sm font-semibold transition focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
-                    >
+                    <Button type="submit" disabled={isSubmitting}>
                       Submit
-                    </button>
+                    </Button>
 
                     <TransitionLink href="/auth/login">
                       <Button

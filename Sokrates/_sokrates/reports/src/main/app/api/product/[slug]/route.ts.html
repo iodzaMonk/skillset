@@ -12,13 +12,14 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">app/api/product/[slug]/route.ts (<b>83</b> lines of code) (<a href="route.ts">raw</a>):</h3>
-<div id="editor">import { prisma } from &quot;@/lib/prisma&quot;;
-import { NextResponse } from &quot;next/server&quot;;
+<h3 style="margin-bottom: 0">app/api/product/[slug]/route.ts (<b>36</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<div id="editor">import { NextResponse } from &quot;next/server&quot;;
 import { Prisma } from &quot;@prisma/client&quot;;
-import { createSignedDownloadUrl } from &quot;@/app/lib/storage/s3&quot;;
+import { signProductWithImage } from &quot;@/app/lib/product-helpers&quot;;
 
 const NO_IMAGE_PLACEHOLDER = &quot;/no-image.svg&quot;;
+
+import { fetchProductDetails } from &quot;@/app/lib/product-queries&quot;;
 
 export async function GET(
   request: Request,
@@ -26,39 +27,7 @@ export async function GET(
 ) {
   const { slug } = await context.params;
   try {
-    const product = await prisma.posts.findUnique({
-      where: { id: slug },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-            country: true,
-            email: true,
-          },
-        },
-        reviews: {
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              select: {
-                id: true,
-                date: true,
-                text: true,
-              },
-            },
-          },
-          orderBy: {
-            date: &quot;desc&quot;,
-          },
-        },
-      },
-    });
+    const product = await fetchProductDetails(slug);
 
     if (!product) {
       return NextResponse.json(
@@ -67,26 +36,11 @@ export async function GET(
       );
     }
 
-    if (!product.image_location) {
-      return NextResponse.json({
-        ...product,
-        image_url: NO_IMAGE_PLACEHOLDER,
-      });
-    }
+    const productWithImage = await signProductWithImage(product);
 
-    try {
-      const imageUrl = await createSignedDownloadUrl(product.image_location);
-      return NextResponse.json({
-        ...product,
-        image_url: imageUrl,
-      });
-    } catch (error) {
-      console.error(&quot;Failed to sign image url&quot;, error);
-      return NextResponse.json({
-        ...product,
-        image_url: NO_IMAGE_PLACEHOLDER,
-      });
-    }
+    return NextResponse.json(
+      productWithImage || { ...product, image_url: NO_IMAGE_PLACEHOLDER },
+    );
   } catch (error) {
     console.error(&quot;Error fetching product:&quot;, error);
 

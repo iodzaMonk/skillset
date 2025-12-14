@@ -1,9 +1,10 @@
-import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
-import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
+import { signProductWithImage } from "@/app/lib/product-helpers";
 
 const NO_IMAGE_PLACEHOLDER = "/no-image.svg";
+
+import { fetchProductDetails } from "@/app/lib/product-queries";
 
 export async function GET(
   request: Request,
@@ -11,39 +12,7 @@ export async function GET(
 ) {
   const { slug } = await context.params;
   try {
-    const product = await prisma.posts.findUnique({
-      where: { id: slug },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-            country: true,
-            email: true,
-          },
-        },
-        reviews: {
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              select: {
-                id: true,
-                date: true,
-                text: true,
-              },
-            },
-          },
-          orderBy: {
-            date: "desc",
-          },
-        },
-      },
-    });
+    const product = await fetchProductDetails(slug);
 
     if (!product) {
       return NextResponse.json(
@@ -52,26 +21,11 @@ export async function GET(
       );
     }
 
-    if (!product.image_location) {
-      return NextResponse.json({
-        ...product,
-        image_url: NO_IMAGE_PLACEHOLDER,
-      });
-    }
+    const productWithImage = await signProductWithImage(product);
 
-    try {
-      const imageUrl = await createSignedDownloadUrl(product.image_location);
-      return NextResponse.json({
-        ...product,
-        image_url: imageUrl,
-      });
-    } catch (error) {
-      console.error("Failed to sign image url", error);
-      return NextResponse.json({
-        ...product,
-        image_url: NO_IMAGE_PLACEHOLDER,
-      });
-    }
+    return NextResponse.json(
+      productWithImage || { ...product, image_url: NO_IMAGE_PLACEHOLDER },
+    );
   } catch (error) {
     console.error("Error fetching product:", error);
 

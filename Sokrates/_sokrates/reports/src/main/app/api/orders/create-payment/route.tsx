@@ -1,11 +1,10 @@
 "use server";
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
+import { stripe } from "@/app/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/app/lib/user";
 import { headers } from "next/headers";
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+import { unauthorizedResponse } from "@/app/lib/api-response";
 
 export async function POST(request: NextRequest) {
   const headersList = await headers();
@@ -15,10 +14,7 @@ export async function POST(request: NextRequest) {
     const user = await getCurrentUser();
 
     if (!user) {
-      return NextResponse.json(
-        { message: "Not authenticated" },
-        { status: 401, headers: { "x-referer": referer } },
-      );
+      return unauthorizedResponse(referer);
     }
 
     const { amount, orderData } = await request.json();

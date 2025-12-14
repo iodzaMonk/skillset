@@ -17,12 +17,6 @@ in 7 files:
  - components/ui/item.tsx (106:117)
 
 duplicated block id: 3
-size: 8 cleaned lines of code
-in 2 files:
- - features/support/browseService.ts (18:27)
- - features/support/productService.ts (13:22)
-
-duplicated block id: 4
 size: 7 cleaned lines of code
 in 7 files:
  - components/ui/card.tsx (31:39)

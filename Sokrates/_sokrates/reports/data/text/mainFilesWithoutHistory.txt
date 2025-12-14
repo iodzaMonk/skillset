@@ -1,1 +1,16 @@
 path	# lines of code
+app/_components/SelectableCard.tsx	39	
+app/_components/SelectableList.tsx	98	
+app/_components/FormItem.tsx	15	
+app/lib/product-helpers.ts	31	
+app/lib/order-service.ts	39	
+app/lib/product-queries.ts	24	
+app/lib/stripe.ts	5	
+app/lib/api-response.ts	36	
+app/utils/api-helpers.ts	7	
+app/utils/formatters.ts	5	
+app/hooks/useSelection.ts	43	
+app/hooks/useOrderManager.ts	127	
+app/components/SharedOrdersPage.tsx	36	
+features/support/parsing-helpers.ts	18	
+features/support/fixture-helpers.ts	51	

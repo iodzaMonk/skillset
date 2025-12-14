@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">features/support/productCrudFixture.ts (<b>187</b> lines of code) (<a href="productCrudFixture.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">features/support/productCrudFixture.ts (<b>186</b> lines of code) (<a href="productCrudFixture.ts">raw</a>):</h3>
 <div id="editor">import bcrypt from &quot;bcryptjs&quot;;
 import { randomUUID } from &quot;crypto&quot;;
 import { ZodError } from &quot;zod&quot;;
@@ -52,7 +52,10 @@ export class ProductCrudFixture {
   async seedMyProducts(rows: ProductRow[]) {
     await this.authenticate();
     for (const row of rows) {
-      const record = await createProductRecord(this.userId as string, this.toPayload(row));
+      const record = await createProductRecord(
+        this.userId as string,
+        this.toPayload(row),
+      );
       this.trackProduct(record.title ?? record.id, record.id);
     }
   }
@@ -66,17 +69,37 @@ export class ProductCrudFixture {
     }
   }
 
-  async createProduct(row: ProductRow) {
+  private requireAuth(): boolean {
     if (!this.userId) {
       this.response = {
         status: 401,
         body: { message: &quot;Not authenticated&quot; },
       };
-      return;
+      return false;
     }
+    return true;
+  }
+
+  private getProductIdOr404(title: string): string | null {
+    const productId = this.productTitles.get(title);
+    if (!productId) {
+      this.response = {
+        status: 404,
+        body: { message: &quot;Product not found&quot; },
+      };
+      return null;
+    }
+    return productId;
+  }
+
+  async createProduct(row: ProductRow) {
+    if (!this.requireAuth()) return;
 
     try {
-      const product = await createProductRecord(this.userId, this.toPayload(row));
+      const product = await createProductRecord(
+        this.userId as string,
+        this.toPayload(row),
+      );
       this.trackProduct(product.title ?? product.id, product.id);
       this.response = { status: 201, body: { data: product } };
     } catch (error) {
@@ -85,24 +108,13 @@ export class ProductCrudFixture {
   }
 
   async updateProduct(title: string, row: ProductRow) {
-    if (!this.userId) {
-      this.response = {
-        status: 401,
-        body: { message: &quot;Not authenticated&quot; },
-      };
-      return;
-    }
-    const productId = this.productTitles.get(title);
-    if (!productId) {
-      this.response = {
-        status: 404,
-        body: { message: &quot;Product not found&quot; },
-      };
-      return;
-    }
+    if (!this.requireAuth()) return;
+    const productId = this.getProductIdOr404(title);
+    if (!productId) return;
+
     try {
       const payload = { ...this.toPayload(row), id: productId };
-      const product = await updateProductRecord(this.userId, payload);
+      const product = await updateProductRecord(this.userId as string, payload);
       const newTitle = product.title ?? title;
       if (newTitle !== title) {
         this.productTitles.delete(title);
@@ -124,23 +136,12 @@ export class ProductCrudFixture {
   }
 
   async deleteProduct(title: string) {
-    if (!this.userId) {
-      this.response = {
-        status: 401,
-        body: { message: &quot;Not authenticated&quot; },
-      };
-      return;
-    }
-    const productId = this.productTitles.get(title);
-    if (!productId) {
-      this.response = {
-        status: 404,
-        body: { message: &quot;Product not found&quot; },
-      };
-      return;
-    }
+    if (!this.requireAuth()) return;
+    const productId = this.getProductIdOr404(title);
+    if (!productId) return;
+
     try {
-      await deleteProductRecord(this.userId, productId);
+      await deleteProductRecord(this.userId as string, productId);
       this.trackedProductIds.delete(productId);
       this.productTitles.delete(title);
       this.response = {
@@ -160,7 +161,9 @@ export class ProductCrudFixture {
     }
     this.trackedProductIds.clear();
     if (this.userId) {
-      await prisma.users.delete({ where: { id: this.userId } }).catch(() =&gt; null);
+      await prisma.users
+        .delete({ where: { id: this.userId } })
+        .catch(() =&gt; null);
       this.userId = null;
     }
     if (this.otherUserIds.size &gt; 0) {

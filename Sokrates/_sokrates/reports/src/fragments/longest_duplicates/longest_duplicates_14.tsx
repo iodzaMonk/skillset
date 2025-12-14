@@ -1,33 +1,27 @@
-app/myproduct/_components/PostList.tsx [164:174]:
+components/ui/button.tsx [37:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              onClick={clearSelection}
-            >
-              Clear
-            </Button>
-          </>
-        )}
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/orders/_components/OrderList.tsx [193:203]:
+components/ui/item.tsx [45:52]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              onClick={clearSelection}
-            >
-              Clear
-            </Button>
-          </>
-        )}
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

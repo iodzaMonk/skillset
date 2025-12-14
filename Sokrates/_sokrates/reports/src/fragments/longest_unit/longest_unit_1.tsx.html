@@ -6,9 +6,9 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">function CommentItemBase()</h3>
-<p style="margin-top: 4px">in <i>app/product/[slug]/components/Comment.tsx [11:301]</i></p>
+<p style="margin-top: 4px">in <i>app/product/[slug]/components/Comment.tsx [13:287]</i></p>
 <ul>
-    <li><b>285</b> lines of code</li>
+    <li><b>267</b> lines of code</li>
     <li><b>33</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
@@ -18,33 +18,41 @@ function CommentItemBase({
   depth,
   maxDepth,
   userId,
-  activeMenuId,
-  editingCommentId,
-  editingValue,
-  editError,
-  replyMessage,
-  replyError,
-  replyingToId,
-  isSavingEdit,
-  isSubmittingReply,
-  expandedThreads,
-  editingRating,
-  editingHoverRating,
-  onToggleMenu,
-  onStartEditing,
-  onCancelEdit,
-  onEditingValueChange,
-  onSaveEdit,
-  onDelete,
-  onBeginReply,
-  onCancelReply,
-  onReplyChange,
-  onSubmitReply,
-  onToggleReplies,
-  onEditingRatingSelect,
-  onEditingRatingHover,
-  onEditingRatingLeave,
+  state, // Receive state object
+  handlers, // Receive handlers object
 }: CommentItemProps) {
+  // Destructure state from props
+  const {
+    activeMenuId,
+    editingCommentId,
+    editingValue,
+    editError,
+    replyMessage,
+    replyError,
+    replyingToId,
+    isSavingEdit,
+    isSubmittingReply,
+    expandedThreads,
+    editingRating,
+    editingHoverRating,
+  } = state;
+  // Extend props locally or update type definition
+  const {
+    toggleMenu: onToggleMenu,
+    startEditing: onStartEditing,
+    handleCancelEdit: onCancelEdit,
+    handleEditingValueChange: onEditingValueChange,
+    handleEdit: onSaveEdit,
+    handleDelete: onDelete,
+    beginReply: onBeginReply,
+    handleCancelReply: onCancelReply,
+    handleReplyValueChange: onReplyChange,
+    handleSubmitReply: onSubmitReply,
+    toggleThreadVisibility: onToggleReplies,
+    handleEditingRatingSelect: onEditingRatingSelect,
+    handleEditingRatingHover: onEditingRatingHover,
+    handleEditingRatingLeave: onEditingRatingLeave,
+  } = handlers;
   const isOwner = userId === comment.user_id;
   const isMenuOpen = activeMenuId === comment.id;
   const isEditing = editingCommentId === comment.id;
@@ -264,39 +272,15 @@ function CommentItemBase({
 
       {isExpanded &amp;&amp; canRenderChildReplies ? (
         &lt;ul className=&quot;border-border/40 mt-4 space-y-3 border-l pl-4&quot;&gt;
-          {replies.map((child) =&gt; (
+          {replies.map((reply) =&gt; (
             &lt;CommentItemBase
-              key={child.id}
-              comment={child}
+              key={reply.id}
+              comment={reply}
               depth={depth + 1}
               maxDepth={maxDepth}
               userId={userId}
-              activeMenuId={activeMenuId}
-              editingCommentId={editingCommentId}
-              editingValue={editingValue}
-              editError={editError}
-              replyMessage={replyMessage}
-              replyError={replyError}
-              replyingToId={replyingToId}
-              isSavingEdit={isSavingEdit}
-              isSubmittingReply={isSubmittingReply}
-              expandedThreads={expandedThreads}
-              editingRating={editingRating}
-              editingHoverRating={editingHoverRating}
-              onEditingRatingSelect={onEditingRatingSelect}
-              onEditingRatingHover={onEditingRatingHover}
-              onEditingRatingLeave={onEditingRatingLeave}
-              onToggleMenu={onToggleMenu}
-              onStartEditing={onStartEditing}
-              onCancelEdit={onCancelEdit}
-              onEditingValueChange={onEditingValueChange}
-              onSaveEdit={onSaveEdit}
-              onDelete={onDelete}
-              onBeginReply={onBeginReply}
-              onCancelReply={onCancelReply}
-              onReplyChange={onReplyChange}
-              onSubmitReply={onSubmitReply}
-              onToggleReplies={onToggleReplies}
+              state={state}
+              handlers={handlers}
             /&gt;
           ))}
         &lt;/ul&gt;

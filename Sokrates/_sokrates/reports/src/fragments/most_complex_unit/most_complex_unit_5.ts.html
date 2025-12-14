@@ -6,18 +6,15 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">async seedReviews()</h3>
-<p style="margin-top: 4px">in <i>features/support/productService.ts [88:154]</i></p>
+<p style="margin-top: 4px">in <i>features/support/productService.ts [71:136]</i></p>
 <ul>
-    <li><b>60</b> lines of code</li>
+    <li><b>59</b> lines of code</li>
     <li><b>18</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
   async seedReviews(rows: ProductRow[]) {
-    const ratingRollups = new Map&lt;
-      string,
-      { total: number; count: number }
-    &gt;();
+    const ratingRollups = new Map&lt;string, { total: number; count: number }&gt;();
 
     for (const row of rows) {
       const productTitle = row.product?.trim() || row.title?.trim();
@@ -26,7 +23,9 @@
       }
       const productId = this.products.get(productTitle);
       if (!productId) {
-        throw new Error(`No product found for review with title &quot;${productTitle}&quot;`);
+        throw new Error(
+          `No product found for review with title &quot;${productTitle}&quot;`,
+        );
       }
 
       const reviewerName = row.reviewer?.trim();

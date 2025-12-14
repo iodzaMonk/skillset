@@ -1,48 +1,51 @@
 <html>
 <head>
-    <title>export async function getCurrentUser()</title>
+    <title>export async function PATCH()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function getCurrentUser()</h3>
-<p style="margin-top: 4px">in <i>app/lib/user.ts [5:36]</i></p>
+<h3 style="margin-bottom: 0">export async function PATCH()</h3>
+<p style="margin-top: 4px">in <i>app/api/orders/user/route.ts [9:43]</i></p>
 <ul>
-    <li><b>28</b> lines of code</li>
-    <li><b>7</b> McCabe index (conditional complexity)</li>
+    <li><b>29</b> lines of code</li>
+    <li><b>6</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function getCurrentUser() {
-  const token = (await cookies()).get(&quot;session&quot;)?.value;
-  if (!token) return null;
-
-  const payload = await decrypt(token);
-  if (!payload?.userId) return null;
-
+export async function PATCH(req: Request) {
   try {
-    const user = await prisma.users.findUnique({
-      where: {
-        id:
-          typeof payload.userId === &quot;string&quot;
-            ? payload.userId
-            : String(payload.userId),
-      },
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json({ message: &quot;Not authenticated&quot; }, { status: 401 });
+    }
+
+    const { ids = [], status } = (await req.json()) as {
+      ids?: string[];
+      status?: Status;
+    };
+
+    if (!status) {
+      return Response.json({ message: &quot;Status is required&quot; }, { status: 400 });
+    }
+
+    const updatedOrder = await prisma.commands.updateMany({
+      where: { client_id: user.id, id: { in: ids } },
+      data: { status } as unknown as Prisma.commandsUpdateManyMutationInput,
     });
 
-    if (!user) return null;
-
-    return {
-      id: user.id,
-      name: user.name ?? null,
-      email: user.email,
-      country: user.country ?? null,
-      birthday: user.birthday ? user.birthday.toISOString() : null,
-      vendor_id: user.vendor_id ?? null,
-    };
+    return Response.json({ data: updatedOrder }, { status: 200 });
   } catch (error) {
-    console.error(&quot;getCurrentUser error&quot;, error);
-    return null;
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
+      error.code === &quot;P2025&quot;
+    ) {
+      return Response.json({ message: &quot;Orer not found&quot; }, { status: 404 });
+    }
+
+    console.error(&quot;Update product error&quot;, error);
+
+    return Response.json({ message: &quot;Internal server error&quot; }, { status: 500 });
   }
 }
 

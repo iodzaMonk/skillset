@@ -6,9 +6,9 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">export default function Comments()</h3>
-<p style="margin-top: 4px">in <i>app/product/[slug]/components/Comments.tsx [15:197]</i></p>
+<p style="margin-top: 4px">in <i>app/product/[slug]/components/Comments.tsx [15:154]</i></p>
 <ul>
-    <li><b>177</b> lines of code</li>
+    <li><b>130</b> lines of code</li>
     <li><b>12</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
@@ -16,6 +16,9 @@
 export default function Comments({ productId }: CommentsProps) {
   const { user } = useAuth();
 
+  const { state, handlers } = useComments({ productId, user });
+
+  // Destructure state needed for rendering
   const {
     comments,
     hasComments,
@@ -25,40 +28,18 @@ export default function Comments({ productId }: CommentsProps) {
     formError,
     message,
     isSubmitting,
-    activeMenuId,
-    editingCommentId,
-    editingValue,
-    editError,
-    isSavingEdit,
-    replyingToId,
-    replyMessage,
-    replyError,
-    isSubmittingReply,
-    expandedThreads,
     rating,
     hoverRating,
-    editingRating,
-    editingHoverRating,
+  } = state;
+
+  // Destructure handlers needed for rendering in the form
+  const {
     onMessageChange,
     handleSubmit,
-    toggleMenu,
-    startEditing,
-    handleCancelEdit,
-    handleEditingValueChange,
-    handleEdit,
-    handleDelete,
-    beginReply,
-    handleCancelReply,
-    handleReplyValueChange,
-    handleSubmitReply,
-    toggleThreadVisibility,
     handleRatingSelect,
     handleRatingHover,
     handleRatingLeave,
-    handleEditingRatingSelect,
-    handleEditingRatingHover,
-    handleEditingRatingLeave,
-  } = useComments({ productId, user });
+  } = handlers;
 
   return (
     &lt;section className=&quot;border-border bg-surface/80 mx-auto mt-10 w-full max-w-4xl rounded-lg border p-6 shadow-sm&quot;&gt;
@@ -90,32 +71,8 @@ export default function Comments({ productId }: CommentsProps) {
               depth={0}
               maxDepth={MAX_REPLY_DEPTH}
               userId={user?.id}
-              activeMenuId={activeMenuId}
-              editingCommentId={editingCommentId}
-              editingValue={editingValue}
-              editError={editError}
-              replyMessage={replyMessage}
-              replyError={replyError}
-              replyingToId={replyingToId}
-              isSavingEdit={isSavingEdit}
-              isSubmittingReply={isSubmittingReply}
-              expandedThreads={expandedThreads}
-              editingRating={editingRating}
-              editingHoverRating={editingHoverRating}
-              onToggleMenu={toggleMenu}
-              onStartEditing={startEditing}
-              onCancelEdit={handleCancelEdit}
-              onEditingValueChange={handleEditingValueChange}
-              onSaveEdit={handleEdit}
-              onDelete={handleDelete}
-              onBeginReply={beginReply}
-              onCancelReply={handleCancelReply}
-              onReplyChange={handleReplyValueChange}
-              onSubmitReply={handleSubmitReply}
-              onToggleReplies={toggleThreadVisibility}
-              onEditingRatingSelect={handleEditingRatingSelect}
-              onEditingRatingHover={handleEditingRatingHover}
-              onEditingRatingLeave={handleEditingRatingLeave}
+              state={state}
+              handlers={handlers}
             /&gt;
           ))}
         &lt;/ul&gt;

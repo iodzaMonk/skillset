@@ -1,64 +1,57 @@
 <html>
 <head>
-    <title>function FieldError()</title>
+    <title>weekday: cn()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function FieldError()</h3>
-<p style="margin-top: 4px">in <i>components/ui/field.tsx [186:231]</i></p>
+<h3 style="margin-bottom: 0">weekday: cn()</h3>
+<p style="margin-top: 4px">in <i>components/ui/calendar.tsx [89:127]</i></p>
 <ul>
-    <li><b>41</b> lines of code</li>
-    <li><b>6</b> McCabe index (conditional complexity)</li>
+    <li><b>39</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function FieldError({
-  className,
-  children,
-  errors,
-  ...props
-}: React.ComponentProps&lt;&quot;div&quot;&gt; &amp; {
-  errors?: Array&lt;{ message?: string } | undefined&gt;;
-}) {
-  const content = useMemo(() =&gt; {
-    if (children) {
-      return children;
-    }
-
-    if (!errors?.length) {
-      return null;
-    }
-
-    if (errors?.length == 1) {
-      return errors[0]?.message;
-    }
-
-    return (
-      &lt;ul className=&quot;ml-4 flex list-disc flex-col gap-1&quot;&gt;
-        {errors.map(
-          (error, index) =&gt;
-            error?.message &amp;&amp; &lt;li key={index}&gt;{error.message}&lt;/li&gt;,
-        )}
-      &lt;/ul&gt;
-    );
-  }, [children, errors]);
-
-  if (!content) {
-    return null;
-  }
-
-  return (
-    &lt;div
-      role=&quot;alert&quot;
-      data-slot=&quot;field-error&quot;
-      className={cn(&quot;text-destructive text-sm font-normal&quot;, className)}
-      {...props}
-    &gt;
-      {content}
-    &lt;/div&gt;
-  );
-}
+        weekday: cn(
+          &quot;text-muted-foreground rounded-md flex-1 font-normal text-[0.8rem] select-none&quot;,
+          defaultClassNames.weekday,
+        ),
+        week: cn(&quot;flex w-full mt-2&quot;, defaultClassNames.week),
+        week_number_header: cn(
+          &quot;select-none w-(--cell-size)&quot;,
+          defaultClassNames.week_number_header,
+        ),
+        week_number: cn(
+          &quot;text-[0.8rem] select-none text-muted-foreground&quot;,
+          defaultClassNames.week_number,
+        ),
+        day: cn(
+          &quot;relative w-full h-full p-0 text-center [&amp;:first-child[data-selected=true]_button]:rounded-l-md [&amp;:last-child[data-selected=true]_button]:rounded-r-md group/day aspect-square select-none&quot;,
+          defaultClassNames.day,
+        ),
+        range_start: cn(
+          &quot;rounded-l-md bg-accent&quot;,
+          defaultClassNames.range_start,
+        ),
+        range_middle: cn(&quot;rounded-none&quot;, defaultClassNames.range_middle),
+        range_end: cn(&quot;rounded-r-md bg-accent&quot;, defaultClassNames.range_end),
+        today: cn(
+          &quot;bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none&quot;,
+          defaultClassNames.today,
+        ),
+        outside: cn(
+          &quot;text-muted-foreground aria-selected:text-muted-foreground&quot;,
+          defaultClassNames.outside,
+        ),
+        disabled: cn(
+          &quot;text-muted-foreground opacity-50&quot;,
+          defaultClassNames.disabled,
+        ),
+        hidden: cn(&quot;invisible&quot;, defaultClassNames.hidden),
+        ...classNames,
+      }}
+      components={{
 
 </code>
 </pre>

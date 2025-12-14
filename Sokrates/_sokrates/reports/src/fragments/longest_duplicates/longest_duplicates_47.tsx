@@ -1,25 +1,25 @@
-components/ui/alert.tsx [14:20]:
+components/ui/command.tsx [165:171]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  },
-);
+      className={cn(
+        "text-muted-foreground ml-auto text-xs tracking-widest",
+        className,
+      )}
+      {...props}
+    />
+  );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-components/ui/empty.tsx [38:44]:
+components/ui/dropdown-menu.tsx [186:192]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  },
-);
+      className={cn(
+        "text-muted-foreground ml-auto text-xs tracking-widest",
+        className,
+      )}
+      {...props}
+    />
+  );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

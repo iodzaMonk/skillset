@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>async fetchBySlug()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">async fetchBySlug()</h3>
+<p style="margin-top: 4px">in <i>features/support/productService.ts [146:180]</i></p>
+<ul>
+    <li><b>32</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+  async fetchBySlug(slug: string): Promise&lt;ProductResponse&gt; {
+    if (!slug) {
+      return {
+        status: 400,
+        body: { message: &quot;Invalid product ID&quot; },
+      };
+    }
+
+    try {
+      const product = await fetchProductDetails(slug);
+
+      if (!product) {
+        return {
+          status: 404,
+          body: { message: &quot;Product not found&quot; },
+        };
+      }
+
+      return {
+        status: 200,
+        body: {
+          ...product,
+          image_url: &quot;/no-image.svg&quot;,
+        },
+      };
+    } catch (error) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        return {
+          status: 400,
+          body: { message: &quot;Invalid product ID&quot; },
+        };
+      }
+      throw error;
+    }
+  }
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

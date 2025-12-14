@@ -1,5 +1,26 @@
 import { v4 as uuidv4 } from "uuid";
 
+const mockUserMe = (
+  email: string,
+  overrides: { vendor_id?: string | null } = {},
+) => {
+  cy.intercept("GET", "/api/user/me", (req) => {
+    req.reply({
+      statusCode: 200,
+      body: {
+        user: {
+          id: "user-test-id",
+          email: email,
+          name: "Test User",
+          country: "AU",
+          birthday: null,
+          vendor_id: overrides.vendor_id ?? "acct_mock_123456",
+        },
+      },
+    });
+  }).as(overrides.vendor_id === null ? "getUserNoVendor" : "getUserWithVendor");
+};
+
 describe("Complete User Flow", () => {
   const uniqueId = uuidv4().substring(0, 8);
   const email = `testuser_${uniqueId}@example.com`;
@@ -173,21 +194,7 @@ describe("Complete User Flow", () => {
         },
       }).as("createStripeAccount");
 
-      cy.intercept("GET", "/api/user/me", (req) => {
-        req.reply({
-          statusCode: 200,
-          body: {
-            user: {
-              id: "user-test-id",
-              email: email,
-              name: "Test User",
-              country: "AU",
-              birthday: null,
-              vendor_id: "acct_mock_123456",
-            },
-          },
-        });
-      }).as("getUserMe");
+      mockUserMe(email, { vendor_id: "acct_mock_123456" });
 
       cy.intercept("POST", "/api/orders/create-payment", {
         statusCode: 200,
@@ -221,9 +228,8 @@ describe("Complete User Flow", () => {
         expect(interception.request.body.email).to.equal(email);
         expect(interception.request.body).to.have.property("refreshUrl");
         expect(interception.request.body).to.have.property("returnUrl");
-
-        expect(interception.response.body).to.have.property("url");
-        expect(interception.response.body.accountId).to.equal(
+        expect(interception.response?.body).to.have.property("url");
+        expect(interception.response?.body.accountId).to.equal(
           "acct_mock_123456",
         );
       });
@@ -240,19 +246,7 @@ describe("Complete User Flow", () => {
     });
 
     it("should prevent product creation without vendor_id", () => {
-      cy.intercept("GET", "/api/user/me", {
-        statusCode: 200,
-        body: {
-          user: {
-            id: "user-test-id",
-            email: email,
-            name: "Test User",
-            country: "AU",
-            birthday: null,
-            vendor_id: null,
-          },
-        },
-      }).as("getUserNoVendor");
+      mockUserMe(email, { vendor_id: null });
 
       cy.visit("localhost:3000/myproduct");
       cy.wait("@getUserNoVendor");
@@ -264,19 +258,7 @@ describe("Complete User Flow", () => {
     });
 
     it("should allow product creation with vendor_id", () => {
-      cy.intercept("GET", "/api/user/me", {
-        statusCode: 200,
-        body: {
-          user: {
-            id: "user-test-id",
-            email: email,
-            name: "Test User",
-            country: "AU",
-            birthday: null,
-            vendor_id: "acct_mock_123456",
-          },
-        },
-      }).as("getUserWithVendor");
+      mockUserMe(email, { vendor_id: "acct_mock_123456" });
 
       cy.intercept("POST", "/api/product/user", {
         statusCode: 201,
@@ -335,10 +317,10 @@ describe("Complete User Flow", () => {
           "product_id",
         );
 
-        expect(interception.response.body.clientSecret).to.equal(
+        expect(interception.response?.body.clientSecret).to.equal(
           "pi_mock_secret_123",
         );
-        expect(interception.response.body.professionalName).to.equal(
+        expect(interception.response?.body.professionalName).to.equal(
           "Mock Professional",
         );
       });
@@ -380,7 +362,7 @@ describe("Complete User Flow", () => {
 
       cy.wait("@completeOrder").then((interception) => {
         expect(interception.request.body).to.have.property("paymentIntentId");
-        expect(interception.response.body.orderId).to.equal("order_mock_123");
+        expect(interception.response?.body.orderId).to.equal("order_mock_123");
       });
 
       cy.url().should("include", "/payment/success", { timeout: 10000 });

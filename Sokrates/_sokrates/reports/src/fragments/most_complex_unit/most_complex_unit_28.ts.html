@@ -1,50 +1,44 @@
 <html>
 <head>
-    <title>export async function validateParentForProduct()</title>
+    <title>export function handleApiError()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function validateParentForProduct()</h3>
-<p style="margin-top: 4px">in <i>app/api/product/[slug]/reviews/review-helpers.ts [49:81]</i></p>
+<h3 style="margin-bottom: 0">export function handleApiError()</h3>
+<p style="margin-top: 4px">in <i>app/lib/api-response.ts [14:40]</i></p>
 <ul>
-    <li><b>26</b> lines of code</li>
+    <li><b>25</b> lines of code</li>
     <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function validateParentForProduct(
-  productId: string,
-  parentId: string,
-): Promise&lt;ParentReview&gt; {
-  const parent = await prisma.reviews.findUnique({
-    where: { id: parentId },
-    select: { id: true, product_id: true, parent_id: true },
-  });
-
-  if (!parent || parent.product_id !== productId) {
-    return { message: &quot;Parent comment not found&quot;, status: 404 };
+export function handleApiError(error: unknown, referer: string) {
+  if (
+    error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
+    error.code === &quot;P2002&quot; // Unique constraint failed
+  ) {
+    return NextResponse.json(
+      { message: &quot;Email already registered&quot; }, // Common message, or pass strictly
+      { status: 409, headers: { &quot;x-referer&quot;: referer } },
+    );
   }
 
-  let depth = 1;
-  let ancestorId = parent.parent_id;
-
-  while (ancestorId) {
-    const ancestor = await prisma.reviews.findUnique({
-      where: { id: ancestorId },
-      select: { parent_id: true },
-    });
-
-    depth += 1;
-
-    if (depth &gt;= MAX_REPLY_DEPTH) {
-      return { message: &quot;Maximum reply depth reached&quot;, status: 400 };
-    }
-
-    ancestorId = ancestor?.parent_id ?? null;
+  if (
+    error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
+    error.code === &quot;P2025&quot; // Record not found
+  ) {
+    return NextResponse.json(
+      { message: &quot;Record not found&quot; },
+      { status: 404, headers: { &quot;x-referer&quot;: referer } },
+    );
   }
 
-  return parent;
+  console.error(&quot;API Error:&quot;, error);
+  return NextResponse.json(
+    { message: &quot;Internal server error&quot; },
+    { status: 500, headers: { &quot;x-referer&quot;: referer } },
+  );
 }
 
 </code>

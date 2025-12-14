@@ -1,46 +1,47 @@
 <html>
 <head>
-    <title>function CommandDialog()</title>
+    <title>function SidebarMenuAction()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function CommandDialog()</h3>
-<p style="margin-top: 4px">in <i>components/ui/command.tsx [32:61]</i></p>
+<h3 style="margin-bottom: 0">function SidebarMenuAction()</h3>
+<p style="margin-top: 4px">in <i>components/ui/sidebar.tsx [548:578]</i></p>
 <ul>
-    <li><b>30</b> lines of code</li>
-    <li><b>1</b> McCabe index (conditional complexity)</li>
+    <li><b>29</b> lines of code</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function CommandDialog({
-  title = &quot;Command Palette&quot;,
-  description = &quot;Search for a command to run...&quot;,
-  children,
+function SidebarMenuAction({
   className,
-  showCloseButton = true,
+  asChild = false,
+  showOnHover = false,
   ...props
-}: React.ComponentProps&lt;typeof Dialog&gt; &amp; {
-  title?: string;
-  description?: string;
-  className?: string;
-  showCloseButton?: boolean;
+}: React.ComponentProps&lt;&quot;button&quot;&gt; &amp; {
+  asChild?: boolean;
+  showOnHover?: boolean;
 }) {
+  const Comp = asChild ? Slot : &quot;button&quot;;
+
   return (
-    &lt;Dialog {...props}&gt;
-      &lt;DialogHeader className=&quot;sr-only&quot;&gt;
-        &lt;DialogTitle&gt;{title}&lt;/DialogTitle&gt;
-        &lt;DialogDescription&gt;{description}&lt;/DialogDescription&gt;
-      &lt;/DialogHeader&gt;
-      &lt;DialogContent
-        className={cn(&quot;overflow-hidden p-0&quot;, className)}
-        showCloseButton={showCloseButton}
-      &gt;
-        &lt;Command className=&quot;[&amp;_[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&amp;_[cmdk-group-heading]]:px-2 [&amp;_[cmdk-group-heading]]:font-medium [&amp;_[cmdk-group]]:px-2 [&amp;_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&amp;_[cmdk-input-wrapper]_svg]:h-5 [&amp;_[cmdk-input-wrapper]_svg]:w-5 [&amp;_[cmdk-input]]:h-12 [&amp;_[cmdk-item]]:px-2 [&amp;_[cmdk-item]]:py-3 [&amp;_[cmdk-item]_svg]:h-5 [&amp;_[cmdk-item]_svg]:w-5&quot;&gt;
-          {children}
-        &lt;/Command&gt;
-      &lt;/DialogContent&gt;
-    &lt;/Dialog&gt;
+    &lt;Comp
+      data-slot=&quot;sidebar-menu-action&quot;
+      data-sidebar=&quot;menu-action&quot;
+      className={cn(
+        &quot;text-sidebar-foreground ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer-hover/menu-button:text-sidebar-accent-foreground absolute top-1.5 right-1 flex aspect-square w-5 items-center justify-center rounded-md p-0 outline-hidden transition-transform focus-visible:ring-2 [&amp;&gt;svg]:size-4 [&amp;&gt;svg]:shrink-0&quot;,
+        // Increases the hit area of the button on mobile.
+        &quot;after:absolute after:-inset-2 md:after:hidden&quot;,
+        &quot;peer-data-[size=sm]/menu-button:top-1&quot;,
+        &quot;peer-data-[size=default]/menu-button:top-1.5&quot;,
+        &quot;peer-data-[size=lg]/menu-button:top-2.5&quot;,
+        &quot;group-data-[collapsible=icon]:hidden&quot;,
+        showOnHover &amp;&amp;
+          &quot;peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
   );
 }
 

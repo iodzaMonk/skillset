@@ -15,6 +15,9 @@ interface CommentsProps {
 export default function Comments({ productId }: CommentsProps) {
   const { user } = useAuth();
 
+  const { state, handlers } = useComments({ productId, user });
+
+  // Destructure state needed for rendering
   const {
     comments,
     hasComments,
@@ -24,40 +27,18 @@ export default function Comments({ productId }: CommentsProps) {
     formError,
     message,
     isSubmitting,
-    activeMenuId,
-    editingCommentId,
-    editingValue,
-    editError,
-    isSavingEdit,
-    replyingToId,
-    replyMessage,
-    replyError,
-    isSubmittingReply,
-    expandedThreads,
     rating,
     hoverRating,
-    editingRating,
-    editingHoverRating,
+  } = state;
+
+  // Destructure handlers needed for rendering in the form
+  const {
     onMessageChange,
     handleSubmit,
-    toggleMenu,
-    startEditing,
-    handleCancelEdit,
-    handleEditingValueChange,
-    handleEdit,
-    handleDelete,
-    beginReply,
-    handleCancelReply,
-    handleReplyValueChange,
-    handleSubmitReply,
-    toggleThreadVisibility,
     handleRatingSelect,
     handleRatingHover,
     handleRatingLeave,
-    handleEditingRatingSelect,
-    handleEditingRatingHover,
-    handleEditingRatingLeave,
-  } = useComments({ productId, user });
+  } = handlers;
 
   return (
     <section className="border-border bg-surface/80 mx-auto mt-10 w-full max-w-4xl rounded-lg border p-6 shadow-sm">
@@ -89,32 +70,8 @@ export default function Comments({ productId }: CommentsProps) {
               depth={0}
               maxDepth={MAX_REPLY_DEPTH}
               userId={user?.id}
-              activeMenuId={activeMenuId}
-              editingCommentId={editingCommentId}
-              editingValue={editingValue}
-              editError={editError}
-              replyMessage={replyMessage}
-              replyError={replyError}
-              replyingToId={replyingToId}
-              isSavingEdit={isSavingEdit}
-              isSubmittingReply={isSubmittingReply}
-              expandedThreads={expandedThreads}
-              editingRating={editingRating}
-              editingHoverRating={editingHoverRating}
-              onToggleMenu={toggleMenu}
-              onStartEditing={startEditing}
-              onCancelEdit={handleCancelEdit}
-              onEditingValueChange={handleEditingValueChange}
-              onSaveEdit={handleEdit}
-              onDelete={handleDelete}
-              onBeginReply={beginReply}
-              onCancelReply={handleCancelReply}
-              onReplyChange={handleReplyValueChange}
-              onSubmitReply={handleSubmitReply}
-              onToggleReplies={toggleThreadVisibility}
-              onEditingRatingSelect={handleEditingRatingSelect}
-              onEditingRatingHover={handleEditingRatingHover}
-              onEditingRatingLeave={handleEditingRatingLeave}
+              state={state}
+              handlers={handlers}
             />
           ))}
         </ul>

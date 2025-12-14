@@ -1,207 +1,156 @@
 <html>
 <head>
-    <title>export function SettingsForm()</title>
+    <title>export default function Comments()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export function SettingsForm()</h3>
-<p style="margin-top: 4px">in <i>app/settings/SettingsForm.tsx [21:211]</i></p>
+<h3 style="margin-bottom: 0">export default function Comments()</h3>
+<p style="margin-top: 4px">in <i>app/product/[slug]/components/Comments.tsx [15:154]</i></p>
 <ul>
-    <li><b>134</b> lines of code</li>
-    <li><b>7</b> McCabe index (conditional complexity)</li>
+    <li><b>130</b> lines of code</li>
+    <li><b>12</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-export function SettingsForm({ user }: { user: User }) {
-  const initialBirthday = useMemo(() =&gt; {
-    if (!user.birthday) return null;
-    const date = new Date(user.birthday);
-    return Number.isNaN(date.valueOf()) ? null : date;
-  }, [user.birthday]);
+export default function Comments({ productId }: CommentsProps) {
+  const { user } = useAuth();
 
-  const [country, setCountry] = useState(user.country ?? &quot;&quot;);
-  const [birthday, setBirthday] = useState&lt;Date | null&gt;(initialBirthday);
-  const [showPassCurrent, setShowPassCurrent] = useState(false);
-  const [showPassConfirm, setShowPassConfirm] = useState(false);
-  const [error, setError] = useState&lt;string | null&gt;(null);
-  const [isSaving, setIsSaving] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
+  const { state, handlers } = useComments({ productId, user });
 
-  const router = useRouter();
-  const { refresh, setUser } = useAuth();
+  // Destructure state needed for rendering
+  const {
+    comments,
+    hasComments,
+    isLoading,
+    loadError,
+    actionError,
+    formError,
+    message,
+    isSubmitting,
+    rating,
+    hoverRating,
+  } = state;
 
-  async function deleteUser() {
-    if (isDeleting) return;
-    setError(null);
-    setIsDeleting(true);
-    try {
-      await axios.delete(&quot;/api/user/delete&quot;);
-      setUser(null);
-      router.push(&quot;/auth/signup&quot;);
-    } catch (err) {
-      const message = axios.isAxiosError(err)
-        ? (err.response?.data?.message ?? &quot;Something went wrong&quot;)
-        : &quot;Something went wrong&quot;;
-      setError(message);
-    } finally {
-      setIsDeleting(false);
-    }
-  }
-
-  async function updateUser(e: React.FormEvent&lt;HTMLFormElement&gt;) {
-    e.preventDefault();
-    if (isSaving) return;
-
-    const form = new FormData(e.currentTarget);
-    setError(null);
-    setIsSaving(true);
-
-    try {
-      const payload = {
-        id: user.id,
-        email: form.get(&quot;email&quot;),
-        name: form.get(&quot;name&quot;),
-        password: form.get(&quot;newPassword&quot;),
-        country,
-        birthday,
-      };
-      await axios.patch(&quot;/api/user/update&quot;, payload);
-      await refresh();
-    } catch (err) {
-      const message = axios.isAxiosError(err)
-        ? (err.response?.data?.message ?? &quot;Something went wrong&quot;)
-        : &quot;Something went wrong&quot;;
-      setError(message);
-    } finally {
-      setIsSaving(false);
-    }
-  }
+  // Destructure handlers needed for rendering in the form
+  const {
+    onMessageChange,
+    handleSubmit,
+    handleRatingSelect,
+    handleRatingHover,
+    handleRatingLeave,
+  } = handlers;
 
   return (
-    &lt;div className=&quot;bg-surface border-border mx-auto my-20 min-h-[30vh] w-4/5 rounded border p-20&quot;&gt;
-      &lt;h1
-        className=&quot;pt-5 text-center text-4xl md:text-5xl lg:text-6xl xl:text-7xl&quot;
-        data-testid=&quot;settings-title&quot;
-      &gt;
-        Settings
-      &lt;/h1&gt;
-      &lt;form className=&quot;mx-auto w-full space-y-6&quot; onSubmit={updateUser}&gt;
-        &lt;h1 className=&quot;text-1xl mt-10 text-center md:text-4xl&quot;&gt;
-          Edit User Info
-        &lt;/h1&gt;
-        &lt;div className=&quot;bg-text my-10 h-0.5 w-full rounded-2xl&quot; /&gt;
-        &lt;div&gt;
-          &lt;label htmlFor=&quot;email&quot; className={labelBase}&gt;
-            Email address
-          &lt;/label&gt;
-          &lt;input
-            name=&quot;email&quot;
-            type=&quot;email&quot;
-            className={inputBase}
-            placeholder=&quot;you@example.com&quot;
-            defaultValue={user.email ?? &quot;&quot;}
-            required
-            autoComplete=&quot;email&quot;
-          /&gt;
-        &lt;/div&gt;
+    &lt;section className=&quot;border-border bg-surface/80 mx-auto mt-10 w-full max-w-4xl rounded-lg border p-6 shadow-sm&quot;&gt;
+      &lt;header className=&quot;mb-6&quot;&gt;
+        &lt;h2 className=&quot;text-text text-2xl font-semibold&quot;&gt;Comments&lt;/h2&gt;
+        &lt;p className=&quot;text-text-muted mt-1 text-sm&quot;&gt;
+          Join the conversation or see what others are saying.
+        &lt;/p&gt;
+      &lt;/header&gt;
 
-        &lt;div&gt;
-          &lt;label htmlFor=&quot;name&quot; className={labelBase}&gt;
-            Name
-          &lt;/label&gt;
-          &lt;input
-            type=&quot;text&quot;
-            name=&quot;name&quot;
-            className={inputBase}
-            placeholder=&quot;Jane&quot;
-            defaultValue={user.name ?? &quot;&quot;}
-            required
-            autoComplete=&quot;given-name&quot;
-          /&gt;
-        &lt;/div&gt;
+      {actionError ? (
+        &lt;p className=&quot;text-error mb-4 text-sm&quot; role=&quot;alert&quot;&gt;
+          {actionError}
+        &lt;/p&gt;
+      ) : null}
 
-        &lt;div&gt;
-          &lt;label htmlFor=&quot;password&quot; className={labelBase}&gt;
-            Current password
-          &lt;/label&gt;
-          &lt;div className=&quot;flex items-center gap-5&quot;&gt;
-            &lt;input
-              type={showPassCurrent ? &quot;text&quot; : &quot;password&quot;}
-              name=&quot;password&quot;
-              className={inputBase}
-              placeholder=&quot;********&quot;
-              autoComplete=&quot;new-password&quot;
+      {isLoading ? (
+        &lt;p className=&quot;text-text-muted&quot;&gt;Loading comments&hellip;&lt;/p&gt;
+      ) : loadError ? (
+        &lt;p className=&quot;text-error mb-6 text-sm&quot; role=&quot;alert&quot;&gt;
+          {loadError}
+        &lt;/p&gt;
+      ) : hasComments ? (
+        &lt;ul className=&quot;mb-6 space-y-4&quot;&gt;
+          {comments.map((comment) =&gt; (
+            &lt;CommentItem
+              key={comment.id}
+              comment={comment}
+              depth={0}
+              maxDepth={MAX_REPLY_DEPTH}
+              userId={user?.id}
+              state={state}
+              handlers={handlers}
             /&gt;
+          ))}
+        &lt;/ul&gt;
+      ) : (
+        &lt;p className=&quot;text-text-muted mb-6 text-sm&quot;&gt;
+          No comments yet. Be the first to share your thoughts.
+        &lt;/p&gt;
+      )}
+
+      {user ? (
+        &lt;form className=&quot;flex flex-col gap-4&quot; onSubmit={handleSubmit}&gt;
+          &lt;label className=&quot;flex flex-col gap-2 text-sm&quot;&gt;
+            &lt;div className=&quot;flex gap-5&quot;&gt;
+              &lt;span className=&quot;text-text font-medium&quot;&gt;
+                Leave a comment as {user.name ?? &quot;you&quot;}
+              &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div className=&quot;flex gap-1&quot;&gt;
+              {Array.from({ length: 5 }).map((_, i) =&gt; (
+                &lt;svg
+                  key={i}
+                  onClick={() =&gt; handleRatingSelect(i)}
+                  onMouseEnter={() =&gt; handleRatingHover(i)}
+                  onMouseLeave={handleRatingLeave}
+                  xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                  viewBox=&quot;0 0 24 24&quot;
+                  fill=&quot;currentColor&quot;
+                  stroke=&quot;currentColor&quot;
+                  className={cn(
+                    &quot;size-4 cursor-pointer bg-transparent text-yellow-400 hover:fill-current&quot;,
+                    i &lt; (hoverRating || rating) ? &quot;fill-current&quot; : &quot;fill-none&quot;,
+                  )}
+                &gt;
+                  &lt;path d=&quot;M12 2.25l2.902 6.084 6.718.977-4.81 4.69 1.136 6.632L12 16.75l-5.946 3.883 1.136-6.632-4.81-4.69 6.718-.977L12 2.25z&quot; /&gt;
+                &lt;/svg&gt;
+              ))}
+            &lt;/div&gt;
+
+            &lt;textarea
+              value={message}
+              onChange={(event) =&gt; onMessageChange(event.target.value)}
+              className=&quot;border-border focus:border-primary focus:ring-primary/30 min-h-[120px] rounded-md border bg-transparent p-3 text-sm transition outline-none focus:ring&quot;
+              placeholder=&quot;Share your experience or ask a question&hellip;&quot;
+              disabled={isSubmitting}
+            /&gt;
+          &lt;/label&gt;
+          {formError ? (
+            &lt;p className=&quot;text-error text-sm&quot; role=&quot;alert&quot;&gt;
+              {formError}
+            &lt;/p&gt;
+          ) : null}
+          &lt;div className=&quot;flex justify-end&quot;&gt;
             &lt;button
-              type=&quot;button&quot;
-              className=&quot;text-text hover:text-accent&quot;
-              onClick={() =&gt; setShowPassCurrent((prev) =&gt; !prev)}
+              type=&quot;submit&quot;
+              className=&quot;bg-primary hover:bg-primary/90 inline-flex items-center rounded-md px-4 py-2 text-sm font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-60&quot;
+              disabled={isSubmitting || rating === 0}
             &gt;
-              {showPassCurrent ? &quot;Hide&quot; : &quot;Show&quot;}
+              {isSubmitting ? &quot;Posting&hellip;&quot; : &quot;Post Comment&quot;}
             &lt;/button&gt;
           &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div&gt;
-          &lt;label htmlFor=&quot;newPassword&quot; className={labelBase}&gt;
-            New password
-          &lt;/label&gt;
-          &lt;div className=&quot;flex items-center gap-5&quot;&gt;
-            &lt;input
-              type={showPassConfirm ? &quot;text&quot; : &quot;password&quot;}
-              name=&quot;newPassword&quot;
-              className={inputBase}
-              placeholder=&quot;********&quot;
-              autoComplete=&quot;new-password&quot;
-            /&gt;
-            &lt;button
-              type=&quot;button&quot;
-              className=&quot;text-text hover:text-accent&quot;
-              onClick={() =&gt; setShowPassConfirm((prev) =&gt; !prev)}
-            &gt;
-              {showPassConfirm ? &quot;Hide&quot; : &quot;Show&quot;}
-            &lt;/button&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div id=&quot;countries&quot;&gt;
-          &lt;CountrySelect value={country} onValueChange={setCountry} /&gt;
-        &lt;/div&gt;
-
-        &lt;BirthdayPicker
-          birthday={birthday}
-          setBirthday={setBirthday}
-          error={error}
-        /&gt;
-
-        &lt;div className=&quot;flex flex-col items-center gap-5 sm:flex-row&quot;&gt;
-          &lt;Button type=&quot;submit&quot; disabled={isSaving} variant=&quot;update&quot;&gt;
-            Update
-          &lt;/Button&gt;
-          &lt;Button
-            variant=&quot;delete&quot;
-            onClick={() =&gt; setOpenModal(true)}
-            disabled={isDeleting}
+        &lt;/form&gt;
+      ) : (
+        &lt;div className=&quot;border-border/60 text-text flex flex-col gap-2 rounded-md border p-4 text-sm&quot;&gt;
+          &lt;p&gt;You need to be signed in to leave a comment.&lt;/p&gt;
+          &lt;Link
+            href=&quot;/auth/login&quot;
+            className=&quot;text-primary hover:text-primary/80 font-medium&quot;
           &gt;
-            Delete
-          &lt;/Button&gt;
+            Log in to join the discussion
+          &lt;/Link&gt;
+          {formError ? (
+            &lt;p className=&quot;text-error&quot; role=&quot;alert&quot;&gt;
+              {formError}
+            &lt;/p&gt;
+          ) : null}
         &lt;/div&gt;
-      &lt;/form&gt;
-      &lt;div className=&quot;bg-text my-10 h-0.5 w-full rounded-2xl&quot; /&gt;
-
-      {/* MODAL */}
-      &lt;Modal
-        open={openModal}
-        setOpenModal={setOpenModal}
-        onDelete={deleteUser}
-      /&gt;
-      &lt;div className=&quot;space-y-4&quot;&gt;
-        &lt;h3 className=&quot;text-lg font-semibold&quot;&gt;Payment Settings&lt;/h3&gt;
-        &lt;ConnectStripeButton /&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+      )}
+    &lt;/section&gt;
   );
 }
 

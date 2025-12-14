@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>app/product/[slug]/components/Modal.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/product/[slug]/components/Modal.tsx (<b>77</b> lines of code) (<a href="Modal.tsx">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from &quot;@/components/ui/dialog&quot;;
+import { Label } from &quot;@/components/ui/label&quot;;
+import { PostBody } from &quot;@/types/PostBody&quot;;
+
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () =&gt; void;
+  description: string;
+  onDescriptionChange: (value: string) =&gt; void;
+  onSubmit: (e: React.FormEvent) =&gt; Promise&lt;void&gt;;
+  isSubmitting: boolean;
+  error: string | null;
+  product: PostBody;
+}
+
+export default function Modal({
+  isOpen,
+  onClose,
+  description,
+  onDescriptionChange,
+  onSubmit,
+  isSubmitting,
+  error,
+  product,
+}: ModalProps) {
+  return (
+    &lt;Dialog open={isOpen} onOpenChange={onClose}&gt;
+      &lt;DialogContent className=&quot;bg-surface sm:max-w-[425px]&quot;&gt;
+        &lt;DialogHeader&gt;
+          &lt;DialogTitle className=&quot;text-lg font-semibold&quot;&gt;
+            Order {product.title}
+          &lt;/DialogTitle&gt;
+          &lt;DialogDescription className=&quot;text-text-muted text-sm&quot;&gt;
+            Total Price: ${product.price.toFixed(2)}
+          &lt;/DialogDescription&gt;
+        &lt;/DialogHeader&gt;
+        &lt;form onSubmit={onSubmit} className=&quot;space-y-4&quot;&gt;
+          &lt;div className=&quot;grid gap-2&quot;&gt;
+            &lt;Label htmlFor=&quot;description&quot; className=&quot;text-sm font-medium&quot;&gt;
+              Order Details
+            &lt;/Label&gt;
+            &lt;textarea
+              id=&quot;description&quot;
+              className=&quot;border-border bg-surface/60 min-h-[100px] w-full rounded-md border p-3 text-sm disabled:opacity-50&quot;
+              placeholder=&quot;Please provide any specific requirements or details for your order...&quot;
+              value={description}
+              onChange={(e) =&gt; onDescriptionChange(e.target.value)}
+              disabled={isSubmitting}
+              required
+            /&gt;
+            {error &amp;&amp; &lt;p className=&quot;text-error text-sm&quot;&gt;{error}&lt;/p&gt;}
+          &lt;/div&gt;
+          &lt;div className=&quot;flex justify-end gap-3&quot;&gt;
+            &lt;button
+              type=&quot;button&quot;
+              onClick={onClose}
+              className=&quot;border-border hover:bg-surface rounded-md border px-4 py-2 text-sm&quot;
+              disabled={isSubmitting}
+            &gt;
+              Cancel
+            &lt;/button&gt;
+            &lt;button
+              type=&quot;submit&quot;
+              className=&quot;bg-primary hover:bg-primary/90 rounded-md px-4 py-2 text-sm text-white disabled:opacity-50&quot;
+              disabled={isSubmitting}
+            &gt;
+              {isSubmitting ? &quot;Submitting...&quot; : &quot;Place Order&quot;}
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/DialogContent&gt;
+    &lt;/Dialog&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

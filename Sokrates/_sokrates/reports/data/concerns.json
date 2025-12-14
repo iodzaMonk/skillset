@@ -17,16 +17,16 @@
     } ]
   }, {
     "name" : "Unclassified",
-    "filesCount" : 164,
-    "linesOfCode" : 13516,
+    "filesCount" : 177,
+    "linesOfCode" : 13093,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 90,
+      "value" : 94,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 69,
+      "value" : 78,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -43,11 +43,11 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 8745,
+      "value" : 8514,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 4625,
+      "value" : 4433,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -70,7 +70,7 @@
     "description" : [ ]
   }, {
     "name" : "Unclassified",
-    "value" : 164,
+    "value" : 177,
     "description" : [ ]
   } ],
   "linesOfCodePerConcern" : [ {
@@ -79,7 +79,7 @@
     "description" : [ ]
   }, {
     "name" : "Unclassified",
-    "value" : 13516,
+    "value" : 13093,
     "description" : [ ]
   } ]
 } ]

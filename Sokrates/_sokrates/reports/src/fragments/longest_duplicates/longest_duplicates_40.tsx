@@ -1,10 +1,9 @@
-components/ui/button.tsx [37:44]:
+components/ui/badge.tsx [20:26]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       },
     },
     defaultVariants: {
       variant: "default",
-      size: "default",
     },
   },
 );
@@ -12,13 +11,12 @@ components/ui/button.tsx [37:44]:
 
 
 
-components/ui/item.tsx [45:52]:
+components/ui/empty.tsx [38:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       },
     },
     defaultVariants: {
       variant: "default",
-      size: "default",
     },
   },
 );

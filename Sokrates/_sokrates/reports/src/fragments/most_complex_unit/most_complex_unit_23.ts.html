@@ -6,31 +6,32 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">function()</h3>
-<p style="margin-top: 4px">in <i>features/step_definitions/product.steps.ts [140:159]</i></p>
+<p style="margin-top: 4px">in <i>features/step_definitions/upload.steps.ts [94:114]</i></p>
 <ul>
-    <li><b>20</b> lines of code</li>
+    <li><b>21</b> lines of code</li>
     <li><b>6</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  function (this: ProductWorld, table: DataTable) {
-    const payload = getPayload(this);
-    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
-    const expectations = table.hashes();
-    for (const row of expectations) {
-      const reviewer = row.reviewer;
-      const country = row.country;
-      const email = row.email;
-      const match = reviews.find(
-        (review: any) =&gt;
-          review?.users?.name === reviewer &amp;&amp;
-          review?.users?.country === country &amp;&amp;
-          review?.users?.email === email,
-      );
-      assert.ok(
-        match,
-        `Expected metadata for reviewer ${reviewer} (${country}, ${email})`,
-      );
+  function (this: UploadWorld, table: DataTable) {
+    const payload = this.uploadFixture.getCapturedPayload();
+    assert.ok(payload, &quot;No upload payload was captured&quot;);
+    const expected = table.hashes()[0] ?? {};
+    for (const [key, value] of Object.entries(expected)) {
+      if (key === &quot;content&quot;) {
+        const bufferValue = payload.buffer;
+        const actualContent: string =
+          typeof bufferValue === &quot;string&quot;
+            ? bufferValue
+            : Buffer.from(bufferValue as Uint8Array).toString();
+        assert.strictEqual(actualContent, value);
+      } else if (key === &quot;contentType&quot;) {
+        assert.strictEqual(payload.contentType ?? &quot;&quot;, value);
+      } else if (key === &quot;originalName&quot;) {
+        assert.strictEqual(payload.originalName ?? &quot;&quot;, value);
+      } else {
+        assert.strictEqual(String((payload as Record&lt;string, unknown&gt;)[key] ?? &quot;&quot;), value);
+      }
     }
   },
 

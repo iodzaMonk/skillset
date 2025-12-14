@@ -1,6 +1,6 @@
 Path	Lines of Code
 types/Category.ts	8
-types/Comment.ts	46
+types/Comment.ts	57
 types/Country.ts	257
 types/Order.ts	12
 types/PostBody.ts	29

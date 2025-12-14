@@ -1,34 +1,25 @@
-app/api/orders/create-payment/route.tsx [10:21]:
+components/ui/dialog.tsx [38:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-export async function POST(request: NextRequest) {
-  const headersList = await headers();
-  const referer = headersList.get("referer") ?? "";
-
-  try {
-    const user = await getCurrentUser();
-
-    if (!user) {
-      return NextResponse.json(
-        { message: "Not authenticated" },
-        { status: 401, headers: { "x-referer": referer } },
-      );
+      className={cn(
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        className,
+      )}
+      {...props}
+    />
+  );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/user/create-stripe-account/route.ts [9:19]:
+components/ui/drawer.tsx [39:45]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-export async function POST(request: NextRequest) {
-  const headersList = await headers();
-  const referer = headersList.get("referer") ?? "";
-
-  try {
-    const user = await getCurrentUser();
-    if (!user) {
-      return NextResponse.json(
-        { message: "Not authenticated" },
-        { status: 401, headers: { "x-referer": referer } },
-      );
+      className={cn(
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        className,
+      )}
+      {...props}
+    />
+  );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

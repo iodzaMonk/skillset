@@ -12,13 +12,14 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">app/api/user/update/route.ts (<b>77</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">app/api/user/update/route.ts (<b>46</b> lines of code) (<a href="route.ts">raw</a>):</h3>
 <div id="editor">import { headers } from &quot;next/headers&quot;;
 import bcrypt from &quot;bcryptjs&quot;;
-import { Prisma } from &quot;@prisma/client&quot;;
+
 import { prisma } from &quot;@/lib/prisma&quot;;
 import type { UserBody } from &quot;@/types/UserBody&quot;;
 import { getCurrentUser } from &quot;@/app/lib/user&quot;;
+import { handleApiError } from &quot;@/app/lib/api-response&quot;;
 
 export async function PATCH(req: Request) {
   const headersList = await headers();
@@ -63,41 +64,7 @@ export async function PATCH(req: Request) {
       },
     );
   } catch (error) {
-    if (
-      error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
-      error.code === &quot;P2025&quot;
-    ) {
-      return Response.json(
-        { message: &quot;User not found&quot; },
-        {
-          status: 404,
-          headers: { &quot;x-referer&quot;: referer },
-        },
-      );
-    }
-
-    if (
-      error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
-      error.code === &quot;P2002&quot;
-    ) {
-      return Response.json(
-        { message: &quot;Email already in use&quot; },
-        {
-          status: 409,
-          headers: { &quot;x-referer&quot;: referer },
-        },
-      );
-    }
-
-    console.error(&quot;Update user error&quot;, error);
-
-    return Response.json(
-      { message: &quot;Internal server error&quot; },
-      {
-        status: 500,
-        headers: { &quot;x-referer&quot;: referer },
-      },
-    );
+    return handleApiError(error, referer);
   }
 }
 </div>

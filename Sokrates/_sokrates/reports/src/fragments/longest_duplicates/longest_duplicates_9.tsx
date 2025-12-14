@@ -1,39 +1,27 @@
-app/auth/[slug]/page.tsx [169:182]:
+app/product/[slug]/components/Comments.tsx [22:29]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                      required
-                      autoComplete="email"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="name" className={labelBase}>
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      className={inputBase}
-                      placeholder="Jane"
+    comments,
+    hasComments,
+    isLoading,
+    loadError,
+    actionError,
+    formError,
+    message,
+    isSubmitting,
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/settings/SettingsForm.tsx [110:123]:
+app/product/[slug]/components/useComments.ts [521:528]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            required
-            autoComplete="email"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="name" className={labelBase}>
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            className={inputBase}
-            placeholder="Jane"
+      comments,
+      hasComments,
+      isLoading,
+      loadError,
+      actionError,
+      formError,
+      message,
+      isSubmitting,
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

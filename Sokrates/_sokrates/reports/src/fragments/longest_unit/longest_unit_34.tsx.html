@@ -1,57 +1,54 @@
 <html>
 <head>
-    <title>weekday: cn()</title>
+    <title>function SheetContent()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">weekday: cn()</h3>
-<p style="margin-top: 4px">in <i>components/ui/calendar.tsx [89:127]</i></p>
+<h3 style="margin-bottom: 0">function SheetContent()</h3>
+<p style="margin-top: 4px">in <i>components/ui/sheet.tsx [47:82]</i></p>
 <ul>
-    <li><b>39</b> lines of code</li>
-    <li><b>1</b> McCabe index (conditional complexity)</li>
+    <li><b>36</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-        weekday: cn(
-          &quot;text-muted-foreground rounded-md flex-1 font-normal text-[0.8rem] select-none&quot;,
-          defaultClassNames.weekday,
-        ),
-        week: cn(&quot;flex w-full mt-2&quot;, defaultClassNames.week),
-        week_number_header: cn(
-          &quot;select-none w-(--cell-size)&quot;,
-          defaultClassNames.week_number_header,
-        ),
-        week_number: cn(
-          &quot;text-[0.8rem] select-none text-muted-foreground&quot;,
-          defaultClassNames.week_number,
-        ),
-        day: cn(
-          &quot;relative w-full h-full p-0 text-center [&amp;:first-child[data-selected=true]_button]:rounded-l-md [&amp;:last-child[data-selected=true]_button]:rounded-r-md group/day aspect-square select-none&quot;,
-          defaultClassNames.day,
-        ),
-        range_start: cn(
-          &quot;rounded-l-md bg-accent&quot;,
-          defaultClassNames.range_start,
-        ),
-        range_middle: cn(&quot;rounded-none&quot;, defaultClassNames.range_middle),
-        range_end: cn(&quot;rounded-r-md bg-accent&quot;, defaultClassNames.range_end),
-        today: cn(
-          &quot;bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none&quot;,
-          defaultClassNames.today,
-        ),
-        outside: cn(
-          &quot;text-muted-foreground aria-selected:text-muted-foreground&quot;,
-          defaultClassNames.outside,
-        ),
-        disabled: cn(
-          &quot;text-muted-foreground opacity-50&quot;,
-          defaultClassNames.disabled,
-        ),
-        hidden: cn(&quot;invisible&quot;, defaultClassNames.hidden),
-        ...classNames,
-      }}
-      components={{
+function SheetContent({
+  className,
+  children,
+  side = &quot;right&quot;,
+  ...props
+}: React.ComponentProps&lt;typeof SheetPrimitive.Content&gt; &amp; {
+  side?: &quot;top&quot; | &quot;right&quot; | &quot;bottom&quot; | &quot;left&quot;;
+}) {
+  return (
+    &lt;SheetPortal&gt;
+      &lt;SheetOverlay /&gt;
+      &lt;SheetPrimitive.Content
+        data-slot=&quot;sheet-content&quot;
+        className={cn(
+          &quot;bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500&quot;,
+          side === &quot;right&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm&quot;,
+          side === &quot;left&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm&quot;,
+          side === &quot;top&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b&quot;,
+          side === &quot;bottom&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t&quot;,
+          className,
+        )}
+        {...props}
+      &gt;
+        {children}
+        &lt;SheetPrimitive.Close className=&quot;ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none&quot;&gt;
+          &lt;XIcon className=&quot;size-4&quot; /&gt;
+          &lt;span className=&quot;sr-only&quot;&gt;Close&lt;/span&gt;
+        &lt;/SheetPrimitive.Close&gt;
+      &lt;/SheetPrimitive.Content&gt;
+    &lt;/SheetPortal&gt;
+  );
+}
 
 </code>
 </pre>

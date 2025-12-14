@@ -1,31 +1,27 @@
-app/myorderslist/page.tsx [47:56]:
+components/ui/button.tsx [37:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  return (
-    <div className="space-y-6">
-      <Modal
-        selectedOrder={primarOrder}
-        toggle={isModalOpen}
-        ref={modalRef}
-        selectedStatus={selectedStatus}
-        setSelectedStatus={setSelectedStatus}
-      />
-      <OrderList
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/orders/page.tsx [20:29]:
+components/ui/sidebar.tsx [489:496]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  return (
-    <div className="space-y-6">
-      <Modal
-        selectedOrder={primarOrder}
-        toggle={isModalOpen}
-        ref={modalRef}
-        selectedStatus={selectedStatus}
-        setSelectedStatus={setSelectedStatus}
-      />
-      <OrderList
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

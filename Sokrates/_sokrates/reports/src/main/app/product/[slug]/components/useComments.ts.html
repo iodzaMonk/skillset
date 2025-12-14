@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">app/product/[slug]/components/useComments.ts (<b>468</b> lines of code) (<a href="useComments.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">app/product/[slug]/components/useComments.ts (<b>472</b> lines of code) (<a href="useComments.ts">raw</a>):</h3>
 <div id="editor">&quot;use client&quot;;
 
 import axios from &quot;axios&quot;;
@@ -180,7 +180,7 @@ export const useComments = ({ productId, user }: UseCommentsArgs) =&gt; {
     if (formError) setFormError(null);
   };
 
-  const handleSubmit = async (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+  const handleSubmit = async (event: FormEvent) =&gt; {
     event.preventDefault();
     const trimmed = message.trim();
 
@@ -511,47 +511,51 @@ export const useComments = ({ productId, user }: UseCommentsArgs) =&gt; {
   };
 
   return {
-    comments,
-    hasComments,
-    isLoading,
-    loadError,
-    actionError,
-    formError,
-    message,
-    isSubmitting,
-    activeMenuId,
-    editingCommentId,
-    editingValue,
-    editError,
-    isSavingEdit,
-    replyingToId,
-    replyMessage,
-    replyError,
-    isSubmittingReply,
-    expandedThreads,
-    rating,
-    hoverRating,
-    editingRating,
-    editingHoverRating,
-    onMessageChange: handleMessageChange,
-    handleSubmit,
-    toggleMenu,
-    startEditing,
-    handleCancelEdit,
-    handleEditingValueChange,
-    handleEdit,
-    handleDelete,
-    beginReply,
-    handleCancelReply,
-    handleReplyValueChange,
-    handleSubmitReply,
-    toggleThreadVisibility,
-    handleRatingSelect,
-    handleRatingHover,
-    handleRatingLeave,
-    handleEditingRatingSelect,
-    handleEditingRatingHover,
-    handleEditingRatingLeave,
+    handlers: {
+      onMessageChange: handleMessageChange,
+      handleSubmit,
+      toggleMenu,
+      startEditing,
+      handleCancelEdit,
+      handleEditingValueChange,
+      handleEdit,
+      handleDelete,
+      beginReply,
+      handleCancelReply,
+      handleReplyValueChange,
+      handleSubmitReply,
+      toggleThreadVisibility,
+      handleRatingSelect,
+      handleRatingHover,
+      handleRatingLeave,
+      handleEditingRatingSelect,
+      handleEditingRatingHover,
+      handleEditingRatingLeave,
+    },
+    state: {
+      comments,
+      hasComments,
+      isLoading,
+      loadError,
+      actionError,
+      formError,
+      message,
+      isSubmitting,
+      activeMenuId,
+      editingCommentId,
+      editingValue,
+      editError,
+      isSavingEdit,
+      replyingToId,
+      replyMessage,
+      replyError,
+      isSubmittingReply,
+      expandedThreads,
+      rating,
+      hoverRating,
+      editingRating,
+      editingHoverRating,
+    },
   };
 };
 

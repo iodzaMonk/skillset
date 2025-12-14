@@ -1,8 +1,11 @@
 ﻿"use client";
 
 import { BirthdayPicker } from "@/app/_components/BirthdayPicker";
+import { getErrorMessage } from "@/app/utils/api-helpers";
+
+import { FormItem } from "@/app/_components/FormItem";
+
 import { useMemo, useState } from "react";
-import { format } from "date-fns";
 import { CountrySelect } from "@/app/_components/CountrySelect";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -12,11 +15,8 @@ import Modal from "./modal";
 import { Button } from "@/components/ui/button";
 import ConnectStripeButton from "./StripeConnectButton";
 
-const inputBase =
-  "block w-full rounded-md border border-border bg-surface/60 px-3 py-2 text-sm text-text placeholder:text-text-muted/70 " +
-  "focus:outline-ring focus:ring-2 focus:ring-[--color-ring] focus:border-transparent transition";
-
-const labelBase = "mb-2 block text-sm font-medium text-text";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export function SettingsForm({ user }: { user: User }) {
   const initialBirthday = useMemo(() => {
@@ -46,9 +46,7 @@ export function SettingsForm({ user }: { user: User }) {
       setUser(null);
       router.push("/auth/signup");
     } catch (err) {
-      const message = axios.isAxiosError(err)
-        ? (err.response?.data?.message ?? "Something went wrong")
-        : "Something went wrong";
+      const message = getErrorMessage(err);
       setError(message);
     } finally {
       setIsDeleting(false);
@@ -75,9 +73,7 @@ export function SettingsForm({ user }: { user: User }) {
       await axios.patch("/api/user/update", payload);
       await refresh();
     } catch (err) {
-      const message = axios.isAxiosError(err)
-        ? (err.response?.data?.message ?? "Something went wrong")
-        : "Something went wrong";
+      const message = getErrorMessage(err);
       setError(message);
     } finally {
       setIsSaving(false);
@@ -97,45 +93,36 @@ export function SettingsForm({ user }: { user: User }) {
           Edit User Info
         </h1>
         <div className="bg-text my-10 h-0.5 w-full rounded-2xl" />
-        <div>
-          <label htmlFor="email" className={labelBase}>
-            Email address
-          </label>
-          <input
-            name="email"
-            type="email"
-            className={inputBase}
-            placeholder="you@example.com"
-            defaultValue={user.email ?? ""}
-            required
-            autoComplete="email"
-          />
-        </div>
+        <FormItem
+          label="Email address"
+          id="email-settings"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          defaultValue={user.email ?? ""}
+          required
+          autoComplete="email"
+        />
+
+        <FormItem
+          label="Name"
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Jane"
+          defaultValue={user.name ?? ""}
+          required
+          autoComplete="given-name"
+        />
 
         <div>
-          <label htmlFor="name" className={labelBase}>
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            className={inputBase}
-            placeholder="Jane"
-            defaultValue={user.name ?? ""}
-            required
-            autoComplete="given-name"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="password" className={labelBase}>
+          <Label htmlFor="password" className="mb-2">
             Current password
-          </label>
+          </Label>
           <div className="flex items-center gap-5">
-            <input
+            <Input
               type={showPassCurrent ? "text" : "password"}
               name="password"
-              className={inputBase}
               placeholder="********"
               autoComplete="new-password"
             />
@@ -150,14 +137,13 @@ export function SettingsForm({ user }: { user: User }) {
         </div>
 
         <div>
-          <label htmlFor="newPassword" className={labelBase}>
+          <Label htmlFor="newPassword" className="mb-2">
             New password
-          </label>
+          </Label>
           <div className="flex items-center gap-5">
-            <input
+            <Input
               type={showPassConfirm ? "text" : "password"}
               name="newPassword"
-              className={inputBase}
               placeholder="********"
               autoComplete="new-password"
             />

@@ -1,31 +1,25 @@
-app/api/product/[slug]/route.ts [31:40]:
+app/lib/products.ts [22:28]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-              },
-            },
-            replies: {
-              select: {
-                id: true,
-                date: true,
-                text: true,
-              },
-            },
-          },
+      user_id: payload.user_id,
+      title: payload.title.trim(),
+      description: payload.description.trim(),
+      price: payload.price,
+      image_location: payload.image_location,
+      category: payload.category,
+    };
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [192:201]:
+app/lib/products.ts [42:48]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            },
-          },
-              replies: {
-                select: {
-                  id: true,
-                  date: true,
-                  text: true,
-                },
-              },
-            },
+      user_id: payload.user_id,
+      title: payload.title.trim(),
+      description: payload.description.trim(),
+      price: payload.price,
+      image_location: payload.image_location,
+      category: payload.category,
+    };
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -1,9 +1,9 @@
 import { headers } from "next/headers";
 import { getCurrentUser } from "@/app/lib/user";
-import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
 import { prisma } from "@/lib/prisma";
 import { PostBody } from "@/types/PostBody";
 import { Category } from "@prisma/client";
+import { signProductsWithImages } from "@/app/lib/product-helpers";
 
 export async function GET(request: Request) {
   const headersList = await headers();
@@ -15,26 +15,7 @@ export async function GET(request: Request) {
       where: category ? { category: category as Category } : undefined,
     });
 
-    const productsWithImages = await Promise.all(
-      products.map(async (product) => {
-        if (!product.image_location) {
-          return product;
-        }
-
-        try {
-          const imageUrl = await createSignedDownloadUrl(
-            product.image_location,
-          );
-          return {
-            ...product,
-            image_url: imageUrl,
-          };
-        } catch (error) {
-          console.error("Failed to sign image url", error);
-          return product;
-        }
-      }),
-    );
+    const productsWithImages = await signProductsWithImages(products);
 
     return new Response(JSON.stringify(productsWithImages), {
       status: 200,

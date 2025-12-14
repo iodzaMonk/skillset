@@ -2,16 +2,16 @@
   "key" : "primary",
   "components" : [ {
     "name" : "app",
-    "filesCount" : 77,
-    "linesOfCode" : 6412,
+    "filesCount" : 88,
+    "linesOfCode" : 6036,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 38,
+      "value" : 42,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 38,
+      "value" : 45,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -20,11 +20,11 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 3648,
+      "value" : 3417,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 2659,
+      "value" : 2514,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -44,21 +44,6 @@
     "linesOfCodePerExtension" : [ {
       "name" : "  *.tsx",
       "value" : 5097,
-      "description" : [ ]
-    } ]
-  }, {
-    "name" : "cypress",
-    "filesCount" : 3,
-    "linesOfCode" : 331,
-    "numberOfRegexLineMatches" : 0,
-    "fileCountPerExtension" : [ {
-      "name" : "  *.ts",
-      "value" : 3,
-      "description" : [ ]
-    } ],
-    "linesOfCodePerExtension" : [ {
-      "name" : "  *.ts",
-      "value" : 331,
       "description" : [ ]
     } ]
   }, {
@@ -90,21 +75,6 @@
     }, {
       "name" : "  *.js",
       "value" : 4,
-      "description" : [ ]
-    } ]
-  }, {
-    "name" : "features",
-    "filesCount" : 10,
-    "linesOfCode" : 1227,
-    "numberOfRegexLineMatches" : 0,
-    "fileCountPerExtension" : [ {
-      "name" : "  *.ts",
-      "value" : 10,
-      "description" : [ ]
-    } ],
-    "linesOfCodePerExtension" : [ {
-      "name" : "  *.ts",
-      "value" : 1227,
       "description" : [ ]
     } ]
   }, {
@@ -155,7 +125,7 @@
   }, {
     "name" : "types",
     "filesCount" : 9,
-    "linesOfCode" : 395,
+    "linesOfCode" : 406,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.ts",
@@ -164,7 +134,37 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.ts",
-      "value" : 395,
+      "value" : 406,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "features",
+    "filesCount" : 12,
+    "linesOfCode" : 1187,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 12,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 1187,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "cypress",
+    "filesCount" : 3,
+    "linesOfCode" : 313,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 3,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 313,
       "description" : [ ]
     } ]
   } ],
@@ -179,7 +179,7 @@
     "components" : [ {
       "name" : "app",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../app/.*",
+        "pathPattern" : "Sokrates/../app/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -188,16 +188,7 @@
     }, {
       "name" : "components",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../components/.*",
-        "contentPattern" : "",
-        "exception" : false,
-        "note" : ""
-      } ],
-      "files" : [ ]
-    }, {
-      "name" : "cypress",
-      "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../cypress/.*",
+        "pathPattern" : "Sokrates/../components/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -206,65 +197,56 @@
     }, {
       "name" : "ROOT",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../.*",
+        "pathPattern" : "Sokrates/../.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../app/.*",
+        "pathPattern" : "Sokrates/../app/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../components/.*",
+        "pathPattern" : "Sokrates/../components/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../cypress/.*",
+        "pathPattern" : "Sokrates/../hooks/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../features/.*",
+        "pathPattern" : "Sokrates/../lib/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../hooks/.*",
+        "pathPattern" : "Sokrates/../prisma/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../lib/.*",
+        "pathPattern" : "Sokrates/../types/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../prisma/.*",
+        "pathPattern" : "Sokrates/../features/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../types/.*",
+        "pathPattern" : "Sokrates/../cypress/.*",
         "contentPattern" : "",
         "exception" : true,
-        "note" : ""
-      } ],
-      "files" : [ ]
-    }, {
-      "name" : "features",
-      "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../features/.*",
-        "contentPattern" : "",
-        "exception" : false,
         "note" : ""
       } ],
       "files" : [ ]
     }, {
       "name" : "hooks",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../hooks/.*",
+        "pathPattern" : "Sokrates/../hooks/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -273,7 +255,7 @@
     }, {
       "name" : "lib",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../lib/.*",
+        "pathPattern" : "Sokrates/../lib/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -282,7 +264,7 @@
     }, {
       "name" : "prisma",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../prisma/.*",
+        "pathPattern" : "Sokrates/../prisma/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -291,7 +273,25 @@
     }, {
       "name" : "types",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../types/.*",
+        "pathPattern" : "Sokrates/../types/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "features",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../features/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "cypress",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../cypress/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -322,22 +322,14 @@
   },
   "fileCountPerComponent" : [ {
     "name" : "app",
-    "value" : 77,
+    "value" : 88,
     "description" : [ ]
   }, {
     "name" : "components",
     "value" : 52,
     "description" : [ ]
   }, {
-    "name" : "cypress",
-    "value" : 3,
-    "description" : [ ]
-  }, {
     "name" : "ROOT",
-    "value" : 10,
-    "description" : [ ]
-  }, {
-    "name" : "features",
     "value" : 10,
     "description" : [ ]
   }, {
@@ -356,26 +348,26 @@
     "name" : "types",
     "value" : 9,
     "description" : [ ]
+  }, {
+    "name" : "features",
+    "value" : 12,
+    "description" : [ ]
+  }, {
+    "name" : "cypress",
+    "value" : 3,
+    "description" : [ ]
   } ],
   "linesOfCodePerComponent" : [ {
     "name" : "app",
-    "value" : 6412,
+    "value" : 6036,
     "description" : [ ]
   }, {
     "name" : "components",
     "value" : 5097,
     "description" : [ ]
   }, {
-    "name" : "cypress",
-    "value" : 331,
-    "description" : [ ]
-  }, {
     "name" : "ROOT",
     "value" : 133,
-    "description" : [ ]
-  }, {
-    "name" : "features",
-    "value" : 1227,
     "description" : [ ]
   }, {
     "name" : "hooks",
@@ -391,7 +383,15 @@
     "description" : [ ]
   }, {
     "name" : "types",
-    "value" : 395,
+    "value" : 406,
+    "description" : [ ]
+  }, {
+    "name" : "features",
+    "value" : 1187,
+    "description" : [ ]
+  }, {
+    "name" : "cypress",
+    "value" : 313,
     "description" : [ ]
   } ]
 } ]

@@ -12,13 +12,13 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">app/api/product/route.ts (<b>63</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">app/api/product/route.ts (<b>45</b> lines of code) (<a href="route.ts">raw</a>):</h3>
 <div id="editor">import { headers } from &quot;next/headers&quot;;
 import { getCurrentUser } from &quot;@/app/lib/user&quot;;
-import { createSignedDownloadUrl } from &quot;@/app/lib/storage/s3&quot;;
 import { prisma } from &quot;@/lib/prisma&quot;;
 import { PostBody } from &quot;@/types/PostBody&quot;;
 import { Category } from &quot;@prisma/client&quot;;
+import { signProductsWithImages } from &quot;@/app/lib/product-helpers&quot;;
 
 export async function GET(request: Request) {
   const headersList = await headers();
@@ -30,26 +30,7 @@ export async function GET(request: Request) {
       where: category ? { category: category as Category } : undefined,
     });
 
-    const productsWithImages = await Promise.all(
-      products.map(async (product) =&gt; {
-        if (!product.image_location) {
-          return product;
-        }
-
-        try {
-          const imageUrl = await createSignedDownloadUrl(
-            product.image_location,
-          );
-          return {
-            ...product,
-            image_url: imageUrl,
-          };
-        } catch (error) {
-          console.error(&quot;Failed to sign image url&quot;, error);
-          return product;
-        }
-      }),
-    );
+    const productsWithImages = await signProductsWithImages(products);
 
     return new Response(JSON.stringify(productsWithImages), {
       status: 200,

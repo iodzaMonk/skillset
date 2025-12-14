@@ -1,9 +1,10 @@
 import { headers } from "next/headers";
 import bcrypt from "bcryptjs";
-import { Prisma } from "@prisma/client";
+
 import { createSession } from "@/app/lib/session";
 import { prisma } from "@/lib/prisma";
 import type { UserBody } from "@/types/UserBody";
+import { handleApiError } from "@/app/lib/api-response";
 
 export async function POST(req: Request) {
   const headersList = await headers();
@@ -71,27 +72,6 @@ export async function POST(req: Request) {
       },
     );
   } catch (error) {
-    if (
-      error instanceof Prisma.PrismaClientKnownRequestError &&
-      error.code === "P2002"
-    ) {
-      return Response.json(
-        { message: "Email already registered" },
-        {
-          status: 409,
-          headers: { "x-referer": referer },
-        },
-      );
-    }
-
-    console.error("Registration error", error);
-
-    return Response.json(
-      { message: "Internal server error" },
-      {
-        status: 500,
-        headers: { "x-referer": referer },
-      },
-    );
+    return handleApiError(error, referer);
   }
 }

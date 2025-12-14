@@ -6,37 +6,9 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "cypress/fixtures/example.json",
-  "extension" : "json",
-  "linesOfCode" : 5,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "features/step_definitions/cucumber.json",
-  "extension" : "json",
-  "linesOfCode" : 7,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "help.txt",
-  "extension" : "txt",
-  "linesOfCode" : 17,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
   "relativePath" : "lib/countries.json",
   "extension" : "json",
   "linesOfCode" : 254,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "package.json",
-  "extension" : "json",
-  "linesOfCode" : 128,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -76,9 +48,9 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "README.md",
-  "extension" : "md",
-  "linesOfCode" : 68,
+  "relativePath" : "features/step_definitions/cucumber.json",
+  "extension" : "json",
+  "linesOfCode" : 7,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -86,6 +58,20 @@
   "relativePath" : "tsconfig.json",
   "extension" : "json",
   "linesOfCode" : 28,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "cypress/fixtures/example.json",
+  "extension" : "json",
+  "linesOfCode" : 5,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "README.md",
+  "extension" : "md",
+  "linesOfCode" : 68,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -562,6 +548,20 @@
   "relativePath" : "_sokrates_landscape/visuals/repository_dependencies_90_5.svg",
   "extension" : "svg",
   "linesOfCode" : 1,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "help.txt",
+  "extension" : "txt",
+  "linesOfCode" : 17,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "package.json",
+  "extension" : "json",
+  "linesOfCode" : 128,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

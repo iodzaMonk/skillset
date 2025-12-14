@@ -1,8 +1,7 @@
-components/ui/dropdown-menu.tsx [156:163]:
+components/ui/drawer.tsx [39:45]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      data-inset={inset}
       className={cn(
-        "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
         className,
       )}
       {...props}
@@ -12,11 +11,10 @@ components/ui/dropdown-menu.tsx [156:163]:
 
 
 
-components/ui/menubar.tsx [174:181]:
+components/ui/sheet.tsx [38:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      data-inset={inset}
       className={cn(
-        "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
         className,
       )}
       {...props}

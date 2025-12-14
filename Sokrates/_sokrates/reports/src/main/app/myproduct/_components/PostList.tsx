@@ -1,14 +1,11 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-import { PencilIcon, Trash2Icon } from "lucide-react";
+import { useMemo } from "react";
+import { useSelection } from "@/app/hooks/useSelection";
 
-import { SelectableListHeader } from "@/app/_components/SelectableListHeader";
+import { SelectableList } from "@/app/_components/SelectableList";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { PostBody } from "@/types/PostBody";
+import { SelectableCard } from "@/app/_components/SelectableCard";
 import { useAuth } from "@/app/context/AuthContext";
 import { useRouter } from "next/navigation";
 
@@ -19,11 +16,7 @@ type PostListProps = {
   onRequestCreate?: () => void;
 };
 
-const currencyFormatter = new Intl.NumberFormat(undefined, {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 2,
-});
+import { currencyFormatter } from "@/app/utils/formatters";
 
 export function PostList({
   posts,
@@ -31,38 +24,15 @@ export function PostList({
   onRequestDelete,
   onRequestCreate,
 }: PostListProps) {
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const { user } = useAuth();
   const router = useRouter();
+  const { selectedIds, toggleSelection, clearSelection, selectAll } =
+    useSelection(posts.map((post) => post.id).filter(Boolean) as string[]);
 
   const selectedPosts = useMemo(
     () => posts.filter((post) => post.id && selectedIds.includes(post.id)),
     [posts, selectedIds],
   );
-
-  useEffect(() => {
-    setSelectedIds((current) =>
-      current.filter((id) => posts.some((post) => post.id === id)),
-    );
-  }, [posts]);
-
-  const toggleSelection = (postId: string | undefined) => {
-    if (!postId) {
-      return;
-    }
-
-    setSelectedIds((current) => {
-      if (current.includes(postId)) {
-        return current.filter((id) => id !== postId);
-      }
-      return [...current, postId];
-    });
-  };
-  const clearSelection = () => setSelectedIds([]);
-
-  const selectAll = () => {
-    setSelectedIds(posts.map((post) => post.id).filter(Boolean) as string[]);
-  };
 
   const totalSelected = selectedPosts.length;
   const totalPosts = posts.length;
@@ -90,6 +60,7 @@ export function PostList({
       clearSelection();
     }
   };
+
   if (!user?.vendor_id && posts.length === 0) {
     return (
       <section className="border-border bg-surface/60 mx-auto mt-10 flex w-full flex-col items-center gap-4 rounded-xl border p-10 text-center md:w-4/5 lg:w-3/4">
@@ -131,139 +102,80 @@ export function PostList({
   }
 
   return (
-    <section className="mx-auto mt-8 w-full max-w-4xl px-2 sm:px-0">
-      <SelectableListHeader
-        totalSelected={totalSelected}
-        masterChecked={masterCheckboxState}
-        onSelectAll={selectAll}
-        onClearSelection={clearSelection}
-      >
-        {totalSelected > 0 && (
-          <>
-            <Button
-              type="button"
-              variant="update"
-              size="sm"
-              onClick={handleModify}
-              disabled={totalSelected !== 1 || !onRequestEdit}
-            >
-              <PencilIcon className="size-4" />
-              Modify
-            </Button>
-            <Button
-              type="button"
-              variant="delete"
-              size="sm"
-              onClick={() => {
-                void handleDelete();
-              }}
-              disabled={!onRequestDelete}
-            >
-              <PencilIcon className="size-4" />
-              Delete
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              onClick={clearSelection}
-            >
-              Clear
-            </Button>
-          </>
-        )}
-        <Button
-          type="button"
-          variant="success"
-          size="sm"
-          className="w-full sm:w-auto"
-          onClick={onRequestCreate}
-          disabled={!onRequestCreate || totalSelected >= 1}
-        >
-          Create
-        </Button>
-      </SelectableListHeader>
+    <SelectableList<PostBody>
+      items={posts}
+      selectedIds={selectedIds}
+      totalSelected={totalSelected}
+      masterCheckboxState={masterCheckboxState}
+      onSelectAll={selectAll}
+      onClearSelection={clearSelection}
+      onModify={handleModify}
+      onDelete={handleDelete}
+      onCreate={onRequestCreate}
+      getItemId={(post) => post.id || ""}
+      canModify={Boolean(onRequestEdit)}
+      canDelete={Boolean(onRequestDelete)}
+      renderItem={(product, isSelected) => {
+        if (!product.id) return null;
+        const postId = product.id;
 
-      <ScrollArea className="border-border/40 bg-surface/70 mb-10 h-[28rem] rounded-xl border pr-1 sm:h-[34rem]">
-        <ul className="space-y-4 p-3 sm:p-4">
-          {posts.map((product) => {
-            if (!product.id) {
-              return null;
-            }
-
-            const postId = product.id;
-            const isSelected = selectedIds.includes(postId);
-
-            return (
-              <li
-                key={postId}
-                className={`border-border/70 bg-surface/95 relative overflow-hidden rounded-2xl border transition-all hover:shadow-lg ${
-                  isSelected ? "ring-accent shadow-xl ring-2" : "shadow-sm"
-                }`}
-              >
-                <Checkbox
-                  checked={isSelected}
-                  onCheckedChange={() => toggleSelection(postId)}
-                  aria-label={`Select ${product.title}`}
-                  className="border-border bg-surface absolute top-4 left-4 z-10 size-5 rounded-full border-2"
+        return (
+          <SelectableCard
+            key={postId}
+            id={postId}
+            isSelected={isSelected}
+            onToggle={toggleSelection}
+            label={product.title}
+          >
+            <div className="bg-surface/80 relative w-full overflow-hidden rounded-lg sm:w-56">
+              {product.image_url ? (
+                <Image
+                  src={product.image_url}
+                  alt={product.title}
+                  width={448}
+                  height={336}
+                  className="h-48 w-full object-cover"
                 />
-                <button
-                  type="button"
-                  onClick={() => toggleSelection(postId)}
-                  className="flex w-full flex-col gap-4 p-4 text-left sm:flex-row sm:items-start sm:gap-6 sm:p-6"
-                >
-                  <div className="bg-surface/80 relative w-full overflow-hidden rounded-lg sm:w-56">
-                    {product.image_url ? (
-                      <Image
-                        src={product.image_url}
-                        alt={product.title}
-                        width={448}
-                        height={336}
-                        className="h-48 w-full object-cover"
-                      />
-                    ) : product.image_location ? (
-                      <div className="border-border/80 text-text-muted flex h-48 w-full items-center justify-center border border-dashed text-xs tracking-wide uppercase">
-                        Image stored at {product.image_location}
-                      </div>
-                    ) : (
-                      <div className="border-border/80 text-text-muted flex h-48 w-full items-center justify-center border border-dashed text-xs tracking-wide uppercase">
-                        No image uploaded
-                      </div>
-                    )}
+              ) : product.image_location ? (
+                <div className="border-border/80 text-text-muted flex h-48 w-full items-center justify-center border border-dashed text-xs tracking-wide uppercase">
+                  Image stored at {product.image_location}
+                </div>
+              ) : (
+                <div className="border-border/80 text-text-muted flex h-48 w-full items-center justify-center border border-dashed text-xs tracking-wide uppercase">
+                  No image uploaded
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-1 flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="space-y-2">
+                  <h2 className="text-text text-lg font-semibold sm:text-xl">
+                    {product.title}
+                  </h2>
+                  {product.description && (
+                    <p className="text-text-muted text-sm leading-6">
+                      {product.description}
+                    </p>
+                  )}
+                </div>
+
+                {product.price !== undefined && (
+                  <div className="text-accent border-accent/50 inline-flex min-w-[6rem] items-center justify-center rounded-full border px-4 py-1 text-base font-semibold">
+                    {currencyFormatter.format(product.price)}
                   </div>
+                )}
+              </div>
 
-                  <div className="flex flex-1 flex-col gap-4">
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                      <div className="space-y-2">
-                        <h2 className="text-text text-lg font-semibold sm:text-xl">
-                          {product.title}
-                        </h2>
-                        {product.description && (
-                          <p className="text-text-muted text-sm leading-6">
-                            {product.description}
-                          </p>
-                        )}
-                      </div>
-
-                      {product.price !== undefined && (
-                        <div className="text-accent border-accent/50 inline-flex min-w-[6rem] items-center justify-center rounded-full border px-4 py-1 text-base font-semibold">
-                          {currencyFormatter.format(product.price)}
-                        </div>
-                      )}
-                    </div>
-
-                    {isSelected && (
-                      <span className="text-accent bg-accent/10 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-medium">
-                        Selected
-                      </span>
-                    )}
-                  </div>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </ScrollArea>
-    </section>
+              {isSelected && (
+                <span className="text-accent bg-accent/10 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-medium">
+                  Selected
+                </span>
+              )}
+            </div>
+          </SelectableCard>
+        );
+      }}
+    />
   );
 }

@@ -189,7 +189,7 @@
     "components" : [ {
       "name" : "app",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../app/.*",
+        "pathPattern" : "Sokrates/../app/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -198,16 +198,7 @@
     }, {
       "name" : "components",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../components/.*",
-        "contentPattern" : "",
-        "exception" : false,
-        "note" : ""
-      } ],
-      "files" : [ ]
-    }, {
-      "name" : "cypress",
-      "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../cypress/.*",
+        "pathPattern" : "Sokrates/../components/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -216,65 +207,56 @@
     }, {
       "name" : "ROOT",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../.*",
+        "pathPattern" : "Sokrates/../.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../app/.*",
+        "pathPattern" : "Sokrates/../app/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../components/.*",
+        "pathPattern" : "Sokrates/../components/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../cypress/.*",
+        "pathPattern" : "Sokrates/../hooks/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../features/.*",
+        "pathPattern" : "Sokrates/../lib/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../hooks/.*",
+        "pathPattern" : "Sokrates/../prisma/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../lib/.*",
+        "pathPattern" : "Sokrates/../types/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../prisma/.*",
+        "pathPattern" : "Sokrates/../features/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates\\../types/.*",
+        "pathPattern" : "Sokrates/../cypress/.*",
         "contentPattern" : "",
         "exception" : true,
-        "note" : ""
-      } ],
-      "files" : [ ]
-    }, {
-      "name" : "features",
-      "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../features/.*",
-        "contentPattern" : "",
-        "exception" : false,
         "note" : ""
       } ],
       "files" : [ ]
     }, {
       "name" : "hooks",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../hooks/.*",
+        "pathPattern" : "Sokrates/../hooks/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -283,7 +265,7 @@
     }, {
       "name" : "lib",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../lib/.*",
+        "pathPattern" : "Sokrates/../lib/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -292,7 +274,7 @@
     }, {
       "name" : "prisma",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../prisma/.*",
+        "pathPattern" : "Sokrates/../prisma/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -301,7 +283,25 @@
     }, {
       "name" : "types",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates\\../types/.*",
+        "pathPattern" : "Sokrates/../types/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "features",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../features/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "cypress",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../cypress/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""

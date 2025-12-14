@@ -6,6 +6,7 @@ import { prisma } from "@/lib/prisma";
 import {
   reviewThreadInclude,
   validateParentForProduct,
+  errorResponse,
 } from "../review-helpers";
 
 export async function GET(
@@ -17,19 +18,13 @@ export async function GET(
   const parentId = url.searchParams.get("parentId");
 
   if (!parentId) {
-    return NextResponse.json(
-      { message: "parentId query parameter is required" },
-      { status: 400 },
-    );
+    return errorResponse("parentId query parameter is required", 400);
   }
 
   try {
     const parent = await validateParentForProduct(slug, parentId);
     if ("status" in parent) {
-      return NextResponse.json(
-        { message: parent.message },
-        { status: parent.status },
-      );
+      return errorResponse(parent.message, parent.status);
     }
 
     const replies = await prisma.reviews.findMany({
@@ -41,10 +36,7 @@ export async function GET(
     return NextResponse.json(replies);
   } catch (error) {
     console.error("Failed to fetch replies", error);
-    return NextResponse.json(
-      { message: "Unable to load replies" },
-      { status: 500 },
-    );
+    return errorResponse("Unable to load replies", 500);
   }
 }
 
@@ -56,10 +48,7 @@ export async function POST(
   const user = await getCurrentUser();
 
   if (!user) {
-    return NextResponse.json(
-      { message: "You need to be signed in to reply" },
-      { status: 401 },
-    );
+    return errorResponse("You need to be signed in to reply", 401);
   }
 
   try {
@@ -69,25 +58,16 @@ export async function POST(
       typeof body?.parentId === "string" ? body.parentId.trim() : "";
 
     if (!text) {
-      return NextResponse.json(
-        { message: "Reply cannot be empty" },
-        { status: 400 },
-      );
+      return errorResponse("Reply cannot be empty", 400);
     }
 
     if (!parentId) {
-      return NextResponse.json(
-        { message: "parentId is required" },
-        { status: 400 },
-      );
+      return errorResponse("parentId is required", 400);
     }
 
     const parent = await validateParentForProduct(slug, parentId);
     if ("status" in parent) {
-      return NextResponse.json(
-        { message: parent.message },
-        { status: parent.status },
-      );
+      return errorResponse(parent.message, parent.status);
     }
 
     const reply = await prisma.reviews.create({
@@ -104,9 +84,6 @@ export async function POST(
     return NextResponse.json(reply, { status: 201 });
   } catch (error) {
     console.error("Failed to create reply", error);
-    return NextResponse.json(
-      { message: "Unable to submit reply" },
-      { status: 500 },
-    );
+    return errorResponse("Unable to submit reply", 500);
   }
 }

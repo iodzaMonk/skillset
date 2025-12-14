@@ -1,35 +1,27 @@
-app/product/[slug]/components/Comment.tsx [269:280]:
+components/ui/button.tsx [37:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-              activeMenuId={activeMenuId}
-              editingCommentId={editingCommentId}
-              editingValue={editingValue}
-              editError={editError}
-              replyMessage={replyMessage}
-              replyError={replyError}
-              replyingToId={replyingToId}
-              isSavingEdit={isSavingEdit}
-              isSubmittingReply={isSubmittingReply}
-              expandedThreads={expandedThreads}
-              editingRating={editingRating}
-              editingHoverRating={editingHoverRating}
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/product/[slug]/components/Comments.tsx [92:103]:
+components/ui/toggle.tsx [22:29]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-              activeMenuId={activeMenuId}
-              editingCommentId={editingCommentId}
-              editingValue={editingValue}
-              editError={editError}
-              replyMessage={replyMessage}
-              replyError={replyError}
-              replyingToId={replyingToId}
-              isSavingEdit={isSavingEdit}
-              isSubmittingReply={isSubmittingReply}
-              expandedThreads={expandedThreads}
-              editingRating={editingRating}
-              editingHoverRating={editingHoverRating}
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -1,29 +1,25 @@
-app/auth/[slug]/page.tsx [160:168]:
+components/ui/empty.tsx [38:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                  <div>
-                    <label htmlFor="email" className={labelBase}>
-                      Email address
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      className={inputBase}
-                      placeholder="you@example.com"
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/settings/SettingsForm.tsx [100:108]:
+components/ui/item.tsx [83:89]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        <div>
-          <label htmlFor="email" className={labelBase}>
-            Email address
-          </label>
-          <input
-            name="email"
-            type="email"
-            className={inputBase}
-            placeholder="you@example.com"
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

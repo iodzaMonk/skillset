@@ -1,27 +1,25 @@
-cypress/e2e/complete_test.cy.ts [178:185]:
+features/step_definitions/auth.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-          statusCode: 200,
-          body: {
-            user: {
-              id: "user-test-id",
-              email: email,
-              name: "Test User",
-              country: "AU",
-              birthday: null,
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-cypress/e2e/complete_test.cy.ts [244:251]:
+features/step_definitions/browse.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        statusCode: 200,
-        body: {
-          user: {
-            id: "user-test-id",
-            email: email,
-            name: "Test User",
-            country: "AU",
-            birthday: null,
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

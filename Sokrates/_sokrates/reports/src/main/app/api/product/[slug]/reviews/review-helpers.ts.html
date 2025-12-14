@@ -12,36 +12,64 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">app/api/product/[slug]/reviews/review-helpers.ts (<b>65</b> lines of code) (<a href="review-helpers.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">app/api/product/[slug]/reviews/review-helpers.ts (<b>87</b> lines of code) (<a href="review-helpers.ts">raw</a>):</h3>
 <div id="editor">import { prisma } from &quot;@/lib/prisma&quot;;
+import { NextResponse } from &quot;next/server&quot;;
 
 export const MAX_REPLY_DEPTH = 3;
+const MAX_RATING = 5;
+
+export function errorResponse(message: string, status: number) {
+  return NextResponse.json({ message }, { status });
+}
+
+export const parseRating = (value: unknown): number | null =&gt; {
+  if (value === null || value === undefined || value === &quot;&quot;) return null;
+  if (typeof value !== &quot;number&quot;) return NaN;
+  if (!Number.isFinite(value)) return NaN;
+  return Math.round(value);
+};
+
+export const ratingIsValid = (rating: number | null) =&gt;
+  rating !== null &amp;&amp; rating &gt;= 1 &amp;&amp; rating &lt;= MAX_RATING;
+
+export async function recomputeProductRating(productId: string) {
+  const aggregate = await prisma.reviews.aggregate({
+    where: {
+      product_id: productId,
+      parent_id: null,
+      rating: { not: null },
+    },
+    _avg: { rating: true },
+    _count: { rating: true },
+  });
+
+  await prisma.posts.update({
+    where: { id: productId },
+    data: {
+      rating: aggregate._count.rating ? aggregate._avg.rating : null,
+      ratingCount: aggregate._count.rating ?? 0,
+    },
+  });
+}
+
+export const userSelect = {
+  select: {
+    id: true,
+    name: true,
+  },
+} as const;
 
 export const reviewThreadInclude = {
-  users: {
-    select: {
-      id: true,
-      name: true,
-    },
-  },
+  users: userSelect,
   replies: {
     orderBy: { date: &quot;asc&quot; },
     include: {
-      users: {
-        select: {
-          id: true,
-          name: true,
-        },
-      },
+      users: userSelect,
       replies: {
         orderBy: { date: &quot;asc&quot; },
         include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
+          users: userSelect,
         },
       },
     },

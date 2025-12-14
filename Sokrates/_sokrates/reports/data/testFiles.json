@@ -34,20 +34,6 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "tests/user-connect-stripe-account.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 66,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "tests/user-create-stripe-account.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 126,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
   "relativePath" : "tests/user-delete.test.ts",
   "extension" : "ts",
   "linesOfCode" : 62,
@@ -86,6 +72,20 @@
   "relativePath" : "tests/user-update.test.ts",
   "extension" : "ts",
   "linesOfCode" : 121,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-connect-stripe-account.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 66,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-create-stripe-account.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 126,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

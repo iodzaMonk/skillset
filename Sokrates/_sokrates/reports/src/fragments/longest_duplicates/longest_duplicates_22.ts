@@ -1,31 +1,25 @@
-app/api/product/user/route.ts [15:24]:
+features/step_definitions/product.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  const headersList = await headers();
-  const referer = headersList.get("referer") ?? "";
-
-  try {
-    const user = await getCurrentUser();
-    if (!user) {
-      return Response.json(
-        { message: "Not authenticated" },
-        { status: 401, headers: { "x-referer": referer } },
-      );
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/product/user/route.ts [49:58]:
+features/step_definitions/productCrud.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  const headersList = await headers();
-  const referer = headersList.get("referer") ?? "";
-
-  try {
-    const user = await getCurrentUser();
-    if (!user) {
-      return Response.json(
-        { message: "Not authenticated" },
-        { status: 401, headers: { "x-referer": referer } },
-      );
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

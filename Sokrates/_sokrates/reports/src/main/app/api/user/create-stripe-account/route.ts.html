@@ -12,14 +12,13 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">app/api/user/create-stripe-account/route.ts (<b>58</b> lines of code) (<a href="route.ts">raw</a>):</h3>
-<div id="editor">import Stripe from &quot;stripe&quot;;
+<h3 style="margin-bottom: 0">app/api/user/create-stripe-account/route.ts (<b>55</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<div id="editor">import { stripe } from &quot;@/app/lib/stripe&quot;;
 import { NextRequest, NextResponse } from &quot;next/server&quot;;
 import { getCurrentUser } from &quot;@/app/lib/user&quot;;
 import { headers } from &quot;next/headers&quot;;
 import { prisma } from &quot;@/lib/prisma&quot;;
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+import { unauthorizedResponse } from &quot;@/app/lib/api-response&quot;;
 
 export async function POST(request: NextRequest) {
   const headersList = await headers();
@@ -28,10 +27,7 @@ export async function POST(request: NextRequest) {
   try {
     const user = await getCurrentUser();
     if (!user) {
-      return NextResponse.json(
-        { message: &quot;Not authenticated&quot; },
-        { status: 401, headers: { &quot;x-referer&quot;: referer } },
-      );
+      return unauthorizedResponse(referer);
     }
 
     const body = await request.json();
