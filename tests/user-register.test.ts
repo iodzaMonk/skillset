@@ -1,3 +1,25 @@
+/// <reference types="jest" />
+
+// Create a mock PrismaClientKnownRequestError class for testing
+class MockPrismaClientKnownRequestError extends Error {
+  code: string;
+  constructor(
+    message: string,
+    { code }: { code: string; clientVersion?: string },
+  ) {
+    super(message);
+    this.code = code;
+    this.name = "PrismaClientKnownRequestError";
+  }
+}
+
+// Mock @prisma/client BEFORE any imports that use it
+jest.mock("@prisma/client", () => ({
+  Prisma: {
+    PrismaClientKnownRequestError: MockPrismaClientKnownRequestError,
+  },
+}));
+
 const mockHeaders = jest.fn();
 jest.mock("next/headers", () => ({
   headers: mockHeaders,
@@ -112,14 +134,29 @@ describe("app/api/user/register/route", () => {
     expect(mockCreateSession).toHaveBeenCalledWith("user-1");
   });
 
-  it("returns 409 when email already exists", async () => {
-    const error = new Error("unique violation");
-    Object.assign(error, { code: "P2002" });
-    Object.setPrototypeOf(
-      error,
-      (await import("@prisma/client")).Prisma.PrismaClientKnownRequestError
-        .prototype,
+  it("creates user without birthday when not provided", async () => {
+    const response = await POST(
+      buildRequest({
+        email: "user@test.com",
+        password: "secret",
+        name: "User",
+        country: "US",
+      }),
     );
+
+    expect(response.status).toBe(200);
+    expect(mockUsersCreate).toHaveBeenCalledWith({
+      data: expect.objectContaining({
+        birthday: null,
+      }),
+      select: { id: true, email: true },
+    });
+  });
+
+  it("returns 409 when email already exists", async () => {
+    const error = new MockPrismaClientKnownRequestError("unique violation", {
+      code: "P2002",
+    });
     mockUsersCreate.mockRejectedValue(error);
 
     const response = await POST(

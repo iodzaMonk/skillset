@@ -1,4 +1,24 @@
-import { Prisma } from "@prisma/client";
+/// <reference types="jest" />
+
+// Create a mock PrismaClientKnownRequestError class for testing
+class MockPrismaClientKnownRequestError extends Error {
+  code: string;
+  constructor(
+    message: string,
+    { code }: { code: string; clientVersion?: string },
+  ) {
+    super(message);
+    this.code = code;
+    this.name = "PrismaClientKnownRequestError";
+  }
+}
+
+// Mock @prisma/client BEFORE any imports that use it
+jest.mock("@prisma/client", () => ({
+  Prisma: {
+    PrismaClientKnownRequestError: MockPrismaClientKnownRequestError,
+  },
+}));
 
 const mockFindUnique = jest.fn();
 const mockAggregate = jest.fn();
@@ -170,11 +190,9 @@ describe("app/api/professional/[id]/route", () => {
   });
 
   it("returns 400 when Prisma known request error occurs", async () => {
-    const prismaError = new Error("invalid id");
-    Object.setPrototypeOf(
-      prismaError,
-      Prisma.PrismaClientKnownRequestError.prototype,
-    );
+    const prismaError = new MockPrismaClientKnownRequestError("invalid id", {
+      code: "P2023",
+    });
     mockFindUnique.mockRejectedValue(prismaError);
 
     const response = await GET(

@@ -25,13 +25,13 @@ export async function POST(request: Request) {
         date: new Date(),
       },
     });
-    /*const mailContent = `Hello, you have a new order with the following details:\n\nDescription: ${description}\nProduct ID: ${productId}\nFrom client: ${clientName?.name || "Unknown"}`;
+    const mailContent = `Hello, you have a new order with the following details:\n\nDescription: ${description}\nProduct ID: ${productId}\nFrom client: ${clientName?.name || "Unknown"}`;
     resend.emails.send({
       from: "onboarding@resend.dev",
       to: professional?.email || "bramomoh06@gmail.com",
       subject: "New Order Received",
       html: `<p>${mailContent}</p>`,
-    });*/
+    });
     return NextResponse.json(
       { id: order.id, message: "Order processed successfully" },
       { status: 201, headers: { "x-referer": referer } },

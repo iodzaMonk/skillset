@@ -17,8 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="h-full">
       <head suppressHydrationWarning>
-        {/* Temporarily comment out ThemeModeScript */}
-        {/* <ThemeModeScript /> */}
+        <ThemeModeScript />
       </head>
       <body
         suppressHydrationWarning

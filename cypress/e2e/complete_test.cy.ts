@@ -78,12 +78,16 @@ describe("Complete User Flow", () => {
 
     cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
     cy.contains("Welcome Test User").should("be.visible");
+
+    cy.get('[data-testid="menu-toggle"]').click();
+    cy.contains("Logout").should("be.visible");
+    cy.contains("Logout").click({ force: true });
+    cy.wait(1000);
   });
 
   beforeEach(() => {
     cy.viewport(1280, 720);
   });
-
   describe("Home Page", () => {
     it("should display home page content", () => {
       cy.visit("localhost:3000");
@@ -91,7 +95,6 @@ describe("Complete User Flow", () => {
       cy.contains("Featured Products");
     });
   });
-
   describe("Logout", () => {
     it("should log out the user", () => {
       cy.visit("localhost:3000");
