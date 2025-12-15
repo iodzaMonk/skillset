@@ -55,9 +55,7 @@ class ProductService {
         country: row["owner country"]?.trim(),
       };
       const ownerId =
-        ownerOverrides.name ||
-        ownerOverrides.email ||
-        ownerOverrides.country
+        ownerOverrides.name || ownerOverrides.email || ownerOverrides.country
           ? await this.createOwner(ownerOverrides)
           : await this.ensureOwner();
 
@@ -86,10 +84,7 @@ class ProductService {
   }
 
   async seedReviews(rows: ProductRow[]) {
-    const ratingRollups = new Map<
-      string,
-      { total: number; count: number }
-    >();
+    const ratingRollups = new Map<string, { total: number; count: number }>();
 
     for (const row of rows) {
       const productTitle = row.product?.trim() || row.title?.trim();
@@ -98,7 +93,9 @@ class ProductService {
       }
       const productId = this.products.get(productTitle);
       if (!productId) {
-        throw new Error(`No product found for review with title "${productTitle}"`);
+        throw new Error(
+          `No product found for review with title "${productTitle}"`,
+        );
       }
 
       const reviewerName = row.reviewer?.trim();
@@ -183,14 +180,14 @@ class ProductService {
           },
           reviews: {
             include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-              country: true,
-              email: true,
-            },
-          },
+              users: {
+                select: {
+                  id: true,
+                  name: true,
+                  country: true,
+                  email: true,
+                },
+              },
               replies: {
                 select: {
                   id: true,
@@ -286,9 +283,7 @@ class ProductService {
     const user = await prisma.users.create({
       data: {
         name: options.name ?? "Product Fixture",
-        email:
-          options.email ??
-          `owner-${randomUUID()}@example.com`,
+        email: options.email ?? `owner-${randomUUID()}@example.com`,
         password: hashed,
         country: options.country ?? "US",
       },
@@ -303,8 +298,7 @@ class ProductService {
     if (existing) return existing;
     const hashed = await bcrypt.hash("ReviewerPass123!", 10);
     const safeEmail =
-      options.email ??
-      `${name.toLowerCase().replace(/\s+/g, ".")}@example.com`;
+      options.email ?? `${name.toLowerCase().replace(/\s+/g, ".")}@example.com`;
     const user = await prisma.users.create({
       data: {
         name,

@@ -37,7 +37,10 @@ export class ProductCrudFixture {
   async seedMyProducts(rows: ProductRow[]) {
     await this.authenticate();
     for (const row of rows) {
-      const record = await createProductRecord(this.userId as string, this.toPayload(row));
+      const record = await createProductRecord(
+        this.userId as string,
+        this.toPayload(row),
+      );
       this.trackProduct(record.title ?? record.id, record.id);
     }
   }
@@ -61,7 +64,10 @@ export class ProductCrudFixture {
     }
 
     try {
-      const product = await createProductRecord(this.userId, this.toPayload(row));
+      const product = await createProductRecord(
+        this.userId,
+        this.toPayload(row),
+      );
       this.trackProduct(product.title ?? product.id, product.id);
       this.response = { status: 201, body: { data: product } };
     } catch (error) {
@@ -145,7 +151,9 @@ export class ProductCrudFixture {
     }
     this.trackedProductIds.clear();
     if (this.userId) {
-      await prisma.users.delete({ where: { id: this.userId } }).catch(() => null);
+      await prisma.users
+        .delete({ where: { id: this.userId } })
+        .catch(() => null);
       this.userId = null;
     }
     if (this.otherUserIds.size > 0) {

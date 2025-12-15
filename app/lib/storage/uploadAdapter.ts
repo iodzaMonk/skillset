@@ -1,8 +1,6 @@
 import { uploadObject, type UploadObjectParams } from "./s3.ts";
 
-type UploadHandler = (
-  params: UploadObjectParams,
-) => Promise<{ key: string }>;
+type UploadHandler = (params: UploadObjectParams) => Promise<{ key: string }>;
 
 let handler: UploadHandler = uploadObject;
 
