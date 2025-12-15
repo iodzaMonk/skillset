@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Link from "next/link";
 
 type SuccessPageProps = {
@@ -12,16 +11,7 @@ export default async function PaymentSuccess({
 }: SuccessPageProps) {
   const params = await searchParams;
   const amount = params?.amount ?? "0.00";
-=======
-"use client";
-import React from "react";
-import { useRouter, useSearchParams } from "next/navigation";
->>>>>>> c1a8ccb ([Fix]: fixed the merge errors)
 
-export default function PaymentSuccess() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const amount = searchParams?.get("amount") ?? "0.00";
   return (
     <main className="m-10 mx-auto max-w-6xl rounded-md border bg-linear-to-tr from-blue-500 to-purple-500 p-10 text-center text-white">
       <div className="mb-10">
