@@ -33,34 +33,72 @@ async function withAuthenticatedUser(
     }
     return await callback(user, referer);
   } catch (error) {
-    console.log(error);
-    return new Response("Error", {
-      status: 500,
-      headers: { "x-referer": referer || "" },
-    });
+    if (error instanceof ZodError) {
+      return Response.json(
+        { message: error.issues.map((i) => i.message).join(", ") },
+        { status: 400, headers: { "x-referer": referer } },
+      );
+    }
+    if (error instanceof ProductNotFoundError) {
+      return Response.json(
+        { message: "Product not found" },
+        { status: 404, headers: { "x-referer": referer } },
+      );
+    }
+    console.error("API Error", error);
+    return Response.json(
+      { message: "Internal server error" },
+      { status: 500, headers: { "x-referer": referer } },
+    );
   }
+}
+
+export async function POST(req: Request) {
+  return withAuthenticatedUser(async (user, referer) => {
+    const product = await createProductRecord(user.id, await req.json());
+
+    return Response.json(
+      { data: product },
+      { status: 201, headers: { "x-referer": referer } },
+    );
+  });
+}
+
+export async function PUT(req: Request) {
+  return withAuthenticatedUser(async (user, referer) => {
+    const updatedProduct = await updateProductRecord(user.id, await req.json());
+    return Response.json(
+      { data: updatedProduct },
+      { status: 200, headers: { "x-referer": referer } },
+    );
+  });
 }
 
 export async function GET() {
   const headersList = await headers();
-  const referer = headersList.get("referer");
-  const supabase = await createClient();
-  const user = await getCurrentUser();
-  try {
-    const product = await supabase
-      .from("posts")
-      .select("*")
-      .eq("user_id", user?.id); // Fetch products for the current user
+  const referer = headersList.get("referer") ?? "";
 
-    return new Response(JSON.stringify(product), {
-      status: 200,
-      headers: { "x-referer": referer || "" },
-    });
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json(
+        { data: [] },
+        { status: 200, headers: { "x-referer": referer } },
+      );
+    }
+
+    const products = await listProductsForUser(user.id);
+    const productsWithImages = await signProductsWithImages(products);
+
+    return Response.json(
+      { data: productsWithImages },
+      { status: 200, headers: { "x-referer": referer } },
+    );
   } catch (error) {
-    console.log(error);
-    return new Response("Error", {
-      status: 500,
-      headers: { "x-referer": referer || "" },
-    });
+    console.error("Get products error", error);
+    return Response.json(
+      { message: "Internal server error" },
+      { status: 500, headers: { "x-referer": referer } },
+    );
   }
 }

@@ -122,7 +122,7 @@ function CommentItemBase({
               <textarea
                 value={editingValue}
                 onChange={(event) => onEditingValueChange(event.target.value)}
-                className="border-border focus:border-primary focus:ring-primary/30 min-h-20 w-full rounded-md border bg-transparent p-3 text-sm outline-none transition focus:ring"
+                className="border-border focus:border-primary focus:ring-primary/30 min-h-20 w-full rounded-md border bg-transparent p-3 text-sm transition outline-none focus:ring"
                 aria-label="Edit comment"
                 disabled={isSavingEdit}
               />
@@ -134,7 +134,7 @@ function CommentItemBase({
               ) : null}
             </>
           ) : (
-            <p className="text-text whitespace-pre-wrap text-sm leading-6">
+            <p className="text-text text-sm leading-6 whitespace-pre-wrap">
               {comment.text}
             </p>
           )}
@@ -161,7 +161,7 @@ function CommentItemBase({
               </svg>
             </button>
             {isMenuOpen ? (
-              <div className="bg-surface-2 absolute right-0 top-7 z-10 flex min-w-[140px] flex-col rounded-xl p-1 shadow-lg">
+              <div className="bg-surface-2 absolute top-7 right-0 z-10 flex min-w-[140px] flex-col rounded-xl p-1 shadow-lg">
                 <button
                   type="button"
                   className="hover:bg-accent flex w-full items-center gap-2 rounded-xl p-2 text-left text-sm transition"

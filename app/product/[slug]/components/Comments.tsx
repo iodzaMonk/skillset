@@ -113,7 +113,7 @@ export default function Comments({ productId }: CommentsProps) {
             <textarea
               value={message}
               onChange={(event) => onMessageChange(event.target.value)}
-              className="border-border focus:border-primary focus:ring-primary/30 min-h-[120px] rounded-md border bg-transparent p-3 text-sm outline-none transition focus:ring"
+              className="border-border focus:border-primary focus:ring-primary/30 min-h-[120px] rounded-md border bg-transparent p-3 text-sm transition outline-none focus:ring"
               placeholder="Share your experience or ask a question…"
               disabled={isSubmitting}
             />

@@ -17,12 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="h-full">
       <head suppressHydrationWarning>
-        <ThemeModeScript />
+        {/* Temporarily comment out ThemeModeScript */}
+        {/* <ThemeModeScript /> */}
       </head>
-      <body
-        suppressHydrationWarning
-        className="bg-canvas text-text font-Faustina! flex min-h-dvh flex-col antialiased"
-      >
       <body
         suppressHydrationWarning
         className="bg-canvas text-text font-Faustina! flex min-h-dvh flex-col antialiased"

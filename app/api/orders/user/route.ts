@@ -1,32 +1,10 @@
 import { getCurrentUser } from "@/app/lib/user";
 import { prisma } from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
-import { NextResponse } from "next/server";
 import { Status } from "@/types/Status";
+import { createGetOrdersHandler } from "@/app/lib/order-service";
 
-export async function GET() {
-  const user = await getCurrentUser();
-  const id = user?.id;
-
-  try {
-    const orders = await prisma.commands.findMany({
-      where: { prof_id: id },
-      include: { posts: true },
-    });
-
-    const ordersWithPost = orders.map(({ posts, ...order }) => ({
-      ...order,
-      post: posts,
-    }));
-    return NextResponse.json({ data: ordersWithPost }, { status: 200 });
-  } catch (error) {
-    console.error("Error fetching orders:", error);
-    return NextResponse.json(
-      { message: "Failed to fetch orders" },
-      { status: 500 },
-    );
-  }
-}
+export const GET = createGetOrdersHandler("prof");
 
 export async function PATCH(req: Request) {
   try {

@@ -43,7 +43,10 @@ async function ensureProductOwnership(userId: string, productId: string) {
   }
 }
 
-export async function createProductRecord(userId: string, payload: unknown) {
+export async function createProductRecord(
+  userId: string,
+  payload: unknown,
+) {
   const data = createProductInputSchema.parse(payload);
   return prisma.posts.create({
     data: {
@@ -57,7 +60,10 @@ export async function createProductRecord(userId: string, payload: unknown) {
   });
 }
 
-export async function updateProductRecord(userId: string, payload: unknown) {
+export async function updateProductRecord(
+  userId: string,
+  payload: unknown,
+) {
   const data = updateProductInputSchema.parse(payload);
   await ensureProductOwnership(userId, data.id);
   return prisma.posts.update({
