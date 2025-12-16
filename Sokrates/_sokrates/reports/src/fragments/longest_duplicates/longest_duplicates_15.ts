@@ -1,25 +1,25 @@
-features/step_definitions/productCrud.steps.ts [3:9]:
+cypress/e2e/complete_test.cy.ts [188:194]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  After,
-  Before,
-  DataTable,
-  Given,
-  Then,
-  When,
-} from "@cucumber/cucumber";
+      cy.visit("localhost:3000");
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/step_definitions/upload.steps.ts [4:10]:
+cypress/e2e/complete_test.cy.ts [328:334]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  After,
-  Before,
-  DataTable,
-  Given,
-  Then,
-  When,
-} from "@cucumber/cucumber";
+      cy.visit("localhost:3000");
+      cy.get('[data-testid="menu-toggle"]').click();
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

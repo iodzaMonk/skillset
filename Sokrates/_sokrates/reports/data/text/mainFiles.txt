@@ -16,6 +16,7 @@ app/api/user/register/route.ts	67
 app/api/user/update/route.ts	46
 app/api/user/connect-stripe-account/route.ts	21
 app/api/user/create-stripe-account/route.ts	55
+app/api/user/test-vendor/route.ts	33
 app/api/orders/user/route.ts	35
 app/api/orders/create-payment/route.tsx	77
 app/api/orders/orderHandlers.ts	77
@@ -53,7 +54,7 @@ app/myproduct/actions.ts	8
 app/settings/modal.tsx	49
 app/settings/page.tsx	20
 app/settings/SettingsForm.tsx	178
-app/settings/StripeConnectButton.tsx	56
+app/settings/StripeConnectButton.tsx	57
 app/utils/TransitionLink.tsx	46
 app/utils/email.ts	41
 app/utils/api-helpers.ts	7
@@ -121,9 +122,9 @@ next.config.ts	29
 jest.config.ts	13
 cypress.config.ts	7
 cypress/e2e/complete_navigation-menu_test.cy.ts	70
-cypress/e2e/complete_test.cy.ts	326
+cypress/e2e/complete_test.cy.ts	298
 cypress/support/commands.ts	1
-cypress/support/e2e.ts	10
+cypress/support/e2e.ts	1
 features/step_definitions/auth.steps.ts	53
 features/step_definitions/browse.steps.ts	71
 features/step_definitions/product.steps.ts	170

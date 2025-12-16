@@ -116,6 +116,15 @@ McCabe index: 18
 number of parameters: 1
 
 id: 14
+unit: export default function ConnectStripeButton()
+file: app/settings/StripeConnectButton.tsx
+start line: 6
+end line: 63
+size: 53 LOC
+McCabe index: 8
+number of parameters: 0
+
+id: 15
 unit: export function ProductCard()
 file: app/_components/ProductCard.tsx
 start line: 19
@@ -123,15 +132,6 @@ end line: 71
 size: 53 LOC
 McCabe index: 5
 number of parameters: 2
-
-id: 15
-unit: export default function ConnectStripeButton()
-file: app/settings/StripeConnectButton.tsx
-start line: 6
-end line: 62
-size: 52 LOC
-McCabe index: 8
-number of parameters: 0
 
 id: 16
 unit: export async function POST()
@@ -242,6 +242,15 @@ McCabe index: 7
 number of parameters: 1
 
 id: 28
+unit: export async function POST()
+file: app/api/user/test-vendor/route.ts
+start line: 5
+end line: 41
+size: 30 LOC
+McCabe index: 5
+number of parameters: 1
+
+id: 29
 unit: export async function PATCH()
 file: app/api/orders/user/route.ts
 start line: 9
@@ -250,7 +259,7 @@ size: 29 LOC
 McCabe index: 6
 number of parameters: 1
 
-id: 29
+id: 30
 unit: function DialogContent()
 file: components/ui/dialog.tsx
 start line: 47
@@ -259,7 +268,7 @@ size: 29 LOC
 McCabe index: 2
 number of parameters: 4
 
-id: 30
+id: 31
 unit: export async function getCurrentUser()
 file: app/lib/user.ts
 start line: 5
@@ -268,7 +277,7 @@ size: 28 LOC
 McCabe index: 7
 number of parameters: 0
 
-id: 31
+id: 32
 unit: function CarouselPrevious()
 file: components/ui/carousel.tsx
 start line: 174
@@ -277,7 +286,7 @@ size: 28 LOC
 McCabe index: 2
 number of parameters: 4
 
-id: 32
+id: 33
 unit: function FooterLinks()
 file: app/Components/Footer.tsx
 start line: 70
@@ -286,7 +295,7 @@ size: 27 LOC
 McCabe index: 1
 number of parameters: 4
 
-id: 33
+id: 34
 unit: export async function validateParentForProduct()
 file: app/api/product/[slug]/reviews/review-helpers.ts
 start line: 77
@@ -295,7 +304,7 @@ size: 26 LOC
 McCabe index: 5
 number of parameters: 2
 
-id: 34
+id: 35
 unit: function ScrollBar()
 file: components/ui/scroll-area.tsx
 start line: 31
@@ -304,7 +313,7 @@ size: 26 LOC
 McCabe index: 3
 number of parameters: 3
 
-id: 35
+id: 36
 unit: export async function GET()
 file: app/api/product/user/route.ts
 start line: 77
@@ -313,7 +322,7 @@ size: 25 LOC
 McCabe index: 3
 number of parameters: 0
 
-id: 36
+id: 37
 unit: export function handleApiError()
 file: app/lib/api-response.ts
 start line: 14
@@ -322,7 +331,7 @@ size: 25 LOC
 McCabe index: 5
 number of parameters: 2
 
-id: 37
+id: 38
 unit: function SelectTrigger()
 file: components/ui/select.tsx
 start line: 27
@@ -331,7 +340,7 @@ size: 25 LOC
 McCabe index: 1
 number of parameters: 4
 
-id: 38
+id: 39
 unit: async seedProducts()
 file: features/support/browseService.ts
 start line: 23
@@ -340,7 +349,7 @@ size: 25 LOC
 McCabe index: 4
 number of parameters: 1
 
-id: 39
+id: 40
 unit: async function updateUser()
 file: app/settings/SettingsForm.tsx
 start line: 56
@@ -349,7 +358,7 @@ size: 24 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 40
+id: 41
 unit: async seed()
 file: features/support/authService.ts
 start line: 9
@@ -358,7 +367,7 @@ size: 24 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 41
+id: 42
 unit: export async function POST()
 file: app/api/uploads/route.ts
 start line: 4
@@ -367,7 +376,7 @@ size: 23 LOC
 McCabe index: 4
 number of parameters: 1
 
-id: 42
+id: 43
 unit: amount: convertToSubcurrency()
 file: app/product/[slug]/payment/module/CheckoutPage.tsx
 start line: 35
@@ -376,7 +385,7 @@ size: 23 LOC
 McCabe index: 4
 number of parameters: 1
 
-id: 43
+id: 44
 unit: export default function RootLayout()
 file: app/layout.tsx
 start line: 14
@@ -385,7 +394,7 @@ size: 23 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 44
+id: 45
 unit: function SelectItem()
 file: components/ui/select.tsx
 start line: 101
@@ -394,7 +403,7 @@ size: 23 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 45
+id: 46
 unit: async listProducts()
 file: features/support/browseService.ts
 start line: 51
@@ -403,7 +412,7 @@ size: 23 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 46
+id: 47
 unit: export async function GET()
 file: app/api/product/route.ts
 start line: 8
@@ -412,7 +421,7 @@ size: 22 LOC
 McCabe index: 5
 number of parameters: 1
 
-id: 47
+id: 48
 unit: export function createGetOrdersHandler()
 file: app/lib/order-service.ts
 start line: 23
@@ -421,7 +430,7 @@ size: 22 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 48
+id: 49
 unit: export async function fetchProductDetails()
 file: app/lib/product-queries.ts
 start line: 4
@@ -430,7 +439,7 @@ size: 22 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 49
+id: 50
 unit: function ScrollArea()
 file: components/ui/scroll-area.tsx
 start line: 8
@@ -439,7 +448,7 @@ size: 22 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 50
+id: 51
 unit: async cleanup()
 file: features/support/productCrudFixture.ts
 start line: 141
@@ -448,7 +457,7 @@ size: 22 LOC
 McCabe index: 4
 number of parameters: 0
 
-id: 51
+id: 52
 unit: function()
 file: features/step_definitions/upload.steps.ts
 start line: 94
@@ -457,7 +466,7 @@ size: 21 LOC
 McCabe index: 6
 number of parameters: 2
 
-id: 52
+id: 53
 unit: export async function uploadObject()
 file: app/lib/storage/s3.ts
 start line: 74
@@ -466,7 +475,7 @@ size: 20 LOC
 McCabe index: 3
 number of parameters: 4
 
-id: 53
+id: 54
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 140
@@ -475,7 +484,7 @@ size: 20 LOC
 McCabe index: 6
 number of parameters: 2
 
-id: 54
+id: 55
 unit: export async function ensureFixtureUser()
 file: features/support/fixture-helpers.ts
 start line: 6
@@ -484,7 +493,7 @@ size: 20 LOC
 McCabe index: 2
 number of parameters: 3
 
-id: 55
+id: 56
 unit: function CarouselContent()
 file: components/ui/carousel.tsx
 start line: 135
@@ -493,7 +502,7 @@ size: 19 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 56
+id: 57
 unit: export async function recomputeProductRating()
 file: app/api/product/[slug]/reviews/review-helpers.ts
 start line: 21
@@ -502,7 +511,7 @@ size: 18 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 57
+id: 58
 unit: export async function POST()
 file: app/api/user/connect-stripe-account/route.ts
 start line: 6
@@ -511,7 +520,7 @@ size: 18 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 58
+id: 59
 unit: export async function updateProduct()
 file: app/lib/products.ts
 start line: 38
@@ -520,7 +529,7 @@ size: 18 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 59
+id: 60
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 91
@@ -529,7 +538,7 @@ size: 18 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 60
+id: 61
 unit: export async function DELETE()
 file: app/api/product/route.ts
 start line: 32
@@ -538,7 +547,7 @@ size: 17 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 61
+id: 62
 unit: export async function createProduct()
 file: app/lib/products.ts
 start line: 19
@@ -547,7 +556,7 @@ size: 17 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 62
+id: 63
 unit: export async function updateProductRecord()
 file: app/lib/productCrud.ts
 start line: 63
@@ -556,7 +565,7 @@ size: 17 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 63
+id: 64
 unit: export function BirthdayPicker()
 file: app/_components/BirthdayPicker.tsx
 start line: 10
@@ -565,7 +574,7 @@ size: 17 LOC
 McCabe index: 3
 number of parameters: 3
 
-id: 64
+id: 65
 unit: function SelectScrollUpButton()
 file: components/ui/select.tsx
 start line: 138
@@ -574,7 +583,7 @@ size: 17 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 65
+id: 66
 unit: async updateProduct()
 file: features/support/productCrudFixture.ts
 start line: 95
@@ -583,7 +592,7 @@ size: 17 LOC
 McCabe index: 5
 number of parameters: 2
 
-id: 66
+id: 67
 unit: export async function DELETE()
 file: app/api/user/delete/route.ts
 start line: 5
@@ -592,7 +601,7 @@ size: 16 LOC
 McCabe index: 3
 number of parameters: 0
 
-id: 67
+id: 68
 unit: export async function listOrdersResponse()
 file: app/api/orders/orderHandlers.ts
 start line: 16
@@ -601,7 +610,7 @@ size: 16 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 68
+id: 69
 unit: export async function createProductRecord()
 file: app/lib/productCrud.ts
 start line: 46
@@ -610,7 +619,7 @@ size: 16 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 69
+id: 70
 unit: function CarouselItem()
 file: components/ui/carousel.tsx
 start line: 156
@@ -619,7 +628,7 @@ size: 16 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 70
+id: 71
 unit: it()
 file: cypress/e2e/complete_navigation-menu_test.cy.ts
 start line: 27
@@ -628,7 +637,7 @@ size: 16 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 71
+id: 72
 unit: async deleteProduct()
 file: features/support/productCrudFixture.ts
 start line: 123
@@ -637,7 +646,7 @@ size: 16 LOC
 McCabe index: 4
 number of parameters: 1
 
-id: 72
+id: 73
 unit: export async function createSignedUploadUrl()
 file: app/lib/storage/s3.ts
 start line: 48
@@ -646,7 +655,7 @@ size: 15 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 73
+id: 74
 unit: export async function createSignedDownloadUrl()
 file: app/lib/storage/s3.ts
 start line: 99
@@ -655,7 +664,7 @@ size: 15 LOC
 McCabe index: 4
 number of parameters: 1
 
-id: 74
+id: 75
 unit: async function deleteUser()
 file: app/settings/SettingsForm.tsx
 start line: 40
@@ -664,7 +673,7 @@ size: 15 LOC
 McCabe index: 3
 number of parameters: 0
 
-id: 75
+id: 76
 unit: replies: updateCommentTree()
 file: app/product/[slug]/components/useComments.ts
 start line: 40
@@ -673,7 +682,7 @@ size: 15 LOC
 McCabe index: 4
 number of parameters: 2
 
-id: 76
+id: 77
 unit: function DialogOverlay()
 file: components/ui/dialog.tsx
 start line: 31
@@ -682,7 +691,7 @@ size: 15 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 77
+id: 78
 unit: function SheetOverlay()
 file: components/ui/sheet.tsx
 start line: 31
@@ -691,7 +700,7 @@ size: 15 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 78
+id: 79
 unit: export function useIsMobile()
 file: hooks/use-mobile.ts
 start line: 5
@@ -700,7 +709,7 @@ size: 15 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 79
+id: 80
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 121
@@ -709,7 +718,7 @@ size: 15 LOC
 McCabe index: 4
 number of parameters: 2
 
-id: 80
+id: 81
 unit: async login()
 file: features/support/authService.ts
 start line: 44
@@ -718,7 +727,7 @@ size: 15 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 81
+id: 82
 unit: private normalizeError()
 file: features/support/productCrudFixture.ts
 start line: 178
@@ -727,7 +736,7 @@ size: 15 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 82
+id: 83
 unit: export default defineConfig()
 file: vitest.config.ts
 start line: 5
@@ -736,7 +745,7 @@ size: 15 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 83
+id: 84
 unit: export async function fetchOrdersForUser()
 file: app/lib/order-service.ts
 start line: 3
@@ -745,7 +754,7 @@ size: 14 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 84
+id: 85
 unit: function()
 file: features/step_definitions/browse.steps.ts
 start line: 52
@@ -754,7 +763,7 @@ size: 14 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 85
+id: 86
 unit: private async createOwner()
 file: features/support/productService.ts
 start line: 211
@@ -763,7 +772,7 @@ size: 14 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 86
+id: 87
 unit: async function uploadImage()
 file: app/myproduct/_hooks/postStates.ts
 start line: 14
@@ -772,7 +781,7 @@ size: 13 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 87
+id: 88
 unit: function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 107
@@ -781,7 +790,7 @@ size: 13 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 88
+id: 89
 unit: async createProduct()
 file: features/support/productCrudFixture.ts
 start line: 80
@@ -790,7 +799,7 @@ size: 13 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 89
+id: 90
 unit: private async createUser()
 file: features/support/productCrudFixture.ts
 start line: 194
@@ -799,7 +808,7 @@ size: 13 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 90
+id: 91
 unit: function DialogFooter()
 file: components/ui/dialog.tsx
 start line: 87
@@ -808,7 +817,7 @@ size: 12 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 91
+id: 92
 unit: function DialogTitle()
 file: components/ui/dialog.tsx
 start line: 100
@@ -817,7 +826,7 @@ size: 12 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 92
+id: 93
 unit: function DialogDescription()
 file: components/ui/dialog.tsx
 start line: 113
@@ -826,7 +835,7 @@ size: 12 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 93
+id: 94
 unit: function SelectLabel()
 file: components/ui/select.tsx
 start line: 88
@@ -835,7 +844,7 @@ size: 12 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 94
+id: 95
 unit: function SelectSeparator()
 file: components/ui/select.tsx
 start line: 125
@@ -844,7 +853,7 @@ size: 12 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 95
+id: 96
 unit: function SheetTitle()
 file: components/ui/sheet.tsx
 start line: 104
@@ -853,7 +862,7 @@ size: 12 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 96
+id: 97
 unit: export async function deleteObject()
 file: app/lib/storage/s3.ts
 start line: 117
@@ -862,7 +871,7 @@ size: 11 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 97
+id: 98
 unit: export async function decrypt()
 file: app/lib/session/tokens.ts
 start line: 25
@@ -871,7 +880,7 @@ size: 11 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 98
+id: 99
 unit: function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 79
@@ -880,7 +889,7 @@ size: 11 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 99
+id: 100
 unit: private getProductIdOr404()
 file: features/support/productCrudFixture.ts
 start line: 68
@@ -889,7 +898,7 @@ size: 11 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 100
+id: 101
 unit: export async function deleteProduct()
 file: app/lib/products.ts
 start line: 58
@@ -898,7 +907,7 @@ size: 10 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 101
+id: 102
 unit: export async function updateSession()
 file: app/lib/session.ts
 start line: 13
@@ -907,7 +916,7 @@ size: 10 LOC
 McCabe index: 3
 number of parameters: 0
 
-id: 102
+id: 103
 unit: async function setSessionCookie()
 file: app/lib/session.ts
 start line: 29
@@ -916,7 +925,7 @@ size: 10 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 103
+id: 104
 unit: replies: removeCommentFromTree()
 file: app/product/[slug]/components/useComments.ts
 start line: 54
@@ -925,7 +934,7 @@ size: 10 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 104
+id: 105
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 164
@@ -934,7 +943,7 @@ size: 10 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 105
+id: 106
 unit: function()
 file: features/step_definitions/upload.steps.ts
 start line: 119
@@ -943,7 +952,7 @@ size: 10 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 106
+id: 107
 unit: export function parseCategory()
 file: features/support/parsing-helpers.ts
 start line: 3
@@ -952,7 +961,7 @@ size: 10 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 107
+id: 108
 unit: async seedMyProducts()
 file: features/support/productCrudFixture.ts
 start line: 37
@@ -961,7 +970,7 @@ size: 10 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 108
+id: 109
 unit: private requireAuth()
 file: features/support/productCrudFixture.ts
 start line: 57
@@ -970,7 +979,7 @@ size: 10 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 109
+id: 110
 unit: async cleanup()
 file: features/support/productService.ts
 start line: 182
@@ -979,7 +988,7 @@ size: 10 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 110
+id: 111
 unit: export async function POST()
 file: app/api/product/user/route.ts
 start line: 56
@@ -988,7 +997,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 111
+id: 112
 unit: export async function PUT()
 file: app/api/product/user/route.ts
 start line: 67
@@ -997,7 +1006,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 112
+id: 113
 unit: export async function POST()
 file: app/api/user/logout/route.ts
 start line: 3
@@ -1006,7 +1015,7 @@ size: 9 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 113
+id: 114
 unit: export async function fetchUserProducts()
 file: app/lib/products.ts
 start line: 9
@@ -1015,7 +1024,7 @@ size: 9 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 114
+id: 115
 unit: export async function fetchUserOrder()
 file: app/lib/orders.ts
 start line: 10
@@ -1024,7 +1033,7 @@ size: 9 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 115
+id: 116
 unit: export async function fetchUserOrders()
 file: app/lib/orders.ts
 start line: 20
@@ -1033,7 +1042,7 @@ size: 9 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 116
+id: 117
 unit: export function unauthorizedResponse()
 file: app/lib/api-response.ts
 start line: 4
@@ -1042,7 +1051,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 117
+id: 118
 unit: await updateProduct()
 file: app/myproduct/_hooks/postStates.ts
 start line: 98
@@ -1051,7 +1060,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 8
 
-id: 118
+id: 119
 unit: replies: insertReplyIntoTree()
 file: app/product/[slug]/components/useComments.ts
 start line: 76
@@ -1060,7 +1069,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 119
+id: 120
 unit: function DialogHeader()
 file: components/ui/dialog.tsx
 start line: 77
@@ -1069,7 +1078,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 120
+id: 121
 unit: function SheetHeader()
 file: components/ui/sheet.tsx
 start line: 84
@@ -1078,7 +1087,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 121
+id: 122
 unit: function SheetFooter()
 file: components/ui/sheet.tsx
 start line: 94
@@ -1087,7 +1096,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 122
+id: 123
 unit: function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 94
@@ -1096,7 +1105,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 123
+id: 124
 unit: Then()
 file: features/step_definitions/productCrud.steps.ts
 start line: 122
@@ -1105,7 +1114,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 124
+id: 125
 unit: Then()
 file: features/step_definitions/upload.steps.ts
 start line: 56
@@ -1114,7 +1123,7 @@ size: 9 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 125
+id: 126
 unit: function()
 file: features/step_definitions/upload.steps.ts
 start line: 68
@@ -1123,7 +1132,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 126
+id: 127
 unit: function()
 file: features/step_definitions/upload.steps.ts
 start line: 81
@@ -1132,7 +1141,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 127
+id: 128
 unit: async uploadFile()
 file: features/support/uploadFixture.ts
 start line: 17
@@ -1141,7 +1150,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 128
+id: 129
 unit: private async invoke()
 file: features/support/uploadFixture.ts
 start line: 55
@@ -1150,7 +1159,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 129
+id: 130
 unit: private async ensureOwner()
 file: features/support/browseService.ts
 start line: 84
@@ -1159,7 +1168,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 130
+id: 131
 unit: private async ensureOwner()
 file: features/support/productService.ts
 start line: 201
@@ -1168,7 +1177,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 131
+id: 132
 unit: export async function updateUserStatus()
 file: app/lib/orders.ts
 start line: 30
@@ -1177,7 +1186,7 @@ size: 8 LOC
 McCabe index: 3
 number of parameters: 2
 
-id: 132
+id: 133
 unit: export async function encrypt()
 file: app/lib/session/tokens.ts
 start line: 16
@@ -1186,7 +1195,7 @@ size: 8 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 133
+id: 134
 unit: async function ensureProductOwnership()
 file: app/lib/productCrud.ts
 start line: 37
@@ -1195,7 +1204,7 @@ size: 8 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 134
+id: 135
 unit: await createProduct()
 file: app/myproduct/_hooks/postStates.ts
 start line: 111
@@ -1204,7 +1213,7 @@ size: 8 LOC
 McCabe index: 1
 number of parameters: 7
 
-id: 135
+id: 136
 unit: function generateUniqueEmail()
 file: prisma/seed.ts
 start line: 24
@@ -1213,7 +1222,7 @@ size: 8 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 136
+id: 137
 unit: export async function cleanupEntities()
 file: features/support/fixture-helpers.ts
 start line: 27
@@ -1222,7 +1231,7 @@ size: 8 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 137
+id: 138
 unit: async seedForeignProducts()
 file: features/support/productCrudFixture.ts
 start line: 48
@@ -1231,7 +1240,7 @@ size: 8 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 138
+id: 139
 unit: async listMyProducts()
 file: features/support/productCrudFixture.ts
 start line: 114
@@ -1240,7 +1249,7 @@ size: 8 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 139
+id: 140
 unit: private toPayload()
 file: features/support/productCrudFixture.ts
 start line: 169
@@ -1249,7 +1258,7 @@ size: 8 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 140
+id: 141
 unit: export async function GET()
 file: app/api/user/me/route.ts
 start line: 3
@@ -1258,7 +1267,7 @@ size: 7 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 141
+id: 142
 unit: function sanitizeFileName()
 file: app/lib/storage/s3.ts
 start line: 40
@@ -1267,7 +1276,7 @@ size: 7 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 142
+id: 143
 unit: function Button()
 file: components/ui/button.tsx
 start line: 46
@@ -1276,7 +1285,7 @@ size: 7 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 143
+id: 144
 unit: function useCarousel()
 file: components/ui/carousel.tsx
 start line: 35
@@ -1285,7 +1294,7 @@ size: 7 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 144
+id: 145
 unit: function()
 file: features/step_definitions/auth.steps.ts
 start line: 42
@@ -1294,7 +1303,7 @@ size: 7 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 145
+id: 146
 unit: Then()
 file: features/step_definitions/auth.steps.ts
 start line: 51
@@ -1303,7 +1312,7 @@ size: 7 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 146
+id: 147
 unit: async cleanup()
 file: features/support/authService.ts
 start line: 36
@@ -1312,7 +1321,7 @@ size: 7 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 147
+id: 148
 unit: captureUploads()
 file: features/support/uploadFixture.ts
 start line: 38
@@ -1321,7 +1330,7 @@ size: 7 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 148
+id: 149
 unit: export function parsePrice()
 file: features/support/parsing-helpers.ts
 start line: 14
@@ -1330,7 +1339,7 @@ size: 7 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 149
+id: 150
 unit: async fetchByTitle()
 file: features/support/productService.ts
 start line: 138
@@ -1339,7 +1348,7 @@ size: 7 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 150
+id: 151
 unit: async function getProducts()
 file: app/browse/page.tsx
 start line: 9
@@ -1348,7 +1357,7 @@ size: 6 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 151
+id: 152
 unit: function ensureKey()
 file: app/lib/session/tokens.ts
 start line: 9
@@ -1357,7 +1366,7 @@ size: 6 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 152
+id: 153
 unit: export async function createSession()
 file: app/lib/session.ts
 start line: 6
@@ -1366,7 +1375,7 @@ size: 6 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 153
+id: 154
 unit: export async function listProductsForUser()
 file: app/lib/productCrud.ts
 start line: 81
@@ -1375,7 +1384,7 @@ size: 6 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 154
+id: 155
 unit: export async function deleteProductRecord()
 file: app/lib/productCrud.ts
 start line: 88
@@ -1384,7 +1393,7 @@ size: 6 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 155
+id: 156
 unit: export async function deleteFile()
 file: app/myproduct/actions.ts
 start line: 5
@@ -1393,7 +1402,7 @@ size: 6 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 156
+id: 157
 unit: export function getErrorMessage()
 file: app/utils/api-helpers.ts
 start line: 3
@@ -1402,7 +1411,7 @@ size: 6 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 157
+id: 158
 unit: function handlePointerDown()
 file: app/hooks/useOrderManager.ts
 start line: 124
@@ -1411,7 +1420,7 @@ size: 6 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 158
+id: 159
 unit: webpack()
 file: next.config.ts
 start line: 24
@@ -1420,7 +1429,7 @@ size: 6 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 159
+id: 160
 unit: function()
 file: features/step_definitions/browse.steps.ts
 start line: 70
@@ -1429,7 +1438,7 @@ size: 6 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 160
+id: 161
 unit: function getPayload()
 file: features/step_definitions/product.steps.ts
 start line: 184
@@ -1438,7 +1447,7 @@ size: 6 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 161
+id: 162
 unit: await cleanupEntities()
 file: features/support/productService.ts
 start line: 187
@@ -1447,7 +1456,7 @@ size: 6 LOC
 McCabe index: 1
 number of parameters: 7
 
-id: 162
+id: 163
 unit: function Dialog()
 file: components/ui/dialog.tsx
 start line: 7
@@ -1456,7 +1465,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 163
+id: 164
 unit: function DialogTrigger()
 file: components/ui/dialog.tsx
 start line: 13
@@ -1465,7 +1474,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 164
+id: 165
 unit: function DialogPortal()
 file: components/ui/dialog.tsx
 start line: 19
@@ -1474,7 +1483,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 165
+id: 166
 unit: function DialogClose()
 file: components/ui/dialog.tsx
 start line: 25
@@ -1483,7 +1492,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 166
+id: 167
 unit: function Select()
 file: components/ui/select.tsx
 start line: 9
@@ -1492,7 +1501,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 167
+id: 168
 unit: function SelectGroup()
 file: components/ui/select.tsx
 start line: 15
@@ -1501,7 +1510,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 168
+id: 169
 unit: function SelectValue()
 file: components/ui/select.tsx
 start line: 21
@@ -1510,7 +1519,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 169
+id: 170
 unit: function SheetTrigger()
 file: components/ui/sheet.tsx
 start line: 13
@@ -1519,7 +1528,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 170
+id: 171
 unit: function SheetClose()
 file: components/ui/sheet.tsx
 start line: 19
@@ -1528,7 +1537,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 171
+id: 172
 unit: function SheetPortal()
 file: components/ui/sheet.tsx
 start line: 25
@@ -1537,7 +1546,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 172
+id: 173
 unit: email: generateUniqueEmail()
 file: prisma/seed.ts
 start line: 37
@@ -1546,7 +1555,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 173
+id: 174
 unit: export default defineConfig()
 file: prisma.config.ts
 start line: 18
@@ -1555,7 +1564,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 174
+id: 175
 unit: it()
 file: cypress/e2e/complete_navigation-menu_test.cy.ts
 start line: 10
@@ -1564,7 +1573,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 175
+id: 176
 unit: it()
 file: cypress/e2e/complete_navigation-menu_test.cy.ts
 start line: 15
@@ -1573,7 +1582,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 176
+id: 177
 unit: it()
 file: cypress/e2e/complete_navigation-menu_test.cy.ts
 start line: 21
@@ -1582,7 +1591,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 177
+id: 178
 unit: function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 70
@@ -1591,7 +1600,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 178
+id: 179
 unit: function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 134
@@ -1600,7 +1609,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 179
+id: 180
 unit: function()
 file: features/step_definitions/upload.steps.ts
 start line: 49
@@ -1609,7 +1618,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 180
+id: 181
 unit: failUploadsWith()
 file: features/support/uploadFixture.ts
 start line: 32
@@ -1618,7 +1627,7 @@ size: 5 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 181
+id: 182
 unit: async authenticate()
 file: features/support/productCrudFixture.ts
 start line: 27
@@ -1627,7 +1636,7 @@ size: 5 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 182
+id: 183
 unit: async function getRefererHeader()
 file: app/api/orders/orderHandlers.ts
 start line: 11
@@ -1636,7 +1645,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 183
+id: 184
 unit: export async function deleteSession()
 file: app/lib/session.ts
 start line: 24
@@ -1645,7 +1654,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 184
+id: 185
 unit: constructor()
 file: app/lib/productCrud.ts
 start line: 5
@@ -1654,7 +1663,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 185
+id: 186
 unit: async function fetchProduct()
 file: app/product/[slug]/page.tsx
 start line: 13
@@ -1663,7 +1672,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 186
+id: 187
 unit: async function getProducts()
 file: app/_components/ProductCarousel.tsx
 start line: 17
@@ -1672,7 +1681,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 187
+id: 188
 unit: async function fetchProfessionalProfile()
 file: app/professional/[id]/page.tsx
 start line: 14
@@ -1681,7 +1690,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 188
+id: 189
 unit: export default defineConfig()
 file: cypress.config.ts
 start line: 3
@@ -1690,7 +1699,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 189
+id: 190
 unit: it()
 file: cypress/e2e/complete_navigation-menu_test.cy.ts
 start line: 67
@@ -1699,7 +1708,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 190
+id: 191
 unit: it()
 file: cypress/e2e/complete_navigation-menu_test.cy.ts
 start line: 71
@@ -1708,7 +1717,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 191
+id: 192
 unit: it()
 file: cypress/e2e/complete_navigation-menu_test.cy.ts
 start line: 75
@@ -1717,7 +1726,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 192
+id: 193
 unit: it()
 file: cypress/e2e/complete_navigation-menu_test.cy.ts
 start line: 79
@@ -1726,7 +1735,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 193
+id: 194
 unit: Then()
 file: features/step_definitions/auth.steps.ts
 start line: 59
@@ -1735,7 +1744,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 194
+id: 195
 unit: function()
 file: features/step_definitions/browse.steps.ts
 start line: 44
@@ -1744,7 +1753,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 195
+id: 196
 unit: Then()
 file: features/step_definitions/browse.steps.ts
 start line: 78
@@ -1753,7 +1762,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 196
+id: 197
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 51
@@ -1762,7 +1771,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 197
+id: 198
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 59
@@ -1771,7 +1780,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 198
+id: 199
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 67
@@ -1780,7 +1789,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 199
+id: 200
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 75
@@ -1789,7 +1798,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 200
+id: 201
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 83
@@ -1798,7 +1807,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 201
+id: 202
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 113
@@ -1807,7 +1816,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 202
+id: 203
 unit: function()
 file: features/step_definitions/product.steps.ts
 start line: 178
@@ -1816,7 +1825,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 203
+id: 204
 unit: async uploadWithoutFile()
 file: features/support/uploadFixture.ts
 start line: 27
@@ -1825,7 +1834,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 204
+id: 205
 unit: resetUploads()
 file: features/support/uploadFixture.ts
 start line: 50
@@ -1834,7 +1843,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 205
+id: 206
 unit: async cleanup()
 file: features/support/browseService.ts
 start line: 75
@@ -1843,7 +1852,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 206
+id: 207
 unit: await cleanupEntities()
 file: features/support/browseService.ts
 start line: 76
@@ -1852,7 +1861,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 4
 
-id: 207
+id: 208
 unit: private trackProduct()
 file: features/support/productCrudFixture.ts
 start line: 164
@@ -1861,7 +1870,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 208
+id: 209
 unit: export async function GET()
 file: app/api/product/[slug]/reviews/replies/route.ts
 start line: 12
@@ -1870,7 +1879,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 209
+id: 210
 unit: export async function POST()
 file: app/api/product/[slug]/reviews/replies/route.ts
 start line: 43
@@ -1879,7 +1888,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 210
+id: 211
 unit: export function errorResponse()
 file: app/api/product/[slug]/reviews/review-helpers.ts
 start line: 7
@@ -1888,7 +1897,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 211
+id: 212
 unit: export async function GET()
 file: app/api/product/[slug]/reviews/route.ts
 start line: 17
@@ -1897,7 +1906,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 212
+id: 213
 unit: export async function POST()
 file: app/api/product/[slug]/reviews/route.ts
 start line: 37
@@ -1906,7 +1915,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 213
+id: 214
 unit: export async function PATCH()
 file: app/api/product/[slug]/reviews/route.ts
 start line: 105
@@ -1915,7 +1924,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 214
+id: 215
 unit: export async function DELETE()
 file: app/api/product/[slug]/reviews/route.ts
 start line: 176
@@ -1924,7 +1933,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 215
+id: 216
 unit: export async function GET()
 file: app/api/product/[slug]/route.ts
 start line: 9
@@ -1933,7 +1942,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 216
+id: 217
 unit: export async function createOrderResponse()
 file: app/api/orders/orderHandlers.ts
 start line: 34
@@ -1942,7 +1951,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 217
+id: 218
 unit: export async function POST()
 file: app/api/orders/route.ts
 start line: 3
@@ -1950,17 +1959,17 @@ end line: 5
 size: 3 LOC
 McCabe index: 1
 number of parameters: 1
-
-id: 218
-unit: export async function GET()
-file: app/api/orders/route.ts
-start line: 7
-end line: 9
-size: 3 LOC
-McCabe index: 1
-number of parameters: 0
 
 id: 219
+unit: export async function GET()
+file: app/api/orders/route.ts
+start line: 7
+end line: 9
+size: 3 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 220
 unit: export async function POST()
 file: app/api/cart/route.ts
 start line: 3
@@ -1969,7 +1978,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 220
+id: 221
 unit: export async function GET()
 file: app/api/cart/route.ts
 start line: 7
@@ -1978,7 +1987,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 221
+id: 222
 unit: export async function GET()
 file: app/api/professional/[id]/route.ts
 start line: 9
@@ -1987,7 +1996,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 222
+id: 223
 unit: export function setUploadHandler()
 file: app/lib/storage/uploadAdapter.ts
 start line: 9
@@ -1996,7 +2005,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 223
+id: 224
 unit: export function resetUploadHandler()
 file: app/lib/storage/uploadAdapter.ts
 start line: 13
@@ -2005,7 +2014,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 224
+id: 225
 unit: export async function performUpload()
 file: app/lib/storage/uploadAdapter.ts
 start line: 17
@@ -2014,7 +2023,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 225
+id: 226
 unit: function convertToSubcurrency()
 file: app/lib/convertToSubcurrency.ts
 start line: 1
@@ -2023,7 +2032,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 226
+id: 227
 unit: function sleep()
 file: app/utils/TransitionLink.tsx
 start line: 14
@@ -2032,7 +2041,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 227
+id: 228
 unit: function Sheet()
 file: components/ui/sheet.tsx
 start line: 9
@@ -2041,7 +2050,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 228
+id: 229
 unit: export function cn()
 file: lib/utils.ts
 start line: 4
@@ -2050,7 +2059,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 229
+id: 230
 unit: Before()
 file: features/step_definitions/auth.steps.ts
 start line: 21
@@ -2059,7 +2068,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 230
+id: 231
 unit: After()
 file: features/step_definitions/auth.steps.ts
 start line: 25
@@ -2068,7 +2077,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 231
+id: 232
 unit: Given()
 file: features/step_definitions/auth.steps.ts
 start line: 29
@@ -2077,7 +2086,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 232
+id: 233
 unit: async function()
 file: features/step_definitions/auth.steps.ts
 start line: 35
@@ -2086,7 +2095,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 233
+id: 234
 unit: Before()
 file: features/step_definitions/browse.steps.ts
 start line: 16
@@ -2095,7 +2104,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 234
+id: 235
 unit: After()
 file: features/step_definitions/browse.steps.ts
 start line: 20
@@ -2104,7 +2113,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 235
+id: 236
 unit: async function()
 file: features/step_definitions/browse.steps.ts
 start line: 26
@@ -2113,7 +2122,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 236
+id: 237
 unit: When()
 file: features/step_definitions/browse.steps.ts
 start line: 31
@@ -2122,7 +2131,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 237
+id: 238
 unit: async function()
 file: features/step_definitions/browse.steps.ts
 start line: 37
@@ -2131,7 +2140,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 238
+id: 239
 unit: Before()
 file: features/step_definitions/product.steps.ts
 start line: 16
@@ -2140,7 +2149,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 239
+id: 240
 unit: After()
 file: features/step_definitions/product.steps.ts
 start line: 20
@@ -2149,7 +2158,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 240
+id: 241
 unit: Given()
 file: features/step_definitions/product.steps.ts
 start line: 24
@@ -2158,7 +2167,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 241
+id: 242
 unit: async function()
 file: features/step_definitions/product.steps.ts
 start line: 30
@@ -2167,7 +2176,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 242
+id: 243
 unit: async function()
 file: features/step_definitions/product.steps.ts
 start line: 37
@@ -2176,7 +2185,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 243
+id: 244
 unit: async function()
 file: features/step_definitions/product.steps.ts
 start line: 44
@@ -2185,7 +2194,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 244
+id: 245
 unit: Before()
 file: features/step_definitions/productCrud.steps.ts
 start line: 16
@@ -2194,7 +2203,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 245
+id: 246
 unit: After()
 file: features/step_definitions/productCrud.steps.ts
 start line: 20
@@ -2203,7 +2212,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 246
+id: 247
 unit: Given()
 file: features/step_definitions/productCrud.steps.ts
 start line: 24
@@ -2212,7 +2221,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 247
+id: 248
 unit: Given()
 file: features/step_definitions/productCrud.steps.ts
 start line: 28
@@ -2221,7 +2230,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 248
+id: 249
 unit: async function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 34
@@ -2230,7 +2239,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 249
+id: 250
 unit: async function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 41
@@ -2239,7 +2248,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 250
+id: 251
 unit: When()
 file: features/step_definitions/productCrud.steps.ts
 start line: 46
@@ -2248,7 +2257,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 251
+id: 252
 unit: async function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 52
@@ -2257,7 +2266,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 252
+id: 253
 unit: When()
 file: features/step_definitions/productCrud.steps.ts
 start line: 57
@@ -2266,7 +2275,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 253
+id: 254
 unit: async function()
 file: features/step_definitions/productCrud.steps.ts
 start line: 63
@@ -2275,7 +2284,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 254
+id: 255
 unit: Before()
 file: features/step_definitions/upload.steps.ts
 start line: 17
@@ -2284,7 +2293,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 255
+id: 256
 unit: After()
 file: features/step_definitions/upload.steps.ts
 start line: 21
@@ -2293,7 +2302,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 256
+id: 257
 unit: Given()
 file: features/step_definitions/upload.steps.ts
 start line: 25
@@ -2302,7 +2311,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 257
+id: 258
 unit: async function()
 file: features/step_definitions/upload.steps.ts
 start line: 31
@@ -2311,7 +2320,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 258
+id: 259
 unit: When()
 file: features/step_definitions/upload.steps.ts
 start line: 36
@@ -2320,7 +2329,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 259
+id: 260
 unit: function()
 file: features/step_definitions/upload.steps.ts
 start line: 42
@@ -2329,7 +2338,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 260
+id: 261
 unit: getCapturedPayload()
 file: features/support/uploadFixture.ts
 start line: 46
@@ -2338,7 +2347,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 261
+id: 262
 unit: signOut()
 file: features/support/productCrudFixture.ts
 start line: 33
@@ -2347,7 +2356,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 262
+id: 263
 unit: async function withAuthenticatedUser()
 file: app/api/product/user/route.ts
 start line: 13
@@ -2356,7 +2365,7 @@ size: 2 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 263
+id: 264
 unit: setupNodeEvents()
 file: cypress.config.ts
 start line: 5

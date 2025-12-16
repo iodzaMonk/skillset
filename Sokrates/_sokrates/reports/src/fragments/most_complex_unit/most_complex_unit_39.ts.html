@@ -1,39 +1,34 @@
 <html>
 <head>
-    <title>async cleanup()</title>
+    <title>async deleteProduct()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">async cleanup()</h3>
-<p style="margin-top: 4px">in <i>features/support/productCrudFixture.ts [141:162]</i></p>
+<h3 style="margin-bottom: 0">async deleteProduct()</h3>
+<p style="margin-top: 4px">in <i>features/support/productCrudFixture.ts [123:139]</i></p>
 <ul>
-    <li><b>22</b> lines of code</li>
+    <li><b>16</b> lines of code</li>
     <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  async cleanup() {
-    if (this.trackedProductIds.size &gt; 0) {
-      await prisma.posts.deleteMany({
-        where: { id: { in: Array.from(this.trackedProductIds) } },
-      });
+  async deleteProduct(title: string) {
+    if (!this.requireAuth()) return;
+    const productId = this.getProductIdOr404(title);
+    if (!productId) return;
+
+    try {
+      await deleteProductRecord(this.userId as string, productId);
+      this.trackedProductIds.delete(productId);
+      this.productTitles.delete(title);
+      this.response = {
+        status: 200,
+        body: { message: &quot;Product deleted&quot; },
+      };
+    } catch (error) {
+      this.response = this.normalizeError(error);
     }
-    this.trackedProductIds.clear();
-    if (this.userId) {
-      await prisma.users
-        .delete({ where: { id: this.userId } })
-        .catch(() =&gt; null);
-      this.userId = null;
-    }
-    if (this.otherUserIds.size &gt; 0) {
-      await prisma.users.deleteMany({
-        where: { id: { in: Array.from(this.otherUserIds) } },
-      });
-      this.otherUserIds.clear();
-    }
-    this.productTitles.clear();
-    this.response = null;
   }
 
 </code>

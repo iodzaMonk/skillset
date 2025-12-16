@@ -7,38 +7,38 @@ in 2 files:
 duplicated block id: 2
 size: 9 cleaned lines of code
 in 2 files:
- - app/auth/[slug]/page.tsx (183:193)
- - app/settings/SettingsForm.tsx (158:168)
+ - cypress/e2e/complete_test.cy.ts (243:251)
+ - cypress/e2e/complete_test.cy.ts (276:284)
 
 duplicated block id: 3
 size: 9 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (266:274)
- - cypress/e2e/complete_test.cy.ts (299:307)
+ - app/auth/[slug]/page.tsx (183:193)
+ - app/settings/SettingsForm.tsx (158:168)
 
 duplicated block id: 4
 size: 9 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (210:218)
- - cypress/e2e/complete_test.cy.ts (266:274)
+ - cypress/e2e/complete_test.cy.ts (187:195)
+ - cypress/e2e/complete_test.cy.ts (243:251)
 
 duplicated block id: 5
+size: 9 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (187:195)
+ - cypress/e2e/complete_test.cy.ts (276:284)
+
+duplicated block id: 6
 size: 9 cleaned lines of code
 in 2 files:
  - app/auth/[slug]/page.tsx (150:159)
  - app/settings/SettingsForm.tsx (103:112)
 
-duplicated block id: 6
-size: 9 cleaned lines of code
-in 2 files:
- - cypress/e2e/complete_test.cy.ts (210:218)
- - cypress/e2e/complete_test.cy.ts (299:307)
-
 duplicated block id: 7
 size: 8 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (123:130)
- - cypress/e2e/complete_test.cy.ts (162:169)
+ - cypress/e2e/complete_test.cy.ts (100:107)
+ - cypress/e2e/complete_test.cy.ts (139:146)
 
 duplicated block id: 8
 size: 8 cleaned lines of code
@@ -49,20 +49,20 @@ in 2 files:
 duplicated block id: 9
 size: 7 cleaned lines of code
 in 2 files:
- - app/myproduct/_hooks/postStates.ts (207:213)
- - app/myproduct/page.tsx (14:20)
+ - cypress/e2e/complete_test.cy.ts (277:283)
+ - cypress/e2e/complete_test.cy.ts (328:334)
 
 duplicated block id: 10
 size: 7 cleaned lines of code
 in 2 files:
- - app/_components/CountrySelect.tsx (1:9)
- - app/myproduct/_components/Modal.tsx (1:13)
+ - app/myproduct/_hooks/postStates.ts (207:213)
+ - app/myproduct/page.tsx (14:20)
 
 duplicated block id: 11
 size: 7 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (211:217)
- - cypress/e2e/complete_test.cy.ts (435:441)
+ - app/_components/CountrySelect.tsx (1:9)
+ - app/myproduct/_components/Modal.tsx (1:13)
 
 duplicated block id: 12
 size: 7 cleaned lines of code
@@ -73,20 +73,20 @@ in 2 files:
 duplicated block id: 13
 size: 7 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (267:273)
- - cypress/e2e/complete_test.cy.ts (435:441)
+ - app/lib/products.ts (22:28)
+ - app/lib/products.ts (42:48)
 
 duplicated block id: 14
 size: 7 cleaned lines of code
 in 2 files:
- - app/lib/products.ts (22:28)
- - app/lib/products.ts (42:48)
+ - features/step_definitions/productCrud.steps.ts (3:9)
+ - features/step_definitions/upload.steps.ts (4:10)
 
 duplicated block id: 15
 size: 7 cleaned lines of code
 in 2 files:
- - features/step_definitions/productCrud.steps.ts (3:9)
- - features/step_definitions/upload.steps.ts (4:10)
+ - cypress/e2e/complete_test.cy.ts (188:194)
+ - cypress/e2e/complete_test.cy.ts (328:334)
 
 duplicated block id: 16
 size: 7 cleaned lines of code
@@ -97,56 +97,56 @@ in 2 files:
 duplicated block id: 17
 size: 7 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (300:306)
- - cypress/e2e/complete_test.cy.ts (435:441)
-
-duplicated block id: 18
-size: 7 cleaned lines of code
-in 2 files:
  - app/api/orders/create-payment/route.tsx (9:17)
  - app/api/user/create-stripe-account/route.ts (8:15)
 
-duplicated block id: 19
+duplicated block id: 18
 size: 7 cleaned lines of code
 in 2 files:
  - components/ui/dialog.tsx (38:44)
  - components/ui/sheet.tsx (38:44)
 
-duplicated block id: 20
+duplicated block id: 19
 size: 7 cleaned lines of code
 in 2 files:
  - features/step_definitions/product.steps.ts (3:9)
  - features/step_definitions/productCrud.steps.ts (3:9)
 
-duplicated block id: 21
+duplicated block id: 20
 size: 7 cleaned lines of code
 in 2 files:
  - features/step_definitions/auth.steps.ts (3:9)
  - features/step_definitions/upload.steps.ts (4:10)
 
-duplicated block id: 22
+duplicated block id: 21
 size: 7 cleaned lines of code
 in 2 files:
  - app/myproduct/_components/PostList.tsx (168:175)
  - app/orders/_components/OrderList.tsx (128:135)
 
-duplicated block id: 23
+duplicated block id: 22
 size: 7 cleaned lines of code
 in 2 files:
  - app/api/product/[slug]/reviews/replies/route.ts (43:50)
  - app/api/product/[slug]/reviews/route.ts (37:44)
 
-duplicated block id: 24
+duplicated block id: 23
 size: 7 cleaned lines of code
 in 2 files:
  - features/step_definitions/product.steps.ts (3:9)
  - features/step_definitions/upload.steps.ts (4:10)
 
-duplicated block id: 25
+duplicated block id: 24
 size: 7 cleaned lines of code
 in 2 files:
  - features/step_definitions/browse.steps.ts (3:9)
  - features/step_definitions/productCrud.steps.ts (3:9)
+
+duplicated block id: 25
+size: 7 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (244:250)
+ - cypress/e2e/complete_test.cy.ts (328:334)
 
 duplicated block id: 26
 size: 7 cleaned lines of code
@@ -175,8 +175,8 @@ in 2 files:
 duplicated block id: 30
 size: 6 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (165:170)
- - cypress/e2e/complete_test.cy.ts (269:274)
+ - cypress/e2e/complete_test.cy.ts (142:147)
+ - cypress/e2e/complete_test.cy.ts (279:284)
 
 duplicated block id: 31
 size: 6 cleaned lines of code
@@ -199,26 +199,26 @@ in 2 files:
 duplicated block id: 34
 size: 6 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (165:170)
- - cypress/e2e/complete_test.cy.ts (213:218)
-
-duplicated block id: 35
-size: 6 cleaned lines of code
-in 2 files:
  - features/step_definitions/product.steps.ts (121:126)
  - features/step_definitions/product.steps.ts (140:145)
 
-duplicated block id: 36
+duplicated block id: 35
 size: 6 cleaned lines of code
 in 2 files:
  - app/myproduct/page.tsx (45:50)
  - app/myproduct/page.tsx (74:79)
 
-duplicated block id: 37
+duplicated block id: 36
 size: 6 cleaned lines of code
 in 2 files:
  - app/api/product/[slug]/reviews/route.ts (106:112)
  - app/api/product/[slug]/reviews/route.ts (177:183)
+
+duplicated block id: 37
+size: 6 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (142:147)
+ - cypress/e2e/complete_test.cy.ts (190:195)
 
 duplicated block id: 38
 size: 6 cleaned lines of code
@@ -229,32 +229,32 @@ in 2 files:
 duplicated block id: 39
 size: 6 cleaned lines of code
 in 2 files:
- - cypress/e2e/complete_test.cy.ts (165:170)
- - cypress/e2e/complete_test.cy.ts (302:307)
-
-duplicated block id: 40
-size: 6 cleaned lines of code
-in 2 files:
  - app/api/product/[slug]/route.ts (35:42)
  - app/api/professional/[id]/route.ts (96:103)
 
-duplicated block id: 41
+duplicated block id: 40
 size: 6 cleaned lines of code
 in 2 files:
  - app/myproduct/page.tsx (53:58)
  - app/myproduct/page.tsx (82:87)
 
-duplicated block id: 42
+duplicated block id: 41
 size: 6 cleaned lines of code
 in 2 files:
  - app/api/product/[slug]/reviews/replies/route.ts (44:50)
  - app/api/product/[slug]/reviews/route.ts (106:112)
 
-duplicated block id: 43
+duplicated block id: 42
 size: 6 cleaned lines of code
 in 2 files:
  - app/settings/SettingsForm.tsx (126:131)
  - app/settings/SettingsForm.tsx (147:152)
+
+duplicated block id: 43
+size: 6 cleaned lines of code
+in 2 files:
+ - cypress/e2e/complete_test.cy.ts (142:147)
+ - cypress/e2e/complete_test.cy.ts (246:251)
 
 duplicated block id: 44
 size: 6 cleaned lines of code

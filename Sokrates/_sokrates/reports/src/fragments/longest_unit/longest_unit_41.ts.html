@@ -1,44 +1,44 @@
 <html>
 <head>
-    <title>export async function POST()</title>
+    <title>async seed()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function POST()</h3>
-<p style="margin-top: 4px">in <i>app/api/uploads/route.ts [4:29]</i></p>
+<h3 style="margin-bottom: 0">async seed()</h3>
+<p style="margin-top: 4px">in <i>features/support/authService.ts [9:34]</i></p>
 <ul>
-    <li><b>23</b> lines of code</li>
-    <li><b>4</b> McCabe index (conditional complexity)</li>
+    <li><b>24</b> lines of code</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function POST(request: Request) {
-  try {
-    const formData = await request.formData();
-    const file = formData.get(&quot;file&quot;);
-
-    if (!(file instanceof File)) {
-      return Response.json(
-        { error: &quot;Missing file upload payload&quot; },
-        { status: 400 },
-      );
-    }
-
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    const { key } = await performUpload({
-      buffer,
-      originalName: file.name,
-      contentType: file.type || undefined,
+  async seed(rows: Array&lt;Record&lt;string, string&gt;&gt;) {
+    const tableRows = rows.map((row) =&gt; {
+      const email = row.email?.trim();
+      const password = row.password ?? &quot;&quot;;
+      if (!email) {
+        throw new Error(&quot;Each row must include an email column&quot;);
+      }
+      return { email, password };
     });
 
-    return Response.json({ key }, { status: 201 });
-  } catch (error) {
-    console.error(&quot;Failed to upload file to S3&quot;, error);
-    return Response.json({ error: &quot;File upload failed&quot; }, { status: 500 });
+    for (const row of tableRows) {
+      const { email, password } = row;
+      await prisma.users.delete({ where: { email } }).catch(() =&gt; null);
+
+      const hashed = await bcrypt.hash(password, 10);
+      await prisma.users.create({
+        data: {
+          email,
+          password: hashed,
+          name: email.split(&quot;@&quot;)[0] ?? &quot;Cucumber User&quot;,
+          country: &quot;US&quot;,
+        },
+      });
+      this.trackedEmails.add(email);
+    }
   }
-}
 
 </code>
 </pre>

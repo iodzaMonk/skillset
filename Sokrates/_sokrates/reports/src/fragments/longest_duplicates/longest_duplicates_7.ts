@@ -1,7 +1,7 @@
-cypress/e2e/complete_test.cy.ts [123:130]:
+cypress/e2e/complete_test.cy.ts [100:107]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       cy.visit("localhost:3000");
-      openMenu();
+      cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").should("be.visible");
       cy.contains("Login").click({ force: true });
       cy.get('input[name="email"]').type(email);
@@ -12,10 +12,10 @@ cypress/e2e/complete_test.cy.ts [123:130]:
 
 
 
-cypress/e2e/complete_test.cy.ts [162:169]:
+cypress/e2e/complete_test.cy.ts [139:146]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       cy.visit("localhost:3000");
-      openMenu();
+      cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").should("be.visible");
       cy.contains("Login").click({ force: true });
       cy.get('input[name="email"]').type(email);

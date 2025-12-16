@@ -181,6 +181,20 @@
   "numberOfStatements" : 0,
   "numberOfExpressions" : 0
 }, {
+  "shortName" : "export default function ConnectStripeButton()",
+  "longName" : "",
+  "relativeFileName" : "app/settings/StripeConnectButton.tsx",
+  "fileLinesCount" : 63,
+  "components" : [ "primary::app" ],
+  "startLine" : 6,
+  "endLine" : 63,
+  "linesOfCode" : 53,
+  "mcCabeIndex" : 8,
+  "numberOfParameters" : 0,
+  "numberOfLiterals" : 0,
+  "numberOfStatements" : 0,
+  "numberOfExpressions" : 0
+}, {
   "shortName" : "export function ProductCard()",
   "longName" : "",
   "relativeFileName" : "app/_components/ProductCard.tsx",
@@ -191,20 +205,6 @@
   "linesOfCode" : 53,
   "mcCabeIndex" : 5,
   "numberOfParameters" : 2,
-  "numberOfLiterals" : 0,
-  "numberOfStatements" : 0,
-  "numberOfExpressions" : 0
-}, {
-  "shortName" : "export default function ConnectStripeButton()",
-  "longName" : "",
-  "relativeFileName" : "app/settings/StripeConnectButton.tsx",
-  "fileLinesCount" : 62,
-  "components" : [ "primary::app" ],
-  "startLine" : 6,
-  "endLine" : 62,
-  "linesOfCode" : 52,
-  "mcCabeIndex" : 8,
-  "numberOfParameters" : 0,
   "numberOfLiterals" : 0,
   "numberOfStatements" : 0,
   "numberOfExpressions" : 0
@@ -372,6 +372,20 @@
   "endLine" : 69,
   "linesOfCode" : 31,
   "mcCabeIndex" : 7,
+  "numberOfParameters" : 1,
+  "numberOfLiterals" : 0,
+  "numberOfStatements" : 0,
+  "numberOfExpressions" : 0
+}, {
+  "shortName" : "export async function POST()",
+  "longName" : "",
+  "relativeFileName" : "app/api/user/test-vendor/route.ts",
+  "fileLinesCount" : 41,
+  "components" : [ "primary::app" ],
+  "startLine" : 5,
+  "endLine" : 41,
+  "linesOfCode" : 30,
+  "mcCabeIndex" : 5,
   "numberOfParameters" : 1,
   "numberOfLiterals" : 0,
   "numberOfStatements" : 0,

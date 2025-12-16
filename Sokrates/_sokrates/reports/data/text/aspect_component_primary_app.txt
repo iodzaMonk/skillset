@@ -31,6 +31,7 @@ app/api/user/login/route.ts	34
 app/api/user/logout/route.ts	10
 app/api/user/me/route.ts	8
 app/api/user/register/route.ts	67
+app/api/user/test-vendor/route.ts	33
 app/api/user/update/route.ts	46
 app/auth/[slug]/page.tsx	192
 app/browse/components/categories.tsx	45
@@ -80,7 +81,7 @@ app/product/[slug]/payment/page.tsx	159
 app/product/[slug]/payment/success/page.tsx	32
 app/professional/[id]/page.tsx	140
 app/settings/SettingsForm.tsx	178
-app/settings/StripeConnectButton.tsx	56
+app/settings/StripeConnectButton.tsx	57
 app/settings/modal.tsx	49
 app/settings/page.tsx	20
 app/utils/TransitionLink.tsx	46

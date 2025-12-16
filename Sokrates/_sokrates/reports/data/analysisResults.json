@@ -9,23 +9,23 @@
   "metricsList" : {
     "metrics" : [ {
       "id" : "TOTAL_NUMBER_OF_FILES",
-      "value" : 75687,
+      "value" : 75740,
       "description" : "Total number of files in the source folder"
     }, {
       "id" : "NUMBER_OF_FILES_MAIN",
-      "value" : 140,
+      "value" : 141,
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_MAIN",
-      "value" : 9118,
+      "value" : 9115,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_MAIN_EXT_TS",
-      "value" : 80,
+      "value" : 81,
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_MAIN_EXT_TS",
-      "value" : 4701,
+      "value" : 4697,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_MAIN_EXT_TSX",
@@ -33,7 +33,7 @@
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_MAIN_EXT_TSX",
-      "value" : 4235,
+      "value" : 4236,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_MAIN_EXT_CSS",
@@ -85,7 +85,7 @@
       "description" : null
     }, {
       "id" : "TEST_VS_MAIN_LINES_OF_CODE_PERCENTAGE",
-      "value" : 14.93,
+      "value" : 14.94,
       "description" : "Test / main code ratio"
     }, {
       "id" : "NUMBER_OF_FILES_GENERATED",
@@ -145,11 +145,11 @@
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_DECOMPOSITION_PRIMARY_APP",
-      "value" : 88,
+      "value" : 89,
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_DECOMPOSITION_PRIMARY_APP",
-      "value" : 6052,
+      "value" : 6086,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_DECOMPOSITION_PRIMARY_APP_EXT_TSX",
@@ -157,15 +157,15 @@
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_DECOMPOSITION_PRIMARY_APP_EXT_TSX",
-      "value" : 3433,
+      "value" : 3434,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_DECOMPOSITION_PRIMARY_APP_EXT_TS",
-      "value" : 45,
+      "value" : 46,
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_DECOMPOSITION_PRIMARY_APP_EXT_TS",
-      "value" : 2514,
+      "value" : 2547,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_DECOMPOSITION_PRIMARY_APP_EXT_CSS",
@@ -301,7 +301,7 @@
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_DECOMPOSITION_PRIMARY_CYPRESS",
-      "value" : 407,
+      "value" : 370,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_DECOMPOSITION_PRIMARY_CYPRESS_EXT_TS",
@@ -309,7 +309,7 @@
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_DECOMPOSITION_PRIMARY_CYPRESS_EXT_TS",
-      "value" : 407,
+      "value" : 370,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_DECOMPOSITION_PRIMARY_FEATURES",
@@ -357,19 +357,19 @@
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_CONCERN_GENERAL_UNCLASSIFIED",
-      "value" : 139,
+      "value" : 140,
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_CONCERN_GENERAL_UNCLASSIFIED",
-      "value" : 8944,
+      "value" : 8941,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_CONCERN_GENERAL_UNCLASSIFIED_EXT_TS",
-      "value" : 79,
+      "value" : 80,
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_CONCERN_GENERAL_UNCLASSIFIED_EXT_TS",
-      "value" : 4527,
+      "value" : 4523,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_CONCERN_GENERAL_UNCLASSIFIED_EXT_TSX",
@@ -377,7 +377,7 @@
       "description" : null
     }, {
       "id" : "LINES_OF_CODE_CONCERN_GENERAL_UNCLASSIFIED_EXT_TSX",
-      "value" : 4235,
+      "value" : 4236,
       "description" : null
     }, {
       "id" : "NUMBER_OF_FILES_CONCERN_GENERAL_UNCLASSIFIED_EXT_CSS",
@@ -413,7 +413,7 @@
       "description" : null
     }, {
       "id" : "NEGLIGIBLE_RISK_FILE_SIZE_COUNT",
-      "value" : 110,
+      "value" : 111,
       "description" : "Number of  files with 100 or less lines of code"
     }, {
       "id" : "LOW_RISK_FILE_SIZE_COUNT",
@@ -433,7 +433,7 @@
       "description" : "Number of  files with more than 1000 lines of code"
     }, {
       "id" : "NEGLIGIBLE_RISK_FILE_SIZE_LOC",
-      "value" : 3744,
+      "value" : 3769,
       "description" : "Lines of code in  files with 100 or less lines of code"
     }, {
       "id" : "LOW_RISK_FILE_SIZE_LOC",
@@ -441,7 +441,7 @@
       "description" : "Lines of code in  files with 100 to 200 lines of code"
     }, {
       "id" : "MEDIUM_RISK_FILE_SIZE_LOC",
-      "value" : 2159,
+      "value" : 2131,
       "description" : "Lines of code in  files with 200 to 500 lines of code"
     }, {
       "id" : "HIGH_RISK_FILE_SIZE_LOC",
@@ -453,15 +453,15 @@
       "description" : "Lines of code in  files with more than 1000 lines of code"
     }, {
       "id" : "NUMBER_OF_UNITS",
-      "value" : 263,
+      "value" : 264,
       "description" : "Number of units"
     }, {
       "id" : "LINES_OF_CODE_IN_UNITS",
-      "value" : 4334,
+      "value" : 4365,
       "description" : "Lines of code in units"
     }, {
       "id" : "LINES_OF_CODE_OUTSIDE_UNITS",
-      "value" : 4784,
+      "value" : 4750,
       "description" : "Lines of code in units"
     }, {
       "id" : "UNIT_SIZE_NEGLIGIBLE_RISK_LOC",
@@ -469,7 +469,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_NEGLIGIBLE_RISK_PERCENTAGE",
-      "value" : 20.143054914628518,
+      "value" : 20.0,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_NEGLIGIBLE_RISK_COUNT",
@@ -481,7 +481,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_LOW_RISK_PERCENTAGE",
-      "value" : 16.705122288878634,
+      "value" : 16.586483390607103,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_LOW_RISK_COUNT",
@@ -489,23 +489,23 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_MEDIUM_RISK_LOC",
-      "value" : 1031,
+      "value" : 1061,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_MEDIUM_RISK_PERCENTAGE",
-      "value" : 23.788647900323028,
+      "value" : 24.306987399770904,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_MEDIUM_RISK_COUNT",
-      "value" : 36,
+      "value" : 37,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_HIGH_RISK_LOC",
-      "value" : 441,
+      "value" : 442,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_HIGH_RISK_PERCENTAGE",
-      "value" : 10.175357637286572,
+      "value" : 10.126002290950744,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_HIGH_RISK_COUNT",
@@ -517,7 +517,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_VERY_HIGH_RISK_PERCENTAGE",
-      "value" : 29.18781725888325,
+      "value" : 28.98052691867125,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_VERY_HIGH_RISK_COUNT",
@@ -529,7 +529,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_NEGLIGIBLE_RISK_PERCENTAGE",
-      "value" : 10.816696914700545,
+      "value" : 10.696338837042354,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_NEGLIGIBLE_RISK_COUNT",
@@ -541,7 +541,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_LOW_RISK_PERCENTAGE",
-      "value" : 10.852994555353902,
+      "value" : 10.732232591529074,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_LOW_RISK_COUNT",
@@ -549,23 +549,23 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_MEDIUM_RISK_LOC",
-      "value" : 592,
+      "value" : 622,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_MEDIUM_RISK_PERCENTAGE",
-      "value" : 21.488203266787657,
+      "value" : 22.32591529073941,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_MEDIUM_RISK_COUNT",
-      "value" : 20,
+      "value" : 21,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_HIGH_RISK_LOC",
-      "value" : 301,
+      "value" : 302,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_HIGH_RISK_PERCENTAGE",
-      "value" : 10.925589836660617,
+      "value" : 10.839913854989232,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_HIGH_RISK_COUNT",
@@ -577,7 +577,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_VERY_HIGH_RISK_PERCENTAGE",
-      "value" : 45.91651542649728,
+      "value" : 45.405599425699926,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_COMPONENT_APP_VERY_HIGH_RISK_COUNT",
@@ -1009,7 +1009,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_NEGLIGIBLE_RISK_PERCENTAGE",
-      "value" : 5.662235352043329,
+      "value" : 5.659448818897638,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_NEGLIGIBLE_RISK_COUNT",
@@ -1021,7 +1021,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_LOW_RISK_PERCENTAGE",
-      "value" : 9.15805022156573,
+      "value" : 9.153543307086615,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_LOW_RISK_COUNT",
@@ -1033,7 +1033,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_MEDIUM_RISK_PERCENTAGE",
-      "value" : 19.202363367799112,
+      "value" : 19.19291338582677,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_MEDIUM_RISK_COUNT",
@@ -1041,11 +1041,11 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_HIGH_RISK_LOC",
-      "value" : 321,
+      "value" : 322,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_HIGH_RISK_PERCENTAGE",
-      "value" : 15.805022156573116,
+      "value" : 15.846456692913385,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_HIGH_RISK_COUNT",
@@ -1057,7 +1057,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_VERY_HIGH_RISK_PERCENTAGE",
-      "value" : 50.17232890201871,
+      "value" : 50.14763779527559,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TSX_VERY_HIGH_RISK_COUNT",
@@ -1069,7 +1069,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_NEGLIGIBLE_RISK_PERCENTAGE",
-      "value" : 32.913590968302216,
+      "value" : 32.4903557651093,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_NEGLIGIBLE_RISK_COUNT",
@@ -1081,7 +1081,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_LOW_RISK_PERCENTAGE",
-      "value" : 23.3608336951802,
+      "value" : 23.060437205315043,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_LOW_RISK_COUNT",
@@ -1089,15 +1089,15 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_MEDIUM_RISK_LOC",
-      "value" : 641,
+      "value" : 671,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_MEDIUM_RISK_PERCENTAGE",
-      "value" : 27.83326096396005,
+      "value" : 28.761251607372483,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_MEDIUM_RISK_COUNT",
-      "value" : 22,
+      "value" : 23,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_HIGH_RISK_LOC",
@@ -1105,7 +1105,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_HIGH_RISK_PERCENTAGE",
-      "value" : 5.210594876248372,
+      "value" : 5.143591941705958,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_HIGH_RISK_COUNT",
@@ -1117,7 +1117,7 @@
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_VERY_HIGH_RISK_PERCENTAGE",
-      "value" : 10.681719496309162,
+      "value" : 10.544363480497214,
       "description" : null
     }, {
       "id" : "UNIT_SIZE_EXTENSION_TS_VERY_HIGH_RISK_COUNT",
@@ -1125,23 +1125,23 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_NEGLIGIBLE_RISK_LOC",
-      "value" : 2534,
+      "value" : 2564,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_NEGLIGIBLE_RISK_PERCENTAGE",
-      "value" : 58.467928011075216,
+      "value" : 58.73997709049255,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_NEGLIGIBLE_RISK_COUNT",
-      "value" : 243,
+      "value" : 244,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_LOW_RISK_LOC",
-      "value" : 530,
+      "value" : 531,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_LOW_RISK_PERCENTAGE",
-      "value" : 12.22888786340563,
+      "value" : 12.164948453608247,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_LOW_RISK_COUNT",
@@ -1153,7 +1153,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_MEDIUM_RISK_PERCENTAGE",
-      "value" : 23.142593447161975,
+      "value" : 22.97823596792669,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_MEDIUM_RISK_COUNT",
@@ -1165,7 +1165,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_HIGH_RISK_PERCENTAGE",
-      "value" : 6.160590678357176,
+      "value" : 6.116838487972508,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_HIGH_RISK_COUNT",
@@ -1193,23 +1193,23 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_NEGLIGIBLE_RISK_LOC",
-      "value" : 1167,
+      "value" : 1197,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_NEGLIGIBLE_RISK_PERCENTAGE",
-      "value" : 42.35934664246824,
+      "value" : 42.96482412060301,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_NEGLIGIBLE_RISK_COUNT",
-      "value" : 90,
+      "value" : 91,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_LOW_RISK_LOC",
-      "value" : 377,
+      "value" : 378,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_LOW_RISK_PERCENTAGE",
-      "value" : 13.68421052631579,
+      "value" : 13.5678391959799,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_LOW_RISK_COUNT",
@@ -1221,7 +1221,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_MEDIUM_RISK_PERCENTAGE",
-      "value" : 34.26497277676951,
+      "value" : 33.88370423546303,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_MEDIUM_RISK_COUNT",
@@ -1233,7 +1233,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_HIGH_RISK_PERCENTAGE",
-      "value" : 9.69147005444646,
+      "value" : 9.583632447954056,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_APP_HIGH_RISK_COUNT",
@@ -1677,7 +1677,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_NEGLIGIBLE_RISK_PERCENTAGE",
-      "value" : 39.83259478089611,
+      "value" : 39.81299212598425,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_NEGLIGIBLE_RISK_COUNT",
@@ -1685,11 +1685,11 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_LOW_RISK_LOC",
-      "value" : 257,
+      "value" : 258,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_LOW_RISK_PERCENTAGE",
-      "value" : 12.653865091088134,
+      "value" : 12.696850393700787,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_LOW_RISK_COUNT",
@@ -1701,7 +1701,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_MEDIUM_RISK_PERCENTAGE",
-      "value" : 34.367306745445596,
+      "value" : 34.3503937007874,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_MEDIUM_RISK_COUNT",
@@ -1713,7 +1713,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_HIGH_RISK_PERCENTAGE",
-      "value" : 13.146233382570163,
+      "value" : 13.13976377952756,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TSX_HIGH_RISK_COUNT",
@@ -1733,15 +1733,15 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TS_NEGLIGIBLE_RISK_LOC",
-      "value" : 1725,
+      "value" : 1755,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TS_NEGLIGIBLE_RISK_PERCENTAGE",
-      "value" : 74.90230134607035,
+      "value" : 75.22503214744964,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TS_NEGLIGIBLE_RISK_COUNT",
-      "value" : 193,
+      "value" : 194,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TS_LOW_RISK_LOC",
@@ -1749,7 +1749,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TS_LOW_RISK_PERCENTAGE",
-      "value" : 11.854103343465045,
+      "value" : 11.701671667381055,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TS_LOW_RISK_COUNT",
@@ -1761,7 +1761,7 @@
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TS_MEDIUM_RISK_PERCENTAGE",
-      "value" : 13.243595310464611,
+      "value" : 13.07329618516931,
       "description" : null
     }, {
       "id" : "CONDITIONAL_COMPLEXITY_COMPONENT_TS_MEDIUM_RISK_COUNT",
@@ -1809,7 +1809,7 @@
       "description" : "The number of estimated working days in the period"
     }, {
       "id" : "FILE_AGE_NEGLIGIBLE_RISK_COUNT",
-      "value" : 113,
+      "value" : 114,
       "description" : "Number of files 1-30 days days old"
     }, {
       "id" : "FILE_AGE_LOW_RISK_COUNT",
@@ -1829,7 +1829,7 @@
       "description" : "Number of files 366+ days days old"
     }, {
       "id" : "FILE_AGE_NEGLIGIBLE_RISK_LOC",
-      "value" : 8131,
+      "value" : 8128,
       "description" : "Number of files 1-30 days days old"
     }, {
       "id" : "FILE_AGE_LOW_RISK_LOC",
@@ -1865,28 +1865,16 @@
       "description" : "Number of duplicated lines"
     }, {
       "id" : "DUPLICATION_NUMBER_OF_CLEANED_LINES",
-      "value" : 8198,
+      "value" : 8191,
       "description" : "Number of lines after cleaning for duplication calculations"
     }, {
       "id" : "DUPLICATION_PERCENTAGE",
-      "value" : 5.513539887777506,
+      "value" : 5.51825173971432,
       "description" : "Duplication percentage"
     }, {
       "id" : "UNIT_DUPLICATES_COUNT",
       "value" : 1,
       "description" : "Unit duplicates"
-    }, {
-      "id" : "DUPLICATION_NUMBER_OF_DUPLICATED_LINES_PRIMARY_CYPRESS",
-      "value" : 51,
-      "description" : "Number of duplicated lines"
-    }, {
-      "id" : "DUPLICATION_NUMBER_OF_CLEANED_LINES_PRIMARY_CYPRESS",
-      "value" : 51,
-      "description" : "Number of lines after cleaning for duplication calculations"
-    }, {
-      "id" : "DUPLICATION_PERCENTAGE_PRIMARY_CYPRESS",
-      "value" : 100.0,
-      "description" : "Duplication percentage"
     }, {
       "id" : "DUPLICATION_NUMBER_OF_DUPLICATED_LINES_PRIMARY_APP",
       "value" : 286,
@@ -1897,6 +1885,18 @@
       "description" : "Number of lines after cleaning for duplication calculations"
     }, {
       "id" : "DUPLICATION_PERCENTAGE_PRIMARY_APP",
+      "value" : 100.0,
+      "description" : "Duplication percentage"
+    }, {
+      "id" : "DUPLICATION_NUMBER_OF_DUPLICATED_LINES_PRIMARY_CYPRESS",
+      "value" : 51,
+      "description" : "Number of duplicated lines"
+    }, {
+      "id" : "DUPLICATION_NUMBER_OF_CLEANED_LINES_PRIMARY_CYPRESS",
+      "value" : 51,
+      "description" : "Number of lines after cleaning for duplication calculations"
+    }, {
+      "id" : "DUPLICATION_PERCENTAGE_PRIMARY_CYPRESS",
       "value" : 100.0,
       "description" : "Duplication percentage"
     }, {
@@ -1984,32 +1984,32 @@
       "value" : "NaN",
       "description" : "Duplication percentage"
     }, {
-      "id" : "DUPLICATION_NUMBER_OF_DUPLICATED_LINES_TS",
-      "value" : 256,
-      "description" : "Number of duplicated lines"
-    }, {
-      "id" : "DUPLICATION_NUMBER_OF_CLEANED_LINES_TS",
-      "value" : 4140,
-      "description" : "Number of lines after cleaning for duplication calculations"
-    }, {
-      "id" : "DUPLICATION_PERCENTAGE_TS",
-      "value" : 6.183574879227053,
-      "description" : "Duplication percentage"
-    }, {
       "id" : "DUPLICATION_NUMBER_OF_DUPLICATED_LINES_TSX",
       "value" : 196,
       "description" : "Number of duplicated lines"
     }, {
       "id" : "DUPLICATION_NUMBER_OF_CLEANED_LINES_TSX",
-      "value" : 3880,
+      "value" : 3881,
       "description" : "Number of lines after cleaning for duplication calculations"
     }, {
       "id" : "DUPLICATION_PERCENTAGE_TSX",
-      "value" : 5.051546391752577,
+      "value" : 5.05024478227261,
+      "description" : "Duplication percentage"
+    }, {
+      "id" : "DUPLICATION_NUMBER_OF_DUPLICATED_LINES_TS",
+      "value" : 256,
+      "description" : "Number of duplicated lines"
+    }, {
+      "id" : "DUPLICATION_NUMBER_OF_CLEANED_LINES_TS",
+      "value" : 4132,
+      "description" : "Number of lines after cleaning for duplication calculations"
+    }, {
+      "id" : "DUPLICATION_PERCENTAGE_TS",
+      "value" : 6.195546950629235,
       "description" : "Duplication percentage"
     }, {
       "id" : "TOTAL_ANALYSIS_TIME_IN_MILLIS",
-      "value" : 3571,
+      "value" : 4908,
       "description" : "Total analysis time in milliseconds"
     } ]
   },
@@ -2064,7 +2064,7 @@
         },
         "metric" : {
           "id" : "LINES_OF_CODE_MAIN",
-          "value" : 9118,
+          "value" : 9115,
           "description" : null
         },
         "status" : "OK"
@@ -2080,7 +2080,7 @@
         },
         "metric" : {
           "id" : "DUPLICATION_PERCENTAGE",
-          "value" : 5.513539887777506,
+          "value" : 5.51825173971432,
           "description" : "Duplication percentage"
         },
         "status" : "TOLERANT"
@@ -2119,15 +2119,15 @@
       } ]
     } ]
   },
-  "totalNumberOfFilesInScope" : 75687,
+  "totalNumberOfFilesInScope" : 75740,
   "mainAspectAnalysisResults" : {
     "name" : null,
-    "filesCount" : 140,
-    "linesOfCode" : 9118,
+    "filesCount" : 141,
+    "linesOfCode" : 9115,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.ts",
-      "value" : 80,
+      "value" : 81,
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
@@ -2152,11 +2152,11 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.ts",
-      "value" : 4701,
+      "value" : 4697,
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
-      "value" : 4235,
+      "value" : 4236,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -2252,8 +2252,8 @@
     "key" : "primary",
     "components" : [ {
       "name" : "app",
-      "filesCount" : 88,
-      "linesOfCode" : 6052,
+      "filesCount" : 89,
+      "linesOfCode" : 6086,
       "numberOfRegexLineMatches" : 0,
       "fileCountPerExtension" : [ {
         "name" : "  *.tsx",
@@ -2261,7 +2261,7 @@
         "description" : [ ]
       }, {
         "name" : "  *.ts",
-        "value" : 45,
+        "value" : 46,
         "description" : [ ]
       }, {
         "name" : "  *.css",
@@ -2270,11 +2270,11 @@
       } ],
       "linesOfCodePerExtension" : [ {
         "name" : "  *.tsx",
-        "value" : 3433,
+        "value" : 3434,
         "description" : [ ]
       }, {
         "name" : "  *.ts",
-        "value" : 2514,
+        "value" : 2547,
         "description" : [ ]
       }, {
         "name" : "  *.css",
@@ -2398,7 +2398,7 @@
     }, {
       "name" : "cypress",
       "filesCount" : 4,
-      "linesOfCode" : 407,
+      "linesOfCode" : 370,
       "numberOfRegexLineMatches" : 0,
       "fileCountPerExtension" : [ {
         "name" : "  *.ts",
@@ -2407,7 +2407,7 @@
       } ],
       "linesOfCodePerExtension" : [ {
         "name" : "  *.ts",
-        "value" : 407,
+        "value" : 370,
         "description" : [ ]
       } ]
     }, {
@@ -2580,7 +2580,7 @@
     },
     "fileCountPerComponent" : [ {
       "name" : "app",
-      "value" : 88,
+      "value" : 89,
       "description" : [ ]
     }, {
       "name" : "components",
@@ -2617,7 +2617,7 @@
     } ],
     "linesOfCodePerComponent" : [ {
       "name" : "app",
-      "value" : 6052,
+      "value" : 6086,
       "description" : [ ]
     }, {
       "name" : "components",
@@ -2645,7 +2645,7 @@
       "description" : [ ]
     }, {
       "name" : "cypress",
-      "value" : 407,
+      "value" : 370,
       "description" : [ ]
     }, {
       "name" : "features",
@@ -2672,12 +2672,12 @@
       } ]
     }, {
       "name" : "Unclassified",
-      "filesCount" : 139,
-      "linesOfCode" : 8944,
+      "filesCount" : 140,
+      "linesOfCode" : 8941,
       "numberOfRegexLineMatches" : 0,
       "fileCountPerExtension" : [ {
         "name" : "  *.ts",
-        "value" : 79,
+        "value" : 80,
         "description" : [ ]
       }, {
         "name" : "  *.tsx",
@@ -2702,11 +2702,11 @@
       } ],
       "linesOfCodePerExtension" : [ {
         "name" : "  *.ts",
-        "value" : 4527,
+        "value" : 4523,
         "description" : [ ]
       }, {
         "name" : "  *.tsx",
-        "value" : 4235,
+        "value" : 4236,
         "description" : [ ]
       }, {
         "name" : "  *.css",
@@ -2733,7 +2733,7 @@
       "description" : [ ]
     }, {
       "name" : "Unclassified",
-      "value" : 139,
+      "value" : 140,
       "description" : [ ]
     } ],
     "linesOfCodePerConcern" : [ {
@@ -2742,7 +2742,7 @@
       "description" : [ ]
     }, {
       "name" : "Unclassified",
-      "value" : 8944,
+      "value" : 8941,
       "description" : [ ]
     } ]
   } ],
@@ -2778,13 +2778,13 @@
       "mediumRiskThreshold" : 200,
       "highRiskThreshold" : 500,
       "veryHighRiskThreshold" : 1000,
-      "negligibleRiskValue" : 3744,
+      "negligibleRiskValue" : 3769,
       "lowRiskValue" : 3215,
-      "mediumRiskValue" : 2159,
+      "mediumRiskValue" : 2131,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 22,
-      "negligibleRiskCount" : 110,
+      "negligibleRiskCount" : 111,
       "mediumRiskCount" : 8,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -2795,11 +2795,11 @@
       "veryHighRiskLabel" : "1001+",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 23.67843825400307,
-      "lowRiskPercentage" : 35.25992542224172,
-      "negligibleRiskPercentage" : 41.06163632375521,
-      "totalValue" : 9118,
-      "totalCount" : 140
+      "mediumRiskPercentage" : 23.37904552934723,
+      "lowRiskPercentage" : 35.27153044432254,
+      "negligibleRiskPercentage" : 41.349424026330226,
+      "totalValue" : 9115,
+      "totalCount" : 141
     },
     "fileSizeDistributionPerExtension" : [ {
       "key" : "tsx",
@@ -2807,7 +2807,7 @@
       "mediumRiskThreshold" : 200,
       "highRiskThreshold" : 500,
       "veryHighRiskThreshold" : 1000,
-      "negligibleRiskValue" : 1404,
+      "negligibleRiskValue" : 1405,
       "lowRiskValue" : 1934,
       "mediumRiskValue" : 897,
       "highRiskValue" : 0,
@@ -2824,10 +2824,10 @@
       "veryHighRiskLabel" : "1001+",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 21.180637544273907,
-      "lowRiskPercentage" : 45.667060212514755,
-      "negligibleRiskPercentage" : 33.15230224321133,
-      "totalValue" : 4235,
+      "mediumRiskPercentage" : 21.175637393767705,
+      "lowRiskPercentage" : 45.65627950897073,
+      "negligibleRiskPercentage" : 33.168083097261565,
+      "totalValue" : 4236,
       "totalCount" : 54
     }, {
       "key" : "ts",
@@ -2835,13 +2835,13 @@
       "mediumRiskThreshold" : 200,
       "highRiskThreshold" : 500,
       "veryHighRiskThreshold" : 1000,
-      "negligibleRiskValue" : 2263,
+      "negligibleRiskValue" : 2287,
       "lowRiskValue" : 1176,
-      "mediumRiskValue" : 1262,
+      "mediumRiskValue" : 1234,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 8,
-      "negligibleRiskCount" : 68,
+      "negligibleRiskCount" : 69,
       "mediumRiskCount" : 4,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -2852,11 +2852,11 @@
       "veryHighRiskLabel" : "1001+",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 26.845352052754734,
-      "lowRiskPercentage" : 25.015954052329292,
-      "negligibleRiskPercentage" : 48.138693894915974,
-      "totalValue" : 4701,
-      "totalCount" : 80
+      "mediumRiskPercentage" : 26.272088567170535,
+      "lowRiskPercentage" : 25.03725782414307,
+      "negligibleRiskPercentage" : 48.6906536086864,
+      "totalValue" : 4697,
+      "totalCount" : 81
     }, {
       "key" : "css",
       "lowRiskThreshold" : 100,
@@ -2978,13 +2978,13 @@
         "mediumRiskThreshold" : 200,
         "highRiskThreshold" : 500,
         "veryHighRiskThreshold" : 1000,
-        "negligibleRiskValue" : 2661,
+        "negligibleRiskValue" : 2695,
         "lowRiskValue" : 2226,
         "mediumRiskValue" : 1165,
         "highRiskValue" : 0,
         "veryHighRiskValue" : 0,
         "lowRiskCount" : 15,
-        "negligibleRiskCount" : 69,
+        "negligibleRiskCount" : 70,
         "mediumRiskCount" : 4,
         "highRiskCount" : 0,
         "veryHighRiskCount" : 0,
@@ -2995,11 +2995,11 @@
         "veryHighRiskLabel" : "1001+",
         "veryHighRiskPercentage" : 0.0,
         "highRiskPercentage" : 0.0,
-        "mediumRiskPercentage" : 19.24983476536682,
-        "lowRiskPercentage" : 36.78122934567085,
-        "negligibleRiskPercentage" : 43.96893588896233,
-        "totalValue" : 6052,
-        "totalCount" : 88
+        "mediumRiskPercentage" : 19.142293789023988,
+        "lowRiskPercentage" : 36.57574761748275,
+        "negligibleRiskPercentage" : 44.281958593493265,
+        "totalValue" : 6086,
+        "totalCount" : 89
       }, {
         "key" : "components",
         "lowRiskThreshold" : 100,
@@ -3174,9 +3174,9 @@
         "mediumRiskThreshold" : 200,
         "highRiskThreshold" : 500,
         "veryHighRiskThreshold" : 1000,
-        "negligibleRiskValue" : 81,
+        "negligibleRiskValue" : 72,
         "lowRiskValue" : 0,
-        "mediumRiskValue" : 326,
+        "mediumRiskValue" : 298,
         "highRiskValue" : 0,
         "veryHighRiskValue" : 0,
         "lowRiskCount" : 0,
@@ -3191,10 +3191,10 @@
         "veryHighRiskLabel" : "1001+",
         "veryHighRiskPercentage" : 0.0,
         "highRiskPercentage" : 0.0,
-        "mediumRiskPercentage" : 80.0982800982801,
+        "mediumRiskPercentage" : 80.54054054054055,
         "lowRiskPercentage" : 0.0,
-        "negligibleRiskPercentage" : 19.9017199017199,
-        "totalValue" : 407,
+        "negligibleRiskPercentage" : 19.45945945945946,
+        "totalValue" : 370,
         "totalCount" : 4
       }, {
         "key" : "features",
@@ -3236,7 +3236,7 @@
     }, {
       "relativePath" : "cypress/e2e/complete_test.cy.ts",
       "extension" : "ts",
-      "linesOfCode" : 326,
+      "linesOfCode" : 298,
       "unitsCount" : 0,
       "unitsMcCabeIndexSum" : 0,
       "linesOfCodeInUnits" : 0
@@ -3936,13 +3936,13 @@
       "mediumRiskThreshold" : 90,
       "highRiskThreshold" : 180,
       "veryHighRiskThreshold" : 365,
-      "negligibleRiskValue" : 8131,
+      "negligibleRiskValue" : 8128,
       "lowRiskValue" : 900,
       "mediumRiskValue" : 51,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 22,
-      "negligibleRiskCount" : 113,
+      "negligibleRiskCount" : 114,
       "mediumRiskCount" : 4,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -3953,11 +3953,11 @@
       "veryHighRiskLabel" : "366+ days",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 0.5615503193129266,
-      "lowRiskPercentage" : 9.909711517286942,
-      "negligibleRiskPercentage" : 89.52873816340013,
-      "totalValue" : 9082,
-      "totalCount" : 139
+      "mediumRiskPercentage" : 0.5617358739949334,
+      "lowRiskPercentage" : 9.912986011675295,
+      "negligibleRiskPercentage" : 89.52527811432977,
+      "totalValue" : 9079,
+      "totalCount" : 140
     },
     "overallFileFirstModifiedDistribution" : {
       "key" : "",
@@ -3965,13 +3965,13 @@
       "mediumRiskThreshold" : 90,
       "highRiskThreshold" : 180,
       "veryHighRiskThreshold" : 365,
-      "negligibleRiskValue" : 1348,
-      "lowRiskValue" : 6167,
+      "negligibleRiskValue" : 1344,
+      "lowRiskValue" : 6168,
       "mediumRiskValue" : 1567,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 82,
-      "negligibleRiskCount" : 28,
+      "negligibleRiskCount" : 29,
       "mediumRiskCount" : 29,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -3982,11 +3982,11 @@
       "veryHighRiskLabel" : "366+ days",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 17.25390883065404,
-      "lowRiskPercentage" : 67.90354547456508,
-      "negligibleRiskPercentage" : 14.842545694780885,
-      "totalValue" : 9082,
-      "totalCount" : 139
+      "mediumRiskPercentage" : 17.259610089216874,
+      "lowRiskPercentage" : 67.93699746668135,
+      "negligibleRiskPercentage" : 14.803392444101773,
+      "totalValue" : 9079,
+      "totalCount" : 140
     },
     "overallFileChangeDistribution" : {
       "key" : "",
@@ -3994,13 +3994,13 @@
       "mediumRiskThreshold" : 20,
       "highRiskThreshold" : 50,
       "veryHighRiskThreshold" : 100,
-      "negligibleRiskValue" : 5409,
-      "lowRiskValue" : 3673,
+      "negligibleRiskValue" : 5434,
+      "lowRiskValue" : 3645,
       "mediumRiskValue" : 0,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 37,
-      "negligibleRiskCount" : 102,
+      "negligibleRiskCount" : 103,
       "mediumRiskCount" : 0,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -4012,10 +4012,10 @@
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
       "mediumRiskPercentage" : 0.0,
-      "lowRiskPercentage" : 40.442633781105485,
-      "negligibleRiskPercentage" : 59.557366218894515,
-      "totalValue" : 9082,
-      "totalCount" : 139
+      "lowRiskPercentage" : 40.147593347284946,
+      "negligibleRiskPercentage" : 59.852406652715054,
+      "totalValue" : 9079,
+      "totalCount" : 140
     },
     "overallContributorsCountDistribution" : {
       "key" : "",
@@ -4023,13 +4023,13 @@
       "mediumRiskThreshold" : 5,
       "highRiskThreshold" : 10,
       "veryHighRiskThreshold" : 25,
-      "negligibleRiskValue" : 2002,
-      "lowRiskValue" : 7080,
+      "negligibleRiskValue" : 2026,
+      "lowRiskValue" : 7053,
       "mediumRiskValue" : 0,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 89,
-      "negligibleRiskCount" : 50,
+      "negligibleRiskCount" : 51,
       "mediumRiskCount" : 0,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -4041,10 +4041,10 @@
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
       "mediumRiskPercentage" : 0.0,
-      "lowRiskPercentage" : 77.95639726932394,
-      "negligibleRiskPercentage" : 22.043602730676064,
-      "totalValue" : 9082,
-      "totalCount" : 139
+      "lowRiskPercentage" : 77.68476704482873,
+      "negligibleRiskPercentage" : 22.315232955171275,
+      "totalValue" : 9079,
+      "totalCount" : 140
     },
     "filesWithoutCommitHistoryCount" : 1,
     "filesWithoutCommitHistoryLinesOfCode" : 36,
@@ -4054,7 +4054,7 @@
       "mediumRiskThreshold" : 20,
       "highRiskThreshold" : 50,
       "veryHighRiskThreshold" : 100,
-      "negligibleRiskValue" : 2446,
+      "negligibleRiskValue" : 2447,
       "lowRiskValue" : 1789,
       "mediumRiskValue" : 0,
       "highRiskValue" : 0,
@@ -4072,9 +4072,9 @@
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
       "mediumRiskPercentage" : 0.0,
-      "lowRiskPercentage" : 42.243211334120424,
-      "negligibleRiskPercentage" : 57.756788665879576,
-      "totalValue" : 4235,
+      "lowRiskPercentage" : 42.23323890462701,
+      "negligibleRiskPercentage" : 57.76676109537299,
+      "totalValue" : 4236,
       "totalCount" : 54
     }, {
       "key" : "ts",
@@ -4082,13 +4082,13 @@
       "mediumRiskThreshold" : 20,
       "highRiskThreshold" : 50,
       "veryHighRiskThreshold" : 100,
-      "negligibleRiskValue" : 2922,
-      "lowRiskValue" : 1779,
+      "negligibleRiskValue" : 2946,
+      "lowRiskValue" : 1751,
       "mediumRiskValue" : 0,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 17,
-      "negligibleRiskCount" : 63,
+      "negligibleRiskCount" : 64,
       "mediumRiskCount" : 0,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -4100,10 +4100,10 @@
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
       "mediumRiskPercentage" : 0.0,
-      "lowRiskPercentage" : 37.84301212507977,
-      "negligibleRiskPercentage" : 62.15698787492023,
-      "totalValue" : 4701,
-      "totalCount" : 80
+      "lowRiskPercentage" : 37.27911432829465,
+      "negligibleRiskPercentage" : 62.72088567170535,
+      "totalValue" : 4697,
+      "totalCount" : 81
     }, {
       "key" : "css",
       "lowRiskThreshold" : 5,
@@ -4223,7 +4223,7 @@
       "mediumRiskThreshold" : 90,
       "highRiskThreshold" : 180,
       "veryHighRiskThreshold" : 365,
-      "negligibleRiskValue" : 3601,
+      "negligibleRiskValue" : 3602,
       "lowRiskValue" : 634,
       "mediumRiskValue" : 0,
       "highRiskValue" : 0,
@@ -4241,9 +4241,9 @@
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
       "mediumRiskPercentage" : 0.0,
-      "lowRiskPercentage" : 14.970484061393153,
-      "negligibleRiskPercentage" : 85.02951593860685,
-      "totalValue" : 4235,
+      "lowRiskPercentage" : 14.966949952785647,
+      "negligibleRiskPercentage" : 85.03305004721436,
+      "totalValue" : 4236,
       "totalCount" : 54
     }, {
       "key" : "ts",
@@ -4251,13 +4251,13 @@
       "mediumRiskThreshold" : 90,
       "highRiskThreshold" : 180,
       "veryHighRiskThreshold" : 365,
-      "negligibleRiskValue" : 4425,
+      "negligibleRiskValue" : 4421,
       "lowRiskValue" : 241,
       "mediumRiskValue" : 35,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 11,
-      "negligibleRiskCount" : 68,
+      "negligibleRiskCount" : 69,
       "mediumRiskCount" : 1,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -4268,11 +4268,11 @@
       "veryHighRiskLabel" : "366+ days",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 0.7445224420336098,
-      "lowRiskPercentage" : 5.126568815145713,
-      "negligibleRiskPercentage" : 94.12890874282067,
-      "totalValue" : 4701,
-      "totalCount" : 80
+      "mediumRiskPercentage" : 0.7451564828614009,
+      "lowRiskPercentage" : 5.13093463913136,
+      "negligibleRiskPercentage" : 94.12390887800724,
+      "totalValue" : 4697,
+      "totalCount" : 81
     }, {
       "key" : "css",
       "lowRiskThreshold" : 30,
@@ -4393,7 +4393,7 @@
       "highRiskThreshold" : 180,
       "veryHighRiskThreshold" : 365,
       "negligibleRiskValue" : 359,
-      "lowRiskValue" : 2787,
+      "lowRiskValue" : 2788,
       "mediumRiskValue" : 1089,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
@@ -4409,10 +4409,10 @@
       "veryHighRiskLabel" : "366+ days",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 25.714285714285715,
-      "lowRiskPercentage" : 65.80873671782763,
-      "negligibleRiskPercentage" : 8.476977567886658,
-      "totalValue" : 4235,
+      "mediumRiskPercentage" : 25.708215297450426,
+      "lowRiskPercentage" : 65.81680830972616,
+      "negligibleRiskPercentage" : 8.474976392823418,
+      "totalValue" : 4236,
       "totalCount" : 54
     }, {
       "key" : "ts",
@@ -4420,13 +4420,13 @@
       "mediumRiskThreshold" : 90,
       "highRiskThreshold" : 180,
       "veryHighRiskThreshold" : 365,
-      "negligibleRiskValue" : 989,
+      "negligibleRiskValue" : 985,
       "lowRiskValue" : 3380,
       "mediumRiskValue" : 332,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 50,
-      "negligibleRiskCount" : 20,
+      "negligibleRiskCount" : 21,
       "mediumRiskCount" : 10,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -4437,11 +4437,11 @@
       "veryHighRiskLabel" : "366+ days",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 7.062327164433099,
-      "lowRiskPercentage" : 71.89959583067433,
-      "negligibleRiskPercentage" : 21.038077004892575,
-      "totalValue" : 4701,
-      "totalCount" : 80
+      "mediumRiskPercentage" : 7.068341494571003,
+      "lowRiskPercentage" : 71.96082605918672,
+      "negligibleRiskPercentage" : 20.970832446242284,
+      "totalValue" : 4697,
+      "totalCount" : 81
     }, {
       "key" : "css",
       "lowRiskThreshold" : 30,
@@ -4563,13 +4563,13 @@
         "mediumRiskThreshold" : 20,
         "highRiskThreshold" : 50,
         "veryHighRiskThreshold" : 100,
-        "negligibleRiskValue" : 2956,
+        "negligibleRiskValue" : 2990,
         "lowRiskValue" : 3096,
         "mediumRiskValue" : 0,
         "highRiskValue" : 0,
         "veryHighRiskValue" : 0,
         "lowRiskCount" : 33,
-        "negligibleRiskCount" : 55,
+        "negligibleRiskCount" : 56,
         "mediumRiskCount" : 0,
         "highRiskCount" : 0,
         "veryHighRiskCount" : 0,
@@ -4581,10 +4581,10 @@
         "veryHighRiskPercentage" : 0.0,
         "highRiskPercentage" : 0.0,
         "mediumRiskPercentage" : 0.0,
-        "lowRiskPercentage" : 51.1566424322538,
-        "negligibleRiskPercentage" : 48.8433575677462,
-        "totalValue" : 6052,
-        "totalCount" : 88
+        "lowRiskPercentage" : 50.87085113374959,
+        "negligibleRiskPercentage" : 49.12914886625041,
+        "totalValue" : 6086,
+        "totalCount" : 89
       }, {
         "key" : "components",
         "lowRiskThreshold" : 5,
@@ -4759,8 +4759,8 @@
         "mediumRiskThreshold" : 20,
         "highRiskThreshold" : 50,
         "veryHighRiskThreshold" : 100,
-        "negligibleRiskValue" : 81,
-        "lowRiskValue" : 326,
+        "negligibleRiskValue" : 72,
+        "lowRiskValue" : 298,
         "mediumRiskValue" : 0,
         "highRiskValue" : 0,
         "veryHighRiskValue" : 0,
@@ -4777,9 +4777,9 @@
         "veryHighRiskPercentage" : 0.0,
         "highRiskPercentage" : 0.0,
         "mediumRiskPercentage" : 0.0,
-        "lowRiskPercentage" : 80.0982800982801,
-        "negligibleRiskPercentage" : 19.9017199017199,
-        "totalValue" : 407,
+        "lowRiskPercentage" : 80.54054054054055,
+        "negligibleRiskPercentage" : 19.45945945945946,
+        "totalValue" : 370,
         "totalCount" : 4
       }, {
         "key" : "features",
@@ -4819,13 +4819,13 @@
         "mediumRiskThreshold" : 90,
         "highRiskThreshold" : 180,
         "veryHighRiskThreshold" : 365,
-        "negligibleRiskValue" : 840,
-        "lowRiskValue" : 4162,
+        "negligibleRiskValue" : 873,
+        "lowRiskValue" : 4163,
         "mediumRiskValue" : 1050,
         "highRiskValue" : 0,
         "veryHighRiskValue" : 0,
         "lowRiskCount" : 53,
-        "negligibleRiskCount" : 19,
+        "negligibleRiskCount" : 20,
         "mediumRiskCount" : 16,
         "highRiskCount" : 0,
         "veryHighRiskCount" : 0,
@@ -4836,11 +4836,11 @@
         "veryHighRiskLabel" : "366+ days",
         "veryHighRiskPercentage" : 0.0,
         "highRiskPercentage" : 0.0,
-        "mediumRiskPercentage" : 17.349636483807007,
-        "lowRiskPercentage" : 68.77065432914739,
-        "negligibleRiskPercentage" : 13.879709187045604,
-        "totalValue" : 6052,
-        "totalCount" : 88
+        "mediumRiskPercentage" : 17.252711140322052,
+        "lowRiskPercentage" : 68.40289188301018,
+        "negligibleRiskPercentage" : 14.344396976667761,
+        "totalValue" : 6086,
+        "totalCount" : 89
       }, {
         "key" : "components",
         "lowRiskThreshold" : 30,
@@ -5015,7 +5015,7 @@
         "mediumRiskThreshold" : 90,
         "highRiskThreshold" : 180,
         "veryHighRiskThreshold" : 365,
-        "negligibleRiskValue" : 407,
+        "negligibleRiskValue" : 370,
         "lowRiskValue" : 0,
         "mediumRiskValue" : 0,
         "highRiskValue" : 0,
@@ -5035,7 +5035,7 @@
         "mediumRiskPercentage" : 0.0,
         "lowRiskPercentage" : 0.0,
         "negligibleRiskPercentage" : 100.0,
-        "totalValue" : 407,
+        "totalValue" : 370,
         "totalCount" : 4
       }, {
         "key" : "features",
@@ -5075,13 +5075,13 @@
         "mediumRiskThreshold" : 90,
         "highRiskThreshold" : 180,
         "veryHighRiskThreshold" : 365,
-        "negligibleRiskValue" : 5410,
+        "negligibleRiskValue" : 5444,
         "lowRiskValue" : 607,
         "mediumRiskValue" : 35,
         "highRiskValue" : 0,
         "veryHighRiskValue" : 0,
         "lowRiskCount" : 13,
-        "negligibleRiskCount" : 74,
+        "negligibleRiskCount" : 75,
         "mediumRiskCount" : 1,
         "highRiskCount" : 0,
         "veryHighRiskCount" : 0,
@@ -5092,11 +5092,11 @@
         "veryHighRiskLabel" : "366+ days",
         "veryHighRiskPercentage" : 0.0,
         "highRiskPercentage" : 0.0,
-        "mediumRiskPercentage" : 0.5783212161269002,
-        "lowRiskPercentage" : 10.029742233972241,
-        "negligibleRiskPercentage" : 89.39193654990086,
-        "totalValue" : 6052,
-        "totalCount" : 88
+        "mediumRiskPercentage" : 0.5750903713440684,
+        "lowRiskPercentage" : 9.973710154452842,
+        "negligibleRiskPercentage" : 89.4511994742031,
+        "totalValue" : 6086,
+        "totalCount" : 89
       }, {
         "key" : "components",
         "lowRiskThreshold" : 30,
@@ -5271,7 +5271,7 @@
         "mediumRiskThreshold" : 90,
         "highRiskThreshold" : 180,
         "veryHighRiskThreshold" : 365,
-        "negligibleRiskValue" : 407,
+        "negligibleRiskValue" : 370,
         "lowRiskValue" : 0,
         "mediumRiskValue" : 0,
         "highRiskValue" : 0,
@@ -5291,7 +5291,7 @@
         "mediumRiskPercentage" : 0.0,
         "lowRiskPercentage" : 0.0,
         "negligibleRiskPercentage" : 100.0,
-        "totalValue" : 407,
+        "totalValue" : 370,
         "totalCount" : 4
       }, {
         "key" : "features",
@@ -5829,6 +5829,13 @@
       "unitsMcCabeIndexSum" : 8,
       "linesOfCodeInUnits" : 47
     }, {
+      "relativePath" : "app/api/user/test-vendor/route.ts",
+      "extension" : "ts",
+      "linesOfCode" : 33,
+      "unitsCount" : 1,
+      "unitsMcCabeIndexSum" : 5,
+      "linesOfCodeInUnits" : 30
+    }, {
       "relativePath" : "app/api/product/[slug]/reviews/review-helpers.ts",
       "extension" : "ts",
       "linesOfCode" : 87,
@@ -5852,14 +5859,7 @@
     }, {
       "relativePath" : "cypress/e2e/complete_test.cy.ts",
       "extension" : "ts",
-      "linesOfCode" : 326,
-      "unitsCount" : 0,
-      "unitsMcCabeIndexSum" : 0,
-      "linesOfCodeInUnits" : 0
-    }, {
-      "relativePath" : "cypress/support/e2e.ts",
-      "extension" : "ts",
-      "linesOfCode" : 10,
+      "linesOfCode" : 298,
       "unitsCount" : 0,
       "unitsMcCabeIndexSum" : 0,
       "linesOfCodeInUnits" : 0
@@ -5872,6 +5872,13 @@
       "linesOfCodeInUnits" : 6
     }, {
       "relativePath" : "cypress/support/commands.ts",
+      "extension" : "ts",
+      "linesOfCode" : 1,
+      "unitsCount" : 0,
+      "unitsMcCabeIndexSum" : 0,
+      "linesOfCodeInUnits" : 0
+    }, {
+      "relativePath" : "cypress/support/e2e.ts",
       "extension" : "ts",
       "linesOfCode" : 1,
       "unitsCount" : 0,
@@ -6017,13 +6024,6 @@
       "unitsCount" : 1,
       "unitsMcCabeIndexSum" : 1,
       "linesOfCodeInUnits" : 4
-    }, {
-      "relativePath" : "app/api/professional/[id]/route.ts",
-      "extension" : "ts",
-      "linesOfCode" : 94,
-      "unitsCount" : 1,
-      "unitsMcCabeIndexSum" : 1,
-      "linesOfCodeInUnits" : 3
     } ],
     "mostRecentlyChangedFiles" : [ {
       "relativePath" : "find_unused.py",
@@ -6042,7 +6042,7 @@
     }, {
       "relativePath" : "cypress/e2e/complete_test.cy.ts",
       "extension" : "ts",
-      "linesOfCode" : 326,
+      "linesOfCode" : 298,
       "unitsCount" : 0,
       "unitsMcCabeIndexSum" : 0,
       "linesOfCodeInUnits" : 0
@@ -6189,10 +6189,10 @@
     }, {
       "relativePath" : "app/settings/StripeConnectButton.tsx",
       "extension" : "tsx",
-      "linesOfCode" : 56,
+      "linesOfCode" : 57,
       "unitsCount" : 1,
       "unitsMcCabeIndexSum" : 8,
-      "linesOfCodeInUnits" : 52
+      "linesOfCodeInUnits" : 53
     }, {
       "relativePath" : "app/_components/ProductCarousel.tsx",
       "extension" : "tsx",
@@ -6891,7 +6891,7 @@
     }, {
       "relativePath" : "cypress/e2e/complete_test.cy.ts",
       "extension" : "ts",
-      "linesOfCode" : 326,
+      "linesOfCode" : 298,
       "unitsCount" : 0,
       "unitsMcCabeIndexSum" : 0,
       "linesOfCodeInUnits" : 0
@@ -7277,7 +7277,7 @@
     }, {
       "relativePath" : "cypress/e2e/complete_test.cy.ts",
       "extension" : "ts",
-      "linesOfCode" : 326,
+      "linesOfCode" : 298,
       "unitsCount" : 0,
       "unitsMcCabeIndexSum" : 0,
       "linesOfCodeInUnits" : 0
@@ -7612,6 +7612,13 @@
       "unitsMcCabeIndexSum" : 0,
       "linesOfCodeInUnits" : 0
     }, {
+      "relativePath" : "app/api/user/test-vendor/route.ts",
+      "extension" : "ts",
+      "linesOfCode" : 33,
+      "unitsCount" : 1,
+      "unitsMcCabeIndexSum" : 5,
+      "linesOfCodeInUnits" : 30
+    }, {
       "relativePath" : "app/lib/session/tokens.ts",
       "extension" : "ts",
       "linesOfCode" : 31,
@@ -7699,13 +7706,6 @@
       "relativePath" : "app/about/page.tsx",
       "extension" : "tsx",
       "linesOfCode" : 11,
-      "unitsCount" : 0,
-      "unitsMcCabeIndexSum" : 0,
-      "linesOfCodeInUnits" : 0
-    }, {
-      "relativePath" : "cypress/support/e2e.ts",
-      "extension" : "ts",
-      "linesOfCode" : 10,
       "unitsCount" : 0,
       "unitsMcCabeIndexSum" : 0,
       "linesOfCodeInUnits" : 0
@@ -7925,8 +7925,8 @@
     } ]
   },
   "unitsAnalysisResults" : {
-    "totalNumberOfUnits" : 263,
-    "linesOfCodeInUnits" : 4334,
+    "totalNumberOfUnits" : 264,
+    "linesOfCodeInUnits" : 4365,
     "unitSizeRiskDistribution" : {
       "key" : "",
       "lowRiskThreshold" : 10,
@@ -7935,12 +7935,12 @@
       "veryHighRiskThreshold" : 100,
       "negligibleRiskValue" : 873,
       "lowRiskValue" : 724,
-      "mediumRiskValue" : 1031,
-      "highRiskValue" : 441,
+      "mediumRiskValue" : 1061,
+      "highRiskValue" : 442,
       "veryHighRiskValue" : 1265,
       "lowRiskCount" : 48,
       "negligibleRiskCount" : 164,
-      "mediumRiskCount" : 36,
+      "mediumRiskCount" : 37,
       "highRiskCount" : 7,
       "veryHighRiskCount" : 8,
       "negligibleRiskLabel" : "1-10",
@@ -7948,13 +7948,13 @@
       "mediumRiskLabel" : "21-50",
       "highRiskLabel" : "51-100",
       "veryHighRiskLabel" : "101+",
-      "veryHighRiskPercentage" : 29.18781725888325,
-      "highRiskPercentage" : 10.175357637286572,
-      "mediumRiskPercentage" : 23.788647900323028,
-      "lowRiskPercentage" : 16.705122288878634,
-      "negligibleRiskPercentage" : 20.143054914628518,
-      "totalValue" : 4334,
-      "totalCount" : 263
+      "veryHighRiskPercentage" : 28.98052691867125,
+      "highRiskPercentage" : 10.126002290950744,
+      "mediumRiskPercentage" : 24.306987399770904,
+      "lowRiskPercentage" : 16.586483390607103,
+      "negligibleRiskPercentage" : 20.0,
+      "totalValue" : 4365,
+      "totalCount" : 264
     },
     "conditionalComplexityRiskDistribution" : {
       "key" : "",
@@ -7962,13 +7962,13 @@
       "mediumRiskThreshold" : 10,
       "highRiskThreshold" : 25,
       "veryHighRiskThreshold" : 50,
-      "negligibleRiskValue" : 2534,
-      "lowRiskValue" : 530,
+      "negligibleRiskValue" : 2564,
+      "lowRiskValue" : 531,
       "mediumRiskValue" : 1003,
       "highRiskValue" : 267,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 11,
-      "negligibleRiskCount" : 243,
+      "negligibleRiskCount" : 244,
       "mediumRiskCount" : 8,
       "highRiskCount" : 1,
       "veryHighRiskCount" : 0,
@@ -7978,12 +7978,12 @@
       "highRiskLabel" : "26-50",
       "veryHighRiskLabel" : "51+",
       "veryHighRiskPercentage" : 0.0,
-      "highRiskPercentage" : 6.160590678357176,
-      "mediumRiskPercentage" : 23.142593447161975,
-      "lowRiskPercentage" : 12.22888786340563,
-      "negligibleRiskPercentage" : 58.467928011075216,
-      "totalValue" : 4334,
-      "totalCount" : 263
+      "highRiskPercentage" : 6.116838487972508,
+      "mediumRiskPercentage" : 22.97823596792669,
+      "lowRiskPercentage" : 12.164948453608247,
+      "negligibleRiskPercentage" : 58.73997709049255,
+      "totalValue" : 4365,
+      "totalCount" : 264
     },
     "unitSizeRiskDistributionPerExtension" : [ {
       "key" : "tsx",
@@ -7994,7 +7994,7 @@
       "negligibleRiskValue" : 115,
       "lowRiskValue" : 186,
       "mediumRiskValue" : 390,
-      "highRiskValue" : 321,
+      "highRiskValue" : 322,
       "veryHighRiskValue" : 1019,
       "lowRiskCount" : 13,
       "negligibleRiskCount" : 21,
@@ -8006,12 +8006,12 @@
       "mediumRiskLabel" : "21-50",
       "highRiskLabel" : "51-100",
       "veryHighRiskLabel" : "101+",
-      "veryHighRiskPercentage" : 50.17232890201871,
-      "highRiskPercentage" : 15.805022156573116,
-      "mediumRiskPercentage" : 19.202363367799112,
-      "lowRiskPercentage" : 9.15805022156573,
-      "negligibleRiskPercentage" : 5.662235352043329,
-      "totalValue" : 2031,
+      "veryHighRiskPercentage" : 50.14763779527559,
+      "highRiskPercentage" : 15.846456692913385,
+      "mediumRiskPercentage" : 19.19291338582677,
+      "lowRiskPercentage" : 9.153543307086615,
+      "negligibleRiskPercentage" : 5.659448818897638,
+      "totalValue" : 2032,
       "totalCount" : 59
     }, {
       "key" : "ts",
@@ -8021,12 +8021,12 @@
       "veryHighRiskThreshold" : 100,
       "negligibleRiskValue" : 758,
       "lowRiskValue" : 538,
-      "mediumRiskValue" : 641,
+      "mediumRiskValue" : 671,
       "highRiskValue" : 120,
       "veryHighRiskValue" : 246,
       "lowRiskCount" : 35,
       "negligibleRiskCount" : 143,
-      "mediumRiskCount" : 22,
+      "mediumRiskCount" : 23,
       "highRiskCount" : 2,
       "veryHighRiskCount" : 2,
       "negligibleRiskLabel" : "1-10",
@@ -8034,13 +8034,13 @@
       "mediumRiskLabel" : "21-50",
       "highRiskLabel" : "51-100",
       "veryHighRiskLabel" : "101+",
-      "veryHighRiskPercentage" : 10.681719496309162,
-      "highRiskPercentage" : 5.210594876248372,
-      "mediumRiskPercentage" : 27.83326096396005,
-      "lowRiskPercentage" : 23.3608336951802,
-      "negligibleRiskPercentage" : 32.913590968302216,
-      "totalValue" : 2303,
-      "totalCount" : 204
+      "veryHighRiskPercentage" : 10.544363480497214,
+      "highRiskPercentage" : 5.143591941705958,
+      "mediumRiskPercentage" : 28.761251607372483,
+      "lowRiskPercentage" : 23.060437205315043,
+      "negligibleRiskPercentage" : 32.4903557651093,
+      "totalValue" : 2333,
+      "totalCount" : 205
     } ],
     "unitSizeRiskDistributionPerComponent" : [ [ {
       "key" : "app",
@@ -8050,12 +8050,12 @@
       "veryHighRiskThreshold" : 100,
       "negligibleRiskValue" : 298,
       "lowRiskValue" : 299,
-      "mediumRiskValue" : 592,
-      "highRiskValue" : 301,
+      "mediumRiskValue" : 622,
+      "highRiskValue" : 302,
       "veryHighRiskValue" : 1265,
       "lowRiskCount" : 19,
       "negligibleRiskCount" : 53,
-      "mediumRiskCount" : 20,
+      "mediumRiskCount" : 21,
       "highRiskCount" : 5,
       "veryHighRiskCount" : 8,
       "negligibleRiskLabel" : "1-10",
@@ -8063,13 +8063,13 @@
       "mediumRiskLabel" : "21-50",
       "highRiskLabel" : "51-100",
       "veryHighRiskLabel" : "101+",
-      "veryHighRiskPercentage" : 45.91651542649728,
-      "highRiskPercentage" : 10.925589836660617,
-      "mediumRiskPercentage" : 21.488203266787657,
-      "lowRiskPercentage" : 10.852994555353902,
-      "negligibleRiskPercentage" : 10.816696914700545,
-      "totalValue" : 2755,
-      "totalCount" : 105
+      "veryHighRiskPercentage" : 45.405599425699926,
+      "highRiskPercentage" : 10.839913854989232,
+      "mediumRiskPercentage" : 22.32591529073941,
+      "lowRiskPercentage" : 10.732232591529074,
+      "negligibleRiskPercentage" : 10.696338837042354,
+      "totalValue" : 2786,
+      "totalCount" : 106
     }, {
       "key" : "components",
       "lowRiskThreshold" : 10,
@@ -8628,6 +8628,26 @@
       "numberOfExpressions" : 0,
       "children" : [ ]
     }, {
+      "shortName" : "export default function ConnectStripeButton()",
+      "longName" : "",
+      "sourceFile" : {
+        "relativePath" : "app/settings/StripeConnectButton.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 57,
+        "unitsCount" : 1,
+        "unitsMcCabeIndexSum" : 8,
+        "linesOfCodeInUnits" : 53
+      },
+      "startLine" : 6,
+      "endLine" : 63,
+      "linesOfCode" : 53,
+      "mcCabeIndex" : 8,
+      "numberOfParameters" : 0,
+      "numberOfLiterals" : 0,
+      "numberOfStatements" : 0,
+      "numberOfExpressions" : 0,
+      "children" : [ ]
+    }, {
       "shortName" : "export function ProductCard()",
       "longName" : "",
       "sourceFile" : {
@@ -8643,26 +8663,6 @@
       "linesOfCode" : 53,
       "mcCabeIndex" : 5,
       "numberOfParameters" : 2,
-      "numberOfLiterals" : 0,
-      "numberOfStatements" : 0,
-      "numberOfExpressions" : 0,
-      "children" : [ ]
-    }, {
-      "shortName" : "export default function ConnectStripeButton()",
-      "longName" : "",
-      "sourceFile" : {
-        "relativePath" : "app/settings/StripeConnectButton.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 56,
-        "unitsCount" : 1,
-        "unitsMcCabeIndexSum" : 8,
-        "linesOfCodeInUnits" : 52
-      },
-      "startLine" : 6,
-      "endLine" : 62,
-      "linesOfCode" : 52,
-      "mcCabeIndex" : 8,
-      "numberOfParameters" : 0,
       "numberOfLiterals" : 0,
       "numberOfStatements" : 0,
       "numberOfExpressions" : 0,
@@ -8942,6 +8942,26 @@
       "endLine" : 69,
       "linesOfCode" : 31,
       "mcCabeIndex" : 7,
+      "numberOfParameters" : 1,
+      "numberOfLiterals" : 0,
+      "numberOfStatements" : 0,
+      "numberOfExpressions" : 0,
+      "children" : [ ]
+    }, {
+      "shortName" : "export async function POST()",
+      "longName" : "",
+      "sourceFile" : {
+        "relativePath" : "app/api/user/test-vendor/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 33,
+        "unitsCount" : 1,
+        "unitsMcCabeIndexSum" : 5,
+        "linesOfCodeInUnits" : 30
+      },
+      "startLine" : 5,
+      "endLine" : 41,
+      "linesOfCode" : 30,
+      "mcCabeIndex" : 5,
       "numberOfParameters" : 1,
       "numberOfLiterals" : 0,
       "numberOfStatements" : 0,
@@ -9387,26 +9407,6 @@
       "numberOfStatements" : 0,
       "numberOfExpressions" : 0,
       "children" : [ ]
-    }, {
-      "shortName" : "async cleanup()",
-      "longName" : "",
-      "sourceFile" : {
-        "relativePath" : "features/support/productCrudFixture.ts",
-        "extension" : "ts",
-        "linesOfCode" : 186,
-        "unitsCount" : 15,
-        "unitsMcCabeIndexSum" : 37,
-        "linesOfCodeInUnits" : 163
-      },
-      "startLine" : 141,
-      "endLine" : 162,
-      "linesOfCode" : 22,
-      "mcCabeIndex" : 4,
-      "numberOfParameters" : 0,
-      "numberOfLiterals" : 0,
-      "numberOfStatements" : 0,
-      "numberOfExpressions" : 0,
-      "children" : [ ]
     } ],
     "conditionalComplexityRiskDistributionPerExtension" : [ {
       "key" : "tsx",
@@ -9415,7 +9415,7 @@
       "highRiskThreshold" : 25,
       "veryHighRiskThreshold" : 50,
       "negligibleRiskValue" : 809,
-      "lowRiskValue" : 257,
+      "lowRiskValue" : 258,
       "mediumRiskValue" : 698,
       "highRiskValue" : 267,
       "veryHighRiskValue" : 0,
@@ -9430,11 +9430,11 @@
       "highRiskLabel" : "26-50",
       "veryHighRiskLabel" : "51+",
       "veryHighRiskPercentage" : 0.0,
-      "highRiskPercentage" : 13.146233382570163,
-      "mediumRiskPercentage" : 34.367306745445596,
-      "lowRiskPercentage" : 12.653865091088134,
-      "negligibleRiskPercentage" : 39.83259478089611,
-      "totalValue" : 2031,
+      "highRiskPercentage" : 13.13976377952756,
+      "mediumRiskPercentage" : 34.3503937007874,
+      "lowRiskPercentage" : 12.696850393700787,
+      "negligibleRiskPercentage" : 39.81299212598425,
+      "totalValue" : 2032,
       "totalCount" : 59
     }, {
       "key" : "ts",
@@ -9442,13 +9442,13 @@
       "mediumRiskThreshold" : 10,
       "highRiskThreshold" : 25,
       "veryHighRiskThreshold" : 50,
-      "negligibleRiskValue" : 1725,
+      "negligibleRiskValue" : 1755,
       "lowRiskValue" : 273,
       "mediumRiskValue" : 305,
       "highRiskValue" : 0,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 8,
-      "negligibleRiskCount" : 193,
+      "negligibleRiskCount" : 194,
       "mediumRiskCount" : 3,
       "highRiskCount" : 0,
       "veryHighRiskCount" : 0,
@@ -9459,11 +9459,11 @@
       "veryHighRiskLabel" : "51+",
       "veryHighRiskPercentage" : 0.0,
       "highRiskPercentage" : 0.0,
-      "mediumRiskPercentage" : 13.243595310464611,
-      "lowRiskPercentage" : 11.854103343465045,
-      "negligibleRiskPercentage" : 74.90230134607035,
-      "totalValue" : 2303,
-      "totalCount" : 204
+      "mediumRiskPercentage" : 13.07329618516931,
+      "lowRiskPercentage" : 11.701671667381055,
+      "negligibleRiskPercentage" : 75.22503214744964,
+      "totalValue" : 2333,
+      "totalCount" : 205
     } ],
     "conditionalComplexityRiskDistributionPerComponent" : [ [ {
       "key" : "app",
@@ -9471,13 +9471,13 @@
       "mediumRiskThreshold" : 10,
       "highRiskThreshold" : 25,
       "veryHighRiskThreshold" : 50,
-      "negligibleRiskValue" : 1167,
-      "lowRiskValue" : 377,
+      "negligibleRiskValue" : 1197,
+      "lowRiskValue" : 378,
       "mediumRiskValue" : 944,
       "highRiskValue" : 267,
       "veryHighRiskValue" : 0,
       "lowRiskCount" : 7,
-      "negligibleRiskCount" : 90,
+      "negligibleRiskCount" : 91,
       "mediumRiskCount" : 7,
       "highRiskCount" : 1,
       "veryHighRiskCount" : 0,
@@ -9487,12 +9487,12 @@
       "highRiskLabel" : "26-50",
       "veryHighRiskLabel" : "51+",
       "veryHighRiskPercentage" : 0.0,
-      "highRiskPercentage" : 9.69147005444646,
-      "mediumRiskPercentage" : 34.26497277676951,
-      "lowRiskPercentage" : 13.68421052631579,
-      "negligibleRiskPercentage" : 42.35934664246824,
-      "totalValue" : 2755,
-      "totalCount" : 105
+      "highRiskPercentage" : 9.583632447954056,
+      "mediumRiskPercentage" : 33.88370423546303,
+      "lowRiskPercentage" : 13.5678391959799,
+      "negligibleRiskPercentage" : 42.96482412060301,
+      "totalValue" : 2786,
+      "totalCount" : 106
     }, {
       "key" : "components",
       "lowRiskThreshold" : 5,
@@ -9956,14 +9956,14 @@
       "sourceFile" : {
         "relativePath" : "app/settings/StripeConnectButton.tsx",
         "extension" : "tsx",
-        "linesOfCode" : 56,
+        "linesOfCode" : 57,
         "unitsCount" : 1,
         "unitsMcCabeIndexSum" : 8,
-        "linesOfCodeInUnits" : 52
+        "linesOfCodeInUnits" : 53
       },
       "startLine" : 6,
-      "endLine" : 62,
-      "linesOfCode" : 52,
+      "endLine" : 63,
+      "linesOfCode" : 53,
       "mcCabeIndex" : 8,
       "numberOfParameters" : 0,
       "numberOfLiterals" : 0,
@@ -10244,6 +10244,26 @@
       "startLine" : 5,
       "endLine" : 39,
       "linesOfCode" : 31,
+      "mcCabeIndex" : 5,
+      "numberOfParameters" : 1,
+      "numberOfLiterals" : 0,
+      "numberOfStatements" : 0,
+      "numberOfExpressions" : 0,
+      "children" : [ ]
+    }, {
+      "shortName" : "export async function POST()",
+      "longName" : "",
+      "sourceFile" : {
+        "relativePath" : "app/api/user/test-vendor/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 33,
+        "unitsCount" : 1,
+        "unitsMcCabeIndexSum" : 5,
+        "linesOfCodeInUnits" : 30
+      },
+      "startLine" : 5,
+      "endLine" : 41,
+      "linesOfCode" : 30,
       "mcCabeIndex" : 5,
       "numberOfParameters" : 1,
       "numberOfLiterals" : 0,
@@ -10790,51 +10810,31 @@
       "numberOfStatements" : 0,
       "numberOfExpressions" : 0,
       "children" : [ ]
-    }, {
-      "shortName" : "async function updateUser()",
-      "longName" : "",
-      "sourceFile" : {
-        "relativePath" : "app/settings/SettingsForm.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 178,
-        "unitsCount" : 3,
-        "unitsMcCabeIndexSum" : 13,
-        "linesOfCodeInUnits" : 163
-      },
-      "startLine" : 56,
-      "endLine" : 81,
-      "linesOfCode" : 24,
-      "mcCabeIndex" : 3,
-      "numberOfParameters" : 1,
-      "numberOfLiterals" : 0,
-      "numberOfStatements" : 0,
-      "numberOfExpressions" : 0,
-      "children" : [ ]
     } ]
   },
   "duplicationAnalysisResults" : {
     "overallDuplication" : {
       "key" : "system",
       "numberOfDuplicates" : 51,
-      "cleanedLinesOfCode" : 8198,
+      "cleanedLinesOfCode" : 8191,
       "duplicatedLinesOfCode" : 452,
       "numberOfFilesWithDuplicates" : 32,
-      "duplicationPercentage" : 5.513539887777506
+      "duplicationPercentage" : 5.51825173971432
     },
     "duplicationPerComponent" : [ [ {
-      "key" : "cypress",
-      "numberOfDuplicates" : 0,
-      "cleanedLinesOfCode" : 400,
-      "duplicatedLinesOfCode" : 51,
-      "numberOfFilesWithDuplicates" : 0,
-      "duplicationPercentage" : 12.75
-    }, {
       "key" : "app",
       "numberOfDuplicates" : 0,
-      "cleanedLinesOfCode" : 5399,
+      "cleanedLinesOfCode" : 5426,
       "duplicatedLinesOfCode" : 286,
       "numberOfFilesWithDuplicates" : 0,
-      "duplicationPercentage" : 5.297277273569179
+      "duplicationPercentage" : 5.270917803169922
+    }, {
+      "key" : "cypress",
+      "numberOfDuplicates" : 0,
+      "cleanedLinesOfCode" : 366,
+      "duplicatedLinesOfCode" : 51,
+      "numberOfFilesWithDuplicates" : 0,
+      "duplicationPercentage" : 13.934426229508198
     }, {
       "key" : "components",
       "numberOfDuplicates" : 0,
@@ -10887,19 +10887,19 @@
     } ] ],
     "duplicationPerConcern" : [ ],
     "duplicationPerExtension" : [ {
-      "key" : "ts",
-      "numberOfDuplicates" : 0,
-      "cleanedLinesOfCode" : 4140,
-      "duplicatedLinesOfCode" : 256,
-      "numberOfFilesWithDuplicates" : 0,
-      "duplicationPercentage" : 6.183574879227053
-    }, {
       "key" : "tsx",
       "numberOfDuplicates" : 0,
-      "cleanedLinesOfCode" : 3880,
+      "cleanedLinesOfCode" : 3881,
       "duplicatedLinesOfCode" : 196,
       "numberOfFilesWithDuplicates" : 0,
-      "duplicationPercentage" : 5.051546391752577
+      "duplicationPercentage" : 5.05024478227261
+    }, {
+      "key" : "ts",
+      "numberOfDuplicates" : 0,
+      "cleanedLinesOfCode" : 4132,
+      "duplicatedLinesOfCode" : 256,
+      "numberOfFilesWithDuplicates" : 0,
+      "duplicationPercentage" : 6.195546950629235
     } ],
     "longestDuplicates" : [ {
       "displayContent" : "",
@@ -10937,6 +10937,42 @@
         "blockSize" : 11
       } ],
       "blockSize" : 11
+    }, {
+      "displayContent" : "",
+      "duplicatedFileBlocks" : [ {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 243,
+        "endLine" : 251,
+        "cleanedStartLine" : 211,
+        "cleanedEndLine" : 219,
+        "percentage" : 3.0508474576271185,
+        "blockSize" : 9
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 276,
+        "endLine" : 284,
+        "cleanedStartLine" : 238,
+        "cleanedEndLine" : 246,
+        "percentage" : 3.0508474576271185,
+        "blockSize" : 9
+      } ],
+      "blockSize" : 9
     }, {
       "displayContent" : "",
       "duplicatedFileBlocks" : [ {
@@ -10979,33 +11015,33 @@
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 266,
-        "endLine" : 274,
-        "cleanedStartLine" : 228,
-        "cleanedEndLine" : 236,
-        "percentage" : 2.7950310559006213,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 187,
+        "endLine" : 195,
+        "cleanedStartLine" : 165,
+        "cleanedEndLine" : 173,
+        "percentage" : 3.0508474576271185,
         "blockSize" : 9
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 299,
-        "endLine" : 307,
-        "cleanedStartLine" : 255,
-        "cleanedEndLine" : 263,
-        "percentage" : 2.7950310559006213,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 243,
+        "endLine" : 251,
+        "cleanedStartLine" : 211,
+        "cleanedEndLine" : 219,
+        "percentage" : 3.0508474576271185,
         "blockSize" : 9
       } ],
       "blockSize" : 9
@@ -11015,33 +11051,33 @@
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 210,
-        "endLine" : 218,
-        "cleanedStartLine" : 182,
-        "cleanedEndLine" : 190,
-        "percentage" : 2.7950310559006213,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 187,
+        "endLine" : 195,
+        "cleanedStartLine" : 165,
+        "cleanedEndLine" : 173,
+        "percentage" : 3.0508474576271185,
         "blockSize" : 9
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 266,
-        "endLine" : 274,
-        "cleanedStartLine" : 228,
-        "cleanedEndLine" : 236,
-        "percentage" : 2.7950310559006213,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 276,
+        "endLine" : 284,
+        "cleanedStartLine" : 238,
+        "cleanedEndLine" : 246,
+        "percentage" : 3.0508474576271185,
         "blockSize" : 9
       } ],
       "blockSize" : 9
@@ -11087,69 +11123,33 @@
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 210,
-        "endLine" : 218,
-        "cleanedStartLine" : 182,
-        "cleanedEndLine" : 190,
-        "percentage" : 2.7950310559006213,
-        "blockSize" : 9
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 299,
-        "endLine" : 307,
-        "cleanedStartLine" : 255,
-        "cleanedEndLine" : 263,
-        "percentage" : 2.7950310559006213,
-        "blockSize" : 9
-      } ],
-      "blockSize" : 9
-    }, {
-      "displayContent" : "",
-      "duplicatedFileBlocks" : [ {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 123,
-        "endLine" : 130,
-        "cleanedStartLine" : 105,
-        "cleanedEndLine" : 112,
-        "percentage" : 2.484472049689441,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 100,
+        "endLine" : 107,
+        "cleanedStartLine" : 88,
+        "cleanedEndLine" : 95,
+        "percentage" : 2.711864406779661,
         "blockSize" : 8
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 162,
-        "endLine" : 169,
-        "cleanedStartLine" : 138,
-        "cleanedEndLine" : 145,
-        "percentage" : 2.484472049689441,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 139,
+        "endLine" : 146,
+        "cleanedStartLine" : 121,
+        "cleanedEndLine" : 128,
+        "percentage" : 2.711864406779661,
         "blockSize" : 8
       } ],
       "blockSize" : 8
@@ -11189,6 +11189,42 @@
         "blockSize" : 8
       } ],
       "blockSize" : 8
+    }, {
+      "displayContent" : "",
+      "duplicatedFileBlocks" : [ {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 277,
+        "endLine" : 283,
+        "cleanedStartLine" : 239,
+        "cleanedEndLine" : 245,
+        "percentage" : 2.3728813559322033,
+        "blockSize" : 7
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 328,
+        "endLine" : 334,
+        "cleanedStartLine" : 283,
+        "cleanedEndLine" : 289,
+        "percentage" : 2.3728813559322033,
+        "blockSize" : 7
+      } ],
+      "blockSize" : 7
     }, {
       "displayContent" : "",
       "duplicatedFileBlocks" : [ {
@@ -11265,42 +11301,6 @@
       "displayContent" : "",
       "duplicatedFileBlocks" : [ {
         "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 211,
-        "endLine" : 217,
-        "cleanedStartLine" : 183,
-        "cleanedEndLine" : 189,
-        "percentage" : 2.1739130434782608,
-        "blockSize" : 7
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 435,
-        "endLine" : 441,
-        "cleanedStartLine" : 300,
-        "cleanedEndLine" : 306,
-        "percentage" : 2.1739130434782608,
-        "blockSize" : 7
-      } ],
-      "blockSize" : 7
-    }, {
-      "displayContent" : "",
-      "duplicatedFileBlocks" : [ {
-        "sourceFile" : {
           "relativePath" : "features/step_definitions/auth.steps.ts",
           "extension" : "ts",
           "linesOfCode" : 53,
@@ -11330,42 +11330,6 @@
         "cleanedStartLine" : 1,
         "cleanedEndLine" : 7,
         "percentage" : 4.320987654320987,
-        "blockSize" : 7
-      } ],
-      "blockSize" : 7
-    }, {
-      "displayContent" : "",
-      "duplicatedFileBlocks" : [ {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 267,
-        "endLine" : 273,
-        "cleanedStartLine" : 229,
-        "cleanedEndLine" : 235,
-        "percentage" : 2.1739130434782608,
-        "blockSize" : 7
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 435,
-        "endLine" : 441,
-        "cleanedStartLine" : 300,
-        "cleanedEndLine" : 306,
-        "percentage" : 2.1739130434782608,
         "blockSize" : 7
       } ],
       "blockSize" : 7
@@ -11445,6 +11409,42 @@
       "displayContent" : "",
       "duplicatedFileBlocks" : [ {
         "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 188,
+        "endLine" : 194,
+        "cleanedStartLine" : 166,
+        "cleanedEndLine" : 172,
+        "percentage" : 2.3728813559322033,
+        "blockSize" : 7
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 328,
+        "endLine" : 334,
+        "cleanedStartLine" : 283,
+        "cleanedEndLine" : 289,
+        "percentage" : 2.3728813559322033,
+        "blockSize" : 7
+      } ],
+      "blockSize" : 7
+    }, {
+      "displayContent" : "",
+      "duplicatedFileBlocks" : [ {
+        "sourceFile" : {
           "relativePath" : "features/step_definitions/auth.steps.ts",
           "extension" : "ts",
           "linesOfCode" : 53,
@@ -11474,42 +11474,6 @@
         "cleanedStartLine" : 1,
         "cleanedEndLine" : 7,
         "percentage" : 5.982905982905983,
-        "blockSize" : 7
-      } ],
-      "blockSize" : 7
-    }, {
-      "displayContent" : "",
-      "duplicatedFileBlocks" : [ {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 300,
-        "endLine" : 306,
-        "cleanedStartLine" : 256,
-        "cleanedEndLine" : 262,
-        "percentage" : 2.1739130434782608,
-        "blockSize" : 7
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 435,
-        "endLine" : 441,
-        "cleanedStartLine" : 300,
-        "cleanedEndLine" : 306,
-        "percentage" : 2.1739130434782608,
         "blockSize" : 7
       } ],
       "blockSize" : 7
@@ -11805,6 +11769,42 @@
       "displayContent" : "",
       "duplicatedFileBlocks" : [ {
         "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 244,
+        "endLine" : 250,
+        "cleanedStartLine" : 212,
+        "cleanedEndLine" : 218,
+        "percentage" : 2.3728813559322033,
+        "blockSize" : 7
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 328,
+        "endLine" : 334,
+        "cleanedStartLine" : 283,
+        "cleanedEndLine" : 289,
+        "percentage" : 2.3728813559322033,
+        "blockSize" : 7
+      } ],
+      "blockSize" : 7
+    }, {
+      "displayContent" : "",
+      "duplicatedFileBlocks" : [ {
+        "sourceFile" : {
           "relativePath" : "features/step_definitions/browse.steps.ts",
           "extension" : "ts",
           "linesOfCode" : 71,
@@ -11951,33 +11951,33 @@
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 165,
-        "endLine" : 170,
-        "cleanedStartLine" : 141,
-        "cleanedEndLine" : 146,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 142,
+        "endLine" : 147,
+        "cleanedStartLine" : 124,
+        "cleanedEndLine" : 129,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 269,
-        "endLine" : 274,
-        "cleanedStartLine" : 231,
-        "cleanedEndLine" : 236,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 279,
+        "endLine" : 284,
+        "cleanedStartLine" : 241,
+        "cleanedEndLine" : 246,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       } ],
       "blockSize" : 6
@@ -12093,42 +12093,6 @@
       "displayContent" : "",
       "duplicatedFileBlocks" : [ {
         "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 165,
-        "endLine" : 170,
-        "cleanedStartLine" : 141,
-        "cleanedEndLine" : 146,
-        "percentage" : 1.8633540372670807,
-        "blockSize" : 6
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 213,
-        "endLine" : 218,
-        "cleanedStartLine" : 185,
-        "cleanedEndLine" : 190,
-        "percentage" : 1.8633540372670807,
-        "blockSize" : 6
-      } ],
-      "blockSize" : 6
-    }, {
-      "displayContent" : "",
-      "duplicatedFileBlocks" : [ {
-        "sourceFile" : {
           "relativePath" : "features/step_definitions/product.steps.ts",
           "extension" : "ts",
           "linesOfCode" : 170,
@@ -12237,6 +12201,42 @@
       "displayContent" : "",
       "duplicatedFileBlocks" : [ {
         "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 142,
+        "endLine" : 147,
+        "cleanedStartLine" : 124,
+        "cleanedEndLine" : 129,
+        "percentage" : 2.0338983050847457,
+        "blockSize" : 6
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 190,
+        "endLine" : 195,
+        "cleanedStartLine" : 168,
+        "cleanedEndLine" : 173,
+        "percentage" : 2.0338983050847457,
+        "blockSize" : 6
+      } ],
+      "blockSize" : 6
+    }, {
+      "displayContent" : "",
+      "duplicatedFileBlocks" : [ {
+        "sourceFile" : {
           "relativePath" : "app/myproduct/_components/PostList.tsx",
           "extension" : "tsx",
           "linesOfCode" : 165,
@@ -12266,42 +12266,6 @@
         "cleanedStartLine" : 64,
         "cleanedEndLine" : 69,
         "percentage" : 4.026845637583893,
-        "blockSize" : 6
-      } ],
-      "blockSize" : 6
-    }, {
-      "displayContent" : "",
-      "duplicatedFileBlocks" : [ {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 165,
-        "endLine" : 170,
-        "cleanedStartLine" : 141,
-        "cleanedEndLine" : 146,
-        "percentage" : 1.8633540372670807,
-        "blockSize" : 6
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 302,
-        "endLine" : 307,
-        "cleanedStartLine" : 258,
-        "cleanedEndLine" : 263,
-        "percentage" : 1.8633540372670807,
         "blockSize" : 6
       } ],
       "blockSize" : 6
@@ -12446,6 +12410,42 @@
         "cleanedStartLine" : 114,
         "cleanedEndLine" : 119,
         "percentage" : 3.7735849056603774,
+        "blockSize" : 6
+      } ],
+      "blockSize" : 6
+    }, {
+      "displayContent" : "",
+      "duplicatedFileBlocks" : [ {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 142,
+        "endLine" : 147,
+        "cleanedStartLine" : 124,
+        "cleanedEndLine" : 129,
+        "percentage" : 2.0338983050847457,
+        "blockSize" : 6
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 246,
+        "endLine" : 251,
+        "cleanedStartLine" : 214,
+        "cleanedEndLine" : 219,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       } ],
       "blockSize" : 6
@@ -12708,65 +12708,65 @@
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 211,
-        "endLine" : 216,
-        "cleanedStartLine" : 183,
-        "cleanedEndLine" : 188,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 142,
+        "endLine" : 147,
+        "cleanedStartLine" : 124,
+        "cleanedEndLine" : 129,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 267,
-        "endLine" : 272,
-        "cleanedStartLine" : 229,
-        "cleanedEndLine" : 234,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 190,
+        "endLine" : 195,
+        "cleanedStartLine" : 168,
+        "cleanedEndLine" : 173,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 300,
-        "endLine" : 305,
-        "cleanedStartLine" : 256,
-        "cleanedEndLine" : 261,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 246,
+        "endLine" : 251,
+        "cleanedStartLine" : 214,
+        "cleanedEndLine" : 219,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 435,
-        "endLine" : 440,
-        "cleanedStartLine" : 300,
-        "cleanedEndLine" : 305,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 279,
+        "endLine" : 284,
+        "cleanedStartLine" : 241,
+        "cleanedEndLine" : 246,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       } ],
       "blockSize" : 6
@@ -12776,133 +12776,65 @@
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 212,
-        "endLine" : 217,
-        "cleanedStartLine" : 184,
-        "cleanedEndLine" : 189,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 188,
+        "endLine" : 193,
+        "cleanedStartLine" : 166,
+        "cleanedEndLine" : 171,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 268,
-        "endLine" : 273,
-        "cleanedStartLine" : 230,
-        "cleanedEndLine" : 235,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 244,
+        "endLine" : 249,
+        "cleanedStartLine" : 212,
+        "cleanedEndLine" : 217,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 301,
-        "endLine" : 306,
-        "cleanedStartLine" : 257,
-        "cleanedEndLine" : 262,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 277,
+        "endLine" : 282,
+        "cleanedStartLine" : 239,
+        "cleanedEndLine" : 244,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       }, {
         "sourceFile" : {
           "relativePath" : "cypress/e2e/complete_test.cy.ts",
           "extension" : "ts",
-          "linesOfCode" : 326,
+          "linesOfCode" : 298,
           "unitsCount" : 0,
           "unitsMcCabeIndexSum" : 0,
           "linesOfCodeInUnits" : 0
         },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 436,
-        "endLine" : 441,
-        "cleanedStartLine" : 301,
-        "cleanedEndLine" : 306,
-        "percentage" : 1.8633540372670807,
-        "blockSize" : 6
-      } ],
-      "blockSize" : 6
-    }, {
-      "displayContent" : "",
-      "duplicatedFileBlocks" : [ {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 165,
-        "endLine" : 170,
-        "cleanedStartLine" : 141,
-        "cleanedEndLine" : 146,
-        "percentage" : 1.8633540372670807,
-        "blockSize" : 6
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 213,
-        "endLine" : 218,
-        "cleanedStartLine" : 185,
-        "cleanedEndLine" : 190,
-        "percentage" : 1.8633540372670807,
-        "blockSize" : 6
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 269,
-        "endLine" : 274,
-        "cleanedStartLine" : 231,
-        "cleanedEndLine" : 236,
-        "percentage" : 1.8633540372670807,
-        "blockSize" : 6
-      }, {
-        "sourceFile" : {
-          "relativePath" : "cypress/e2e/complete_test.cy.ts",
-          "extension" : "ts",
-          "linesOfCode" : 326,
-          "unitsCount" : 0,
-          "unitsMcCabeIndexSum" : 0,
-          "linesOfCodeInUnits" : 0
-        },
-        "sourceFileCleanedLinesOfCode" : 322,
-        "startLine" : 302,
-        "endLine" : 307,
-        "cleanedStartLine" : 258,
-        "cleanedEndLine" : 263,
-        "percentage" : 1.8633540372670807,
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 328,
+        "endLine" : 333,
+        "cleanedStartLine" : 283,
+        "cleanedEndLine" : 288,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       } ],
       "blockSize" : 6
@@ -13139,6 +13071,74 @@
         "cleanedStartLine" : 2,
         "cleanedEndLine" : 7,
         "percentage" : 12.0,
+        "blockSize" : 6
+      } ],
+      "blockSize" : 6
+    }, {
+      "displayContent" : "",
+      "duplicatedFileBlocks" : [ {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 189,
+        "endLine" : 194,
+        "cleanedStartLine" : 167,
+        "cleanedEndLine" : 172,
+        "percentage" : 2.0338983050847457,
+        "blockSize" : 6
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 245,
+        "endLine" : 250,
+        "cleanedStartLine" : 213,
+        "cleanedEndLine" : 218,
+        "percentage" : 2.0338983050847457,
+        "blockSize" : 6
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 278,
+        "endLine" : 283,
+        "cleanedStartLine" : 240,
+        "cleanedEndLine" : 245,
+        "percentage" : 2.0338983050847457,
+        "blockSize" : 6
+      }, {
+        "sourceFile" : {
+          "relativePath" : "cypress/e2e/complete_test.cy.ts",
+          "extension" : "ts",
+          "linesOfCode" : 298,
+          "unitsCount" : 0,
+          "unitsMcCabeIndexSum" : 0,
+          "linesOfCodeInUnits" : 0
+        },
+        "sourceFileCleanedLinesOfCode" : 295,
+        "startLine" : 329,
+        "endLine" : 334,
+        "cleanedStartLine" : 284,
+        "cleanedEndLine" : 289,
+        "percentage" : 2.0338983050847457,
         "blockSize" : 6
       } ],
       "blockSize" : 6
@@ -14042,7 +14042,7 @@
       } ]
     } ]
   },
-  "numberOfExcludedFiles" : 75453,
+  "numberOfExcludedFiles" : 75505,
   "excludedExtensions" : {
     "" : 1459,
     "css" : 45,
@@ -14068,7 +14068,7 @@
     "cts" : 2485,
     "in" : 1,
     "old" : 4,
-    "png" : 34,
+    "png" : 27,
     "eslintrc" : 117,
     "pack" : 18,
     "node" : 13,
@@ -14079,8 +14079,8 @@
     "razor" : 2,
     "eslintignore" : 4,
     "apache2" : 1,
-    "log" : 1,
-    "js" : 31177,
+    "log" : 2,
+    "js" : 31215,
     "jst" : 50,
     "local" : 1,
     "feature" : 6,
@@ -14136,7 +14136,7 @@
     "browserslistrc" : 1,
     "prisma" : 2,
     "tsx" : 66,
-    "json" : 2682,
+    "json" : 2702,
     "jpg" : 11,
     "ttf" : 1,
     "env" : 1,
@@ -14150,7 +14150,7 @@
     "esprima" : 1,
     "prettierignore" : 2
   },
-  "analysisStartTimeMs" : 1765914705657,
-  "maxLinesOfCode" : 9118,
-  "maxFileCount" : 140
+  "analysisStartTimeMs" : 1765917221836,
+  "maxLinesOfCode" : 9115,
+  "maxFileCount" : 141
 }

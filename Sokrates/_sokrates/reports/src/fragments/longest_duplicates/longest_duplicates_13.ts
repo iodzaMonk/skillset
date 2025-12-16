@@ -1,25 +1,25 @@
-cypress/e2e/complete_test.cy.ts [267:273]:
+app/lib/products.ts [22:28]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.visit("localhost:3000");
-      openMenu();
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+      user_id: payload.user_id,
+      title: payload.title.trim(),
+      description: payload.description.trim(),
+      price: payload.price,
+      image_location: payload.image_location,
+      category: payload.category,
+    };
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-cypress/e2e/complete_test.cy.ts [435:441]:
+app/lib/products.ts [42:48]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.visit("localhost:3000");
-      openMenu();
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+      user_id: payload.user_id,
+      title: payload.title.trim(),
+      description: payload.description.trim(),
+      price: payload.price,
+      image_location: payload.image_location,
+      category: payload.category,
+    };
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

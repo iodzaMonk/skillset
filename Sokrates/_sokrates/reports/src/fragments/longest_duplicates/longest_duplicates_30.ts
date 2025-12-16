@@ -1,4 +1,4 @@
-cypress/e2e/complete_test.cy.ts [165:170]:
+cypress/e2e/complete_test.cy.ts [142:147]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       cy.contains("Login").click({ force: true });
       cy.get('input[name="email"]').type(email);
@@ -10,7 +10,7 @@ cypress/e2e/complete_test.cy.ts [165:170]:
 
 
 
-cypress/e2e/complete_test.cy.ts [269:274]:
+cypress/e2e/complete_test.cy.ts [279:284]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       cy.contains("Login").click({ force: true });
       cy.get('input[name="email"]').type(email);

@@ -1,23 +1,23 @@
-cypress/e2e/complete_test.cy.ts [165:170]:
+features/step_definitions/product.steps.ts [121:126]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-    });
+  function (this: ProductWorld, table: DataTable) {
+    const payload = getPayload(this);
+    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
+    const expectations = table.hashes();
+    for (const row of expectations) {
+      const reviewer = row.reviewer;
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-cypress/e2e/complete_test.cy.ts [213:218]:
+features/step_definitions/product.steps.ts [140:145]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-    });
+  function (this: ProductWorld, table: DataTable) {
+    const payload = getPayload(this);
+    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
+    const expectations = table.hashes();
+    for (const row of expectations) {
+      const reviewer = row.reviewer;
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

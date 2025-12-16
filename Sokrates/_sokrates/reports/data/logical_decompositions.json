@@ -2,8 +2,8 @@
   "key" : "primary",
   "components" : [ {
     "name" : "app",
-    "filesCount" : 88,
-    "linesOfCode" : 6052,
+    "filesCount" : 89,
+    "linesOfCode" : 6086,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.tsx",
@@ -11,7 +11,7 @@
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 45,
+      "value" : 46,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -20,11 +20,11 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 3433,
+      "value" : 3434,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 2514,
+      "value" : 2547,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -148,7 +148,7 @@
   }, {
     "name" : "cypress",
     "filesCount" : 4,
-    "linesOfCode" : 407,
+    "linesOfCode" : 370,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.ts",
@@ -157,7 +157,7 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.ts",
-      "value" : 407,
+      "value" : 370,
       "description" : [ ]
     } ]
   }, {
@@ -330,7 +330,7 @@
   },
   "fileCountPerComponent" : [ {
     "name" : "app",
-    "value" : 88,
+    "value" : 89,
     "description" : [ ]
   }, {
     "name" : "components",
@@ -367,7 +367,7 @@
   } ],
   "linesOfCodePerComponent" : [ {
     "name" : "app",
-    "value" : 6052,
+    "value" : 6086,
     "description" : [ ]
   }, {
     "name" : "components",
@@ -395,7 +395,7 @@
     "description" : [ ]
   }, {
     "name" : "cypress",
-    "value" : 407,
+    "value" : 370,
     "description" : [ ]
   }, {
     "name" : "features",

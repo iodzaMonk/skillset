@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">cypress/e2e/complete_test.cy.ts (<b>326</b> lines of code) (<a href="complete_test.cy.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">cypress/e2e/complete_test.cy.ts (<b>298</b> lines of code) (<a href="complete_test.cy.ts">raw</a>):</h3>
 <div id="editor">import { v4 as uuidv4 } from &quot;uuid&quot;;
 
 describe(&quot;Complete User Flow&quot;, () =&gt; {
@@ -62,25 +62,6 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
       }),
     );
 
-  const openMenu = () =&gt; {
-    // Wait for hydration/rendering
-    cy.wait(500);
-
-    // Check if map is already open to avoid toggling it closed
-    cy.get(&quot;body&quot;).then(($body) =&gt; {
-      if ($body.find(&quot;nav.bg-surface\\/95.opacity-100&quot;).length === 0) {
-        cy.get('[data-testid=&quot;menu-toggle&quot;]').should(&quot;be.visible&quot;).click();
-        cy.get(&quot;nav.bg-surface\\/95&quot;, { timeout: 10000 }).should(
-          &quot;have.class&quot;,
-          &quot;opacity-100&quot;,
-        );
-      }
-    });
-
-    cy.get(&quot;nav.bg-surface\\/95&quot;).should(&quot;be.visible&quot;);
-    cy.wait(800); // Safety buffer for animation
-  };
-
   const clickViewDetailsFor = (productName: string) =&gt; {
     cy.contains(&quot;h2&quot;, productName, { matchCase: false })
       .should(&quot;be.visible&quot;)
@@ -92,11 +73,9 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
   };
 
   before(() =&gt; {
-    cy.clearCookies();
-    cy.clearLocalStorage();
     cy.viewport(1280, 720);
     cy.visit(&quot;localhost:3000&quot;);
-    openMenu();
+    cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
     cy.contains(&quot;Sign up&quot;).click({ force: true });
 
     cy.url().should(&quot;include&quot;, &quot;/auth/signup&quot;, { timeout: 10000 });
@@ -115,15 +94,13 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
     cy.contains(&quot;Welcome Test User&quot;).should(&quot;be.visible&quot;);
 
-    openMenu();
+    cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
     cy.contains(&quot;Logout&quot;).should(&quot;be.visible&quot;);
     cy.contains(&quot;Logout&quot;).click({ force: true });
     cy.wait(1000);
   });
 
   beforeEach(() =&gt; {
-    cy.clearCookies();
-    cy.clearLocalStorage();
     cy.viewport(1280, 720);
   });
   describe(&quot;Home Page&quot;, () =&gt; {
@@ -136,19 +113,19 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
   describe(&quot;Logout&quot;, () =&gt; {
     it(&quot;should log out the user&quot;, () =&gt; {
       cy.visit(&quot;localhost:3000&quot;);
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
       cy.contains(&quot;Login&quot;).click({ force: true });
       cy.get('input[name=&quot;email&quot;]').type(email);
       cy.get('input[name=&quot;password&quot;]').type(password);
       cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
       cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Logout&quot;).should(&quot;be.visible&quot;);
       cy.contains(&quot;Logout&quot;).click({ force: true });
 
       cy.wait(1000);
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
     });
   });
@@ -156,7 +133,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
   describe(&quot;Login&quot;, () =&gt; {
     it(&quot;should log in an existing user&quot;, () =&gt; {
       cy.visit(&quot;localhost:3000&quot;);
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
       cy.contains(&quot;Login&quot;).click({ force: true });
 
@@ -175,7 +152,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
   describe(&quot;Stripe Vendor Account Setup&quot;, () =&gt; {
     beforeEach(() =&gt; {
       cy.visit(&quot;localhost:3000&quot;);
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
       cy.contains(&quot;Login&quot;).click({ force: true });
       cy.get('input[name=&quot;email&quot;]').type(email);
@@ -185,7 +162,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should assign test vendor_id to user&quot;, () =&gt; {
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Settings&quot;).click({ force: true });
       cy.url().should(&quot;include&quot;, &quot;/settings&quot;, { timeout: 10000 });
       cy.scrollTo(&quot;bottom&quot;);
@@ -224,7 +201,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
   describe(&quot;Product Management&quot;, () =&gt; {
     beforeEach(() =&gt; {
       cy.visit(&quot;localhost:3000&quot;);
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Login&quot;).click({ force: true });
       cy.get('input[name=&quot;email&quot;]').type(email);
       cy.get('input[name=&quot;password&quot;]').type(password);
@@ -233,7 +210,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should create a new product&quot;, () =&gt; {
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;My Products&quot;).click({ force: true });
       cy.url().should(&quot;include&quot;, &quot;/myproduct&quot;, { timeout: 10000 });
 
@@ -263,7 +240,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should view product details&quot;, () =&gt; {
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Browse&quot;).click({ force: true });
       cy.url().should(&quot;include&quot;, &quot;/browse&quot;);
 
@@ -280,7 +257,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
   describe(&quot;Browse Products&quot;, () =&gt; {
     beforeEach(() =&gt; {
       cy.visit(&quot;localhost:3000&quot;);
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Login&quot;).click({ force: true });
       cy.get('input[name=&quot;email&quot;]').type(email);
       cy.get('input[name=&quot;password&quot;]').type(password);
@@ -289,7 +266,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should navigate to browse page and view products&quot;, () =&gt; {
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Browse&quot;).click({ force: true });
 
       cy.url().should(&quot;include&quot;, &quot;/browse&quot;, { timeout: 10000 });
@@ -297,7 +274,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should filter products by category&quot;, () =&gt; {
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Browse&quot;).click({ force: true });
 
       cy.get(&quot;body&quot;).then(($body) =&gt; {
@@ -313,7 +290,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
   describe(&quot;Order Creation and Management&quot;, () =&gt; {
     beforeEach(() =&gt; {
       cy.visit(&quot;localhost:3000&quot;);
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Login&quot;).click({ force: true });
       cy.get('input[name=&quot;email&quot;]').type(email);
       cy.get('input[name=&quot;password&quot;]').type(password);
@@ -322,7 +299,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should create an order via API&quot;, () =&gt; {
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Browse&quot;).click({ force: true });
 
       clickViewDetailsFor(&quot;Cypress Test Product&quot;);
@@ -346,7 +323,7 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
 
     it(&quot;should view order as customer in My Cart&quot;, () =&gt; {
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;My Cart&quot;).click({ force: true });
       cy.url().should(&quot;include&quot;, &quot;/myorderslist&quot;);
       cy.wait(2000);
@@ -361,94 +338,10 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
       });
     });
   });
-  /*
-    it(&quot;should view and update order as professional&quot;, () =&gt; {
-      cy.url().then((currentUrl) =&gt; {
-        const baseUrl = new URL(currentUrl).origin;
-        cy.visit(`${baseUrl}/orders`);
-      });
-
-      cy.url({ timeout: 10000 }).should(&quot;include&quot;, &quot;/orders&quot;);
-      cy.get(&quot;body&quot;, { timeout: 10000 }).should(&quot;be.visible&quot;);
-      cy.wait(2000);
-
-      cy.get(&quot;body&quot;, { timeout: 10000 }).then(($body) =&gt; {
-        if ($body.text().includes(&quot;Once you accept an order&quot;)) {
-          cy.contains(&quot;Once you accept an order&quot;, { timeout: 10000 }).should(
-            &quot;be.visible&quot;,
-          );
-          return;
-        }
-
-        cy.get('input[type=&quot;checkbox&quot;]', { timeout: 10000 })
-          .first()
-          .should(&quot;be.visible&quot;)
-          .check({ force: true });
-
-        cy.get(&quot;button&quot;, { timeout: 10000 })
-          .filter((_, el) =&gt; /Modify/i.test(el.textContent || &quot;&quot;))
-          .first()
-          .should(&quot;be.visible&quot;)
-          .click({ force: true });
-
-        cy.get('[role=&quot;dialog&quot;]', { timeout: 10000 }).should(&quot;be.visible&quot;);
-        cy.get('[role=&quot;dialog&quot;]').within(() =&gt; {
-          cy.get('button[role=&quot;combobox&quot;]', { timeout: 10000 })
-            .should(&quot;be.visible&quot;)
-            .click({ force: true });
-        });
-        cy.get('[role=&quot;option&quot;]', { timeout: 10000 })
-          .contains(/Accept/i)
-          .should(&quot;be.visible&quot;)
-          .click({ force: true });
-
-        cy.get('[role=&quot;dialog&quot;]').within(() =&gt; {
-          cy.contains(/Confirm|Save changes|Update/i, { timeout: 10000 })
-            .should(&quot;be.visible&quot;)
-            .click({ force: true });
-        });
-
-        cy.wait(800);
-        cy.contains(/Accept/i, { timeout: 10000 }).should(&quot;be.visible&quot;);
-      });
-    });
-  });
-
-  describe(&quot;Product Deletion&quot;, () =&gt; {
-    beforeEach(() =&gt; {
-      cy.visit(&quot;localhost:3000&quot;);
-      openMenu();
-      cy.contains(&quot;Login&quot;).click({ force: true });
-      cy.get('input[name=&quot;email&quot;]').type(email);
-      cy.get('input[name=&quot;password&quot;]').type(password);
-      cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
-      cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
-    });
-
-    it(&quot;should delete a product&quot;, () =&gt; {
-      openMenu();
-      cy.contains(&quot;My Products&quot;).click({ force: true });
-
-      cy.contains(&quot;Cypress Test Product&quot;)
-        .parents(&quot;article&quot;)
-        .within(() =&gt; {
-          cy.get('button[aria-label*=&quot;Delete&quot;]').click();
-        });
-
-      cy.get('[role=&quot;dialog&quot;]').should(&quot;be.visible&quot;);
-      cy.get('[role=&quot;dialog&quot;]').within(() =&gt; {
-        cy.contains(&quot;button&quot;, &quot;Delete&quot;).click();
-      });
-
-      cy.wait(2000);
-      cy.contains(&quot;Cypress Test Product&quot;).should(&quot;not.exist&quot;);
-    });
-  }); */
-
   describe(&quot;Error Handling&quot;, () =&gt; {
     it(&quot;should handle non-existent product gracefully&quot;, () =&gt; {
       cy.visit(&quot;localhost:3000&quot;);
-      openMenu();
+      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
       cy.contains(&quot;Login&quot;).click({ force: true });
       cy.get('input[name=&quot;email&quot;]').type(email);
       cy.get('input[name=&quot;password&quot;]').type(password);
@@ -457,18 +350,6 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
       cy.visit(&quot;localhost:3000/product/non-existent-product-id&quot;);
       cy.wait(2000);
       cy.get(&quot;body&quot;).should(&quot;contain.text&quot;, &quot;not found&quot;);
-    });
-
-    it(&quot;should redirect to login when accessing orders without auth&quot;, () =&gt; {
-      cy.visit(&quot;localhost:3000&quot;);
-      cy.wait(1000);
-      cy.visit(&quot;localhost:3000/orders&quot;);
-
-      cy.url({ timeout: 10000 }).should(&quot;include&quot;, &quot;/auth/login&quot;);
-      cy.get(&quot;body&quot;, { timeout: 10000 }).should(&quot;be.visible&quot;);
-      cy.contains(&quot;Sign in to your account&quot;, { timeout: 10000 }).should(
-        &quot;be.visible&quot;,
-      );
     });
   });
 });

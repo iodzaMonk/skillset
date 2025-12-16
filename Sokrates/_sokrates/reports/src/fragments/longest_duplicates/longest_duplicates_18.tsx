@@ -1,28 +1,25 @@
-app/api/orders/create-payment/route.tsx [9:17]:
+components/ui/dialog.tsx [38:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-export async function POST(request: NextRequest) {
-  const headersList = await headers();
-  const referer = headersList.get("referer") ?? "";
-
-  try {
-    const user = await getCurrentUser();
-
-    if (!user) {
-      return unauthorizedResponse(referer);
+      className={cn(
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        className,
+      )}
+      {...props}
+    />
+  );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/user/create-stripe-account/route.ts [8:15]:
+components/ui/sheet.tsx [38:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-export async function POST(request: NextRequest) {
-  const headersList = await headers();
-  const referer = headersList.get("referer") ?? "";
-
-  try {
-    const user = await getCurrentUser();
-    if (!user) {
-      return unauthorizedResponse(referer);
+      className={cn(
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        className,
+      )}
+      {...props}
+    />
+  );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

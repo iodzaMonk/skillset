@@ -1,23 +1,27 @@
-cypress/e2e/complete_test.cy.ts [165:170]:
+app/api/product/[slug]/route.ts [35:42]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-    });
+        { status: 400 },
+      );
+    }
+
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 },
+    );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-cypress/e2e/complete_test.cy.ts [302:307]:
+app/api/professional/[id]/route.ts [96:103]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
-    });
+        { status: 400 },
+      );
+    }
+
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 },
+    );
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

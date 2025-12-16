@@ -1,8 +1,8 @@
-cypress/e2e/complete_test.cy.ts [210:218]:
+cypress/e2e/complete_test.cy.ts [187:195]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     beforeEach(() => {
       cy.visit("localhost:3000");
-      openMenu();
+      cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").click({ force: true });
       cy.get('input[name="email"]').type(email);
       cy.get('input[name="password"]').type(password);
@@ -13,11 +13,11 @@ cypress/e2e/complete_test.cy.ts [210:218]:
 
 
 
-cypress/e2e/complete_test.cy.ts [266:274]:
+cypress/e2e/complete_test.cy.ts [243:251]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     beforeEach(() => {
       cy.visit("localhost:3000");
-      openMenu();
+      cy.get('[data-testid="menu-toggle"]').click();
       cy.contains("Login").click({ force: true });
       cy.get('input[name="email"]').type(email);
       cy.get('input[name="password"]').type(password);

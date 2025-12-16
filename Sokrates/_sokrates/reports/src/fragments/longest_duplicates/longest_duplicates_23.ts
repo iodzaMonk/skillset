@@ -1,27 +1,25 @@
-app/api/product/[slug]/reviews/replies/route.ts [43:50]:
+features/step_definitions/product.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-export async function POST(
-  request: Request,
-  context: { params: Promise<{ slug: string }> },
-) {
-  const { slug } = await context.params;
-  const user = await getCurrentUser();
-
-  if (!user) {
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/product/[slug]/reviews/route.ts [37:44]:
+features/step_definitions/upload.steps.ts [4:10]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-export async function POST(
-  request: Request,
-  context: { params: Promise<{ slug: string }> },
-) {
-  const { slug } = await context.params;
-  const user = await getCurrentUser();
-
-  if (!user) {
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -6,9 +6,9 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">export default function ConnectStripeButton()</h3>
-<p style="margin-top: 4px">in <i>app/settings/StripeConnectButton.tsx [6:62]</i></p>
+<p style="margin-top: 4px">in <i>app/settings/StripeConnectButton.tsx [6:63]</i></p>
 <ul>
-    <li><b>52</b> lines of code</li>
+    <li><b>53</b> lines of code</li>
     <li><b>8</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
@@ -55,6 +55,7 @@ export default function ConnectStripeButton() {
             disabled={loading || !user}
             variant=&quot;default&quot;
             className=&quot;w-full&quot;
+            data-testid=&quot;connect-stripe-button&quot;
           &gt;
             {loading ? &quot;Connecting...&quot; : &quot;Connect to Stripe&quot;}
           &lt;/Button&gt;

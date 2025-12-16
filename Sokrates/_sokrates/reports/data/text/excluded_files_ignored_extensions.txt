@@ -16417,7 +16417,44 @@ node_modules/@cucumber/messages/dist/esm/tsconfig.build-esm.tsbuildinfo
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-*.png files (34):
+*.gz files (30):
+
+.next/cache/webpack/server-development/11.pack.gz
+.next/cache/webpack/server-development/14.pack.gz
+.next/cache/webpack/server-development/15.pack.gz
+.next/cache/webpack/server-development/12.pack.gz
+.next/cache/webpack/server-development/17.pack.gz
+.next/cache/webpack/server-development/13.pack.gz
+.next/cache/webpack/server-development/16.pack.gz
+.next/cache/webpack/server-development/0.pack.gz
+.next/cache/webpack/server-development/4.pack.gz
+.next/cache/webpack/server-development/1.pack.gz
+.next/cache/webpack/server-development/3.pack.gz
+.next/cache/webpack/server-development/2.pack.gz
+.next/cache/webpack/server-development/7.pack.gz
+.next/cache/webpack/server-development/6.pack.gz
+.next/cache/webpack/server-development/9.pack.gz
+.next/cache/webpack/server-development/5.pack.gz
+.next/cache/webpack/server-development/10.pack.gz
+.next/cache/webpack/server-development/8.pack.gz
+.next/cache/webpack/server-development/index.pack.gz
+.next/cache/webpack/client-development/9.pack.gz
+.next/cache/webpack/client-development/0.pack.gz
+.next/cache/webpack/client-development/2.pack.gz
+.next/cache/webpack/client-development/3.pack.gz
+.next/cache/webpack/client-development/5.pack.gz
+.next/cache/webpack/client-development/6.pack.gz
+.next/cache/webpack/client-development/1.pack.gz
+.next/cache/webpack/client-development/4.pack.gz
+.next/cache/webpack/client-development/7.pack.gz
+.next/cache/webpack/client-development/8.pack.gz
+.next/cache/webpack/client-development/index.pack.gz
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+*.png files (27):
 
 node_modules/@jest/reporters/assets/jest_logo.png
 node_modules/istanbul-reports/lib/html-spa/assets/sort-arrow-sprite.png
@@ -16446,50 +16483,6 @@ node_modules/@cucumber/html-formatter/test/__screenshots__/undefined-feature.png
 node_modules/@cucumber/html-formatter/test/__screenshots__/unknown-parameter-type-feature.png
 coverage/lcov-report/favicon.png
 coverage/lcov-report/sort-arrow-sprite.png
-cypress/screenshots/complete_navigation-menu_test.cy.ts/Navigation Menu Test -- Unauthenticated navigation Menu Links -- visit browse page (failed).png
-cypress/screenshots/complete_navigation-menu_test.cy.ts/Navigation Menu Test -- Unauthenticated navigation Menu Links -- visit browse page (failed) (attempt 2).png
-cypress/screenshots/complete_navigation-menu_test.cy.ts/Navigation Menu Test -- Unauthenticated navigation Menu Links -- visit browse page (failed) (attempt 3).png
-cypress/screenshots/complete_navigation-menu_test.cy.ts/Navigation Menu Test -- Unauthenticated navigation Menu Links -- visit browse page (failed) (attempt 4).png
-cypress/screenshots/complete_navigation-menu_test.cy.ts/Navigation Menu Test -- Unauthenticated navigation Menu Links -- visit browse page (failed) (attempt 5).png
-cypress/screenshots/complete_navigation-menu_test.cy.ts/Navigation Menu Test -- Unauthenticated navigation Menu Links -- visit browse page (failed) (attempt 6).png
-cypress/screenshots/complete_navigation-menu_test.cy.ts/Navigation Menu Test -- Unauthenticated navigation Menu Links -- visit about page (failed).png
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-*.gz files (30):
-
-.next/cache/webpack/server-development/11.pack.gz
-.next/cache/webpack/server-development/10.pack.gz
-.next/cache/webpack/server-development/14.pack.gz
-.next/cache/webpack/server-development/15.pack.gz
-.next/cache/webpack/server-development/12.pack.gz
-.next/cache/webpack/server-development/17.pack.gz
-.next/cache/webpack/server-development/13.pack.gz
-.next/cache/webpack/server-development/16.pack.gz
-.next/cache/webpack/server-development/9.pack.gz
-.next/cache/webpack/server-development/5.pack.gz
-.next/cache/webpack/server-development/6.pack.gz
-.next/cache/webpack/server-development/7.pack.gz
-.next/cache/webpack/server-development/8.pack.gz
-.next/cache/webpack/server-development/4.pack.gz
-.next/cache/webpack/server-development/0.pack.gz
-.next/cache/webpack/server-development/3.pack.gz
-.next/cache/webpack/server-development/1.pack.gz
-.next/cache/webpack/server-development/2.pack.gz
-.next/cache/webpack/server-development/index.pack.gz
-.next/cache/webpack/client-development/9.pack.gz
-.next/cache/webpack/client-development/8.pack.gz
-.next/cache/webpack/client-development/4.pack.gz
-.next/cache/webpack/client-development/2.pack.gz
-.next/cache/webpack/client-development/3.pack.gz
-.next/cache/webpack/client-development/6.pack.gz
-.next/cache/webpack/client-development/7.pack.gz
-.next/cache/webpack/client-development/5.pack.gz
-.next/cache/webpack/client-development/0.pack.gz
-.next/cache/webpack/client-development/1.pack.gz
-.next/cache/webpack/client-development/index.pack.gz
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
@@ -16829,6 +16822,15 @@ node_modules/@cucumber/gherkin-utils/node_modules/@cucumber/gherkin/gherkin-java
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+*.log files (2):
+
+node_modules/nwsapi/dist/lint.log
+cypress_error.log
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 *.prisma files (2):
 
 node_modules/.prisma/client/schema.prisma
@@ -17010,14 +17012,6 @@ node_modules/strnum/algo.stflow
 *.apache2 files (1):
 
 node_modules/through/LICENSE.APACHE2
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-*.log files (1):
-
-node_modules/nwsapi/dist/lint.log
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

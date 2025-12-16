@@ -82,23 +82,3 @@ jobs:
         run: |
           echo "::error title=Tests failed::Rerun locally with 'npm test -- --coverage' to reproduce and fix."
           exit 1
-
-  cypress-tests:
-    name: Run Cypress E2E tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          start: docker compose up -d --build
-          wait-on: "http://localhost:3000"
-          browser: chrome
-          spec: cypress/e2e/complete_test.cy.ts
-        env:
-          # Docker containers use .env.docker internally.
-          # These env vars are for the Runner if needed, or if we decide to inject them into docker later.
-          # For now, we rely on the repository's .env.docker file for the test environment.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"

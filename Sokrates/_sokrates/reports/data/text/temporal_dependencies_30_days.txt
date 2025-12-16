@@ -1089,6 +1089,7 @@ components/ui/scroll-area.tsx	app/settings/StripeConnectButton.tsx	1	5	5
 app/myproduct/actions.ts	app/api/orders/create-payment/route.tsx	1	5	12
 types/Professional.ts	app/settings/StripeConnectButton.tsx	1	4	5
 components/ui/skeleton.tsx	app/product/[slug]/components/useComments.ts	1	5	8
+app/api/user/test-vendor/route.ts	app/myproduct/_components/PostList.tsx	1	1	10
 app/lib/session.ts	app/Components/Footer.tsx	1	8	3
 app/globals.css	app/orders/page.tsx	1	11	16
 app/lib/user.ts	app/api/uploads/route.ts	1	5	8
@@ -2466,6 +2467,7 @@ jest.config.ts	hooks/use-mobile.ts	1	3	5
 features/support/productService.ts	app/utils/formatters.ts	1	5	2
 components/ui/textarea.tsx	app/myproduct/_components/Modal.tsx	1	5	8
 app/lib/convertToSubcurrency.ts	app/api/orders/create-payment/route.tsx	1	3	12
+app/api/user/test-vendor/route.ts	app/settings/StripeConnectButton.tsx	1	1	5
 vitest.setup.ts	app/_components/SelectableCard.tsx	1	2	2
 components/ui/textarea.tsx	app/lib/storage/s3.ts	1	5	10
 app/myproduct/_hooks/postStates.ts	app/settings/SettingsForm.tsx	1	10	25
@@ -2877,6 +2879,7 @@ app/lib/session.ts	app/_components/ProductCard.tsx	1	8	2
 features/support/productCrudFixture.ts	app/api/orders/user/route.ts	1	5	11
 lib/prisma.ts	jest.config.ts	1	6	3
 app/myproduct/page.tsx	app/myproduct/actions.ts	1	29	5
+app/api/user/test-vendor/route.ts	cypress/e2e/complete_test.cy.ts	1	1	18
 app/product/[slug]/payment/module/CheckoutPage.tsx	app/api/product/user/route.ts	1	8	19
 app/context/AuthProvider.tsx	app/_components/ProductCarousel.tsx	1	9	6
 vitest.config.ts	app/lib/order-service.ts	1	2	2

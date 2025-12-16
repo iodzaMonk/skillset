@@ -1,41 +1,37 @@
 <html>
 <head>
-    <title>export async function uploadObject()</title>
+    <title>export async function POST()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function uploadObject()</h3>
-<p style="margin-top: 4px">in <i>app/lib/storage/s3.ts [74:97]</i></p>
+<h3 style="margin-bottom: 0">export async function POST()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/connect-stripe-account/route.ts [6:25]</i></p>
 <ul>
-    <li><b>20</b> lines of code</li>
+    <li><b>18</b> lines of code</li>
     <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function uploadObject({
-  buffer,
-  originalName,
-  contentType,
-}: UploadObjectParams) {
-  const safeName = sanitizeFileName(originalName ?? &quot;upload.bin&quot;);
-  const key = `images/${randomUUID()}-${safeName}`;
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { accountId, refreshUrl, returnUrl } = body;
 
-  if (!s3 || !BUCKET) {
-    inMemoryBucket.set(key, { body: buffer, contentType });
-    return { key };
+    const accountLink = await stripe.accountLinks.create({
+      account: accountId,
+      refresh_url: refreshUrl,
+      return_url: returnUrl,
+      type: &quot;account_onboarding&quot;,
+    });
+
+    return NextResponse.json({ url: accountLink.url });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : &quot;An error occurred&quot; },
+      { status: 500 },
+    );
   }
-
-  const putObjectCommand = new PutObjectCommand({
-    Bucket: BUCKET,
-    Key: key,
-    Body: buffer,
-    ContentType: contentType,
-  });
-
-  await s3.send(putObjectCommand);
-
-  return { key };
 }
 
 </code>

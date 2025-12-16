@@ -1,64 +1,53 @@
 <html>
 <head>
-    <title>export async function PATCH()</title>
+    <title>async fetchBySlug()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function PATCH()</h3>
-<p style="margin-top: 4px">in <i>app/api/user/update/route.ts [9:54]</i></p>
+<h3 style="margin-bottom: 0">async fetchBySlug()</h3>
+<p style="margin-top: 4px">in <i>features/support/productService.ts [146:180]</i></p>
 <ul>
-    <li><b>40</b> lines of code</li>
-    <li><b>4</b> McCabe index (conditional complexity)</li>
+    <li><b>32</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function PATCH(req: Request) {
-  const headersList = await headers();
-  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
-
-  try {
-    const body = (await req.json()) as UserBody;
-    const { id, email, password, country, name, birthday } = body ?? {};
-
-    const authenticatedUser = await getCurrentUser();
-    if (authenticatedUser?.id != id) {
-      return Response.json(
-        { message: &quot;Unauthorized: You can only update your own record.&quot; },
-        { status: 400 },
-      );
+  async fetchBySlug(slug: string): Promise&lt;ProductResponse&gt; {
+    if (!slug) {
+      return {
+        status: 400,
+        body: { message: &quot;Invalid product ID&quot; },
+      };
     }
 
-    const updateData: UserBody = {
-      email: email,
-      country: country,
-      name: name,
-      birthday: birthday,
-    };
+    try {
+      const product = await fetchProductDetails(slug);
 
-    const hashedPassword = await bcrypt.hash(password as string, 10);
-    if (hashedPassword) {
-      updateData.password = hashedPassword;
-    }
+      if (!product) {
+        return {
+          status: 404,
+          body: { message: &quot;Product not found&quot; },
+        };
+      }
 
-    const updatedUser = await prisma.users.update({
-      where: { id: id },
-      data: updateData,
-    });
-
-    return Response.json(
-      {
-        data: updatedUser,
-      },
-      {
+      return {
         status: 200,
-        headers: { &quot;x-referer&quot;: referer },
-      },
-    );
-  } catch (error) {
-    return handleApiError(error, referer);
+        body: {
+          ...product,
+          image_url: &quot;/no-image.svg&quot;,
+        },
+      };
+    } catch (error) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        return {
+          status: 400,
+          body: { message: &quot;Invalid product ID&quot; },
+        };
+      }
+      throw error;
+    }
   }
-}
 
 </code>
 </pre>

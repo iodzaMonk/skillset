@@ -101,6 +101,12 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
+  "relativePath" : "app/api/user/test-vendor/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 33,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
   "relativePath" : "app/api/orders/user/route.ts",
   "extension" : "ts",
   "linesOfCode" : 35,
@@ -325,7 +331,7 @@
 }, {
   "relativePath" : "app/settings/StripeConnectButton.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 56,
+  "linesOfCode" : 57,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -733,7 +739,7 @@
 }, {
   "relativePath" : "cypress/e2e/complete_test.cy.ts",
   "extension" : "ts",
-  "linesOfCode" : 326,
+  "linesOfCode" : 298,
   "components" : [ "primary::cypress" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -745,7 +751,7 @@
 }, {
   "relativePath" : "cypress/support/e2e.ts",
   "extension" : "ts",
-  "linesOfCode" : 10,
+  "linesOfCode" : 1,
   "components" : [ "primary::cypress" ],
   "concerns" : [ "::Unclassified" ]
 }, {

@@ -16,6 +16,7 @@ app/api/user/register/route.ts	67	6	92	1	7	2	2025-09-16	2025-12-16	bramomoh06@gm
 app/api/user/update/route.ts	46	6	90	1	10	2	2025-09-18	2025-12-16	iodzamonkmode@gmail.com	iodzamonkmode@gmail.com
 app/api/user/connect-stripe-account/route.ts	21	2	51	27	3	1	2025-10-27	2025-11-20	bramomoh06@gmail.com	bramomoh06@gmail.com
 app/api/user/create-stripe-account/route.ts	55	4	51	1	5	2	2025-10-27	2025-12-16	bramomoh06@gmail.com	iodzamonkmode@gmail.com
+app/api/user/test-vendor/route.ts	33	1	20	20	1	1	2025-11-27	2025-11-27	bramomoh06@gmail.com	bramomoh06@gmail.com
 app/api/orders/user/route.ts	35	4	60	1	11	2	2025-10-18	2025-12-16	iodzamonkmode@gmail.com	iodzamonkmode@gmail.com
 app/api/orders/create-payment/route.tsx	77	5	56	1	12	2	2025-10-22	2025-12-16	bramomoh06@gmail.com	iodzamonkmode@gmail.com
 app/api/orders/orderHandlers.ts	77	2	26	1	2	1	2025-11-21	2025-12-16	iodzamonkmode@gmail.com	iodzamonkmode@gmail.com
@@ -53,7 +54,7 @@ app/myproduct/actions.ts	8	3	64	27	5	2	2025-10-14	2025-11-20	iodzamonkmode@gmail
 app/settings/modal.tsx	49	2	89	83	2	2	2025-09-19	2025-09-25	iodzamonkmode@gmail.com	bramomoh06@gmail.com
 app/settings/page.tsx	20	6	90	27	9	2	2025-09-18	2025-11-20	iodzamonkmode@gmail.com	bramomoh06@gmail.com
 app/settings/SettingsForm.tsx	178	15	90	1	25	2	2025-09-18	2025-12-16	iodzamonkmode@gmail.com	iodzamonkmode@gmail.com
-app/settings/StripeConnectButton.tsx	56	4	51	1	5	2	2025-10-27	2025-12-16	bramomoh06@gmail.com	iodzamonkmode@gmail.com
+app/settings/StripeConnectButton.tsx	57	4	51	1	5	2	2025-10-27	2025-12-16	bramomoh06@gmail.com	iodzamonkmode@gmail.com
 app/utils/TransitionLink.tsx	46	3	101	89	3	2	2025-09-07	2025-09-19	iodzamonkmode@gmail.com	bramomoh06@gmail.com
 app/utils/email.ts	41	2	89	76	4	2	2025-09-19	2025-10-02	iodzamonkmode@gmail.com	iodzamonkmode@gmail.com
 app/utils/api-helpers.ts	7	2	3	1	2	1	2025-12-14	2025-12-16	iodzamonkmode@gmail.com	iodzamonkmode@gmail.com
@@ -121,9 +122,9 @@ next.config.ts	29	3	101	60	5	1	2025-09-07	2025-10-18	iodzamonkmode@gmail.com	iod
 jest.config.ts	13	2	41	27	3	2	2025-11-06	2025-11-20	iodzamonkmode@gmail.com	bramomoh06@gmail.com
 cypress.config.ts	7	1	27	27	2	1	2025-11-20	2025-11-20	bramomoh06@gmail.com	bramomoh06@gmail.com
 cypress/e2e/complete_navigation-menu_test.cy.ts	70	1	13	13	2	2	2025-12-04	2025-12-04	bramomoh06@gmail.com	nazim071305@gmail.com
-cypress/e2e/complete_test.cy.ts	326	7	27	1	18	2	2025-11-20	2025-12-16	bramomoh06@gmail.com	iodzamonkmode@gmail.com
+cypress/e2e/complete_test.cy.ts	298	7	27	1	18	2	2025-11-20	2025-12-16	bramomoh06@gmail.com	iodzamonkmode@gmail.com
 cypress/support/commands.ts	1	2	27	2	3	2	2025-11-20	2025-12-15	bramomoh06@gmail.com	nazim071305@gmail.com
-cypress/support/e2e.ts	10	2	27	3	3	1	2025-11-20	2025-12-14	bramomoh06@gmail.com	bramomoh06@gmail.com
+cypress/support/e2e.ts	1	2	27	3	3	1	2025-11-20	2025-12-14	bramomoh06@gmail.com	bramomoh06@gmail.com
 features/step_definitions/auth.steps.ts	53	2	40	26	3	1	2025-11-07	2025-11-21	iodzamonkmode@gmail.com	iodzamonkmode@gmail.com
 features/step_definitions/browse.steps.ts	71	2	40	26	3	1	2025-11-07	2025-11-21	iodzamonkmode@gmail.com	iodzamonkmode@gmail.com
 features/step_definitions/product.steps.ts	170	3	40	2	5	2	2025-11-07	2025-12-15	iodzamonkmode@gmail.com	nazim071305@gmail.com

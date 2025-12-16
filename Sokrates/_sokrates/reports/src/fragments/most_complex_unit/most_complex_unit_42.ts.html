@@ -6,26 +6,26 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">export async function DELETE()</h3>
-<p style="margin-top: 4px">in <i>app/api/user/delete/route.ts [5:22]</i></p>
+<p style="margin-top: 4px">in <i>app/api/product/route.ts [32:49]</i></p>
 <ul>
-    <li><b>16</b> lines of code</li>
+    <li><b>17</b> lines of code</li>
     <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function DELETE() {
+export async function DELETE(req: Request) {
   try {
+    const body = (await req.json()) as PostBody;
+    const { id } = body ?? {};
     const user = await getCurrentUser();
     if (!user) {
       return Response.json({ message: &quot;Not authenticated&quot; }, { status: 401 });
     }
 
-    await prisma.users.delete({
-      where: { id: user.id },
+    await prisma.posts.delete({
+      where: { id: id },
     });
-
-    await deleteSession();
-    return Response.json({ message: &quot;Account deleted&quot; }, { status: 200 });
+    return Response.json({ message: &quot;Product deleted&quot; }, { status: 200 });
   } catch (e) {
     console.error(e);
     return Response.json({ message: &quot;Internal server error&quot; }, { status: 500 });

@@ -1,25 +1,25 @@
-app/lib/products.ts [22:28]:
+features/step_definitions/productCrud.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      user_id: payload.user_id,
-      title: payload.title.trim(),
-      description: payload.description.trim(),
-      price: payload.price,
-      image_location: payload.image_location,
-      category: payload.category,
-    };
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/lib/products.ts [42:48]:
+features/step_definitions/upload.steps.ts [4:10]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      user_id: payload.user_id,
-      title: payload.title.trim(),
-      description: payload.description.trim(),
-      price: payload.price,
-      image_location: payload.image_location,
-      category: payload.category,
-    };
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

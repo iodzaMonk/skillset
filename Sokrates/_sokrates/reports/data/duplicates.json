@@ -1,6 +1,6 @@
 {
   "title" : "Duplication",
-  "timestamp" : "2025-12-16 14:51:49",
+  "timestamp" : "2025-12-16 15:33:46",
   "duplicates" : [ {
     "blockSize" : 11,
     "duplicatedFileBlocks" : [ {
@@ -29,6 +29,35 @@
       "endLine" : 63,
       "cleanedStartLine" : 35,
       "cleanedEndLine" : 45
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 243,
+      "endLine" : 251,
+      "cleanedStartLine" : 211,
+      "cleanedEndLine" : 219
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 276,
+      "endLine" : 284,
+      "cleanedStartLine" : 238,
+      "cleanedEndLine" : 246
     } ]
   }, {
     "blockSize" : 9,
@@ -65,28 +94,28 @@
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 326,
+        "linesOfCode" : 298,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 266,
-      "endLine" : 274,
-      "cleanedStartLine" : 228,
-      "cleanedEndLine" : 236
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 187,
+      "endLine" : 195,
+      "cleanedStartLine" : 165,
+      "cleanedEndLine" : 173
     }, {
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 326,
+        "linesOfCode" : 298,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 299,
-      "endLine" : 307,
-      "cleanedStartLine" : 255,
-      "cleanedEndLine" : 263
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 243,
+      "endLine" : 251,
+      "cleanedStartLine" : 211,
+      "cleanedEndLine" : 219
     } ]
   }, {
     "blockSize" : 9,
@@ -94,28 +123,28 @@
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 326,
+        "linesOfCode" : 298,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 210,
-      "endLine" : 218,
-      "cleanedStartLine" : 182,
-      "cleanedEndLine" : 190
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 187,
+      "endLine" : 195,
+      "cleanedStartLine" : 165,
+      "cleanedEndLine" : 173
     }, {
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 326,
+        "linesOfCode" : 298,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 266,
-      "endLine" : 274,
-      "cleanedStartLine" : 228,
-      "cleanedEndLine" : 236
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 276,
+      "endLine" : 284,
+      "cleanedStartLine" : 238,
+      "cleanedEndLine" : 246
     } ]
   }, {
     "blockSize" : 9,
@@ -147,62 +176,33 @@
       "cleanedEndLine" : 81
     } ]
   }, {
-    "blockSize" : 9,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 210,
-      "endLine" : 218,
-      "cleanedStartLine" : 182,
-      "cleanedEndLine" : 190
-    }, {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 299,
-      "endLine" : 307,
-      "cleanedStartLine" : 255,
-      "cleanedEndLine" : 263
-    } ]
-  }, {
     "blockSize" : 8,
     "duplicatedFileBlocks" : [ {
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 326,
+        "linesOfCode" : 298,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 123,
-      "endLine" : 130,
-      "cleanedStartLine" : 105,
-      "cleanedEndLine" : 112
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 100,
+      "endLine" : 107,
+      "cleanedStartLine" : 88,
+      "cleanedEndLine" : 95
     }, {
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 326,
+        "linesOfCode" : 298,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 162,
-      "endLine" : 169,
-      "cleanedStartLine" : 138,
-      "cleanedEndLine" : 145
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 139,
+      "endLine" : 146,
+      "cleanedStartLine" : 121,
+      "cleanedEndLine" : 128
     } ]
   }, {
     "blockSize" : 8,
@@ -232,6 +232,35 @@
       "endLine" : 528,
       "cleanedStartLine" : 413,
       "cleanedEndLine" : 420
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 277,
+      "endLine" : 283,
+      "cleanedStartLine" : 239,
+      "cleanedEndLine" : 245
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 328,
+      "endLine" : 334,
+      "cleanedStartLine" : 283,
+      "cleanedEndLine" : 289
     } ]
   }, {
     "blockSize" : 7,
@@ -295,35 +324,6 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 211,
-      "endLine" : 217,
-      "cleanedStartLine" : 183,
-      "cleanedEndLine" : 189
-    }, {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 435,
-      "endLine" : 441,
-      "cleanedStartLine" : 300,
-      "cleanedEndLine" : 306
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "features/step_definitions/auth.steps.ts",
         "extension" : "ts",
         "linesOfCode" : 53,
@@ -348,35 +348,6 @@
       "endLine" : 9,
       "cleanedStartLine" : 1,
       "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 267,
-      "endLine" : 273,
-      "cleanedStartLine" : 229,
-      "cleanedEndLine" : 235
-    }, {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 435,
-      "endLine" : 441,
-      "cleanedStartLine" : 300,
-      "cleanedEndLine" : 306
     } ]
   }, {
     "blockSize" : 7,
@@ -440,6 +411,35 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 188,
+      "endLine" : 194,
+      "cleanedStartLine" : 166,
+      "cleanedEndLine" : 172
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 328,
+      "endLine" : 334,
+      "cleanedStartLine" : 283,
+      "cleanedEndLine" : 289
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
         "relativePath" : "features/step_definitions/auth.steps.ts",
         "extension" : "ts",
         "linesOfCode" : 53,
@@ -464,35 +464,6 @@
       "endLine" : 9,
       "cleanedStartLine" : 1,
       "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 300,
-      "endLine" : 306,
-      "cleanedStartLine" : 256,
-      "cleanedEndLine" : 262
-    }, {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 435,
-      "endLine" : 441,
-      "cleanedStartLine" : 300,
-      "cleanedEndLine" : 306
     } ]
   }, {
     "blockSize" : 7,
@@ -730,6 +701,35 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 244,
+      "endLine" : 250,
+      "cleanedStartLine" : 212,
+      "cleanedEndLine" : 218
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 328,
+      "endLine" : 334,
+      "cleanedStartLine" : 283,
+      "cleanedEndLine" : 289
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
         "relativePath" : "features/step_definitions/browse.steps.ts",
         "extension" : "ts",
         "linesOfCode" : 71,
@@ -848,28 +848,28 @@
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 326,
+        "linesOfCode" : 298,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 165,
-      "endLine" : 170,
-      "cleanedStartLine" : 141,
-      "cleanedEndLine" : 146
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 142,
+      "endLine" : 147,
+      "cleanedStartLine" : 124,
+      "cleanedEndLine" : 129
     }, {
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 326,
+        "linesOfCode" : 298,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 269,
-      "endLine" : 274,
-      "cleanedStartLine" : 231,
-      "cleanedEndLine" : 236
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 279,
+      "endLine" : 284,
+      "cleanedStartLine" : 241,
+      "cleanedEndLine" : 246
     } ]
   }, {
     "blockSize" : 6,
@@ -962,35 +962,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 165,
-      "endLine" : 170,
-      "cleanedStartLine" : 141,
-      "cleanedEndLine" : 146
-    }, {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 213,
-      "endLine" : 218,
-      "cleanedStartLine" : 185,
-      "cleanedEndLine" : 190
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "features/step_definitions/product.steps.ts",
         "extension" : "ts",
         "linesOfCode" : 170,
@@ -1078,6 +1049,35 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 142,
+      "endLine" : 147,
+      "cleanedStartLine" : 124,
+      "cleanedEndLine" : 129
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 190,
+      "endLine" : 195,
+      "cleanedStartLine" : 168,
+      "cleanedEndLine" : 173
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
         "relativePath" : "app/myproduct/_components/PostList.tsx",
         "extension" : "tsx",
         "linesOfCode" : 165,
@@ -1102,35 +1102,6 @@
       "endLine" : 94,
       "cleanedStartLine" : 64,
       "cleanedEndLine" : 69
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 165,
-      "endLine" : 170,
-      "cleanedStartLine" : 141,
-      "cleanedEndLine" : 146
-    }, {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 326,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 322,
-      "startLine" : 302,
-      "endLine" : 307,
-      "cleanedStartLine" : 258,
-      "cleanedEndLine" : 263
     } ]
   }, {
     "blockSize" : 6,
@@ -1247,6 +1218,35 @@
       "endLine" : 152,
       "cleanedStartLine" : 114,
       "cleanedEndLine" : 119
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 142,
+      "endLine" : 147,
+      "cleanedStartLine" : 124,
+      "cleanedEndLine" : 129
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 298,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 295,
+      "startLine" : 246,
+      "endLine" : 251,
+      "cleanedStartLine" : 214,
+      "cleanedEndLine" : 219
     } ]
   }, {
     "blockSize" : 6,

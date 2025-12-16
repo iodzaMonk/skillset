@@ -1,30 +1,41 @@
 <html>
 <head>
-    <title>export async function deleteObject()</title>
+    <title>export async function uploadObject()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function deleteObject()</h3>
-<p style="margin-top: 4px">in <i>app/lib/storage/s3.ts [117:129]</i></p>
+<h3 style="margin-bottom: 0">export async function uploadObject()</h3>
+<p style="margin-top: 4px">in <i>app/lib/storage/s3.ts [74:97]</i></p>
 <ul>
-    <li><b>11</b> lines of code</li>
+    <li><b>20</b> lines of code</li>
     <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function deleteObject(key: string) {
+export async function uploadObject({
+  buffer,
+  originalName,
+  contentType,
+}: UploadObjectParams) {
+  const safeName = sanitizeFileName(originalName ?? &quot;upload.bin&quot;);
+  const key = `images/${randomUUID()}-${safeName}`;
+
   if (!s3 || !BUCKET) {
-    inMemoryBucket.delete(key);
-    return;
+    inMemoryBucket.set(key, { body: buffer, contentType });
+    return { key };
   }
 
-  const deleteCommand = new DeleteObjectCommand({
+  const putObjectCommand = new PutObjectCommand({
     Bucket: BUCKET,
     Key: key,
+    Body: buffer,
+    ContentType: contentType,
   });
 
-  await s3.send(deleteCommand);
+  await s3.send(putObjectCommand);
+
+  return { key };
 }
 
 </code>

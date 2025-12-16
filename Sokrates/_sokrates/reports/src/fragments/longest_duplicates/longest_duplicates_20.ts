@@ -1,4 +1,4 @@
-features/step_definitions/product.steps.ts [3:9]:
+features/step_definitions/auth.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   After,
   Before,
@@ -11,7 +11,7 @@ features/step_definitions/product.steps.ts [3:9]:
 
 
 
-features/step_definitions/productCrud.steps.ts [3:9]:
+features/step_definitions/upload.steps.ts [4:10]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   After,
   Before,

@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">cypress/support/e2e.ts (<b>10</b> lines of code) (<a href="e2e.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">cypress/support/e2e.ts (<b>1</b> lines of code) (<a href="e2e.ts">raw</a>):</h3>
 <div id="editor">// ***********************************************************
 // This example support/e2e.ts is processed and
 // loaded automatically before your test files.
@@ -29,19 +29,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import &quot;./commands&quot;;
-
-Cypress.on(&quot;uncaught:exception&quot;, (err) =&gt; {
-  // Cypress and React Hydration Error workaround
-  if (
-    /hydrat/i.test(err.message) ||
-    /Minified React error #418/.test(err.message) ||
-    /Minified React error #423/.test(err.message)
-  ) {
-    return false;
-  }
-});
-</div>
+import './commands'</div>
 <script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
