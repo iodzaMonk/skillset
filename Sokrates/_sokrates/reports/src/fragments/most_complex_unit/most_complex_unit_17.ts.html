@@ -1,53 +1,67 @@
 <html>
 <head>
-    <title>async seed()</title>
+    <title>export async function loginUser()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">async seed()</h3>
-<p style="margin-top: 4px">in <i>features/support/productService.ts [50:84]</i></p>
+<h3 style="margin-bottom: 0">export async function loginUser()</h3>
+<p style="margin-top: 4px">in <i>app/lib/auth/login.ts [25:73]</i></p>
 <ul>
-    <li><b>31</b> lines of code</li>
-    <li><b>7</b> McCabe index (conditional complexity)</li>
+    <li><b>42</b> lines of code</li>
+    <li><b>6</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  async seed(rows: ProductRow[]) {
-    for (const row of rows) {
-      const ownerOverrides: OwnerOptions = {
-        name: row[&quot;owner name&quot;]?.trim(),
-        email: row[&quot;owner email&quot;]?.trim(),
-        country: row[&quot;owner country&quot;]?.trim(),
-      };
-      const ownerId =
-        ownerOverrides.name || ownerOverrides.email || ownerOverrides.country
-          ? await this.createOwner(ownerOverrides)
-          : await this.ensureOwner();
+export async function loginUser(body: LoginBody = {}): Promise&lt;LoginResult&gt; {
+  const { email, password } = body ?? {};
 
-      const title = row.title?.trim();
-      if (!title) {
-        throw new Error(&quot;Each product row must include a title&quot;);
-      }
+  const missingFields = [
+    [&quot;email&quot;, email],
+    [&quot;password&quot;, password],
+  ]
+    .filter(([, value]) =&gt; !value)
+    .map(([field]) =&gt; field);
 
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
-
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
-        },
-        select: { id: true },
-      });
-
-      this.products.set(title, product.id);
-    }
+  if (missingFields.length &gt; 0) {
+    return {
+      status: 400,
+      body: {
+        message: `Missing required fields: ${missingFields.join(&quot;, &quot;)}`,
+      },
+    };
   }
+
+  const existingUser = await prisma.users.findUnique({
+    where: { email },
+  });
+
+  if (!existingUser) {
+    return {
+      status: 401,
+      body: { message: &quot;Invalid credentials&quot; },
+    };
+  }
+
+  const isPasswordValid =
+    typeof password === &quot;string&quot; &amp;&amp;
+    typeof existingUser.password === &quot;string&quot; &amp;&amp;
+    (await bcrypt.compare(password, existingUser.password));
+
+  if (!isPasswordValid) {
+    return {
+      status: 401,
+      body: { message: &quot;Invalid credentials&quot; },
+    };
+  }
+
+  return {
+    status: 200,
+    body: {
+      userId: existingUser.id,
+    },
+  };
+}
 
 </code>
 </pre>

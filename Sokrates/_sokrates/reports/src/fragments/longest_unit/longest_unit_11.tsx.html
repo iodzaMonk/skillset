@@ -1,113 +1,84 @@
 <html>
 <head>
-    <title>function SidebarProvider()</title>
+    <title>export default function Footer()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function SidebarProvider()</h3>
-<p style="margin-top: 4px">in <i>components/ui/sidebar.tsx [56:152]</i></p>
+<h3 style="margin-bottom: 0">export default function Footer()</h3>
+<p style="margin-top: 4px">in <i>app/Components/Footer.tsx [1:68]</i></p>
 <ul>
-    <li><b>82</b> lines of code</li>
-    <li><b>8</b> McCabe index (conditional complexity)</li>
+    <li><b>65</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function SidebarProvider({
-  defaultOpen = true,
-  open: openProp,
-  onOpenChange: setOpenProp,
-  className,
-  style,
-  children,
-  ...props
-}: React.ComponentProps&lt;&quot;div&quot;&gt; &amp; {
-  defaultOpen?: boolean;
-  open?: boolean;
-  onOpenChange?: (open: boolean) =&gt; void;
-}) {
-  const isMobile = useIsMobile();
-  const [openMobile, setOpenMobile] = React.useState(false);
-
-  // This is the internal state of the sidebar.
-  // We use openProp and setOpenProp for control from outside the component.
-  const [_open, _setOpen] = React.useState(defaultOpen);
-  const open = openProp ?? _open;
-  const setOpen = React.useCallback(
-    (value: boolean | ((value: boolean) =&gt; boolean)) =&gt; {
-      const openState = typeof value === &quot;function&quot; ? value(open) : value;
-      if (setOpenProp) {
-        setOpenProp(openState);
-      } else {
-        _setOpen(openState);
-      }
-
-      // This sets the cookie to keep the sidebar state.
-      document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
-    },
-    [setOpenProp, open],
-  );
-
-  // Helper to toggle the sidebar.
-  const toggleSidebar = React.useCallback(() =&gt; {
-    return isMobile ? setOpenMobile((open) =&gt; !open) : setOpen((open) =&gt; !open);
-  }, [isMobile, setOpen, setOpenMobile]);
-
-  // Adds a keyboard shortcut to toggle the sidebar.
-  React.useEffect(() =&gt; {
-    const handleKeyDown = (event: KeyboardEvent) =&gt; {
-      if (
-        event.key === SIDEBAR_KEYBOARD_SHORTCUT &amp;&amp;
-        (event.metaKey || event.ctrlKey)
-      ) {
-        event.preventDefault();
-        toggleSidebar();
-      }
-    };
-
-    window.addEventListener(&quot;keydown&quot;, handleKeyDown);
-    return () =&gt; window.removeEventListener(&quot;keydown&quot;, handleKeyDown);
-  }, [toggleSidebar]);
-
-  // We add a state so that we can do data-state=&quot;expanded&quot; or &quot;collapsed&quot;.
-  // This makes it easier to style the sidebar with Tailwind classes.
-  const state = open ? &quot;expanded&quot; : &quot;collapsed&quot;;
-
-  const contextValue = React.useMemo&lt;SidebarContextProps&gt;(
-    () =&gt; ({
-      state,
-      open,
-      setOpen,
-      isMobile,
-      openMobile,
-      setOpenMobile,
-      toggleSidebar,
-    }),
-    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar],
-  );
-
+export default function Footer() {
   return (
-    &lt;SidebarContext.Provider value={contextValue}&gt;
-      &lt;TooltipProvider delayDuration={0}&gt;
-        &lt;div
-          data-slot=&quot;sidebar-wrapper&quot;
-          style={
-            {
-              &quot;--sidebar-width&quot;: SIDEBAR_WIDTH,
-              &quot;--sidebar-width-icon&quot;: SIDEBAR_WIDTH_ICON,
-              ...style,
-            } as React.CSSProperties
-          }
-          className={cn(
-            &quot;group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full&quot;,
-            className,
-          )}
-          {...props}
-        &gt;
-          {children}
+    &lt;footer className=&quot;border-border bg-surface text-text w-full border-t&quot;&gt;
+      &lt;div className=&quot;mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-12 sm:grid-cols-2 md:grid-cols-4&quot;&gt;
+        &lt;div&gt;
+          &lt;h2 className=&quot;text-lg font-semibold&quot;&gt;SkillSet&lt;/h2&gt;
+          &lt;p className=&quot;text-text-muted mt-3 text-sm&quot;&gt;
+            Here to make finding talent easier
+          &lt;/p&gt;
         &lt;/div&gt;
-      &lt;/TooltipProvider&gt;
-    &lt;/SidebarContext.Provider&gt;
+
+        &lt;FooterLinks
+          title=&quot;Company&quot;
+          links={[
+            [&quot;About Us&quot;, &quot;#&quot;],
+            [&quot;Careers&quot;, &quot;#&quot;],
+            [&quot;Press&quot;, &quot;#&quot;],
+          ]}
+        /&gt;
+        &lt;FooterLinks
+          title=&quot;Resources&quot;
+          links={[
+            [&quot;Docs&quot;, &quot;#&quot;],
+            [&quot;Blog&quot;, &quot;#&quot;],
+            [&quot;Support&quot;, &quot;#&quot;],
+          ]}
+        /&gt;
+
+        &lt;div&gt;
+          &lt;h3 className=&quot;text-accent text-sm font-semibold tracking-wide uppercase&quot;&gt;
+            Follow
+          &lt;/h3&gt;
+          &lt;div className=&quot;mt-3 flex space-x-4 text-sm&quot;&gt;
+            {[&quot;Twitter&quot;, &quot;Instagram&quot;, &quot;LinkedIn&quot;].map((label) =&gt; (
+              &lt;a
+                key={label}
+                href=&quot;#&quot;
+                className=&quot;text-text-muted hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+              &gt;
+                {label}
+              &lt;/a&gt;
+            ))}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div className=&quot;border-border border-t&quot;&gt;
+        &lt;div className=&quot;text-text-muted mx-auto flex max-w-6xl flex-col justify-between px-6 py-6 text-sm sm:flex-row&quot;&gt;
+          &lt;p&gt;&copy; {new Date().getFullYear()} SkillSet. All rights reserved.&lt;/p&gt;
+          &lt;div className=&quot;mt-4 flex space-x-6 sm:mt-0&quot;&gt;
+            &lt;a
+              href=&quot;#&quot;
+              className=&quot;hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+            &gt;
+              Privacy
+            &lt;/a&gt;
+            &lt;a
+              href=&quot;#&quot;
+              className=&quot;hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+            &gt;
+              Terms
+            &lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
   );
 }
 

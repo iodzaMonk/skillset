@@ -1,29 +1,25 @@
-app/lib/product-queries.ts [7:15]:
+features/step_definitions/productCrud.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    include: {
-      users: {
-        select: {
-          id: true,
-          name: true,
-          country: true,
-          email: true,
-        },
-      },
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [182:190]:
+features/step_definitions/upload.steps.ts [4:10]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            include: {
-              users: {
-                select: {
-                  id: true,
-                  name: true,
-                  country: true,
-                  email: true,
-                },
-              },
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -1,67 +1,39 @@
 <html>
 <head>
-    <title>export async function loginUser()</title>
+    <title>function()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function loginUser()</h3>
-<p style="margin-top: 4px">in <i>app/lib/auth/login.ts [25:73]</i></p>
+<h3 style="margin-bottom: 0">function()</h3>
+<p style="margin-top: 4px">in <i>features/step_definitions/upload.steps.ts [94:114]</i></p>
 <ul>
-    <li><b>42</b> lines of code</li>
+    <li><b>21</b> lines of code</li>
     <li><b>6</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function loginUser(body: LoginBody = {}): Promise&lt;LoginResult&gt; {
-  const { email, password } = body ?? {};
-
-  const missingFields = [
-    [&quot;email&quot;, email],
-    [&quot;password&quot;, password],
-  ]
-    .filter(([, value]) =&gt; !value)
-    .map(([field]) =&gt; field);
-
-  if (missingFields.length &gt; 0) {
-    return {
-      status: 400,
-      body: {
-        message: `Missing required fields: ${missingFields.join(&quot;, &quot;)}`,
-      },
-    };
-  }
-
-  const existingUser = await prisma.users.findUnique({
-    where: { email },
-  });
-
-  if (!existingUser) {
-    return {
-      status: 401,
-      body: { message: &quot;Invalid credentials&quot; },
-    };
-  }
-
-  const isPasswordValid =
-    typeof password === &quot;string&quot; &amp;&amp;
-    typeof existingUser.password === &quot;string&quot; &amp;&amp;
-    (await bcrypt.compare(password, existingUser.password));
-
-  if (!isPasswordValid) {
-    return {
-      status: 401,
-      body: { message: &quot;Invalid credentials&quot; },
-    };
-  }
-
-  return {
-    status: 200,
-    body: {
-      userId: existingUser.id,
-    },
-  };
-}
+  function (this: UploadWorld, table: DataTable) {
+    const payload = this.uploadFixture.getCapturedPayload();
+    assert.ok(payload, &quot;No upload payload was captured&quot;);
+    const expected = table.hashes()[0] ?? {};
+    for (const [key, value] of Object.entries(expected)) {
+      if (key === &quot;content&quot;) {
+        const bufferValue = payload.buffer;
+        const actualContent: string =
+          typeof bufferValue === &quot;string&quot;
+            ? bufferValue
+            : Buffer.from(bufferValue as Uint8Array).toString();
+        assert.strictEqual(actualContent, value);
+      } else if (key === &quot;contentType&quot;) {
+        assert.strictEqual(payload.contentType ?? &quot;&quot;, value);
+      } else if (key === &quot;originalName&quot;) {
+        assert.strictEqual(payload.originalName ?? &quot;&quot;, value);
+      } else {
+        assert.strictEqual(String((payload as Record&lt;string, unknown&gt;)[key] ?? &quot;&quot;), value);
+      }
+    }
+  },
 
 </code>
 </pre>

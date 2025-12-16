@@ -31,7 +31,6 @@ app/api/user/login/route.ts	34
 app/api/user/logout/route.ts	10
 app/api/user/me/route.ts	8
 app/api/user/register/route.ts	67
-app/api/user/test-vendor/route.ts	33
 app/api/user/update/route.ts	46
 app/auth/[slug]/page.tsx	192
 app/browse/components/categories.tsx	45
@@ -61,7 +60,6 @@ app/lib/stripe.ts	5
 app/lib/user.ts	31
 app/myorderslist/_components/Modal.tsx	2
 app/myorderslist/_components/OrderList.tsx	2
-app/myorderslist/_hooks/orderStates.ts	63
 app/myorderslist/page.tsx	5
 app/myproduct/_components/Modal.tsx	202
 app/myproduct/_components/PostList.tsx	165
@@ -70,7 +68,6 @@ app/myproduct/actions.ts	8
 app/myproduct/page.tsx	96
 app/orders/_components/Modal.tsx	158
 app/orders/_components/OrderList.tsx	118
-app/orders/_hooks/orderStates.ts	120
 app/orders/page.tsx	5
 app/page.tsx	22
 app/product/[slug]/components/Comment.tsx	275

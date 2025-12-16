@@ -1,25 +1,23 @@
-features/step_definitions/browse.steps.ts [3:9]:
+features/step_definitions/product.steps.ts [121:126]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  After,
-  Before,
-  DataTable,
-  Given,
-  Then,
-  When,
-} from "@cucumber/cucumber";
+  function (this: ProductWorld, table: DataTable) {
+    const payload = getPayload(this);
+    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
+    const expectations = table.hashes();
+    for (const row of expectations) {
+      const reviewer = row.reviewer;
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/step_definitions/productCrud.steps.ts [3:9]:
+features/step_definitions/product.steps.ts [140:145]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  After,
-  Before,
-  DataTable,
-  Given,
-  Then,
-  When,
-} from "@cucumber/cucumber";
+  function (this: ProductWorld, table: DataTable) {
+    const payload = getPayload(this);
+    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
+    const expectations = table.hashes();
+    for (const row of expectations) {
+      const reviewer = row.reviewer;
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -1,46 +1,36 @@
 <html>
 <head>
-    <title>replies: updateCommentTree()</title>
+    <title>export async function DELETE()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">replies: updateCommentTree()</h3>
-<p style="margin-top: 4px">in <i>app/product/[slug]/components/useComments.ts [40:67]</i></p>
+<h3 style="margin-bottom: 0">export async function DELETE()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/delete/route.ts [5:22]</i></p>
 <ul>
-    <li><b>15</b> lines of code</li>
-    <li><b>4</b> McCabe index (conditional complexity)</li>
+    <li><b>16</b> lines of code</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-        replies: updateCommentTree(comment.replies, updated),
-      };
+export async function DELETE() {
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json({ message: &quot;Not authenticated&quot; }, { status: 401 });
     }
 
-    return comment;
-  });
+    await prisma.users.delete({
+      where: { id: user.id },
+    });
 
-const removeCommentFromTree = (comments: Comment[], id: string): Comment[] =&gt;
-  comments
-    .filter((comment) =&gt; comment.id !== id)
-    .map((comment) =&gt;
-      comment.replies &amp;&amp; comment.replies.length &gt; 0
-        ? {
-            ...comment,
-            replies: removeCommentFromTree(comment.replies, id),
-          }
-        : comment,
-    );
-
-const insertReplyIntoTree = (
-  comments: Comment[],
-  parentId: string,
-  reply: Comment,
-): Comment[] =&gt;
-  comments.map((comment) =&gt; {
-    if (comment.id === parentId) {
-      const existingReplies = comment.replies ?? [];
-      return {
+    await deleteSession();
+    return Response.json({ message: &quot;Account deleted&quot; }, { status: 200 });
+  } catch (e) {
+    console.error(e);
+    return Response.json({ message: &quot;Internal server error&quot; }, { status: 500 });
+  }
+}
 
 </code>
 </pre>

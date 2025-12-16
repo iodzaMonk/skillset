@@ -36,42 +36,21 @@
 }, {
   "relativePath" : "tests/cart.test.ts",
   "extension" : "ts",
-  "linesOfCode" : 136,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "tests/dummy.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 5,
+  "linesOfCode" : 111,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "tests/orders.test.ts",
   "extension" : "ts",
-  "linesOfCode" : 162,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "tests/product.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 175,
+  "linesOfCode" : 164,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "tests/professional.test.ts",
   "extension" : "ts",
-  "linesOfCode" : 192,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "tests/uploadAdapter.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 55,
+  "linesOfCode" : 179,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -92,21 +71,21 @@
 }, {
   "relativePath" : "tests/user-login.test.ts",
   "extension" : "ts",
-  "linesOfCode" : 132,
+  "linesOfCode" : 103,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "tests/user-register.test.ts",
   "extension" : "ts",
-  "linesOfCode" : 166,
+  "linesOfCode" : 137,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "tests/user-update.test.ts",
   "extension" : "ts",
-  "linesOfCode" : 133,
+  "linesOfCode" : 121,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

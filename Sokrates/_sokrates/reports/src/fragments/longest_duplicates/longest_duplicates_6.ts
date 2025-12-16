@@ -1,35 +1,29 @@
-app/lib/product-queries.ts [5:16]:
+cypress/e2e/complete_test.cy.ts [210:218]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  const product = await prisma.posts.findUnique({
-    where: { id: slug },
-    include: {
-      users: {
-        select: {
-          id: true,
-          name: true,
-          country: true,
-          email: true,
-        },
-      },
-      reviews: {
+    beforeEach(() => {
+      cy.visit("localhost:3000");
+      openMenu();
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+    });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [170:181]:
+cypress/e2e/complete_test.cy.ts [299:307]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      const product = await prisma.posts.findUnique({
-        where: { id: slug },
-        include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-              country: true,
-              email: true,
-            },
-          },
-          reviews: {
+    beforeEach(() => {
+      cy.visit("localhost:3000");
+      openMenu();
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+    });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -1,40 +1,53 @@
 <html>
 <head>
-    <title>function()</title>
+    <title>export async function POST()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function()</h3>
-<p style="margin-top: 4px">in <i>features/step_definitions/product.steps.ts [143:164]</i></p>
+<h3 style="margin-bottom: 0">export async function POST()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/login/route.ts [5:39]</i></p>
 <ul>
-    <li><b>22</b> lines of code</li>
-    <li><b>6</b> McCabe index (conditional complexity)</li>
+    <li><b>31</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  function (this: ProductWorld, table: DataTable) {
-    const payload = getPayload(this);
-    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
-    const expectations = table.hashes();
-    for (const row of expectations) {
-      const reviewer = row.reviewer;
-      const country = row.country;
-      const email = row.email;
-      const match = reviews.find(
-        (review: {
-          users?: { name?: string; country?: string; email?: string };
-        }) =&gt;
-          review?.users?.name === reviewer &amp;&amp;
-          review?.users?.country === country &amp;&amp;
-          review?.users?.email === email,
-      );
-      assert.ok(
-        match,
-        `Expected metadata for reviewer ${reviewer} (${country}, ${email})`,
-      );
+export async function POST(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
+
+  try {
+    // get body
+    const body = (await req.json()) as LoginBody;
+    const result = await loginUser(body);
+
+    if (result.status !== 200) {
+      return Response.json(result.body, {
+        status: result.status,
+        headers: { &quot;x-referer&quot;: referer },
+      });
     }
-  },
+
+    const session = await createSession(result.body.userId);
+    return Response.json(
+      { token: session },
+      {
+        status: 200,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+      },
+    );
+  } catch (error) {
+    console.log(error);
+    return Response.json(
+      { message: &quot;Internal server error&quot; },
+      {
+        status: 500,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+      },
+    );
+  }
+}
 
 </code>
 </pre>

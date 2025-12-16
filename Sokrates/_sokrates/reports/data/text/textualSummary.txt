@@ -1,13 +1,14 @@
 Start of analysis
-Found 75733 files
-182 are in the main's scope  (13710 lines of code)
-  *.tsx: 94 files, (8530 lines of code)
-  *.ts: 83 files, (5034 lines of code)
+Found 75687 files
+140 are in the main's scope  (9118 lines of code)
+  *.ts: 80 files, (4701 lines of code)
+  *.tsx: 54 files, (4235 lines of code)
   *.css: 1 files, (105 lines of code)
   *.mjs: 3 files, (37 lines of code)
+  *.py: 1 files, (36 lines of code)
   *.js: 1 files, (4 lines of code)
-16 are in the test's scope  (1703 lines of code)
-  *.ts: 16 files, (1703 lines of code)
+13 are in the test's scope  (1362 lines of code)
+  *.ts: 13 files, (1362 lines of code)
 0 are in the generated's scope  (0 lines of code)
 0 are in the build and deployment's scope  (0 lines of code)
 81 are in the other's scope  (3224 lines of code)
@@ -15,82 +16,84 @@ Found 75733 files
   *.txt: 32 files, (359 lines of code)
   *.svg: 31 files, (154 lines of code)
   *.md: 1 files, (67 lines of code)
-Excluded from analyses 75454 files
+Excluded from analyses 75453 files
 Analysing dependencies...
-91 are in the DECOMPOSITION_primary/app's scope  (6268 lines of code)
+88 are in the DECOMPOSITION_primary/app's scope  (6052 lines of code)
   *.tsx: 42 files, (3433 lines of code)
-  *.ts: 48 files, (2730 lines of code)
+  *.ts: 45 files, (2514 lines of code)
   *.css: 1 files, (105 lines of code)
-52 are in the DECOMPOSITION_primary/components's scope  (5097 lines of code)
-  *.tsx: 52 files, (5097 lines of code)
-10 are in the DECOMPOSITION_primary/ROOT's scope  (133 lines of code)
+12 are in the DECOMPOSITION_primary/components's scope  (802 lines of code)
+  *.tsx: 12 files, (802 lines of code)
+11 are in the DECOMPOSITION_primary/ROOT's scope  (169 lines of code)
   *.ts: 6 files, (92 lines of code)
   *.mjs: 3 files, (37 lines of code)
+  *.py: 1 files, (36 lines of code)
   *.js: 1 files, (4 lines of code)
 2 are in the DECOMPOSITION_primary/lib's scope  (13 lines of code)
   *.ts: 2 files, (13 lines of code)
 1 are in the DECOMPOSITION_primary/prisma's scope  (65 lines of code)
   *.ts: 1 files, (65 lines of code)
-9 are in the DECOMPOSITION_primary/types's scope  (395 lines of code)
-  *.ts: 9 files, (395 lines of code)
+9 are in the DECOMPOSITION_primary/types's scope  (406 lines of code)
+  *.ts: 9 files, (406 lines of code)
 1 are in the DECOMPOSITION_primary/hooks's scope  (17 lines of code)
   *.ts: 1 files, (17 lines of code)
 4 are in the DECOMPOSITION_primary/cypress's scope  (407 lines of code)
   *.ts: 4 files, (407 lines of code)
-12 are in the DECOMPOSITION_primary/features's scope  (1315 lines of code)
-  *.ts: 12 files, (1315 lines of code)
+12 are in the DECOMPOSITION_primary/features's scope  (1187 lines of code)
+  *.ts: 12 files, (1187 lines of code)
   - "primary", found 0 dependencies (0 component dependencies)
 1 are in the CONCERN_general/TODOs's scope  (174 lines of code)
   *.ts: 1 files, (174 lines of code)
-181 are in the CONCERN_general/Unclassified's scope  (13536 lines of code)
-  *.tsx: 94 files, (8530 lines of code)
-  *.ts: 82 files, (4860 lines of code)
+139 are in the CONCERN_general/Unclassified's scope  (8944 lines of code)
+  *.ts: 79 files, (4527 lines of code)
+  *.tsx: 54 files, (4235 lines of code)
   *.css: 1 files, (105 lines of code)
   *.mjs: 3 files, (37 lines of code)
+  *.py: 1 files, (36 lines of code)
   *.js: 1 files, (4 lines of code)
 Analysing units...
 Basic unit metrics...
-  - found 495 units (8278 lines of code in units)
-Unit size 1335 / 2213 / 2334 / 1022 / 1374
+  - found 263 units (4334 lines of code in units)
+Unit size 873 / 724 / 1031 / 441 / 1265
 Unit size per component:
-Unit Size Component app: 310 / 299 / 622 / 353 / 1374
-Unit Size Component components: 562 / 1650 / 1413 / 546 / 0
+Unit Size Component app: 298 / 299 / 592 / 301 / 1265
+Unit Size Component components: 94 / 154 / 223 / 81 / 0
 Unit Size Component lib: 3 / 0 / 0 / 0 / 0
 Unit Size Component prisma: 13 / 0 / 38 / 0 / 0
 Unit Size Component ROOT: 17 / 15 / 0 / 0 / 0
 Unit Size Component hooks: 0 / 15 / 0 / 0 / 0
 Unit Size Component cypress: 31 / 16 / 0 / 0 / 0
-Unit Size Component features: 399 / 218 / 261 / 123 / 0
+Unit Size Component features: 417 / 225 / 178 / 59 / 0
 Unit size per extension:
-Unit Size Extension tsx: 583 / 1682 / 1580 / 786 / 1019
-Unit Size Extension ts: 752 / 531 / 754 / 236 / 355
-Conditional complexity: 6110 / 789 / 1112 / 267 / 0
+Unit Size Extension tsx: 115 / 186 / 390 / 321 / 1019
+Unit Size Extension ts: 758 / 538 / 641 / 120 / 246
+Conditional complexity: 2534 / 530 / 1003 / 267 / 0
 Conditional complexity per component:
-Conditional Complexity Component app 1261 / 377 / 1053 / 267 / 0
-Conditional Complexity Component components 3869 / 302 / 0 / 0 / 0
+Conditional Complexity Component app 1167 / 377 / 944 / 267 / 0
+Conditional Complexity Component components 471 / 81 / 0 / 0 / 0
 Conditional Complexity Component lib 3 / 0 / 0 / 0 / 0
 Conditional Complexity Component prisma 51 / 0 / 0 / 0 / 0
 Conditional Complexity Component ROOT 32 / 0 / 0 / 0 / 0
 Conditional Complexity Component hooks 15 / 0 / 0 / 0 / 0
 Conditional Complexity Component cypress 47 / 0 / 0 / 0 / 0
-Conditional Complexity Component features 832 / 110 / 59 / 0 / 0
+Conditional Complexity Component features 748 / 72 / 59 / 0 / 0
 Conditional complexity per extension:
-Conditional Complexity Component tsx: 4207 / 478 / 698 / 267 / 0
-Conditional Complexity Component ts: 1903 / 311 / 414 / 0 / 0
+Conditional Complexity Component tsx: 809 / 257 / 698 / 267 / 0
+Conditional Complexity Component ts: 1725 / 273 / 305 / 0 / 0
 Analysing duplication...
-  - found 110 duplicates (1014 duplicated lines vs. 12349 cleaned lines) in 54 files
+  - found 51 duplicates (452 duplicated lines vs. 8198 cleaned lines) in 32 files
   - per component:primary
-     - "features": 170 duplicated lines vs. 1160 total lines
-     - "components": 309 duplicated lines vs. 4623 total lines
-     - "app": 484 duplicated lines vs. 5583 total lines
      - "cypress": 51 duplicated lines vs. 400 total lines
-     - "ROOT": 0 duplicated lines vs. 110 total lines
+     - "app": 286 duplicated lines vs. 5399 total lines
+     - "components": 32 duplicated lines vs. 725 total lines
+     - "features": 83 duplicated lines vs. 1047 total lines
+     - "ROOT": 0 duplicated lines vs. 143 total lines
      - "lib": 0 duplicated lines vs. 8 total lines
      - "prisma": 0 duplicated lines vs. 60 total lines
-     - "types": 0 duplicated lines vs. 390 total lines
+     - "types": 0 duplicated lines vs. 401 total lines
      - "hooks": 0 duplicated lines vs. 15 total lines
   - per extension:
-     - "ts": 534 duplicated lines vs. 4426 total lines
-     - "tsx": 480 duplicated lines vs. 7778 total lines
-Total analysis time: 3.56s
+     - "ts": 256 duplicated lines vs. 4140 total lines
+     - "tsx": 196 duplicated lines vs. 3880 total lines
+Total analysis time: 3.57s
 

@@ -126,10 +126,7 @@ Then(
       const reviewer = row.reviewer;
       const text = row.text;
       const match = reviews.find(
-        (review: {
-          users?: { name?: string; country?: string; email?: string };
-          text?: string;
-        }) =>
+        (review: any) =>
           review?.users?.name === reviewer &&
           String(review?.text ?? "").trim() === text,
       );
@@ -149,9 +146,7 @@ Then(
       const country = row.country;
       const email = row.email;
       const match = reviews.find(
-        (review: {
-          users?: { name?: string; country?: string; email?: string };
-        }) =>
+        (review: any) =>
           review?.users?.name === reviewer &&
           review?.users?.country === country &&
           review?.users?.email === email,

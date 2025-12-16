@@ -1,25 +1,23 @@
-components/ui/alert-dialog.tsx [38:44]:
+app/product/[slug]/components/Comment.tsx [95:100]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
-        className,
-      )}
-      {...props}
-    />
-  );
+                >
+                  <path d="M12 2.25l2.902 6.084 6.718.977-4.81 4.69 1.136 6.632L12 16.75l-5.946 3.883 1.136-6.632-4.81-4.69 6.718-.977L12 2.25z" />
+                </svg>
+              ))}
+            </div>
+          ) : null}
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-components/ui/sheet.tsx [38:44]:
+app/product/[slug]/components/Comment.tsx [116:121]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
-        className,
-      )}
-      {...props}
-    />
-  );
+                    >
+                      <path d="M12 2.25l2.902 6.084 6.718.977-4.81 4.69 1.136 6.632L12 16.75l-5.946 3.883 1.136-6.632-4.81-4.69 6.718-.977L12 2.25z" />
+                    </svg>
+                  ))}
+                </div>
+              ) : null}
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

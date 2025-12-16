@@ -1,41 +1,29 @@
-app/myorderslist/_hooks/orderStates.ts [57:71]:
+cypress/e2e/complete_test.cy.ts [210:218]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    document.addEventListener("pointerdown", handlePointerDown);
-    return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [closeModal, isModalOpen]);
-
-  useEffect(() => {
-    refreshPosts();
-  }, [refreshPosts]);
-
-  return {
-    orders,
-    openModal,
-    closeModal,
-    toggleModal,
-    isModalOpen,
-    modalRef,
+    beforeEach(() => {
+      cy.visit("localhost:3000");
+      openMenu();
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+    });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/orders/_hooks/orderStates.ts [122:136]:
+cypress/e2e/complete_test.cy.ts [266:274]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    document.addEventListener("pointerdown", handlePointerDown);
-    return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [closeModal, isModalOpen]);
-
-  useEffect(() => {
-    refreshPosts();
-  }, [refreshPosts]);
-
-  return {
-    orders,
-    openModal,
-    closeModal,
-    toggleModal,
-    isModalOpen,
-    modalRef,
+    beforeEach(() => {
+      cy.visit("localhost:3000");
+      openMenu();
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+    });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

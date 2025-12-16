@@ -1,25 +1,25 @@
-features/step_definitions/auth.steps.ts [3:9]:
+app/api/product/[slug]/reviews/route.ts [106:112]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  After,
-  Before,
-  DataTable,
-  Given,
-  Then,
-  When,
-} from "@cucumber/cucumber";
+  request: Request,
+  context: { params: Promise<{ slug: string }> },
+) {
+  const { slug } = await context.params;
+  const user = await getCurrentUser();
+
+  if (!user) {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/step_definitions/browse.steps.ts [3:9]:
+app/api/product/[slug]/reviews/route.ts [177:183]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  After,
-  Before,
-  DataTable,
-  Given,
-  Then,
-  When,
-} from "@cucumber/cucumber";
+  request: Request,
+  context: { params: Promise<{ slug: string }> },
+) {
+  const { slug } = await context.params;
+  const user = await getCurrentUser();
+
+  if (!user) {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

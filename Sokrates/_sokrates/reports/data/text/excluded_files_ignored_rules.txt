@@ -54745,9 +54745,8 @@ next-env.d.ts
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Too long lines (1000+ characters)
-3009 files:
+3008 files:
 
-components/ui/navigation-menu.tsx
 public/logoV1.svg
 public/pattern-dark.svg
 public/pattern-light.svg

@@ -2,14 +2,14 @@ goal: Keep the system simple and easy to change
 control metric: LINES_OF_CODE_MAIN
 status: OK
 desired range: [0 - 200000] ±20000
-value: 13710
+value: 9118
 description: Total number of lines of main code
 
 goal: Keep the system simple and easy to change
 control metric: DUPLICATION_PERCENTAGE
-status: FAILED
+status: TOLERANT
 desired range: [0 - 5] ±1
-value: 8.211191189570005
+value: 5.513539887777506
 description: System duplication
 
 goal: Keep the system simple and easy to change

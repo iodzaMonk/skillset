@@ -1,29 +1,25 @@
-features/support/productService.ts [172:180]:
+features/step_definitions/auth.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-              country: true,
-              email: true,
-            },
-          },
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [182:190]:
+features/step_definitions/product.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            include: {
-              users: {
-                select: {
-                  id: true,
-                  name: true,
-                  country: true,
-                  email: true,
-                },
-              },
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

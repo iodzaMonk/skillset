@@ -1,0 +1,25 @@
+
+DevTools listening on ws://127.0.0.1:46799/devtools/browser/b887db68-f784-4cdd-b705-27b4bb795df6
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        15.6.0                                                                         │
+  │ Browser:        Electron 138 (headless)                                                        │
+  │ Node Version:   v20.19.6 (/usr/bin/node)                                                       │
+  │ Specs:          1 found (complete_test.cy.ts)                                                  │
+  │ Searched:       cypress/e2e/complete_test.cy.ts                                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  complete_test.cy.ts                                                             (1 of 1)
+
+
+  Complete User Flow
+    Home Page
+      ✓ should display home page content (12873ms)
+    Logout

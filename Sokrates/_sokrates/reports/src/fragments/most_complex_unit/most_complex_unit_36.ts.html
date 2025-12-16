@@ -1,85 +1,33 @@
 <html>
 <head>
-    <title>async fetchBySlug()</title>
+    <title>function()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">async fetchBySlug()</h3>
-<p style="margin-top: 4px">in <i>features/support/productService.ts [161:227]</i></p>
+<h3 style="margin-bottom: 0">function()</h3>
+<p style="margin-top: 4px">in <i>features/step_definitions/product.steps.ts [121:135]</i></p>
 <ul>
-    <li><b>64</b> lines of code</li>
-    <li><b>5</b> McCabe index (conditional complexity)</li>
+    <li><b>15</b> lines of code</li>
+    <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  async fetchBySlug(slug: string): Promise&lt;ProductResponse&gt; {
-    if (!slug) {
-      return {
-        status: 400,
-        body: { message: &quot;Invalid product ID&quot; },
-      };
+  function (this: ProductWorld, table: DataTable) {
+    const payload = getPayload(this);
+    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
+    const expectations = table.hashes();
+    for (const row of expectations) {
+      const reviewer = row.reviewer;
+      const text = row.text;
+      const match = reviews.find(
+        (review: any) =&gt;
+          review?.users?.name === reviewer &amp;&amp;
+          String(review?.text ?? &quot;&quot;).trim() === text,
+      );
+      assert.ok(match, `Expected review from ${reviewer} with text &quot;${text}&quot;`);
     }
-
-    try {
-      const product = await prisma.posts.findUnique({
-        where: { id: slug },
-        include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-              country: true,
-              email: true,
-            },
-          },
-          reviews: {
-            include: {
-              users: {
-                select: {
-                  id: true,
-                  name: true,
-                  country: true,
-                  email: true,
-                },
-              },
-              replies: {
-                select: {
-                  id: true,
-                  date: true,
-                  text: true,
-                },
-              },
-            },
-            orderBy: { date: &quot;desc&quot; },
-          },
-        },
-      });
-
-      if (!product) {
-        return {
-          status: 404,
-          body: { message: &quot;Product not found&quot; },
-        };
-      }
-
-      return {
-        status: 200,
-        body: {
-          ...product,
-          image_url: &quot;/no-image.svg&quot;,
-        },
-      };
-    } catch (error) {
-      if (error instanceof Prisma.PrismaClientKnownRequestError) {
-        return {
-          status: 400,
-          body: { message: &quot;Invalid product ID&quot; },
-        };
-      }
-      throw error;
-    }
-  }
+  },
 
 </code>
 </pre>

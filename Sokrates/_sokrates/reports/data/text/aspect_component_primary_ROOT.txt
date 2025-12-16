@@ -2,6 +2,7 @@ Path	Lines of Code
 cypress.config.ts	7
 db.js	4
 eslint.config.mjs	25
+find_unused.py	36
 jest.config.ts	13
 next.config.ts	29
 postcss.config.mjs	4

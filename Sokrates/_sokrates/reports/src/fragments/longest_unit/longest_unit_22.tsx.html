@@ -1,70 +1,52 @@
 <html>
 <head>
-    <title>function Slider()</title>
+    <title>function SheetContent()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function Slider()</h3>
-<p style="margin-top: 4px">in <i>components/ui/slider.tsx [8:61]</i></p>
+<h3 style="margin-bottom: 0">function SheetContent()</h3>
+<p style="margin-top: 4px">in <i>components/ui/sheet.tsx [47:82]</i></p>
 <ul>
-    <li><b>53</b> lines of code</li>
-    <li><b>3</b> McCabe index (conditional complexity)</li>
+    <li><b>36</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function Slider({
+function SheetContent({
   className,
-  defaultValue,
-  value,
-  min = 0,
-  max = 100,
+  children,
+  side = &quot;right&quot;,
   ...props
-}: React.ComponentProps&lt;typeof SliderPrimitive.Root&gt;) {
-  const _values = React.useMemo(
-    () =&gt;
-      Array.isArray(value)
-        ? value
-        : Array.isArray(defaultValue)
-          ? defaultValue
-          : [min, max],
-    [value, defaultValue, min, max],
-  );
-
+}: React.ComponentProps&lt;typeof SheetPrimitive.Content&gt; &amp; {
+  side?: &quot;top&quot; | &quot;right&quot; | &quot;bottom&quot; | &quot;left&quot;;
+}) {
   return (
-    &lt;SliderPrimitive.Root
-      data-slot=&quot;slider&quot;
-      defaultValue={defaultValue}
-      value={value}
-      min={min}
-      max={max}
-      className={cn(
-        &quot;relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col&quot;,
-        className,
-      )}
-      {...props}
-    &gt;
-      &lt;SliderPrimitive.Track
-        data-slot=&quot;slider-track&quot;
+    &lt;SheetPortal&gt;
+      &lt;SheetOverlay /&gt;
+      &lt;SheetPrimitive.Content
+        data-slot=&quot;sheet-content&quot;
         className={cn(
-          &quot;bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-1.5 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5&quot;,
+          &quot;bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500&quot;,
+          side === &quot;right&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm&quot;,
+          side === &quot;left&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm&quot;,
+          side === &quot;top&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b&quot;,
+          side === &quot;bottom&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t&quot;,
+          className,
         )}
+        {...props}
       &gt;
-        &lt;SliderPrimitive.Range
-          data-slot=&quot;slider-range&quot;
-          className={cn(
-            &quot;bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full&quot;,
-          )}
-        /&gt;
-      &lt;/SliderPrimitive.Track&gt;
-      {Array.from({ length: _values.length }, (_, index) =&gt; (
-        &lt;SliderPrimitive.Thumb
-          data-slot=&quot;slider-thumb&quot;
-          key={index}
-          className=&quot;border-primary ring-ring/50 block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50&quot;
-        /&gt;
-      ))}
-    &lt;/SliderPrimitive.Root&gt;
+        {children}
+        &lt;SheetPrimitive.Close className=&quot;ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none&quot;&gt;
+          &lt;XIcon className=&quot;size-4&quot; /&gt;
+          &lt;span className=&quot;sr-only&quot;&gt;Close&lt;/span&gt;
+        &lt;/SheetPrimitive.Close&gt;
+      &lt;/SheetPrimitive.Content&gt;
+    &lt;/SheetPortal&gt;
   );
 }
 

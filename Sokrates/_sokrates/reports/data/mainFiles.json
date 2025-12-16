@@ -118,13 +118,6 @@
   "unitsMcCabeIndexSum" : 4,
   "linesOfCodeInUnits" : 49
 }, {
-  "relativePath" : "app/api/user/test-vendor/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 33,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 5,
-  "linesOfCodeInUnits" : 30
-}, {
   "relativePath" : "app/api/orders/user/route.ts",
   "extension" : "ts",
   "linesOfCode" : 35,
@@ -489,13 +482,6 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "app/orders/_hooks/orderStates.ts",
-  "extension" : "ts",
-  "linesOfCode" : 120,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 19,
-  "linesOfCodeInUnits" : 115
-}, {
   "relativePath" : "app/orders/page.tsx",
   "extension" : "tsx",
   "linesOfCode" : 5,
@@ -516,13 +502,6 @@
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/myorderslist/_hooks/orderStates.ts",
-  "extension" : "ts",
-  "linesOfCode" : 63,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 58
 }, {
   "relativePath" : "app/myorderslist/page.tsx",
   "extension" : "tsx",
@@ -664,89 +643,12 @@
   "unitsMcCabeIndexSum" : 11,
   "linesOfCodeInUnits" : 138
 }, {
-  "relativePath" : "components/ui/accordion.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 56,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 3,
-  "linesOfCodeInUnits" : 38
-}, {
-  "relativePath" : "components/ui/alert-dialog.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 126,
-  "unitsCount" : 10,
-  "unitsMcCabeIndexSum" : 10,
-  "linesOfCodeInUnits" : 114
-}, {
-  "relativePath" : "components/ui/alert.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 56,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 26
-}, {
-  "relativePath" : "components/ui/aspect-ratio.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 6,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "components/ui/avatar.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 43,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 27
-}, {
-  "relativePath" : "components/ui/badge.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 37,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 6
-}, {
-  "relativePath" : "components/ui/breadcrumb.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 99,
-  "unitsCount" : 7,
-  "unitsMcCabeIndexSum" : 8,
-  "linesOfCodeInUnits" : 86
-}, {
-  "relativePath" : "components/ui/button-group.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 67,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 3,
-  "linesOfCodeInUnits" : 33
-}, {
-  "relativePath" : "components/ui/calendar.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 203,
-  "unitsCount" : 26,
-  "unitsMcCabeIndexSum" : 35,
-  "linesOfCodeInUnits" : 657
-}, {
-  "relativePath" : "components/ui/card.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 70,
-  "unitsCount" : 6,
-  "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 63
-}, {
   "relativePath" : "components/ui/carousel.tsx",
   "extension" : "tsx",
   "linesOfCode" : 204,
   "unitsCount" : 5,
   "unitsMcCabeIndexSum" : 18,
   "linesOfCodeInUnits" : 151
-}, {
-  "relativePath" : "components/ui/chart.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 303,
-  "unitsCount" : 4,
-  "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 62
 }, {
   "relativePath" : "components/ui/checkbox.tsx",
   "extension" : "tsx",
@@ -755,145 +657,12 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "components/ui/collapsible.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 24,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 15
-}, {
-  "relativePath" : "components/ui/command.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 172,
-  "unitsCount" : 9,
-  "unitsMcCabeIndexSum" : 9,
-  "linesOfCodeInUnits" : 149
-}, {
-  "relativePath" : "components/ui/context-menu.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 214,
-  "unitsCount" : 14,
-  "unitsMcCabeIndexSum" : 14,
-  "linesOfCodeInUnits" : 197
-}, {
-  "relativePath" : "components/ui/drawer.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 107,
-  "unitsCount" : 9,
-  "unitsMcCabeIndexSum" : 9,
-  "linesOfCodeInUnits" : 94
-}, {
-  "relativePath" : "components/ui/dropdown-menu.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 219,
-  "unitsCount" : 14,
-  "unitsMcCabeIndexSum" : 14,
-  "linesOfCodeInUnits" : 202
-}, {
-  "relativePath" : "components/ui/empty.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 95,
-  "unitsCount" : 6,
-  "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 71
-}, {
-  "relativePath" : "components/ui/field.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 225,
-  "unitsCount" : 10,
-  "unitsMcCabeIndexSum" : 16,
-  "linesOfCodeInUnits" : 184
-}, {
-  "relativePath" : "components/ui/form.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 144,
-  "unitsCount" : 5,
-  "unitsMcCabeIndexSum" : 8,
-  "linesOfCodeInUnits" : 72
-}, {
-  "relativePath" : "components/ui/hover-card.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 38,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 3,
-  "linesOfCodeInUnits" : 33
-}, {
-  "relativePath" : "components/ui/input-group.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 138,
-  "unitsCount" : 5,
-  "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 74
-}, {
-  "relativePath" : "components/ui/input-otp.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 66,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 4,
-  "linesOfCodeInUnits" : 56
-}, {
-  "relativePath" : "components/ui/item.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 179,
-  "unitsCount" : 10,
-  "unitsMcCabeIndexSum" : 10,
-  "linesOfCodeInUnits" : 114
-}, {
-  "relativePath" : "components/ui/kbd.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 25,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 23
-}, {
   "relativePath" : "components/ui/label.tsx",
   "extension" : "tsx",
   "linesOfCode" : 16,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "components/ui/menubar.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 257,
-  "unitsCount" : 16,
-  "unitsMcCabeIndexSum" : 16,
-  "linesOfCodeInUnits" : 234
-}, {
-  "relativePath" : "components/ui/pagination.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 106,
-  "unitsCount" : 6,
-  "unitsMcCabeIndexSum" : 8,
-  "linesOfCodeInUnits" : 80
-}, {
-  "relativePath" : "components/ui/popover.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 39,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 3,
-  "linesOfCodeInUnits" : 31
-}, {
-  "relativePath" : "components/ui/progress.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 27,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 22
-}, {
-  "relativePath" : "components/ui/radio-group.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 40,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 34
-}, {
-  "relativePath" : "components/ui/resizable.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 47,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 20
 }, {
   "relativePath" : "components/ui/scroll-area.tsx",
   "extension" : "tsx",
@@ -916,13 +685,6 @@
   "unitsMcCabeIndexSum" : 13,
   "linesOfCodeInUnits" : 99
 }, {
-  "relativePath" : "components/ui/sidebar.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 635,
-  "unitsCount" : 23,
-  "unitsMcCabeIndexSum" : 49,
-  "linesOfCodeInUnits" : 547
-}, {
   "relativePath" : "components/ui/skeleton.tsx",
   "extension" : "tsx",
   "linesOfCode" : 7,
@@ -930,75 +692,12 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "components/ui/slider.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 58,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 3,
-  "linesOfCodeInUnits" : 53
-}, {
-  "relativePath" : "components/ui/sonner.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 36,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "components/ui/spinner.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 9,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "components/ui/switch.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 27,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 22
-}, {
-  "relativePath" : "components/ui/table.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 91,
-  "unitsCount" : 7,
-  "unitsMcCabeIndexSum" : 7,
-  "linesOfCodeInUnits" : 80
-}, {
-  "relativePath" : "components/ui/tabs.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 59,
-  "unitsCount" : 4,
-  "unitsMcCabeIndexSum" : 4,
-  "linesOfCodeInUnits" : 54
-}, {
   "relativePath" : "components/ui/textarea.tsx",
   "extension" : "tsx",
   "linesOfCode" : 11,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "components/ui/toggle-group.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 63,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 14
-}, {
-  "relativePath" : "components/ui/toggle.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 38,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 6
-}, {
-  "relativePath" : "components/ui/tooltip.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 51,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 3,
-  "linesOfCodeInUnits" : 26
 }, {
   "relativePath" : "db.js",
   "extension" : "js",
@@ -1100,7 +799,7 @@
 }, {
   "relativePath" : "types/Comment.ts",
   "extension" : "ts",
-  "linesOfCode" : 46,
+  "linesOfCode" : 57,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -1191,24 +890,24 @@
 }, {
   "relativePath" : "features/step_definitions/product.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 175,
+  "linesOfCode" : 170,
   "unitsCount" : 18,
   "unitsMcCabeIndexSum" : 29,
-  "linesOfCodeInUnits" : 120
+  "linesOfCodeInUnits" : 115
 }, {
   "relativePath" : "features/step_definitions/productCrud.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 131,
+  "linesOfCode" : 122,
   "unitsCount" : 16,
   "unitsMcCabeIndexSum" : 18,
   "linesOfCodeInUnits" : 82
 }, {
   "relativePath" : "features/step_definitions/upload.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 119,
+  "linesOfCode" : 116,
   "unitsCount" : 12,
   "unitsMcCabeIndexSum" : 19,
-  "linesOfCodeInUnits" : 84
+  "linesOfCodeInUnits" : 81
 }, {
   "relativePath" : "features/support/authService.ts",
   "extension" : "ts",
@@ -1240,24 +939,24 @@
 }, {
   "relativePath" : "features/support/browseService.ts",
   "extension" : "ts",
-  "linesOfCode" : 117,
-  "unitsCount" : 6,
-  "unitsMcCabeIndexSum" : 17,
-  "linesOfCodeInUnits" : 98
+  "linesOfCode" : 84,
+  "unitsCount" : 5,
+  "unitsMcCabeIndexSum" : 10,
+  "linesOfCodeInUnits" : 65
 }, {
   "relativePath" : "features/support/productCrudFixture.ts",
   "extension" : "ts",
-  "linesOfCode" : 195,
-  "unitsCount" : 13,
-  "unitsMcCabeIndexSum" : 33,
-  "linesOfCodeInUnits" : 172
+  "linesOfCode" : 186,
+  "unitsCount" : 15,
+  "unitsMcCabeIndexSum" : 37,
+  "linesOfCodeInUnits" : 163
 }, {
   "relativePath" : "features/support/productService.ts",
   "extension" : "ts",
-  "linesOfCode" : 276,
-  "unitsCount" : 9,
-  "unitsMcCabeIndexSum" : 46,
-  "linesOfCodeInUnits" : 240
+  "linesOfCode" : 207,
+  "unitsCount" : 8,
+  "unitsMcCabeIndexSum" : 36,
+  "linesOfCodeInUnits" : 168
 }, {
   "relativePath" : "vitest.config.ts",
   "extension" : "ts",
@@ -1269,6 +968,13 @@
   "relativePath" : "vitest.setup.ts",
   "extension" : "ts",
   "linesOfCode" : 8,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "find_unused.py",
+  "extension" : "py",
+  "linesOfCode" : 36,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

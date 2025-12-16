@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">features/step_definitions/upload.steps.ts (<b>119</b> lines of code) (<a href="upload.steps.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">features/step_definitions/upload.steps.ts (<b>116</b> lines of code) (<a href="upload.steps.ts">raw</a>):</h3>
 <div id="editor">import assert from &quot;assert&quot;;
 import { Buffer } from &quot;buffer&quot;;
 import {
@@ -123,10 +123,7 @@ Then(
       } else if (key === &quot;originalName&quot;) {
         assert.strictEqual(payload.originalName ?? &quot;&quot;, value);
       } else {
-        assert.strictEqual(
-          String((payload as Record&lt;string, unknown&gt;)[key] ?? &quot;&quot;),
-          value,
-        );
+        assert.strictEqual(String((payload as Record&lt;string, unknown&gt;)[key] ?? &quot;&quot;), value);
       }
     }
   },

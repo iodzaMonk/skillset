@@ -110,7 +110,7 @@ describe("app/api/user/update/route", () => {
 
     expect(response.status).toBe(404);
     await expect(response.json()).resolves.toEqual({
-      message: "User not found",
+      message: "Record not found",
     });
   });
 
@@ -126,7 +126,7 @@ describe("app/api/user/update/route", () => {
 
     expect(response.status).toBe(409);
     await expect(response.json()).resolves.toEqual({
-      message: "Email already in use",
+      message: "Email already registered",
     });
   });
 

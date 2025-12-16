@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>function FooterLinks()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">function FooterLinks()</h3>
+<p style="margin-top: 4px">in <i>app/Components/Footer.tsx [70:96]</i></p>
+<ul>
+    <li><b>27</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+function FooterLinks({
+  title,
+  links,
+}: {
+  title: string;
+  links: [string, string][];
+}) {
+  return (
+    &lt;div&gt;
+      &lt;h3 className=&quot;text-accent text-sm font-semibold tracking-wide uppercase&quot;&gt;
+        {title}
+      &lt;/h3&gt;
+      &lt;ul className=&quot;mt-3 space-y-2 text-sm&quot;&gt;
+        {links.map(([label, href]) =&gt; (
+          &lt;li key={label}&gt;
+            &lt;a
+              href={href}
+              className=&quot;text-text-muted hover:text-accent rounded-sm focus:ring-2 focus:ring-[--color-ring] focus:outline-none&quot;
+            &gt;
+              {label}
+            &lt;/a&gt;
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

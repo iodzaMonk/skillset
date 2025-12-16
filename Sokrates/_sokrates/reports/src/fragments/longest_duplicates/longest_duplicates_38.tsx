@@ -1,33 +1,23 @@
-app/_components/CountrySelect.tsx [1:9]:
+app/myproduct/_components/PostList.tsx [69:74]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-"use client";
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+        </p>
+        {onRequestCreate && (
+          <Button
+            type="button"
+            variant="success"
+            size="sm"
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/myproduct/_components/Modal.tsx [1:13]:
+app/myproduct/_components/PostList.tsx [89:94]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-"use client";
-
-import { FormEvent, useEffect, useState } from "react";
-import Image from "next/image";
-
-import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+        </p>
+        {onRequestCreate && (
+          <Button
+            type="button"
+            variant="success"
+            size="sm"
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

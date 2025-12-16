@@ -1,105 +1,73 @@
 <html>
 <head>
-    <title>function Carousel()</title>
+    <title>export default function ConnectStripeButton()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function Carousel()</h3>
-<p style="margin-top: 4px">in <i>components/ui/carousel.tsx [45:133]</i></p>
+<h3 style="margin-bottom: 0">export default function ConnectStripeButton()</h3>
+<p style="margin-top: 4px">in <i>app/settings/StripeConnectButton.tsx [6:62]</i></p>
 <ul>
-    <li><b>81</b> lines of code</li>
-    <li><b>10</b> McCabe index (conditional complexity)</li>
+    <li><b>52</b> lines of code</li>
+    <li><b>8</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function Carousel({
-  orientation = &quot;horizontal&quot;,
-  opts,
-  setApi,
-  plugins,
-  className,
-  children,
-  ...props
-}: React.ComponentProps&lt;&quot;div&quot;&gt; &amp; CarouselProps) {
-  const [carouselRef, api] = useEmblaCarousel(
-    {
-      ...opts,
-      axis: orientation === &quot;horizontal&quot; ? &quot;x&quot; : &quot;y&quot;,
-    },
-    plugins,
-  );
-  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
-  const [canScrollNext, setCanScrollNext] = React.useState(false);
+export default function ConnectStripeButton() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState&lt;string | null&gt;(null);
+  const { user } = useAuth();
 
-  const onSelect = React.useCallback((api: CarouselApi) =&gt; {
-    if (!api) return;
-    setCanScrollPrev(api.canScrollPrev());
-    setCanScrollNext(api.canScrollNext());
-  }, []);
+  const handleConnect = async () =&gt; {
+    if (!user?.email) {
+      setError(&quot;Please log in to connect your Stripe account&quot;);
+      return;
+    }
 
-  const scrollPrev = React.useCallback(() =&gt; {
-    api?.scrollPrev();
-  }, [api]);
+    setLoading(true);
+    setError(null);
 
-  const scrollNext = React.useCallback(() =&gt; {
-    api?.scrollNext();
-  }, [api]);
+    try {
+      const response = await axios.post(&quot;/api/user/create-stripe-account&quot;, {
+        email: user.email,
+        refreshUrl: `${window.location.origin}`,
+        returnUrl: `${window.location.origin}`,
+      });
 
-  const handleKeyDown = React.useCallback(
-    (event: React.KeyboardEvent&lt;HTMLDivElement&gt;) =&gt; {
-      if (event.key === &quot;ArrowLeft&quot;) {
-        event.preventDefault();
-        scrollPrev();
-      } else if (event.key === &quot;ArrowRight&quot;) {
-        event.preventDefault();
-        scrollNext();
-      }
-    },
-    [scrollPrev, scrollNext],
-  );
-
-  React.useEffect(() =&gt; {
-    if (!api || !setApi) return;
-    setApi(api);
-  }, [api, setApi]);
-
-  React.useEffect(() =&gt; {
-    if (!api) return;
-    onSelect(api);
-    api.on(&quot;reInit&quot;, onSelect);
-    api.on(&quot;select&quot;, onSelect);
-
-    return () =&gt; {
-      api?.off(&quot;select&quot;, onSelect);
-    };
-  }, [api, onSelect]);
+      window.location.href = response.data.url;
+    } catch (error) {
+      console.error(&quot;Error connecting to Stripe:&quot;, error);
+      const message = axios.isAxiosError(error)
+        ? (error.response?.data?.message ?? &quot;Failed to connect to Stripe&quot;)
+        : &quot;An unexpected error occurred&quot;;
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    &lt;CarouselContext.Provider
-      value={{
-        carouselRef,
-        api: api,
-        opts,
-        orientation:
-          orientation || (opts?.axis === &quot;y&quot; ? &quot;vertical&quot; : &quot;horizontal&quot;),
-        scrollPrev,
-        scrollNext,
-        canScrollPrev,
-        canScrollNext,
-      }}
-    &gt;
-      &lt;div
-        onKeyDownCapture={handleKeyDown}
-        className={cn(&quot;relative&quot;, className)}
-        role=&quot;region&quot;
-        aria-roledescription=&quot;carousel&quot;
-        data-slot=&quot;carousel&quot;
-        {...props}
-      &gt;
-        {children}
-      &lt;/div&gt;
-    &lt;/CarouselContext.Provider&gt;
+    &lt;div&gt;
+      {!user?.vendor_id ? (
+        &lt;div className=&quot;space-y-2&quot;&gt;
+          &lt;Button
+            onClick={handleConnect}
+            disabled={loading || !user}
+            variant=&quot;default&quot;
+            className=&quot;w-full&quot;
+          &gt;
+            {loading ? &quot;Connecting...&quot; : &quot;Connect to Stripe&quot;}
+          &lt;/Button&gt;
+          {error &amp;&amp; &lt;p className=&quot;text-destructive text-sm&quot;&gt;{error}&lt;/p&gt;}
+        &lt;/div&gt;
+      ) : (
+        &lt;div className=&quot;space-y-2&quot;&gt;
+          &lt;p className=&quot;text-muted-foreground text-sm&quot;&gt;
+            Your Stripe account is already connected.
+          &lt;/p&gt;
+        &lt;/div&gt;
+      )}
+    &lt;/div&gt;
   );
 }
 

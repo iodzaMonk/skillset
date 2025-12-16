@@ -1,16 +1,10 @@
-components/ui/command.tsx [158:172]:
+components/ui/dialog.tsx [77:85]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function CommandShortcut({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
+function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <span
-      data-slot="command-shortcut"
-      className={cn(
-        "text-muted-foreground ml-auto text-xs tracking-widest",
-        className,
-      )}
+    <div
+      data-slot="dialog-header"
+      className={cn("flex flex-col gap-2 text-center sm:text-left", className)}
       {...props}
     />
   );
@@ -19,40 +13,13 @@ function CommandShortcut({
 
 
 
-components/ui/dropdown-menu.tsx [179:193]:
+components/ui/sheet.tsx [84:92]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function DropdownMenuShortcut({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
+function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <span
-      data-slot="dropdown-menu-shortcut"
-      className={cn(
-        "text-muted-foreground ml-auto text-xs tracking-widest",
-        className,
-      )}
-      {...props}
-    />
-  );
-}
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
-components/ui/menubar.tsx [197:211]:
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function MenubarShortcut({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
-  return (
-    <span
-      data-slot="menubar-shortcut"
-      className={cn(
-        "text-muted-foreground ml-auto text-xs tracking-widest",
-        className,
-      )}
+    <div
+      data-slot="sheet-header"
+      className={cn("flex flex-col gap-1.5 p-4", className)}
       {...props}
     />
   );

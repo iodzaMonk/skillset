@@ -1,40 +1,42 @@
 <html>
 <head>
-    <title>async cleanup()</title>
+    <title>export function createGetOrdersHandler()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">async cleanup()</h3>
-<p style="margin-top: 4px">in <i>features/support/productCrudFixture.ts [146:167]</i></p>
+<h3 style="margin-bottom: 0">export function createGetOrdersHandler()</h3>
+<p style="margin-top: 4px">in <i>app/lib/order-service.ts [23:46]</i></p>
 <ul>
     <li><b>22</b> lines of code</li>
-    <li><b>4</b> McCabe index (conditional complexity)</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  async cleanup() {
-    if (this.trackedProductIds.size &gt; 0) {
-      await prisma.posts.deleteMany({
-        where: { id: { in: Array.from(this.trackedProductIds) } },
-      });
+export function createGetOrdersHandler(type: &quot;client&quot; | &quot;prof&quot;) {
+  return async function GET() {
+    const user = await getCurrentUser();
+    const id = user?.id;
+
+    if (!id) {
+      return NextResponse.json(
+        { message: &quot;Not authenticated&quot; },
+        { status: 401 },
+      );
     }
-    this.trackedProductIds.clear();
-    if (this.userId) {
-      await prisma.users
-        .delete({ where: { id: this.userId } })
-        .catch(() =&gt; null);
-      this.userId = null;
+
+    try {
+      const ordersWithPost = await fetchOrdersForUser(id, type);
+      return NextResponse.json({ data: ordersWithPost }, { status: 200 });
+    } catch (error) {
+      console.error(&quot;Error fetching orders:&quot;, error);
+      return NextResponse.json(
+        { message: &quot;Failed to fetch orders&quot; },
+        { status: 500 },
+      );
     }
-    if (this.otherUserIds.size &gt; 0) {
-      await prisma.users.deleteMany({
-        where: { id: { in: Array.from(this.otherUserIds) } },
-      });
-      this.otherUserIds.clear();
-    }
-    this.productTitles.clear();
-    this.response = null;
-  }
+  };
+}
 
 </code>
 </pre>

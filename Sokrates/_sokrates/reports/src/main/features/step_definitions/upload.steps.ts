@@ -108,10 +108,7 @@ Then(
       } else if (key === "originalName") {
         assert.strictEqual(payload.originalName ?? "", value);
       } else {
-        assert.strictEqual(
-          String((payload as Record<string, unknown>)[key] ?? ""),
-          value,
-        );
+        assert.strictEqual(String((payload as Record<string, unknown>)[key] ?? ""), value);
       }
     }
   },

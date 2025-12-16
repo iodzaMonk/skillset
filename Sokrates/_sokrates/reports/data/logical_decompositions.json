@@ -2,8 +2,8 @@
   "key" : "primary",
   "components" : [ {
     "name" : "app",
-    "filesCount" : 91,
-    "linesOfCode" : 6268,
+    "filesCount" : 88,
+    "linesOfCode" : 6052,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.tsx",
@@ -11,7 +11,7 @@
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 48,
+      "value" : 45,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -24,7 +24,7 @@
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 2730,
+      "value" : 2514,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -33,23 +33,23 @@
     } ]
   }, {
     "name" : "components",
-    "filesCount" : 52,
-    "linesOfCode" : 5097,
+    "filesCount" : 12,
+    "linesOfCode" : 802,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 52,
+      "value" : 12,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.tsx",
-      "value" : 5097,
+      "value" : 802,
       "description" : [ ]
     } ]
   }, {
     "name" : "ROOT",
-    "filesCount" : 10,
-    "linesOfCode" : 133,
+    "filesCount" : 11,
+    "linesOfCode" : 169,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.ts",
@@ -58,6 +58,10 @@
     }, {
       "name" : "  *.mjs",
       "value" : 3,
+      "description" : [ ]
+    }, {
+      "name" : "  *.py",
+      "value" : 1,
       "description" : [ ]
     }, {
       "name" : "  *.js",
@@ -71,6 +75,10 @@
     }, {
       "name" : "  *.mjs",
       "value" : 37,
+      "description" : [ ]
+    }, {
+      "name" : "  *.py",
+      "value" : 36,
       "description" : [ ]
     }, {
       "name" : "  *.js",
@@ -110,7 +118,7 @@
   }, {
     "name" : "types",
     "filesCount" : 9,
-    "linesOfCode" : 395,
+    "linesOfCode" : 406,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.ts",
@@ -119,7 +127,7 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.ts",
-      "value" : 395,
+      "value" : 406,
       "description" : [ ]
     } ]
   }, {
@@ -155,7 +163,7 @@
   }, {
     "name" : "features",
     "filesCount" : 12,
-    "linesOfCode" : 1315,
+    "linesOfCode" : 1187,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.ts",
@@ -164,7 +172,7 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.ts",
-      "value" : 1315,
+      "value" : 1187,
       "description" : [ ]
     } ]
   } ],
@@ -322,15 +330,15 @@
   },
   "fileCountPerComponent" : [ {
     "name" : "app",
-    "value" : 91,
+    "value" : 88,
     "description" : [ ]
   }, {
     "name" : "components",
-    "value" : 52,
+    "value" : 12,
     "description" : [ ]
   }, {
     "name" : "ROOT",
-    "value" : 10,
+    "value" : 11,
     "description" : [ ]
   }, {
     "name" : "lib",
@@ -359,15 +367,15 @@
   } ],
   "linesOfCodePerComponent" : [ {
     "name" : "app",
-    "value" : 6268,
+    "value" : 6052,
     "description" : [ ]
   }, {
     "name" : "components",
-    "value" : 5097,
+    "value" : 802,
     "description" : [ ]
   }, {
     "name" : "ROOT",
-    "value" : 133,
+    "value" : 169,
     "description" : [ ]
   }, {
     "name" : "lib",
@@ -379,7 +387,7 @@
     "description" : [ ]
   }, {
     "name" : "types",
-    "value" : 395,
+    "value" : 406,
     "description" : [ ]
   }, {
     "name" : "hooks",
@@ -391,7 +399,7 @@
     "description" : [ ]
   }, {
     "name" : "features",
-    "value" : 1315,
+    "value" : 1187,
     "description" : [ ]
   } ]
 } ]

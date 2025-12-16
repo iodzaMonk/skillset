@@ -1,25 +1,23 @@
-components/ui/dialog.tsx [38:44]:
+app/settings/SettingsForm.tsx [126:131]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
-        className,
-      )}
-      {...props}
-    />
-  );
+              placeholder="********"
+              autoComplete="new-password"
+            />
+            <button
+              type="button"
+              className="text-text hover:text-accent"
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-components/ui/sheet.tsx [38:44]:
+app/settings/SettingsForm.tsx [147:152]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
-        className,
-      )}
-      {...props}
-    />
-  );
+              placeholder="********"
+              autoComplete="new-password"
+            />
+            <button
+              type="button"
+              className="text-text hover:text-accent"
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

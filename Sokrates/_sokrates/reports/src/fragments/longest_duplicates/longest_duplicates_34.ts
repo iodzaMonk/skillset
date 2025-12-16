@@ -1,25 +1,23 @@
-features/support/browseService.ts [117:123]:
+cypress/e2e/complete_test.cy.ts [165:170]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        password: hashed,
-        country: "US",
-      },
-      select: {
-        id: true,
-      },
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
     });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/fixture-helpers.ts [17:23]:
+cypress/e2e/complete_test.cy.ts [213:218]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      password: hashed,
-      country: "US",
-    },
-    select: {
-      id: true,
-    },
-  });
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+    });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

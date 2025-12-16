@@ -1,13 +1,13 @@
 Path	Lines of Code
 features/step_definitions/auth.steps.ts	53
 features/step_definitions/browse.steps.ts	71
-features/step_definitions/product.steps.ts	175
-features/step_definitions/productCrud.steps.ts	131
-features/step_definitions/upload.steps.ts	119
+features/step_definitions/product.steps.ts	170
+features/step_definitions/productCrud.steps.ts	122
+features/step_definitions/upload.steps.ts	116
 features/support/authService.ts	54
-features/support/browseService.ts	117
+features/support/browseService.ts	84
 features/support/fixture-helpers.ts	51
 features/support/parsing-helpers.ts	18
-features/support/productCrudFixture.ts	195
-features/support/productService.ts	276
+features/support/productCrudFixture.ts	186
+features/support/productService.ts	207
 features/support/uploadFixture.ts	55

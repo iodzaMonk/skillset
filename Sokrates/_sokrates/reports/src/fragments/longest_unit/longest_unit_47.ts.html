@@ -1,53 +1,42 @@
 <html>
 <head>
-    <title>async seed()</title>
+    <title>export function createGetOrdersHandler()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">async seed()</h3>
-<p style="margin-top: 4px">in <i>features/support/productService.ts [50:84]</i></p>
+<h3 style="margin-bottom: 0">export function createGetOrdersHandler()</h3>
+<p style="margin-top: 4px">in <i>app/lib/order-service.ts [23:46]</i></p>
 <ul>
-    <li><b>31</b> lines of code</li>
-    <li><b>7</b> McCabe index (conditional complexity)</li>
+    <li><b>22</b> lines of code</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  async seed(rows: ProductRow[]) {
-    for (const row of rows) {
-      const ownerOverrides: OwnerOptions = {
-        name: row[&quot;owner name&quot;]?.trim(),
-        email: row[&quot;owner email&quot;]?.trim(),
-        country: row[&quot;owner country&quot;]?.trim(),
-      };
-      const ownerId =
-        ownerOverrides.name || ownerOverrides.email || ownerOverrides.country
-          ? await this.createOwner(ownerOverrides)
-          : await this.ensureOwner();
+export function createGetOrdersHandler(type: &quot;client&quot; | &quot;prof&quot;) {
+  return async function GET() {
+    const user = await getCurrentUser();
+    const id = user?.id;
 
-      const title = row.title?.trim();
-      if (!title) {
-        throw new Error(&quot;Each product row must include a title&quot;);
-      }
-
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
-
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
-        },
-        select: { id: true },
-      });
-
-      this.products.set(title, product.id);
+    if (!id) {
+      return NextResponse.json(
+        { message: &quot;Not authenticated&quot; },
+        { status: 401 },
+      );
     }
-  }
+
+    try {
+      const ordersWithPost = await fetchOrdersForUser(id, type);
+      return NextResponse.json({ data: ordersWithPost }, { status: 200 });
+    } catch (error) {
+      console.error(&quot;Error fetching orders:&quot;, error);
+      return NextResponse.json(
+        { message: &quot;Failed to fetch orders&quot; },
+        { status: 500 },
+      );
+    }
+  };
+}
 
 </code>
 </pre>

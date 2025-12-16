@@ -1,62 +1,45 @@
 <html>
 <head>
-    <title>function FieldError()</title>
+    <title>function CarouselPrevious()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function FieldError()</h3>
-<p style="margin-top: 4px">in <i>components/ui/field.tsx [186:231]</i></p>
+<h3 style="margin-bottom: 0">function CarouselPrevious()</h3>
+<p style="margin-top: 4px">in <i>components/ui/carousel.tsx [174:202]</i></p>
 <ul>
-    <li><b>41</b> lines of code</li>
-    <li><b>6</b> McCabe index (conditional complexity)</li>
+    <li><b>28</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function FieldError({
+function CarouselPrevious({
   className,
-  children,
-  errors,
+  variant = &quot;outline&quot;,
+  size = &quot;icon&quot;,
   ...props
-}: React.ComponentProps&lt;&quot;div&quot;&gt; &amp; {
-  errors?: Array&lt;{ message?: string } | undefined&gt;;
-}) {
-  const content = useMemo(() =&gt; {
-    if (children) {
-      return children;
-    }
-
-    if (!errors?.length) {
-      return null;
-    }
-
-    if (errors?.length == 1) {
-      return errors[0]?.message;
-    }
-
-    return (
-      &lt;ul className=&quot;ml-4 flex list-disc flex-col gap-1&quot;&gt;
-        {errors.map(
-          (error, index) =&gt;
-            error?.message &amp;&amp; &lt;li key={index}&gt;{error.message}&lt;/li&gt;,
-        )}
-      &lt;/ul&gt;
-    );
-  }, [children, errors]);
-
-  if (!content) {
-    return null;
-  }
+}: React.ComponentProps&lt;typeof Button&gt;) {
+  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
-    &lt;div
-      role=&quot;alert&quot;
-      data-slot=&quot;field-error&quot;
-      className={cn(&quot;text-destructive text-sm font-normal&quot;, className)}
+    &lt;Button
+      data-slot=&quot;carousel-previous&quot;
+      variant={variant}
+      size={size}
+      className={cn(
+        &quot;absolute size-8 rounded-full&quot;,
+        orientation === &quot;horizontal&quot;
+          ? &quot;top-1/2 -left-12 -translate-y-1/2&quot;
+          : &quot;-top-12 left-1/2 -translate-x-1/2 rotate-90&quot;,
+        className,
+      )}
+      disabled={!canScrollPrev}
+      onClick={scrollPrev}
       {...props}
     &gt;
-      {content}
-    &lt;/div&gt;
+      &lt;ArrowLeft /&gt;
+      &lt;span className=&quot;sr-only&quot;&gt;Previous slide&lt;/span&gt;
+    &lt;/Button&gt;
   );
 }
 

@@ -101,12 +101,6 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/api/user/test-vendor/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 33,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "app/api/orders/user/route.ts",
   "extension" : "ts",
   "linesOfCode" : 35,
@@ -419,12 +413,6 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/orders/_hooks/orderStates.ts",
-  "extension" : "ts",
-  "linesOfCode" : 120,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "app/orders/page.tsx",
   "extension" : "tsx",
   "linesOfCode" : 5,
@@ -440,12 +428,6 @@
   "relativePath" : "app/myorderslist/_components/OrderList.tsx",
   "extension" : "tsx",
   "linesOfCode" : 2,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/myorderslist/_hooks/orderStates.ts",
-  "extension" : "ts",
-  "linesOfCode" : 63,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -569,75 +551,9 @@
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "components/ui/accordion.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 56,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/alert-dialog.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 126,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/alert.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 56,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/aspect-ratio.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 6,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/avatar.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 43,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/badge.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 37,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/breadcrumb.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 99,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/button-group.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 67,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/calendar.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 203,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/card.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 70,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "components/ui/carousel.tsx",
   "extension" : "tsx",
   "linesOfCode" : 204,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/chart.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 303,
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -647,123 +563,9 @@
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "components/ui/collapsible.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 24,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/command.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 172,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/context-menu.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 214,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/drawer.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 107,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/dropdown-menu.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 219,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/empty.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 95,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/field.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 225,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/form.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 144,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/hover-card.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 38,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/input-group.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 138,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/input-otp.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 66,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/item.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 179,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/kbd.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 25,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "components/ui/label.tsx",
   "extension" : "tsx",
   "linesOfCode" : 16,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/menubar.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 257,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/pagination.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 106,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/popover.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 39,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/progress.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 27,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/radio-group.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 40,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/resizable.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 47,
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -785,75 +587,15 @@
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "components/ui/sidebar.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 635,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "components/ui/skeleton.tsx",
   "extension" : "tsx",
   "linesOfCode" : 7,
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "components/ui/slider.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 58,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/sonner.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 36,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/spinner.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 9,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/switch.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 27,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/table.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 91,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/tabs.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 59,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "components/ui/textarea.tsx",
   "extension" : "tsx",
   "linesOfCode" : 11,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/toggle-group.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 63,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/toggle.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 38,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/tooltip.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 51,
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -943,7 +685,7 @@
 }, {
   "relativePath" : "types/Comment.ts",
   "extension" : "ts",
-  "linesOfCode" : 46,
+  "linesOfCode" : 57,
   "components" : [ "primary::types" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -1021,19 +763,19 @@
 }, {
   "relativePath" : "features/step_definitions/product.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 175,
+  "linesOfCode" : 170,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "features/step_definitions/productCrud.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 131,
+  "linesOfCode" : 122,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "features/step_definitions/upload.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 119,
+  "linesOfCode" : 116,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -1063,19 +805,19 @@
 }, {
   "relativePath" : "features/support/browseService.ts",
   "extension" : "ts",
-  "linesOfCode" : 117,
+  "linesOfCode" : 84,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "features/support/productCrudFixture.ts",
   "extension" : "ts",
-  "linesOfCode" : 195,
+  "linesOfCode" : 186,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "features/support/productService.ts",
   "extension" : "ts",
-  "linesOfCode" : 276,
+  "linesOfCode" : 207,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -1088,6 +830,12 @@
   "relativePath" : "vitest.setup.ts",
   "extension" : "ts",
   "linesOfCode" : 8,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "find_unused.py",
+  "extension" : "py",
+  "linesOfCode" : 36,
   "components" : [ "primary::ROOT" ],
   "concerns" : [ "::Unclassified" ]
 } ]

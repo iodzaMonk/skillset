@@ -54,18 +54,35 @@ export class ProductCrudFixture {
     }
   }
 
-  async createProduct(row: ProductRow) {
+  private requireAuth(): boolean {
     if (!this.userId) {
       this.response = {
         status: 401,
         body: { message: "Not authenticated" },
       };
-      return;
+      return false;
     }
+    return true;
+  }
+
+  private getProductIdOr404(title: string): string | null {
+    const productId = this.productTitles.get(title);
+    if (!productId) {
+      this.response = {
+        status: 404,
+        body: { message: "Product not found" },
+      };
+      return null;
+    }
+    return productId;
+  }
+
+  async createProduct(row: ProductRow) {
+    if (!this.requireAuth()) return;
 
     try {
       const product = await createProductRecord(
-        this.userId,
+        this.userId as string,
         this.toPayload(row),
       );
       this.trackProduct(product.title ?? product.id, product.id);
@@ -76,24 +93,13 @@ export class ProductCrudFixture {
   }
 
   async updateProduct(title: string, row: ProductRow) {
-    if (!this.userId) {
-      this.response = {
-        status: 401,
-        body: { message: "Not authenticated" },
-      };
-      return;
-    }
-    const productId = this.productTitles.get(title);
-    if (!productId) {
-      this.response = {
-        status: 404,
-        body: { message: "Product not found" },
-      };
-      return;
-    }
+    if (!this.requireAuth()) return;
+    const productId = this.getProductIdOr404(title);
+    if (!productId) return;
+
     try {
       const payload = { ...this.toPayload(row), id: productId };
-      const product = await updateProductRecord(this.userId, payload);
+      const product = await updateProductRecord(this.userId as string, payload);
       const newTitle = product.title ?? title;
       if (newTitle !== title) {
         this.productTitles.delete(title);
@@ -115,23 +121,12 @@ export class ProductCrudFixture {
   }
 
   async deleteProduct(title: string) {
-    if (!this.userId) {
-      this.response = {
-        status: 401,
-        body: { message: "Not authenticated" },
-      };
-      return;
-    }
-    const productId = this.productTitles.get(title);
-    if (!productId) {
-      this.response = {
-        status: 404,
-        body: { message: "Product not found" },
-      };
-      return;
-    }
+    if (!this.requireAuth()) return;
+    const productId = this.getProductIdOr404(title);
+    if (!productId) return;
+
     try {
-      await deleteProductRecord(this.userId, productId);
+      await deleteProductRecord(this.userId as string, productId);
       this.trackedProductIds.delete(productId);
       this.productTitles.delete(title);
       this.response = {

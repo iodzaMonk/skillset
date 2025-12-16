@@ -1,27 +1,25 @@
-cypress/e2e/complete_test.cy.ts [123:130]:
+features/step_definitions/product.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.visit("localhost:3000");
-      openMenu();
-      cy.contains("Login").should("be.visible");
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-cypress/e2e/complete_test.cy.ts [162:169]:
+features/step_definitions/productCrud.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.visit("localhost:3000");
-      openMenu();
-      cy.contains("Login").should("be.visible");
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

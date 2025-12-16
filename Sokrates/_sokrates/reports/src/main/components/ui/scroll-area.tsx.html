@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>components/ui/scroll-area.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">components/ui/scroll-area.tsx (<b>53</b> lines of code) (<a href="scroll-area.tsx">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+
+import * as React from &quot;react&quot;;
+import * as ScrollAreaPrimitive from &quot;@radix-ui/react-scroll-area&quot;;
+
+import { cn } from &quot;@/lib/utils&quot;;
+
+function ScrollArea({
+  className,
+  children,
+  ...props
+}: React.ComponentProps&lt;typeof ScrollAreaPrimitive.Root&gt;) {
+  return (
+    &lt;ScrollAreaPrimitive.Root
+      data-slot=&quot;scroll-area&quot;
+      className={cn(&quot;relative&quot;, className)}
+      {...props}
+    &gt;
+      &lt;ScrollAreaPrimitive.Viewport
+        data-slot=&quot;scroll-area-viewport&quot;
+        className=&quot;focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1&quot;
+      &gt;
+        {children}
+      &lt;/ScrollAreaPrimitive.Viewport&gt;
+      &lt;ScrollBar /&gt;
+      &lt;ScrollAreaPrimitive.Corner /&gt;
+    &lt;/ScrollAreaPrimitive.Root&gt;
+  );
+}
+
+function ScrollBar({
+  className,
+  orientation = &quot;vertical&quot;,
+  ...props
+}: React.ComponentProps&lt;typeof ScrollAreaPrimitive.ScrollAreaScrollbar&gt;) {
+  return (
+    &lt;ScrollAreaPrimitive.ScrollAreaScrollbar
+      data-slot=&quot;scroll-area-scrollbar&quot;
+      orientation={orientation}
+      className={cn(
+        &quot;flex touch-none p-px transition-colors select-none&quot;,
+        orientation === &quot;vertical&quot; &amp;&amp;
+          &quot;h-full w-2.5 border-l border-l-transparent&quot;,
+        orientation === &quot;horizontal&quot; &amp;&amp;
+          &quot;h-2.5 flex-col border-t border-t-transparent&quot;,
+        className,
+      )}
+      {...props}
+    &gt;
+      &lt;ScrollAreaPrimitive.ScrollAreaThumb
+        data-slot=&quot;scroll-area-thumb&quot;
+        className=&quot;bg-border relative flex-1 rounded-full&quot;
+      /&gt;
+    &lt;/ScrollAreaPrimitive.ScrollAreaScrollbar&gt;
+  );
+}
+
+export { ScrollArea, ScrollBar };
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

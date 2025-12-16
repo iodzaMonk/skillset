@@ -12,11 +12,12 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">features/support/productService.ts (<b>276</b> lines of code) (<a href="productService.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">features/support/productService.ts (<b>207</b> lines of code) (<a href="productService.ts">raw</a>):</h3>
 <div id="editor">import bcrypt from &quot;bcryptjs&quot;;
 import { randomUUID } from &quot;crypto&quot;;
-import { Prisma, Category } from &quot;@prisma/client&quot;;
+import { Prisma } from &quot;@prisma/client&quot;;
 import { prisma } from &quot;../../lib/prisma.ts&quot;;
+import { fetchProductDetails } from &quot;@/app/lib/product-queries&quot;;
 
 type ProductRow = Record&lt;string, string&gt;;
 
@@ -25,24 +26,8 @@ export type ProductResponse = {
   body: Record&lt;string, unknown&gt;;
 };
 
-function parseCategory(value: string | undefined): Category {
-  if (!value) {
-    throw new Error(&quot;Category is required for product rows&quot;);
-  }
-  const normalized = value.trim() as Category;
-  if (!Object.values(Category).includes(normalized)) {
-    throw new Error(`Unknown category &quot;${value}&quot;`);
-  }
-  return normalized;
-}
-
-function parsePrice(value: string | undefined): number {
-  const parsed = Number(value);
-  if (Number.isNaN(parsed)) {
-    throw new Error(`Invalid price &quot;${value}&quot;`);
-  }
-  return parsed;
-}
+import { parseCategory, parsePrice } from &quot;./parsing-helpers&quot;;
+import { ensureFixtureUser, cleanupEntities } from &quot;./fixture-helpers&quot;;
 
 type ReviewerOptions = {
   email?: string;
@@ -182,39 +167,7 @@ class ProductService {
     }
 
     try {
-      const product = await prisma.posts.findUnique({
-        where: { id: slug },
-        include: {
-          users: {
-            select: {
-              id: true,
-              name: true,
-              country: true,
-              email: true,
-            },
-          },
-          reviews: {
-            include: {
-              users: {
-                select: {
-                  id: true,
-                  name: true,
-                  country: true,
-                  email: true,
-                },
-              },
-              replies: {
-                select: {
-                  id: true,
-                  date: true,
-                  text: true,
-                },
-              },
-            },
-            orderBy: { date: &quot;desc&quot; },
-          },
-        },
-      });
+      const product = await fetchProductDetails(slug);
 
       if (!product) {
         return {
@@ -242,55 +195,32 @@ class ProductService {
   }
 
   async cleanup() {
-    if (this.reviewIds.length &gt; 0) {
-      await prisma.reviews.deleteMany({
-        where: { id: { in: this.reviewIds } },
-      });
-      this.reviewIds = [];
-    }
-
     const productIds = Array.from(this.products.values());
-    if (productIds.length &gt; 0) {
-      await prisma.posts.deleteMany({
-        where: { id: { in: productIds } },
-      });
-      this.products.clear();
-    }
+    const reviewerIds = Array.from(this.reviewers.values());
+    const extraOwnerIds = this.extraOwnerIds;
 
-    if (this.ownerId) {
-      await prisma.users
-        .delete({ where: { id: this.ownerId } })
-        .catch(() =&gt; null);
-      this.ownerId = null;
-    }
-    if (this.extraOwnerIds.length &gt; 0) {
-      await prisma.users.deleteMany({
-        where: { id: { in: this.extraOwnerIds } },
-      });
-      this.extraOwnerIds = [];
-    }
-    if (this.reviewers.size &gt; 0) {
-      await prisma.users.deleteMany({
-        where: { id: { in: Array.from(this.reviewers.values()) } },
-      });
-      this.reviewers.clear();
-    }
+    await cleanupEntities(prisma, {
+      reviewIds: this.reviewIds,
+      productIds,
+      userId: this.ownerId,
+      userIds: [...extraOwnerIds, ...reviewerIds],
+    });
+
+    this.reviewIds = [];
+    this.products.clear();
+    this.ownerId = null;
+    this.extraOwnerIds = [];
+    this.reviewers.clear();
   }
 
   private async ensureOwner() {
-    if (this.ownerId) return this.ownerId;
-    const hashed = await bcrypt.hash(&quot;ProductPass123!&quot;, 10);
-    const user = await prisma.users.create({
-      data: {
-        name: &quot;Product Fixture&quot;,
-        email: `product-${randomUUID()}@example.com`,
-        password: hashed,
-        country: &quot;US&quot;,
-      },
-      select: { id: true },
-    });
-    this.ownerId = user.id;
-    return user.id;
+    const Result = await ensureFixtureUser(
+      this.ownerId,
+      &quot;Product Fixture&quot;,
+      &quot;product&quot;,
+    );
+    this.ownerId = Result.userId;
+    return Result.userId;
   }
 
   private async createOwner(options: OwnerOptions) {

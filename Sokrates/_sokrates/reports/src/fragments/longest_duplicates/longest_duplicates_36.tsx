@@ -1,25 +1,23 @@
-components/ui/badge.tsx [20:26]:
+app/myproduct/page.tsx [45:50]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  },
-);
+          onFileChange={handleFile}
+          filePreview={filePreview}
+          onSubmit={async (event) => {
+            const success = await handleSubmit(event);
+            if (success) {
+              resetEditing();
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-components/ui/item.tsx [83:89]:
+app/myproduct/page.tsx [74:79]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  },
-);
+            onFileChange={handleFile}
+            filePreview={filePreview}
+            onSubmit={async (event) => {
+              const success = await handleSubmit(event);
+              if (success) {
+                resetEditing();
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

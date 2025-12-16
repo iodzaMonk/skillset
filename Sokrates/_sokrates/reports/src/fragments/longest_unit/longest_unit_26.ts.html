@@ -6,65 +6,45 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">export async function POST()</h3>
-<p style="margin-top: 4px">in <i>app/api/user/create-stripe-account/route.ts [8:62]</i></p>
+<p style="margin-top: 4px">in <i>app/api/user/login/route.ts [5:39]</i></p>
 <ul>
-    <li><b>49</b> lines of code</li>
-    <li><b>4</b> McCabe index (conditional complexity)</li>
+    <li><b>31</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function POST(request: NextRequest) {
+export async function POST(req: Request) {
   const headersList = await headers();
   const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
 
   try {
-    const user = await getCurrentUser();
-    if (!user) {
-      return unauthorizedResponse(referer);
+    // get body
+    const body = (await req.json()) as LoginBody;
+    const result = await loginUser(body);
+
+    if (result.status !== 200) {
+      return Response.json(result.body, {
+        status: result.status,
+        headers: { &quot;x-referer&quot;: referer },
+      });
     }
 
-    const body = await request.json();
-    const { email, refreshUrl, returnUrl } = body;
-
-    const account = await stripe.accounts.create({
-      type: &quot;express&quot;,
-      country: &quot;CA&quot;,
-      email: email,
-      business_profile: {
-        url: &quot;https://skillset-orcin.vercel.app&quot;,
+    const session = await createSession(result.body.userId);
+    return Response.json(
+      { token: session },
+      {
+        status: 200,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
       },
-      capabilities: {
-        card_payments: { requested: true },
-        transfers: { requested: true },
-      },
-    });
-
-    const accountLink = await stripe.accountLinks.create({
-      account: account.id,
-      refresh_url: refreshUrl,
-      return_url: returnUrl,
-      type: &quot;account_onboarding&quot;,
-    });
-
-    await prisma.users.update({
-      where: { id: user.id },
-      data: { vendor_id: account.id },
-    });
-
-    return NextResponse.json(
-      { url: accountLink.url, accountId: account.id },
-      { status: 200, headers: { &quot;x-referer&quot;: referer } },
     );
   } catch (error) {
-    console.error(&quot;Stripe connect error:&quot;, error);
-    return NextResponse.json(
+    console.log(error);
+    return Response.json(
+      { message: &quot;Internal server error&quot; },
       {
-        error:
-          error instanceof Error
-            ? error.message
-            : &quot;Failed to create Stripe connection&quot;,
+        status: 500,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
       },
-      { status: 500, headers: { &quot;x-referer&quot;: referer } },
     );
   }
 }

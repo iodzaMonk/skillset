@@ -17,16 +17,16 @@
     } ]
   }, {
     "name" : "Unclassified",
-    "filesCount" : 181,
-    "linesOfCode" : 13536,
+    "filesCount" : 139,
+    "linesOfCode" : 8944,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
-      "name" : "  *.tsx",
-      "value" : 94,
+      "name" : "  *.ts",
+      "value" : 79,
       "description" : [ ]
     }, {
-      "name" : "  *.ts",
-      "value" : 82,
+      "name" : "  *.tsx",
+      "value" : 54,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -37,17 +37,21 @@
       "value" : 3,
       "description" : [ ]
     }, {
+      "name" : "  *.py",
+      "value" : 1,
+      "description" : [ ]
+    }, {
       "name" : "  *.js",
       "value" : 1,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
-      "name" : "  *.tsx",
-      "value" : 8530,
+      "name" : "  *.ts",
+      "value" : 4527,
       "description" : [ ]
     }, {
-      "name" : "  *.ts",
-      "value" : 4860,
+      "name" : "  *.tsx",
+      "value" : 4235,
       "description" : [ ]
     }, {
       "name" : "  *.css",
@@ -56,6 +60,10 @@
     }, {
       "name" : "  *.mjs",
       "value" : 37,
+      "description" : [ ]
+    }, {
+      "name" : "  *.py",
+      "value" : 36,
       "description" : [ ]
     }, {
       "name" : "  *.js",
@@ -70,7 +78,7 @@
     "description" : [ ]
   }, {
     "name" : "Unclassified",
-    "value" : 181,
+    "value" : 139,
     "description" : [ ]
   } ],
   "linesOfCodePerConcern" : [ {
@@ -79,7 +87,7 @@
     "description" : [ ]
   }, {
     "name" : "Unclassified",
-    "value" : 13536,
+    "value" : 8944,
     "description" : [ ]
   } ]
 } ]

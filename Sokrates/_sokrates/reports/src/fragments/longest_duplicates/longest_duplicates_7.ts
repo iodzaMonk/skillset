@@ -1,35 +1,27 @@
-features/support/browseService.ts [48:59]:
+cypress/e2e/complete_test.cy.ts [123:130]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
-
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
-        },
+      cy.visit("localhost:3000");
+      openMenu();
+      cy.contains("Login").should("be.visible");
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [67:78]:
+cypress/e2e/complete_test.cy.ts [162:169]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
-
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
-        },
+      cy.visit("localhost:3000");
+      openMenu();
+      cy.contains("Login").should("be.visible");
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
