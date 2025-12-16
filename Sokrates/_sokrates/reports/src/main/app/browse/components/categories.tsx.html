@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>app/browse/components/categories.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/browse/components/categories.tsx (<b>45</b> lines of code) (<a href="categories.tsx">raw</a>):</h3>
+<div id="editor">// CategorySelectEnum.tsx
+import React from &quot;react&quot;;
+
+type StringEnum = Record&lt;string, string&gt;; // Prisma's exported enum object
+
+type EnumValue&lt;E extends StringEnum&gt; = E[keyof E];
+
+export function CategorySelectEnum&lt;E extends StringEnum&gt;({
+  enumObj,
+  value,
+  onChange,
+  labelMap, // optional pretty labels
+  allowClear = false,
+  className = &quot;&quot;,
+}: {
+  enumObj: E;
+  value: EnumValue&lt;E&gt; | null;
+  onChange: (v: EnumValue&lt;E&gt; | null) =&gt; void;
+  labelMap?: Partial&lt;Record&lt;EnumValue&lt;E&gt;, string&gt;&gt;;
+  allowClear?: boolean;
+  className?: string;
+}) {
+  const items = React.useMemo(
+    () =&gt; Object.values(enumObj) as EnumValue&lt;E&gt;[],
+    [enumObj],
+  );
+
+  return (
+    &lt;div className={`flex flex-wrap gap-2 ${className}`} role=&quot;radiogroup&quot;&gt;
+      {items.map((id) =&gt; {
+        const selected = value === id;
+        return (
+          &lt;button
+            key={id}
+            type=&quot;button&quot;
+            role=&quot;radio&quot;
+            aria-checked={selected}
+            className={[
+              &quot;mb-10 inline-flex items-center rounded-2xl border px-3 py-1.5 text-sm transition focus:ring-2 focus:ring-offset-2 focus:outline-none&quot;,
+              selected
+                ? &quot;border-gray-900 bg-gray-900 text-white shadow&quot;
+                : &quot;border-gray-200 bg-white text-gray-800 hover:border-gray-400&quot;,
+            ].join(&quot; &quot;)}
+            onClick={() =&gt; onChange(allowClear &amp;&amp; selected ? null : id)}
+          &gt;
+            &lt;span className=&quot;font-medium&quot;&gt;{labelMap?.[id] ?? String(id)}&lt;/span&gt;
+          &lt;/button&gt;
+        );
+      })}
+    &lt;/div&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

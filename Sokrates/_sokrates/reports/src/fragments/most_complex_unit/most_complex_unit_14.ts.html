@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>export async function getCurrentUser()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export async function getCurrentUser()</h3>
+<p style="margin-top: 4px">in <i>app/lib/user.ts [5:36]</i></p>
+<ul>
+    <li><b>28</b> lines of code</li>
+    <li><b>7</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+export async function getCurrentUser() {
+  const token = (await cookies()).get(&quot;session&quot;)?.value;
+  if (!token) return null;
+
+  const payload = await decrypt(token);
+  if (!payload?.userId) return null;
+
+  try {
+    const user = await prisma.users.findUnique({
+      where: {
+        id:
+          typeof payload.userId === &quot;string&quot;
+            ? payload.userId
+            : String(payload.userId),
+      },
+    });
+
+    if (!user) return null;
+
+    return {
+      id: user.id,
+      name: user.name ?? null,
+      email: user.email,
+      country: user.country ?? null,
+      birthday: user.birthday ? user.birthday.toISOString() : null,
+      vendor_id: user.vendor_id ?? null,
+    };
+  } catch (error) {
+    console.error(&quot;getCurrentUser error&quot;, error);
+    return null;
+  }
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

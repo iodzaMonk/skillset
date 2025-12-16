@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>app/api/uploads/route.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/api/uploads/route.ts (<b>25</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<div id="editor">import { Buffer } from &quot;buffer&quot;;
+import { performUpload } from &quot;../../lib/storage/uploadAdapter.ts&quot;;
+
+export async function POST(request: Request) {
+  try {
+    const formData = await request.formData();
+    const file = formData.get(&quot;file&quot;);
+
+    if (!(file instanceof File)) {
+      return Response.json(
+        { error: &quot;Missing file upload payload&quot; },
+        { status: 400 },
+      );
+    }
+
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    const { key } = await performUpload({
+      buffer,
+      originalName: file.name,
+      contentType: file.type || undefined,
+    });
+
+    return Response.json({ key }, { status: 201 });
+  } catch (error) {
+    console.error(&quot;Failed to upload file to S3&quot;, error);
+    return Response.json({ error: &quot;File upload failed&quot; }, { status: 500 });
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

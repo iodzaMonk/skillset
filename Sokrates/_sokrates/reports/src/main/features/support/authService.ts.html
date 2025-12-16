@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>features/support/authService.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">features/support/authService.ts (<b>54</b> lines of code) (<a href="authService.ts">raw</a>):</h3>
+<div id="editor">import bcrypt from &quot;bcryptjs&quot;;
+import { LoginBody, loginUser } from &quot;../../app/lib/auth/login.ts&quot;;
+import { encrypt } from &quot;../../app/lib/session/tokens.ts&quot;;
+import { prisma } from &quot;../../lib/prisma.ts&quot;;
+
+class DatabaseAuthService {
+  private trackedEmails: Set&lt;string&gt; = new Set();
+
+  async seed(rows: Array&lt;Record&lt;string, string&gt;&gt;) {
+    const tableRows = rows.map((row) =&gt; {
+      const email = row.email?.trim();
+      const password = row.password ?? &quot;&quot;;
+      if (!email) {
+        throw new Error(&quot;Each row must include an email column&quot;);
+      }
+      return { email, password };
+    });
+
+    for (const row of tableRows) {
+      const { email, password } = row;
+      await prisma.users.delete({ where: { email } }).catch(() =&gt; null);
+
+      const hashed = await bcrypt.hash(password, 10);
+      await prisma.users.create({
+        data: {
+          email,
+          password: hashed,
+          name: email.split(&quot;@&quot;)[0] ?? &quot;Cucumber User&quot;,
+          country: &quot;US&quot;,
+        },
+      });
+      this.trackedEmails.add(email);
+    }
+  }
+
+  async cleanup() {
+    if (this.trackedEmails.size === 0) return;
+    await prisma.users.deleteMany({
+      where: { email: { in: Array.from(this.trackedEmails) } },
+    });
+    this.trackedEmails.clear();
+  }
+
+  async login(body: LoginBody) {
+    const result = await loginUser(body);
+    if (result.status !== 200) {
+      return result;
+    }
+
+    const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    const token = await encrypt({
+      userId: result.body.userId,
+      expiresAt: expiresAt.toISOString(),
+    });
+
+    return {
+      status: 200,
+      body: { token },
+    };
+  }
+}
+
+export const authService = new DatabaseAuthService();
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

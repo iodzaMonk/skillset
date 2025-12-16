@@ -1,0 +1,7 @@
+Contributor 1	Contributor 2	# shared repositories
+iodzamonkmode@gmail.com	bramomoh06@gmail.com	1
+iodzamonkmode@gmail.com	2396208@cmontmorency.qc.ca	1
+iodzamonkmode@gmail.com	nazim071305@gmail.com	1
+bramomoh06@gmail.com	2396208@cmontmorency.qc.ca	1
+bramomoh06@gmail.com	nazim071305@gmail.com	1
+2396208@cmontmorency.qc.ca	nazim071305@gmail.com	1

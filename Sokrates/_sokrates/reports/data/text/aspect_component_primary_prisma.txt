@@ -1,0 +1,2 @@
+Path	Lines of Code
+prisma/seed.ts	65

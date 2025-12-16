@@ -6,9 +6,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import axios from "axios";
-
-import type { PostBody } from "@/types/PostBody";
 import { useAuth } from "@/app/context/AuthContext";
+import type { PostBody } from "@/types/PostBody";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,

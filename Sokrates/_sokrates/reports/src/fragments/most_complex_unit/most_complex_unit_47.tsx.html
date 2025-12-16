@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>amount: convertToSubcurrency()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">amount: convertToSubcurrency()</h3>
+<p style="margin-top: 4px">in <i>app/product/[slug]/payment/module/CheckoutPage.tsx [35:62]</i></p>
+<ul>
+    <li><b>23</b> lines of code</li>
+    <li><b>4</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+        amount: convertToSubcurrency(amount),
+        orderData: order,
+      }),
+    })
+      .then((res) =&gt; res.json())
+      .then((data) =&gt; setClientSecret(data.clientSecret));
+  }, [amount, order]);
+
+  const handleSubmit = async (event: React.FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    event.preventDefault();
+    setLoading(true);
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    const { error: submitError } = await elements.submit();
+
+    if (submitError) {
+      setErrorMessage(submitError.message);
+      setLoading(false);
+      return;
+    }
+
+    const { error, paymentIntent } = await stripe.confirmPayment({
+      elements,
+      clientSecret,
+      confirmParams: {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

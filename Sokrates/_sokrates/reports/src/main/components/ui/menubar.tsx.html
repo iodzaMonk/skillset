@@ -1,0 +1,302 @@
+<html>
+<head>
+    <title>components/ui/menubar.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">components/ui/menubar.tsx (<b>257</b> lines of code) (<a href="menubar.tsx">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+
+import * as React from &quot;react&quot;;
+import * as MenubarPrimitive from &quot;@radix-ui/react-menubar&quot;;
+import { CheckIcon, ChevronRightIcon, CircleIcon } from &quot;lucide-react&quot;;
+
+import { cn } from &quot;@/lib/utils&quot;;
+
+function Menubar({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Root&gt;) {
+  return (
+    &lt;MenubarPrimitive.Root
+      data-slot=&quot;menubar&quot;
+      className={cn(
+        &quot;bg-background flex h-9 items-center gap-1 rounded-md border p-1 shadow-xs&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function MenubarMenu({
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Menu&gt;) {
+  return &lt;MenubarPrimitive.Menu data-slot=&quot;menubar-menu&quot; {...props} /&gt;;
+}
+
+function MenubarGroup({
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Group&gt;) {
+  return &lt;MenubarPrimitive.Group data-slot=&quot;menubar-group&quot; {...props} /&gt;;
+}
+
+function MenubarPortal({
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Portal&gt;) {
+  return &lt;MenubarPrimitive.Portal data-slot=&quot;menubar-portal&quot; {...props} /&gt;;
+}
+
+function MenubarRadioGroup({
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.RadioGroup&gt;) {
+  return (
+    &lt;MenubarPrimitive.RadioGroup data-slot=&quot;menubar-radio-group&quot; {...props} /&gt;
+  );
+}
+
+function MenubarTrigger({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Trigger&gt;) {
+  return (
+    &lt;MenubarPrimitive.Trigger
+      data-slot=&quot;menubar-trigger&quot;
+      className={cn(
+        &quot;focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex items-center rounded-sm px-2 py-1 text-sm font-medium outline-hidden select-none&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function MenubarContent({
+  className,
+  align = &quot;start&quot;,
+  alignOffset = -4,
+  sideOffset = 8,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Content&gt;) {
+  return (
+    &lt;MenubarPortal&gt;
+      &lt;MenubarPrimitive.Content
+        data-slot=&quot;menubar-content&quot;
+        align={align}
+        alignOffset={alignOffset}
+        sideOffset={sideOffset}
+        className={cn(
+          &quot;bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[12rem] origin-(--radix-menubar-content-transform-origin) overflow-hidden rounded-md border p-1 shadow-md&quot;,
+          className,
+        )}
+        {...props}
+      /&gt;
+    &lt;/MenubarPortal&gt;
+  );
+}
+
+function MenubarItem({
+  className,
+  inset,
+  variant = &quot;default&quot;,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Item&gt; &amp; {
+  inset?: boolean;
+  variant?: &quot;default&quot; | &quot;destructive&quot;;
+}) {
+  return (
+    &lt;MenubarPrimitive.Item
+      data-slot=&quot;menubar-item&quot;
+      data-inset={inset}
+      data-variant={variant}
+      className={cn(
+        &quot;focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&amp;_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*='size-'])]:size-4&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function MenubarCheckboxItem({
+  className,
+  children,
+  checked,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.CheckboxItem&gt;) {
+  return (
+    &lt;MenubarPrimitive.CheckboxItem
+      data-slot=&quot;menubar-checkbox-item&quot;
+      className={cn(
+        &quot;focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*='size-'])]:size-4&quot;,
+        className,
+      )}
+      checked={checked}
+      {...props}
+    &gt;
+      &lt;span className=&quot;pointer-events-none absolute left-2 flex size-3.5 items-center justify-center&quot;&gt;
+        &lt;MenubarPrimitive.ItemIndicator&gt;
+          &lt;CheckIcon className=&quot;size-4&quot; /&gt;
+        &lt;/MenubarPrimitive.ItemIndicator&gt;
+      &lt;/span&gt;
+      {children}
+    &lt;/MenubarPrimitive.CheckboxItem&gt;
+  );
+}
+
+function MenubarRadioItem({
+  className,
+  children,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.RadioItem&gt;) {
+  return (
+    &lt;MenubarPrimitive.RadioItem
+      data-slot=&quot;menubar-radio-item&quot;
+      className={cn(
+        &quot;focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*='size-'])]:size-4&quot;,
+        className,
+      )}
+      {...props}
+    &gt;
+      &lt;span className=&quot;pointer-events-none absolute left-2 flex size-3.5 items-center justify-center&quot;&gt;
+        &lt;MenubarPrimitive.ItemIndicator&gt;
+          &lt;CircleIcon className=&quot;size-2 fill-current&quot; /&gt;
+        &lt;/MenubarPrimitive.ItemIndicator&gt;
+      &lt;/span&gt;
+      {children}
+    &lt;/MenubarPrimitive.RadioItem&gt;
+  );
+}
+
+function MenubarLabel({
+  className,
+  inset,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Label&gt; &amp; {
+  inset?: boolean;
+}) {
+  return (
+    &lt;MenubarPrimitive.Label
+      data-slot=&quot;menubar-label&quot;
+      data-inset={inset}
+      className={cn(
+        &quot;px-2 py-1.5 text-sm font-medium data-[inset]:pl-8&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function MenubarSeparator({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Separator&gt;) {
+  return (
+    &lt;MenubarPrimitive.Separator
+      data-slot=&quot;menubar-separator&quot;
+      className={cn(&quot;bg-border -mx-1 my-1 h-px&quot;, className)}
+      {...props}
+    /&gt;
+  );
+}
+
+function MenubarShortcut({
+  className,
+  ...props
+}: React.ComponentProps&lt;&quot;span&quot;&gt;) {
+  return (
+    &lt;span
+      data-slot=&quot;menubar-shortcut&quot;
+      className={cn(
+        &quot;text-muted-foreground ml-auto text-xs tracking-widest&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function MenubarSub({
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.Sub&gt;) {
+  return &lt;MenubarPrimitive.Sub data-slot=&quot;menubar-sub&quot; {...props} /&gt;;
+}
+
+function MenubarSubTrigger({
+  className,
+  inset,
+  children,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.SubTrigger&gt; &amp; {
+  inset?: boolean;
+}) {
+  return (
+    &lt;MenubarPrimitive.SubTrigger
+      data-slot=&quot;menubar-sub-trigger&quot;
+      data-inset={inset}
+      className={cn(
+        &quot;focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none data-[inset]:pl-8&quot;,
+        className,
+      )}
+      {...props}
+    &gt;
+      {children}
+      &lt;ChevronRightIcon className=&quot;ml-auto h-4 w-4&quot; /&gt;
+    &lt;/MenubarPrimitive.SubTrigger&gt;
+  );
+}
+
+function MenubarSubContent({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof MenubarPrimitive.SubContent&gt;) {
+  return (
+    &lt;MenubarPrimitive.SubContent
+      data-slot=&quot;menubar-sub-content&quot;
+      className={cn(
+        &quot;bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem] origin-(--radix-menubar-content-transform-origin) overflow-hidden rounded-md border p-1 shadow-lg&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+export {
+  Menubar,
+  MenubarPortal,
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarContent,
+  MenubarGroup,
+  MenubarSeparator,
+  MenubarLabel,
+  MenubarItem,
+  MenubarShortcut,
+  MenubarCheckboxItem,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSub,
+  MenubarSubTrigger,
+  MenubarSubContent,
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

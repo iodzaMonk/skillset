@@ -1,0 +1,272 @@
+<html>
+<head>
+    <title>features/support/productService.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">features/support/productService.ts (<b>207</b> lines of code) (<a href="productService.ts">raw</a>):</h3>
+<div id="editor">import bcrypt from &quot;bcryptjs&quot;;
+import { randomUUID } from &quot;crypto&quot;;
+import { Prisma } from &quot;@prisma/client&quot;;
+import { prisma } from &quot;../../lib/prisma.ts&quot;;
+import { fetchProductDetails } from &quot;@/app/lib/product-queries&quot;;
+
+type ProductRow = Record&lt;string, string&gt;;
+
+export type ProductResponse = {
+  status: number;
+  body: Record&lt;string, unknown&gt;;
+};
+
+import { parseCategory, parsePrice } from &quot;./parsing-helpers&quot;;
+import { ensureFixtureUser, cleanupEntities } from &quot;./fixture-helpers&quot;;
+
+type ReviewerOptions = {
+  email?: string;
+  country?: string;
+};
+
+type OwnerOptions = {
+  name?: string;
+  email?: string;
+  country?: string;
+};
+
+class ProductService {
+  private ownerId: string | null = null;
+  private products = new Map&lt;string, string&gt;();
+  private reviewers = new Map&lt;string, string&gt;();
+  private reviewIds: string[] = [];
+  private extraOwnerIds: string[] = [];
+
+  async seed(rows: ProductRow[]) {
+    for (const row of rows) {
+      const ownerOverrides: OwnerOptions = {
+        name: row[&quot;owner name&quot;]?.trim(),
+        email: row[&quot;owner email&quot;]?.trim(),
+        country: row[&quot;owner country&quot;]?.trim(),
+      };
+      const ownerId =
+        ownerOverrides.name || ownerOverrides.email || ownerOverrides.country
+          ? await this.createOwner(ownerOverrides)
+          : await this.ensureOwner();
+
+      const title = row.title?.trim();
+      if (!title) {
+        throw new Error(&quot;Each product row must include a title&quot;);
+      }
+
+      const category = parseCategory(row.category);
+      const price = parsePrice(row.price);
+      const description = row.description?.trim() || `${title} description`;
+
+      const product = await prisma.posts.create({
+        data: {
+          user_id: ownerId,
+          title,
+          description,
+          price,
+          category,
+        },
+        select: { id: true },
+      });
+
+      this.products.set(title, product.id);
+    }
+  }
+
+  async seedReviews(rows: ProductRow[]) {
+    const ratingRollups = new Map&lt;string, { total: number; count: number }&gt;();
+
+    for (const row of rows) {
+      const productTitle = row.product?.trim() || row.title?.trim();
+      if (!productTitle) {
+        throw new Error(&quot;Each review row must include a product title&quot;);
+      }
+      const productId = this.products.get(productTitle);
+      if (!productId) {
+        throw new Error(
+          `No product found for review with title &quot;${productTitle}&quot;`,
+        );
+      }
+
+      const reviewerName = row.reviewer?.trim();
+      if (!reviewerName) {
+        throw new Error(&quot;Each review row must include a reviewer column&quot;);
+      }
+      const reviewerEmail =
+        row[&quot;reviewer email&quot;]?.trim() || row.email?.trim() || undefined;
+      const reviewerCountry =
+        row[&quot;reviewer country&quot;]?.trim() || row.country?.trim() || undefined;
+      const reviewerId = await this.ensureReviewer(reviewerName, {
+        email: reviewerEmail,
+        country: reviewerCountry,
+      });
+
+      const text = row.text?.trim() || &quot;Great work!&quot;;
+      const rating = row.rating ? Number(row.rating) : null;
+      if (row.rating &amp;&amp; Number.isNaN(rating)) {
+        throw new Error(`Invalid rating &quot;${row.rating}&quot; for ${productTitle}`);
+      }
+
+      const review = await prisma.reviews.create({
+        data: {
+          user_id: reviewerId,
+          product_id: productId,
+          text,
+          rating: rating ?? undefined,
+          date: new Date(),
+        },
+        select: { id: true },
+      });
+
+      this.reviewIds.push(review.id);
+
+      if (rating !== null) {
+        const current = ratingRollups.get(productId) ?? { total: 0, count: 0 };
+        ratingRollups.set(productId, {
+          total: current.total + rating,
+          count: current.count + 1,
+        });
+      }
+    }
+
+    for (const [productId, { total, count }] of ratingRollups.entries()) {
+      await prisma.posts.update({
+        where: { id: productId },
+        data: {
+          rating: total / count,
+          ratingCount: count,
+        },
+      });
+    }
+  }
+
+  async fetchByTitle(title: string): Promise&lt;ProductResponse&gt; {
+    const productId = this.products.get(title);
+    if (!productId) {
+      throw new Error(`No product seeded with title &quot;${title}&quot;`);
+    }
+    return this.fetchBySlug(productId);
+  }
+
+  async fetchBySlug(slug: string): Promise&lt;ProductResponse&gt; {
+    if (!slug) {
+      return {
+        status: 400,
+        body: { message: &quot;Invalid product ID&quot; },
+      };
+    }
+
+    try {
+      const product = await fetchProductDetails(slug);
+
+      if (!product) {
+        return {
+          status: 404,
+          body: { message: &quot;Product not found&quot; },
+        };
+      }
+
+      return {
+        status: 200,
+        body: {
+          ...product,
+          image_url: &quot;/no-image.svg&quot;,
+        },
+      };
+    } catch (error) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        return {
+          status: 400,
+          body: { message: &quot;Invalid product ID&quot; },
+        };
+      }
+      throw error;
+    }
+  }
+
+  async cleanup() {
+    const productIds = Array.from(this.products.values());
+    const reviewerIds = Array.from(this.reviewers.values());
+    const extraOwnerIds = this.extraOwnerIds;
+
+    await cleanupEntities(prisma, {
+      reviewIds: this.reviewIds,
+      productIds,
+      userId: this.ownerId,
+      userIds: [...extraOwnerIds, ...reviewerIds],
+    });
+
+    this.reviewIds = [];
+    this.products.clear();
+    this.ownerId = null;
+    this.extraOwnerIds = [];
+    this.reviewers.clear();
+  }
+
+  private async ensureOwner() {
+    const Result = await ensureFixtureUser(
+      this.ownerId,
+      &quot;Product Fixture&quot;,
+      &quot;product&quot;,
+    );
+    this.ownerId = Result.userId;
+    return Result.userId;
+  }
+
+  private async createOwner(options: OwnerOptions) {
+    const hashed = await bcrypt.hash(&quot;ProductOwnerPass123!&quot;, 10);
+    const user = await prisma.users.create({
+      data: {
+        name: options.name ?? &quot;Product Fixture&quot;,
+        email: options.email ?? `owner-${randomUUID()}@example.com`,
+        password: hashed,
+        country: options.country ?? &quot;US&quot;,
+      },
+      select: { id: true },
+    });
+    this.extraOwnerIds.push(user.id);
+    return user.id;
+  }
+
+  private async ensureReviewer(name: string, options: ReviewerOptions = {}) {
+    const existing = this.reviewers.get(name);
+    if (existing) return existing;
+    const hashed = await bcrypt.hash(&quot;ReviewerPass123!&quot;, 10);
+    const safeEmail =
+      options.email ?? `${name.toLowerCase().replace(/\s+/g, &quot;.&quot;)}@example.com`;
+    const user = await prisma.users.create({
+      data: {
+        name,
+        email: safeEmail,
+        password: hashed,
+        country: options.country ?? &quot;US&quot;,
+      },
+      select: { id: true },
+    });
+    this.reviewers.set(name, user.id);
+    return user.id;
+  }
+}
+
+export const productService = new ProductService();
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

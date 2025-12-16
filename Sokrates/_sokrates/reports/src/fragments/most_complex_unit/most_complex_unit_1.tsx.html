@@ -1,0 +1,297 @@
+<html>
+<head>
+    <title>function CommentItemBase()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">function CommentItemBase()</h3>
+<p style="margin-top: 4px">in <i>app/product/[slug]/components/Comment.tsx [13:287]</i></p>
+<ul>
+    <li><b>267</b> lines of code</li>
+    <li><b>33</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+function CommentItemBase({
+  comment,
+  depth,
+  maxDepth,
+  userId,
+  state, // Receive state object
+  handlers, // Receive handlers object
+}: CommentItemProps) {
+  // Destructure state from props
+  const {
+    activeMenuId,
+    editingCommentId,
+    editingValue,
+    editError,
+    replyMessage,
+    replyError,
+    replyingToId,
+    isSavingEdit,
+    isSubmittingReply,
+    expandedThreads,
+    editingRating,
+    editingHoverRating,
+  } = state;
+  // Extend props locally or update type definition
+  const {
+    toggleMenu: onToggleMenu,
+    startEditing: onStartEditing,
+    handleCancelEdit: onCancelEdit,
+    handleEditingValueChange: onEditingValueChange,
+    handleEdit: onSaveEdit,
+    handleDelete: onDelete,
+    beginReply: onBeginReply,
+    handleCancelReply: onCancelReply,
+    handleReplyValueChange: onReplyChange,
+    handleSubmitReply: onSubmitReply,
+    toggleThreadVisibility: onToggleReplies,
+    handleEditingRatingSelect: onEditingRatingSelect,
+    handleEditingRatingHover: onEditingRatingHover,
+    handleEditingRatingLeave: onEditingRatingLeave,
+  } = handlers;
+  const isOwner = userId === comment.user_id;
+  const isMenuOpen = activeMenuId === comment.id;
+  const isEditing = editingCommentId === comment.id;
+  const isReplying = replyingToId === comment.id;
+  const replies = comment.replies ?? [];
+  const hasReplies = replies.length &gt; 0;
+  const canRenderChildReplies = depth + 1 &lt; maxDepth;
+  const showReplyToggle = hasReplies &amp;&amp; canRenderChildReplies;
+  const isExpanded = showReplyToggle &amp;&amp; expandedThreads.has(comment.id);
+  const canReply = depth &lt; maxDepth - 1;
+  const authorName = comment.users?.name ?? &quot;Anonymous&quot;;
+  const dateLabel =
+    comment.date &amp;&amp; !Number.isNaN(Date.parse(comment.date))
+      ? dateFormatter.format(new Date(comment.date))
+      : null;
+  const ratingValue = comment.rating ?? 0;
+  const isTopLevel = !comment.parent_id;
+  const editingStarValue = editingHoverRating || editingRating;
+
+  const containerClasses =
+    depth === 0
+      ? &quot;border-border/60 flex flex-col gap-3 rounded-md border p-4&quot;
+      : &quot;border-border/40 bg-surface/60 ml-6 flex flex-col gap-3 rounded-md border p-4&quot;;
+
+  return (
+    &lt;li className={containerClasses}&gt;
+      &lt;div className=&quot;text-text-muted flex items-start gap-2 text-sm&quot;&gt;
+        &lt;div className=&quot;flex w-full flex-col gap-2&quot;&gt;
+          &lt;div className=&quot;flex flex-wrap items-center gap-5&quot;&gt;
+            &lt;span className=&quot;text-text font-medium&quot;&gt;{authorName}&lt;/span&gt;
+            {dateLabel ? &lt;time className=&quot;text-xs&quot;&gt;{dateLabel}&lt;/time&gt; : null}
+          &lt;/div&gt;
+          {!isEditing &amp;&amp; ratingValue &gt; 0 ? (
+            &lt;div className=&quot;flex items-center gap-1 text-yellow-400&quot;&gt;
+              {Array.from({ length: 5 }).map((_, index) =&gt; (
+                &lt;svg
+                  key={index}
+                  xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                  viewBox=&quot;0 0 24 24&quot;
+                  fill={index &lt; ratingValue ? &quot;currentColor&quot; : &quot;none&quot;}
+                  stroke=&quot;currentColor&quot;
+                  className=&quot;size-3&quot;
+                &gt;
+                  &lt;path d=&quot;M12 2.25l2.902 6.084 6.718.977-4.81 4.69 1.136 6.632L12 16.75l-5.946 3.883 1.136-6.632-4.81-4.69 6.718-.977L12 2.25z&quot; /&gt;
+                &lt;/svg&gt;
+              ))}
+            &lt;/div&gt;
+          ) : null}
+          {isEditing ? (
+            &lt;&gt;
+              {isTopLevel ? (
+                &lt;div className=&quot;flex items-center gap-1 text-yellow-400&quot;&gt;
+                  {Array.from({ length: 5 }).map((_, index) =&gt; (
+                    &lt;svg
+                      key={index}
+                      onClick={() =&gt; onEditingRatingSelect(index)}
+                      onMouseEnter={() =&gt; onEditingRatingHover(index)}
+                      onMouseLeave={onEditingRatingLeave}
+                      xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                      viewBox=&quot;0 0 24 24&quot;
+                      fill={index &lt; editingStarValue ? &quot;currentColor&quot; : &quot;none&quot;}
+                      stroke=&quot;currentColor&quot;
+                      className=&quot;size-4 cursor-pointer&quot;
+                    &gt;
+                      &lt;path d=&quot;M12 2.25l2.902 6.084 6.718.977-4.81 4.69 1.136 6.632L12 16.75l-5.946 3.883 1.136-6.632-4.81-4.69 6.718-.977L12 2.25z&quot; /&gt;
+                    &lt;/svg&gt;
+                  ))}
+                &lt;/div&gt;
+              ) : null}
+              &lt;textarea
+                value={editingValue}
+                onChange={(event) =&gt; onEditingValueChange(event.target.value)}
+                className=&quot;border-border focus:border-primary focus:ring-primary/30 min-h-20 w-full rounded-md border bg-transparent p-3 text-sm transition outline-none focus:ring&quot;
+                aria-label=&quot;Edit comment&quot;
+                disabled={isSavingEdit}
+              /&gt;
+              &lt;div className=&quot;h-px w-full bg-white/90&quot; /&gt;
+              {editError ? (
+                &lt;p className=&quot;text-error text-xs&quot; role=&quot;alert&quot;&gt;
+                  {editError}
+                &lt;/p&gt;
+              ) : null}
+            &lt;/&gt;
+          ) : (
+            &lt;p className=&quot;text-text text-sm leading-6 whitespace-pre-wrap&quot;&gt;
+              {comment.text}
+            &lt;/p&gt;
+          )}
+        &lt;/div&gt;
+        {isOwner ? (
+          &lt;div className=&quot;relative ml-2 shrink-0&quot;&gt;
+            &lt;button
+              type=&quot;button&quot;
+              onClick={() =&gt; onToggleMenu(comment.id)}
+              className=&quot;text-text hover:text-text/80 rounded-full p-1 transition&quot;
+              aria-label=&quot;Open comment actions&quot;
+            &gt;
+              &lt;svg
+                xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                height=&quot;24&quot;
+                viewBox=&quot;0 0 24 24&quot;
+                width=&quot;24&quot;
+                focusable=&quot;false&quot;
+                aria-hidden=&quot;true&quot;
+                className=&quot;pointer-events-none&quot;
+                fill=&quot;currentColor&quot;
+              &gt;
+                &lt;path d=&quot;M12 4a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Z&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/button&gt;
+            {isMenuOpen ? (
+              &lt;div className=&quot;bg-surface-2 absolute top-7 right-0 z-10 flex min-w-[140px] flex-col rounded-xl p-1 shadow-lg&quot;&gt;
+                &lt;button
+                  type=&quot;button&quot;
+                  className=&quot;hover:bg-accent flex w-full items-center gap-2 rounded-xl p-2 text-left text-sm transition&quot;
+                  onClick={() =&gt; onStartEditing(comment)}
+                &gt;
+                  &lt;Pencil size={16} /&gt;
+                  Edit
+                &lt;/button&gt;
+                &lt;button
+                  type=&quot;button&quot;
+                  className=&quot;hover:bg-accent flex w-full items-center gap-2 rounded-xl p-2 text-left text-sm transition&quot;
+                  onClick={() =&gt; onDelete(comment.id)}
+                &gt;
+                  &lt;Trash2 size={16} /&gt;
+                  Delete
+                &lt;/button&gt;
+              &lt;/div&gt;
+            ) : null}
+          &lt;/div&gt;
+        ) : null}
+      &lt;/div&gt;
+
+      {isEditing ? (
+        &lt;div className=&quot;flex flex-wrap items-center gap-2&quot;&gt;
+          &lt;button
+            type=&quot;button&quot;
+            className=&quot;border-border text-text-muted hover:text-text inline-flex items-center rounded-md border px-3 py-1 text-xs font-medium transition disabled:opacity-60&quot;
+            onClick={onCancelEdit}
+            disabled={isSavingEdit}
+          &gt;
+            Cancel
+          &lt;/button&gt;
+          &lt;button
+            type=&quot;button&quot;
+            className=&quot;bg-primary hover:bg-primary/90 inline-flex items-center rounded-md px-3 py-1 text-xs font-medium text-white transition disabled:opacity-60&quot;
+            onClick={() =&gt; onSaveEdit(comment.id)}
+            disabled={
+              isSavingEdit ||
+              editingValue.trim().length === 0 ||
+              (isTopLevel &amp;&amp; editingRating &lt;= 0)
+            }
+          &gt;
+            {isSavingEdit ? &quot;Saving&hellip;&quot; : &quot;Update&quot;}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      ) : userId &amp;&amp; canReply ? (
+        &lt;button
+          type=&quot;button&quot;
+          className=&quot;text-primary hover:text-primary/80 text-xs font-medium transition&quot;
+          onClick={() =&gt; onBeginReply(comment.id, depth)}
+        &gt;
+          {isReplying ? &quot;Cancel reply&quot; : &quot;Reply&quot;}
+        &lt;/button&gt;
+      ) : null}
+
+      {isReplying ? (
+        &lt;form
+          className=&quot;border-border focus-within:border-primary mt-3 flex flex-col gap-2 rounded-md border p-3&quot;
+          onSubmit={(event) =&gt; {
+            event.preventDefault();
+            onSubmitReply(comment.id);
+          }}
+        &gt;
+          &lt;textarea
+            value={replyMessage}
+            onChange={(event) =&gt; onReplyChange(event.target.value)}
+            className=&quot;min-h-20 resize-y bg-transparent text-sm outline-none&quot;
+            placeholder=&quot;Write your reply&hellip;&quot;
+            disabled={isSubmittingReply}
+          /&gt;
+          {replyError ? (
+            &lt;p className=&quot;text-error text-xs&quot; role=&quot;alert&quot;&gt;
+              {replyError}
+            &lt;/p&gt;
+          ) : null}
+          &lt;div className=&quot;flex flex-wrap items-center gap-2&quot;&gt;
+            &lt;button
+              type=&quot;button&quot;
+              className=&quot;border-border text-text-muted hover:text-text inline-flex items-center rounded-md border px-3 py-1 text-xs font-medium transition disabled:opacity-60&quot;
+              onClick={onCancelReply}
+              disabled={isSubmittingReply}
+            &gt;
+              Cancel
+            &lt;/button&gt;
+            &lt;button
+              type=&quot;submit&quot;
+              className=&quot;bg-primary hover:bg-primary/90 inline-flex items-center rounded-md px-3 py-1 text-xs font-medium text-white transition disabled:opacity-60&quot;
+              disabled={isSubmittingReply || replyMessage.trim().length === 0}
+            &gt;
+              {isSubmittingReply ? &quot;Replying&hellip;&quot; : &quot;Post Reply&quot;}
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      ) : null}
+
+      {showReplyToggle ? (
+        &lt;button
+          type=&quot;button&quot;
+          className=&quot;text-text-muted hover:text-text mt-1 inline-flex items-center text-xs font-medium transition&quot;
+          onClick={() =&gt; onToggleReplies(comment.id)}
+        &gt;
+          {isExpanded ? &quot;Hide replies&quot; : `Show replies (${replies.length})`}
+        &lt;/button&gt;
+      ) : null}
+
+      {isExpanded &amp;&amp; canRenderChildReplies ? (
+        &lt;ul className=&quot;border-border/40 mt-4 space-y-3 border-l pl-4&quot;&gt;
+          {replies.map((reply) =&gt; (
+            &lt;CommentItemBase
+              key={reply.id}
+              comment={reply}
+              depth={depth + 1}
+              maxDepth={maxDepth}
+              userId={userId}
+              state={state}
+              handlers={handlers}
+            /&gt;
+          ))}
+        &lt;/ul&gt;
+      ) : null}
+    &lt;/li&gt;
+  );
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

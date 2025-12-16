@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>jest.config.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">jest.config.ts (<b>13</b> lines of code) (<a href="jest.config.ts">raw</a>):</h3>
+<div id="editor">import type { Config } from &quot;jest&quot;;
+import nextJest from &quot;next/jest.js&quot;;
+
+const createJestConfig = nextJest({
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  dir: &quot;./&quot;,
+});
+
+// Add any custom config to be passed to Jest
+const config: Config = {
+  coverageProvider: &quot;v8&quot;,
+  testEnvironment: &quot;node&quot;,
+  moduleNameMapper: {
+    &quot;^@/(.*)$&quot;: &quot;&lt;rootDir&gt;/$1&quot;,
+  },
+  // Add more setup options before each test is run
+  // setupFilesAfterEnv: ['&lt;rootDir&gt;/jest.setup.ts'],
+};
+
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+export default createJestConfig(config);
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,161 @@
+<html>
+<head>
+    <title>components/ui/drawer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">components/ui/drawer.tsx (<b>107</b> lines of code) (<a href="drawer.tsx">raw</a>):</h3>
+<div id="editor">&quot;use client&quot;;
+
+import * as React from &quot;react&quot;;
+import { Drawer as DrawerPrimitive } from &quot;vaul&quot;;
+
+import { cn } from &quot;@/lib/utils&quot;;
+
+function Drawer({
+  ...props
+}: React.ComponentProps&lt;typeof DrawerPrimitive.Root&gt;) {
+  return &lt;DrawerPrimitive.Root data-slot=&quot;drawer&quot; {...props} /&gt;;
+}
+
+function DrawerTrigger({
+  ...props
+}: React.ComponentProps&lt;typeof DrawerPrimitive.Trigger&gt;) {
+  return &lt;DrawerPrimitive.Trigger data-slot=&quot;drawer-trigger&quot; {...props} /&gt;;
+}
+
+function DrawerPortal({
+  ...props
+}: React.ComponentProps&lt;typeof DrawerPrimitive.Portal&gt;) {
+  return &lt;DrawerPrimitive.Portal data-slot=&quot;drawer-portal&quot; {...props} /&gt;;
+}
+
+function DrawerClose({
+  ...props
+}: React.ComponentProps&lt;typeof DrawerPrimitive.Close&gt;) {
+  return &lt;DrawerPrimitive.Close data-slot=&quot;drawer-close&quot; {...props} /&gt;;
+}
+
+function DrawerOverlay({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof DrawerPrimitive.Overlay&gt;) {
+  return (
+    &lt;DrawerPrimitive.Overlay
+      data-slot=&quot;drawer-overlay&quot;
+      className={cn(
+        &quot;data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function DrawerContent({
+  className,
+  children,
+  ...props
+}: React.ComponentProps&lt;typeof DrawerPrimitive.Content&gt;) {
+  return (
+    &lt;DrawerPortal data-slot=&quot;drawer-portal&quot;&gt;
+      &lt;DrawerOverlay /&gt;
+      &lt;DrawerPrimitive.Content
+        data-slot=&quot;drawer-content&quot;
+        className={cn(
+          &quot;group/drawer-content bg-background fixed z-50 flex h-auto flex-col&quot;,
+          &quot;data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=top]:rounded-b-lg data-[vaul-drawer-direction=top]:border-b&quot;,
+          &quot;data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=bottom]:rounded-t-lg data-[vaul-drawer-direction=bottom]:border-t&quot;,
+          &quot;data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:border-l data-[vaul-drawer-direction=right]:sm:max-w-sm&quot;,
+          &quot;data-[vaul-drawer-direction=left]:inset-y-0 data-[vaul-drawer-direction=left]:left-0 data-[vaul-drawer-direction=left]:w-3/4 data-[vaul-drawer-direction=left]:border-r data-[vaul-drawer-direction=left]:sm:max-w-sm&quot;,
+          className,
+        )}
+        {...props}
+      &gt;
+        &lt;div className=&quot;bg-muted mx-auto mt-4 hidden h-2 w-[100px] shrink-0 rounded-full group-data-[vaul-drawer-direction=bottom]/drawer-content:block&quot; /&gt;
+        {children}
+      &lt;/DrawerPrimitive.Content&gt;
+    &lt;/DrawerPortal&gt;
+  );
+}
+
+function DrawerHeader({ className, ...props }: React.ComponentProps&lt;&quot;div&quot;&gt;) {
+  return (
+    &lt;div
+      data-slot=&quot;drawer-header&quot;
+      className={cn(
+        &quot;flex flex-col gap-0.5 p-4 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-1.5 md:text-left&quot;,
+        className,
+      )}
+      {...props}
+    /&gt;
+  );
+}
+
+function DrawerFooter({ className, ...props }: React.ComponentProps&lt;&quot;div&quot;&gt;) {
+  return (
+    &lt;div
+      data-slot=&quot;drawer-footer&quot;
+      className={cn(&quot;mt-auto flex flex-col gap-2 p-4&quot;, className)}
+      {...props}
+    /&gt;
+  );
+}
+
+function DrawerTitle({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof DrawerPrimitive.Title&gt;) {
+  return (
+    &lt;DrawerPrimitive.Title
+      data-slot=&quot;drawer-title&quot;
+      className={cn(&quot;text-foreground font-semibold&quot;, className)}
+      {...props}
+    /&gt;
+  );
+}
+
+function DrawerDescription({
+  className,
+  ...props
+}: React.ComponentProps&lt;typeof DrawerPrimitive.Description&gt;) {
+  return (
+    &lt;DrawerPrimitive.Description
+      data-slot=&quot;drawer-description&quot;
+      className={cn(&quot;text-muted-foreground text-sm&quot;, className)}
+      {...props}
+    /&gt;
+  );
+}
+
+export {
+  Drawer,
+  DrawerPortal,
+  DrawerOverlay,
+  DrawerTrigger,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerFooter,
+  DrawerTitle,
+  DrawerDescription,
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

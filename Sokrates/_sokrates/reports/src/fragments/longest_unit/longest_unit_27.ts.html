@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>export function useSelection()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export function useSelection()</h3>
+<p style="margin-top: 4px">in <i>app/hooks/useSelection.ts [3:52]</i></p>
+<ul>
+    <li><b>41</b> lines of code</li>
+    <li><b>6</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+export function useSelection(itemIds: string[]) {
+  const [selectedIds, setSelectedIds] = useState&lt;string[]&gt;([]);
+
+  // Memoize valid IDs to avoid unnecessary re-renders
+  const validIds = useMemo(() =&gt; itemIds, [itemIds]);
+
+  // Clean up selectedIds when items change
+  useEffect(() =&gt; {
+    setSelectedIds((current) =&gt; {
+      const newSelected = current.filter((id) =&gt; validIds.includes(id));
+      if (
+        newSelected.length !== current.length ||
+        newSelected.some((id, index) =&gt; id !== current[index])
+      ) {
+        return newSelected;
+      }
+      return current;
+    });
+  }, [validIds]);
+
+  const toggleSelection = useCallback((id: string | undefined) =&gt; {
+    if (!id) return;
+
+    setSelectedIds((current) =&gt; {
+      if (current.includes(id)) {
+        return current.filter((currentId) =&gt; currentId !== id);
+      }
+      return [...current, id];
+    });
+  }, []);
+
+  const clearSelection = useCallback(() =&gt; {
+    setSelectedIds([]);
+  }, []);
+
+  const selectAll = useCallback(() =&gt; {
+    setSelectedIds(validIds);
+  }, [validIds]);
+
+  return {
+    selectedIds,
+    setSelectedIds,
+    toggleSelection,
+    clearSelection,
+    selectAll,
+    count: selectedIds.length,
+    allSelected: validIds.length &gt; 0 &amp;&amp; selectedIds.length === validIds.length,
+    hasSelection: selectedIds.length &gt; 0,
+  };
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>app/api/product/user/route.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/api/product/user/route.ts (<b>87</b> lines of code) (<a href="route.ts">raw</a>):</h3>
+<div id="editor">import { headers } from &quot;next/headers&quot;;
+import { getCurrentUser } from &quot;@/app/lib/user&quot;;
+import {
+  createProductRecord,
+  updateProductRecord,
+  listProductsForUser,
+  ProductNotFoundError,
+} from &quot;@/app/lib/productCrud&quot;;
+import { ZodError } from &quot;zod&quot;;
+import { signProductsWithImages } from &quot;@/app/lib/product-helpers&quot;;
+
+// Helper to handle authentication and common error wrapping
+async function withAuthenticatedUser(
+  callback: (user: { id: string }, referer: string) =&gt; Promise&lt;Response&gt;,
+) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
+
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      // Return 200 with empty data for GET, 401 for others?
+      // The original GET implementation returned 200 with empty data if not authenticated.
+      // The POST/PUT implementations returned 401.
+      // We need to handle this distinction.
+      // Let's keep it simple: the callback handles the user check result if needed,
+      // OR we just strictly enforce auth here and handle the GET exception separately?
+      // GET is the outlier. Let's make this strictly for authenticated actions (POST/PUT).
+      return Response.json(
+        { message: &quot;Not authenticated&quot; },
+        { status: 401, headers: { &quot;x-referer&quot;: referer } },
+      );
+    }
+    return await callback(user, referer);
+  } catch (error) {
+    if (error instanceof ZodError) {
+      return Response.json(
+        { message: error.issues.map((i) =&gt; i.message).join(&quot;, &quot;) },
+        { status: 400, headers: { &quot;x-referer&quot;: referer } },
+      );
+    }
+    if (error instanceof ProductNotFoundError) {
+      return Response.json(
+        { message: &quot;Product not found&quot; },
+        { status: 404, headers: { &quot;x-referer&quot;: referer } },
+      );
+    }
+    console.error(&quot;API Error&quot;, error);
+    return Response.json(
+      { message: &quot;Internal server error&quot; },
+      { status: 500, headers: { &quot;x-referer&quot;: referer } },
+    );
+  }
+}
+
+export async function POST(req: Request) {
+  return withAuthenticatedUser(async (user, referer) =&gt; {
+    const product = await createProductRecord(user.id, await req.json());
+
+    return Response.json(
+      { data: product },
+      { status: 201, headers: { &quot;x-referer&quot;: referer } },
+    );
+  });
+}
+
+export async function PUT(req: Request) {
+  return withAuthenticatedUser(async (user, referer) =&gt; {
+    const updatedProduct = await updateProductRecord(user.id, await req.json());
+    return Response.json(
+      { data: updatedProduct },
+      { status: 200, headers: { &quot;x-referer&quot;: referer } },
+    );
+  });
+}
+
+export async function GET() {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
+
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json(
+        { data: [] },
+        { status: 200, headers: { &quot;x-referer&quot;: referer } },
+      );
+    }
+
+    const products = await listProductsForUser(user.id);
+    const productsWithImages = await signProductsWithImages(products);
+
+    return Response.json(
+      { data: productsWithImages },
+      { status: 200, headers: { &quot;x-referer&quot;: referer } },
+    );
+  } catch (error) {
+    console.error(&quot;Get products error&quot;, error);
+    return Response.json(
+      { message: &quot;Internal server error&quot; },
+      { status: 500, headers: { &quot;x-referer&quot;: referer } },
+    );
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,2 @@
+Repository	Main language	LOC (main)	LOC (test)	LOC (other)	Age (years)	Contributors	Recent contributors	Rookies	Commits this year	Latest commit
+Skillset	TSX	13679	1362	3209	0	4	3	3	105	2025-12-05

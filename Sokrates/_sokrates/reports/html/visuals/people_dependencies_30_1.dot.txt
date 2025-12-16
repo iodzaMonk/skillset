@@ -1,0 +1,33 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="grey"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#00688b"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+
+
+
+    "bramomoh06@gmail.com" -- "iodzamonkmode@gmail.com" [label=" 135 ", penwidth="10", color="#00688bFF"];
+    "iodzamonkmode@gmail.com" -- "2396208@cmontmorency.qc.ca" [label=" 2 ", penwidth="1", color="#00688b4C"];
+    "bramomoh06@gmail.com" -- "2396208@cmontmorency.qc.ca" [label=" 2 ", penwidth="1", color="#00688b4C"];
+
+}

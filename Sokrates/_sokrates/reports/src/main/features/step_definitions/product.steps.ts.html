@@ -1,0 +1,215 @@
+<html>
+<head>
+    <title>features/step_definitions/product.steps.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">features/step_definitions/product.steps.ts (<b>170</b> lines of code) (<a href="product.steps.ts">raw</a>):</h3>
+<div id="editor">import assert from &quot;assert&quot;;
+import {
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from &quot;@cucumber/cucumber&quot;;
+import { productService, ProductResponse } from &quot;../support/productService.ts&quot;;
+
+type ProductWorld = {
+  response: ProductResponse | null;
+};
+
+Before(function (this: ProductWorld) {
+  this.response = null;
+});
+
+After(async function () {
+  await productService.cleanup();
+});
+
+Given(&quot;the product catalogue includes:&quot;, async function (table: DataTable) {
+  await productService.seed(table.hashes());
+});
+
+Given(
+  &quot;the product has the following reviews:&quot;,
+  async function (table: DataTable) {
+    await productService.seedReviews(table.hashes());
+  },
+);
+
+When(
+  &quot;I request the product details for {string}&quot;,
+  async function (this: ProductWorld, title: string) {
+    this.response = await productService.fetchByTitle(title);
+  },
+);
+
+When(
+  &quot;I request the product details for slug {string}&quot;,
+  async function (this: ProductWorld, slug: string) {
+    this.response = await productService.fetchBySlug(slug);
+  },
+);
+
+Then(
+  &quot;the product response status should be {int}&quot;,
+  function (this: ProductWorld, status: number) {
+    assert.ok(this.response, &quot;No product response captured&quot;);
+    assert.strictEqual(this.response.status, status);
+  },
+);
+
+Then(
+  &quot;the product payload should include title {string}&quot;,
+  function (this: ProductWorld, title: string) {
+    const payload = getPayload(this);
+    assert.strictEqual(payload.title, title);
+  },
+);
+
+Then(
+  &quot;the product payload should include category {string}&quot;,
+  function (this: ProductWorld, category: string) {
+    const payload = getPayload(this);
+    assert.strictEqual(payload.category, category);
+  },
+);
+
+Then(
+  &quot;the product payload should include price {int}&quot;,
+  function (this: ProductWorld, price: number) {
+    const payload = getPayload(this);
+    assert.strictEqual(payload.price, price);
+  },
+);
+
+Then(
+  &quot;the product payload should include the placeholder image&quot;,
+  function (this: ProductWorld) {
+    const payload = getPayload(this);
+    assert.strictEqual(payload.image_url, &quot;/no-image.svg&quot;);
+  },
+);
+
+Then(
+  &quot;the product payload should include seller:&quot;,
+  function (this: ProductWorld, table: DataTable) {
+    const payload = getPayload(this);
+    const seller = payload.users as
+      | { name?: string; country?: string; email?: string }
+      | undefined;
+    assert.ok(seller, &quot;Expected seller information on payload&quot;);
+    const rows = table.hashes() as Array&lt;Record&lt;string, string&gt;&gt;;
+    if (rows.length === 0) {
+      throw new Error(&quot;Expected seller expectations table to have one row&quot;);
+    }
+    const row = rows[0];
+    const expectedName = (row as Record&lt;string, string&gt;)[&quot;name&quot;];
+    const expectedCountry = (row as Record&lt;string, string&gt;)[&quot;country&quot;];
+    const expectedEmail = (row as Record&lt;string, string&gt;)[&quot;email&quot;];
+    assert.strictEqual(seller?.name, expectedName);
+    assert.strictEqual(seller?.country, expectedCountry);
+    assert.strictEqual(seller?.email, expectedEmail);
+  },
+);
+
+Then(
+  &quot;the product error should say {string}&quot;,
+  function (this: ProductWorld, message: string) {
+    const payload = getPayload(this);
+    assert.strictEqual(payload.message, message);
+  },
+);
+
+Then(
+  &quot;the product payload should include the following reviews:&quot;,
+  function (this: ProductWorld, table: DataTable) {
+    const payload = getPayload(this);
+    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
+    const expectations = table.hashes();
+    for (const row of expectations) {
+      const reviewer = row.reviewer;
+      const text = row.text;
+      const match = reviews.find(
+        (review: any) =&gt;
+          review?.users?.name === reviewer &amp;&amp;
+          String(review?.text ?? &quot;&quot;).trim() === text,
+      );
+      assert.ok(match, `Expected review from ${reviewer} with text &quot;${text}&quot;`);
+    }
+  },
+);
+
+Then(
+  &quot;the product review metadata should include:&quot;,
+  function (this: ProductWorld, table: DataTable) {
+    const payload = getPayload(this);
+    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
+    const expectations = table.hashes();
+    for (const row of expectations) {
+      const reviewer = row.reviewer;
+      const country = row.country;
+      const email = row.email;
+      const match = reviews.find(
+        (review: any) =&gt;
+          review?.users?.name === reviewer &amp;&amp;
+          review?.users?.country === country &amp;&amp;
+          review?.users?.email === email,
+      );
+      assert.ok(
+        match,
+        `Expected metadata for reviewer ${reviewer} (${country}, ${email})`,
+      );
+    }
+  },
+);
+
+Then(
+  &quot;the product payload should report rating {float}&quot;,
+  function (this: ProductWorld, rating: number) {
+    const payload = getPayload(this);
+    const actual =
+      typeof payload.rating === &quot;number&quot; ? (payload.rating as number) : null;
+    assert.ok(actual !== null, &quot;Expected rating to be present on payload&quot;);
+    assert.ok(
+      Math.abs(Number(actual) - Number(rating)) &lt; 0.0001,
+      `Expected rating ${rating} but received ${actual}`,
+    );
+  },
+);
+
+Then(
+  &quot;the product payload should report {int} reviews&quot;,
+  function (this: ProductWorld, count: number) {
+    const payload = getPayload(this);
+    assert.strictEqual(payload.ratingCount, count);
+  },
+);
+
+function getPayload(world: ProductWorld) {
+  if (!world.response?.body) {
+    throw new Error(&quot;No response payload captured&quot;);
+  }
+  return world.response.body;
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

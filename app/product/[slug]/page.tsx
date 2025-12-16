@@ -67,7 +67,6 @@ export default function ProductPage() {
           description: orderState.description,
           userId: user?.id,
         };
-
         if (order.userId)
           router.push(
             `/product/${slug}/payment?description=` +

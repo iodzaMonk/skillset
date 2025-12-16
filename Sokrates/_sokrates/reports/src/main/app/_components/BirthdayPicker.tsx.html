@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>app/_components/BirthdayPicker.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">app/_components/BirthdayPicker.tsx (<b>24</b> lines of code) (<a href="BirthdayPicker.tsx">raw</a>):</h3>
+<div id="editor">import { Datepicker } from &quot;flowbite-react&quot;;
+import { format } from &quot;date-fns&quot;;
+
+interface BirthdayPickerProps {
+  birthday: Date | null;
+  setBirthday: (date: Date | null) =&gt; void;
+  error?: string | null;
+}
+
+export function BirthdayPicker({ birthday, setBirthday, error }: BirthdayPickerProps) {
+  return (
+    &lt;&gt;
+      &lt;Datepicker
+        id=&quot;datepicker&quot;
+        onChange={setBirthday}
+        value={birthday ?? undefined}
+      /&gt;
+      &lt;input
+        type=&quot;hidden&quot;
+        name=&quot;birthday&quot;
+        value={birthday ? format(birthday, &quot;yyyy-MM-dd&quot;) : &quot;&quot;}
+      /&gt;
+
+      {error ? &lt;p className=&quot;text-red-600&quot;&gt;{error}&lt;/p&gt; : null}
+    &lt;/&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

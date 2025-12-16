@@ -1,0 +1,397 @@
+[ {
+  "key" : "primary",
+  "components" : [ {
+    "name" : "app",
+    "filesCount" : 88,
+    "linesOfCode" : 6036,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 42,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 45,
+      "description" : [ ]
+    }, {
+      "name" : "  *.css",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 3417,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 2514,
+      "description" : [ ]
+    }, {
+      "name" : "  *.css",
+      "value" : 105,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "components",
+    "filesCount" : 52,
+    "linesOfCode" : 5097,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 52,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 5097,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "ROOT",
+    "filesCount" : 10,
+    "linesOfCode" : 133,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 6,
+      "description" : [ ]
+    }, {
+      "name" : "  *.mjs",
+      "value" : 3,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 92,
+      "description" : [ ]
+    }, {
+      "name" : "  *.mjs",
+      "value" : 37,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 4,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "hooks",
+    "filesCount" : 1,
+    "linesOfCode" : 17,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 17,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "lib",
+    "filesCount" : 2,
+    "linesOfCode" : 13,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 2,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 13,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "prisma",
+    "filesCount" : 1,
+    "linesOfCode" : 65,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 65,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "types",
+    "filesCount" : 9,
+    "linesOfCode" : 406,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 9,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 406,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "features",
+    "filesCount" : 12,
+    "linesOfCode" : 1187,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 12,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 1187,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "cypress",
+    "filesCount" : 3,
+    "linesOfCode" : 313,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 3,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 313,
+      "description" : [ ]
+    } ]
+  } ],
+  "componentDependencies" : [ ],
+  "componentDependenciesErrors" : [ ],
+  "logicalDecomposition" : {
+    "name" : "primary",
+    "scope" : "main",
+    "filters" : [ ],
+    "componentsFolderDepth" : 1,
+    "minComponentsCount" : 0,
+    "components" : [ {
+      "name" : "app",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../app/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "components",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../components/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "ROOT",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      }, {
+        "pathPattern" : "Sokrates/../app/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "Sokrates/../components/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "Sokrates/../hooks/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "Sokrates/../lib/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "Sokrates/../prisma/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "Sokrates/../types/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "Sokrates/../features/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "Sokrates/../cypress/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "hooks",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../hooks/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "lib",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../lib/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "prisma",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../prisma/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "types",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../types/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "features",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../features/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "cypress",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../cypress/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    } ],
+    "metaComponents" : [ ],
+    "groups" : [ ],
+    "includeRemainingFiles" : true,
+    "dependenciesFinder" : {
+      "useBuiltInDependencyFinders" : true,
+      "rules" : [ ],
+      "metaRules" : [ ]
+    },
+    "renderingOptions" : {
+      "orientation" : "TB",
+      "maxNumberOfDependencies" : 100,
+      "renderComponentsWithoutDependencies" : true,
+      "renderIndirectDependencies" : false,
+      "renderInternalIndirectDependencies" : false,
+      "reverseDirection" : false
+    },
+    "includeExternalComponents" : true,
+    "dependencyLinkThreshold" : 1,
+    "duplicationLinkThreshold" : 50,
+    "temporalLinkThreshold" : 1,
+    "maxSearchDepthLines" : 200
+  },
+  "fileCountPerComponent" : [ {
+    "name" : "app",
+    "value" : 88,
+    "description" : [ ]
+  }, {
+    "name" : "components",
+    "value" : 52,
+    "description" : [ ]
+  }, {
+    "name" : "ROOT",
+    "value" : 10,
+    "description" : [ ]
+  }, {
+    "name" : "hooks",
+    "value" : 1,
+    "description" : [ ]
+  }, {
+    "name" : "lib",
+    "value" : 2,
+    "description" : [ ]
+  }, {
+    "name" : "prisma",
+    "value" : 1,
+    "description" : [ ]
+  }, {
+    "name" : "types",
+    "value" : 9,
+    "description" : [ ]
+  }, {
+    "name" : "features",
+    "value" : 12,
+    "description" : [ ]
+  }, {
+    "name" : "cypress",
+    "value" : 3,
+    "description" : [ ]
+  } ],
+  "linesOfCodePerComponent" : [ {
+    "name" : "app",
+    "value" : 6036,
+    "description" : [ ]
+  }, {
+    "name" : "components",
+    "value" : 5097,
+    "description" : [ ]
+  }, {
+    "name" : "ROOT",
+    "value" : 133,
+    "description" : [ ]
+  }, {
+    "name" : "hooks",
+    "value" : 17,
+    "description" : [ ]
+  }, {
+    "name" : "lib",
+    "value" : 13,
+    "description" : [ ]
+  }, {
+    "name" : "prisma",
+    "value" : 65,
+    "description" : [ ]
+  }, {
+    "name" : "types",
+    "value" : 406,
+    "description" : [ ]
+  }, {
+    "name" : "features",
+    "value" : 1187,
+    "description" : [ ]
+  }, {
+    "name" : "cypress",
+    "value" : 313,
+    "description" : [ ]
+  } ]
+} ]

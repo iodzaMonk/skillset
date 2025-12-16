@@ -1,0 +1,8 @@
+{
+  "subLandscapes" : [ ],
+  "repositories" : [ {
+    "analysisResultsPath" : "Sokrates\\_sokrates\\reports\\data\\analysisResults.json",
+    "htmlReportsRoot" : "Sokrates\\_sokrates\\reports\\html",
+    "note" : ""
+  } ]
+}

@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>components/ui/spinner.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">components/ui/spinner.tsx (<b>9</b> lines of code) (<a href="spinner.tsx">raw</a>):</h3>
+<div id="editor">import { Loader2Icon } from &quot;lucide-react&quot;;
+
+import { cn } from &quot;@/lib/utils&quot;;
+
+function Spinner({ className, ...props }: React.ComponentProps&lt;&quot;svg&quot;&gt;) {
+  return (
+    &lt;Loader2Icon
+      role=&quot;status&quot;
+      aria-label=&quot;Loading&quot;
+      className={cn(&quot;size-4 animate-spin&quot;, className)}
+      {...props}
+    /&gt;
+  );
+}
+
+export { Spinner };
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

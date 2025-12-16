@@ -1,0 +1,45 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#00688b"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+    "tsx (2)" [fillcolor="deepskyblue2"];
+    "mjs (1)" [fillcolor="deepskyblue2"];
+    "css (2)" [fillcolor="deepskyblue2"];
+    "ts (2)" [fillcolor="deepskyblue2"];
+    "js (1)" [fillcolor="deepskyblue2"];
+
+
+
+    "css (2)" -- "tsx (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "css (2)" -- "ts (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "tsx (2)" -- "ts (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "css (2)" -- "js (1)" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "css (2)" -- "mjs (1)" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "tsx (2)" -- "js (1)" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "tsx (2)" -- "mjs (1)" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "ts (2)" -- "js (1)" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "ts (2)" -- "mjs (1)" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "js (1)" -- "mjs (1)" [label=" 1 ", penwidth="1", color="#00688b5E"];
+
+}

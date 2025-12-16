@@ -8,38 +8,48 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
   timeStyle: "short",
 });
 
+// ... existing imports ...
+
 function CommentItemBase({
   comment,
   depth,
   maxDepth,
   userId,
-  activeMenuId,
-  editingCommentId,
-  editingValue,
-  editError,
-  replyMessage,
-  replyError,
-  replyingToId,
-  isSavingEdit,
-  isSubmittingReply,
-  expandedThreads,
-  editingRating,
-  editingHoverRating,
-  onToggleMenu,
-  onStartEditing,
-  onCancelEdit,
-  onEditingValueChange,
-  onSaveEdit,
-  onDelete,
-  onBeginReply,
-  onCancelReply,
-  onReplyChange,
-  onSubmitReply,
-  onToggleReplies,
-  onEditingRatingSelect,
-  onEditingRatingHover,
-  onEditingRatingLeave,
+  state, // Receive state object
+  handlers, // Receive handlers object
 }: CommentItemProps) {
+  // Destructure state from props
+  const {
+    activeMenuId,
+    editingCommentId,
+    editingValue,
+    editError,
+    replyMessage,
+    replyError,
+    replyingToId,
+    isSavingEdit,
+    isSubmittingReply,
+    expandedThreads,
+    editingRating,
+    editingHoverRating,
+  } = state;
+  // Extend props locally or update type definition
+  const {
+    toggleMenu: onToggleMenu,
+    startEditing: onStartEditing,
+    handleCancelEdit: onCancelEdit,
+    handleEditingValueChange: onEditingValueChange,
+    handleEdit: onSaveEdit,
+    handleDelete: onDelete,
+    beginReply: onBeginReply,
+    handleCancelReply: onCancelReply,
+    handleReplyValueChange: onReplyChange,
+    handleSubmitReply: onSubmitReply,
+    toggleThreadVisibility: onToggleReplies,
+    handleEditingRatingSelect: onEditingRatingSelect,
+    handleEditingRatingHover: onEditingRatingHover,
+    handleEditingRatingLeave: onEditingRatingLeave,
+  } = handlers;
   const isOwner = userId === comment.user_id;
   const isMenuOpen = activeMenuId === comment.id;
   const isEditing = editingCommentId === comment.id;
@@ -112,7 +122,7 @@ function CommentItemBase({
               <textarea
                 value={editingValue}
                 onChange={(event) => onEditingValueChange(event.target.value)}
-                className="border-border focus:border-primary focus:ring-primary/30 min-h-20 w-full rounded-md border bg-transparent p-3 text-sm transition outline-none focus:ring"
+                className="border-border focus:border-primary focus:ring-primary/30 min-h-20 w-full rounded-md border bg-transparent p-3 text-sm outline-none transition focus:ring"
                 aria-label="Edit comment"
                 disabled={isSavingEdit}
               />
@@ -124,7 +134,7 @@ function CommentItemBase({
               ) : null}
             </>
           ) : (
-            <p className="text-text text-sm leading-6 whitespace-pre-wrap">
+            <p className="text-text whitespace-pre-wrap text-sm leading-6">
               {comment.text}
             </p>
           )}
@@ -151,7 +161,7 @@ function CommentItemBase({
               </svg>
             </button>
             {isMenuOpen ? (
-              <div className="bg-surface-2 absolute top-7 right-0 z-10 flex min-w-[140px] flex-col rounded-xl p-1 shadow-lg">
+              <div className="bg-surface-2 absolute right-0 top-7 z-10 flex min-w-[140px] flex-col rounded-xl p-1 shadow-lg">
                 <button
                   type="button"
                   className="hover:bg-accent flex w-full items-center gap-2 rounded-xl p-2 text-left text-sm transition"
@@ -259,39 +269,15 @@ function CommentItemBase({
 
       {isExpanded && canRenderChildReplies ? (
         <ul className="border-border/40 mt-4 space-y-3 border-l pl-4">
-          {replies.map((child) => (
+          {replies.map((reply) => (
             <CommentItemBase
-              key={child.id}
-              comment={child}
+              key={reply.id}
+              comment={reply}
               depth={depth + 1}
               maxDepth={maxDepth}
               userId={userId}
-              activeMenuId={activeMenuId}
-              editingCommentId={editingCommentId}
-              editingValue={editingValue}
-              editError={editError}
-              replyMessage={replyMessage}
-              replyError={replyError}
-              replyingToId={replyingToId}
-              isSavingEdit={isSavingEdit}
-              isSubmittingReply={isSubmittingReply}
-              expandedThreads={expandedThreads}
-              editingRating={editingRating}
-              editingHoverRating={editingHoverRating}
-              onEditingRatingSelect={onEditingRatingSelect}
-              onEditingRatingHover={onEditingRatingHover}
-              onEditingRatingLeave={onEditingRatingLeave}
-              onToggleMenu={onToggleMenu}
-              onStartEditing={onStartEditing}
-              onCancelEdit={onCancelEdit}
-              onEditingValueChange={onEditingValueChange}
-              onSaveEdit={onSaveEdit}
-              onDelete={onDelete}
-              onBeginReply={onBeginReply}
-              onCancelReply={onCancelReply}
-              onReplyChange={onReplyChange}
-              onSubmitReply={onSubmitReply}
-              onToggleReplies={onToggleReplies}
+              state={state}
+              handlers={handlers}
             />
           ))}
         </ul>

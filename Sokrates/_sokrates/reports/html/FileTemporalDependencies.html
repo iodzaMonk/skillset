@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Skillset Temporal Dependencies</title>
+  <style type="text/css" media="all">
+    body {
+      font-family: Roboto, Vollkorn, Ubuntu, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
+      margin-left:5%;
+      margin-right:5%;
+    }
+    table {
+      color: #333;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    td, th {
+      border: 1px solid #CCC;
+      height: 30px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    th {
+      background: #F3F3F3;
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    td {
+      background: #FFFFFF;
+      text-align: left;
+    }
+    h3 {
+      margin-top: 0
+    }
+    h1 {
+      margin-bottom: 6px;
+    }
+    p {
+      margin-top: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    .reportSubtitle {
+      color: grey;
+    }
+    .group {
+      margin-bottom: 10px;
+      border: solid lightgrey 1px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 2px;
+    }
+    .section {
+      margin-bottom: 30px;
+      border: solid lightgrey 1px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 2px;
+      padding: 0;
+    }
+    .sectionHeader {
+      margin-bottom: 30px;
+      padding: 20px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+      background-color: lightskyblue;
+    }
+    .sectionTitle {
+      font-size: 140%;
+    }
+    .sectionSubtitle {
+      font-size: 90%; color: grey;
+    }
+    .subSectionTitle {
+      font-size: 140%;
+    }
+    .subSectionSubtitle {
+      font-size: 90%; color: grey;
+    }
+    .subSection {
+      margin-bottom: 30px;
+      border: solid lightgrey 1px;
+      padding-top: 0;
+      padding-bottom: 0;
+      box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 1px 9px 0 rgba(0, 0, 0, 0.19);
+    }
+    .subSectionHeader {
+      border: solid lightgrey 1px;
+      padding: 6px;
+      background-color: lightgrey;
+      box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 0 rgba(0, 0, 0, 0.19);
+    }
+    .sectionBody {
+      margin: 20px;
+    }
+.tab {
+ overflow: hidden;
+ border: 1px solid #ccc;
+ background-color: #f1f1f1;
+}
+.tab button {
+ font-family: Roboto, Vollkorn, Ubuntu, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
+ font-size: 100%;
+ background-color: inherit;
+ float: left;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ padding: 14px 16px;
+ transition: 0.3s;
+}
+.tab button:hover {
+ background-color: #ddd;
+}
+.tab button.active {
+ background-color: #ccc;
+}
+.tabcontent {
+ display: none;
+ padding: 6px 12px;
+ border: 1px solid #ccc;
+ overflow-y: auto;
+ border-top: none;
+}
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <script type="text/javascript">
+    function showHide(id) {
+      var e = document.getElementById(id);
+      e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+    }
+    function showHideDisappear(id) {
+      var e = document.getElementById(id);
+      e.style.display = '';      var eTrigger = document.getElementById(id + '_trigger');
+      eTrigger.style.display = 'none';
+    }
+    function openTab(evt, tabName) {
+     var i, tabcontent, tablinks;
+     tabcontent = document.getElementsByClassName("tabcontent");
+     for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+     }
+     tablinks = document.getElementsByClassName("tablinks");
+     for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+     }
+     document.getElementById(tabName).style.display = "block";
+     evt.currentTarget.className += " active";
+    }
+  </script>
+  
+</head>
+
+<body><div id="report">
+
+
+<div style='font-size: 36px; margin-top: 15px; padding-bottom: 15px; white-space: nowrap; overflow: hidden;'><a href='index.html' style="font-size: 100%;text-decoration:none">
+<img style='height: 64px' valign='middle' src='https://zeljkoobrenovic.github.io/sokrates-media/icons/repository.png'>
+<div style='margin-left: 4px; display: inline-block; vertical-align: middle; font-size: 120%'><div style='color: #bbbbbb; font-size: 60%;'>Skillset</div><div style='height: 34px; font-size: 100%'>Temporal Dependencies</div></div></div>
+</a>
+</div>
+
+<p style="margin-top: 12px; color: grey">A temporal dependency occurs when developers change two or more files at the same time (i.e. they are a part of the same commit).</p>
+<div class="tab">
+  <button class='tablinks active' onclick='openTab(event, "30_days")'>Past 30 Days</button>
+  <button class='tablinks' onclick='openTab(event, "90_days")'>Past 3 Months</button>
+  <button class='tablinks' onclick='openTab(event, "180_days")'>Past 6 Months</button>
+</div>
+<div id="30_days" class="tabcontent" style="display: block">
+<br/>
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Files Most Frequently Changed Together (Top 50)</span></div><div class='sectionBody'>
+<p><a href='../data/text/temporal_dependencies.txt' target='_blank'>data...</a></p>
+<div style="max-height: 400px; overflow-y: auto">
+<table>
+<th>Pairs</th>
+<th># same commits</th>
+<th># commits 1</th>
+<th># commits 2</th>
+<th>latest commit</th>
+<tr>
+<td>app/myorderslist/_components/OrderList.tsx<br/>app/api/orders/route.ts</td>
+<td style="text-align: center">4</td>
+<td>7 (57%)</td>
+<td>8 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/route.ts<br/>app/api/orders/route.ts</td>
+<td style="text-align: center">4</td>
+<td>10 (40%)</td>
+<td>8 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/replies/route.ts<br/>app/api/orders/route.ts</td>
+<td style="text-align: center">4</td>
+<td>6 (66%)</td>
+<td>8 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/route.ts<br/>app/api/product/[slug]/reviews/replies/route.ts</td>
+<td style="text-align: center">4</td>
+<td>10 (40%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/orders/_components/OrderList.tsx<br/>app/myproduct/_components/PostList.tsx</td>
+<td style="text-align: center">4</td>
+<td>9 (44%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/settings/SettingsForm.tsx<br/>app/myproduct/_components/PostList.tsx</td>
+<td style="text-align: center">4</td>
+<td>17 (23%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/api/product/[slug]/reviews/replies/route.ts</td>
+<td style="text-align: center">4</td>
+<td>18 (22%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/OrderList.tsx<br/>app/browse/page.tsx</td>
+<td style="text-align: center">4</td>
+<td>7 (57%)</td>
+<td>18 (22%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/orders/route.ts<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">4</td>
+<td>8 (50%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">4</td>
+<td>18 (22%)</td>
+<td>10 (40%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/OrderList.tsx<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">4</td>
+<td>7 (57%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/settings/SettingsForm.tsx<br/>app/orders/_components/OrderList.tsx</td>
+<td style="text-align: center">4</td>
+<td>17 (23%)</td>
+<td>9 (44%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">4</td>
+<td>18 (22%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/route.ts<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">4</td>
+<td>10 (40%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/api/orders/route.ts</td>
+<td style="text-align: center">4</td>
+<td>18 (22%)</td>
+<td>8 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/OrderList.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">4</td>
+<td>7 (57%)</td>
+<td>10 (40%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/OrderList.tsx<br/>app/api/product/[slug]/reviews/replies/route.ts</td>
+<td style="text-align: center">4</td>
+<td>7 (57%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/replies/route.ts<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">4</td>
+<td>6 (66%)</td>
+<td>6 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/api/cart/route.ts</td>
+<td style="text-align: center">3</td>
+<td>18 (16%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>cypress/e2e/complete_test.cy.ts<br/>app/myorderslist/_components/OrderList.tsx</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>7 (42%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/layout.tsx<br/>cypress/e2e/complete_test.cy.ts</td>
+<td style="text-align: center">3</td>
+<td>6 (50%)</td>
+<td>8 (37%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/Modal.tsx<br/>app/browse/page.tsx</td>
+<td style="text-align: center">3</td>
+<td>5 (60%)</td>
+<td>18 (16%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/lib/storage/s3.ts<br/>app/api/uploads/route.ts</td>
+<td style="text-align: center">3</td>
+<td>7 (42%)</td>
+<td>6 (50%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/Modal.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">3</td>
+<td>5 (60%)</td>
+<td>10 (30%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>cypress/e2e/complete_test.cy.ts<br/>app/api/product/[slug]/reviews/replies/route.ts</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>6 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/uploads/route.ts<br/>app/api/product/user/route.ts</td>
+<td style="text-align: center">3</td>
+<td>6 (50%)</td>
+<td>12 (25%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/Modal.tsx<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">3</td>
+<td>5 (60%)</td>
+<td>6 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/lib/storage/s3.ts<br/>app/api/product/user/route.ts</td>
+<td style="text-align: center">3</td>
+<td>7 (42%)</td>
+<td>12 (25%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/OrderList.tsx<br/>app/myorderslist/_components/Modal.tsx</td>
+<td style="text-align: center">3</td>
+<td>7 (42%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>cypress/e2e/complete_test.cy.ts<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>6 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/Modal.tsx<br/>app/api/product/[slug]/reviews/replies/route.ts</td>
+<td style="text-align: center">3</td>
+<td>5 (60%)</td>
+<td>6 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/OrderList.tsx<br/>app/api/cart/route.ts</td>
+<td style="text-align: center">3</td>
+<td>7 (42%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/Modal.tsx<br/>app/api/cart/route.ts</td>
+<td style="text-align: center">3</td>
+<td>5 (60%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/Modal.tsx<br/>app/api/orders/route.ts</td>
+<td style="text-align: center">3</td>
+<td>5 (60%)</td>
+<td>8 (37%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>cypress/e2e/complete_test.cy.ts<br/>app/api/cart/route.ts</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>cypress/e2e/complete_test.cy.ts<br/>app/myorderslist/_components/Modal.tsx</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>cypress/e2e/complete_test.cy.ts<br/>app/browse/page.tsx</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>18 (16%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/orders/route.ts<br/>app/api/cart/route.ts</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/cart/route.ts<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">3</td>
+<td>5 (60%)</td>
+<td>6 (50%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>cypress/e2e/complete_test.cy.ts<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>10 (30%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>cypress/e2e/complete_test.cy.ts<br/>app/api/orders/route.ts</td>
+<td style="text-align: center">3</td>
+<td>8 (37%)</td>
+<td>8 (37%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/route.ts<br/>app/api/cart/route.ts</td>
+<td style="text-align: center">3</td>
+<td>10 (30%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/replies/route.ts<br/>app/api/cart/route.ts</td>
+<td style="text-align: center">3</td>
+<td>6 (50%)</td>
+<td>5 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>features/support/browseService.ts<br/>features/step_definitions/productCrud.steps.ts</td>
+<td style="text-align: center">2</td>
+<td>3 (66%)</td>
+<td>3 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/StripeConnectButton.tsx<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">2</td>
+<td>3 (66%)</td>
+<td>14 (14%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/page.tsx<br/>app/lib/convertToSubcurrency.ts</td>
+<td style="text-align: center">2</td>
+<td>7 (28%)</td>
+<td>3 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>components/ui/resizable.tsx<br/>app/api/orders/create-payment/route.tsx</td>
+<td style="text-align: center">2</td>
+<td>4 (50%)</td>
+<td>7 (28%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>components/ui/sidebar.tsx<br/>app/myorderslist/_components/OrderList.tsx</td>
+<td style="text-align: center">2</td>
+<td>4 (50%)</td>
+<td>7 (28%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>components/ui/empty.tsx<br/>components/ui/collapsible.tsx</td>
+<td style="text-align: center">2</td>
+<td>4 (50%)</td>
+<td>4 (50%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/Professional.ts<br/>components/ui/toggle-group.tsx</td>
+<td style="text-align: center">2</td>
+<td>4 (50%)</td>
+<td>4 (50%)</td>
+<td>2025-11-21</td>
+</tr>
+</table>
+</div>
+</div></div>
+<div style="margin: 10px;">
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Dependencies between files in same commits</span>  <div class='subSectionSubtitle'>The number on the lines shows the number of shared commits.</div></div><div class='sectionBody'>
+<div style="width: 100%; overflow: auto; font-weight: normal;">
+
+
+</div>
+<div style="">
+Download: 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_30_days.svg'>SVG</a>
+ 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_30_days.dot.txt'>DOT</a>
+ 
+<a style='text-decoration: none' target='_blank' href='https://obren.io/tools/graphviz/'>(open online Graphviz editor)</a>
+</div>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_30_days_force_2d.html'>Open 2D force graph (file dependencies)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_30_days_force_3d.html'>Open 3D force graph (file dependencies)...</a>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_with_commits_components_30_days_force_2d.html'>Open 2D force graph (file dependencies with commits)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_with_commits_components_30_days_force_3d.html'>Open 3D force graph (file dependencies with commits)...</a>
+<br/>
+</div></div>
+</div>
+<div style="margin: 10px;">
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Dependencies between components in same commits (primary)</span>  <div class='subSectionSubtitle'>The number on the lines shows the number of shared commits.</div></div><div class='sectionBody'>
+<div style="width: 100%; overflow: auto; font-weight: normal;">
+
+
+</div>
+<div style="">
+Download: 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_30_days.svg'>SVG</a>
+ 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_30_days.dot.txt'>DOT</a>
+ 
+<a style='text-decoration: none' target='_blank' href='https://obren.io/tools/graphviz/'>(open online Graphviz editor)</a>
+</div>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_30_days_force_2d.html'>Open 2D force graph (file dependencies)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_30_days_force_3d.html'>Open 3D force graph (file dependencies)...</a>
+<br/>
+</div></div>
+</div>
+</div>
+<div id="90_days" class="tabcontent" style="display: none">
+<br/>
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Files Most Frequently Changed Together (Top 50)</span></div><div class='sectionBody'>
+<p><a href='../data/text/temporal_dependencies.txt' target='_blank'>data...</a></p>
+<div style="max-height: 400px; overflow-y: auto">
+<table>
+<th>Pairs</th>
+<th># same commits</th>
+<th># commits 1</th>
+<th># commits 2</th>
+<th>latest commit</th>
+<tr>
+<td>app/product/[slug]/page.tsx<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">12</td>
+<td>17 (70%)</td>
+<td>14 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/product/[slug]/page.tsx</td>
+<td style="text-align: center">10</td>
+<td>12 (83%)</td>
+<td>17 (58%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">9</td>
+<td>12 (75%)</td>
+<td>14 (64%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/page.tsx<br/>app/api/product/user/route.ts</td>
+<td style="text-align: center">9</td>
+<td>22 (40%)</td>
+<td>12 (75%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/page.tsx<br/>app/api/product/route.ts</td>
+<td style="text-align: center">8</td>
+<td>22 (36%)</td>
+<td>10 (80%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/payment/success/page.tsx<br/>app/product/[slug]/payment/page.tsx</td>
+<td style="text-align: center">7</td>
+<td>7 (100%)</td>
+<td>8 (87%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/page.tsx<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">7</td>
+<td>12 (58%)</td>
+<td>17 (41%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/page.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">7</td>
+<td>17 (41%)</td>
+<td>10 (70%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/page.tsx<br/>app/browse/page.tsx</td>
+<td style="text-align: center">7</td>
+<td>17 (41%)</td>
+<td>18 (38%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/route.ts<br/>app/browse/page.tsx</td>
+<td style="text-align: center">7</td>
+<td>14 (50%)</td>
+<td>18 (38%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/page.tsx<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">7</td>
+<td>7 (100%)</td>
+<td>17 (41%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/components/Comments.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">7</td>
+<td>7 (100%)</td>
+<td>10 (70%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/SettingsForm.tsx<br/>app/auth/[slug]/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>17 (35%)</td>
+<td>9 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/page.tsx<br/>app/browse/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>18 (33%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/route.ts<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">6</td>
+<td>14 (42%)</td>
+<td>10 (60%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/user/login/route.ts<br/>app/api/product/user/route.ts</td>
+<td style="text-align: center">6</td>
+<td>9 (66%)</td>
+<td>12 (50%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>components/ui/select.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/orders/page.tsx<br/>app/orders/_components/OrderList.tsx</td>
+<td style="text-align: center">6</td>
+<td>9 (66%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/myproduct/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>22 (27%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/route.ts<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">6</td>
+<td>10 (60%)</td>
+<td>6 (100%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myproduct/_hooks/postStates.ts<br/>app/globals.css</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/page.tsx<br/>app/product/[slug]/components/Comments.tsx</td>
+<td style="text-align: center">6</td>
+<td>17 (35%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">6</td>
+<td>18 (33%)</td>
+<td>10 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myproduct/page.tsx<br/>app/globals.css</td>
+<td style="text-align: center">6</td>
+<td>22 (27%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>components/ui/select.tsx<br/>app/product/[slug]/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/page.tsx<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">6</td>
+<td>22 (27%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">6</td>
+<td>18 (33%)</td>
+<td>6 (100%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/route.ts<br/>app/api/product/[slug]/reviews/replies/route.ts</td>
+<td style="text-align: center">6</td>
+<td>10 (60%)</td>
+<td>6 (100%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/product/[slug]/payment/page.tsx<br/>app/product/[slug]/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>8 (75%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/browse/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>18 (33%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>10 (60%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/_components/Modal.tsx<br/>app/globals.css</td>
+<td style="text-align: center">6</td>
+<td>6 (100%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>components/ui/select.tsx<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>14 (42%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/page.tsx<br/>app/context/AuthProvider.tsx</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/payment/module/CheckoutPage.tsx<br/>app/api/orders/create-payment/route.tsx</td>
+<td style="text-align: center">6</td>
+<td>6 (100%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/components/Comments.tsx<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>14 (42%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/_hooks/postStates.ts<br/>app/myproduct/_components/Modal.tsx</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>6 (100%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/product/[slug]/components/Comments.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/context/AuthProvider.tsx<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/user/update/route.ts<br/>app/api/user/delete/route.ts</td>
+<td style="text-align: center">5</td>
+<td>6 (83%)</td>
+<td>5 (100%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/Category.ts<br/>prisma/seed.ts</td>
+<td style="text-align: center">5</td>
+<td>5 (100%)</td>
+<td>9 (55%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/page.tsx<br/>app/api/user/delete/route.ts</td>
+<td style="text-align: center">5</td>
+<td>7 (71%)</td>
+<td>5 (100%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/lib/storage/s3.ts<br/>app/api/product/user/route.ts</td>
+<td style="text-align: center">5</td>
+<td>7 (71%)</td>
+<td>12 (41%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/user/update/route.ts<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">5</td>
+<td>6 (83%)</td>
+<td>17 (29%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/user/me/route.ts<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">5</td>
+<td>5 (100%)</td>
+<td>17 (29%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/user/delete/route.ts<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">5</td>
+<td>5 (100%)</td>
+<td>17 (29%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/globals.css</td>
+<td style="text-align: center">5</td>
+<td>12 (41%)</td>
+<td>9 (55%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myorderslist/_components/OrderList.tsx<br/>app/api/cart/route.ts</td>
+<td style="text-align: center">5</td>
+<td>7 (71%)</td>
+<td>5 (100%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/myorderslist/page.tsx<br/>app/myorderslist/_components/OrderList.tsx</td>
+<td style="text-align: center">5</td>
+<td>5 (100%)</td>
+<td>7 (71%)</td>
+<td>2025-11-21</td>
+</tr>
+</table>
+</div>
+</div></div>
+<div style="margin: 10px;">
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Dependencies between files in same commits</span>  <div class='subSectionSubtitle'>The number on the lines shows the number of shared commits.</div></div><div class='sectionBody'>
+<div style="width: 100%; overflow: auto; font-weight: normal;">
+
+
+</div>
+<div style="">
+Download: 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_90_days.svg'>SVG</a>
+ 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_90_days.dot.txt'>DOT</a>
+ 
+<a style='text-decoration: none' target='_blank' href='https://obren.io/tools/graphviz/'>(open online Graphviz editor)</a>
+</div>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_90_days_force_2d.html'>Open 2D force graph (file dependencies)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_90_days_force_3d.html'>Open 3D force graph (file dependencies)...</a>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_with_commits_components_90_days_force_2d.html'>Open 2D force graph (file dependencies with commits)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_with_commits_components_90_days_force_3d.html'>Open 3D force graph (file dependencies with commits)...</a>
+<br/>
+</div></div>
+</div>
+<div style="margin: 10px;">
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Dependencies between components in same commits (primary)</span>  <div class='subSectionSubtitle'>The number on the lines shows the number of shared commits.</div></div><div class='sectionBody'>
+<div style="width: 100%; overflow: auto; font-weight: normal;">
+
+
+</div>
+<div style="">
+Download: 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_90_days.svg'>SVG</a>
+ 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_90_days.dot.txt'>DOT</a>
+ 
+<a style='text-decoration: none' target='_blank' href='https://obren.io/tools/graphviz/'>(open online Graphviz editor)</a>
+</div>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_90_days_force_2d.html'>Open 2D force graph (file dependencies)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_90_days_force_3d.html'>Open 3D force graph (file dependencies)...</a>
+<br/>
+</div></div>
+</div>
+</div>
+<div id="180_days" class="tabcontent" style="display: none">
+<br/>
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Files Most Frequently Changed Together (Top 50)</span></div><div class='sectionBody'>
+<p><a href='../data/text/temporal_dependencies.txt' target='_blank'>data...</a></p>
+<div style="max-height: 400px; overflow-y: auto">
+<table>
+<th>Pairs</th>
+<th># same commits</th>
+<th># commits 1</th>
+<th># commits 2</th>
+<th>latest commit</th>
+<tr>
+<td>app/product/[slug]/page.tsx<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">12</td>
+<td>17 (70%)</td>
+<td>14 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/product/[slug]/page.tsx</td>
+<td style="text-align: center">10</td>
+<td>12 (83%)</td>
+<td>17 (58%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/page.tsx<br/>app/api/product/user/route.ts</td>
+<td style="text-align: center">9</td>
+<td>22 (40%)</td>
+<td>12 (75%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">9</td>
+<td>12 (75%)</td>
+<td>14 (64%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/page.tsx<br/>app/api/product/route.ts</td>
+<td style="text-align: center">8</td>
+<td>22 (36%)</td>
+<td>10 (80%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/page.tsx<br/>app/browse/page.tsx</td>
+<td style="text-align: center">8</td>
+<td>12 (66%)</td>
+<td>18 (44%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/page.tsx<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">7</td>
+<td>7 (100%)</td>
+<td>17 (41%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/page.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">7</td>
+<td>17 (41%)</td>
+<td>10 (70%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/route.ts<br/>app/browse/page.tsx</td>
+<td style="text-align: center">7</td>
+<td>14 (50%)</td>
+<td>18 (38%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/page.tsx<br/>app/browse/page.tsx</td>
+<td style="text-align: center">7</td>
+<td>17 (41%)</td>
+<td>18 (38%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/page.tsx<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">7</td>
+<td>12 (58%)</td>
+<td>17 (41%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/components/Comments.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">7</td>
+<td>7 (100%)</td>
+<td>10 (70%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/payment/success/page.tsx<br/>app/product/[slug]/payment/page.tsx</td>
+<td style="text-align: center">7</td>
+<td>7 (100%)</td>
+<td>8 (87%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/payment/page.tsx<br/>app/product/[slug]/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>8 (75%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/components/Comments.tsx<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>14 (42%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/page.tsx<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">6</td>
+<td>22 (27%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/_components/Modal.tsx<br/>app/globals.css</td>
+<td style="text-align: center">6</td>
+<td>6 (100%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>components/ui/select.tsx<br/>app/api/product/[slug]/route.ts</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>14 (42%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/browse/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>18 (33%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/page.tsx<br/>app/context/AuthProvider.tsx</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">6</td>
+<td>18 (33%)</td>
+<td>10 (60%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>components/ui/select.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/browse/page.tsx<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">6</td>
+<td>18 (33%)</td>
+<td>6 (100%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/user/login/route.ts<br/>app/api/product/user/route.ts</td>
+<td style="text-align: center">6</td>
+<td>9 (66%)</td>
+<td>12 (50%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>prisma/seed.ts<br/>app/globals.css</td>
+<td style="text-align: center">6</td>
+<td>9 (66%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/route.ts<br/>app/api/product/[slug]/reviews/replies/route.ts</td>
+<td style="text-align: center">6</td>
+<td>10 (60%)</td>
+<td>6 (100%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/reviews/route.ts<br/>app/_components/ProductCarousel.tsx</td>
+<td style="text-align: center">6</td>
+<td>10 (60%)</td>
+<td>6 (100%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>app/orders/page.tsx<br/>app/orders/_components/OrderList.tsx</td>
+<td style="text-align: center">6</td>
+<td>9 (66%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/myproduct/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>22 (27%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/product/[slug]/components/Comments.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>10 (60%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/product/[slug]/route.ts<br/>app/api/product/[slug]/reviews/route.ts</td>
+<td style="text-align: center">6</td>
+<td>14 (42%)</td>
+<td>10 (60%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/payment/module/CheckoutPage.tsx<br/>app/api/orders/create-payment/route.tsx</td>
+<td style="text-align: center">6</td>
+<td>6 (100%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/_hooks/postStates.ts<br/>app/myproduct/_components/Modal.tsx</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>6 (100%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/SettingsForm.tsx<br/>app/auth/[slug]/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>17 (35%)</td>
+<td>9 (66%)</td>
+<td>2025-12-05</td>
+</tr>
+<tr>
+<td>components/ui/select.tsx<br/>app/product/[slug]/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/page.tsx<br/>app/auth/[slug]/page.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>9 (66%)</td>
+<td>2025-09-25</td>
+</tr>
+<tr>
+<td>types/PostBody.ts<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">6</td>
+<td>12 (50%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/context/AuthProvider.tsx<br/>app/settings/SettingsForm.tsx</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>17 (35%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/page.tsx<br/>app/globals.css</td>
+<td style="text-align: center">6</td>
+<td>22 (27%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/product/[slug]/page.tsx<br/>app/product/[slug]/components/Comments.tsx</td>
+<td style="text-align: center">6</td>
+<td>17 (35%)</td>
+<td>7 (85%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/myproduct/_hooks/postStates.ts<br/>app/globals.css</td>
+<td style="text-align: center">6</td>
+<td>7 (85%)</td>
+<td>9 (66%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/api/uploads/route.ts<br/>app/api/product/user/route.ts</td>
+<td style="text-align: center">5</td>
+<td>6 (83%)</td>
+<td>12 (41%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>prisma/seed.ts<br/>app/browse/page.tsx</td>
+<td style="text-align: center">5</td>
+<td>9 (55%)</td>
+<td>18 (27%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/Components/Header.tsx<br/>app/browse/page.tsx</td>
+<td style="text-align: center">5</td>
+<td>11 (45%)</td>
+<td>18 (27%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/page.tsx<br/>app/api/user/update/route.ts</td>
+<td style="text-align: center">5</td>
+<td>7 (71%)</td>
+<td>6 (83%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/lib/session.ts<br/>app/api/user/login/route.ts</td>
+<td style="text-align: center">5</td>
+<td>6 (83%)</td>
+<td>9 (55%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/lib/storage/s3.ts<br/>app/api/uploads/route.ts</td>
+<td style="text-align: center">5</td>
+<td>7 (71%)</td>
+<td>6 (83%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/settings/page.tsx<br/>app/api/user/me/route.ts</td>
+<td style="text-align: center">5</td>
+<td>7 (71%)</td>
+<td>5 (100%)</td>
+<td>2025-11-21</td>
+</tr>
+<tr>
+<td>app/globals.css<br/>app/browse/page.tsx</td>
+<td style="text-align: center">5</td>
+<td>9 (55%)</td>
+<td>18 (27%)</td>
+<td>2025-11-21</td>
+</tr>
+</table>
+</div>
+</div></div>
+<div style="margin: 10px;">
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Dependencies between files in same commits</span>  <div class='subSectionSubtitle'>The number on the lines shows the number of shared commits.</div></div><div class='sectionBody'>
+<div style="width: 100%; overflow: auto; font-weight: normal;">
+
+
+</div>
+<div style="">
+Download: 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_180_days.svg'>SVG</a>
+ 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_180_days.dot.txt'>DOT</a>
+ 
+<a style='text-decoration: none' target='_blank' href='https://obren.io/tools/graphviz/'>(open online Graphviz editor)</a>
+</div>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_180_days_force_2d.html'>Open 2D force graph (file dependencies)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_files_180_days_force_3d.html'>Open 3D force graph (file dependencies)...</a>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_with_commits_components_180_days_force_2d.html'>Open 2D force graph (file dependencies with commits)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_with_commits_components_180_days_force_3d.html'>Open 3D force graph (file dependencies with commits)...</a>
+<br/>
+</div></div>
+</div>
+<div style="margin: 10px;">
+<div class='subSection'><div class='subSectionHeader'>  <span class='subSectionTitle'>Dependencies between components in same commits (primary)</span>  <div class='subSectionSubtitle'>The number on the lines shows the number of shared commits.</div></div><div class='sectionBody'>
+<div style="width: 100%; overflow: auto; font-weight: normal;">
+
+
+</div>
+<div style="">
+Download: 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_180_days.svg'>SVG</a>
+ 
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_180_days.dot.txt'>DOT</a>
+ 
+<a style='text-decoration: none' target='_blank' href='https://obren.io/tools/graphviz/'>(open online Graphviz editor)</a>
+</div>
+<br/>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_180_days_force_2d.html'>Open 2D force graph (file dependencies)...</a>
+<a style='text-decoration: none' target='_blank' href='visuals/file_changed_together_dependencies_logical_decomposition_1_180_days_force_3d.html'>Open 3D force graph (file dependencies)...</a>
+<br/>
+</div></div>
+</div>
+</div>
+</div>
+</body>
+</html>
