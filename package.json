@@ -14,7 +14,7 @@
     "docker": "docker compose up --build",
     "studio": "docker compose exec app npx prisma studio",
     "test": "jest",
-    "cucumber": "cross-env NODE_OPTIONS='--loader ts-node/esm' cucumber-js --import \"features/**/*.ts\" --import \"features/**/*.js\"",
+    "cucumber": "cross-env NODE_OPTIONS='--loader ts-node/esm' node --env-file=.env node_modules/@cucumber/cucumber/bin/cucumber.js --import \"features/**/*.ts\" --import \"features/**/*.js\"",
     "test:watch": "jest --watch"
   },
   "dependencies": {

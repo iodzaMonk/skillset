@@ -82,3 +82,30 @@ jobs:
         run: |
           echo "::error title=Tests failed::Rerun locally with 'npm test -- --coverage' to reproduce and fix."
           exit 1
+
+  cypress-tests:
+    name: Run Cypress E2E tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
+          wait-on: "http://localhost:3000"
+          browser: chrome
+          spec: cypress/e2e/complete_test.cy.ts
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DIRECT_URL: ${{ secrets.DIRECT_URL }}
+          email_api: "re_123456789"
+          SESSION_SECRET: "super-secret-session"
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: "pk_test_dummy"
+          STRIPE_SECRET_KEY: "sk_test_dummy"
+          AWS_ACCESS_KEY_ID: "dummy"
+          AWS_SECRET_ACCESS_KEY: "dummy"
+          AWS_BUCKET_REGION: "us-east-1"
+          AWS_BUCKET_NAME: "dummy"
