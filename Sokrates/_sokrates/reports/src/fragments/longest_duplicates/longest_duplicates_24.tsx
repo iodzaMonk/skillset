@@ -1,25 +1,27 @@
-components/ui/alert.tsx [14:20]:
+app/product/[slug]/components/Comments.tsx [22:29]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  },
-);
+    comments,
+    hasComments,
+    isLoading,
+    loadError,
+    actionError,
+    formError,
+    message,
+    isSubmitting,
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-components/ui/badge.tsx [20:26]:
+app/product/[slug]/components/useComments.ts [521:528]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  },
-);
+      comments,
+      hasComments,
+      isLoading,
+      loadError,
+      actionError,
+      formError,
+      message,
+      isSubmitting,
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

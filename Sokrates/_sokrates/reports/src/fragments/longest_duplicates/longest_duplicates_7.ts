@@ -1,27 +1,35 @@
-cypress/e2e/complete_test.cy.ts [134:141]:
+features/support/browseService.ts [48:59]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.visit("localhost:3000");
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("Login").should("be.visible");
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+      const category = parseCategory(row.category);
+      const price = parsePrice(row.price);
+      const description = row.description?.trim() || `${title} description`;
+
+      const product = await prisma.posts.create({
+        data: {
+          user_id: ownerId,
+          title,
+          description,
+          price,
+          category,
+        },
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-cypress/e2e/complete_test.cy.ts [168:175]:
+features/support/productService.ts [67:78]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      cy.visit("localhost:3000");
-      cy.get('[data-testid="menu-toggle"]').click();
-      cy.contains("Login").should("be.visible");
-      cy.contains("Login").click({ force: true });
-      cy.get('input[name="email"]').type(email);
-      cy.get('input[name="password"]').type(password);
-      cy.contains("button", "Sign in").click();
-      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
+      const category = parseCategory(row.category);
+      const price = parsePrice(row.price);
+      const description = row.description?.trim() || `${title} description`;
+
+      const product = await prisma.posts.create({
+        data: {
+          user_id: ownerId,
+          title,
+          description,
+          price,
+          category,
+        },
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

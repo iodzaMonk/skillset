@@ -6,27 +6,6 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "tests/cart.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 111,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "tests/orders.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 164,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "tests/professional.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 179,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
   "relativePath" : "tests/uploads.test.ts",
   "extension" : "ts",
   "linesOfCode" : 74,
@@ -37,13 +16,6 @@
   "relativePath" : "tests/user-delete.test.ts",
   "extension" : "ts",
   "linesOfCode" : 62,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "tests/user-login.test.ts",
-  "extension" : "ts",
-  "linesOfCode" : 103,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -62,16 +34,44 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "tests/user-register.test.ts",
+  "relativePath" : "tests/cart.test.ts",
   "extension" : "ts",
-  "linesOfCode" : 137,
+  "linesOfCode" : 136,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "tests/user-update.test.ts",
+  "relativePath" : "tests/dummy.test.ts",
   "extension" : "ts",
-  "linesOfCode" : 121,
+  "linesOfCode" : 5,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/orders.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 162,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/product.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 175,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/professional.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 192,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/uploadAdapter.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 55,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -86,6 +86,27 @@
   "relativePath" : "tests/user-create-stripe-account.test.ts",
   "extension" : "ts",
   "linesOfCode" : 126,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-login.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 132,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-register.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 166,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tests/user-update.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 133,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

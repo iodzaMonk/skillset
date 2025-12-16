@@ -1,5 +1,5 @@
 Path	Lines of Code
-README.md	68
+README.md	67
 _sokrates_landscape/config-people.json	3
 _sokrates_landscape/config-tags.json	256
 _sokrates_landscape/config-teams.json	3
@@ -79,4 +79,4 @@ public/flowbite-react.svg	49
 public/flowbite.svg	49
 public/no-image.svg	15
 public/vercel.svg	1
-tsconfig.json	28
+tsconfig.json	35

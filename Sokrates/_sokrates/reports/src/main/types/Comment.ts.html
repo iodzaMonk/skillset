@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">types/Comment.ts (<b>57</b> lines of code) (<a href="Comment.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">types/Comment.ts (<b>46</b> lines of code) (<a href="Comment.ts">raw</a>):</h3>
 <div id="editor">export type CommentAuthor = {
   id: string;
   name: string | null;
@@ -29,29 +29,11 @@ export type Comment = {
   replies?: Comment[];
 };
 
-export type CommentHandlers = {
-  toggleMenu: (commentId: string) =&gt; void;
-  startEditing: (comment: Comment) =&gt; void;
-  handleCancelEdit: () =&gt; void;
-  handleEditingValueChange: (value: string) =&gt; void;
-  handleEdit: (commentId: string) =&gt; void;
-  handleDelete: (commentId: string) =&gt; void;
-  beginReply: (commentId: string, depth: number) =&gt; void;
-  handleCancelReply: () =&gt; void;
-  handleReplyValueChange: (value: string) =&gt; void;
-  handleSubmitReply: (commentId: string) =&gt; void;
-  toggleThreadVisibility: (commentId: string) =&gt; void;
-  handleEditingRatingSelect: (index: number) =&gt; void;
-  handleEditingRatingHover: (index: number) =&gt; void;
-  handleEditingRatingLeave: () =&gt; void;
-  onMessageChange: (value: string) =&gt; void;
-  handleSubmit: (e: React.FormEvent) =&gt; void | Promise&lt;void&gt;;
-  handleRatingSelect: (index: number) =&gt; void;
-  handleRatingHover: (index: number) =&gt; void;
-  handleRatingLeave: () =&gt; void;
-};
-
-export type CommentState = {
+export type CommentItemProps = {
+  comment: Comment;
+  depth: number;
+  maxDepth: number;
+  userId?: string;
   activeMenuId: string | null;
   editingCommentId: string | null;
   editingValue: string;
@@ -64,15 +46,20 @@ export type CommentState = {
   expandedThreads: Set&lt;string&gt;;
   editingRating: number;
   editingHoverRating: number;
-};
-
-export type CommentItemProps = {
-  comment: Comment;
-  depth: number;
-  maxDepth: number;
-  userId?: string;
-  state: CommentState;
-  handlers: CommentHandlers;
+  onToggleMenu: (commentId: string) =&gt; void;
+  onStartEditing: (comment: Comment) =&gt; void;
+  onCancelEdit: () =&gt; void;
+  onEditingValueChange: (value: string) =&gt; void;
+  onSaveEdit: (commentId: string) =&gt; void;
+  onDelete: (commentId: string) =&gt; void;
+  onBeginReply: (commentId: string, depth: number) =&gt; void;
+  onCancelReply: () =&gt; void;
+  onReplyChange: (value: string) =&gt; void;
+  onSubmitReply: (commentId: string) =&gt; void;
+  onToggleReplies: (commentId: string) =&gt; void;
+  onEditingRatingSelect: (index: number) =&gt; void;
+  onEditingRatingHover: (index: number) =&gt; void;
+  onEditingRatingLeave: () =&gt; void;
 };
 </div>
 <script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>

@@ -1,5 +1,5 @@
 const mockAccountLinksCreate = jest.fn();
-const StripeConstructor = jest.fn().mockImplementation(() => ({
+const mockStripeConstructor = jest.fn().mockImplementation(() => ({
   accountLinks: {
     create: mockAccountLinksCreate,
   },
@@ -7,7 +7,7 @@ const StripeConstructor = jest.fn().mockImplementation(() => ({
 
 jest.mock("stripe", () => ({
   __esModule: true,
-  default: StripeConstructor,
+  default: mockStripeConstructor,
 }));
 
 describe("app/api/user/connect-stripe-account/route", () => {

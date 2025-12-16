@@ -1,25 +1,25 @@
-components/ui/command.tsx [165:171]:
+components/ui/alert.tsx [14:20]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      className={cn(
-        "text-muted-foreground ml-auto text-xs tracking-widest",
-        className,
-      )}
-      {...props}
-    />
-  );
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-components/ui/menubar.tsx [204:210]:
+components/ui/item.tsx [83:89]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      className={cn(
-        "text-muted-foreground ml-auto text-xs tracking-widest",
-        className,
-      )}
-      {...props}
-    />
-  );
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

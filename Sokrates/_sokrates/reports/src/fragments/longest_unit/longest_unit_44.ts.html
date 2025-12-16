@@ -1,51 +1,51 @@
 <html>
 <head>
-    <title>async seed()</title>
+    <title>async cleanup()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">async seed()</h3>
-<p style="margin-top: 4px">in <i>features/support/productService.ts [35:69]</i></p>
+<h3 style="margin-bottom: 0">async cleanup()</h3>
+<p style="margin-top: 4px">in <i>features/support/productService.ts [229:263]</i></p>
 <ul>
-    <li><b>31</b> lines of code</li>
-    <li><b>7</b> McCabe index (conditional complexity)</li>
+    <li><b>33</b> lines of code</li>
+    <li><b>6</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  async seed(rows: ProductRow[]) {
-    for (const row of rows) {
-      const ownerOverrides: OwnerOptions = {
-        name: row[&quot;owner name&quot;]?.trim(),
-        email: row[&quot;owner email&quot;]?.trim(),
-        country: row[&quot;owner country&quot;]?.trim(),
-      };
-      const ownerId =
-        ownerOverrides.name || ownerOverrides.email || ownerOverrides.country
-          ? await this.createOwner(ownerOverrides)
-          : await this.ensureOwner();
-
-      const title = row.title?.trim();
-      if (!title) {
-        throw new Error(&quot;Each product row must include a title&quot;);
-      }
-
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
-
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
-        },
-        select: { id: true },
+  async cleanup() {
+    if (this.reviewIds.length &gt; 0) {
+      await prisma.reviews.deleteMany({
+        where: { id: { in: this.reviewIds } },
       });
+      this.reviewIds = [];
+    }
 
-      this.products.set(title, product.id);
+    const productIds = Array.from(this.products.values());
+    if (productIds.length &gt; 0) {
+      await prisma.posts.deleteMany({
+        where: { id: { in: productIds } },
+      });
+      this.products.clear();
+    }
+
+    if (this.ownerId) {
+      await prisma.users
+        .delete({ where: { id: this.ownerId } })
+        .catch(() =&gt; null);
+      this.ownerId = null;
+    }
+    if (this.extraOwnerIds.length &gt; 0) {
+      await prisma.users.deleteMany({
+        where: { id: { in: this.extraOwnerIds } },
+      });
+      this.extraOwnerIds = [];
+    }
+    if (this.reviewers.size &gt; 0) {
+      await prisma.users.deleteMany({
+        where: { id: { in: Array.from(this.reviewers.values()) } },
+      });
+      this.reviewers.clear();
     }
   }
 

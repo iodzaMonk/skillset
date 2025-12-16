@@ -1,59 +1,62 @@
 <html>
 <head>
-    <title>export async function GET()</title>
+    <title>export async function PATCH()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function GET()</h3>
-<p style="margin-top: 4px">in <i>app/api/product/route.ts [8:50]</i></p>
+<h3 style="margin-bottom: 0">export async function PATCH()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/update/route.ts [9:54]</i></p>
 <ul>
     <li><b>40</b> lines of code</li>
-    <li><b>7</b> McCabe index (conditional complexity)</li>
+    <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function GET(request: Request) {
+export async function PATCH(req: Request) {
   const headersList = await headers();
-  const referer = headersList.get(&quot;referer&quot;);
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
+
   try {
-    const url = new URL(request.url);
-    const category = url.searchParams.get(&quot;category&quot;);
-    const products = await prisma.posts.findMany({
-      where: category ? { category: category as Category } : undefined,
+    const body = (await req.json()) as UserBody;
+    const { id, email, password, country, name, birthday } = body ?? {};
+
+    const authenticatedUser = await getCurrentUser();
+    if (authenticatedUser?.id != id) {
+      return Response.json(
+        { message: &quot;Unauthorized: You can only update your own record.&quot; },
+        { status: 400 },
+      );
+    }
+
+    const updateData: UserBody = {
+      email: email,
+      country: country,
+      name: name,
+      birthday: birthday,
+    };
+
+    const hashedPassword = await bcrypt.hash(password as string, 10);
+    if (hashedPassword) {
+      updateData.password = hashedPassword;
+    }
+
+    const updatedUser = await prisma.users.update({
+      where: { id: id },
+      data: updateData,
     });
 
-    const productsWithImages = await Promise.all(
-      products.map(async (product) =&gt; {
-        if (!product.image_location) {
-          return product;
-        }
-
-        try {
-          const imageUrl = await createSignedDownloadUrl(
-            product.image_location,
-          );
-          return {
-            ...product,
-            image_url: imageUrl,
-          };
-        } catch (error) {
-          console.error(&quot;Failed to sign image url&quot;, error);
-          return product;
-        }
-      }),
+    return Response.json(
+      {
+        data: updatedUser,
+      },
+      {
+        status: 200,
+        headers: { &quot;x-referer&quot;: referer },
+      },
     );
-
-    return new Response(JSON.stringify(productsWithImages), {
-      status: 200,
-      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
-    });
   } catch (error) {
-    console.log(error);
-    return new Response(&quot;Error&quot;, {
-      status: 500,
-      headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
-    });
+    return handleApiError(error, referer);
   }
 }
 

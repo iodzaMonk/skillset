@@ -1,9 +1,10 @@
-components/ui/badge.tsx [20:26]:
+components/ui/sidebar.tsx [489:496]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   },
 );
@@ -11,12 +12,13 @@ components/ui/badge.tsx [20:26]:
 
 
 
-components/ui/item.tsx [83:89]:
+components/ui/toggle.tsx [22:29]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   },
 );

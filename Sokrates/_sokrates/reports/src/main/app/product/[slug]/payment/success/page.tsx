@@ -1,6 +1,22 @@
+<<<<<<< HEAD
+import Link from "next/link";
+
+type SuccessPageProps = {
+  searchParams: Promise<{
+    amount?: string;
+  }>;
+};
+
+export default async function PaymentSuccess({
+  searchParams,
+}: SuccessPageProps) {
+  const params = await searchParams;
+  const amount = params?.amount ?? "0.00";
+=======
 "use client";
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+>>>>>>> c1a8ccb ([Fix]: fixed the merge errors)
 
 export default function PaymentSuccess() {
   const router = useRouter();
@@ -16,12 +32,12 @@ export default function PaymentSuccess() {
           ${amount}
         </div>
 
-        <button
-          onClick={() => router.push("/browse")}
-          className="mt-8 rounded-lg bg-white px-6 py-3 text-lg font-semibold text-purple-600 transition-all duration-200 hover:bg-gray-100 hover:shadow-lg"
+        <Link
+          href="/browse"
+          className="mt-8 inline-block rounded-lg bg-white px-6 py-3 text-lg font-semibold text-purple-600 transition-all duration-200 hover:bg-gray-100 hover:shadow-lg"
         >
           Browse More Services
-        </button>
+        </Link>
       </div>
     </main>
   );

@@ -1,52 +1,52 @@
 <html>
 <head>
-    <title>week_number_header: cn()</title>
+    <title>function ChartContainer()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">week_number_header: cn()</h3>
-<p style="margin-top: 4px">in <i>components/ui/calendar.tsx [94:127]</i></p>
+<h3 style="margin-bottom: 0">function ChartContainer()</h3>
+<p style="margin-top: 4px">in <i>components/ui/chart.tsx [37:70]</i></p>
 <ul>
-    <li><b>34</b> lines of code</li>
-    <li><b>1</b> McCabe index (conditional complexity)</li>
+    <li><b>33</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-        week_number_header: cn(
-          &quot;select-none w-(--cell-size)&quot;,
-          defaultClassNames.week_number_header,
-        ),
-        week_number: cn(
-          &quot;text-[0.8rem] select-none text-muted-foreground&quot;,
-          defaultClassNames.week_number,
-        ),
-        day: cn(
-          &quot;relative w-full h-full p-0 text-center [&amp;:first-child[data-selected=true]_button]:rounded-l-md [&amp;:last-child[data-selected=true]_button]:rounded-r-md group/day aspect-square select-none&quot;,
-          defaultClassNames.day,
-        ),
-        range_start: cn(
-          &quot;rounded-l-md bg-accent&quot;,
-          defaultClassNames.range_start,
-        ),
-        range_middle: cn(&quot;rounded-none&quot;, defaultClassNames.range_middle),
-        range_end: cn(&quot;rounded-r-md bg-accent&quot;, defaultClassNames.range_end),
-        today: cn(
-          &quot;bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none&quot;,
-          defaultClassNames.today,
-        ),
-        outside: cn(
-          &quot;text-muted-foreground aria-selected:text-muted-foreground&quot;,
-          defaultClassNames.outside,
-        ),
-        disabled: cn(
-          &quot;text-muted-foreground opacity-50&quot;,
-          defaultClassNames.disabled,
-        ),
-        hidden: cn(&quot;invisible&quot;, defaultClassNames.hidden),
-        ...classNames,
-      }}
-      components={{
+function ChartContainer({
+  id,
+  className,
+  children,
+  config,
+  ...props
+}: React.ComponentProps&lt;&quot;div&quot;&gt; &amp; {
+  config: ChartConfig;
+  children: React.ComponentProps&lt;
+    typeof RechartsPrimitive.ResponsiveContainer
+  &gt;[&quot;children&quot;];
+}) {
+  const uniqueId = React.useId();
+  const chartId = `chart-${id || uniqueId.replace(/:/g, &quot;&quot;)}`;
+
+  return (
+    &lt;ChartContext.Provider value={{ config }}&gt;
+      &lt;div
+        data-slot=&quot;chart&quot;
+        data-chart={chartId}
+        className={cn(
+          &quot;[&amp;_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&amp;_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&amp;_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&amp;_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&amp;_.recharts-radial-bar-background-sector]:fill-muted [&amp;_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&amp;_.recharts-reference-line_[stroke='#ccc']]:stroke-border flex aspect-video justify-center text-xs [&amp;_.recharts-dot[stroke='#fff']]:stroke-transparent [&amp;_.recharts-layer]:outline-hidden [&amp;_.recharts-sector]:outline-hidden [&amp;_.recharts-sector[stroke='#fff']]:stroke-transparent [&amp;_.recharts-surface]:outline-hidden&quot;,
+          className,
+        )}
+        {...props}
+      &gt;
+        &lt;ChartStyle id={chartId} config={config} /&gt;
+        &lt;RechartsPrimitive.ResponsiveContainer&gt;
+          {children}
+        &lt;/RechartsPrimitive.ResponsiveContainer&gt;
+      &lt;/div&gt;
+    &lt;/ChartContext.Provider&gt;
+  );
+}
 
 </code>
 </pre>

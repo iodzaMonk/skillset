@@ -1,27 +1,33 @@
-components/ui/dropdown-menu.tsx [156:163]:
+app/auth/[slug]/page.tsx [183:193]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      data-inset={inset}
-      className={cn(
-        "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
-        className,
-      )}
-      {...props}
-    />
-  );
+                  </div>
+
+                  <div id="countries">
+                    <CountrySelect value={country} onValueChange={setCountry} />
+                  </div>
+
+                  <BirthdayPicker
+                    birthday={birthday}
+                    setBirthday={setBirthday}
+                    error={error}
+                  />
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-components/ui/menubar.tsx [174:181]:
+app/settings/SettingsForm.tsx [158:168]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      data-inset={inset}
-      className={cn(
-        "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
-        className,
-      )}
-      {...props}
-    />
-  );
+        </div>
+
+        <div id="countries">
+          <CountrySelect value={country} onValueChange={setCountry} />
+        </div>
+
+        <BirthdayPicker
+          birthday={birthday}
+          setBirthday={setBirthday}
+          error={error}
+        />
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

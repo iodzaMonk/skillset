@@ -1,9 +1,10 @@
-components/ui/empty.tsx [38:44]:
+components/ui/button.tsx [37:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   },
 );
@@ -11,12 +12,13 @@ components/ui/empty.tsx [38:44]:
 
 
 
-components/ui/item.tsx [83:89]:
+components/ui/item.tsx [45:52]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   },
 );

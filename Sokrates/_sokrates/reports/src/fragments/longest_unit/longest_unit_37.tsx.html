@@ -1,53 +1,52 @@
 <html>
 <head>
-    <title>function CalendarDayButton()</title>
+    <title>function SheetContent()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function CalendarDayButton()</h3>
-<p style="margin-top: 4px">in <i>components/ui/calendar.tsx [175:211]</i></p>
+<h3 style="margin-bottom: 0">function SheetContent()</h3>
+<p style="margin-top: 4px">in <i>components/ui/sheet.tsx [47:82]</i></p>
 <ul>
-    <li><b>35</b> lines of code</li>
+    <li><b>36</b> lines of code</li>
     <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function CalendarDayButton({
+function SheetContent({
   className,
-  day,
-  modifiers,
+  children,
+  side = &quot;right&quot;,
   ...props
-}: React.ComponentProps&lt;typeof DayButton&gt;) {
-  const defaultClassNames = getDefaultClassNames();
-
-  const ref = React.useRef&lt;HTMLButtonElement&gt;(null);
-  React.useEffect(() =&gt; {
-    if (modifiers.focused) ref.current?.focus();
-  }, [modifiers.focused]);
-
+}: React.ComponentProps&lt;typeof SheetPrimitive.Content&gt; &amp; {
+  side?: &quot;top&quot; | &quot;right&quot; | &quot;bottom&quot; | &quot;left&quot;;
+}) {
   return (
-    &lt;Button
-      ref={ref}
-      variant=&quot;ghost&quot;
-      size=&quot;icon&quot;
-      data-day={day.date.toLocaleDateString()}
-      data-selected-single={
-        modifiers.selected &amp;&amp;
-        !modifiers.range_start &amp;&amp;
-        !modifiers.range_end &amp;&amp;
-        !modifiers.range_middle
-      }
-      data-range-start={modifiers.range_start}
-      data-range-end={modifiers.range_end}
-      data-range-middle={modifiers.range_middle}
-      className={cn(
-        &quot;data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[range-middle=true]:bg-accent data-[range-middle=true]:text-accent-foreground data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 dark:hover:text-accent-foreground flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md [&amp;&gt;span]:text-xs [&amp;&gt;span]:opacity-70&quot;,
-        defaultClassNames.day,
-        className,
-      )}
-      {...props}
-    /&gt;
+    &lt;SheetPortal&gt;
+      &lt;SheetOverlay /&gt;
+      &lt;SheetPrimitive.Content
+        data-slot=&quot;sheet-content&quot;
+        className={cn(
+          &quot;bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500&quot;,
+          side === &quot;right&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm&quot;,
+          side === &quot;left&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm&quot;,
+          side === &quot;top&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b&quot;,
+          side === &quot;bottom&quot; &amp;&amp;
+            &quot;data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t&quot;,
+          className,
+        )}
+        {...props}
+      &gt;
+        {children}
+        &lt;SheetPrimitive.Close className=&quot;ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none&quot;&gt;
+          &lt;XIcon className=&quot;size-4&quot; /&gt;
+          &lt;span className=&quot;sr-only&quot;&gt;Close&lt;/span&gt;
+        &lt;/SheetPrimitive.Close&gt;
+      &lt;/SheetPrimitive.Content&gt;
+    &lt;/SheetPortal&gt;
   );
 }
 

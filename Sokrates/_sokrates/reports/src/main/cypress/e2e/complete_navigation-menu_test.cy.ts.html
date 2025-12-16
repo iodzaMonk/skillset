@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>cypress/e2e/complete_navigation-menu_test.cy.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">cypress/e2e/complete_navigation-menu_test.cy.ts (<b>70</b> lines of code) (<a href="complete_navigation-menu_test.cy.ts">raw</a>):</h3>
+<div id="editor">import { v4 as uuidv4 } from &quot;uuid&quot;;
+
+describe(&quot;Navigation Menu Test&quot;, () =&gt; {
+  const appBaseUrl = &quot;http://localhost:3000&quot;;
+  const uniqueId = uuidv4().substring(0, 8);
+  const email = `testuser_${uniqueId}@example.com`;
+  const password = &quot;password1234&quot;;
+
+  describe(&quot;Unauthenticated navigation Menu Links&quot;, () =&gt; {
+    it(&quot;visit browse page&quot;, { retries: 5 }, function () {
+      cy.visit(appBaseUrl);
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/browse&quot;]').click();
+    });
+    it(&quot;visit about page&quot;, { retries: 5 }, function () {
+      cy.visit(appBaseUrl);
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/about&quot;]').click();
+    });
+
+    it(&quot;visit login page&quot;, { retries: 5 }, function () {
+      cy.visit(appBaseUrl);
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/auth/login&quot;]').click();
+    });
+
+    it(&quot;visit signup page and register&quot;, function () {
+      cy.visit(appBaseUrl);
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/auth/signup&quot;]').click();
+
+      cy.get('[name=&quot;name&quot;]').click();
+      cy.get('[name=&quot;name&quot;]').type(&quot;test name&quot;);
+
+      cy.get('[name=&quot;email&quot;]').click();
+      cy.get('[name=&quot;email&quot;]').type(email);
+
+      cy.get('[name=&quot;password&quot;]').click();
+      cy.get('[name=&quot;password&quot;]').type(password);
+
+      cy.get('[name=&quot;confirmPassword&quot;]').click();
+      cy.get('[name=&quot;confirmPassword&quot;]').type(password);
+      cy.get('[role=&quot;combobox&quot;]').click();
+      cy.contains('[role=&quot;option&quot;]', &quot;Canada&quot;).click();
+
+      cy.contains(&quot;button&quot;, &quot;Submit&quot;).click();
+    });
+  });
+
+  describe(&quot;Authenticated Navigation Menu Links&quot;, () =&gt; {
+    beforeEach(() =&gt; {
+      const visitorEmail = email;
+      const visitorPassword = password;
+      cy.visit(appBaseUrl);
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/auth/login&quot;]').click();
+
+      cy.get('[name=&quot;email&quot;]').click();
+      cy.get('[name=&quot;email&quot;]').type(visitorEmail);
+
+      cy.get('[name=&quot;password&quot;]').click();
+      cy.get('[name=&quot;password&quot;]').type(visitorPassword);
+
+      cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
+    });
+
+    it(&quot;visit my product page&quot;, { retries: 5 }, function () {
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/myproduct&quot;]').click();
+    });
+    it(&quot;visit my orders list page&quot;, { retries: 5 }, function () {
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/myorderslist&quot;]').click();
+    });
+    it(&quot;visit orders page&quot;, { retries: 5 }, function () {
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/orders&quot;]').click();
+    });
+    it(&quot;visit settings page&quot;, { retries: 5 }, function () {
+      cy.get('[data-testid=&quot;menu-toggle&quot;] svg.absolute').click();
+      cy.get('a[href=&quot;/settings&quot;]').click();
+    });
+  });
+});
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

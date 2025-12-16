@@ -1,25 +1,3 @@
-/// <reference types="jest" />
-
-// Create a mock PrismaClientKnownRequestError class for testing
-class MockPrismaClientKnownRequestError extends Error {
-  code: string;
-  constructor(
-    message: string,
-    { code }: { code: string; clientVersion?: string },
-  ) {
-    super(message);
-    this.code = code;
-    this.name = "PrismaClientKnownRequestError";
-  }
-}
-
-// Mock @prisma/client BEFORE any imports that use it
-jest.mock("@prisma/client", () => ({
-  Prisma: {
-    PrismaClientKnownRequestError: MockPrismaClientKnownRequestError,
-  },
-}));
-
 const mockHeaders = jest.fn();
 jest.mock("next/headers", () => ({
   headers: mockHeaders,
@@ -121,9 +99,11 @@ describe("app/api/user/update/route", () => {
   });
 
   it("returns 404 when user not found", async () => {
-    const error = new MockPrismaClientKnownRequestError("not found", {
-      code: "P2025",
-    });
+    const prismaModule = await import("@prisma/client");
+    const error = new prismaModule.Prisma.PrismaClientKnownRequestError(
+      "not found",
+      { code: "P2025", clientVersion: "1" },
+    );
     mockUpdate.mockRejectedValueOnce(error);
 
     const response = await PATCH(buildRequest({ id: "user-1" }));
@@ -135,9 +115,11 @@ describe("app/api/user/update/route", () => {
   });
 
   it("returns 409 when email already in use", async () => {
-    const error = new MockPrismaClientKnownRequestError("conflict", {
-      code: "P2002",
-    });
+    const prismaModule = await import("@prisma/client");
+    const error = new prismaModule.Prisma.PrismaClientKnownRequestError(
+      "conflict",
+      { code: "P2002", clientVersion: "1" },
+    );
     mockUpdate.mockRejectedValueOnce(error);
 
     const response = await PATCH(buildRequest({ id: "user-1" }));

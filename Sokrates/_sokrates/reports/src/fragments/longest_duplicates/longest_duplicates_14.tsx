@@ -1,27 +1,31 @@
-components/ui/button.tsx [37:44]:
+app/auth/[slug]/page.tsx [150:159]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  },
-);
+                    required
+                    autoComplete="email"
+                  />
+
+                  <FormItem
+                    label="Name"
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Jane"
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-components/ui/item.tsx [45:52]:
+app/settings/SettingsForm.tsx [103:112]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  },
-);
+          required
+          autoComplete="email"
+        />
+
+        <FormItem
+          label="Name"
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Jane"
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

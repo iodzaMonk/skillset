@@ -1,25 +1,25 @@
-features/step_definitions/auth.steps.ts [3:9]:
+features/support/browseService.ts [117:123]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  After,
-  Before,
-  DataTable,
-  Given,
-  Then,
-  When,
-} from "@cucumber/cucumber";
+        password: hashed,
+        country: "US",
+      },
+      select: {
+        id: true,
+      },
+    });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/step_definitions/product.steps.ts [3:9]:
+features/support/fixture-helpers.ts [17:23]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  After,
-  Before,
-  DataTable,
-  Given,
-  Then,
-  When,
-} from "@cucumber/cucumber";
+      password: hashed,
+      country: "US",
+    },
+    select: {
+      id: true,
+    },
+  });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

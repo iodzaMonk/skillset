@@ -1,47 +1,64 @@
 <html>
 <head>
-    <title>async updateProduct()</title>
+    <title>export async function PATCH()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">async updateProduct()</h3>
-<p style="margin-top: 4px">in <i>features/support/productCrudFixture.ts [78:106]</i></p>
+<h3 style="margin-bottom: 0">export async function PATCH()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/update/route.ts [9:54]</i></p>
 <ul>
-    <li><b>29</b> lines of code</li>
-    <li><b>5</b> McCabe index (conditional complexity)</li>
+    <li><b>40</b> lines of code</li>
+    <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  async updateProduct(title: string, row: ProductRow) {
-    if (!this.userId) {
-      this.response = {
-        status: 401,
-        body: { message: &quot;Not authenticated&quot; },
-      };
-      return;
+export async function PATCH(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
+
+  try {
+    const body = (await req.json()) as UserBody;
+    const { id, email, password, country, name, birthday } = body ?? {};
+
+    const authenticatedUser = await getCurrentUser();
+    if (authenticatedUser?.id != id) {
+      return Response.json(
+        { message: &quot;Unauthorized: You can only update your own record.&quot; },
+        { status: 400 },
+      );
     }
-    const productId = this.productTitles.get(title);
-    if (!productId) {
-      this.response = {
-        status: 404,
-        body: { message: &quot;Product not found&quot; },
-      };
-      return;
+
+    const updateData: UserBody = {
+      email: email,
+      country: country,
+      name: name,
+      birthday: birthday,
+    };
+
+    const hashedPassword = await bcrypt.hash(password as string, 10);
+    if (hashedPassword) {
+      updateData.password = hashedPassword;
     }
-    try {
-      const payload = { ...this.toPayload(row), id: productId };
-      const product = await updateProductRecord(this.userId, payload);
-      const newTitle = product.title ?? title;
-      if (newTitle !== title) {
-        this.productTitles.delete(title);
-        this.productTitles.set(newTitle, product.id);
-      }
-      this.response = { status: 200, body: { data: product } };
-    } catch (error) {
-      this.response = this.normalizeError(error);
-    }
+
+    const updatedUser = await prisma.users.update({
+      where: { id: id },
+      data: updateData,
+    });
+
+    return Response.json(
+      {
+        data: updatedUser,
+      },
+      {
+        status: 200,
+        headers: { &quot;x-referer&quot;: referer },
+      },
+    );
+  } catch (error) {
+    return handleApiError(error, referer);
   }
+}
 
 </code>
 </pre>

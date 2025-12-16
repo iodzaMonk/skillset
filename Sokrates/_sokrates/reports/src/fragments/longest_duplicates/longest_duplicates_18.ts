@@ -1,25 +1,35 @@
-app/lib/products.ts [22:28]:
+app/hooks/useOrderManager.ts [38:49]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      user_id: payload.user_id,
-      title: payload.title.trim(),
-      description: payload.description.trim(),
-      price: payload.price,
-      image_location: payload.image_location,
-      category: payload.category,
-    };
+        setOrders(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error("Unable to load orders", error);
+        if (showLoader) {
+          setOrders([]); // Set empty array on error only when full refresh
+        }
+      } finally {
+        if (showLoader) {
+          setIsLoading(false);
+        }
+      }
+    },
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/lib/products.ts [42:48]:
+app/orders/_hooks/orderStates.ts [31:42]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      user_id: payload.user_id,
-      title: payload.title.trim(),
-      description: payload.description.trim(),
-      price: payload.price,
-      image_location: payload.image_location,
-      category: payload.category,
-    };
+        setOrders(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error("Unable to load orders", error);
+        if (showLoader) {
+          setOrders([]); // Set empty array on error only when full refresh
+        }
+      } finally {
+        if (showLoader) {
+          setIsLoading(false);
+        }
+      }
+    },
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

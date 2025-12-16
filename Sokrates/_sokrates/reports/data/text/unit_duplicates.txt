@@ -8,19 +8,26 @@ in 3 files:
 duplicated block id: 2
 size: 10 cleaned lines of code
 in 7 files:
+ - components/ui/dialog.tsx (87:98)
  - components/ui/alert.tsx (37:48)
  - components/ui/card.tsx (5:16)
- - components/ui/dialog.tsx (87:98)
  - components/ui/drawer.tsx (75:86)
  - components/ui/empty.tsx (5:16)
  - components/ui/field.tsx (44:55)
  - components/ui/item.tsx (106:117)
 
 duplicated block id: 3
+size: 8 cleaned lines of code
+in 3 files:
+ - features/support/parsing-helpers.ts (3:12)
+ - features/support/browseService.ts (18:27)
+ - features/support/productService.ts (13:22)
+
+duplicated block id: 4
 size: 7 cleaned lines of code
 in 7 files:
- - components/ui/card.tsx (31:39)
  - components/ui/dialog.tsx (77:85)
+ - components/ui/card.tsx (31:39)
  - components/ui/drawer.tsx (88:96)
  - components/ui/empty.tsx (61:69)
  - components/ui/input-otp.tsx (29:37)

@@ -1,33 +1,35 @@
 <html>
 <head>
-    <title>function()</title>
+    <title>export async function createSignedDownloadUrl()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function()</h3>
-<p style="margin-top: 4px">in <i>features/step_definitions/product.steps.ts [121:135]</i></p>
+<h3 style="margin-bottom: 0">export async function createSignedDownloadUrl()</h3>
+<p style="margin-top: 4px">in <i>app/lib/storage/s3.ts [99:115]</i></p>
 <ul>
     <li><b>15</b> lines of code</li>
     <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  function (this: ProductWorld, table: DataTable) {
-    const payload = getPayload(this);
-    const reviews = Array.isArray(payload.reviews) ? payload.reviews : [];
-    const expectations = table.hashes();
-    for (const row of expectations) {
-      const reviewer = row.reviewer;
-      const text = row.text;
-      const match = reviews.find(
-        (review: any) =&gt;
-          review?.users?.name === reviewer &amp;&amp;
-          String(review?.text ?? &quot;&quot;).trim() === text,
-      );
-      assert.ok(match, `Expected review from ${reviewer} with text &quot;${text}&quot;`);
+export async function createSignedDownloadUrl(key: string) {
+  if (!s3 || !BUCKET) {
+    if (!inMemoryBucket.has(key)) {
+      throw new Error(`Object ${key} not found in in-memory bucket`);
     }
-  },
+    return `memory://${key}`;
+  }
+
+  const getObjectCommand = new GetObjectCommand({
+    Bucket: BUCKET,
+    Key: key,
+  });
+
+  return getSignedUrl(s3, getObjectCommand, {
+    expiresIn: 60,
+  });
+}
 
 </code>
 </pre>

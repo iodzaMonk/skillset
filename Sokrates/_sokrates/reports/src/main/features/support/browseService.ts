@@ -1,4 +1,6 @@
-import { Prisma } from "@prisma/client";
+import { Category, Prisma } from "@prisma/client";
+import bcrypt from "bcryptjs";
+import { randomUUID } from "crypto";
 import { prisma } from "../../lib/prisma.ts";
 
 type ProductInputRow = Record<string, string>;
@@ -13,8 +15,24 @@ export type ProductRecord = Prisma.postsGetPayload<{
   };
 }>;
 
-import { parseCategory, parsePrice } from "./parsing-helpers";
-import { ensureFixtureUser, cleanupEntities } from "./fixture-helpers";
+function parseCategory(value: string | undefined): Category {
+  if (!value) {
+    throw new Error("Category is required for each product row");
+  }
+  const normalized = value.trim() as Category;
+  if (!Object.values(Category).includes(normalized)) {
+    throw new Error(`Unknown category "${value}"`);
+  }
+  return normalized;
+}
+
+function parsePrice(value: string | undefined): number {
+  const parsed = Number(value);
+  if (Number.isNaN(parsed)) {
+    throw new Error(`Invalid price "${value}"`);
+  }
+  return parsed;
+}
 
 class BrowseService {
   private userId: string | null = null;
@@ -73,22 +91,38 @@ class BrowseService {
   }
 
   async cleanup() {
-    await cleanupEntities(prisma, {
-      productIds: this.productIds,
-      userId: this.userId,
-    });
-    this.productIds = [];
-    this.userId = null;
+    if (this.productIds.length > 0) {
+      await prisma.posts.deleteMany({
+        where: { id: { in: this.productIds } },
+      });
+      this.productIds = [];
+    }
+    if (this.userId) {
+      await prisma.users
+        .delete({
+          where: { id: this.userId },
+        })
+        .catch(() => null);
+      this.userId = null;
+    }
   }
 
   private async ensureOwner() {
-    const { userId } = await ensureFixtureUser(
-      this.userId,
-      "Browse Fixture",
-      "browse",
-    );
-    this.userId = userId;
-    return userId;
+    if (this.userId) return this.userId;
+    const hashed = await bcrypt.hash("BrowsePass123!", 10);
+    const user = await prisma.users.create({
+      data: {
+        name: "Browse Fixture",
+        email: `browse-${randomUUID()}@example.com`,
+        password: hashed,
+        country: "US",
+      },
+      select: {
+        id: true,
+      },
+    });
+    this.userId = user.id;
+    return user.id;
   }
 }
 

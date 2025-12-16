@@ -1,84 +1,87 @@
 <html>
 <head>
-    <title>async seedReviews()</title>
+    <title>export async function POST()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">async seedReviews()</h3>
-<p style="margin-top: 4px">in <i>features/support/productService.ts [71:136]</i></p>
+<h3 style="margin-bottom: 0">export async function POST()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/register/route.ts [9:77]</i></p>
 <ul>
-    <li><b>59</b> lines of code</li>
-    <li><b>18</b> McCabe index (conditional complexity)</li>
+    <li><b>61</b> lines of code</li>
+    <li><b>6</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-  async seedReviews(rows: ProductRow[]) {
-    const ratingRollups = new Map&lt;string, { total: number; count: number }&gt;();
+export async function POST(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
 
-    for (const row of rows) {
-      const productTitle = row.product?.trim() || row.title?.trim();
-      if (!productTitle) {
-        throw new Error(&quot;Each review row must include a product title&quot;);
-      }
-      const productId = this.products.get(productTitle);
-      if (!productId) {
-        throw new Error(
-          `No product found for review with title &quot;${productTitle}&quot;`,
-        );
-      }
+  try {
+    const body = (await req.json()) as UserBody;
+    const { email, password, country, name, birthday } = body ?? {};
 
-      const reviewerName = row.reviewer?.trim();
-      if (!reviewerName) {
-        throw new Error(&quot;Each review row must include a reviewer column&quot;);
-      }
-      const reviewerEmail =
-        row[&quot;reviewer email&quot;]?.trim() || row.email?.trim() || undefined;
-      const reviewerCountry =
-        row[&quot;reviewer country&quot;]?.trim() || row.country?.trim() || undefined;
-      const reviewerId = await this.ensureReviewer(reviewerName, {
-        email: reviewerEmail,
-        country: reviewerCountry,
-      });
+    const missingFields = [
+      [&quot;email&quot;, email],
+      [&quot;password&quot;, password],
+      [&quot;country&quot;, country],
+      [&quot;name&quot;, name],
+    ]
+      .filter(([, value]) =&gt; !value)
+      .map(([field]) =&gt; field);
 
-      const text = row.text?.trim() || &quot;Great work!&quot;;
-      const rating = row.rating ? Number(row.rating) : null;
-      if (row.rating &amp;&amp; Number.isNaN(rating)) {
-        throw new Error(`Invalid rating &quot;${row.rating}&quot; for ${productTitle}`);
-      }
-
-      const review = await prisma.reviews.create({
-        data: {
-          user_id: reviewerId,
-          product_id: productId,
-          text,
-          rating: rating ?? undefined,
-          date: new Date(),
+    if (missingFields.length &gt; 0) {
+      return Response.json(
+        {
+          message: `Missing required fields: ${missingFields.join(&quot;, &quot;)}`,
         },
-        select: { id: true },
-      });
-
-      this.reviewIds.push(review.id);
-
-      if (rating !== null) {
-        const current = ratingRollups.get(productId) ?? { total: 0, count: 0 };
-        ratingRollups.set(productId, {
-          total: current.total + rating,
-          count: current.count + 1,
-        });
-      }
+        {
+          status: 400,
+          headers: { &quot;x-referer&quot;: referer },
+        },
+      );
     }
 
-    for (const [productId, { total, count }] of ratingRollups.entries()) {
-      await prisma.posts.update({
-        where: { id: productId },
-        data: {
-          rating: total / count,
-          ratingCount: count,
+    const birthdayDate = birthday ? new Date(birthday) : null;
+    if (birthday &amp;&amp; Number.isNaN(birthdayDate?.getTime())) {
+      return Response.json(
+        { message: &quot;Invalid birthday format&quot; },
+        {
+          status: 400,
+          headers: { &quot;x-referer&quot;: referer },
         },
-      });
+      );
     }
+
+    const hashedPassword = await bcrypt.hash(password as string, 10);
+
+    const user = await prisma.users.create({
+      data: {
+        email: email as string,
+        password: hashedPassword,
+        country: country as string,
+        name: name as string,
+        birthday: birthdayDate,
+      },
+      select: {
+        id: true,
+        email: true,
+      },
+    });
+
+    await createSession(user.id.toString());
+
+    return Response.json(
+      { id: user.id.toString(), email: user.email },
+      {
+        status: 200,
+        headers: { &quot;x-referer&quot;: referer },
+      },
+    );
+  } catch (error) {
+    return handleApiError(error, referer);
   }
+}
 
 </code>
 </pre>

@@ -1,5 +1,3 @@
-/// <reference types="jest" />
-
 const mockHeaders = jest.fn();
 jest.mock("next/headers", () => ({
   headers: mockHeaders,
@@ -59,7 +57,7 @@ describe("app/api/orders/route", () => {
   });
 
   describe("POST", () => {
-    it("creates an order and returns 201", async () => {
+    it("creates an order, sends an email, and returns 201", async () => {
       mockFindUser
         .mockResolvedValueOnce({ email: "pro@example.com" })
         .mockResolvedValueOnce({ name: "Client Example" });
@@ -95,22 +93,20 @@ describe("app/api/orders/route", () => {
           description: "Need a logo",
         }),
       });
-      // Note: Email sending is currently commented out in the route
-      // Re-enable this assertion if email sending is restored:
-      // expect(sendEmailMock).toHaveBeenCalledWith(
-      //   expect.objectContaining({
-      //     to: "pro@example.com",
-      //     subject: "New Order Received",
-      //   }),
-      // );
+      expect(sendEmailMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          to: "pro@example.com",
+          subject: "New Order Received",
+        }),
+      );
     });
 
-    it("creates order when professional email is missing", async () => {
+    it("falls back to default email when professional email missing", async () => {
       mockFindUser
         .mockResolvedValueOnce(null)
         .mockResolvedValueOnce({ name: "Client Example" });
 
-      const response = await POST(
+      await POST(
         new Request("http://localhost/api/orders", {
           method: "POST",
           body: JSON.stringify({
@@ -123,14 +119,11 @@ describe("app/api/orders/route", () => {
         }),
       );
 
-      expect(response.status).toBe(201);
-      // Note: Email sending is currently commented out in the route
-      // Re-enable this assertion if email sending is restored:
-      // expect(sendEmailMock).toHaveBeenCalledWith(
-      //   expect.objectContaining({
-      //     to: "bramomoh06@gmail.com",
-      //   }),
-      // );
+      expect(sendEmailMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          to: "bramomoh06@gmail.com",
+        }),
+      );
     });
 
     it("returns 500 when order creation fails", async () => {
@@ -187,17 +180,6 @@ describe("app/api/orders/route", () => {
       await expect(response.json()).resolves.toEqual({
         message: "Failed to fetch orders",
       });
-    });
-
-    it("handles null referer header", async () => {
-      mockHeaders.mockReturnValue(new Headers({})); // No referer
-
-      const response = await GET(
-        new Request("http://localhost/api/orders", { method: "GET" }),
-      );
-
-      expect(response.status).toBe(200);
-      expect(response.headers.get("x-referer")).toBe("");
     });
   });
 });

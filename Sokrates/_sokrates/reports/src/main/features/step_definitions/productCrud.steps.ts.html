@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">features/step_definitions/productCrud.steps.ts (<b>122</b> lines of code) (<a href="productCrud.steps.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">features/step_definitions/productCrud.steps.ts (<b>131</b> lines of code) (<a href="productCrud.steps.ts">raw</a>):</h3>
 <div id="editor">import assert from &quot;assert&quot;;
 import {
   After,
@@ -36,13 +36,19 @@ After(async function (this: ProductCrudWorld) {
   await this.fixture.cleanup();
 });
 
-Given(&quot;I am authenticated for product management&quot;, async function (this: ProductCrudWorld) {
-  await this.fixture.authenticate();
-});
+Given(
+  &quot;I am authenticated for product management&quot;,
+  async function (this: ProductCrudWorld) {
+    await this.fixture.authenticate();
+  },
+);
 
-Given(&quot;I am not authenticated for product management&quot;, function (this: ProductCrudWorld) {
-  this.fixture.signOut();
-});
+Given(
+  &quot;I am not authenticated for product management&quot;,
+  function (this: ProductCrudWorld) {
+    this.fixture.signOut();
+  },
+);
 
 Given(
   &quot;the following products already exist for me:&quot;,
@@ -58,9 +64,12 @@ Given(
   },
 );
 
-When(&quot;I create a product with:&quot;, async function (this: ProductCrudWorld, table: DataTable) {
-  await this.fixture.createProduct(table.hashes()[0] ?? {});
-});
+When(
+  &quot;I create a product with:&quot;,
+  async function (this: ProductCrudWorld, table: DataTable) {
+    await this.fixture.createProduct(table.hashes()[0] ?? {});
+  },
+);
 
 When(
   &quot;I update the product titled {string} with:&quot;,
@@ -122,8 +131,8 @@ Then(
   function (this: ProductCrudWorld, table: DataTable) {
     const response = this.fixture.response;
     assert.ok(response?.body?.data, &quot;Expected data in list response&quot;);
-    const titles = (response.body.data as Array&lt;Record&lt;string, unknown&gt;&gt;).map((p) =&gt;
-      String(p.title),
+    const titles = (response.body.data as Array&lt;Record&lt;string, unknown&gt;&gt;).map(
+      (p) =&gt; String(p.title),
     );
     for (const row of table.hashes()) {
       assert.ok(

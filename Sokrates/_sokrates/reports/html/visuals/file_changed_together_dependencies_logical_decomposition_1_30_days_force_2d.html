@@ -16,92 +16,84 @@
     "size" : 10
   }, {
     "id" : "features",
-    "size" : 10
-  }, {
-    "id" : "components",
-    "size" : 10
+    "size" : 6
   }, {
     "id" : "types",
     "size" : 10
+  }, {
+    "id" : "components",
+    "size" : 8
   }, {
     "id" : "ROOT",
     "size" : 10
   }, {
     "id" : "lib",
-    "size" : 10
+    "size" : 8
   }, {
     "id" : "prisma",
-    "size" : 8
+    "size" : 6
   }, {
     "id" : "hooks",
-    "size" : 8
+    "size" : 6
   }, {
     "id" : "cypress",
-    "size" : 10
+    "size" : 6
   } ],
   "links" : [ {
     "source" : "app",
     "target" : "app",
-    "count" : 8
+    "count" : 14
   }, {
     "source" : "app",
     "target" : "app",
-    "count" : 8
+    "count" : 14
   }, {
     "source" : "cypress",
     "target" : "app",
-    "count" : 6
+    "count" : 13
   }, {
     "source" : "app",
     "target" : "cypress",
-    "count" : 6
+    "count" : 13
+  }, {
+    "source" : "features",
+    "target" : "features",
+    "count" : 4
+  }, {
+    "source" : "features",
+    "target" : "features",
+    "count" : 4
+  }, {
+    "source" : "features",
+    "target" : "app",
+    "count" : 4
+  }, {
+    "source" : "app",
+    "target" : "features",
+    "count" : 4
   }, {
     "source" : "ROOT",
     "target" : "app",
+    "count" : 4
+  }, {
+    "source" : "app",
+    "target" : "ROOT",
+    "count" : 4
+  }, {
+    "source" : "cypress",
+    "target" : "cypress",
     "count" : 3
   }, {
-    "source" : "app",
-    "target" : "ROOT",
+    "source" : "cypress",
+    "target" : "cypress",
     "count" : 3
   }, {
-    "source" : "features",
-    "target" : "features",
+    "source" : "ROOT",
+    "target" : "ROOT",
     "count" : 2
   }, {
-    "source" : "features",
-    "target" : "features",
-    "count" : 2
-  }, {
-    "source" : "components",
-    "target" : "app",
-    "count" : 2
-  }, {
-    "source" : "app",
-    "target" : "components",
-    "count" : 2
-  }, {
-    "source" : "components",
-    "target" : "components",
-    "count" : 2
-  }, {
-    "source" : "components",
-    "target" : "components",
-    "count" : 2
-  }, {
-    "source" : "types",
-    "target" : "components",
-    "count" : 2
-  }, {
-    "source" : "components",
-    "target" : "types",
-    "count" : 2
-  }, {
-    "source" : "lib",
-    "target" : "components",
-    "count" : 2
-  }, {
-    "source" : "components",
-    "target" : "lib",
+    "source" : "ROOT",
+    "target" : "ROOT",
     "count" : 2
   }, {
     "source" : "types",
@@ -112,276 +104,220 @@
     "target" : "types",
     "count" : 2
   }, {
-    "source" : "hooks",
-    "target" : "components",
+    "source" : "cypress",
+    "target" : "ROOT",
     "count" : 2
   }, {
-    "source" : "components",
-    "target" : "hooks",
+    "source" : "ROOT",
+    "target" : "cypress",
     "count" : 2
   }, {
-    "source" : "lib",
-    "target" : "app",
+    "source" : "features",
+    "target" : "cypress",
+    "count" : 2
+  }, {
+    "source" : "cypress",
+    "target" : "features",
     "count" : 2
   }, {
     "source" : "app",
-    "target" : "lib",
-    "count" : 2
-  }, {
-    "source" : "prisma",
     "target" : "components",
-    "count" : 2
+    "count" : 1
   }, {
     "source" : "components",
-    "target" : "prisma",
-    "count" : 2
-  }, {
-    "source" : "features",
     "target" : "app",
-    "count" : 2
-  }, {
-    "source" : "app",
-    "target" : "features",
-    "count" : 2
+    "count" : 1
   }, {
     "source" : "types",
-    "target" : "prisma",
-    "count" : 2
-  }, {
-    "source" : "prisma",
-    "target" : "types",
-    "count" : 2
-  }, {
-    "source" : "ROOT",
     "target" : "components",
-    "count" : 2
+    "count" : 1
   }, {
     "source" : "components",
-    "target" : "ROOT",
-    "count" : 2
+    "target" : "types",
+    "count" : 1
   }, {
-    "source" : "hooks",
-    "target" : "app",
-    "count" : 2
+    "source" : "components",
+    "target" : "components",
+    "count" : 1
   }, {
-    "source" : "app",
-    "target" : "hooks",
-    "count" : 2
+    "source" : "components",
+    "target" : "components",
+    "count" : 1
   }, {
     "source" : "prisma",
     "target" : "app",
-    "count" : 2
+    "count" : 1
   }, {
     "source" : "app",
     "target" : "prisma",
-    "count" : 2
-  }, {
-    "source" : "types",
-    "target" : "types",
-    "count" : 2
-  }, {
-    "source" : "types",
-    "target" : "types",
-    "count" : 2
-  }, {
-    "source" : "types",
-    "target" : "hooks",
-    "count" : 2
-  }, {
-    "source" : "hooks",
-    "target" : "types",
-    "count" : 2
-  }, {
-    "source" : "prisma",
-    "target" : "lib",
-    "count" : 2
-  }, {
-    "source" : "lib",
-    "target" : "prisma",
-    "count" : 2
-  }, {
-    "source" : "ROOT",
-    "target" : "cypress",
-    "count" : 2
-  }, {
-    "source" : "cypress",
-    "target" : "ROOT",
-    "count" : 2
-  }, {
-    "source" : "types",
-    "target" : "ROOT",
-    "count" : 2
-  }, {
-    "source" : "ROOT",
-    "target" : "types",
-    "count" : 2
-  }, {
-    "source" : "prisma",
-    "target" : "hooks",
-    "count" : 2
-  }, {
-    "source" : "hooks",
-    "target" : "prisma",
-    "count" : 2
-  }, {
-    "source" : "lib",
-    "target" : "lib",
-    "count" : 2
-  }, {
-    "source" : "lib",
-    "target" : "lib",
-    "count" : 2
-  }, {
-    "source" : "types",
-    "target" : "lib",
-    "count" : 2
-  }, {
-    "source" : "lib",
-    "target" : "types",
-    "count" : 2
-  }, {
-    "source" : "prisma",
-    "target" : "ROOT",
-    "count" : 2
-  }, {
-    "source" : "ROOT",
-    "target" : "prisma",
-    "count" : 2
-  }, {
-    "source" : "ROOT",
-    "target" : "hooks",
-    "count" : 2
-  }, {
-    "source" : "hooks",
-    "target" : "ROOT",
-    "count" : 2
-  }, {
-    "source" : "lib",
-    "target" : "hooks",
-    "count" : 2
-  }, {
-    "source" : "hooks",
-    "target" : "lib",
-    "count" : 2
-  }, {
-    "source" : "cypress",
-    "target" : "cypress",
-    "count" : 2
-  }, {
-    "source" : "cypress",
-    "target" : "cypress",
-    "count" : 2
-  }, {
-    "source" : "lib",
-    "target" : "ROOT",
-    "count" : 2
-  }, {
-    "source" : "ROOT",
-    "target" : "lib",
-    "count" : 2
-  }, {
-    "source" : "ROOT",
-    "target" : "ROOT",
-    "count" : 2
-  }, {
-    "source" : "ROOT",
-    "target" : "ROOT",
-    "count" : 2
-  }, {
-    "source" : "lib",
-    "target" : "features",
     "count" : 1
   }, {
-    "source" : "features",
-    "target" : "lib",
+    "source" : "hooks",
+    "target" : "app",
     "count" : 1
   }, {
-    "source" : "features",
+    "source" : "app",
+    "target" : "hooks",
+    "count" : 1
+  }, {
+    "source" : "ROOT",
     "target" : "components",
     "count" : 1
   }, {
     "source" : "components",
-    "target" : "features",
+    "target" : "ROOT",
     "count" : 1
   }, {
-    "source" : "components",
-    "target" : "cypress",
-    "count" : 1
-  }, {
-    "source" : "cypress",
+    "source" : "lib",
     "target" : "components",
     "count" : 1
   }, {
+    "source" : "components",
+    "target" : "lib",
+    "count" : 1
+  }, {
+    "source" : "lib",
+    "target" : "app",
+    "count" : 1
+  }, {
+    "source" : "app",
+    "target" : "lib",
+    "count" : 1
+  }, {
+    "source" : "lib",
+    "target" : "hooks",
+    "count" : 1
+  }, {
+    "source" : "hooks",
+    "target" : "lib",
+    "count" : 1
+  }, {
+    "source" : "hooks",
+    "target" : "components",
+    "count" : 1
+  }, {
+    "source" : "components",
+    "target" : "hooks",
+    "count" : 1
+  }, {
+    "source" : "types",
+    "target" : "lib",
+    "count" : 1
+  }, {
+    "source" : "lib",
+    "target" : "types",
+    "count" : 1
+  }, {
+    "source" : "prisma",
+    "target" : "components",
+    "count" : 1
+  }, {
+    "source" : "components",
+    "target" : "prisma",
+    "count" : 1
+  }, {
+    "source" : "types",
+    "target" : "features",
+    "count" : 1
+  }, {
     "source" : "features",
-    "target" : "ROOT",
+    "target" : "types",
+    "count" : 1
+  }, {
+    "source" : "types",
+    "target" : "prisma",
+    "count" : 1
+  }, {
+    "source" : "prisma",
+    "target" : "types",
+    "count" : 1
+  }, {
+    "source" : "types",
+    "target" : "types",
+    "count" : 1
+  }, {
+    "source" : "types",
+    "target" : "types",
+    "count" : 1
+  }, {
+    "source" : "types",
+    "target" : "hooks",
+    "count" : 1
+  }, {
+    "source" : "hooks",
+    "target" : "types",
     "count" : 1
   }, {
     "source" : "ROOT",
     "target" : "features",
     "count" : 1
   }, {
-    "source" : "types",
-    "target" : "features",
-    "count" : 1
-  }, {
     "source" : "features",
-    "target" : "types",
+    "target" : "ROOT",
     "count" : 1
   }, {
     "source" : "types",
-    "target" : "cypress",
+    "target" : "ROOT",
     "count" : 1
   }, {
-    "source" : "cypress",
+    "source" : "ROOT",
     "target" : "types",
+    "count" : 1
+  }, {
+    "source" : "prisma",
+    "target" : "hooks",
+    "count" : 1
+  }, {
+    "source" : "hooks",
+    "target" : "prisma",
+    "count" : 1
+  }, {
+    "source" : "prisma",
+    "target" : "lib",
     "count" : 1
   }, {
     "source" : "lib",
-    "target" : "cypress",
+    "target" : "prisma",
     "count" : 1
   }, {
-    "source" : "cypress",
+    "source" : "lib",
+    "target" : "lib",
+    "count" : 1
+  }, {
+    "source" : "lib",
     "target" : "lib",
     "count" : 1
   }, {
     "source" : "prisma",
-    "target" : "features",
+    "target" : "ROOT",
     "count" : 1
   }, {
-    "source" : "features",
+    "source" : "ROOT",
     "target" : "prisma",
     "count" : 1
   }, {
-    "source" : "features",
-    "target" : "cypress",
+    "source" : "lib",
+    "target" : "ROOT",
     "count" : 1
   }, {
-    "source" : "cypress",
-    "target" : "features",
+    "source" : "ROOT",
+    "target" : "lib",
     "count" : 1
   }, {
-    "source" : "hooks",
-    "target" : "features",
-    "count" : 1
-  }, {
-    "source" : "features",
+    "source" : "ROOT",
     "target" : "hooks",
     "count" : 1
   }, {
     "source" : "hooks",
+    "target" : "ROOT",
+    "count" : 1
+  }, {
+    "source" : "types",
     "target" : "cypress",
     "count" : 1
   }, {
     "source" : "cypress",
-    "target" : "hooks",
-    "count" : 1
-  }, {
-    "source" : "prisma",
-    "target" : "cypress",
-    "count" : 1
-  }, {
-    "source" : "cypress",
-    "target" : "prisma",
+    "target" : "types",
     "count" : 1
   } ]
 }

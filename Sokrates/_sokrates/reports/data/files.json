@@ -11,93 +11,15 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/_components/BirthdayPicker.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 24,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/_components/CountrySelect.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 40,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/_components/ProductCard.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 68,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/_components/ProductCarousel.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 56,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/_components/SelectableListHeader.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 39,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/_components/SelectableCard.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 39,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/_components/SelectableList.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 98,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/_components/FormItem.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 15,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "app/about/page.tsx",
   "extension" : "tsx",
   "linesOfCode" : 11,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/api/cart/user/route.ts",
+  "relativePath" : "app/api/product/user/route.ts",
   "extension" : "ts",
-  "linesOfCode" : 2,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/cart/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 7,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/orders/create-payment/route.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 77,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/orders/user/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 35,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/orders/orderHandlers.ts",
-  "extension" : "ts",
-  "linesOfCode" : 77,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/orders/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 7,
+  "linesOfCode" : 87,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -128,36 +50,6 @@
   "relativePath" : "app/api/product/route.ts",
   "extension" : "ts",
   "linesOfCode" : 45,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/product/user/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 87,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/professional/[id]/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 94,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/uploads/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 25,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/user/connect-stripe-account/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 21,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/api/user/create-stripe-account/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 55,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -197,6 +89,72 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
+  "relativePath" : "app/api/user/connect-stripe-account/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 21,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/user/create-stripe-account/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 55,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/user/test-vendor/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 33,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/orders/user/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 35,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/orders/create-payment/route.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 77,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/orders/orderHandlers.ts",
+  "extension" : "ts",
+  "linesOfCode" : 77,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/orders/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/cart/user/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 2,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/cart/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/professional/[id]/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 94,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/api/uploads/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 25,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
   "relativePath" : "app/auth/[slug]/page.tsx",
   "extension" : "tsx",
   "linesOfCode" : 192,
@@ -227,33 +185,9 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/globals.css",
-  "extension" : "css",
-  "linesOfCode" : 105,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/lib/convertToSubcurrency.ts",
-  "extension" : "ts",
-  "linesOfCode" : 4,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "app/lib/definition.ts",
   "extension" : "ts",
   "linesOfCode" : 35,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/lib/orders.ts",
-  "extension" : "ts",
-  "linesOfCode" : 32,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/lib/products.ts",
-  "extension" : "ts",
-  "linesOfCode" : 59,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -269,6 +203,24 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
+  "relativePath" : "app/lib/products.ts",
+  "extension" : "ts",
+  "linesOfCode" : 59,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/lib/orders.ts",
+  "extension" : "ts",
+  "linesOfCode" : 32,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/lib/convertToSubcurrency.ts",
+  "extension" : "ts",
+  "linesOfCode" : 4,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
   "relativePath" : "app/lib/user.ts",
   "extension" : "ts",
   "linesOfCode" : 31,
@@ -281,45 +233,9 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/lib/productCrud.ts",
-  "extension" : "ts",
-  "linesOfCode" : 83,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/lib/session.ts",
-  "extension" : "ts",
-  "linesOfCode" : 34,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "app/lib/session/tokens.ts",
   "extension" : "ts",
   "linesOfCode" : 31,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/lib/product-helpers.ts",
-  "extension" : "ts",
-  "linesOfCode" : 31,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/lib/order-service.ts",
-  "extension" : "ts",
-  "linesOfCode" : 39,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/lib/product-queries.ts",
-  "extension" : "ts",
-  "linesOfCode" : 24,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/lib/stripe.ts",
-  "extension" : "ts",
-  "linesOfCode" : 5,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -329,21 +245,39 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/myorderslist/_components/Modal.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 2,
+  "relativePath" : "app/lib/order-service.ts",
+  "extension" : "ts",
+  "linesOfCode" : 39,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/myorderslist/_components/OrderList.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 2,
+  "relativePath" : "app/lib/product-helpers.ts",
+  "extension" : "ts",
+  "linesOfCode" : 31,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/myorderslist/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 4,
+  "relativePath" : "app/lib/product-queries.ts",
+  "extension" : "ts",
+  "linesOfCode" : 24,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/lib/session.ts",
+  "extension" : "ts",
+  "linesOfCode" : 34,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/lib/stripe.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/lib/productCrud.ts",
+  "extension" : "ts",
+  "linesOfCode" : 83,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -365,93 +299,15 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::TODOs" ]
 }, {
-  "relativePath" : "app/myproduct/actions.ts",
-  "extension" : "ts",
-  "linesOfCode" : 8,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "app/myproduct/page.tsx",
   "extension" : "tsx",
   "linesOfCode" : 96,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/orders/_components/Modal.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 158,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/orders/_components/OrderList.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 118,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/orders/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 4,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 22,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/product/[slug]/components/Comment.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 275,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/product/[slug]/components/Comments.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 139,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/product/[slug]/components/Modal.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 77,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/product/[slug]/components/useComments.ts",
+  "relativePath" : "app/myproduct/actions.ts",
   "extension" : "ts",
-  "linesOfCode" : 472,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/product/[slug]/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 216,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/product/[slug]/payment/module/CheckoutPage.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 104,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/product/[slug]/payment/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 159,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/product/[slug]/payment/success/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 18,
-  "components" : [ "primary::app" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "app/professional/[id]/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 140,
+  "linesOfCode" : 8,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -503,15 +359,171 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/layout.tsx",
+  "relativePath" : "app/product/[slug]/components/Modal.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 34,
+  "linesOfCode" : 77,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/hooks/useSelection.ts",
+  "relativePath" : "app/product/[slug]/components/useComments.ts",
   "extension" : "ts",
-  "linesOfCode" : 43,
+  "linesOfCode" : 472,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/product/[slug]/components/Comment.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 275,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/product/[slug]/components/Comments.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 139,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/product/[slug]/payment/success/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 32,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/product/[slug]/payment/module/CheckoutPage.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 104,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/product/[slug]/payment/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 159,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/product/[slug]/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 216,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/orders/_components/Modal.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 158,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/orders/_components/OrderList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 118,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/orders/_hooks/orderStates.ts",
+  "extension" : "ts",
+  "linesOfCode" : 120,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/orders/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 5,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/myorderslist/_components/Modal.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 2,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/myorderslist/_components/OrderList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 2,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/myorderslist/_hooks/orderStates.ts",
+  "extension" : "ts",
+  "linesOfCode" : 63,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/myorderslist/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 5,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/BirthdayPicker.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 24,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/CountrySelect.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 40,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/FormItem.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 15,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/ProductCard.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 68,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/SelectableCard.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 39,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/SelectableList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 98,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/SelectableListHeader.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 39,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/_components/ProductCarousel.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 56,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 22,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/professional/[id]/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 140,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/globals.css",
+  "extension" : "css",
+  "linesOfCode" : 105,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/components/SharedOrdersPage.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 36,
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -521,10 +533,40 @@
   "components" : [ "primary::app" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "app/components/SharedOrdersPage.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 36,
+  "relativePath" : "app/hooks/useSelection.ts",
+  "extension" : "ts",
+  "linesOfCode" : 43,
   "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "app/layout.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 34,
+  "components" : [ "primary::app" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/button.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 58,
+  "components" : [ "primary::components" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/input.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 13,
+  "components" : [ "primary::components" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/dialog.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 125,
+  "components" : [ "primary::components" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "components/ui/select.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 157,
+  "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "components/ui/accordion.tsx",
@@ -572,12 +614,6 @@
   "relativePath" : "components/ui/button-group.tsx",
   "extension" : "tsx",
   "linesOfCode" : 67,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/button.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 58,
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -629,12 +665,6 @@
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "components/ui/dialog.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 125,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "components/ui/drawer.tsx",
   "extension" : "tsx",
   "linesOfCode" : 107,
@@ -680,12 +710,6 @@
   "relativePath" : "components/ui/input-otp.tsx",
   "extension" : "tsx",
   "linesOfCode" : 66,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/input.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 13,
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -746,12 +770,6 @@
   "relativePath" : "components/ui/scroll-area.tsx",
   "extension" : "tsx",
   "linesOfCode" : 53,
-  "components" : [ "primary::components" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "components/ui/select.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 157,
   "components" : [ "primary::components" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -845,40 +863,16 @@
   "components" : [ "primary::ROOT" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "eslint.config.mjs",
-  "extension" : "mjs",
-  "linesOfCode" : 25,
-  "components" : [ "primary::ROOT" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "hooks/use-mobile.ts",
-  "extension" : "ts",
-  "linesOfCode" : 17,
-  "components" : [ "primary::hooks" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "jest.config.ts",
-  "extension" : "ts",
-  "linesOfCode" : 13,
-  "components" : [ "primary::ROOT" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "lib/utils.ts",
-  "extension" : "ts",
-  "linesOfCode" : 5,
-  "components" : [ "primary::lib" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "lib/prisma.ts",
   "extension" : "ts",
   "linesOfCode" : 8,
   "components" : [ "primary::lib" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "next.config.ts",
+  "relativePath" : "lib/utils.ts",
   "extension" : "ts",
-  "linesOfCode" : 29,
-  "components" : [ "primary::ROOT" ],
+  "linesOfCode" : 5,
+  "components" : [ "primary::lib" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "postcss.config.mjs",
@@ -899,39 +893,15 @@
   "components" : [ "primary::prisma" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "types/Category.ts",
+  "relativePath" : "types/UserBody.ts",
   "extension" : "ts",
   "linesOfCode" : 8,
-  "components" : [ "primary::types" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "types/Comment.ts",
-  "extension" : "ts",
-  "linesOfCode" : 57,
-  "components" : [ "primary::types" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "types/Country.ts",
-  "extension" : "ts",
-  "linesOfCode" : 257,
   "components" : [ "primary::types" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "types/Order.ts",
   "extension" : "ts",
   "linesOfCode" : 12,
-  "components" : [ "primary::types" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "types/PostBody.ts",
-  "extension" : "ts",
-  "linesOfCode" : 29,
-  "components" : [ "primary::types" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "types/Professional.ts",
-  "extension" : "ts",
-  "linesOfCode" : 22,
   "components" : [ "primary::types" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -947,10 +917,94 @@
   "components" : [ "primary::types" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "types/UserBody.ts",
+  "relativePath" : "types/Country.ts",
+  "extension" : "ts",
+  "linesOfCode" : 257,
+  "components" : [ "primary::types" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "types/PostBody.ts",
+  "extension" : "ts",
+  "linesOfCode" : 29,
+  "components" : [ "primary::types" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "types/Professional.ts",
+  "extension" : "ts",
+  "linesOfCode" : 22,
+  "components" : [ "primary::types" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "types/Category.ts",
   "extension" : "ts",
   "linesOfCode" : 8,
   "components" : [ "primary::types" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "types/Comment.ts",
+  "extension" : "ts",
+  "linesOfCode" : 46,
+  "components" : [ "primary::types" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "prisma.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 18,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "hooks/use-mobile.ts",
+  "extension" : "ts",
+  "linesOfCode" : 17,
+  "components" : [ "primary::hooks" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "eslint.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 25,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "next.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 29,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "jest.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 13,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/e2e/complete_navigation-menu_test.cy.ts",
+  "extension" : "ts",
+  "linesOfCode" : 70,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/e2e/complete_test.cy.ts",
+  "extension" : "ts",
+  "linesOfCode" : 326,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/commands.ts",
+  "extension" : "ts",
+  "linesOfCode" : 1,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/e2e.ts",
+  "extension" : "ts",
+  "linesOfCode" : 10,
+  "components" : [ "primary::cypress" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "features/step_definitions/auth.steps.ts",
@@ -967,19 +1021,19 @@
 }, {
   "relativePath" : "features/step_definitions/product.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 170,
+  "linesOfCode" : 175,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "features/step_definitions/productCrud.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 122,
+  "linesOfCode" : 131,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "features/step_definitions/upload.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 116,
+  "linesOfCode" : 119,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -989,33 +1043,9 @@
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "features/support/browseService.ts",
-  "extension" : "ts",
-  "linesOfCode" : 84,
-  "components" : [ "primary::features" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "features/support/productCrudFixture.ts",
-  "extension" : "ts",
-  "linesOfCode" : 186,
-  "components" : [ "primary::features" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "features/support/productService.ts",
-  "extension" : "ts",
-  "linesOfCode" : 207,
-  "components" : [ "primary::features" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
   "relativePath" : "features/support/uploadFixture.ts",
   "extension" : "ts",
   "linesOfCode" : 55,
-  "components" : [ "primary::features" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "features/support/parsing-helpers.ts",
-  "extension" : "ts",
-  "linesOfCode" : 18,
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -1025,34 +1055,28 @@
   "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "cypress/e2e/complete_test.cy.ts",
-  "extension" : "ts",
-  "linesOfCode" : 311,
-  "components" : [ "primary::cypress" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "cypress/support/commands.ts",
-  "extension" : "ts",
-  "linesOfCode" : 1,
-  "components" : [ "primary::cypress" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "cypress/support/e2e.ts",
-  "extension" : "ts",
-  "linesOfCode" : 1,
-  "components" : [ "primary::cypress" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "prisma.config.ts",
+  "relativePath" : "features/support/parsing-helpers.ts",
   "extension" : "ts",
   "linesOfCode" : 18,
-  "components" : [ "primary::ROOT" ],
+  "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "cypress.config.ts",
+  "relativePath" : "features/support/browseService.ts",
   "extension" : "ts",
-  "linesOfCode" : 7,
-  "components" : [ "primary::ROOT" ],
+  "linesOfCode" : 117,
+  "components" : [ "primary::features" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "features/support/productCrudFixture.ts",
+  "extension" : "ts",
+  "linesOfCode" : 195,
+  "components" : [ "primary::features" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "features/support/productService.ts",
+  "extension" : "ts",
+  "linesOfCode" : 276,
+  "components" : [ "primary::features" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "vitest.config.ts",

@@ -14,29 +14,11 @@ export type Comment = {
   replies?: Comment[];
 };
 
-export type CommentHandlers = {
-  toggleMenu: (commentId: string) => void;
-  startEditing: (comment: Comment) => void;
-  handleCancelEdit: () => void;
-  handleEditingValueChange: (value: string) => void;
-  handleEdit: (commentId: string) => void;
-  handleDelete: (commentId: string) => void;
-  beginReply: (commentId: string, depth: number) => void;
-  handleCancelReply: () => void;
-  handleReplyValueChange: (value: string) => void;
-  handleSubmitReply: (commentId: string) => void;
-  toggleThreadVisibility: (commentId: string) => void;
-  handleEditingRatingSelect: (index: number) => void;
-  handleEditingRatingHover: (index: number) => void;
-  handleEditingRatingLeave: () => void;
-  onMessageChange: (value: string) => void;
-  handleSubmit: (e: React.FormEvent) => void | Promise<void>;
-  handleRatingSelect: (index: number) => void;
-  handleRatingHover: (index: number) => void;
-  handleRatingLeave: () => void;
-};
-
-export type CommentState = {
+export type CommentItemProps = {
+  comment: Comment;
+  depth: number;
+  maxDepth: number;
+  userId?: string;
   activeMenuId: string | null;
   editingCommentId: string | null;
   editingValue: string;
@@ -49,13 +31,18 @@ export type CommentState = {
   expandedThreads: Set<string>;
   editingRating: number;
   editingHoverRating: number;
-};
-
-export type CommentItemProps = {
-  comment: Comment;
-  depth: number;
-  maxDepth: number;
-  userId?: string;
-  state: CommentState;
-  handlers: CommentHandlers;
+  onToggleMenu: (commentId: string) => void;
+  onStartEditing: (comment: Comment) => void;
+  onCancelEdit: () => void;
+  onEditingValueChange: (value: string) => void;
+  onSaveEdit: (commentId: string) => void;
+  onDelete: (commentId: string) => void;
+  onBeginReply: (commentId: string, depth: number) => void;
+  onCancelReply: () => void;
+  onReplyChange: (value: string) => void;
+  onSubmitReply: (commentId: string) => void;
+  onToggleReplies: (commentId: string) => void;
+  onEditingRatingSelect: (index: number) => void;
+  onEditingRatingHover: (index: number) => void;
+  onEditingRatingLeave: () => void;
 };

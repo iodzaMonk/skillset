@@ -1,43 +1,25 @@
-app/api/product/[slug]/reviews/replies/route.ts [60:75]:
+cypress/e2e/complete_test.cy.ts [267:273]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
+      cy.visit("localhost:3000");
+      openMenu();
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/product/[slug]/reviews/route.ts [49:64]:
+cypress/e2e/complete_test.cy.ts [435:441]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
+      cy.visit("localhost:3000");
+      openMenu();
+      cy.contains("Login").click({ force: true });
+      cy.get('input[name="email"]').type(email);
+      cy.get('input[name="password"]').type(password);
+      cy.contains("button", "Sign in").click();
+      cy.url().should("eq", "http://localhost:3000/", { timeout: 10000 });
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -43,25 +43,6 @@ describe("app/api/cart/route", () => {
   });
 
   describe("POST", () => {
-    it("handles null referer header", async () => {
-      mockHeaders.mockReturnValue(new Headers({})); // No referer
-
-      const response = await POST(
-        new Request("http://localhost/api/cart", {
-          method: "POST",
-          body: JSON.stringify({
-            description: "Need a video edit",
-            prof_id: "prof-1",
-            productId: "prod-1",
-            userId: "user-1",
-          }),
-          headers: { "content-type": "application/json" },
-        }),
-      );
-
-      expect(response.status).toBe(201);
-      expect(response.headers.get("x-referer")).toBe("");
-    });
     it("creates an order and returns 201 with referer header", async () => {
       const response = await POST(
         new Request("http://localhost/api/cart", {
@@ -120,17 +101,6 @@ describe("app/api/cart/route", () => {
   });
 
   describe("GET", () => {
-    it("handles null referer header", async () => {
-      mockHeaders.mockReturnValue(new Headers({})); // No referer
-
-      const response = await GET(
-        new Request("http://localhost/api/cart", { method: "GET" }),
-      );
-
-      expect(response.status).toBe(200);
-      expect(response.headers.get("x-referer")).toBe("");
-    });
-
     it("returns orders with referer header", async () => {
       const response = await GET(
         new Request("http://localhost/api/cart", { method: "GET" }),

@@ -1,46 +1,46 @@
 <html>
 <head>
-    <title>replies: updateCommentTree()</title>
+    <title>async deleteProduct()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">replies: updateCommentTree()</h3>
-<p style="margin-top: 4px">in <i>app/product/[slug]/components/useComments.ts [40:67]</i></p>
+<h3 style="margin-bottom: 0">async deleteProduct()</h3>
+<p style="margin-top: 4px">in <i>features/support/productCrudFixture.ts [117:144]</i></p>
 <ul>
-    <li><b>15</b> lines of code</li>
+    <li><b>28</b> lines of code</li>
     <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-        replies: updateCommentTree(comment.replies, updated),
+  async deleteProduct(title: string) {
+    if (!this.userId) {
+      this.response = {
+        status: 401,
+        body: { message: &quot;Not authenticated&quot; },
       };
+      return;
     }
-
-    return comment;
-  });
-
-const removeCommentFromTree = (comments: Comment[], id: string): Comment[] =&gt;
-  comments
-    .filter((comment) =&gt; comment.id !== id)
-    .map((comment) =&gt;
-      comment.replies &amp;&amp; comment.replies.length &gt; 0
-        ? {
-            ...comment,
-            replies: removeCommentFromTree(comment.replies, id),
-          }
-        : comment,
-    );
-
-const insertReplyIntoTree = (
-  comments: Comment[],
-  parentId: string,
-  reply: Comment,
-): Comment[] =&gt;
-  comments.map((comment) =&gt; {
-    if (comment.id === parentId) {
-      const existingReplies = comment.replies ?? [];
-      return {
+    const productId = this.productTitles.get(title);
+    if (!productId) {
+      this.response = {
+        status: 404,
+        body: { message: &quot;Product not found&quot; },
+      };
+      return;
+    }
+    try {
+      await deleteProductRecord(this.userId, productId);
+      this.trackedProductIds.delete(productId);
+      this.productTitles.delete(title);
+      this.response = {
+        status: 200,
+        body: { message: &quot;Product deleted&quot; },
+      };
+    } catch (error) {
+      this.response = this.normalizeError(error);
+    }
+  }
 
 </code>
 </pre>

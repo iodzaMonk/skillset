@@ -222,11 +222,6 @@
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates/../hooks/.*",
-        "contentPattern" : "",
-        "exception" : true,
-        "note" : ""
-      }, {
         "pathPattern" : "Sokrates/../lib/.*",
         "contentPattern" : "",
         "exception" : true,
@@ -242,7 +237,7 @@
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "Sokrates/../features/.*",
+        "pathPattern" : "Sokrates/../hooks/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
@@ -251,14 +246,10 @@
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
-      } ],
-      "files" : [ ]
-    }, {
-      "name" : "hooks",
-      "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates/../hooks/.*",
+      }, {
+        "pathPattern" : "Sokrates/../features/.*",
         "contentPattern" : "",
-        "exception" : false,
+        "exception" : true,
         "note" : ""
       } ],
       "files" : [ ]
@@ -290,9 +281,9 @@
       } ],
       "files" : [ ]
     }, {
-      "name" : "features",
+      "name" : "hooks",
       "sourceFileFilters" : [ {
-        "pathPattern" : "Sokrates/../features/.*",
+        "pathPattern" : "Sokrates/../hooks/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -302,6 +293,15 @@
       "name" : "cypress",
       "sourceFileFilters" : [ {
         "pathPattern" : "Sokrates/../cypress/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "features",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "Sokrates/../features/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""

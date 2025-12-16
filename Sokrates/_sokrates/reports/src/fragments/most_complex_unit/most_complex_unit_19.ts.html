@@ -1,66 +1,52 @@
 <html>
 <head>
-    <title>export async function loginUser()</title>
+    <title>export async function PATCH()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function loginUser()</h3>
-<p style="margin-top: 4px">in <i>app/lib/auth/login.ts [25:73]</i></p>
+<h3 style="margin-bottom: 0">export async function PATCH()</h3>
+<p style="margin-top: 4px">in <i>app/api/orders/user/route.ts [9:43]</i></p>
 <ul>
-    <li><b>42</b> lines of code</li>
+    <li><b>29</b> lines of code</li>
     <li><b>6</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function loginUser(body: LoginBody = {}): Promise&lt;LoginResult&gt; {
-  const { email, password } = body ?? {};
+export async function PATCH(req: Request) {
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return Response.json({ message: &quot;Not authenticated&quot; }, { status: 401 });
+    }
 
-  const missingFields = [
-    [&quot;email&quot;, email],
-    [&quot;password&quot;, password],
-  ]
-    .filter(([, value]) =&gt; !value)
-    .map(([field]) =&gt; field);
-
-  if (missingFields.length &gt; 0) {
-    return {
-      status: 400,
-      body: {
-        message: `Missing required fields: ${missingFields.join(&quot;, &quot;)}`,
-      },
+    const { ids = [], status } = (await req.json()) as {
+      ids?: string[];
+      status?: Status;
     };
+
+    if (!status) {
+      return Response.json({ message: &quot;Status is required&quot; }, { status: 400 });
+    }
+
+    const updatedOrder = await prisma.commands.updateMany({
+      where: { client_id: user.id, id: { in: ids } },
+      data: { status } as unknown as Prisma.commandsUpdateManyMutationInput,
+    });
+
+    return Response.json({ data: updatedOrder }, { status: 200 });
+  } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
+      error.code === &quot;P2025&quot;
+    ) {
+      return Response.json({ message: &quot;Orer not found&quot; }, { status: 404 });
+    }
+
+    console.error(&quot;Update product error&quot;, error);
+
+    return Response.json({ message: &quot;Internal server error&quot; }, { status: 500 });
   }
-
-  const existingUser = await prisma.users.findUnique({
-    where: { email },
-  });
-
-  if (!existingUser) {
-    return {
-      status: 401,
-      body: { message: &quot;Invalid credentials&quot; },
-    };
-  }
-
-  const isPasswordValid =
-    typeof password === &quot;string&quot; &amp;&amp;
-    typeof existingUser.password === &quot;string&quot; &amp;&amp;
-    (await bcrypt.compare(password, existingUser.password));
-
-  if (!isPasswordValid) {
-    return {
-      status: 401,
-      body: { message: &quot;Invalid credentials&quot; },
-    };
-  }
-
-  return {
-    status: 200,
-    body: {
-      userId: existingUser.id,
-    },
-  };
 }
 
 </code>

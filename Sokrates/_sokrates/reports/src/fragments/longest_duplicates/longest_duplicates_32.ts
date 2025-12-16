@@ -1,25 +1,25 @@
-app/myproduct/_hooks/postStates.ts [207:213]:
+features/step_definitions/product.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    posts,
-    handleSubmit,
-    isSubmitting,
-    deletePosts,
-    editingPost,
-    startEditing,
-    resetEditing,
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/myproduct/page.tsx [14:20]:
+features/step_definitions/productCrud.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    posts,
-    handleSubmit,
-    isSubmitting,
-    deletePosts,
-    editingPost,
-    startEditing,
-    resetEditing,
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

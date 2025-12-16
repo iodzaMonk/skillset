@@ -34,13 +34,6 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "public/no-image.svg",
-  "extension" : "svg",
-  "linesOfCode" : 15,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
   "relativePath" : "public/vercel.svg",
   "extension" : "svg",
   "linesOfCode" : 1,
@@ -48,16 +41,9 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "features/step_definitions/cucumber.json",
-  "extension" : "json",
-  "linesOfCode" : 7,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "tsconfig.json",
-  "extension" : "json",
-  "linesOfCode" : 28,
+  "relativePath" : "public/no-image.svg",
+  "extension" : "svg",
+  "linesOfCode" : 15,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -69,9 +55,16 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "features/step_definitions/cucumber.json",
+  "extension" : "json",
+  "linesOfCode" : 7,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "README.md",
   "extension" : "md",
-  "linesOfCode" : 68,
+  "linesOfCode" : 67,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -562,6 +555,13 @@
   "relativePath" : "package.json",
   "extension" : "json",
   "linesOfCode" : 128,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "tsconfig.json",
+  "extension" : "json",
+  "linesOfCode" : 35,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

@@ -1,35 +1,107 @@
-features/support/browseService.ts [30:41]:
+app/hooks/useOrderManager.ts [87:134]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
+  const closeModal = useCallback(async () => {
+    if (!isModalOpen) {
+      return;
+    }
 
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
-        },
+    setIsModalOpen(false);
+
+    if (!selectedStatus || selectedIds.length === 0) {
+      setSelectedStatus(null);
+      return;
+    }
+
+    const didUpdate = await updateStatus();
+
+    if (didUpdate) {
+      setSelectedIds([]);
+    }
+
+    setSelectedStatus(null);
+  }, [
+    isModalOpen,
+    selectedIds,
+    selectedStatus,
+    setSelectedIds,
+    setSelectedStatus,
+    updateStatus,
+  ]);
+
+  const toggleModal = useCallback(() => {
+    if (isModalOpen) {
+      void closeModal();
+    } else {
+      setIsModalOpen(true);
+    }
+  }, [closeModal, isModalOpen]);
+
+  useEffect(() => {
+    function handlePointerDown(event: PointerEvent) {
+      if (!isModalOpen) return;
+      if (!modalRef.current?.contains(event.target as Node)) {
+        void closeModal();
+      }
+    }
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [closeModal, isModalOpen]);
+
+  useEffect(() => {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-features/support/productService.ts [52:63]:
+app/orders/_hooks/orderStates.ts [79:126]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      const category = parseCategory(row.category);
-      const price = parsePrice(row.price);
-      const description = row.description?.trim() || `${title} description`;
+  const closeModal = useCallback(async () => {
+    if (!isModalOpen) {
+      return;
+    }
 
-      const product = await prisma.posts.create({
-        data: {
-          user_id: ownerId,
-          title,
-          description,
-          price,
-          category,
-        },
+    setIsModalOpen(false);
+
+    if (!selectedStatus || selectedIds.length === 0) {
+      setSelectedStatus(null);
+      return;
+    }
+
+    const didUpdate = await updateStatus();
+
+    if (didUpdate) {
+      setSelectedIds([]);
+    }
+
+    setSelectedStatus(null);
+  }, [
+    isModalOpen,
+    selectedIds,
+    selectedStatus,
+    setSelectedIds,
+    setSelectedStatus,
+    updateStatus,
+  ]);
+
+  const toggleModal = useCallback(() => {
+    if (isModalOpen) {
+      void closeModal();
+    } else {
+      setIsModalOpen(true);
+    }
+  }, [closeModal, isModalOpen]);
+
+  useEffect(() => {
+    function handlePointerDown(event: PointerEvent) {
+      if (!isModalOpen) return;
+      if (!modalRef.current?.contains(event.target as Node)) {
+        void closeModal();
+      }
+    }
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [closeModal, isModalOpen]);
+
+  useEffect(() => {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

@@ -1,3 +1,4 @@
+"use client";
 import { fetchUserOrder } from "@/app/lib/orders";
 import { SharedOrdersPage } from "@/app/components/SharedOrdersPage";
 

@@ -12,48 +12,91 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">cypress/e2e/complete_test.cy.ts (<b>311</b> lines of code) (<a href="complete_test.cy.ts">raw</a>):</h3>
+<h3 style="margin-bottom: 0">cypress/e2e/complete_test.cy.ts (<b>326</b> lines of code) (<a href="complete_test.cy.ts">raw</a>):</h3>
 <div id="editor">import { v4 as uuidv4 } from &quot;uuid&quot;;
 
-const mockUserMe = (
-  email: string,
-  overrides: { vendor_id?: string | null } = {},
-) =&gt; {
-  cy.intercept(&quot;GET&quot;, &quot;/api/user/me&quot;, (req) =&gt; {
-    req.reply({
-      statusCode: 200,
-      body: {
-        user: {
-          id: &quot;user-test-id&quot;,
-          email: email,
-          name: &quot;Test User&quot;,
-          country: &quot;AU&quot;,
-          birthday: null,
-          vendor_id: overrides.vendor_id ?? &quot;acct_mock_123456&quot;,
-        },
-      },
-    });
-  }).as(overrides.vendor_id === null ? &quot;getUserNoVendor&quot; : &quot;getUserWithVendor&quot;);
-};
-
 describe(&quot;Complete User Flow&quot;, () =&gt; {
+  const appBaseUrl = &quot;http://localhost:3000&quot;;
   const uniqueId = uuidv4().substring(0, 8);
   const email = `testuser_${uniqueId}@example.com`;
   const password = &quot;password123&quot;;
+  let currentUserId: string;
 
-  const forceLogout = () =&gt; {
-    cy.clearCookies();
-    cy.clearLocalStorage();
-    cy.window().then((win) =&gt; {
-      win.sessionStorage.clear();
+  const getCurrentUser = () =&gt; {
+    return cy.getCookies().then((cookies) =&gt;
+      cy
+        .request({
+          method: &quot;GET&quot;,
+          url: `${appBaseUrl}/api/user/me`,
+          headers: {
+            Cookie: cookies
+              .map((cookie) =&gt; `${cookie.name}=${cookie.value}`)
+              .join(&quot;; &quot;),
+          },
+        })
+        .then((response) =&gt; {
+          currentUserId = response.body.user.id;
+          return cy.wrap(response.body.user.id);
+        }),
+    );
+  };
+
+  const createOrderRequest = (payload: {
+    description: string;
+    prof_id: string;
+    productId: string;
+    userId: string;
+  }) =&gt;
+    cy.getCookies().then((cookies) =&gt;
+      cy.request({
+        method: &quot;POST&quot;,
+        url: `${appBaseUrl}/api/orders`,
+        body: payload,
+        headers: {
+          Cookie: cookies
+            .map((cookie) =&gt; `${cookie.name}=${cookie.value}`)
+            .join(&quot;; &quot;),
+          &quot;Content-Type&quot;: &quot;application/json&quot;,
+        },
+        failOnStatusCode: false,
+      }),
+    );
+
+  const openMenu = () =&gt; {
+    // Wait for hydration/rendering
+    cy.wait(500);
+
+    // Check if map is already open to avoid toggling it closed
+    cy.get(&quot;body&quot;).then(($body) =&gt; {
+      if ($body.find(&quot;nav.bg-surface\\/95.opacity-100&quot;).length === 0) {
+        cy.get('[data-testid=&quot;menu-toggle&quot;]').should(&quot;be.visible&quot;).click();
+        cy.get(&quot;nav.bg-surface\\/95&quot;, { timeout: 10000 }).should(
+          &quot;have.class&quot;,
+          &quot;opacity-100&quot;,
+        );
+      }
     });
+
+    cy.get(&quot;nav.bg-surface\\/95&quot;).should(&quot;be.visible&quot;);
+    cy.wait(800); // Safety buffer for animation
+  };
+
+  const clickViewDetailsFor = (productName: string) =&gt; {
+    cy.contains(&quot;h2&quot;, productName, { matchCase: false })
+      .should(&quot;be.visible&quot;)
+      .parents('[class*=&quot;rounded-2xl&quot;]')
+      .first()
+      .find('a[href*=&quot;/product/&quot;]')
+      .first()
+      .click();
   };
 
   before(() =&gt; {
+    cy.clearCookies();
+    cy.clearLocalStorage();
     cy.viewport(1280, 720);
     cy.visit(&quot;localhost:3000&quot;);
-    cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
-    cy.contains(&quot;Sign up&quot;).should(&quot;be.visible&quot;);
+    openMenu();
     cy.contains(&quot;Sign up&quot;).click({ force: true });
 
     cy.url().should(&quot;include&quot;, &quot;/auth/signup&quot;, { timeout: 10000 });
@@ -71,25 +114,17 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
 
     cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
     cy.contains(&quot;Welcome Test User&quot;).should(&quot;be.visible&quot;);
+
+    openMenu();
+    cy.contains(&quot;Logout&quot;).should(&quot;be.visible&quot;);
+    cy.contains(&quot;Logout&quot;).click({ force: true });
+    cy.wait(1000);
   });
 
   beforeEach(() =&gt; {
+    cy.clearCookies();
+    cy.clearLocalStorage();
     cy.viewport(1280, 720);
-  });
-
-  describe(&quot;Logout&quot;, () =&gt; {
-    it(&quot;should log out the user&quot;, () =&gt; {
-      cy.visit(&quot;localhost:3000&quot;);
-      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
-      cy.contains(&quot;Logout&quot;).should(&quot;be.visible&quot;);
-      cy.contains(&quot;Logout&quot;).click({ force: true });
-
-      cy.contains(&quot;Welcome Test User&quot;).should(&quot;not.exist&quot;);
-      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
-      cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
-
-      forceLogout();
-    });
   });
   describe(&quot;Home Page&quot;, () =&gt; {
     it(&quot;should display home page content&quot;, () =&gt; {
@@ -98,11 +133,30 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
       cy.contains(&quot;Featured Products&quot;);
     });
   });
+  describe(&quot;Logout&quot;, () =&gt; {
+    it(&quot;should log out the user&quot;, () =&gt; {
+      cy.visit(&quot;localhost:3000&quot;);
+      openMenu();
+      cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
+      cy.contains(&quot;Login&quot;).click({ force: true });
+      cy.get('input[name=&quot;email&quot;]').type(email);
+      cy.get('input[name=&quot;password&quot;]').type(password);
+      cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
+      cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
+      openMenu();
+      cy.contains(&quot;Logout&quot;).should(&quot;be.visible&quot;);
+      cy.contains(&quot;Logout&quot;).click({ force: true });
+
+      cy.wait(1000);
+      openMenu();
+      cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
+    });
+  });
+
   describe(&quot;Login&quot;, () =&gt; {
     it(&quot;should log in an existing user&quot;, () =&gt; {
-      forceLogout();
       cy.visit(&quot;localhost:3000&quot;);
-      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
+      openMenu();
       cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
       cy.contains(&quot;Login&quot;).click({ force: true });
 
@@ -118,36 +172,10 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
     });
   });
 
-  describe(&quot;Browse Products&quot;, () =&gt; {
+  describe(&quot;Stripe Vendor Account Setup&quot;, () =&gt; {
     beforeEach(() =&gt; {
-      cy.intercept(&quot;GET&quot;, &quot;/api/product&quot;, {
-        statusCode: 200,
-        body: [
-          {
-            id: &quot;product-123&quot;,
-            title: &quot;Mock Product&quot;,
-            description: &quot;Mock description&quot;,
-            price: 42,
-            category: &quot;Editing&quot;,
-            image_url: null,
-          },
-        ],
-      }).as(&quot;getProducts&quot;);
-
-      cy.intercept(&quot;GET&quot;, &quot;/api/product/*&quot;, {
-        statusCode: 200,
-        body: {
-          id: &quot;product-123&quot;,
-          title: &quot;Mock Product&quot;,
-          description: &quot;Mock description&quot;,
-          price: 42,
-          category: &quot;Editing&quot;,
-          image_url: null,
-        },
-      }).as(&quot;getProduct&quot;);
-
       cy.visit(&quot;localhost:3000&quot;);
-      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
+      openMenu();
       cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
       cy.contains(&quot;Login&quot;).click({ force: true });
       cy.get('input[name=&quot;email&quot;]').type(email);
@@ -156,231 +184,291 @@ describe(&quot;Complete User Flow&quot;, () =&gt; {
       cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
     });
 
-    it(&quot;should navigate to browse page&quot;, () =&gt; {
-      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
-      cy.contains(&quot;Browse&quot;).should(&quot;be.visible&quot;);
-      cy.contains(&quot;Browse&quot;).click({ force: true });
+    it(&quot;should assign test vendor_id to user&quot;, () =&gt; {
+      openMenu();
+      cy.contains(&quot;Settings&quot;).click({ force: true });
+      cy.url().should(&quot;include&quot;, &quot;/settings&quot;, { timeout: 10000 });
+      cy.scrollTo(&quot;bottom&quot;);
+      cy.get('[data-testid=&quot;connect-stripe-button&quot;]', { timeout: 10000 })
+        .should(&quot;exist&quot;)
+        .should(&quot;be.visible&quot;);
 
-      cy.url().should(&quot;include&quot;, &quot;/browse&quot;, { timeout: 10000 });
-    });
+      cy.getCookies().then((cookies) =&gt; {
+        cy.request({
+          method: &quot;POST&quot;,
+          url: &quot;http://localhost:3000/api/user/test-vendor&quot;,
+          body: {
+            vendor_id: &quot;acct_test_cypress_123456&quot;,
+          },
+          headers: {
+            Cookie: cookies
+              .map((cookie) =&gt; `${cookie.name}=${cookie.value}`)
+              .join(&quot;; &quot;),
+          },
+        }).then((response) =&gt; {
+          expect(response.status).to.eq(200);
+          expect(response.body.success).to.be.true;
+        });
+      });
 
-    it(&quot;should view product details and interact with order&quot;, () =&gt; {
-      cy.visit(&quot;localhost:3000/browse&quot;);
-
-      cy.get('a[href*=&quot;/product/&quot;]').first().click();
-      cy.url().should(&quot;include&quot;, &quot;/product/&quot;);
-
-      cy.contains(&quot;Order Now&quot;).should(&quot;be.visible&quot;);
-      cy.contains(&quot;Order Now&quot;).click({ force: true });
-      cy.contains(&quot;Cancel&quot;).click({ force: true });
+      cy.reload();
+      cy.url().should(&quot;include&quot;, &quot;/settings&quot;);
+      cy.scrollTo(&quot;bottom&quot;);
+      cy.get('[data-testid=&quot;connect-stripe-button&quot;]').should(&quot;not.exist&quot;);
+      cy.contains(&quot;Your Stripe account is already connected&quot;).should(
+        &quot;be.visible&quot;,
+      );
     });
   });
 
-  describe(&quot;Stripe Payment Flow&quot;, () =&gt; {
+  describe(&quot;Product Management&quot;, () =&gt; {
     beforeEach(() =&gt; {
-      cy.on(&quot;uncaught:exception&quot;, () =&gt; false);
-
       cy.visit(&quot;localhost:3000&quot;);
-      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
-      cy.contains(&quot;Login&quot;).should(&quot;be.visible&quot;);
+      openMenu();
       cy.contains(&quot;Login&quot;).click({ force: true });
       cy.get('input[name=&quot;email&quot;]').type(email);
       cy.get('input[name=&quot;password&quot;]').type(password);
       cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
       cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
-
-      // Avoid loading real Stripe&mdash;provide a harmless stub
-      cy.window().then((win) =&gt; {
-        (win as any).Stripe = function () {
-          return {
-            confirmPayment: cy.stub().resolves({
-              paymentIntent: { id: &quot;pi_mock_stub&quot;, status: &quot;succeeded&quot; },
-            }),
-            redirectToCheckout: cy.stub().resolves({}),
-          };
-        };
-      });
-
-      cy.intercept(&quot;POST&quot;, &quot;/api/user/create-stripe-account&quot;, {
-        statusCode: 200,
-        body: {
-          url: &quot;http://localhost:3000/settings?stripe_connected=true&quot;,
-          accountId: &quot;acct_mock_123456&quot;,
-        },
-      }).as(&quot;createStripeAccount&quot;);
-
-      mockUserMe(email, { vendor_id: &quot;acct_mock_123456&quot; });
-
-      cy.intercept(&quot;POST&quot;, &quot;/api/orders/create-payment&quot;, {
-        statusCode: 200,
-        body: {
-          clientSecret: &quot;pi_mock_secret_123&quot;,
-          professionalName: &quot;Mock Professional&quot;,
-        },
-      }).as(&quot;createPaymentIntent&quot;);
-
-      cy.intercept(&quot;GET&quot;, &quot;**/stripe.com/**&quot;, {
-        statusCode: 200,
-        body: {},
-      }).as(&quot;stripeAssets&quot;);
     });
 
-    it(&quot;should connect a Stripe account and verify vendor_id&quot;, () =&gt; {
-      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
-      cy.contains(&quot;Settings&quot;).click({ force: true });
-      cy.url().should(&quot;include&quot;, &quot;/settings&quot;, { timeout: 10000 });
-
-      cy.wait(2000);
-      cy.scrollTo(&quot;bottom&quot;);
-
-      cy.contains(&quot;Connect to Stripe&quot;, { timeout: 10000 }).should(&quot;exist&quot;);
-      cy.contains(&quot;button&quot;, &quot;Connect to Stripe&quot;).scrollIntoView();
-      cy.contains(&quot;button&quot;, &quot;Connect to Stripe&quot;).should(&quot;be.visible&quot;);
-      cy.contains(&quot;button&quot;, &quot;Connect to Stripe&quot;).click();
-
-      cy.wait(&quot;@createStripeAccount&quot;).then((interception) =&gt; {
-        expect(interception.request.body).to.have.property(&quot;email&quot;);
-        expect(interception.request.body.email).to.equal(email);
-        expect(interception.request.body).to.have.property(&quot;refreshUrl&quot;);
-        expect(interception.request.body).to.have.property(&quot;returnUrl&quot;);
-        expect(interception.response?.body).to.have.property(&quot;url&quot;);
-        expect(interception.response?.body.accountId).to.equal(
-          &quot;acct_mock_123456&quot;,
-        );
-      });
-
-      cy.url().should(&quot;include&quot;, &quot;/settings&quot;);
-
-      cy.contains(&quot;button&quot;, &quot;Connect to Stripe&quot;).should(&quot;not.exist&quot;);
-
-      cy.get('[data-testid=&quot;menu-toggle&quot;]').click();
+    it(&quot;should create a new product&quot;, () =&gt; {
+      openMenu();
       cy.contains(&quot;My Products&quot;).click({ force: true });
+      cy.url().should(&quot;include&quot;, &quot;/myproduct&quot;, { timeout: 10000 });
+
       cy.contains(&quot;Create a vendor account before creating products&quot;).should(
         &quot;not.exist&quot;,
       );
-    });
+      cy.contains(&quot;button&quot;, &quot;Create&quot;).should(&quot;be.visible&quot;).click();
+      cy.get('[role=&quot;dialog&quot;]', { timeout: 10000 }).should(&quot;be.visible&quot;);
 
-    it(&quot;should prevent product creation without vendor_id&quot;, () =&gt; {
-      mockUserMe(email, { vendor_id: null });
-
-      cy.visit(&quot;localhost:3000/myproduct&quot;);
-      cy.wait(&quot;@getUserNoVendor&quot;);
-
-      cy.contains(&quot;Create a vendor account before creating products&quot;).should(
-        &quot;be.visible&quot;,
-      );
-      cy.contains(&quot;button&quot;, &quot;Create a vendor account&quot;).should(&quot;be.visible&quot;);
-    });
-
-    it(&quot;should allow product creation with vendor_id&quot;, () =&gt; {
-      mockUserMe(email, { vendor_id: &quot;acct_mock_123456&quot; });
-
-      cy.intercept(&quot;POST&quot;, &quot;/api/product/user&quot;, {
-        statusCode: 201,
-        body: {
-          data: {
-            id: &quot;product-123&quot;,
-            title: &quot;Test Product&quot;,
-            description: &quot;Test Description&quot;,
-            price: 99.99,
-            user_id: &quot;user-test-id&quot;,
-            category: &quot;Editing&quot;,
-          },
-        },
-      }).as(&quot;createProduct&quot;);
-
-      cy.visit(&quot;localhost:3000/myproduct&quot;);
-      cy.wait(&quot;@getUserWithVendor&quot;);
-
-      cy.contains(&quot;button&quot;, &quot;Create Product&quot;).should(&quot;be.visible&quot;);
-      cy.contains(&quot;Create a vendor account before creating products&quot;).should(
-        &quot;not.exist&quot;,
-      );
-
-      cy.contains(&quot;button&quot;, &quot;Create Product&quot;).click();
-      cy.get('input[name=&quot;title&quot;]').type(&quot;Test Product&quot;);
-      cy.get('textarea[name=&quot;description&quot;]').type(&quot;Test Description&quot;);
-      cy.get('input[name=&quot;price&quot;]').type(&quot;99.99&quot;);
-      cy.get('select[name=&quot;category&quot;]').select(&quot;Editing&quot;);
-      cy.contains(&quot;button&quot;, &quot;Create&quot;).click();
-
-      cy.wait(&quot;@createProduct&quot;).then((interception) =&gt; {
-        expect(interception.request.body).to.have.property(
-          &quot;title&quot;,
-          &quot;Test Product&quot;,
-        );
-        expect(interception.request.body).to.have.property(&quot;user_id&quot;);
+      cy.get('[role=&quot;dialog&quot;]').within(() =&gt; {
+        cy.get(&quot;input#title&quot;).type(&quot;Cypress Test Product&quot;);
+        cy.get(&quot;input#description&quot;).type(&quot;Product for E2E testing orders&quot;);
+        cy.get(&quot;input#price&quot;).clear().type(&quot;50.00&quot;);
+        cy.get('button[role=&quot;combobox&quot;]').click();
       });
+
+      cy.wait(500);
+      cy.get('[role=&quot;option&quot;]').contains(&quot;Video editing&quot;).click();
+
+      cy.get('[role=&quot;dialog&quot;]').within(() =&gt; {
+        cy.contains(&quot;button&quot;, &quot;Create&quot;).click();
+      });
+
+      cy.wait(1000);
+      cy.contains(&quot;Cypress Test Product&quot;).should(&quot;be.visible&quot;);
+      cy.contains(&quot;$50.00&quot;).should(&quot;be.visible&quot;);
     });
 
-    it(&quot;should create a payment intent for an order&quot;, () =&gt; {
-      cy.visit(&quot;localhost:3000/browse&quot;);
-      cy.get('a[href*=&quot;/product/&quot;]').first().click();
+    it(&quot;should view product details&quot;, () =&gt; {
+      openMenu();
+      cy.contains(&quot;Browse&quot;).click({ force: true });
+      cy.url().should(&quot;include&quot;, &quot;/browse&quot;);
+
+      clickViewDetailsFor(&quot;Cypress Test Product&quot;);
       cy.url().should(&quot;include&quot;, &quot;/product/&quot;);
-      cy.contains(&quot;Order Now&quot;).click({ force: true });
 
-      cy.get('textarea[name=&quot;description&quot;]').type(&quot;Please edit my video&quot;);
-      cy.contains(&quot;button&quot;, &quot;Proceed to Payment&quot;).click();
+      cy.contains(&quot;Cypress Test Product&quot;).should(&quot;be.visible&quot;);
+      cy.contains(&quot;$50.00&quot;).should(&quot;be.visible&quot;);
+      cy.contains(&quot;Product for E2E testing orders&quot;).should(&quot;be.visible&quot;);
+      cy.contains(&quot;button&quot;, &quot;Order Now&quot;).should(&quot;be.visible&quot;);
+    });
+  });
 
-      cy.url().should(&quot;include&quot;, &quot;/payment&quot;, { timeout: 10000 });
-
-      cy.wait(&quot;@createPaymentIntent&quot;).then((interception) =&gt; {
-        expect(interception.request.body).to.have.property(&quot;amount&quot;);
-        expect(interception.request.body).to.have.property(&quot;orderData&quot;);
-        expect(interception.request.body.orderData).to.have.property(&quot;prof_id&quot;);
-        expect(interception.request.body.orderData).to.have.property(
-          &quot;product_id&quot;,
-        );
-
-        expect(interception.response?.body.clientSecret).to.equal(
-          &quot;pi_mock_secret_123&quot;,
-        );
-        expect(interception.response?.body.professionalName).to.equal(
-          &quot;Mock Professional&quot;,
-        );
-      });
-
-      cy.get(&quot;form&quot;).within(() =&gt; {
-        cy.get('button[type=&quot;submit&quot;]').should(&quot;contain&quot;, &quot;Pay $&quot;);
-      });
+  describe(&quot;Browse Products&quot;, () =&gt; {
+    beforeEach(() =&gt; {
+      cy.visit(&quot;localhost:3000&quot;);
+      openMenu();
+      cy.contains(&quot;Login&quot;).click({ force: true });
+      cy.get('input[name=&quot;email&quot;]').type(email);
+      cy.get('input[name=&quot;password&quot;]').type(password);
+      cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
+      cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
     });
 
-    it(&quot;should handle payment submission with mocked Stripe&quot;, () =&gt; {
-      cy.visit(&quot;localhost:3000/browse&quot;);
-      cy.get('a[href*=&quot;/product/&quot;]').first().click();
-      cy.contains(&quot;Order Now&quot;).click({ force: true });
-      cy.get('textarea[name=&quot;description&quot;]').type(&quot;Test order&quot;);
-      cy.contains(&quot;button&quot;, &quot;Proceed to Payment&quot;).click();
+    it(&quot;should navigate to browse page and view products&quot;, () =&gt; {
+      openMenu();
+      cy.contains(&quot;Browse&quot;).click({ force: true });
 
-      cy.wait(&quot;@createPaymentIntent&quot;);
+      cy.url().should(&quot;include&quot;, &quot;/browse&quot;, { timeout: 10000 });
+      cy.get('a[href*=&quot;/product/&quot;]').should(&quot;have.length.greaterThan&quot;, 0);
+    });
 
-      cy.window().then((win) =&gt; {
-        if (win.Stripe) {
-          cy.stub(win.Stripe.prototype, &quot;confirmPayment&quot;).resolves({
-            paymentIntent: {
-              id: &quot;pi_mock_123&quot;,
-              status: &quot;succeeded&quot;,
-            },
-          });
+    it(&quot;should filter products by category&quot;, () =&gt; {
+      openMenu();
+      cy.contains(&quot;Browse&quot;).click({ force: true });
+
+      cy.get(&quot;body&quot;).then(($body) =&gt; {
+        if ($body.find('[data-testid=&quot;category-filter&quot;]').length &gt; 0) {
+          cy.get('[data-testid=&quot;category-filter&quot;]').select(&quot;Video editing&quot;);
+          cy.wait(1000);
+          cy.get('a[href*=&quot;/product/&quot;]').should(&quot;exist&quot;);
         }
       });
+    });
+  });
 
-      cy.intercept(&quot;POST&quot;, &quot;/api/orders/payment-complete&quot;, {
-        statusCode: 201,
-        body: {
-          orderId: &quot;order_mock_123&quot;,
-          message: &quot;Order created successfully&quot;,
-        },
-      }).as(&quot;completeOrder&quot;);
+  describe(&quot;Order Creation and Management&quot;, () =&gt; {
+    beforeEach(() =&gt; {
+      cy.visit(&quot;localhost:3000&quot;);
+      openMenu();
+      cy.contains(&quot;Login&quot;).click({ force: true });
+      cy.get('input[name=&quot;email&quot;]').type(email);
+      cy.get('input[name=&quot;password&quot;]').type(password);
+      cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
+      cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
+    });
 
-      cy.get('button[type=&quot;submit&quot;]').contains(&quot;Pay $&quot;).click();
+    it(&quot;should create an order via API&quot;, () =&gt; {
+      openMenu();
+      cy.contains(&quot;Browse&quot;).click({ force: true });
 
-      cy.wait(&quot;@completeOrder&quot;).then((interception) =&gt; {
-        expect(interception.request.body).to.have.property(&quot;paymentIntentId&quot;);
-        expect(interception.response?.body.orderId).to.equal(&quot;order_mock_123&quot;);
+      clickViewDetailsFor(&quot;Cypress Test Product&quot;);
+      cy.url().should(&quot;include&quot;, &quot;/product/&quot;);
+
+      cy.url().then((url) =&gt; {
+        const productId = url.split(&quot;/product/&quot;)[1];
+
+        return getCurrentUser().then((userId) =&gt; {
+          return createOrderRequest({
+            description: &quot;Test order - need video editing for my project&quot;,
+            prof_id: userId,
+            productId: productId,
+            userId: userId,
+          }).then((response) =&gt; {
+            expect(response.status).to.eq(201);
+            expect(response.body).to.have.property(&quot;message&quot;);
+          });
+        });
+      });
+    });
+
+    it(&quot;should view order as customer in My Cart&quot;, () =&gt; {
+      openMenu();
+      cy.contains(&quot;My Cart&quot;).click({ force: true });
+      cy.url().should(&quot;include&quot;, &quot;/myorderslist&quot;);
+      cy.wait(2000);
+
+      cy.get(&quot;body&quot;).then(($body) =&gt; {
+        if (!$body.text().includes(&quot;Once the professional accepts&quot;)) {
+          cy.contains(&quot;Cypress Test Product&quot;).should(&quot;be.visible&quot;);
+          cy.contains(&quot;Test order&quot;).should(&quot;be.visible&quot;);
+        } else {
+          cy.contains(&quot;Once the professional accepts&quot;).should(&quot;be.visible&quot;);
+        }
+      });
+    });
+  });
+  /*
+    it(&quot;should view and update order as professional&quot;, () =&gt; {
+      cy.url().then((currentUrl) =&gt; {
+        const baseUrl = new URL(currentUrl).origin;
+        cy.visit(`${baseUrl}/orders`);
       });
 
-      cy.url().should(&quot;include&quot;, &quot;/payment/success&quot;, { timeout: 10000 });
+      cy.url({ timeout: 10000 }).should(&quot;include&quot;, &quot;/orders&quot;);
+      cy.get(&quot;body&quot;, { timeout: 10000 }).should(&quot;be.visible&quot;);
+      cy.wait(2000);
+
+      cy.get(&quot;body&quot;, { timeout: 10000 }).then(($body) =&gt; {
+        if ($body.text().includes(&quot;Once you accept an order&quot;)) {
+          cy.contains(&quot;Once you accept an order&quot;, { timeout: 10000 }).should(
+            &quot;be.visible&quot;,
+          );
+          return;
+        }
+
+        cy.get('input[type=&quot;checkbox&quot;]', { timeout: 10000 })
+          .first()
+          .should(&quot;be.visible&quot;)
+          .check({ force: true });
+
+        cy.get(&quot;button&quot;, { timeout: 10000 })
+          .filter((_, el) =&gt; /Modify/i.test(el.textContent || &quot;&quot;))
+          .first()
+          .should(&quot;be.visible&quot;)
+          .click({ force: true });
+
+        cy.get('[role=&quot;dialog&quot;]', { timeout: 10000 }).should(&quot;be.visible&quot;);
+        cy.get('[role=&quot;dialog&quot;]').within(() =&gt; {
+          cy.get('button[role=&quot;combobox&quot;]', { timeout: 10000 })
+            .should(&quot;be.visible&quot;)
+            .click({ force: true });
+        });
+        cy.get('[role=&quot;option&quot;]', { timeout: 10000 })
+          .contains(/Accept/i)
+          .should(&quot;be.visible&quot;)
+          .click({ force: true });
+
+        cy.get('[role=&quot;dialog&quot;]').within(() =&gt; {
+          cy.contains(/Confirm|Save changes|Update/i, { timeout: 10000 })
+            .should(&quot;be.visible&quot;)
+            .click({ force: true });
+        });
+
+        cy.wait(800);
+        cy.contains(/Accept/i, { timeout: 10000 }).should(&quot;be.visible&quot;);
+      });
+    });
+  });
+
+  describe(&quot;Product Deletion&quot;, () =&gt; {
+    beforeEach(() =&gt; {
+      cy.visit(&quot;localhost:3000&quot;);
+      openMenu();
+      cy.contains(&quot;Login&quot;).click({ force: true });
+      cy.get('input[name=&quot;email&quot;]').type(email);
+      cy.get('input[name=&quot;password&quot;]').type(password);
+      cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
+      cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
+    });
+
+    it(&quot;should delete a product&quot;, () =&gt; {
+      openMenu();
+      cy.contains(&quot;My Products&quot;).click({ force: true });
+
+      cy.contains(&quot;Cypress Test Product&quot;)
+        .parents(&quot;article&quot;)
+        .within(() =&gt; {
+          cy.get('button[aria-label*=&quot;Delete&quot;]').click();
+        });
+
+      cy.get('[role=&quot;dialog&quot;]').should(&quot;be.visible&quot;);
+      cy.get('[role=&quot;dialog&quot;]').within(() =&gt; {
+        cy.contains(&quot;button&quot;, &quot;Delete&quot;).click();
+      });
+
+      cy.wait(2000);
+      cy.contains(&quot;Cypress Test Product&quot;).should(&quot;not.exist&quot;);
+    });
+  }); */
+
+  describe(&quot;Error Handling&quot;, () =&gt; {
+    it(&quot;should handle non-existent product gracefully&quot;, () =&gt; {
+      cy.visit(&quot;localhost:3000&quot;);
+      openMenu();
+      cy.contains(&quot;Login&quot;).click({ force: true });
+      cy.get('input[name=&quot;email&quot;]').type(email);
+      cy.get('input[name=&quot;password&quot;]').type(password);
+      cy.contains(&quot;button&quot;, &quot;Sign in&quot;).click();
+      cy.url().should(&quot;eq&quot;, &quot;http://localhost:3000/&quot;, { timeout: 10000 });
+      cy.visit(&quot;localhost:3000/product/non-existent-product-id&quot;);
+      cy.wait(2000);
+      cy.get(&quot;body&quot;).should(&quot;contain.text&quot;, &quot;not found&quot;);
+    });
+
+    it(&quot;should redirect to login when accessing orders without auth&quot;, () =&gt; {
+      cy.visit(&quot;localhost:3000&quot;);
+      cy.wait(1000);
+      cy.visit(&quot;localhost:3000/orders&quot;);
+
+      cy.url({ timeout: 10000 }).should(&quot;include&quot;, &quot;/auth/login&quot;);
+      cy.get(&quot;body&quot;, { timeout: 10000 }).should(&quot;be.visible&quot;);
+      cy.contains(&quot;Sign in to your account&quot;, { timeout: 10000 }).should(
+        &quot;be.visible&quot;,
+      );
     });
   });
 });

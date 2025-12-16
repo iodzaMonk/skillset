@@ -1,34 +1,237 @@
 {
   "title" : "Duplication",
-  "timestamp" : "2025-12-14 16:45:23",
+  "timestamp" : "2025-12-16 14:47:51",
   "duplicates" : [ {
+    "blockSize" : 34,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/hooks/useOrderManager.ts",
+        "extension" : "ts",
+        "linesOfCode" : 127,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 109,
+      "startLine" : 87,
+      "endLine" : 134,
+      "cleanedStartLine" : 58,
+      "cleanedEndLine" : 91
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 120,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 103,
+      "startLine" : 79,
+      "endLine" : 126,
+      "cleanedStartLine" : 54,
+      "cleanedEndLine" : 87
+    } ]
+  }, {
+    "blockSize" : 17,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/hooks/useOrderManager.ts",
+        "extension" : "ts",
+        "linesOfCode" : 127,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 109,
+      "startLine" : 56,
+      "endLine" : 76,
+      "cleanedStartLine" : 33,
+      "cleanedEndLine" : 49
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 120,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 103,
+      "startLine" : 48,
+      "endLine" : 68,
+      "cleanedStartLine" : 29,
+      "cleanedEndLine" : 45
+    } ]
+  }, {
+    "blockSize" : 14,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "features/support/productCrudFixture.ts",
+        "extension" : "ts",
+        "linesOfCode" : 195,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 79,
+      "endLine" : 94,
+      "cleanedStartLine" : 55,
+      "cleanedEndLine" : 68
+    }, {
+      "file" : {
+        "relativePath" : "features/support/productCrudFixture.ts",
+        "extension" : "ts",
+        "linesOfCode" : 195,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 118,
+      "endLine" : 133,
+      "cleanedStartLine" : 85,
+      "cleanedEndLine" : 98
+    } ]
+  }, {
+    "blockSize" : 13,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/myorderslist/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 63,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 55,
+      "startLine" : 57,
+      "endLine" : 71,
+      "cleanedStartLine" : 37,
+      "cleanedEndLine" : 49
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 120,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 103,
+      "startLine" : 122,
+      "endLine" : 136,
+      "cleanedStartLine" : 84,
+      "cleanedEndLine" : 96
+    } ]
+  }, {
+    "blockSize" : 12,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/hooks/useOrderManager.ts",
+        "extension" : "ts",
+        "linesOfCode" : 127,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 109,
+      "startLine" : 138,
+      "endLine" : 149,
+      "cleanedStartLine" : 94,
+      "cleanedEndLine" : 105
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 120,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 103,
+      "startLine" : 130,
+      "endLine" : 141,
+      "cleanedStartLine" : 90,
+      "cleanedEndLine" : 101
+    } ]
+  }, {
+    "blockSize" : 12,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/lib/product-queries.ts",
+        "extension" : "ts",
+        "linesOfCode" : 24,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 21,
+      "startLine" : 5,
+      "endLine" : 16,
+      "cleanedStartLine" : 2,
+      "cleanedEndLine" : 13
+    }, {
+      "file" : {
+        "relativePath" : "features/support/productService.ts",
+        "extension" : "ts",
+        "linesOfCode" : 276,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 241,
+      "startLine" : 170,
+      "endLine" : 181,
+      "cleanedStartLine" : 124,
+      "cleanedEndLine" : 135
+    } ]
+  }, {
     "blockSize" : 11,
     "duplicatedFileBlocks" : [ {
       "file" : {
         "relativePath" : "features/support/browseService.ts",
         "extension" : "ts",
-        "linesOfCode" : 84,
+        "linesOfCode" : 117,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 71,
-      "startLine" : 30,
-      "endLine" : 41,
-      "cleanedStartLine" : 20,
-      "cleanedEndLine" : 30
+      "sourceFileCleanedLinesOfCode" : 97,
+      "startLine" : 48,
+      "endLine" : 59,
+      "cleanedStartLine" : 32,
+      "cleanedEndLine" : 42
     }, {
       "file" : {
         "relativePath" : "features/support/productService.ts",
         "extension" : "ts",
-        "linesOfCode" : 207,
+        "linesOfCode" : 276,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 179,
-      "startLine" : 52,
-      "endLine" : 63,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 45
+      "sourceFileCleanedLinesOfCode" : 241,
+      "startLine" : 67,
+      "endLine" : 78,
+      "cleanedStartLine" : 47,
+      "cleanedEndLine" : 57
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 266,
+      "endLine" : 274,
+      "cleanedStartLine" : 228,
+      "cleanedEndLine" : 236
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 299,
+      "endLine" : 307,
+      "cleanedStartLine" : 255,
+      "cleanedEndLine" : 263
     } ]
   }, {
     "blockSize" : 9,
@@ -63,6 +266,122 @@
     "blockSize" : 9,
     "duplicatedFileBlocks" : [ {
       "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 210,
+      "endLine" : 218,
+      "cleanedStartLine" : 182,
+      "cleanedEndLine" : 190
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 299,
+      "endLine" : 307,
+      "cleanedStartLine" : 255,
+      "cleanedEndLine" : 263
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/context-menu.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 214,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 196,
+      "startLine" : 126,
+      "endLine" : 134,
+      "cleanedStartLine" : 101,
+      "cleanedEndLine" : 109
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/dropdown-menu.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 219,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 201,
+      "startLine" : 74,
+      "endLine" : 82,
+      "cleanedStartLine" : 57,
+      "cleanedEndLine" : 65
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "features/support/productService.ts",
+        "extension" : "ts",
+        "linesOfCode" : 276,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 241,
+      "startLine" : 172,
+      "endLine" : 180,
+      "cleanedStartLine" : 126,
+      "cleanedEndLine" : 134
+    }, {
+      "file" : {
+        "relativePath" : "features/support/productService.ts",
+        "extension" : "ts",
+        "linesOfCode" : 276,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 241,
+      "startLine" : 182,
+      "endLine" : 190,
+      "cleanedStartLine" : 136,
+      "cleanedEndLine" : 144
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 210,
+      "endLine" : 218,
+      "cleanedStartLine" : 182,
+      "cleanedEndLine" : 190
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 266,
+      "endLine" : 274,
+      "cleanedStartLine" : 228,
+      "cleanedEndLine" : 236
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
         "relativePath" : "app/auth/[slug]/page.tsx",
         "extension" : "tsx",
         "linesOfCode" : 192,
@@ -87,6 +406,35 @@
       "endLine" : 112,
       "cleanedStartLine" : 73,
       "cleanedEndLine" : 81
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/lib/product-queries.ts",
+        "extension" : "ts",
+        "linesOfCode" : 24,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 21,
+      "startLine" : 7,
+      "endLine" : 15,
+      "cleanedStartLine" : 4,
+      "cleanedEndLine" : 12
+    }, {
+      "file" : {
+        "relativePath" : "features/support/productService.ts",
+        "extension" : "ts",
+        "linesOfCode" : 276,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 241,
+      "startLine" : 182,
+      "endLine" : 190,
+      "cleanedStartLine" : 136,
+      "cleanedEndLine" : 144
     } ]
   }, {
     "blockSize" : 9,
@@ -121,30 +469,59 @@
     "blockSize" : 9,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "components/ui/context-menu.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 214,
-        "components" : [ "primary::components" ],
+        "relativePath" : "features/support/browseService.ts",
+        "extension" : "ts",
+        "linesOfCode" : 117,
+        "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 196,
-      "startLine" : 126,
-      "endLine" : 134,
-      "cleanedStartLine" : 101,
-      "cleanedEndLine" : 109
+      "sourceFileCleanedLinesOfCode" : 97,
+      "startLine" : 22,
+      "endLine" : 34,
+      "cleanedStartLine" : 14,
+      "cleanedEndLine" : 22
     }, {
       "file" : {
-        "relativePath" : "components/ui/dropdown-menu.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 219,
-        "components" : [ "primary::components" ],
+        "relativePath" : "features/support/productService.ts",
+        "extension" : "ts",
+        "linesOfCode" : 276,
+        "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 201,
-      "startLine" : 74,
-      "endLine" : 82,
-      "cleanedStartLine" : 57,
-      "cleanedEndLine" : 65
+      "sourceFileCleanedLinesOfCode" : 241,
+      "startLine" : 17,
+      "endLine" : 29,
+      "cleanedStartLine" : 9,
+      "cleanedEndLine" : 17
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/hooks/useOrderManager.ts",
+        "extension" : "ts",
+        "linesOfCode" : 127,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 109,
+      "startLine" : 38,
+      "endLine" : 49,
+      "cleanedStartLine" : 20,
+      "cleanedEndLine" : 28
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 120,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 103,
+      "startLine" : 31,
+      "endLine" : 42,
+      "cleanedStartLine" : 16,
+      "cleanedEndLine" : 24
     } ]
   }, {
     "blockSize" : 9,
@@ -181,28 +558,86 @@
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 311,
+        "linesOfCode" : 326,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 308,
-      "startLine" : 134,
-      "endLine" : 141,
-      "cleanedStartLine" : 114,
-      "cleanedEndLine" : 121
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 123,
+      "endLine" : 130,
+      "cleanedStartLine" : 105,
+      "cleanedEndLine" : 112
     }, {
       "file" : {
         "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 311,
+        "linesOfCode" : 326,
         "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 308,
-      "startLine" : 168,
-      "endLine" : 175,
-      "cleanedStartLine" : 141,
-      "cleanedEndLine" : 148
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 162,
+      "endLine" : 169,
+      "cleanedStartLine" : 138,
+      "cleanedEndLine" : 145
+    } ]
+  }, {
+    "blockSize" : 8,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/item.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 179,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 162,
+      "startLine" : 45,
+      "endLine" : 52,
+      "cleanedStartLine" : 33,
+      "cleanedEndLine" : 40
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/toggle.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 38,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 33,
+      "startLine" : 22,
+      "endLine" : 29,
+      "cleanedStartLine" : 14,
+      "cleanedEndLine" : 21
+    } ]
+  }, {
+    "blockSize" : 8,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/button.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 58,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 53,
+      "startLine" : 37,
+      "endLine" : 44,
+      "cleanedStartLine" : 30,
+      "cleanedEndLine" : 37
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/sidebar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 635,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 586,
+      "startLine" : 489,
+      "endLine" : 496,
+      "cleanedStartLine" : 404,
+      "cleanedEndLine" : 411
     } ]
   }, {
     "blockSize" : 8,
@@ -353,35 +788,6 @@
     "blockSize" : 8,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "components/ui/item.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 179,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 162,
-      "startLine" : 45,
-      "endLine" : 52,
-      "cleanedStartLine" : 33,
-      "cleanedEndLine" : 40
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/toggle.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 38,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 33,
-      "startLine" : 22,
-      "endLine" : 29,
-      "cleanedStartLine" : 14,
-      "cleanedEndLine" : 21
-    } ]
-  }, {
-    "blockSize" : 8,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "components/ui/button.tsx",
         "extension" : "tsx",
         "linesOfCode" : 58,
@@ -406,35 +812,6 @@
       "endLine" : 52,
       "cleanedStartLine" : 33,
       "cleanedEndLine" : 40
-    } ]
-  }, {
-    "blockSize" : 8,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/button.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 58,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 53,
-      "startLine" : 37,
-      "endLine" : 44,
-      "cleanedStartLine" : 30,
-      "cleanedEndLine" : 37
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/sidebar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 635,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 586,
-      "startLine" : 489,
-      "endLine" : 496,
-      "cleanedStartLine" : 404,
-      "cleanedEndLine" : 411
     } ]
   }, {
     "blockSize" : 8,
@@ -498,93 +875,6 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "app/lib/products.ts",
-        "extension" : "ts",
-        "linesOfCode" : 59,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 49,
-      "startLine" : 22,
-      "endLine" : 28,
-      "cleanedStartLine" : 14,
-      "cleanedEndLine" : 20
-    }, {
-      "file" : {
-        "relativePath" : "app/lib/products.ts",
-        "extension" : "ts",
-        "linesOfCode" : 59,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 49,
-      "startLine" : 42,
-      "endLine" : 48,
-      "cleanedStartLine" : 30,
-      "cleanedEndLine" : 36
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "features/step_definitions/auth.steps.ts",
-        "extension" : "ts",
-        "linesOfCode" : 53,
-        "components" : [ "primary::features" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 50,
-      "startLine" : 3,
-      "endLine" : 9,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
-    }, {
-      "file" : {
-        "relativePath" : "features/step_definitions/productCrud.steps.ts",
-        "extension" : "ts",
-        "linesOfCode" : 122,
-        "components" : [ "primary::features" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 117,
-      "startLine" : 3,
-      "endLine" : 9,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "app/api/orders/create-payment/route.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 77,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 63,
-      "startLine" : 9,
-      "endLine" : 17,
-      "cleanedStartLine" : 2,
-      "cleanedEndLine" : 8
-    }, {
-      "file" : {
-        "relativePath" : "app/api/user/create-stripe-account/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 55,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 45,
-      "startLine" : 8,
-      "endLine" : 15,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "components/ui/alert.tsx",
         "extension" : "tsx",
         "linesOfCode" : 56,
@@ -616,11 +906,11 @@
       "file" : {
         "relativePath" : "features/step_definitions/product.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 170,
+        "linesOfCode" : 175,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 162,
+      "sourceFileCleanedLinesOfCode" : 167,
       "startLine" : 3,
       "endLine" : 9,
       "cleanedStartLine" : 1,
@@ -629,11 +919,11 @@
       "file" : {
         "relativePath" : "features/step_definitions/productCrud.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 122,
+        "linesOfCode" : 131,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 117,
+      "sourceFileCleanedLinesOfCode" : 126,
       "startLine" : 3,
       "endLine" : 9,
       "cleanedStartLine" : 1,
@@ -672,59 +962,30 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "components/ui/alert.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 56,
-        "components" : [ "primary::components" ],
+        "relativePath" : "features/support/browseService.ts",
+        "extension" : "ts",
+        "linesOfCode" : 117,
+        "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 50,
-      "startLine" : 14,
-      "endLine" : 20,
-      "cleanedStartLine" : 8,
-      "cleanedEndLine" : 14
+      "sourceFileCleanedLinesOfCode" : 97,
+      "startLine" : 117,
+      "endLine" : 123,
+      "cleanedStartLine" : 88,
+      "cleanedEndLine" : 94
     }, {
       "file" : {
-        "relativePath" : "components/ui/badge.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 37,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 32,
-      "startLine" : 20,
-      "endLine" : 26,
-      "cleanedStartLine" : 13,
-      "cleanedEndLine" : 19
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/replies/route.ts",
+        "relativePath" : "features/support/fixture-helpers.ts",
         "extension" : "ts",
-        "linesOfCode" : 74,
-        "components" : [ "primary::app" ],
+        "linesOfCode" : 51,
+        "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 60,
-      "startLine" : 43,
-      "endLine" : 50,
-      "cleanedStartLine" : 27,
-      "cleanedEndLine" : 33
-    }, {
-      "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 176,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 146,
-      "startLine" : 37,
-      "endLine" : 44,
-      "cleanedStartLine" : 23,
-      "cleanedEndLine" : 29
+      "sourceFileCleanedLinesOfCode" : 42,
+      "startLine" : 17,
+      "endLine" : 23,
+      "cleanedStartLine" : 12,
+      "cleanedEndLine" : 18
     } ]
   }, {
     "blockSize" : 7,
@@ -745,11 +1006,11 @@
       "file" : {
         "relativePath" : "features/step_definitions/productCrud.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 122,
+        "linesOfCode" : 131,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 117,
+      "sourceFileCleanedLinesOfCode" : 126,
       "startLine" : 3,
       "endLine" : 9,
       "cleanedStartLine" : 1,
@@ -783,64 +1044,6 @@
       "endLine" : 89,
       "cleanedStartLine" : 67,
       "cleanedEndLine" : 73
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/empty.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 95,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 86,
-      "startLine" : 38,
-      "endLine" : 44,
-      "cleanedStartLine" : 29,
-      "cleanedEndLine" : 35
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/item.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 179,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 162,
-      "startLine" : 83,
-      "endLine" : 89,
-      "cleanedStartLine" : 67,
-      "cleanedEndLine" : 73
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "features/step_definitions/productCrud.steps.ts",
-        "extension" : "ts",
-        "linesOfCode" : 122,
-        "components" : [ "primary::features" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 117,
-      "startLine" : 98,
-      "endLine" : 105,
-      "cleanedStartLine" : 80,
-      "cleanedEndLine" : 86
-    }, {
-      "file" : {
-        "relativePath" : "features/step_definitions/upload.steps.ts",
-        "extension" : "ts",
-        "linesOfCode" : 116,
-        "components" : [ "primary::features" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 110,
-      "startLine" : 72,
-      "endLine" : 79,
-      "cleanedStartLine" : 58,
-      "cleanedEndLine" : 64
     } ]
   }, {
     "blockSize" : 7,
@@ -870,64 +1073,6 @@
       "endLine" : 9,
       "cleanedStartLine" : 1,
       "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/command.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 172,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 158,
-      "startLine" : 165,
-      "endLine" : 171,
-      "cleanedStartLine" : 141,
-      "cleanedEndLine" : 147
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/menubar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 257,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 237,
-      "startLine" : 204,
-      "endLine" : 210,
-      "cleanedStartLine" : 173,
-      "cleanedEndLine" : 179
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "app/myproduct/_hooks/postStates.ts",
-        "extension" : "ts",
-        "linesOfCode" : 174,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::TODOs" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 153,
-      "startLine" : 207,
-      "endLine" : 213,
-      "cleanedStartLine" : 143,
-      "cleanedEndLine" : 149
-    }, {
-      "file" : {
-        "relativePath" : "app/myproduct/page.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 96,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 88,
-      "startLine" : 14,
-      "endLine" : 20,
-      "cleanedStartLine" : 5,
-      "cleanedEndLine" : 11
     } ]
   }, {
     "blockSize" : 7,
@@ -962,59 +1107,59 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "features/step_definitions/auth.steps.ts",
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 53,
-        "components" : [ "primary::features" ],
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 50,
-      "startLine" : 3,
-      "endLine" : 9,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 211,
+      "endLine" : 217,
+      "cleanedStartLine" : 183,
+      "cleanedEndLine" : 189
     }, {
       "file" : {
-        "relativePath" : "features/step_definitions/product.steps.ts",
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
         "extension" : "ts",
-        "linesOfCode" : 170,
-        "components" : [ "primary::features" ],
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 162,
-      "startLine" : 3,
-      "endLine" : 9,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 435,
+      "endLine" : 441,
+      "cleanedStartLine" : 300,
+      "cleanedEndLine" : 306
     } ]
   }, {
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "components/ui/context-menu.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 214,
-        "components" : [ "primary::components" ],
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 196,
-      "startLine" : 171,
-      "endLine" : 177,
-      "cleanedStartLine" : 142,
-      "cleanedEndLine" : 148
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 267,
+      "endLine" : 273,
+      "cleanedStartLine" : 229,
+      "cleanedEndLine" : 235
     }, {
       "file" : {
-        "relativePath" : "components/ui/dropdown-menu.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 219,
-        "components" : [ "primary::components" ],
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 201,
-      "startLine" : 130,
-      "endLine" : 136,
-      "cleanedStartLine" : 107,
-      "cleanedEndLine" : 113
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 435,
+      "endLine" : 441,
+      "cleanedStartLine" : 300,
+      "cleanedEndLine" : 306
     } ]
   }, {
     "blockSize" : 7,
@@ -1022,11 +1167,11 @@
       "file" : {
         "relativePath" : "features/step_definitions/productCrud.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 122,
+        "linesOfCode" : 131,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 117,
+      "sourceFileCleanedLinesOfCode" : 126,
       "startLine" : 3,
       "endLine" : 9,
       "cleanedStartLine" : 1,
@@ -1035,73 +1180,15 @@
       "file" : {
         "relativePath" : "features/step_definitions/upload.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 116,
+        "linesOfCode" : 119,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 110,
+      "sourceFileCleanedLinesOfCode" : 113,
       "startLine" : 4,
       "endLine" : 10,
       "cleanedStartLine" : 1,
       "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/alert-dialog.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 126,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 112,
-      "startLine" : 38,
-      "endLine" : 44,
-      "cleanedStartLine" : 25,
-      "cleanedEndLine" : 31
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/dialog.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 125,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 112,
-      "startLine" : 38,
-      "endLine" : 44,
-      "cleanedStartLine" : 25,
-      "cleanedEndLine" : 31
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 311,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 308,
-      "startLine" : 112,
-      "endLine" : 118,
-      "cleanedStartLine" : 94,
-      "cleanedEndLine" : 100
-    }, {
-      "file" : {
-        "relativePath" : "cypress/e2e/complete_test.cy.ts",
-        "extension" : "ts",
-        "linesOfCode" : 311,
-        "components" : [ "primary::cypress" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 308,
-      "startLine" : 125,
-      "endLine" : 131,
-      "cleanedStartLine" : 106,
-      "cleanedEndLine" : 112
     } ]
   }, {
     "blockSize" : 7,
@@ -1136,64 +1223,6 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "components/ui/badge.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 37,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 32,
-      "startLine" : 20,
-      "endLine" : 26,
-      "cleanedStartLine" : 13,
-      "cleanedEndLine" : 19
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/empty.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 95,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 86,
-      "startLine" : 38,
-      "endLine" : 44,
-      "cleanedStartLine" : 29,
-      "cleanedEndLine" : 35
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/drawer.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 107,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 95,
-      "startLine" : 39,
-      "endLine" : 45,
-      "cleanedStartLine" : 25,
-      "cleanedEndLine" : 31
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/sheet.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 113,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 100,
-      "startLine" : 38,
-      "endLine" : 44,
-      "cleanedStartLine" : 23,
-      "cleanedEndLine" : 29
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "components/ui/dialog.tsx",
         "extension" : "tsx",
         "linesOfCode" : 125,
@@ -1223,6 +1252,35 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
+        "relativePath" : "features/step_definitions/auth.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 53,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 50,
+      "startLine" : 3,
+      "endLine" : 9,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    }, {
+      "file" : {
+        "relativePath" : "features/step_definitions/upload.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 119,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 113,
+      "startLine" : 4,
+      "endLine" : 10,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
         "relativePath" : "app/product/[slug]/components/Modal.tsx",
         "extension" : "tsx",
         "linesOfCode" : 77,
@@ -1245,35 +1303,6 @@
       "sourceFileCleanedLinesOfCode" : 158,
       "startLine" : 1,
       "endLine" : 14,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "features/step_definitions/auth.steps.ts",
-        "extension" : "ts",
-        "linesOfCode" : 53,
-        "components" : [ "primary::features" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 50,
-      "startLine" : 3,
-      "endLine" : 9,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
-    }, {
-      "file" : {
-        "relativePath" : "features/step_definitions/upload.steps.ts",
-        "extension" : "ts",
-        "linesOfCode" : 116,
-        "components" : [ "primary::features" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 110,
-      "startLine" : 4,
-      "endLine" : 10,
       "cleanedStartLine" : 1,
       "cleanedEndLine" : 7
     } ]
@@ -1339,35 +1368,6 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "components/ui/command.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 172,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 158,
-      "startLine" : 165,
-      "endLine" : 171,
-      "cleanedStartLine" : 141,
-      "cleanedEndLine" : 147
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/dropdown-menu.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 219,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 201,
-      "startLine" : 186,
-      "endLine" : 192,
-      "cleanedStartLine" : 157,
-      "cleanedEndLine" : 163
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "components/ui/alert-dialog.tsx",
         "extension" : "tsx",
         "linesOfCode" : 126,
@@ -1426,13 +1426,506 @@
     "blockSize" : 7,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "features/step_definitions/product.steps.ts",
+        "relativePath" : "features/step_definitions/browse.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 170,
+        "linesOfCode" : 71,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
+      "sourceFileCleanedLinesOfCode" : 66,
+      "startLine" : 3,
+      "endLine" : 9,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    }, {
+      "file" : {
+        "relativePath" : "features/step_definitions/product.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 175,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 167,
+      "startLine" : 3,
+      "endLine" : 9,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/lib/products.ts",
+        "extension" : "ts",
+        "linesOfCode" : 59,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 49,
+      "startLine" : 22,
+      "endLine" : 28,
+      "cleanedStartLine" : 14,
+      "cleanedEndLine" : 20
+    }, {
+      "file" : {
+        "relativePath" : "app/lib/products.ts",
+        "extension" : "ts",
+        "linesOfCode" : 59,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 49,
+      "startLine" : 42,
+      "endLine" : 48,
+      "cleanedStartLine" : 30,
+      "cleanedEndLine" : 36
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "features/step_definitions/auth.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 53,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 50,
+      "startLine" : 3,
+      "endLine" : 9,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    }, {
+      "file" : {
+        "relativePath" : "features/step_definitions/productCrud.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 131,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 126,
+      "startLine" : 3,
+      "endLine" : 9,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/api/orders/create-payment/route.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 77,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 63,
+      "startLine" : 9,
+      "endLine" : 17,
+      "cleanedStartLine" : 2,
+      "cleanedEndLine" : 8
+    }, {
+      "file" : {
+        "relativePath" : "app/api/user/create-stripe-account/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 55,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 45,
+      "startLine" : 8,
+      "endLine" : 15,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/hooks/useOrderManager.ts",
+        "extension" : "ts",
+        "linesOfCode" : 127,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 109,
+      "startLine" : 138,
+      "endLine" : 144,
+      "cleanedStartLine" : 94,
+      "cleanedEndLine" : 100
+    }, {
+      "file" : {
+        "relativePath" : "app/myorderslist/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 63,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 55,
+      "startLine" : 65,
+      "endLine" : 71,
+      "cleanedStartLine" : 43,
+      "cleanedEndLine" : 49
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/alert.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 56,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 50,
+      "startLine" : 14,
+      "endLine" : 20,
+      "cleanedStartLine" : 8,
+      "cleanedEndLine" : 14
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/badge.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 37,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 32,
+      "startLine" : 20,
+      "endLine" : 26,
+      "cleanedStartLine" : 13,
+      "cleanedEndLine" : 19
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/replies/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 74,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 60,
+      "startLine" : 43,
+      "endLine" : 50,
+      "cleanedStartLine" : 27,
+      "cleanedEndLine" : 33
+    }, {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 176,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 146,
+      "startLine" : 37,
+      "endLine" : 44,
+      "cleanedStartLine" : 23,
+      "cleanedEndLine" : 29
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/empty.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 95,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 86,
+      "startLine" : 38,
+      "endLine" : 44,
+      "cleanedStartLine" : 29,
+      "cleanedEndLine" : 35
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/item.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 179,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
       "sourceFileCleanedLinesOfCode" : 162,
+      "startLine" : 83,
+      "endLine" : 89,
+      "cleanedStartLine" : 67,
+      "cleanedEndLine" : 73
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/command.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 172,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 165,
+      "endLine" : 171,
+      "cleanedStartLine" : 141,
+      "cleanedEndLine" : 147
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/menubar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 257,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 237,
+      "startLine" : 204,
+      "endLine" : 210,
+      "cleanedStartLine" : 173,
+      "cleanedEndLine" : 179
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/myproduct/_hooks/postStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 174,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::TODOs" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 153,
+      "startLine" : 207,
+      "endLine" : 213,
+      "cleanedStartLine" : 143,
+      "cleanedEndLine" : 149
+    }, {
+      "file" : {
+        "relativePath" : "app/myproduct/page.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 96,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 88,
+      "startLine" : 14,
+      "endLine" : 20,
+      "cleanedStartLine" : 5,
+      "cleanedEndLine" : 11
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "features/step_definitions/auth.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 53,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 50,
+      "startLine" : 3,
+      "endLine" : 9,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    }, {
+      "file" : {
+        "relativePath" : "features/step_definitions/product.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 175,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 167,
+      "startLine" : 3,
+      "endLine" : 9,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/context-menu.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 214,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 196,
+      "startLine" : 171,
+      "endLine" : 177,
+      "cleanedStartLine" : 142,
+      "cleanedEndLine" : 148
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/dropdown-menu.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 219,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 201,
+      "startLine" : 130,
+      "endLine" : 136,
+      "cleanedStartLine" : 107,
+      "cleanedEndLine" : 113
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/alert-dialog.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 126,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 112,
+      "startLine" : 38,
+      "endLine" : 44,
+      "cleanedStartLine" : 25,
+      "cleanedEndLine" : 31
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/dialog.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 125,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 112,
+      "startLine" : 38,
+      "endLine" : 44,
+      "cleanedStartLine" : 25,
+      "cleanedEndLine" : 31
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/badge.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 37,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 32,
+      "startLine" : 20,
+      "endLine" : 26,
+      "cleanedStartLine" : 13,
+      "cleanedEndLine" : 19
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/empty.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 95,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 86,
+      "startLine" : 38,
+      "endLine" : 44,
+      "cleanedStartLine" : 29,
+      "cleanedEndLine" : 35
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 300,
+      "endLine" : 306,
+      "cleanedStartLine" : 256,
+      "cleanedEndLine" : 262
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 435,
+      "endLine" : 441,
+      "cleanedStartLine" : 300,
+      "cleanedEndLine" : 306
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/drawer.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 107,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 95,
+      "startLine" : 39,
+      "endLine" : 45,
+      "cleanedStartLine" : 25,
+      "cleanedEndLine" : 31
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/sheet.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 113,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 100,
+      "startLine" : 38,
+      "endLine" : 44,
+      "cleanedStartLine" : 23,
+      "cleanedEndLine" : 29
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/command.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 172,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 165,
+      "endLine" : 171,
+      "cleanedStartLine" : 141,
+      "cleanedEndLine" : 147
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/dropdown-menu.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 219,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 201,
+      "startLine" : 186,
+      "endLine" : 192,
+      "cleanedStartLine" : 157,
+      "cleanedEndLine" : 163
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "features/step_definitions/product.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 175,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 167,
       "startLine" : 3,
       "endLine" : 9,
       "cleanedStartLine" : 1,
@@ -1441,15 +1934,44 @@
       "file" : {
         "relativePath" : "features/step_definitions/upload.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 116,
+        "linesOfCode" : 119,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 110,
+      "sourceFileCleanedLinesOfCode" : 113,
       "startLine" : 4,
       "endLine" : 10,
       "cleanedStartLine" : 1,
       "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "features/step_definitions/productCrud.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 131,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 126,
+      "startLine" : 107,
+      "endLine" : 114,
+      "cleanedStartLine" : 89,
+      "cleanedEndLine" : 95
+    }, {
+      "file" : {
+        "relativePath" : "features/step_definitions/upload.steps.ts",
+        "extension" : "ts",
+        "linesOfCode" : 119,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 113,
+      "startLine" : 72,
+      "endLine" : 79,
+      "cleanedStartLine" : 58,
+      "cleanedEndLine" : 64
     } ]
   }, {
     "blockSize" : 7,
@@ -1499,73 +2021,15 @@
       "file" : {
         "relativePath" : "features/step_definitions/upload.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 116,
+        "linesOfCode" : 119,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 110,
+      "sourceFileCleanedLinesOfCode" : 113,
       "startLine" : 4,
       "endLine" : 10,
       "cleanedStartLine" : 1,
       "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 7,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "features/step_definitions/browse.steps.ts",
-        "extension" : "ts",
-        "linesOfCode" : 71,
-        "components" : [ "primary::features" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 66,
-      "startLine" : 3,
-      "endLine" : 9,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
-    }, {
-      "file" : {
-        "relativePath" : "features/step_definitions/product.steps.ts",
-        "extension" : "ts",
-        "linesOfCode" : 170,
-        "components" : [ "primary::features" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 162,
-      "startLine" : 3,
-      "endLine" : 9,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/carousel.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 204,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 191,
-      "startLine" : 148,
-      "endLine" : 153,
-      "cleanedStartLine" : 118,
-      "cleanedEndLine" : 123
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/command.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 172,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 158,
-      "startLine" : 77,
-      "endLine" : 82,
-      "cleanedStartLine" : 65,
-      "cleanedEndLine" : 70
     } ]
   }, {
     "blockSize" : 6,
@@ -1629,35 +2093,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "components/ui/sidebar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 635,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 586,
-      "startLine" : 594,
-      "endLine" : 599,
-      "cleanedStartLine" : 496,
-      "cleanedEndLine" : 501
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/sidebar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 635,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 586,
-      "startLine" : 647,
-      "endLine" : 652,
-      "cleanedStartLine" : 542,
-      "cleanedEndLine" : 547
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "app/myproduct/page.tsx",
         "extension" : "tsx",
         "linesOfCode" : 96,
@@ -1716,59 +2151,59 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "app/myproduct/_components/PostList.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 165,
-        "components" : [ "primary::app" ],
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 149,
-      "startLine" : 69,
-      "endLine" : 74,
-      "cleanedStartLine" : 46,
-      "cleanedEndLine" : 51
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 165,
+      "endLine" : 170,
+      "cleanedStartLine" : 141,
+      "cleanedEndLine" : 146
     }, {
       "file" : {
-        "relativePath" : "app/myproduct/_components/PostList.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 165,
-        "components" : [ "primary::app" ],
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 149,
-      "startLine" : 89,
-      "endLine" : 94,
-      "cleanedStartLine" : 64,
-      "cleanedEndLine" : 69
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 302,
+      "endLine" : 307,
+      "cleanedStartLine" : 258,
+      "cleanedEndLine" : 263
     } ]
   }, {
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "components/ui/empty.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 95,
-        "components" : [ "primary::components" ],
+        "relativePath" : "features/support/productCrudFixture.ts",
+        "extension" : "ts",
+        "linesOfCode" : 195,
+        "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 86,
-      "startLine" : 90,
-      "endLine" : 97,
-      "cleanedStartLine" : 74,
-      "cleanedEndLine" : 79
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 58,
+      "endLine" : 63,
+      "cleanedStartLine" : 39,
+      "cleanedEndLine" : 44
     }, {
       "file" : {
-        "relativePath" : "components/ui/menubar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 257,
-        "components" : [ "primary::components" ],
+        "relativePath" : "features/support/productCrudFixture.ts",
+        "extension" : "ts",
+        "linesOfCode" : 195,
+        "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 237,
-      "startLine" : 252,
-      "endLine" : 259,
-      "cleanedStartLine" : 215,
-      "cleanedEndLine" : 220
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 118,
+      "endLine" : 123,
+      "cleanedStartLine" : 85,
+      "cleanedEndLine" : 90
     } ]
   }, {
     "blockSize" : 6,
@@ -1798,35 +2233,6 @@
       "endLine" : 87,
       "cleanedStartLine" : 69,
       "cleanedEndLine" : 74
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/command.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 172,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 158,
-      "startLine" : 167,
-      "endLine" : 174,
-      "cleanedStartLine" : 143,
-      "cleanedEndLine" : 148
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/menubar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 257,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 237,
-      "startLine" : 252,
-      "endLine" : 259,
-      "cleanedStartLine" : 215,
-      "cleanedEndLine" : 220
     } ]
   }, {
     "blockSize" : 6,
@@ -1948,6 +2354,499 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 176,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 146,
+      "startLine" : 38,
+      "endLine" : 44,
+      "cleanedStartLine" : 24,
+      "cleanedEndLine" : 29
+    }, {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 176,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 146,
+      "startLine" : 177,
+      "endLine" : 183,
+      "cleanedStartLine" : 119,
+      "cleanedEndLine" : 124
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 165,
+      "endLine" : 170,
+      "cleanedStartLine" : 141,
+      "cleanedEndLine" : 146
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 213,
+      "endLine" : 218,
+      "cleanedStartLine" : 185,
+      "cleanedEndLine" : 190
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "features/support/productCrudFixture.ts",
+        "extension" : "ts",
+        "linesOfCode" : 195,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 58,
+      "endLine" : 63,
+      "cleanedStartLine" : 39,
+      "cleanedEndLine" : 44
+    }, {
+      "file" : {
+        "relativePath" : "features/support/productCrudFixture.ts",
+        "extension" : "ts",
+        "linesOfCode" : 195,
+        "components" : [ "primary::features" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 79,
+      "endLine" : 84,
+      "cleanedStartLine" : 55,
+      "cleanedEndLine" : 60
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/myorderslist/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 63,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 55,
+      "startLine" : 1,
+      "endLine" : 13,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 6
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 120,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 103,
+      "startLine" : 1,
+      "endLine" : 13,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 6
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/myorderslist/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 63,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 55,
+      "startLine" : 72,
+      "endLine" : 77,
+      "cleanedStartLine" : 50,
+      "cleanedEndLine" : 55
+    }, {
+      "file" : {
+        "relativePath" : "app/orders/_hooks/orderStates.ts",
+        "extension" : "ts",
+        "linesOfCode" : 120,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 103,
+      "startLine" : 138,
+      "endLine" : 143,
+      "cleanedStartLine" : 98,
+      "cleanedEndLine" : 103
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/sidebar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 635,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 586,
+      "startLine" : 432,
+      "endLine" : 437,
+      "cleanedStartLine" : 356,
+      "cleanedEndLine" : 361
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/sidebar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 635,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 586,
+      "startLine" : 647,
+      "endLine" : 652,
+      "cleanedStartLine" : 542,
+      "cleanedEndLine" : 547
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/dropdown-menu.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 219,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 201,
+      "startLine" : 96,
+      "endLine" : 101,
+      "cleanedStartLine" : 77,
+      "cleanedEndLine" : 82
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/menubar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 257,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 237,
+      "startLine" : 125,
+      "endLine" : 130,
+      "cleanedStartLine" : 102,
+      "cleanedEndLine" : 107
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 176,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 146,
+      "startLine" : 38,
+      "endLine" : 44,
+      "cleanedStartLine" : 24,
+      "cleanedEndLine" : 29
+    }, {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 176,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 146,
+      "startLine" : 106,
+      "endLine" : 112,
+      "cleanedStartLine" : 71,
+      "cleanedEndLine" : 76
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/api/product/user/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 87,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 72,
+      "startLine" : 16,
+      "endLine" : 29,
+      "cleanedStartLine" : 9,
+      "cleanedEndLine" : 14
+    }, {
+      "file" : {
+        "relativePath" : "app/api/product/user/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 87,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 72,
+      "startLine" : 78,
+      "endLine" : 84,
+      "cleanedStartLine" : 52,
+      "cleanedEndLine" : 57
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 176,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 146,
+      "startLine" : 17,
+      "endLine" : 23,
+      "cleanedStartLine" : 8,
+      "cleanedEndLine" : 13
+    }, {
+      "file" : {
+        "relativePath" : "app/api/product/[slug]/route.ts",
+        "extension" : "ts",
+        "linesOfCode" : 36,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 28,
+      "startLine" : 9,
+      "endLine" : 14,
+      "cleanedStartLine" : 2,
+      "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/product/[slug]/components/Comment.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 275,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 270,
+      "startLine" : 95,
+      "endLine" : 100,
+      "cleanedStartLine" : 83,
+      "cleanedEndLine" : 88
+    }, {
+      "file" : {
+        "relativePath" : "app/product/[slug]/components/Comment.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 275,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 270,
+      "startLine" : 116,
+      "endLine" : 121,
+      "cleanedStartLine" : 104,
+      "cleanedEndLine" : 109
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/carousel.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 204,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 191,
+      "startLine" : 148,
+      "endLine" : 153,
+      "cleanedStartLine" : 118,
+      "cleanedEndLine" : 123
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/command.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 172,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 77,
+      "endLine" : 82,
+      "cleanedStartLine" : 65,
+      "cleanedEndLine" : 70
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/sidebar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 635,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 586,
+      "startLine" : 594,
+      "endLine" : 599,
+      "cleanedStartLine" : 496,
+      "cleanedEndLine" : 501
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/sidebar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 635,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 586,
+      "startLine" : 647,
+      "endLine" : 652,
+      "cleanedStartLine" : 542,
+      "cleanedEndLine" : 547
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "app/myproduct/_components/PostList.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 165,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 149,
+      "startLine" : 69,
+      "endLine" : 74,
+      "cleanedStartLine" : 46,
+      "cleanedEndLine" : 51
+    }, {
+      "file" : {
+        "relativePath" : "app/myproduct/_components/PostList.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 165,
+        "components" : [ "primary::app" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 149,
+      "startLine" : 89,
+      "endLine" : 94,
+      "cleanedStartLine" : 64,
+      "cleanedEndLine" : 69
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/empty.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 95,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 86,
+      "startLine" : 90,
+      "endLine" : 97,
+      "cleanedStartLine" : 74,
+      "cleanedEndLine" : 79
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/menubar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 257,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 237,
+      "startLine" : 252,
+      "endLine" : 259,
+      "cleanedStartLine" : 215,
+      "cleanedEndLine" : 220
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "components/ui/command.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 172,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 158,
+      "startLine" : 167,
+      "endLine" : 174,
+      "cleanedStartLine" : 143,
+      "cleanedEndLine" : 148
+    }, {
+      "file" : {
+        "relativePath" : "components/ui/menubar.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 257,
+        "components" : [ "primary::components" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 237,
+      "startLine" : 252,
+      "endLine" : 259,
+      "cleanedStartLine" : 215,
+      "cleanedEndLine" : 220
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 165,
+      "endLine" : 170,
+      "cleanedStartLine" : 141,
+      "cleanedEndLine" : 146
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/complete_test.cy.ts",
+        "extension" : "ts",
+        "linesOfCode" : 326,
+        "components" : [ "primary::cypress" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 322,
+      "startLine" : 269,
+      "endLine" : 274,
+      "cleanedStartLine" : 231,
+      "cleanedEndLine" : 236
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
         "relativePath" : "components/ui/item.tsx",
         "extension" : "tsx",
         "linesOfCode" : 179,
@@ -2064,42 +2963,13 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 176,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 146,
-      "startLine" : 38,
-      "endLine" : 44,
-      "cleanedStartLine" : 24,
-      "cleanedEndLine" : 29
-    }, {
-      "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 176,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 146,
-      "startLine" : 177,
-      "endLine" : 183,
-      "cleanedStartLine" : 119,
-      "cleanedEndLine" : 124
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "features/step_definitions/product.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 170,
+        "linesOfCode" : 175,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 162,
+      "sourceFileCleanedLinesOfCode" : 167,
       "startLine" : 121,
       "endLine" : 126,
       "cleanedStartLine" : 102,
@@ -2108,44 +2978,15 @@
       "file" : {
         "relativePath" : "features/step_definitions/product.steps.ts",
         "extension" : "ts",
-        "linesOfCode" : 170,
+        "linesOfCode" : 175,
         "components" : [ "primary::features" ],
         "concerns" : [ "::Unclassified" ]
       },
-      "sourceFileCleanedLinesOfCode" : 162,
-      "startLine" : 140,
-      "endLine" : 145,
-      "cleanedStartLine" : 119,
-      "cleanedEndLine" : 124
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/sidebar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 635,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 586,
-      "startLine" : 432,
-      "endLine" : 437,
-      "cleanedStartLine" : 356,
-      "cleanedEndLine" : 361
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/sidebar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 635,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 586,
-      "startLine" : 647,
-      "endLine" : 652,
-      "cleanedStartLine" : 542,
-      "cleanedEndLine" : 547
+      "sourceFileCleanedLinesOfCode" : 167,
+      "startLine" : 143,
+      "endLine" : 148,
+      "cleanedStartLine" : 122,
+      "cleanedEndLine" : 127
     } ]
   }, {
     "blockSize" : 6,
@@ -2175,35 +3016,6 @@
       "endLine" : 103,
       "cleanedStartLine" : 79,
       "cleanedEndLine" : 84
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "components/ui/dropdown-menu.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 219,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 201,
-      "startLine" : 96,
-      "endLine" : 101,
-      "cleanedStartLine" : 77,
-      "cleanedEndLine" : 82
-    }, {
-      "file" : {
-        "relativePath" : "components/ui/menubar.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 257,
-        "components" : [ "primary::components" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 237,
-      "startLine" : 125,
-      "endLine" : 130,
-      "cleanedStartLine" : 102,
-      "cleanedEndLine" : 107
     } ]
   }, {
     "blockSize" : 6,
@@ -2296,64 +3108,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 176,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 146,
-      "startLine" : 38,
-      "endLine" : 44,
-      "cleanedStartLine" : 24,
-      "cleanedEndLine" : 29
-    }, {
-      "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 176,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 146,
-      "startLine" : 106,
-      "endLine" : 112,
-      "cleanedStartLine" : 71,
-      "cleanedEndLine" : 76
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "app/api/product/user/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 87,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 72,
-      "startLine" : 16,
-      "endLine" : 29,
-      "cleanedStartLine" : 9,
-      "cleanedEndLine" : 14
-    }, {
-      "file" : {
-        "relativePath" : "app/api/product/user/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 87,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 72,
-      "startLine" : 78,
-      "endLine" : 84,
-      "cleanedStartLine" : 52,
-      "cleanedEndLine" : 57
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "components/ui/sidebar.tsx",
         "extension" : "tsx",
         "linesOfCode" : 635,
@@ -2378,64 +3132,6 @@
       "endLine" : 599,
       "cleanedStartLine" : 496,
       "cleanedEndLine" : 501
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "app/api/product/[slug]/reviews/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 176,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 146,
-      "startLine" : 17,
-      "endLine" : 23,
-      "cleanedStartLine" : 8,
-      "cleanedEndLine" : 13
-    }, {
-      "file" : {
-        "relativePath" : "app/api/product/[slug]/route.ts",
-        "extension" : "ts",
-        "linesOfCode" : 36,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 28,
-      "startLine" : 9,
-      "endLine" : 14,
-      "cleanedStartLine" : 2,
-      "cleanedEndLine" : 7
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "app/product/[slug]/components/Comment.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 275,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 270,
-      "startLine" : 95,
-      "endLine" : 100,
-      "cleanedStartLine" : 83,
-      "cleanedEndLine" : 88
-    }, {
-      "file" : {
-        "relativePath" : "app/product/[slug]/components/Comment.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 275,
-        "components" : [ "primary::app" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 270,
-      "startLine" : 116,
-      "endLine" : 121,
-      "cleanedStartLine" : 104,
-      "cleanedEndLine" : 109
     } ]
   }, {
     "blockSize" : 6,

@@ -12,8 +12,10 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">features/support/browseService.ts (<b>84</b> lines of code) (<a href="browseService.ts">raw</a>):</h3>
-<div id="editor">import { Prisma } from &quot;@prisma/client&quot;;
+<h3 style="margin-bottom: 0">features/support/browseService.ts (<b>117</b> lines of code) (<a href="browseService.ts">raw</a>):</h3>
+<div id="editor">import { Category, Prisma } from &quot;@prisma/client&quot;;
+import bcrypt from &quot;bcryptjs&quot;;
+import { randomUUID } from &quot;crypto&quot;;
 import { prisma } from &quot;../../lib/prisma.ts&quot;;
 
 type ProductInputRow = Record&lt;string, string&gt;;
@@ -28,8 +30,24 @@ export type ProductRecord = Prisma.postsGetPayload&lt;{
   };
 }&gt;;
 
-import { parseCategory, parsePrice } from &quot;./parsing-helpers&quot;;
-import { ensureFixtureUser, cleanupEntities } from &quot;./fixture-helpers&quot;;
+function parseCategory(value: string | undefined): Category {
+  if (!value) {
+    throw new Error(&quot;Category is required for each product row&quot;);
+  }
+  const normalized = value.trim() as Category;
+  if (!Object.values(Category).includes(normalized)) {
+    throw new Error(`Unknown category &quot;${value}&quot;`);
+  }
+  return normalized;
+}
+
+function parsePrice(value: string | undefined): number {
+  const parsed = Number(value);
+  if (Number.isNaN(parsed)) {
+    throw new Error(`Invalid price &quot;${value}&quot;`);
+  }
+  return parsed;
+}
 
 class BrowseService {
   private userId: string | null = null;
@@ -88,22 +106,38 @@ class BrowseService {
   }
 
   async cleanup() {
-    await cleanupEntities(prisma, {
-      productIds: this.productIds,
-      userId: this.userId,
-    });
-    this.productIds = [];
-    this.userId = null;
+    if (this.productIds.length &gt; 0) {
+      await prisma.posts.deleteMany({
+        where: { id: { in: this.productIds } },
+      });
+      this.productIds = [];
+    }
+    if (this.userId) {
+      await prisma.users
+        .delete({
+          where: { id: this.userId },
+        })
+        .catch(() =&gt; null);
+      this.userId = null;
+    }
   }
 
   private async ensureOwner() {
-    const { userId } = await ensureFixtureUser(
-      this.userId,
-      &quot;Browse Fixture&quot;,
-      &quot;browse&quot;,
-    );
-    this.userId = userId;
-    return userId;
+    if (this.userId) return this.userId;
+    const hashed = await bcrypt.hash(&quot;BrowsePass123!&quot;, 10);
+    const user = await prisma.users.create({
+      data: {
+        name: &quot;Browse Fixture&quot;,
+        email: `browse-${randomUUID()}@example.com`,
+        password: hashed,
+        country: &quot;US&quot;,
+      },
+      select: {
+        id: true,
+      },
+    });
+    this.userId = user.id;
+    return user.id;
   }
 }
 

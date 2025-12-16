@@ -1,69 +1,35 @@
-app/api/product/[slug]/reviews/route.ts [49:77]:
+app/lib/product-queries.ts [5:16]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
+  const product = await prisma.posts.findUnique({
+    where: { id: slug },
+    include: {
+      users: {
+        select: {
+          id: true,
+          name: true,
+          country: true,
+          email: true,
         },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              orderBy: { date: "asc" },
-              include: {
-                users: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
-            },
-          },
-        },
+      },
+      reviews: {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/product/[slug]/reviews/route.ts [308:336]:
+features/support/productService.ts [170:181]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              orderBy: { date: "asc" },
-              include: {
-                users: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
+      const product = await prisma.posts.findUnique({
+        where: { id: slug },
+        include: {
+          users: {
+            select: {
+              id: true,
+              name: true,
+              country: true,
+              email: true,
             },
           },
-        },
+          reviews: {
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

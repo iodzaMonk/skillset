@@ -26,7 +26,7 @@ enum Status {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model commands {
- id          String       @id @unique @default(cuid())
+  id          String       @id @unique @default(cuid())
   client_id   String
   product_id  String
   date        DateTime    @db.Date

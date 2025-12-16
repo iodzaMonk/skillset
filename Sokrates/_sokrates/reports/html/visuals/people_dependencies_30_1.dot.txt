@@ -26,8 +26,8 @@ graph G {
 
 
 
-    "bramomoh06@gmail.com" -- "iodzamonkmode@gmail.com" [label=" 135 ", penwidth="10", color="#00688bFF"];
-    "iodzamonkmode@gmail.com" -- "2396208@cmontmorency.qc.ca" [label=" 2 ", penwidth="1", color="#00688b4C"];
-    "bramomoh06@gmail.com" -- "2396208@cmontmorency.qc.ca" [label=" 2 ", penwidth="1", color="#00688b4C"];
+    "bramomoh06@gmail.com" -- "iodzamonkmode@gmail.com" [label=" 34 ", penwidth="10", color="#00688bFF"];
+    "iodzamonkmode@gmail.com" -- "nazim071305@gmail.com" [label=" 9 ", penwidth="2", color="#00688b70"];
+    "nazim071305@gmail.com" -- "bramomoh06@gmail.com" [label=" 5 ", penwidth="1", color="#00688b5E"];
 
 }

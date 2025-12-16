@@ -1,44 +1,52 @@
 <html>
 <head>
-    <title>export function handleApiError()</title>
+    <title>export async function POST()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export function handleApiError()</h3>
-<p style="margin-top: 4px">in <i>app/lib/api-response.ts [14:40]</i></p>
+<h3 style="margin-bottom: 0">export async function POST()</h3>
+<p style="margin-top: 4px">in <i>app/api/user/login/route.ts [5:39]</i></p>
 <ul>
-    <li><b>25</b> lines of code</li>
+    <li><b>31</b> lines of code</li>
     <li><b>5</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export function handleApiError(error: unknown, referer: string) {
-  if (
-    error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
-    error.code === &quot;P2002&quot; // Unique constraint failed
-  ) {
-    return NextResponse.json(
-      { message: &quot;Email already registered&quot; }, // Common message, or pass strictly
-      { status: 409, headers: { &quot;x-referer&quot;: referer } },
+export async function POST(req: Request) {
+  const headersList = await headers();
+  const referer = headersList.get(&quot;referer&quot;) ?? &quot;&quot;;
+
+  try {
+    // get body
+    const body = (await req.json()) as LoginBody;
+    const result = await loginUser(body);
+
+    if (result.status !== 200) {
+      return Response.json(result.body, {
+        status: result.status,
+        headers: { &quot;x-referer&quot;: referer },
+      });
+    }
+
+    const session = await createSession(result.body.userId);
+    return Response.json(
+      { token: session },
+      {
+        status: 200,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+      },
+    );
+  } catch (error) {
+    console.log(error);
+    return Response.json(
+      { message: &quot;Internal server error&quot; },
+      {
+        status: 500,
+        headers: { &quot;x-referer&quot;: referer || &quot;&quot; },
+      },
     );
   }
-
-  if (
-    error instanceof Prisma.PrismaClientKnownRequestError &amp;&amp;
-    error.code === &quot;P2025&quot; // Record not found
-  ) {
-    return NextResponse.json(
-      { message: &quot;Record not found&quot; },
-      { status: 404, headers: { &quot;x-referer&quot;: referer } },
-    );
-  }
-
-  console.error(&quot;API Error:&quot;, error);
-  return NextResponse.json(
-    { message: &quot;Internal server error&quot; },
-    { status: 500, headers: { &quot;x-referer&quot;: referer } },
-  );
 }
 
 </code>

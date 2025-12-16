@@ -1,51 +1,53 @@
 <html>
 <head>
-    <title>export async function validateParentForProduct()</title>
+    <title>async cleanup()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export async function validateParentForProduct()</h3>
-<p style="margin-top: 4px">in <i>app/api/product/[slug]/reviews/review-helpers.ts [77:109]</i></p>
+<h3 style="margin-bottom: 0">async cleanup()</h3>
+<p style="margin-top: 4px">in <i>features/support/productService.ts [229:263]</i></p>
 <ul>
-    <li><b>26</b> lines of code</li>
-    <li><b>5</b> McCabe index (conditional complexity)</li>
+    <li><b>33</b> lines of code</li>
+    <li><b>6</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="ts">
-export async function validateParentForProduct(
-  productId: string,
-  parentId: string,
-): Promise&lt;ParentReview&gt; {
-  const parent = await prisma.reviews.findUnique({
-    where: { id: parentId },
-    select: { id: true, product_id: true, parent_id: true },
-  });
-
-  if (!parent || parent.product_id !== productId) {
-    return { message: &quot;Parent comment not found&quot;, status: 404 };
-  }
-
-  let depth = 1;
-  let ancestorId = parent.parent_id;
-
-  while (ancestorId) {
-    const ancestor = await prisma.reviews.findUnique({
-      where: { id: ancestorId },
-      select: { parent_id: true },
-    });
-
-    depth += 1;
-
-    if (depth &gt;= MAX_REPLY_DEPTH) {
-      return { message: &quot;Maximum reply depth reached&quot;, status: 400 };
+  async cleanup() {
+    if (this.reviewIds.length &gt; 0) {
+      await prisma.reviews.deleteMany({
+        where: { id: { in: this.reviewIds } },
+      });
+      this.reviewIds = [];
     }
 
-    ancestorId = ancestor?.parent_id ?? null;
-  }
+    const productIds = Array.from(this.products.values());
+    if (productIds.length &gt; 0) {
+      await prisma.posts.deleteMany({
+        where: { id: { in: productIds } },
+      });
+      this.products.clear();
+    }
 
-  return parent;
-}
+    if (this.ownerId) {
+      await prisma.users
+        .delete({ where: { id: this.ownerId } })
+        .catch(() =&gt; null);
+      this.ownerId = null;
+    }
+    if (this.extraOwnerIds.length &gt; 0) {
+      await prisma.users.deleteMany({
+        where: { id: { in: this.extraOwnerIds } },
+      });
+      this.extraOwnerIds = [];
+    }
+    if (this.reviewers.size &gt; 0) {
+      await prisma.users.deleteMany({
+        where: { id: { in: Array.from(this.reviewers.values()) } },
+      });
+      this.reviewers.clear();
+    }
+  }
 
 </code>
 </pre>

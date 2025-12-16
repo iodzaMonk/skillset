@@ -1,33 +1,25 @@
-app/_components/CountrySelect.tsx [1:9]:
+components/ui/alert.tsx [14:20]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-"use client";
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/myproduct/_components/Modal.tsx [1:13]:
+components/ui/empty.tsx [38:44]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-"use client";
-
-import { FormEvent, useEffect, useState } from "react";
-import Image from "next/image";
-
-import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

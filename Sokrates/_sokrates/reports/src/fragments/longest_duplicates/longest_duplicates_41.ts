@@ -1,43 +1,25 @@
-app/api/product/[slug]/reviews/replies/route.ts [166:181]:
+features/step_definitions/productCrud.steps.ts [3:9]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/product/[slug]/reviews/route.ts [49:64]:
+features/step_definitions/upload.steps.ts [4:10]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
+  After,
+  Before,
+  DataTable,
+  Given,
+  Then,
+  When,
+} from "@cucumber/cucumber";
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

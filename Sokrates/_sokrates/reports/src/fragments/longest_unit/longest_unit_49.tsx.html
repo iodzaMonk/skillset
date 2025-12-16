@@ -1,47 +1,48 @@
 <html>
 <head>
-    <title>function FieldSeparator()</title>
+    <title>week_number: cn()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function FieldSeparator()</h3>
-<p style="margin-top: 4px">in <i>components/ui/field.tsx [156:184]</i></p>
+<h3 style="margin-bottom: 0">week_number: cn()</h3>
+<p style="margin-top: 4px">in <i>components/ui/calendar.tsx [98:127]</i></p>
 <ul>
-    <li><b>29</b> lines of code</li>
-    <li><b>2</b> McCabe index (conditional complexity)</li>
+    <li><b>30</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function FieldSeparator({
-  children,
-  className,
-  ...props
-}: React.ComponentProps&lt;&quot;div&quot;&gt; &amp; {
-  children?: React.ReactNode;
-}) {
-  return (
-    &lt;div
-      data-slot=&quot;field-separator&quot;
-      data-content={!!children}
-      className={cn(
-        &quot;relative -my-2 h-5 text-sm group-data-[variant=outline]/field-group:-mb-2&quot;,
-        className,
-      )}
-      {...props}
-    &gt;
-      &lt;Separator className=&quot;absolute inset-0 top-1/2&quot; /&gt;
-      {children &amp;&amp; (
-        &lt;span
-          className=&quot;bg-background text-muted-foreground relative mx-auto block w-fit px-2&quot;
-          data-slot=&quot;field-separator-content&quot;
-        &gt;
-          {children}
-        &lt;/span&gt;
-      )}
-    &lt;/div&gt;
-  );
-}
+        week_number: cn(
+          &quot;text-[0.8rem] select-none text-muted-foreground&quot;,
+          defaultClassNames.week_number,
+        ),
+        day: cn(
+          &quot;relative w-full h-full p-0 text-center [&amp;:first-child[data-selected=true]_button]:rounded-l-md [&amp;:last-child[data-selected=true]_button]:rounded-r-md group/day aspect-square select-none&quot;,
+          defaultClassNames.day,
+        ),
+        range_start: cn(
+          &quot;rounded-l-md bg-accent&quot;,
+          defaultClassNames.range_start,
+        ),
+        range_middle: cn(&quot;rounded-none&quot;, defaultClassNames.range_middle),
+        range_end: cn(&quot;rounded-r-md bg-accent&quot;, defaultClassNames.range_end),
+        today: cn(
+          &quot;bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none&quot;,
+          defaultClassNames.today,
+        ),
+        outside: cn(
+          &quot;text-muted-foreground aria-selected:text-muted-foreground&quot;,
+          defaultClassNames.outside,
+        ),
+        disabled: cn(
+          &quot;text-muted-foreground opacity-50&quot;,
+          defaultClassNames.disabled,
+        ),
+        hidden: cn(&quot;invisible&quot;, defaultClassNames.hidden),
+        ...classNames,
+      }}
+      components={{
 
 </code>
 </pre>

@@ -1,8 +1,7 @@
 import bcrypt from "bcryptjs";
 import { randomUUID } from "crypto";
-import { Prisma } from "@prisma/client";
+import { Prisma, Category } from "@prisma/client";
 import { prisma } from "../../lib/prisma.ts";
-import { fetchProductDetails } from "@/app/lib/product-queries";
 
 type ProductRow = Record<string, string>;
 
@@ -11,8 +10,24 @@ export type ProductResponse = {
   body: Record<string, unknown>;
 };
 
-import { parseCategory, parsePrice } from "./parsing-helpers";
-import { ensureFixtureUser, cleanupEntities } from "./fixture-helpers";
+function parseCategory(value: string | undefined): Category {
+  if (!value) {
+    throw new Error("Category is required for product rows");
+  }
+  const normalized = value.trim() as Category;
+  if (!Object.values(Category).includes(normalized)) {
+    throw new Error(`Unknown category "${value}"`);
+  }
+  return normalized;
+}
+
+function parsePrice(value: string | undefined): number {
+  const parsed = Number(value);
+  if (Number.isNaN(parsed)) {
+    throw new Error(`Invalid price "${value}"`);
+  }
+  return parsed;
+}
 
 type ReviewerOptions = {
   email?: string;
@@ -152,7 +167,39 @@ class ProductService {
     }
 
     try {
-      const product = await fetchProductDetails(slug);
+      const product = await prisma.posts.findUnique({
+        where: { id: slug },
+        include: {
+          users: {
+            select: {
+              id: true,
+              name: true,
+              country: true,
+              email: true,
+            },
+          },
+          reviews: {
+            include: {
+              users: {
+                select: {
+                  id: true,
+                  name: true,
+                  country: true,
+                  email: true,
+                },
+              },
+              replies: {
+                select: {
+                  id: true,
+                  date: true,
+                  text: true,
+                },
+              },
+            },
+            orderBy: { date: "desc" },
+          },
+        },
+      });
 
       if (!product) {
         return {
@@ -180,32 +227,55 @@ class ProductService {
   }
 
   async cleanup() {
+    if (this.reviewIds.length > 0) {
+      await prisma.reviews.deleteMany({
+        where: { id: { in: this.reviewIds } },
+      });
+      this.reviewIds = [];
+    }
+
     const productIds = Array.from(this.products.values());
-    const reviewerIds = Array.from(this.reviewers.values());
-    const extraOwnerIds = this.extraOwnerIds;
+    if (productIds.length > 0) {
+      await prisma.posts.deleteMany({
+        where: { id: { in: productIds } },
+      });
+      this.products.clear();
+    }
 
-    await cleanupEntities(prisma, {
-      reviewIds: this.reviewIds,
-      productIds,
-      userId: this.ownerId,
-      userIds: [...extraOwnerIds, ...reviewerIds],
-    });
-
-    this.reviewIds = [];
-    this.products.clear();
-    this.ownerId = null;
-    this.extraOwnerIds = [];
-    this.reviewers.clear();
+    if (this.ownerId) {
+      await prisma.users
+        .delete({ where: { id: this.ownerId } })
+        .catch(() => null);
+      this.ownerId = null;
+    }
+    if (this.extraOwnerIds.length > 0) {
+      await prisma.users.deleteMany({
+        where: { id: { in: this.extraOwnerIds } },
+      });
+      this.extraOwnerIds = [];
+    }
+    if (this.reviewers.size > 0) {
+      await prisma.users.deleteMany({
+        where: { id: { in: Array.from(this.reviewers.values()) } },
+      });
+      this.reviewers.clear();
+    }
   }
 
   private async ensureOwner() {
-    const Result = await ensureFixtureUser(
-      this.ownerId,
-      "Product Fixture",
-      "product",
-    );
-    this.ownerId = Result.userId;
-    return Result.userId;
+    if (this.ownerId) return this.ownerId;
+    const hashed = await bcrypt.hash("ProductPass123!", 10);
+    const user = await prisma.users.create({
+      data: {
+        name: "Product Fixture",
+        email: `product-${randomUUID()}@example.com`,
+        password: hashed,
+        country: "US",
+      },
+      select: { id: true },
+    });
+    this.ownerId = user.id;
+    return user.id;
   }
 
   private async createOwner(options: OwnerOptions) {

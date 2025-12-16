@@ -1,71 +1,35 @@
-app/api/product/[slug]/reviews/route.ts [183:212]:
+app/hooks/useOrderManager.ts [138:149]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              orderBy: { date: "asc" },
-              include: {
-                users: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
-            },
-          },
-        },
+  return {
+    orders,
+    openModal,
+    closeModal,
+    toggleModal,
+    isModalOpen,
+    modalRef,
+    isLoading,
+    selectedIds,
+    selectedStatus,
+    setSelectedIds,
+    setSelectedStatus,
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-app/api/product/[slug]/reviews/route.ts [307:336]:
+app/orders/_hooks/orderStates.ts [130:141]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      },
-      include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        replies: {
-          orderBy: { date: "asc" },
-          include: {
-            users: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-            replies: {
-              orderBy: { date: "asc" },
-              include: {
-                users: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
-            },
-          },
-        },
+  return {
+    orders,
+    openModal,
+    closeModal,
+    toggleModal,
+    isModalOpen,
+    modalRef,
+    isLoading,
+    selectedIds,
+    selectedStatus,
+    setSelectedIds,
+    setSelectedStatus,
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

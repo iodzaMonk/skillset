@@ -13,62 +13,6 @@
   "unitsMcCabeIndexSum" : 2,
   "linesOfCodeInUnits" : 92
 }, {
-  "relativePath" : "app/_components/BirthdayPicker.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 24,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 3,
-  "linesOfCodeInUnits" : 17
-}, {
-  "relativePath" : "app/_components/CountrySelect.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 40,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/_components/ProductCard.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 68,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 5,
-  "linesOfCodeInUnits" : 53
-}, {
-  "relativePath" : "app/_components/ProductCarousel.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 56,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 4,
-  "linesOfCodeInUnits" : 42
-}, {
-  "relativePath" : "app/_components/SelectableListHeader.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 39,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/_components/SelectableCard.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 39,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/_components/SelectableList.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 98,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/_components/FormItem.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 15,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
   "relativePath" : "app/about/page.tsx",
   "extension" : "tsx",
   "linesOfCode" : 11,
@@ -76,47 +20,12 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "app/api/cart/user/route.ts",
+  "relativePath" : "app/api/product/user/route.ts",
   "extension" : "ts",
-  "linesOfCode" : 2,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/api/cart/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 7,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 6
-}, {
-  "relativePath" : "app/api/orders/create-payment/route.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 77,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 11,
-  "linesOfCodeInUnits" : 70
-}, {
-  "relativePath" : "app/api/orders/user/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 35,
-  "unitsCount" : 1,
+  "linesOfCode" : 87,
+  "unitsCount" : 4,
   "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 29
-}, {
-  "relativePath" : "app/api/orders/orderHandlers.ts",
-  "extension" : "ts",
-  "linesOfCode" : 77,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 4,
-  "linesOfCodeInUnits" : 23
-}, {
-  "relativePath" : "app/api/orders/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 7,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 6
+  "linesOfCodeInUnits" : 45
 }, {
   "relativePath" : "app/api/product/[slug]/reviews/replies/route.ts",
   "extension" : "ts",
@@ -152,41 +61,6 @@
   "unitsCount" : 2,
   "unitsMcCabeIndexSum" : 8,
   "linesOfCodeInUnits" : 39
-}, {
-  "relativePath" : "app/api/product/user/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 87,
-  "unitsCount" : 4,
-  "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 45
-}, {
-  "relativePath" : "app/api/professional/[id]/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 94,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 3
-}, {
-  "relativePath" : "app/api/uploads/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 25,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 4,
-  "linesOfCodeInUnits" : 23
-}, {
-  "relativePath" : "app/api/user/connect-stripe-account/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 21,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 3,
-  "linesOfCodeInUnits" : 18
-}, {
-  "relativePath" : "app/api/user/create-stripe-account/route.ts",
-  "extension" : "ts",
-  "linesOfCode" : 55,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 4,
-  "linesOfCodeInUnits" : 49
 }, {
   "relativePath" : "app/api/user/delete/route.ts",
   "extension" : "ts",
@@ -230,6 +104,83 @@
   "unitsMcCabeIndexSum" : 4,
   "linesOfCodeInUnits" : 40
 }, {
+  "relativePath" : "app/api/user/connect-stripe-account/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 21,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 3,
+  "linesOfCodeInUnits" : 18
+}, {
+  "relativePath" : "app/api/user/create-stripe-account/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 55,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 49
+}, {
+  "relativePath" : "app/api/user/test-vendor/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 33,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 5,
+  "linesOfCodeInUnits" : 30
+}, {
+  "relativePath" : "app/api/orders/user/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 35,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 6,
+  "linesOfCodeInUnits" : 29
+}, {
+  "relativePath" : "app/api/orders/create-payment/route.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 77,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 11,
+  "linesOfCodeInUnits" : 70
+}, {
+  "relativePath" : "app/api/orders/orderHandlers.ts",
+  "extension" : "ts",
+  "linesOfCode" : 77,
+  "unitsCount" : 3,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 23
+}, {
+  "relativePath" : "app/api/orders/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 6
+}, {
+  "relativePath" : "app/api/cart/user/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 2,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/api/cart/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 6
+}, {
+  "relativePath" : "app/api/professional/[id]/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 94,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 3
+}, {
+  "relativePath" : "app/api/uploads/route.ts",
+  "extension" : "ts",
+  "linesOfCode" : 25,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 23
+}, {
   "relativePath" : "app/auth/[slug]/page.tsx",
   "extension" : "tsx",
   "linesOfCode" : 192,
@@ -265,40 +216,12 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "app/globals.css",
-  "extension" : "css",
-  "linesOfCode" : 105,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/lib/convertToSubcurrency.ts",
-  "extension" : "ts",
-  "linesOfCode" : 4,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 3
-}, {
   "relativePath" : "app/lib/definition.ts",
   "extension" : "ts",
   "linesOfCode" : 35,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/lib/orders.ts",
-  "extension" : "ts",
-  "linesOfCode" : 32,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 7,
-  "linesOfCodeInUnits" : 26
-}, {
-  "relativePath" : "app/lib/products.ts",
-  "extension" : "ts",
-  "linesOfCode" : 59,
-  "unitsCount" : 4,
-  "unitsMcCabeIndexSum" : 8,
-  "linesOfCodeInUnits" : 54
 }, {
   "relativePath" : "app/lib/storage/s3.ts",
   "extension" : "ts",
@@ -314,6 +237,27 @@
   "unitsMcCabeIndexSum" : 3,
   "linesOfCodeInUnits" : 9
 }, {
+  "relativePath" : "app/lib/products.ts",
+  "extension" : "ts",
+  "linesOfCode" : 59,
+  "unitsCount" : 4,
+  "unitsMcCabeIndexSum" : 8,
+  "linesOfCodeInUnits" : 54
+}, {
+  "relativePath" : "app/lib/orders.ts",
+  "extension" : "ts",
+  "linesOfCode" : 32,
+  "unitsCount" : 3,
+  "unitsMcCabeIndexSum" : 7,
+  "linesOfCodeInUnits" : 26
+}, {
+  "relativePath" : "app/lib/convertToSubcurrency.ts",
+  "extension" : "ts",
+  "linesOfCode" : 4,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 3
+}, {
   "relativePath" : "app/lib/user.ts",
   "extension" : "ts",
   "linesOfCode" : 31,
@@ -328,54 +272,12 @@
   "unitsMcCabeIndexSum" : 6,
   "linesOfCodeInUnits" : 42
 }, {
-  "relativePath" : "app/lib/productCrud.ts",
-  "extension" : "ts",
-  "linesOfCode" : 83,
-  "unitsCount" : 6,
-  "unitsMcCabeIndexSum" : 7,
-  "linesOfCodeInUnits" : 57
-}, {
-  "relativePath" : "app/lib/session.ts",
-  "extension" : "ts",
-  "linesOfCode" : 34,
-  "unitsCount" : 4,
-  "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 30
-}, {
   "relativePath" : "app/lib/session/tokens.ts",
   "extension" : "ts",
   "linesOfCode" : 31,
   "unitsCount" : 3,
   "unitsMcCabeIndexSum" : 5,
   "linesOfCodeInUnits" : 25
-}, {
-  "relativePath" : "app/lib/product-helpers.ts",
-  "extension" : "ts",
-  "linesOfCode" : 31,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/lib/order-service.ts",
-  "extension" : "ts",
-  "linesOfCode" : 39,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 5,
-  "linesOfCodeInUnits" : 36
-}, {
-  "relativePath" : "app/lib/product-queries.ts",
-  "extension" : "ts",
-  "linesOfCode" : 24,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 22
-}, {
-  "relativePath" : "app/lib/stripe.ts",
-  "extension" : "ts",
-  "linesOfCode" : 5,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "app/lib/api-response.ts",
   "extension" : "ts",
@@ -384,26 +286,47 @@
   "unitsMcCabeIndexSum" : 6,
   "linesOfCodeInUnits" : 34
 }, {
-  "relativePath" : "app/myorderslist/_components/Modal.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 2,
+  "relativePath" : "app/lib/order-service.ts",
+  "extension" : "ts",
+  "linesOfCode" : 39,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 5,
+  "linesOfCodeInUnits" : 36
+}, {
+  "relativePath" : "app/lib/product-helpers.ts",
+  "extension" : "ts",
+  "linesOfCode" : 31,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "app/myorderslist/_components/OrderList.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 2,
+  "relativePath" : "app/lib/product-queries.ts",
+  "extension" : "ts",
+  "linesOfCode" : 24,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 22
+}, {
+  "relativePath" : "app/lib/session.ts",
+  "extension" : "ts",
+  "linesOfCode" : 34,
+  "unitsCount" : 4,
+  "unitsMcCabeIndexSum" : 6,
+  "linesOfCodeInUnits" : 30
+}, {
+  "relativePath" : "app/lib/stripe.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "app/myorderslist/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 4,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
+  "relativePath" : "app/lib/productCrud.ts",
+  "extension" : "ts",
+  "linesOfCode" : 83,
+  "unitsCount" : 6,
+  "unitsMcCabeIndexSum" : 7,
+  "linesOfCodeInUnits" : 57
 }, {
   "relativePath" : "app/myproduct/_components/Modal.tsx",
   "extension" : "tsx",
@@ -426,13 +349,6 @@
   "unitsMcCabeIndexSum" : 23,
   "linesOfCodeInUnits" : 161
 }, {
-  "relativePath" : "app/myproduct/actions.ts",
-  "extension" : "ts",
-  "linesOfCode" : 8,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 6
-}, {
   "relativePath" : "app/myproduct/page.tsx",
   "extension" : "tsx",
   "linesOfCode" : 96,
@@ -440,96 +356,12 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "app/orders/_components/Modal.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 158,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/orders/_components/OrderList.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 118,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/orders/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 4,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 22,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/product/[slug]/components/Comment.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 275,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 33,
-  "linesOfCodeInUnits" : 267
-}, {
-  "relativePath" : "app/product/[slug]/components/Comments.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 139,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 12,
-  "linesOfCodeInUnits" : 130
-}, {
-  "relativePath" : "app/product/[slug]/components/Modal.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 77,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/product/[slug]/components/useComments.ts",
+  "relativePath" : "app/myproduct/actions.ts",
   "extension" : "ts",
-  "linesOfCode" : 472,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 34
-}, {
-  "relativePath" : "app/product/[slug]/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 216,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 22,
-  "linesOfCodeInUnits" : 201
-}, {
-  "relativePath" : "app/product/[slug]/payment/module/CheckoutPage.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 104,
+  "linesOfCode" : 8,
   "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 4,
-  "linesOfCodeInUnits" : 23
-}, {
-  "relativePath" : "app/product/[slug]/payment/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 159,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/product/[slug]/payment/success/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 18,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "app/professional/[id]/page.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 140,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 4
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 6
 }, {
   "relativePath" : "app/settings/modal.tsx",
   "extension" : "tsx",
@@ -587,19 +419,201 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "app/layout.tsx",
+  "relativePath" : "app/product/[slug]/components/Modal.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 34,
+  "linesOfCode" : 77,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/product/[slug]/components/useComments.ts",
+  "extension" : "ts",
+  "linesOfCode" : 472,
+  "unitsCount" : 3,
+  "unitsMcCabeIndexSum" : 6,
+  "linesOfCodeInUnits" : 34
+}, {
+  "relativePath" : "app/product/[slug]/components/Comment.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 275,
   "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
+  "unitsMcCabeIndexSum" : 33,
+  "linesOfCodeInUnits" : 267
+}, {
+  "relativePath" : "app/product/[slug]/components/Comments.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 139,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 12,
+  "linesOfCodeInUnits" : 130
+}, {
+  "relativePath" : "app/product/[slug]/payment/success/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 32,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/product/[slug]/payment/module/CheckoutPage.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 104,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 4,
   "linesOfCodeInUnits" : 23
 }, {
-  "relativePath" : "app/hooks/useSelection.ts",
+  "relativePath" : "app/product/[slug]/payment/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 159,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/product/[slug]/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 216,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 22,
+  "linesOfCodeInUnits" : 201
+}, {
+  "relativePath" : "app/orders/_components/Modal.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 158,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/orders/_components/OrderList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 118,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/orders/_hooks/orderStates.ts",
   "extension" : "ts",
-  "linesOfCode" : 43,
-  "unitsCount" : 1,
+  "linesOfCode" : 120,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 19,
+  "linesOfCodeInUnits" : 115
+}, {
+  "relativePath" : "app/orders/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 5,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/myorderslist/_components/Modal.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 2,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/myorderslist/_components/OrderList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 2,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/myorderslist/_hooks/orderStates.ts",
+  "extension" : "ts",
+  "linesOfCode" : 63,
+  "unitsCount" : 2,
   "unitsMcCabeIndexSum" : 6,
-  "linesOfCodeInUnits" : 41
+  "linesOfCodeInUnits" : 58
+}, {
+  "relativePath" : "app/myorderslist/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 5,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/_components/BirthdayPicker.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 24,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 3,
+  "linesOfCodeInUnits" : 17
+}, {
+  "relativePath" : "app/_components/CountrySelect.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 40,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/_components/FormItem.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 15,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/_components/ProductCard.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 68,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 5,
+  "linesOfCodeInUnits" : 53
+}, {
+  "relativePath" : "app/_components/SelectableCard.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 39,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/_components/SelectableList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 98,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/_components/SelectableListHeader.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 39,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/_components/ProductCarousel.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 56,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 42
+}, {
+  "relativePath" : "app/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 22,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/professional/[id]/page.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 140,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 4
+}, {
+  "relativePath" : "app/globals.css",
+  "extension" : "css",
+  "linesOfCode" : 105,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "app/components/SharedOrdersPage.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 36,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "app/hooks/useOrderManager.ts",
   "extension" : "ts",
@@ -608,12 +622,47 @@
   "unitsMcCabeIndexSum" : 19,
   "linesOfCodeInUnits" : 121
 }, {
-  "relativePath" : "app/components/SharedOrdersPage.tsx",
+  "relativePath" : "app/hooks/useSelection.ts",
+  "extension" : "ts",
+  "linesOfCode" : 43,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 6,
+  "linesOfCodeInUnits" : 41
+}, {
+  "relativePath" : "app/layout.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 36,
+  "linesOfCode" : 34,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 23
+}, {
+  "relativePath" : "components/ui/button.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 58,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 7
+}, {
+  "relativePath" : "components/ui/input.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 13,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "components/ui/dialog.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 125,
+  "unitsCount" : 10,
+  "unitsMcCabeIndexSum" : 11,
+  "linesOfCodeInUnits" : 109
+}, {
+  "relativePath" : "components/ui/select.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 157,
+  "unitsCount" : 9,
+  "unitsMcCabeIndexSum" : 11,
+  "linesOfCodeInUnits" : 138
 }, {
   "relativePath" : "components/ui/accordion.tsx",
   "extension" : "tsx",
@@ -671,13 +720,6 @@
   "unitsMcCabeIndexSum" : 3,
   "linesOfCodeInUnits" : 33
 }, {
-  "relativePath" : "components/ui/button.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 58,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 7
-}, {
   "relativePath" : "components/ui/calendar.tsx",
   "extension" : "tsx",
   "linesOfCode" : 203,
@@ -734,13 +776,6 @@
   "unitsMcCabeIndexSum" : 14,
   "linesOfCodeInUnits" : 197
 }, {
-  "relativePath" : "components/ui/dialog.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 125,
-  "unitsCount" : 10,
-  "unitsMcCabeIndexSum" : 11,
-  "linesOfCodeInUnits" : 109
-}, {
   "relativePath" : "components/ui/drawer.tsx",
   "extension" : "tsx",
   "linesOfCode" : 107,
@@ -796,13 +831,6 @@
   "unitsCount" : 3,
   "unitsMcCabeIndexSum" : 4,
   "linesOfCodeInUnits" : 56
-}, {
-  "relativePath" : "components/ui/input.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 13,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "components/ui/item.tsx",
   "extension" : "tsx",
@@ -873,13 +901,6 @@
   "unitsCount" : 2,
   "unitsMcCabeIndexSum" : 4,
   "linesOfCodeInUnits" : 48
-}, {
-  "relativePath" : "components/ui/select.tsx",
-  "extension" : "tsx",
-  "linesOfCode" : 157,
-  "unitsCount" : 9,
-  "unitsMcCabeIndexSum" : 11,
-  "linesOfCodeInUnits" : 138
 }, {
   "relativePath" : "components/ui/separator.tsx",
   "extension" : "tsx",
@@ -986,23 +1007,9 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "eslint.config.mjs",
-  "extension" : "mjs",
-  "linesOfCode" : 25,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "hooks/use-mobile.ts",
+  "relativePath" : "lib/prisma.ts",
   "extension" : "ts",
-  "linesOfCode" : 17,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 15
-}, {
-  "relativePath" : "jest.config.ts",
-  "extension" : "ts",
-  "linesOfCode" : 13,
+  "linesOfCode" : 8,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -1013,20 +1020,6 @@
   "unitsCount" : 1,
   "unitsMcCabeIndexSum" : 1,
   "linesOfCodeInUnits" : 3
-}, {
-  "relativePath" : "lib/prisma.ts",
-  "extension" : "ts",
-  "linesOfCode" : 8,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "next.config.ts",
-  "extension" : "ts",
-  "linesOfCode" : 29,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 6
 }, {
   "relativePath" : "postcss.config.mjs",
   "extension" : "mjs",
@@ -1049,23 +1042,9 @@
   "unitsMcCabeIndexSum" : 4,
   "linesOfCodeInUnits" : 51
 }, {
-  "relativePath" : "types/Category.ts",
+  "relativePath" : "types/UserBody.ts",
   "extension" : "ts",
   "linesOfCode" : 8,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "types/Comment.ts",
-  "extension" : "ts",
-  "linesOfCode" : 57,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "types/Country.ts",
-  "extension" : "ts",
-  "linesOfCode" : 257,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -1073,20 +1052,6 @@
   "relativePath" : "types/Order.ts",
   "extension" : "ts",
   "linesOfCode" : 12,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "types/PostBody.ts",
-  "extension" : "ts",
-  "linesOfCode" : 29,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "types/Professional.ts",
-  "extension" : "ts",
-  "linesOfCode" : 22,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -1105,9 +1070,107 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "types/UserBody.ts",
+  "relativePath" : "types/Country.ts",
+  "extension" : "ts",
+  "linesOfCode" : 257,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "types/PostBody.ts",
+  "extension" : "ts",
+  "linesOfCode" : 29,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "types/Professional.ts",
+  "extension" : "ts",
+  "linesOfCode" : 22,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "types/Category.ts",
   "extension" : "ts",
   "linesOfCode" : 8,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "types/Comment.ts",
+  "extension" : "ts",
+  "linesOfCode" : 46,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "prisma.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 18,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 5
+}, {
+  "relativePath" : "hooks/use-mobile.ts",
+  "extension" : "ts",
+  "linesOfCode" : 17,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 1,
+  "linesOfCodeInUnits" : 15
+}, {
+  "relativePath" : "eslint.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 25,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "next.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 29,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 6
+}, {
+  "relativePath" : "jest.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 13,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "cypress.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 6
+}, {
+  "relativePath" : "cypress/e2e/complete_navigation-menu_test.cy.ts",
+  "extension" : "ts",
+  "linesOfCode" : 70,
+  "unitsCount" : 8,
+  "unitsMcCabeIndexSum" : 8,
+  "linesOfCodeInUnits" : 47
+}, {
+  "relativePath" : "cypress/e2e/complete_test.cy.ts",
+  "extension" : "ts",
+  "linesOfCode" : 326,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "cypress/support/commands.ts",
+  "extension" : "ts",
+  "linesOfCode" : 1,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "cypress/support/e2e.ts",
+  "extension" : "ts",
+  "linesOfCode" : 10,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -1128,24 +1191,24 @@
 }, {
   "relativePath" : "features/step_definitions/product.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 170,
+  "linesOfCode" : 175,
   "unitsCount" : 18,
   "unitsMcCabeIndexSum" : 29,
-  "linesOfCodeInUnits" : 115
+  "linesOfCodeInUnits" : 120
 }, {
   "relativePath" : "features/step_definitions/productCrud.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 122,
+  "linesOfCode" : 131,
   "unitsCount" : 16,
   "unitsMcCabeIndexSum" : 18,
   "linesOfCodeInUnits" : 82
 }, {
   "relativePath" : "features/step_definitions/upload.steps.ts",
   "extension" : "ts",
-  "linesOfCode" : 116,
+  "linesOfCode" : 119,
   "unitsCount" : 12,
   "unitsMcCabeIndexSum" : 19,
-  "linesOfCodeInUnits" : 81
+  "linesOfCodeInUnits" : 84
 }, {
   "relativePath" : "features/support/authService.ts",
   "extension" : "ts",
@@ -1154,40 +1217,12 @@
   "unitsMcCabeIndexSum" : 7,
   "linesOfCodeInUnits" : 46
 }, {
-  "relativePath" : "features/support/browseService.ts",
-  "extension" : "ts",
-  "linesOfCode" : 84,
-  "unitsCount" : 5,
-  "unitsMcCabeIndexSum" : 10,
-  "linesOfCodeInUnits" : 65
-}, {
-  "relativePath" : "features/support/productCrudFixture.ts",
-  "extension" : "ts",
-  "linesOfCode" : 186,
-  "unitsCount" : 15,
-  "unitsMcCabeIndexSum" : 37,
-  "linesOfCodeInUnits" : 163
-}, {
-  "relativePath" : "features/support/productService.ts",
-  "extension" : "ts",
-  "linesOfCode" : 207,
-  "unitsCount" : 8,
-  "unitsMcCabeIndexSum" : 36,
-  "linesOfCodeInUnits" : 168
-}, {
   "relativePath" : "features/support/uploadFixture.ts",
   "extension" : "ts",
   "linesOfCode" : 55,
   "unitsCount" : 7,
   "unitsMcCabeIndexSum" : 7,
   "linesOfCodeInUnits" : 41
-}, {
-  "relativePath" : "features/support/parsing-helpers.ts",
-  "extension" : "ts",
-  "linesOfCode" : 18,
-  "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 5,
-  "linesOfCodeInUnits" : 17
 }, {
   "relativePath" : "features/support/fixture-helpers.ts",
   "extension" : "ts",
@@ -1196,40 +1231,33 @@
   "unitsMcCabeIndexSum" : 3,
   "linesOfCodeInUnits" : 28
 }, {
-  "relativePath" : "cypress/e2e/complete_test.cy.ts",
-  "extension" : "ts",
-  "linesOfCode" : 311,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 8
-}, {
-  "relativePath" : "cypress/support/commands.ts",
-  "extension" : "ts",
-  "linesOfCode" : 1,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "cypress/support/e2e.ts",
-  "extension" : "ts",
-  "linesOfCode" : 1,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "prisma.config.ts",
+  "relativePath" : "features/support/parsing-helpers.ts",
   "extension" : "ts",
   "linesOfCode" : 18,
-  "unitsCount" : 1,
-  "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 5
-}, {
-  "relativePath" : "cypress.config.ts",
-  "extension" : "ts",
-  "linesOfCode" : 7,
   "unitsCount" : 2,
-  "unitsMcCabeIndexSum" : 2,
-  "linesOfCodeInUnits" : 6
+  "unitsMcCabeIndexSum" : 5,
+  "linesOfCodeInUnits" : 17
+}, {
+  "relativePath" : "features/support/browseService.ts",
+  "extension" : "ts",
+  "linesOfCode" : 117,
+  "unitsCount" : 6,
+  "unitsMcCabeIndexSum" : 17,
+  "linesOfCodeInUnits" : 98
+}, {
+  "relativePath" : "features/support/productCrudFixture.ts",
+  "extension" : "ts",
+  "linesOfCode" : 195,
+  "unitsCount" : 13,
+  "unitsMcCabeIndexSum" : 33,
+  "linesOfCodeInUnits" : 172
+}, {
+  "relativePath" : "features/support/productService.ts",
+  "extension" : "ts",
+  "linesOfCode" : 276,
+  "unitsCount" : 9,
+  "unitsMcCabeIndexSum" : 46,
+  "linesOfCodeInUnits" : 240
 }, {
   "relativePath" : "vitest.config.ts",
   "extension" : "ts",

@@ -1,9 +1,10 @@
-components/ui/alert.tsx [14:20]:
+components/ui/item.tsx [45:52]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   },
 );
@@ -11,12 +12,13 @@ components/ui/alert.tsx [14:20]:
 
 
 
-components/ui/empty.tsx [38:44]:
+components/ui/sidebar.tsx [489:496]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   },
 );
