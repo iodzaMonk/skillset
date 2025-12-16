@@ -5,7 +5,7 @@ describe("Complete User Flow", () => {
   const uniqueId = uuidv4().substring(0, 8);
   const email = `testuser_${uniqueId}@example.com`;
   const password = "password123";
-  let currentUserId: string;
+  // let currentUserId: string;
 
   const getCurrentUser = () => {
     return cy.getCookies().then((cookies) =>
@@ -20,7 +20,7 @@ describe("Complete User Flow", () => {
           },
         })
         .then((response) => {
-          currentUserId = response.body.user.id;
+          // currentUserId = response.body.user.id;
           return cy.wrap(response.body.user.id);
         }),
     );
@@ -169,6 +169,7 @@ describe("Complete User Flow", () => {
           },
         }).then((response) => {
           expect(response.status).to.eq(200);
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           expect(response.body.success).to.be.true;
         });
       });
