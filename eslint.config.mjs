@@ -20,6 +20,8 @@ const eslintConfig = [
       "**/generated/**",
       "**/*.min.js",
       "next-env.d.ts",
+      "Sokrates/**",
+      "Sokrates/**/*",
     ],
   },
   ...compat.extends("eslint-config-next/core-web-vitals"),

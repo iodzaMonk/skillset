@@ -1,22 +1,7 @@
-<<<<<<< HEAD
-import Link from "next/link";
-
-type SuccessPageProps = {
-  searchParams: Promise<{
-    amount?: string;
-  }>;
-};
-
-export default async function PaymentSuccess({
-  searchParams,
-}: SuccessPageProps) {
-  const params = await searchParams;
-  const amount = params?.amount ?? "0.00";
-=======
 "use client";
+import Link from "next/link";
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
->>>>>>> c1a8ccb ([Fix]: fixed the merge errors)
 
 export default function PaymentSuccess() {
   const router = useRouter();
