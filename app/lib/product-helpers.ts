@@ -1,4 +1,4 @@
-import { createSignedDownloadUrl } from "./storage/s3.ts";
+import { createSignedDownloadUrl } from "./storage/s3";
 
 const signItemImage = async <T extends { image_location?: string | null }>(
   item: T,
