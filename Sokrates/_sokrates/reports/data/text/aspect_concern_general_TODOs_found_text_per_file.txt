@@ -1,3 +1,0 @@
-app/myproduct/_hooks/postStates.ts (2 lines):
-	- line 96: // TODO: add category handle
-	- line 110: // TODO: add category handle

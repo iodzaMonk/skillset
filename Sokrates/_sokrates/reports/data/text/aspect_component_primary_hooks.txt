@@ -1,2 +1,0 @@
-Path	Lines of Code
-hooks/use-mobile.ts	17

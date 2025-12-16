@@ -1,9 +1,0 @@
-Path	Lines of Code
-coverage/base.css	203
-coverage/block-navigation.js	66
-coverage/lcov-report/base.css	203
-coverage/lcov-report/block-navigation.js	66
-coverage/lcov-report/prettify.css	1
-coverage/lcov-report/sorter.js	171
-coverage/prettify.css	1
-coverage/sorter.js	171

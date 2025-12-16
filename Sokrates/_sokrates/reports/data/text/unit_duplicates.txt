@@ -1,6 +1,0 @@
-duplicated block id: 1
-size: 7 cleaned lines of code
-in 2 files:
- - components/ui/dialog.tsx (77:85)
- - components/ui/sheet.tsx (84:92)
-
