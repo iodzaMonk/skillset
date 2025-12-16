@@ -1,6 +1,6 @@
 import { getCurrentUser } from "@/app/lib/user";
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@prisma/client";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { Status } from "@/types/Status";
 import { createGetOrdersHandler } from "@/app/lib/order-service";
 
@@ -24,20 +24,17 @@ export async function PATCH(req: Request) {
 
     const updatedOrder = await prisma.commands.updateMany({
       where: { client_id: user.id, id: { in: ids } },
-      data: { status } as unknown as Prisma.commandsUpdateManyMutationInput,
+      data: { status },
     });
 
     return Response.json({ data: updatedOrder }, { status: 200 });
   } catch (error) {
     if (
-      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error instanceof PrismaClientKnownRequestError &&
       error.code === "P2025"
     ) {
-      return Response.json({ message: "Orer not found" }, { status: 404 });
+      return Response.json({ message: "Order not found" }, { status: 404 });
     }
-
-    console.error("Update product error", error);
-
     return Response.json({ message: "Internal server error" }, { status: 500 });
   }
 }

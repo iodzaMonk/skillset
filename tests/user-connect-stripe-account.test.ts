@@ -1,3 +1,4 @@
+export {};
 const mockAccountLinksCreate = jest.fn();
 const mockStripeConstructor = jest.fn().mockImplementation(() => ({
   accountLinks: {

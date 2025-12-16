@@ -1,17 +1,15 @@
-import { Prisma } from "@prisma/client";
 import { prisma } from "../../lib/prisma.ts";
+import type { $Enums } from "@prisma/client";
 
 type ProductInputRow = Record<string, string>;
 
-export type ProductRecord = Prisma.postsGetPayload<{
-  select: {
-    id: true;
-    title: true;
-    description: true;
-    category: true;
-    price: true;
-  };
-}>;
+export type ProductRecord = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  price: number;
+};
 
 import { parseCategory, parsePrice } from "./parsing-helpers.ts";
 import { ensureFixtureUser, cleanupEntities } from "./fixture-helpers.ts";
@@ -52,7 +50,7 @@ class BrowseService {
     if (this.productIds.length === 0) {
       return [];
     }
-    const where: Prisma.postsWhereInput = {
+    const where: { id: { in: string[] }; category?: $Enums.Category } = {
       id: { in: this.productIds },
     };
     if (category) {

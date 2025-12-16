@@ -1,60 +1,1210 @@
 
 > flowbite-react-template-nextjs@0.1.0 cucumber
-> cross-env NODE_OPTIONS='--loader ts-node/esm' node --env-file=.env node_modules/@cucumber/cucumber/bin/cucumber.js --import "features/**/*.ts" --import "features/**/*.js"
+> node --import tsx --env-file=.env node_modules/@cucumber/cucumber/bin/cucumber-js --config features/cucumber.mjs --format message:stdout
 
-(node:63283) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
---import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'
-(Use `node --trace-warnings ...` to show where the warning was created)
-......................................................................................................................................................................F--...............................................................................................................................................................{ sendHeader: false, bodyLength: 10, threshold: 2097152 }
-...........................Failed to upload file to S3 Error: S3 unavailable
-    at file:///home/iodza/Documents/skillset/features/support/uploadFixture.ts:24:19
-    at performUpload (file:///home/iodza/Documents/skillset/app/lib/storage/uploadAdapter.ts:10:12)
-    at POST (file:///home/iodza/Documents/skillset/app/api/uploads/route.ts:12:31)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async UploadFixture.invoke (file:///home/iodza/Documents/skillset/features/support/uploadFixture.ts:47:26)
-    at async UploadFixture.uploadFile (file:///home/iodza/Documents/skillset/features/support/uploadFixture.ts:16:9)
-    at async World.<anonymous> (file:///home/iodza/Documents/skillset/features/step_definitions/upload.steps.ts:16:5)
-    at async wrapPromiseWithTimeout (/home/iodza/Documents/skillset/node_modules/@cucumber/cucumber/lib/time.js:67:12)
-    at async Object.run (/home/iodza/Documents/skillset/node_modules/@cucumber/cucumber/lib/user_code_runner.js:64:22)
-    at async Object.run (/home/iodza/Documents/skillset/node_modules/@cucumber/cucumber/lib/runtime/step_runner.js:64:26)
-............................................{ sendHeader: false, bodyLength: 11, threshold: 2097152 }
-........
+UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
 
 Failures:
 
-1) Scenario: Viewing product reviews # features/product.feature:17
-   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/auth.steps.ts:4
-   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/browse.steps.ts:4
-   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:4
-   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/productCrud.steps.ts:4
-   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/upload.steps.ts:5
-   ✔ Given the product catalogue includes: # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:10
-       | title                | category | price | description       |
-       | Video Editing Basics | Editing  | 120   | Learn quick edits |
-   ✔ And the product has the following reviews: # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:13
-       | product              | reviewer | reviewer country | reviewer email       | text              | rating |
-       | Video Editing Basics | Alice    | Canada           | alice@example.com    | Loved the lessons | 5      |
-       | Video Editing Basics | Bob      | Brazil           | bob.prof@example.com | Helpful shortcuts | 4      |
-   ✔ When I request the product details for "Video Editing Basics" # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:16
-   ✔ Then the product response status should be 200 # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:22
-   ✔ And the product payload should include the following reviews: # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:62
-       | reviewer | text              |
-       | Alice    | Loved the lessons |
-       | Bob      | Helpful shortcuts |
-   ✖ And the product review metadata should include: # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:77
-       | reviewer | country | email                |
-       | Alice    | Canada  | alice@example.com    |
-       | Bob      | Brazil  | bob.prof@example.com |
-       AssertionError [ERR_ASSERTION]: Expected metadata for reviewer Alice (Canada, alice@example.com)
-           at World.<anonymous> (file:///home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:91:16)
-   - And the product payload should report rating 4.5 # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:94
-   - And the product payload should report 2 reviews # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:100
-   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/upload.steps.ts:8
-   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/productCrud.steps.ts:7
-   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:7
-   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/browse.steps.ts:7
-   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/auth.steps.ts:7
+1) Scenario: Signing in with valid credentials # features\authentication.feature:9
+   ? Given the following users exist:
+       | email            | password    |
+       | user@example.com | correctpass |
+       Undefined. Implement with the following snippet:
 
-28 scenarios (1 failed, 27 passed)
-127 steps (1 failed, 2 skipped, 124 passed)
-0m10.629s (executing steps: 0m10.565s)
+         Given('the following users exist:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I attempt to sign in with email "user@example.com" and password "correctpass"
+       Undefined. Implement with the following snippet:
+
+         When('I attempt to sign in with email {string} and password {string}', function (string, string2) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then the response status should be 200
+       Undefined. Implement with the following snippet:
+
+         Then('the response status should be {int}', function (int) {
+         // Then('the response status should be {float}', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And I should receive a session token
+       Undefined. Implement with the following snippet:
+
+         Then('I should receive a session token', function () {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+2) Scenario: Signing in with a non-existent user # features\authentication.feature:14
+   ? Given the following users exist:
+       | email            | password    |
+       | user@example.com | correctpass |
+       Undefined. Implement with the following snippet:
+
+         Given('the following users exist:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I attempt to sign in with email "ghost@example.com" and password "whatever"
+       Undefined. Implement with the following snippet:
+
+         When('I attempt to sign in with email {string} and password {string}', function (string, string2) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then the response status should be 401
+       Undefined. Implement with the following snippet:
+
+         Then('the response status should be {int}', function (int) {
+         // Then('the response status should be {float}', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And I should be told "Invalid credentials"
+       Undefined. Implement with the following snippet:
+
+         Then('I should be told {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+3) Scenario: Signing in with an invalid password # features\authentication.feature:19
+   ? Given the following users exist:
+       | email            | password    |
+       | user@example.com | correctpass |
+       Undefined. Implement with the following snippet:
+
+         Given('the following users exist:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I attempt to sign in with email "user@example.com" and password "wrongpass"
+       Undefined. Implement with the following snippet:
+
+         When('I attempt to sign in with email {string} and password {string}', function (string, string2) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then the response status should be 401
+       Undefined. Implement with the following snippet:
+
+         Then('the response status should be {int}', function (int) {
+         // Then('the response status should be {float}', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And I should be told "Invalid credentials"
+       Undefined. Implement with the following snippet:
+
+         Then('I should be told {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+4) Scenario: Signing in without providing a password # features\authentication.feature:24
+   ? Given the following users exist:
+       | email            | password    |
+       | user@example.com | correctpass |
+       Undefined. Implement with the following snippet:
+
+         Given('the following users exist:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I attempt to sign in with email "user@example.com" and password ""
+       Undefined. Implement with the following snippet:
+
+         When('I attempt to sign in with email {string} and password {string}', function (string, string2) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then the response status should be 400
+       Undefined. Implement with the following snippet:
+
+         Then('the response status should be {int}', function (int) {
+         // Then('the response status should be {float}', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And I should be told "Missing required fields: password"
+       Undefined. Implement with the following snippet:
+
+         Then('I should be told {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+5) Scenario: Signing in without providing any credentials # features\authentication.feature:29
+   ? Given the following users exist:
+       | email            | password    |
+       | user@example.com | correctpass |
+       Undefined. Implement with the following snippet:
+
+         Given('the following users exist:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I attempt to sign in with email "" and password ""
+       Undefined. Implement with the following snippet:
+
+         When('I attempt to sign in with email {string} and password {string}', function (string, string2) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then the response status should be 400
+       Undefined. Implement with the following snippet:
+
+         Then('the response status should be {int}', function (int) {
+         // Then('the response status should be {float}', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And I should be told "Missing required fields: email, password"
+       Undefined. Implement with the following snippet:
+
+         Then('I should be told {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+6) Scenario: Viewing all products # features\browse.feature:11
+   ? Given the catalogue contains the following products:
+       | title                | category  | price |
+       | Video Editing Basics | Editing   | 120   |
+       | Logo Design Starter  | Design    | 200   |
+       | Podcast Voice Pack   | Voiceover | 90    |
+       Undefined. Implement with the following snippet:
+
+         Given('the catalogue contains the following products:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I fetch the browse catalogue
+       Undefined. Implement with the following snippet:
+
+         When('I fetch the browse catalogue', function () {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then I should see 3 products
+       Undefined. Implement with the following snippet:
+
+         Then('I should see {int} products', function (int) {
+         // Then('I should see {float} products', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And the product titles should include:
+       | title                |
+       | Video Editing Basics |
+       | Logo Design Starter  |
+       | Podcast Voice Pack   |
+       Undefined. Implement with the following snippet:
+
+         Then('the product titles should include:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+7) Scenario: Filtering by category # features\browse.feature:27
+   ? Given the catalogue contains the following products:
+       | title                | category  | price |
+       | Video Editing Basics | Editing   | 120   |
+       | Logo Design Starter  | Design    | 200   |
+       | Podcast Voice Pack   | Voiceover | 90    |
+       Undefined. Implement with the following snippet:
+
+         Given('the catalogue contains the following products:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I filter the browse catalogue by "Editing"
+       Undefined. Implement with the following snippet:
+
+         When('I filter the browse catalogue by {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then I should see 1 products
+       Undefined. Implement with the following snippet:
+
+         Then('I should see {int} products', function (int) {
+         // Then('I should see {float} products', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And every product category should be "Editing"
+       Undefined. Implement with the following snippet:
+
+         Then('every product category should be {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+8) Scenario: Filtering by category # features\browse.feature:28
+   ? Given the catalogue contains the following products:
+       | title                | category  | price |
+       | Video Editing Basics | Editing   | 120   |
+       | Logo Design Starter  | Design    | 200   |
+       | Podcast Voice Pack   | Voiceover | 90    |
+       Undefined. Implement with the following snippet:
+
+         Given('the catalogue contains the following products:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I filter the browse catalogue by "Design"
+       Undefined. Implement with the following snippet:
+
+         When('I filter the browse catalogue by {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then I should see 1 products
+       Undefined. Implement with the following snippet:
+
+         Then('I should see {int} products', function (int) {
+         // Then('I should see {float} products', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And every product category should be "Design"
+       Undefined. Implement with the following snippet:
+
+         Then('every product category should be {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+9) Scenario: Filtering by category # features\browse.feature:29
+   ? Given the catalogue contains the following products:
+       | title                | category  | price |
+       | Video Editing Basics | Editing   | 120   |
+       | Logo Design Starter  | Design    | 200   |
+       | Podcast Voice Pack   | Voiceover | 90    |
+       Undefined. Implement with the following snippet:
+
+         Given('the catalogue contains the following products:', function (dataTable) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? When I filter the browse catalogue by "Voiceover"
+       Undefined. Implement with the following snippet:
+
+         When('I filter the browse catalogue by {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? Then I should see 1 products
+       Undefined. Implement with the following snippet:
+
+         Then('I should see {int} products', function (int) {
+         // Then('I should see {float} products', function (float) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+   ? And every product category should be "Voiceover"
+       Undefined. Implement with the following snippet:
+
+         Then('every product category should be {string}', function (string) {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
+
+10) Scenario: Filtering to a category with no matches # features\browse.feature:31
+    ? Given the catalogue contains the following products:
+        | title                | category  | price |
+        | Video Editing Basics | Editing   | 120   |
+        | Logo Design Starter  | Design    | 200   |
+        | Podcast Voice Pack   | Voiceover | 90    |
+        Undefined. Implement with the following snippet:
+
+          Given('the catalogue contains the following products:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I filter the browse catalogue by "Music"
+        Undefined. Implement with the following snippet:
+
+          When('I filter the browse catalogue by {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then I should be told there are no products
+        Undefined. Implement with the following snippet:
+
+          Then('I should be told there are no products', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+11) Scenario: Fetching an existing product # features\product.feature:9
+    ? Given the product catalogue includes:
+        | title                | category | price | description       |
+        | Video Editing Basics | Editing  | 120   | Learn quick edits |
+        Undefined. Implement with the following snippet:
+
+          Given('the product catalogue includes:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I request the product details for "Video Editing Basics"
+        Undefined. Implement with the following snippet:
+
+          When('I request the product details for {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product response status should be 200
+        Undefined. Implement with the following snippet:
+
+          Then('the product response status should be {int}', function (int) {
+          // Then('the product response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product payload should include title "Video Editing Basics"
+        Undefined. Implement with the following snippet:
+
+          Then('the product payload should include title {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product payload should include category "Editing"
+        Undefined. Implement with the following snippet:
+
+          Then('the product payload should include category {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product payload should include price 120
+        Undefined. Implement with the following snippet:
+
+          Then('the product payload should include price {int}', function (int) {
+          // Then('the product payload should include price {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product payload should include the placeholder image
+        Undefined. Implement with the following snippet:
+
+          Then('the product payload should include the placeholder image', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+12) Scenario: Viewing product reviews # features\product.feature:17
+    ? Given the product catalogue includes:
+        | title                | category | price | description       |
+        | Video Editing Basics | Editing  | 120   | Learn quick edits |
+        Undefined. Implement with the following snippet:
+
+          Given('the product catalogue includes:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product has the following reviews:
+        | product              | reviewer | reviewer country | reviewer email       | text              | rating |
+        | Video Editing Basics | Alice    | Canada           | alice@example.com    | Loved the lessons | 5      |
+        | Video Editing Basics | Bob      | Brazil           | bob.prof@example.com | Helpful shortcuts | 4      |
+        Undefined. Implement with the following snippet:
+
+          Given('the product has the following reviews:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I request the product details for "Video Editing Basics"
+        Undefined. Implement with the following snippet:
+
+          When('I request the product details for {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product response status should be 200
+        Undefined. Implement with the following snippet:
+
+          Then('the product response status should be {int}', function (int) {
+          // Then('the product response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product payload should include the following reviews:
+        | reviewer | text              |
+        | Alice    | Loved the lessons |
+        | Bob      | Helpful shortcuts |
+        Undefined. Implement with the following snippet:
+
+          Then('the product payload should include the following reviews:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product review metadata should include:
+        | reviewer | country | email                |
+        | Alice    | Canada  | alice@example.com    |
+        | Bob      | Brazil  | bob.prof@example.com |
+        Undefined. Implement with the following snippet:
+
+          Then('the product review metadata should include:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product payload should report rating 4.5
+        Undefined. Implement with the following snippet:
+
+          Then('the product payload should report rating {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product payload should report 2 reviews
+        Undefined. Implement with the following snippet:
+
+          Then('the product payload should report {int} reviews', function (int) {
+          // Then('the product payload should report {float} reviews', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+13) Scenario: Viewing seller information # features\product.feature:35
+    ? Given the product catalogue includes:
+        | title                | category | price | description       |
+        | Video Editing Basics | Editing  | 120   | Learn quick edits |
+        Undefined. Implement with the following snippet:
+
+          Given('the product catalogue includes:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Given the product catalogue includes:
+        | title          | category | price | description | owner name | owner country | owner email       |
+        | Premium Design | Design   | 500   | Brand kit   | Carla M.   | Spain         | carla@sellers.com |
+        Undefined. Implement with the following snippet:
+
+          Given('the product catalogue includes:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I request the product details for "Premium Design"
+        Undefined. Implement with the following snippet:
+
+          When('I request the product details for {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product response status should be 200
+        Undefined. Implement with the following snippet:
+
+          Then('the product response status should be {int}', function (int) {
+          // Then('the product response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product payload should include seller:
+        | name     | country | email             |
+        | Carla M. | Spain   | carla@sellers.com |
+        Undefined. Implement with the following snippet:
+
+          Then('the product payload should include seller:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+14) Scenario: Fetching a missing product # features\product.feature:45
+    ? Given the product catalogue includes:
+        | title                | category | price | description       |
+        | Video Editing Basics | Editing  | 120   | Learn quick edits |
+        Undefined. Implement with the following snippet:
+
+          Given('the product catalogue includes:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I request the product details for slug "missing-product-id"
+        Undefined. Implement with the following snippet:
+
+          When('I request the product details for slug {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product response status should be 404
+        Undefined. Implement with the following snippet:
+
+          Then('the product response status should be {int}', function (int) {
+          // Then('the product response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product error should say "Product not found"
+        Undefined. Implement with the following snippet:
+
+          Then('the product error should say {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+15) Scenario: Fetching with an invalid slug format # features\product.feature:50
+    ? Given the product catalogue includes:
+        | title                | category | price | description       |
+        | Video Editing Basics | Editing  | 120   | Learn quick edits |
+        Undefined. Implement with the following snippet:
+
+          Given('the product catalogue includes:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I request the product details for slug ""
+        Undefined. Implement with the following snippet:
+
+          When('I request the product details for slug {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product response status should be 400
+        Undefined. Implement with the following snippet:
+
+          Then('the product response status should be {int}', function (int) {
+          // Then('the product response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product error should say "Invalid product ID"
+        Undefined. Implement with the following snippet:
+
+          Then('the product error should say {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+16) Scenario: Creating a product successfully # features\product_crud.feature:4
+    ? Given I am authenticated for product management
+        Undefined. Implement with the following snippet:
+
+          Given('I am authenticated for product management', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I create a product with:
+        | title      | description      | price | image_location |
+        | Quick Edit | Fast video edits | 150   | uploads/key    |
+        Undefined. Implement with the following snippet:
+
+          When('I create a product with:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product request should have status 201
+        Undefined. Implement with the following snippet:
+
+          Then('the product request should have status {int}', function (int) {
+          // Then('the product request should have status {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product response payload should include:
+        | title      | description      | price |
+        | Quick Edit | Fast video edits | 150   |
+        Undefined. Implement with the following snippet:
+
+          Then('the product response payload should include:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+17) Scenario: Failing validation when creating a product # features\product_crud.feature:14
+    ? Given I am authenticated for product management
+        Undefined. Implement with the following snippet:
+
+          Given('I am authenticated for product management', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I create a product with:
+        | title | description | price |
+        |       |             | -10   |
+        Undefined. Implement with the following snippet:
+
+          When('I create a product with:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product request should have status 400
+        Undefined. Implement with the following snippet:
+
+          Then('the product request should have status {int}', function (int) {
+          // Then('the product request should have status {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product error message should contain "Title is required"
+        Undefined. Implement with the following snippet:
+
+          Then('the product error message should contain {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product error message should contain "Description is required"
+        Undefined. Implement with the following snippet:
+
+          Then('the product error message should contain {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product error message should contain "greater than or equal to 0"
+        Undefined. Implement with the following snippet:
+
+          Then('the product error message should contain {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+18) Scenario: Rejecting product creation without authentication # features\product_crud.feature:24
+    ? Given I am not authenticated for product management
+        Undefined. Implement with the following snippet:
+
+          Given('I am not authenticated for product management', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I create a product with:
+        | title        | description | price |
+        | Unauthorized | Test        | 50    |
+        Undefined. Implement with the following snippet:
+
+          When('I create a product with:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product request should have status 401
+        Undefined. Implement with the following snippet:
+
+          Then('the product request should have status {int}', function (int) {
+          // Then('the product request should have status {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product error message should contain "Not authenticated"
+        Undefined. Implement with the following snippet:
+
+          Then('the product error message should contain {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+19) Scenario: Updating my product # features\product_crud.feature:32
+    ? Given I am authenticated for product management
+        Undefined. Implement with the following snippet:
+
+          Given('I am authenticated for product management', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the following products already exist for me:
+        | title        | description  | price |
+        | Starter Edit | Initial desc | 200   |
+        Undefined. Implement with the following snippet:
+
+          Given('the following products already exist for me:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I update the product titled "Starter Edit" with:
+        | title        | description      | price |
+        | Starter Edit | Updated overview | 250   |
+        Undefined. Implement with the following snippet:
+
+          When('I update the product titled {string} with:', function (string, dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product request should have status 200
+        Undefined. Implement with the following snippet:
+
+          Then('the product request should have status {int}', function (int) {
+          // Then('the product request should have status {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product response payload should include:
+        | title        | description      | price |
+        | Starter Edit | Updated overview | 250   |
+        Undefined. Implement with the following snippet:
+
+          Then('the product response payload should include:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+20) Scenario: Updating a missing product returns 404 # features\product_crud.feature:45
+    ? Given I am authenticated for product management
+        Undefined. Implement with the following snippet:
+
+          Given('I am authenticated for product management', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I update the product titled "Missing Product" with:
+        | description | price |
+        | Nothing     | 10    |
+        Undefined. Implement with the following snippet:
+
+          When('I update the product titled {string} with:', function (string, dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product request should have status 404
+        Undefined. Implement with the following snippet:
+
+          Then('the product request should have status {int}', function (int) {
+          // Then('the product request should have status {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product error message should contain "Product not found"
+        Undefined. Implement with the following snippet:
+
+          Then('the product error message should contain {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+21) Scenario: Listing only my products # features\product_crud.feature:53
+    ? Given I am authenticated for product management
+        Undefined. Implement with the following snippet:
+
+          Given('I am authenticated for product management', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the following products already exist for me:
+        | title         | description | price |
+        | My Video Pack | Bundle info | 90    |
+        | Audio Boost   | Audio info  | 40    |
+        Undefined. Implement with the following snippet:
+
+          Given('the following products already exist for me:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And another user owns the following products:
+        | title        | description | price |
+        | Foreign Pack | Hidden      | 80    |
+        Undefined. Implement with the following snippet:
+
+          Given('another user owns the following products:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I list my products
+        Undefined. Implement with the following snippet:
+
+          When('I list my products', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product request should have status 200
+        Undefined. Implement with the following snippet:
+
+          Then('the product request should have status {int}', function (int) {
+          // Then('the product request should have status {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product list should include titles:
+        | title         |
+        | My Video Pack |
+        | Audio Boost   |
+        Undefined. Implement with the following snippet:
+
+          Then('the product list should include titles:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+22) Scenario: Deleting my product # features\product_crud.feature:69
+    ? Given I am authenticated for product management
+        Undefined. Implement with the following snippet:
+
+          Given('I am authenticated for product management', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the following products already exist for me:
+        | title        | description | price |
+        | Temp Product | Temp desc   | 60    |
+        Undefined. Implement with the following snippet:
+
+          Given('the following products already exist for me:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I delete the product titled "Temp Product"
+        Undefined. Implement with the following snippet:
+
+          When('I delete the product titled {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product request should have status 200
+        Undefined. Implement with the following snippet:
+
+          Then('the product request should have status {int}', function (int) {
+          // Then('the product request should have status {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the product message should be "Product deleted"
+        Undefined. Implement with the following snippet:
+
+          Then('the product message should be {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I list my products
+        Undefined. Implement with the following snippet:
+
+          When('I list my products', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the product list should be empty
+        Undefined. Implement with the following snippet:
+
+          Then('the product list should be empty', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+23) Scenario: Successfully uploading an image # features\uploads.feature:4
+    ? When I upload the following file:
+        | name       | type      | content    |
+        | avatar.png | image/png | fake-bytes |
+        Undefined. Implement with the following snippet:
+
+          When('I upload the following file:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the upload response status should be 201
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response status should be {int}', function (int) {
+          // Then('the upload response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the upload response should include a key
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response should include a key', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+24) Scenario: Missing file payload # features\uploads.feature:11
+    ? When I upload without a file
+        Undefined. Implement with the following snippet:
+
+          When('I upload without a file', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the upload response status should be 400
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response status should be {int}', function (int) {
+          // Then('the upload response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the upload error message should contain "Missing file upload payload"
+        Undefined. Implement with the following snippet:
+
+          Then('the upload error message should contain {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+25) Scenario: Upload infrastructure failure # features\uploads.feature:16
+    ? Given uploads will fail with the message "S3 unavailable"
+        Undefined. Implement with the following snippet:
+
+          Given('uploads will fail with the message {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I upload the following file:
+        | name | type       | content |
+        | doc  | text/plain | data    |
+        Undefined. Implement with the following snippet:
+
+          When('I upload the following file:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the upload response status should be 500
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response status should be {int}', function (int) {
+          // Then('the upload response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the upload error message should contain "File upload failed"
+        Undefined. Implement with the following snippet:
+
+          Then('the upload error message should contain {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+26) Scenario: Capturing upload payload metadata # features\uploads.feature:24
+    ? Given I capture upload payloads
+        Undefined. Implement with the following snippet:
+
+          Given('I capture upload payloads', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I upload the following file:
+        | name        | type       | content      |
+        | profile.jpg | image/jpeg | avatar-bytes |
+        Undefined. Implement with the following snippet:
+
+          When('I upload the following file:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the upload response status should be 201
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response status should be {int}', function (int) {
+          // Then('the upload response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the upload response should include a key
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response should include a key', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the captured upload payload should include:
+        | originalName | contentType | content      |
+        | profile.jpg  | image/jpeg  | avatar-bytes |
+        Undefined. Implement with the following snippet:
+
+          Then('the captured upload payload should include:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+27) Scenario: Defaulting content type when omitted # features\uploads.feature:35
+    ? Given I capture upload payloads
+        Undefined. Implement with the following snippet:
+
+          Given('I capture upload payloads', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? When I upload the following file:
+        | name    | content       |
+        | raw.bin | raw-byte-data |
+        Undefined. Implement with the following snippet:
+
+          When('I upload the following file:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the upload response status should be 201
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response status should be {int}', function (int) {
+          // Then('the upload response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the upload response should include a key
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response should include a key', function () {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the captured upload payload should include:
+        | originalName | contentType              | content       |
+        | raw.bin      | application/octet-stream | raw-byte-data |
+        Undefined. Implement with the following snippet:
+
+          Then('the captured upload payload should include:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the captured upload payload size should be 13 bytes
+        Undefined. Implement with the following snippet:
+
+          Then('the captured upload payload size should be {int} bytes', function (int) {
+          // Then('the captured upload payload size should be {float} bytes', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+28) Scenario: Generated upload keys use image prefix # features\uploads.feature:47
+    ? When I upload the following file:
+        | name       | type      | content     |
+        | banner.png | image/png | banner-data |
+        Undefined. Implement with the following snippet:
+
+          When('I upload the following file:', function (dataTable) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? Then the upload response status should be 201
+        Undefined. Implement with the following snippet:
+
+          Then('the upload response status should be {int}', function (int) {
+          // Then('the upload response status should be {float}', function (float) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+    ? And the upload key should start with "images/"
+        Undefined. Implement with the following snippet:
+
+          Then('the upload key should start with {string}', function (string) {
+            // Write code here that turns the phrase above into concrete actions
+            return 'pending';
+          });
+
+
+28 scenarios (28 undefined)
+127 steps (127 undefined)
+0m00.004s (executing steps: 0m00.000s)

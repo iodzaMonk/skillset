@@ -11,7 +11,7 @@ export async function fetchOrdersForUser(
     include: { posts: true },
   });
 
-  return orders.map(({ posts, ...order }) => ({
+  return orders.map(({ posts, ...order }: (typeof orders)[number]) => ({
     ...order,
     post: posts,
   }));

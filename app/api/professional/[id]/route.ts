@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Prisma } from "@prisma/client";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 import { prisma } from "@/lib/prisma";
 import { createSignedDownloadUrl } from "@/app/lib/storage/s3";
@@ -44,28 +44,30 @@ export async function GET(
     }
 
     const postsWithImages = await Promise.all(
-      professional.posts.map(async (post) => {
-        if (!post.image_location) {
-          return {
-            ...post,
-            image_url: NO_IMAGE_PLACEHOLDER,
-          };
-        }
+      professional.posts.map(
+        async (post: (typeof professional.posts)[number]) => {
+          if (!post.image_location) {
+            return {
+              ...post,
+              image_url: NO_IMAGE_PLACEHOLDER,
+            };
+          }
 
-        try {
-          const url = await createSignedDownloadUrl(post.image_location);
-          return {
-            ...post,
-            image_url: url,
-          };
-        } catch (error) {
-          console.error("Failed to sign product image url", error);
-          return {
-            ...post,
-            image_url: NO_IMAGE_PLACEHOLDER,
-          };
-        }
-      }),
+          try {
+            const url = await createSignedDownloadUrl(post.image_location);
+            return {
+              ...post,
+              image_url: url,
+            };
+          } catch (error) {
+            console.error("Failed to sign product image url", error);
+            return {
+              ...post,
+              image_url: NO_IMAGE_PLACEHOLDER,
+            };
+          }
+        },
+      ),
     );
 
     const totalProducts = postsWithImages.length;
@@ -90,7 +92,7 @@ export async function GET(
   } catch (error) {
     console.error("Error fetching professional profile:", error);
 
-    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+    if (error instanceof PrismaClientKnownRequestError) {
       return NextResponse.json(
         { message: "Invalid professional ID" },
         { status: 400 },

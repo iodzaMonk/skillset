@@ -1,4 +1,4 @@
-import { Category } from "@prisma/client";
+import { Category } from "@/types/Category";
 
 export function parseCategory(value: string | undefined): Category {
   if (!value) {

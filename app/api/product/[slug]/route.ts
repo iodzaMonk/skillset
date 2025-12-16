@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { Prisma } from "@prisma/client";
-import { signProductWithImage } from "../../lib/product-helpers";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { signProductWithImage } from "../../../lib/product-helpers";
 
 const NO_IMAGE_PLACEHOLDER = "/no-image.svg";
 
-import { fetchProductDetails } from "../../lib/product-queries";
+import { fetchProductDetails } from "../../../lib/product-queries";
 
 export async function GET(
   request: Request,
@@ -29,7 +29,7 @@ export async function GET(
   } catch (error) {
     console.error("Error fetching product:", error);
 
-    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+    if (error instanceof PrismaClientKnownRequestError) {
       return NextResponse.json(
         { message: "Invalid product ID" },
         { status: 400 },
@@ -37,7 +37,7 @@ export async function GET(
     }
 
     return NextResponse.json(
-      { message: "Internal Server Error" },
+      { message: "Internal server error" },
       { status: 500 },
     );
   }

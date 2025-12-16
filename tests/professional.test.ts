@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 const mockFindUnique = jest.fn();
 const mockAggregate = jest.fn();
@@ -171,10 +171,7 @@ describe("app/api/professional/[id]/route", () => {
 
   it("returns 400 when Prisma known request error occurs", async () => {
     const prismaError = new Error("invalid id");
-    Object.setPrototypeOf(
-      prismaError,
-      Prisma.PrismaClientKnownRequestError.prototype,
-    );
+    Object.setPrototypeOf(prismaError, PrismaClientKnownRequestError.prototype);
     mockFindUnique.mockRejectedValue(prismaError);
 
     const response = await GET(

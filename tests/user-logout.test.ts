@@ -1,3 +1,4 @@
+export {};
 const mockDeleteSession = jest.fn();
 jest.mock("@/app/lib/session", () => ({
   deleteSession: mockDeleteSession,

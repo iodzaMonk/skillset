@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import { getCurrentUser } from "@/app/lib/user";
 import { prisma } from "@/lib/prisma";
 import { PostBody } from "@/types/PostBody";
-import { Category } from "@prisma/client";
+import { Category } from "@/types/Category";
 import { signProductsWithImages } from "@/app/lib/product-helpers";
 
 export async function GET(request: Request) {

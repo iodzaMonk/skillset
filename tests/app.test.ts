@@ -1,3 +1,4 @@
+export {};
 const mockHeaders = jest.fn();
 
 jest.mock("next/headers", () => ({

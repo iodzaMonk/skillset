@@ -1,3 +1,4 @@
+export {};
 const mockGetCurrentUser = jest.fn();
 jest.mock("@/app/lib/user", () => ({
   getCurrentUser: mockGetCurrentUser,

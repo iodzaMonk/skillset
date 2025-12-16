@@ -1,3 +1,4 @@
+export {};
 const mockUploadObject = jest.fn();
 jest.mock("@/app/lib/storage/s3", () => ({
   uploadObject: mockUploadObject,

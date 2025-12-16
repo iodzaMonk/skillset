@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Prisma } from "@prisma/client";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 export function unauthorizedResponse(
   referer: string,
@@ -13,17 +13,17 @@ export function unauthorizedResponse(
 
 export function handleApiError(error: unknown, referer: string) {
   if (
-    error instanceof Prisma.PrismaClientKnownRequestError &&
+    error instanceof PrismaClientKnownRequestError &&
     error.code === "P2002" // Unique constraint failed
   ) {
     return NextResponse.json(
-      { message: "Email already registered" }, // Common message, or pass strictly
+      { message: "Email already registered" },
       { status: 409, headers: { "x-referer": referer } },
     );
   }
 
   if (
-    error instanceof Prisma.PrismaClientKnownRequestError &&
+    error instanceof PrismaClientKnownRequestError &&
     error.code === "P2025" // Record not found
   ) {
     return NextResponse.json(
