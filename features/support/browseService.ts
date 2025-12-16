@@ -13,8 +13,8 @@ export type ProductRecord = Prisma.postsGetPayload<{
   };
 }>;
 
-import { parseCategory, parsePrice } from "./parsing-helpers";
-import { ensureFixtureUser, cleanupEntities } from "./fixture-helpers";
+import { parseCategory, parsePrice } from "./parsing-helpers.ts";
+import { ensureFixtureUser, cleanupEntities } from "./fixture-helpers.ts";
 
 class BrowseService {
   private userId: string | null = null;

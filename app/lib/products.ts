@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import type { PostBody } from "@/types/PostBody";
+import type { PostBody } from "../../types/PostBody.ts";
 
 const api = axios.create({
   withCredentials: true,

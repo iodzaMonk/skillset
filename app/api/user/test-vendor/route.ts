@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCurrentUser } from "@/app/lib/user";
-import { prisma } from "@/lib/prisma";
+import { getCurrentUser } from "../../lib/user.ts";
+import { prisma } from "../../../../lib/prisma.ts";
 
 export async function POST(req: NextRequest) {
   // Only allow in development/test environments

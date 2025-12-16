@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { decrypt } from "./session";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../../lib/prisma.ts";
 
 export async function getCurrentUser() {
   const token = (await cookies()).get("session")?.value;

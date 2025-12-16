@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import { randomUUID } from "crypto";
 import { Prisma } from "@prisma/client";
 import { prisma } from "../../lib/prisma.ts";
-import { fetchProductDetails } from "@/app/lib/product-queries";
+import { fetchProductDetails } from "../../app/lib/product-queries.ts";
 
 type ProductRow = Record<string, string>;
 
@@ -11,8 +11,8 @@ export type ProductResponse = {
   body: Record<string, unknown>;
 };
 
-import { parseCategory, parsePrice } from "./parsing-helpers";
-import { ensureFixtureUser, cleanupEntities } from "./fixture-helpers";
+import { parseCategory, parsePrice } from "./parsing-helpers.ts";
+import { ensureFixtureUser, cleanupEntities } from "./fixture-helpers.ts";
 
 type ReviewerOptions = {
   email?: string;

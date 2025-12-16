@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import type { Order } from "@/types/Order";
-import { Status } from "@/types/Status";
+import type { Order } from "../../types/Order.ts";
+import { Status } from "../../types/Status.ts";
 
 const api = axios.create({
   withCredentials: true,

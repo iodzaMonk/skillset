@@ -17,7 +17,7 @@ export async function fetchOrdersForUser(
   }));
 }
 
-import { getCurrentUser } from "@/app/lib/user";
+import { getCurrentUser } from "./user.ts";
 import { NextResponse } from "next/server";
 
 export function createGetOrdersHandler(type: "client" | "prof") {

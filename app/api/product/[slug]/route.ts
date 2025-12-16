@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
-import { signProductWithImage } from "@/app/lib/product-helpers";
+import { signProductWithImage } from "../../lib/product-helpers.ts";
 
 const NO_IMAGE_PLACEHOLDER = "/no-image.svg";
 
-import { fetchProductDetails } from "@/app/lib/product-queries";
+import { fetchProductDetails } from "../../lib/product-queries.ts";
 
 export async function GET(
   request: Request,

@@ -1,0 +1,60 @@
+
+> flowbite-react-template-nextjs@0.1.0 cucumber
+> cross-env NODE_OPTIONS='--loader ts-node/esm' node --env-file=.env node_modules/@cucumber/cucumber/bin/cucumber.js --import "features/**/*.ts" --import "features/**/*.js"
+
+(node:63283) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+......................................................................................................................................................................F--...............................................................................................................................................................{ sendHeader: false, bodyLength: 10, threshold: 2097152 }
+...........................Failed to upload file to S3 Error: S3 unavailable
+    at file:///home/iodza/Documents/skillset/features/support/uploadFixture.ts:24:19
+    at performUpload (file:///home/iodza/Documents/skillset/app/lib/storage/uploadAdapter.ts:10:12)
+    at POST (file:///home/iodza/Documents/skillset/app/api/uploads/route.ts:12:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async UploadFixture.invoke (file:///home/iodza/Documents/skillset/features/support/uploadFixture.ts:47:26)
+    at async UploadFixture.uploadFile (file:///home/iodza/Documents/skillset/features/support/uploadFixture.ts:16:9)
+    at async World.<anonymous> (file:///home/iodza/Documents/skillset/features/step_definitions/upload.steps.ts:16:5)
+    at async wrapPromiseWithTimeout (/home/iodza/Documents/skillset/node_modules/@cucumber/cucumber/lib/time.js:67:12)
+    at async Object.run (/home/iodza/Documents/skillset/node_modules/@cucumber/cucumber/lib/user_code_runner.js:64:22)
+    at async Object.run (/home/iodza/Documents/skillset/node_modules/@cucumber/cucumber/lib/runtime/step_runner.js:64:26)
+............................................{ sendHeader: false, bodyLength: 11, threshold: 2097152 }
+........
+
+Failures:
+
+1) Scenario: Viewing product reviews # features/product.feature:17
+   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/auth.steps.ts:4
+   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/browse.steps.ts:4
+   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:4
+   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/productCrud.steps.ts:4
+   ✔ Before # file:/home/iodza/Documents/skillset/features/step_definitions/upload.steps.ts:5
+   ✔ Given the product catalogue includes: # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:10
+       | title                | category | price | description       |
+       | Video Editing Basics | Editing  | 120   | Learn quick edits |
+   ✔ And the product has the following reviews: # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:13
+       | product              | reviewer | reviewer country | reviewer email       | text              | rating |
+       | Video Editing Basics | Alice    | Canada           | alice@example.com    | Loved the lessons | 5      |
+       | Video Editing Basics | Bob      | Brazil           | bob.prof@example.com | Helpful shortcuts | 4      |
+   ✔ When I request the product details for "Video Editing Basics" # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:16
+   ✔ Then the product response status should be 200 # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:22
+   ✔ And the product payload should include the following reviews: # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:62
+       | reviewer | text              |
+       | Alice    | Loved the lessons |
+       | Bob      | Helpful shortcuts |
+   ✖ And the product review metadata should include: # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:77
+       | reviewer | country | email                |
+       | Alice    | Canada  | alice@example.com    |
+       | Bob      | Brazil  | bob.prof@example.com |
+       AssertionError [ERR_ASSERTION]: Expected metadata for reviewer Alice (Canada, alice@example.com)
+           at World.<anonymous> (file:///home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:91:16)
+   - And the product payload should report rating 4.5 # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:94
+   - And the product payload should report 2 reviews # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:100
+   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/upload.steps.ts:8
+   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/productCrud.steps.ts:7
+   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/product.steps.ts:7
+   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/browse.steps.ts:7
+   ✔ After # file:/home/iodza/Documents/skillset/features/step_definitions/auth.steps.ts:7
+
+28 scenarios (1 failed, 27 passed)
+127 steps (1 failed, 2 skipped, 124 passed)
+0m10.629s (executing steps: 0m10.565s)

@@ -1,5 +1,5 @@
-import { prisma } from "@/lib/prisma";
-import { reviewThreadInclude } from "@/app/api/product/[slug]/reviews/review-helpers";
+import { prisma } from "../../lib/prisma.ts";
+import { reviewThreadInclude } from "../api/product/[slug]/reviews/review-shared.ts";
 
 export async function fetchProductDetails(slug: string) {
   const product = await prisma.posts.findUnique({
