@@ -45,6 +45,7 @@ export default function ConnectStripeButton() {
             disabled={loading || !user}
             variant="default"
             className="w-full"
+            data-testid="connect-stripe-button"
           >
             {loading ? "Connecting..." : "Connect to Stripe"}
           </Button>
