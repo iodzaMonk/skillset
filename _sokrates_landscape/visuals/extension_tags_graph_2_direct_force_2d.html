@@ -1,137 +1,169 @@
 <head>
-    <style> body {
-        margin: 0;
-    } </style>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
 
-    <script src="https://cdn.jsdelivr.net/npm/force-graph"></script>
+  <script src="https://cdn.jsdelivr.net/npm/force-graph"></script>
 </head>
 
 <body>
-<div id="graph"></div>
+  <div id="graph"></div>
 
-<script>
+  <script>
     const gData = {
-  "nodes" : [ {
-    "id" : "all file extensions / ts (1)",
-    "size" : 4
-  }, {
-    "id" : "all file extensions / css (1)",
-    "size" : 4
-  }, {
-    "id" : "all file extensions / js (1)",
-    "size" : 4
-  }, {
-    "id" : "all file extensions / mjs (1)",
-    "size" : 4
-  }, {
-    "id" : "all file extensions / tsx (1)",
-    "size" : 4
-  } ],
-  "links" : [ {
-    "source" : "all file extensions / css (1)",
-    "target" : "all file extensions / mjs (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / mjs (1)",
-    "target" : "all file extensions / css (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / css (1)",
-    "target" : "all file extensions / tsx (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / tsx (1)",
-    "target" : "all file extensions / css (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / css (1)",
-    "target" : "all file extensions / ts (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / ts (1)",
-    "target" : "all file extensions / css (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / css (1)",
-    "target" : "all file extensions / js (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / js (1)",
-    "target" : "all file extensions / css (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / mjs (1)",
-    "target" : "all file extensions / tsx (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / tsx (1)",
-    "target" : "all file extensions / mjs (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / mjs (1)",
-    "target" : "all file extensions / ts (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / ts (1)",
-    "target" : "all file extensions / mjs (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / mjs (1)",
-    "target" : "all file extensions / js (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / js (1)",
-    "target" : "all file extensions / mjs (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / tsx (1)",
-    "target" : "all file extensions / ts (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / ts (1)",
-    "target" : "all file extensions / tsx (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / tsx (1)",
-    "target" : "all file extensions / js (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / js (1)",
-    "target" : "all file extensions / tsx (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / ts (1)",
-    "target" : "all file extensions / js (1)",
-    "count" : 1
-  }, {
-    "source" : "all file extensions / js (1)",
-    "target" : "all file extensions / ts (1)",
-    "count" : 1
-  } ]
-}
+      nodes: [
+        {
+          id: "all file extensions / ts (1)",
+          size: 4,
+        },
+        {
+          id: "all file extensions / css (1)",
+          size: 4,
+        },
+        {
+          id: "all file extensions / js (1)",
+          size: 4,
+        },
+        {
+          id: "all file extensions / mjs (1)",
+          size: 4,
+        },
+        {
+          id: "all file extensions / tsx (1)",
+          size: 4,
+        },
+      ],
+      links: [
+        {
+          source: "all file extensions / css (1)",
+          target: "all file extensions / mjs (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / mjs (1)",
+          target: "all file extensions / css (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / css (1)",
+          target: "all file extensions / tsx (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / tsx (1)",
+          target: "all file extensions / css (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / css (1)",
+          target: "all file extensions / ts (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / ts (1)",
+          target: "all file extensions / css (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / css (1)",
+          target: "all file extensions / js (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / js (1)",
+          target: "all file extensions / css (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / mjs (1)",
+          target: "all file extensions / tsx (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / tsx (1)",
+          target: "all file extensions / mjs (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / mjs (1)",
+          target: "all file extensions / ts (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / ts (1)",
+          target: "all file extensions / mjs (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / mjs (1)",
+          target: "all file extensions / js (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / js (1)",
+          target: "all file extensions / mjs (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / tsx (1)",
+          target: "all file extensions / ts (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / ts (1)",
+          target: "all file extensions / tsx (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / tsx (1)",
+          target: "all file extensions / js (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / js (1)",
+          target: "all file extensions / tsx (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / ts (1)",
+          target: "all file extensions / js (1)",
+          count: 1,
+        },
+        {
+          source: "all file extensions / js (1)",
+          target: "all file extensions / ts (1)",
+          count: 1,
+        },
+      ],
+    };
 
-    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
-    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+    const maxNodeSize = gData.nodes
+      .map((n) => n.size)
+      .reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links
+      .map((l) => l.count)
+      .reduce((a, b) => Math.max(a, b));
 
-    gData.links = gData.links.map(l => {
-        return {source: l.target, target: l.source, count: l.count}
+    gData.links = gData.links.map((l) => {
+      return { source: l.target, target: l.source, count: l.count };
     });
     const colorOf = (node) => {
-        if (!node.id.startsWith("[")) return "rgba(135, 206, 235, 0.6)";
-        return "rgba(100,100,100,0.6)";
-    }
+      if (!node.id.startsWith("[")) return "rgba(135, 206, 235, 0.6)";
+      return "rgba(100,100,100,0.6)";
+    };
 
-    const elem = document.getElementById('graph');
+    const elem = document.getElementById("graph");
     const Graph = ForceGraph()(elem)
-        .graphData(gData)
-        .nodeRelSize(4)
-        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
-        .nodeLabel(n => n.id + " (" + n.size + ")")
-        .nodeColor(n => colorOf(n))
-        .linkDirectionalParticles(1)
-        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
-        .linkOpacity(0.1)
-        .linkWidth(d => 3 * d.count / maxCount + 0.1);
-
-</script>
+      .graphData(gData)
+      .nodeRelSize(4)
+      .nodeVal((n) => Math.max((20 * n.size) / maxNodeSize, 0.001))
+      .nodeLabel((n) => n.id + " (" + n.size + ")")
+      .nodeColor((n) => colorOf(n))
+      .linkDirectionalParticles(1)
+      .linkDirectionalParticleSpeed((d) => (d.count / maxCount) * 0.01)
+      .linkOpacity(0.1)
+      .linkWidth((d) => (3 * d.count) / maxCount + 0.1);
+  </script>
 </body>

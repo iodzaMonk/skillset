@@ -1,32 +1,48 @@
-[ {
-  "metadata" : {
-    "name" : "Skillset",
-    "description" : "",
-    "tooltip" : "",
-    "logoLink" : "",
-    "links" : [ ]
-  },
-  "latestCommitDate" : "2025-12-05",
-  "commitsCount30Days" : 16,
-  "commitsCount90Days" : 101,
-  "commitsCount" : 105,
-  "contributors30Days" : [ "iodzamonkmode@gmail.com", "bramomoh06@gmail.com", "2396208@cmontmorency.qc.ca" ],
-  "contributors90Days" : [ "iodzamonkmode@gmail.com", "bramomoh06@gmail.com", "2396208@cmontmorency.qc.ca", "nazim071305@gmail.com" ],
-  "contributors" : [ "iodzamonkmode@gmail.com", "bramomoh06@gmail.com", "2396208@cmontmorency.qc.ca", "nazim071305@gmail.com" ],
-  "sokratesRepositoryLink" : {
-    "analysisResultsPath" : "Sokrates\\_sokrates\\reports\\data\\analysisResults.json",
-    "htmlReportsRoot" : "Sokrates\\_sokrates\\reports\\html",
-    "note" : ""
-  },
-  "metrics" : null,
-  "mainFilesCount" : 164,
-  "mainLinesOfCode" : 13679,
-  "testFilesCount" : 13,
-  "testLinesOfCode" : 1362,
-  "generatedFilesCount" : 1,
-  "generatedLinesOfCode" : 3208,
-  "buildAndDeployFilesCount" : 0,
-  "buildAndDeployLinesOfCode" : 0,
-  "otherFilesCount" : 81,
-  "otherLinesOfCode" : 0
-} ]
+[
+  {
+    "metadata": {
+      "name": "Skillset",
+      "description": "",
+      "tooltip": "",
+      "logoLink": "",
+      "links": []
+    },
+    "latestCommitDate": "2025-12-05",
+    "commitsCount30Days": 16,
+    "commitsCount90Days": 101,
+    "commitsCount": 105,
+    "contributors30Days": [
+      "iodzamonkmode@gmail.com",
+      "bramomoh06@gmail.com",
+      "2396208@cmontmorency.qc.ca"
+    ],
+    "contributors90Days": [
+      "iodzamonkmode@gmail.com",
+      "bramomoh06@gmail.com",
+      "2396208@cmontmorency.qc.ca",
+      "nazim071305@gmail.com"
+    ],
+    "contributors": [
+      "iodzamonkmode@gmail.com",
+      "bramomoh06@gmail.com",
+      "2396208@cmontmorency.qc.ca",
+      "nazim071305@gmail.com"
+    ],
+    "sokratesRepositoryLink": {
+      "analysisResultsPath": "Sokrates\\_sokrates\\reports\\data\\analysisResults.json",
+      "htmlReportsRoot": "Sokrates\\_sokrates\\reports\\html",
+      "note": ""
+    },
+    "metrics": null,
+    "mainFilesCount": 164,
+    "mainLinesOfCode": 13679,
+    "testFilesCount": 13,
+    "testLinesOfCode": 1362,
+    "generatedFilesCount": 1,
+    "generatedLinesOfCode": 3208,
+    "buildAndDeployFilesCount": 0,
+    "buildAndDeployLinesOfCode": 0,
+    "otherFilesCount": 81,
+    "otherLinesOfCode": 0
+  }
+]

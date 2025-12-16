@@ -7,7 +7,11 @@ interface BirthdayPickerProps {
   error?: string | null;
 }
 
-export function BirthdayPicker({ birthday, setBirthday, error }: BirthdayPickerProps) {
+export function BirthdayPicker({
+  birthday,
+  setBirthday,
+  error,
+}: BirthdayPickerProps) {
   return (
     <>
       <Datepicker

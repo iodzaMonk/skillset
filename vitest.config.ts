@@ -1,19 +1,19 @@
 // vitest.config.ts
-import { fileURLToPath } from 'node:url'
-import { defineConfig } from 'vitest/config'
+import { fileURLToPath } from "node:url";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./', import.meta.url)),
+      "@": fileURLToPath(new URL("./", import.meta.url)),
     },
   },
   test: {
     globals: true,
-    setupFiles: ['./vitest.setup.ts'],
+    setupFiles: ["./vitest.setup.ts"],
     coverage: {
       enabled: true,
-      reporter: ['html', 'text'], // Generates HTML and text reports
+      reporter: ["html", "text"], // Generates HTML and text reports
     },
   },
-})
+});

@@ -1,125 +1,226 @@
-[ {
-  "contributor" : {
-    "email" : "iodzamonkmode@gmail.com",
-    "userName" : "iodza",
-    "commitsCount" : 58,
-    "commitsCount30Days" : 10,
-    "commitsCount90Days" : 54,
-    "commitsCount180Days" : 58,
-    "commitsCount365Days" : 58,
-    "firstCommitDate" : "2025-09-05",
-    "latestCommitDate" : "2025-12-05",
-    "activeYears" : [ "2025" ],
-    "commitDates" : [ "2025-12-05", "2025-11-21", "2025-11-07", "2025-11-06", "2025-10-31", "2025-10-30", "2025-10-24", "2025-10-18", "2025-10-17", "2025-10-16", "2025-10-15", "2025-10-14", "2025-10-03", "2025-10-02", "2025-09-26", "2025-09-19", "2025-09-18", "2025-09-12", "2025-09-07", "2025-09-05" ],
-    "bot" : false,
-    "active" : true,
-    "rookie" : true
+[
+  {
+    "contributor": {
+      "email": "iodzamonkmode@gmail.com",
+      "userName": "iodza",
+      "commitsCount": 58,
+      "commitsCount30Days": 10,
+      "commitsCount90Days": 54,
+      "commitsCount180Days": 58,
+      "commitsCount365Days": 58,
+      "firstCommitDate": "2025-09-05",
+      "latestCommitDate": "2025-12-05",
+      "activeYears": ["2025"],
+      "commitDates": [
+        "2025-12-05",
+        "2025-11-21",
+        "2025-11-07",
+        "2025-11-06",
+        "2025-10-31",
+        "2025-10-30",
+        "2025-10-24",
+        "2025-10-18",
+        "2025-10-17",
+        "2025-10-16",
+        "2025-10-15",
+        "2025-10-14",
+        "2025-10-03",
+        "2025-10-02",
+        "2025-09-26",
+        "2025-09-19",
+        "2025-09-18",
+        "2025-09-12",
+        "2025-09-07",
+        "2025-09-05"
+      ],
+      "bot": false,
+      "active": true,
+      "rookie": true
+    },
+    "mainLang": "html",
+    "repositories": [
+      {
+        "name": "Skillset",
+        "description": "",
+        "firstCommitDate": "2025-09-05",
+        "latestCommitDate": "2025-12-05",
+        "commitsCount": 58,
+        "commits30Days": 10,
+        "commits90Days": 54,
+        "commits180Days": 58,
+        "commits365Days": 58,
+        "commitDates": [
+          "2025-12-05",
+          "2025-11-21",
+          "2025-11-07",
+          "2025-11-06",
+          "2025-10-31",
+          "2025-10-30",
+          "2025-10-24",
+          "2025-10-18",
+          "2025-10-17",
+          "2025-10-16",
+          "2025-10-15",
+          "2025-10-14",
+          "2025-10-03",
+          "2025-10-02",
+          "2025-09-26",
+          "2025-09-19",
+          "2025-09-18",
+          "2025-09-12",
+          "2025-09-07",
+          "2025-09-05"
+        ]
+      }
+    ],
+    "members": []
   },
-  "mainLang" : "html",
-  "repositories" : [ {
-    "name" : "Skillset",
-    "description" : "",
-    "firstCommitDate" : "2025-09-05",
-    "latestCommitDate" : "2025-12-05",
-    "commitsCount" : 58,
-    "commits30Days" : 10,
-    "commits90Days" : 54,
-    "commits180Days" : 58,
-    "commits365Days" : 58,
-    "commitDates" : [ "2025-12-05", "2025-11-21", "2025-11-07", "2025-11-06", "2025-10-31", "2025-10-30", "2025-10-24", "2025-10-18", "2025-10-17", "2025-10-16", "2025-10-15", "2025-10-14", "2025-10-03", "2025-10-02", "2025-09-26", "2025-09-19", "2025-09-18", "2025-09-12", "2025-09-07", "2025-09-05" ]
-  } ],
-  "members" : [ ]
-}, {
-  "contributor" : {
-    "email" : "bramomoh06@gmail.com",
-    "userName" : "Mohamed Arezki Brahimi",
-    "commitsCount" : 40,
-    "commitsCount30Days" : 5,
-    "commitsCount90Days" : 40,
-    "commitsCount180Days" : 40,
-    "commitsCount365Days" : 40,
-    "firstCommitDate" : "2025-09-08",
-    "latestCommitDate" : "2025-11-21",
-    "activeYears" : [ "2025" ],
-    "commitDates" : [ "2025-11-21", "2025-11-20", "2025-10-31", "2025-10-29", "2025-10-27", "2025-10-24", "2025-10-22", "2025-10-17", "2025-10-15", "2025-10-03", "2025-09-25", "2025-09-19", "2025-09-16", "2025-09-12", "2025-09-09", "2025-09-08" ],
-    "bot" : false,
-    "active" : true,
-    "rookie" : true
+  {
+    "contributor": {
+      "email": "bramomoh06@gmail.com",
+      "userName": "Mohamed Arezki Brahimi",
+      "commitsCount": 40,
+      "commitsCount30Days": 5,
+      "commitsCount90Days": 40,
+      "commitsCount180Days": 40,
+      "commitsCount365Days": 40,
+      "firstCommitDate": "2025-09-08",
+      "latestCommitDate": "2025-11-21",
+      "activeYears": ["2025"],
+      "commitDates": [
+        "2025-11-21",
+        "2025-11-20",
+        "2025-10-31",
+        "2025-10-29",
+        "2025-10-27",
+        "2025-10-24",
+        "2025-10-22",
+        "2025-10-17",
+        "2025-10-15",
+        "2025-10-03",
+        "2025-09-25",
+        "2025-09-19",
+        "2025-09-16",
+        "2025-09-12",
+        "2025-09-09",
+        "2025-09-08"
+      ],
+      "bot": false,
+      "active": true,
+      "rookie": true
+    },
+    "mainLang": "html",
+    "repositories": [
+      {
+        "name": "Skillset",
+        "description": "",
+        "firstCommitDate": "2025-09-08",
+        "latestCommitDate": "2025-11-21",
+        "commitsCount": 40,
+        "commits30Days": 5,
+        "commits90Days": 40,
+        "commits180Days": 40,
+        "commits365Days": 40,
+        "commitDates": [
+          "2025-11-21",
+          "2025-11-20",
+          "2025-10-31",
+          "2025-10-29",
+          "2025-10-27",
+          "2025-10-24",
+          "2025-10-22",
+          "2025-10-17",
+          "2025-10-15",
+          "2025-10-03",
+          "2025-09-25",
+          "2025-09-19",
+          "2025-09-16",
+          "2025-09-12",
+          "2025-09-09",
+          "2025-09-08"
+        ]
+      }
+    ],
+    "members": []
   },
-  "mainLang" : "html",
-  "repositories" : [ {
-    "name" : "Skillset",
-    "description" : "",
-    "firstCommitDate" : "2025-09-08",
-    "latestCommitDate" : "2025-11-21",
-    "commitsCount" : 40,
-    "commits30Days" : 5,
-    "commits90Days" : 40,
-    "commits180Days" : 40,
-    "commits365Days" : 40,
-    "commitDates" : [ "2025-11-21", "2025-11-20", "2025-10-31", "2025-10-29", "2025-10-27", "2025-10-24", "2025-10-22", "2025-10-17", "2025-10-15", "2025-10-03", "2025-09-25", "2025-09-19", "2025-09-16", "2025-09-12", "2025-09-09", "2025-09-08" ]
-  } ],
-  "members" : [ ]
-}, {
-  "contributor" : {
-    "email" : "2396208@cmontmorency.qc.ca",
-    "userName" : "nazimCollege",
-    "commitsCount" : 6,
-    "commitsCount30Days" : 1,
-    "commitsCount90Days" : 6,
-    "commitsCount180Days" : 6,
-    "commitsCount365Days" : 6,
-    "firstCommitDate" : "2025-09-25",
-    "latestCommitDate" : "2025-11-14",
-    "activeYears" : [ "2025" ],
-    "commitDates" : [ "2025-11-14", "2025-10-30", "2025-10-24", "2025-10-17", "2025-09-25" ],
-    "bot" : false,
-    "active" : true,
-    "rookie" : true
+  {
+    "contributor": {
+      "email": "2396208@cmontmorency.qc.ca",
+      "userName": "nazimCollege",
+      "commitsCount": 6,
+      "commitsCount30Days": 1,
+      "commitsCount90Days": 6,
+      "commitsCount180Days": 6,
+      "commitsCount365Days": 6,
+      "firstCommitDate": "2025-09-25",
+      "latestCommitDate": "2025-11-14",
+      "activeYears": ["2025"],
+      "commitDates": [
+        "2025-11-14",
+        "2025-10-30",
+        "2025-10-24",
+        "2025-10-17",
+        "2025-09-25"
+      ],
+      "bot": false,
+      "active": true,
+      "rookie": true
+    },
+    "mainLang": "html",
+    "repositories": [
+      {
+        "name": "Skillset",
+        "description": "",
+        "firstCommitDate": "2025-09-25",
+        "latestCommitDate": "2025-11-14",
+        "commitsCount": 6,
+        "commits30Days": 1,
+        "commits90Days": 6,
+        "commits180Days": 6,
+        "commits365Days": 6,
+        "commitDates": [
+          "2025-11-14",
+          "2025-10-30",
+          "2025-10-24",
+          "2025-10-17",
+          "2025-09-25"
+        ]
+      }
+    ],
+    "members": []
   },
-  "mainLang" : "html",
-  "repositories" : [ {
-    "name" : "Skillset",
-    "description" : "",
-    "firstCommitDate" : "2025-09-25",
-    "latestCommitDate" : "2025-11-14",
-    "commitsCount" : 6,
-    "commits30Days" : 1,
-    "commits90Days" : 6,
-    "commits180Days" : 6,
-    "commits365Days" : 6,
-    "commitDates" : [ "2025-11-14", "2025-10-30", "2025-10-24", "2025-10-17", "2025-09-25" ]
-  } ],
-  "members" : [ ]
-}, {
-  "contributor" : {
-    "email" : "nazim071305@gmail.com",
-    "userName" : "Nazim_Maison",
-    "commitsCount" : 1,
-    "commitsCount30Days" : 0,
-    "commitsCount90Days" : 1,
-    "commitsCount180Days" : 1,
-    "commitsCount365Days" : 1,
-    "firstCommitDate" : "2025-09-18",
-    "latestCommitDate" : "2025-09-18",
-    "activeYears" : [ "2025" ],
-    "commitDates" : [ "2025-09-18" ],
-    "bot" : false,
-    "active" : true,
-    "rookie" : true
-  },
-  "mainLang" : "html",
-  "repositories" : [ {
-    "name" : "Skillset",
-    "description" : "",
-    "firstCommitDate" : "2025-09-18",
-    "latestCommitDate" : "2025-09-18",
-    "commitsCount" : 1,
-    "commits30Days" : 0,
-    "commits90Days" : 1,
-    "commits180Days" : 1,
-    "commits365Days" : 1,
-    "commitDates" : [ "2025-09-18" ]
-  } ],
-  "members" : [ ]
-} ]
+  {
+    "contributor": {
+      "email": "nazim071305@gmail.com",
+      "userName": "Nazim_Maison",
+      "commitsCount": 1,
+      "commitsCount30Days": 0,
+      "commitsCount90Days": 1,
+      "commitsCount180Days": 1,
+      "commitsCount365Days": 1,
+      "firstCommitDate": "2025-09-18",
+      "latestCommitDate": "2025-09-18",
+      "activeYears": ["2025"],
+      "commitDates": ["2025-09-18"],
+      "bot": false,
+      "active": true,
+      "rookie": true
+    },
+    "mainLang": "html",
+    "repositories": [
+      {
+        "name": "Skillset",
+        "description": "",
+        "firstCommitDate": "2025-09-18",
+        "latestCommitDate": "2025-09-18",
+        "commitsCount": 1,
+        "commits30Days": 0,
+        "commits90Days": 1,
+        "commits180Days": 1,
+        "commits365Days": 1,
+        "commitDates": ["2025-09-18"]
+      }
+    ],
+    "members": []
+  }
+]

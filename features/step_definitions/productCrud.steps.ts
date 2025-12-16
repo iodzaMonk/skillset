@@ -21,13 +21,19 @@ After(async function (this: ProductCrudWorld) {
   await this.fixture.cleanup();
 });
 
-Given("I am authenticated for product management", async function (this: ProductCrudWorld) {
-  await this.fixture.authenticate();
-});
+Given(
+  "I am authenticated for product management",
+  async function (this: ProductCrudWorld) {
+    await this.fixture.authenticate();
+  },
+);
 
-Given("I am not authenticated for product management", function (this: ProductCrudWorld) {
-  this.fixture.signOut();
-});
+Given(
+  "I am not authenticated for product management",
+  function (this: ProductCrudWorld) {
+    this.fixture.signOut();
+  },
+);
 
 Given(
   "the following products already exist for me:",
@@ -43,9 +49,12 @@ Given(
   },
 );
 
-When("I create a product with:", async function (this: ProductCrudWorld, table: DataTable) {
-  await this.fixture.createProduct(table.hashes()[0] ?? {});
-});
+When(
+  "I create a product with:",
+  async function (this: ProductCrudWorld, table: DataTable) {
+    await this.fixture.createProduct(table.hashes()[0] ?? {});
+  },
+);
 
 When(
   "I update the product titled {string} with:",
@@ -107,8 +116,8 @@ Then(
   function (this: ProductCrudWorld, table: DataTable) {
     const response = this.fixture.response;
     assert.ok(response?.body?.data, "Expected data in list response");
-    const titles = (response.body.data as Array<Record<string, unknown>>).map((p) =>
-      String(p.title),
+    const titles = (response.body.data as Array<Record<string, unknown>>).map(
+      (p) => String(p.title),
     );
     for (const row of table.hashes()) {
       assert.ok(

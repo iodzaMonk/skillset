@@ -1,223 +1,396 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <style type="text/css" media="all">
-    body {
-      font-family: Roboto, Vollkorn, Ubuntu, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
-      margin-left:5%;
-      margin-right:5%;
-    }
-    table {
-      color: #333;
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-    td, th {
-      border: 1px solid #CCC;
-      height: 30px;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-    th {
-      background: #F3F3F3;
-      font-weight: bold;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    td {
-      background: #FFFFFF;
-      text-align: left;
-    }
-    h3 {
-      margin-top: 0
-    }
-    h1 {
-      margin-bottom: 6px;
-    }
-    p {
-      margin-top: 0;
-    }
-    a {
-      text-decoration: none;
-    }
-    .reportSubtitle {
-      color: grey;
-    }
-    .group {
-      margin-bottom: 10px;
-      border: solid lightgrey 1px;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 2px;
-    }
-    .section {
-      margin-bottom: 30px;
-      border: solid lightgrey 1px;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 2px;
-      padding: 0;
-    }
-    .sectionHeader {
-      margin-bottom: 30px;
-      padding: 20px;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-      background-color: lightskyblue;
-    }
-    .sectionTitle {
-      font-size: 140%;
-    }
-    .sectionSubtitle {
-      font-size: 90%; color: grey;
-    }
-    .subSectionTitle {
-      font-size: 140%;
-    }
-    .subSectionSubtitle {
-      font-size: 90%; color: grey;
-    }
-    .subSection {
-      margin-bottom: 30px;
-      border: solid lightgrey 1px;
-      padding-top: 0;
-      padding-bottom: 0;
-      box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 1px 9px 0 rgba(0, 0, 0, 0.19);
-    }
-    .subSectionHeader {
-      border: solid lightgrey 1px;
-      padding: 6px;
-      background-color: lightgrey;
-      box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 0 rgba(0, 0, 0, 0.19);
-    }
-    .sectionBody {
-      margin: 20px;
-    }
-.tab {
- overflow: hidden;
- border: 1px solid #ccc;
- background-color: #f1f1f1;
-}
-.tab button {
- font-family: Roboto, Vollkorn, Ubuntu, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
- font-size: 100%;
- background-color: inherit;
- float: left;
- border: none;
- outline: none;
- cursor: pointer;
- padding: 14px 16px;
- transition: 0.3s;
-}
-.tab button:hover {
- background-color: #ddd;
-}
-.tab button.active {
- background-color: #ccc;
-}
-.tabcontent {
- display: none;
- padding: 6px 12px;
- border: 1px solid #ccc;
- overflow-y: auto;
- border-top: none;
-}
-  </style>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <script type="text/javascript">
-    function showHide(id) {
-      var e = document.getElementById(id);
-      e.style.display = (e.style.display == 'block') ? 'none' : 'block';
-    }
-    function showHideDisappear(id) {
-      var e = document.getElementById(id);
-      e.style.display = '';      var eTrigger = document.getElementById(id + '_trigger');
-      eTrigger.style.display = 'none';
-    }
-    function openTab(evt, tabName) {
-     var i, tabcontent, tablinks;
-     tabcontent = document.getElementsByClassName("tabcontent");
-     for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-     }
-     tablinks = document.getElementsByClassName("tablinks");
-     for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-     }
-     document.getElementById(tabName).style.display = "block";
-     evt.currentTarget.className += " active";
-    }
-  </script>
-  
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css" media="all">
+      body {
+        font-family:
+          Roboto,
+          Vollkorn,
+          Ubuntu,
+          Optima,
+          Segoe,
+          Segoe UI,
+          Candara,
+          Calibri,
+          Arial,
+          sans-serif;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      table {
+        color: #333;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      td,
+      th {
+        border: 1px solid #ccc;
+        height: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      th {
+        background: #f3f3f3;
+        font-weight: bold;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      td {
+        background: #ffffff;
+        text-align: left;
+      }
+      h3 {
+        margin-top: 0;
+      }
+      h1 {
+        margin-bottom: 6px;
+      }
+      p {
+        margin-top: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      .reportSubtitle {
+        color: grey;
+      }
+      .group {
+        margin-bottom: 10px;
+        border: solid lightgrey 1px;
+        box-shadow:
+          0 2px 4px 0 rgba(0, 0, 0, 0.2),
+          0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 2px;
+      }
+      .section {
+        margin-bottom: 30px;
+        border: solid lightgrey 1px;
+        box-shadow:
+          0 2px 4px 0 rgba(0, 0, 0, 0.2),
+          0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 2px;
+        padding: 0;
+      }
+      .sectionHeader {
+        margin-bottom: 30px;
+        padding: 20px;
+        box-shadow:
+          0 2px 4px 0 rgba(0, 0, 0, 0.2),
+          0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        background-color: lightskyblue;
+      }
+      .sectionTitle {
+        font-size: 140%;
+      }
+      .sectionSubtitle {
+        font-size: 90%;
+        color: grey;
+      }
+      .subSectionTitle {
+        font-size: 140%;
+      }
+      .subSectionSubtitle {
+        font-size: 90%;
+        color: grey;
+      }
+      .subSection {
+        margin-bottom: 30px;
+        border: solid lightgrey 1px;
+        padding-top: 0;
+        padding-bottom: 0;
+        box-shadow:
+          0 0px 0px 0 rgba(0, 0, 0, 0.2),
+          0 1px 9px 0 rgba(0, 0, 0, 0.19);
+      }
+      .subSectionHeader {
+        border: solid lightgrey 1px;
+        padding: 6px;
+        background-color: lightgrey;
+        box-shadow:
+          0 0px 0px 0 rgba(0, 0, 0, 0.2),
+          0 2px 9px 0 rgba(0, 0, 0, 0.19);
+      }
+      .sectionBody {
+        margin: 20px;
+      }
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+      .tab button {
+        font-family:
+          Roboto,
+          Vollkorn,
+          Ubuntu,
+          Optima,
+          Segoe,
+          Segoe UI,
+          Candara,
+          Calibri,
+          Arial,
+          sans-serif;
+        font-size: 100%;
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+      }
+      .tab button:hover {
+        background-color: #ddd;
+      }
+      .tab button.active {
+        background-color: #ccc;
+      }
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        overflow-y: auto;
+        border-top: none;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato"
+    />
+    <script type="text/javascript">
+      function showHide(id) {
+        var e = document.getElementById(id);
+        e.style.display = e.style.display == "block" ? "none" : "block";
+      }
+      function showHideDisappear(id) {
+        var e = document.getElementById(id);
+        e.style.display = "";
+        var eTrigger = document.getElementById(id + "_trigger");
+        eTrigger.style.display = "none";
+      }
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+  </head>
 
-<body><div id="report">
-
-
-
-<div style="margin-bottom: 42px">
-<h1>Custom Tags / Expanded View</h1>
-<p style="color: grey">Tags per sub-folder</p>
-<div style="border-radius: 9px; padding: 6px; margin-top: 16px; border: 1px solid lightgrey; background-color: #B9D9EB">
-build and dependencies management tools (2)
-</div>
-<table>
-<tr style='font-size: 80%'>
-<td></td>
-<td style="text-align: center; border-right: 4px solid lightgrey">all repositories</td>
-<td style="text-align: center">Sokrates<br>(2)</td>
-</tr>
-<tr style='text-align: center'>
-<td style="vertical-align: top; white-space: nowrap;">
-<div style="cursor: help;vertical-align: top; cursor: help; padding: 4px; border-radius: 6px; border: 1px solid lightgrey; background-color: #B9D9EB" title="includes repositories with at least one file matching:
+  <body>
+    <div id="report">
+      <div style="margin-bottom: 42px">
+        <h1>Custom Tags / Expanded View</h1>
+        <p style="color: grey">Tags per sub-folder</p>
+        <div
+          style="
+            border-radius: 9px;
+            padding: 6px;
+            margin-top: 16px;
+            border: 1px solid lightgrey;
+            background-color: #b9d9eb;
+          "
+        >
+          build and dependencies management tools (2)
+        </div>
+        <table>
+          <tr style="font-size: 80%">
+            <td></td>
+            <td style="text-align: center; border-right: 4px solid lightgrey">
+              all repositories
+            </td>
+            <td style="text-align: center">Sokrates<br />(2)</td>
+          </tr>
+          <tr style="text-align: center">
+            <td style="vertical-align: top; white-space: nowrap">
+              <div
+                style="
+                  cursor: help;
+                  vertical-align: top;
+                  cursor: help;
+                  padding: 4px;
+                  border-radius: 6px;
+                  border: 1px solid lightgrey;
+                  background-color: #b9d9eb;
+                "
+                title="includes repositories with at least one file matching:
  - (|.*/)package[.]json
-">
-<img title='npm' style="border: 1px solid grey; border-radius: 50%; padding: 1px; background-color: #fcfcfc; vertical-align: middle; margin-right: 5px; width: 26px; height: 26px; object-fit: contain;" src="https://zeljkoobrenovic.github.io/sokrates-media/general/npm.png"><div style='vertical-align: middle; display: inline-block;'>npm</div>
-</div>
-</td>
-<td style="text-align: center; border-right: 4px solid lightgrey; vertical-align: top">
-<div style="box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%), 0 2px 5px 0 rgb(0 0 0 / 19%); margin: 2px; display: inline-block; border-radius: 4px; padding: 4px; background-color: white">
- <a href="javascript:showHide('showMoreBlock_7');")><b>1</b></a><span id="showMoreBlock_7" style="display: none;">
-<div style="background-color: white; a margin-left: 5px; font-size: 80%; text-align: left">
-<div style="border-top: 2px solid lightgrey; border-bottom: 2px solid lightgrey; padding: 2px">
-<b>13,679</b> LOC (main)<br><b>16</b> commits (30d)<br><b>3</b> contributors (30d)
-</div>
-<div style="">
-<a href='../Sokrates\_sokrates\reports\html/index.html' target='_blank' style='margin-left: 6px'>Skillset</a> <span color='lightgrey'>(<b>13,679</b> LOC)</span>
-</div>
-</div>
-</span>
-</div>
-</td>
-<td style="text-align: center"></td>
-</tr>
-<tr style='text-align: center'>
-<td style="vertical-align: top; white-space: nowrap;">
-<div style="cursor: help;vertical-align: top; cursor: help; padding: 4px; border-radius: 6px; border: 1px solid lightgrey; background-color: #B9D9EB" title="includes repositories with at least one file matching:
+"
+              >
+                <img
+                  title="npm"
+                  style="
+                    border: 1px solid grey;
+                    border-radius: 50%;
+                    padding: 1px;
+                    background-color: #fcfcfc;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    width: 26px;
+                    height: 26px;
+                    object-fit: contain;
+                  "
+                  src="https://zeljkoobrenovic.github.io/sokrates-media/general/npm.png"
+                />
+                <div style="vertical-align: middle; display: inline-block">
+                  npm
+                </div>
+              </div>
+            </td>
+            <td
+              style="
+                text-align: center;
+                border-right: 4px solid lightgrey;
+                vertical-align: top;
+              "
+            >
+              <div
+                style="
+                  box-shadow:
+                    0 1px 2px 0 rgb(0 0 0 / 20%),
+                    0 2px 5px 0 rgb(0 0 0 / 19%);
+                  margin: 2px;
+                  display: inline-block;
+                  border-radius: 4px;
+                  padding: 4px;
+                  background-color: white;
+                "
+              >
+                <a href="javascript:showHide('showMoreBlock_7');" )><b>1</b></a
+                ><span id="showMoreBlock_7" style="display: none">
+                  <div
+                    style="background-color: white; a margin-left: 5px; font-size: 80%; text-align: left"
+                  >
+                    <div
+                      style="
+                        border-top: 2px solid lightgrey;
+                        border-bottom: 2px solid lightgrey;
+                        padding: 2px;
+                      "
+                    >
+                      <b>13,679</b> LOC (main)<br /><b>16</b> commits (30d)<br /><b
+                        >3</b
+                      >
+                      contributors (30d)
+                    </div>
+                    <div style="">
+                      <a
+                        href="../Sokrates\_sokrates\reports\html/index.html"
+                        target="_blank"
+                        style="margin-left: 6px"
+                        >Skillset</a
+                      >
+                      <span color="lightgrey">(<b>13,679</b> LOC)</span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+            <td style="text-align: center"></td>
+          </tr>
+          <tr style="text-align: center">
+            <td style="vertical-align: top; white-space: nowrap">
+              <div
+                style="
+                  cursor: help;
+                  vertical-align: top;
+                  cursor: help;
+                  padding: 4px;
+                  border-radius: 6px;
+                  border: 1px solid lightgrey;
+                  background-color: #b9d9eb;
+                "
+                title="includes repositories with at least one file matching:
  - (|.*/)jest[.].*
-">
-<img title='jest' style="border: 1px solid grey; border-radius: 50%; padding: 1px; background-color: #fcfcfc; vertical-align: middle; margin-right: 5px; width: 26px; height: 26px; object-fit: contain;" src="https://zeljkoobrenovic.github.io/sokrates-media/general/jest.png"><div style='vertical-align: middle; display: inline-block;'>jest</div>
-</div>
-</td>
-<td style="text-align: center; border-right: 4px solid lightgrey; vertical-align: top">
-<div style="box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%), 0 2px 5px 0 rgb(0 0 0 / 19%); margin: 2px; display: inline-block; border-radius: 4px; padding: 4px; background-color: white">
- <a href="javascript:showHide('showMoreBlock_8');")><b>1</b></a><span id="showMoreBlock_8" style="display: none;">
-<div style="background-color: white; a margin-left: 5px; font-size: 80%; text-align: left">
-<div style="border-top: 2px solid lightgrey; border-bottom: 2px solid lightgrey; padding: 2px">
-<b>13,679</b> LOC (main)<br><b>16</b> commits (30d)<br><b>3</b> contributors (30d)
-</div>
-<div style="">
-<a href='../Sokrates\_sokrates\reports\html/index.html' target='_blank' style='margin-left: 6px'>Skillset</a> <span color='lightgrey'>(<b>13,679</b> LOC)</span>
-</div>
-</div>
-</span>
-</div>
-</td>
-<td style="text-align: center"></td>
-</tr>
-</table>
-</div>
-</div>
-</body>
+"
+              >
+                <img
+                  title="jest"
+                  style="
+                    border: 1px solid grey;
+                    border-radius: 50%;
+                    padding: 1px;
+                    background-color: #fcfcfc;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    width: 26px;
+                    height: 26px;
+                    object-fit: contain;
+                  "
+                  src="https://zeljkoobrenovic.github.io/sokrates-media/general/jest.png"
+                />
+                <div style="vertical-align: middle; display: inline-block">
+                  jest
+                </div>
+              </div>
+            </td>
+            <td
+              style="
+                text-align: center;
+                border-right: 4px solid lightgrey;
+                vertical-align: top;
+              "
+            >
+              <div
+                style="
+                  box-shadow:
+                    0 1px 2px 0 rgb(0 0 0 / 20%),
+                    0 2px 5px 0 rgb(0 0 0 / 19%);
+                  margin: 2px;
+                  display: inline-block;
+                  border-radius: 4px;
+                  padding: 4px;
+                  background-color: white;
+                "
+              >
+                <a href="javascript:showHide('showMoreBlock_8');" )><b>1</b></a
+                ><span id="showMoreBlock_8" style="display: none">
+                  <div
+                    style="background-color: white; a margin-left: 5px; font-size: 80%; text-align: left"
+                  >
+                    <div
+                      style="
+                        border-top: 2px solid lightgrey;
+                        border-bottom: 2px solid lightgrey;
+                        padding: 2px;
+                      "
+                    >
+                      <b>13,679</b> LOC (main)<br /><b>16</b> commits (30d)<br /><b
+                        >3</b
+                      >
+                      contributors (30d)
+                    </div>
+                    <div style="">
+                      <a
+                        href="../Sokrates\_sokrates\reports\html/index.html"
+                        target="_blank"
+                        style="margin-left: 6px"
+                        >Skillset</a
+                      >
+                      <span color="lightgrey">(<b>13,679</b> LOC)</span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+            <td style="text-align: center"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>
