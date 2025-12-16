@@ -4,7 +4,6 @@ import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function PaymentSuccess() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const amount = searchParams?.get("amount") ?? "0.00";
   return (

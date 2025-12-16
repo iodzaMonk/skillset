@@ -5,7 +5,7 @@ globalThis.jest = vi
 
 declare global {
   // Allow `jest` global in TypeScript
-  // eslint-disable-next-line no-var
+   
   var jest: typeof vi
 
   namespace jest {
